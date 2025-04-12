@@ -683,129 +683,104 @@ def get_attention_weights(
     return attention_weights
 
 def compute_chunk_attention(
-    chunks: List[str], 
+    chunks: List[str],
     model: AutoModelForCausalLM,
     tokenizer: AutoTokenizer,
-    layers: List[int]
+    layers: List[int],
+    full_text: str
 ) -> np.ndarray:
     """
-    Compute average attention between chunks.
+    Compute attention weights between chunks from the full context.
     
     Args:
         chunks: List of text chunks
         model: Hugging Face model
         tokenizer: Tokenizer
         layers: List of layers to analyze
+        full_text: The full solution text
         
     Returns:
-        Attention matrix
+        Attention matrix (n_chunks x n_chunks)
     """
     n_chunks = len(chunks)
-    attention_matrix = np.zeros((n_chunks, n_chunks))
     
-    # First, tokenize all chunks to get token boundaries
-    chunk_tokens = []
+    # Tokenize the full text
+    full_tokens = tokenizer.encode(full_text, return_tensors="pt").to(model.device)
+    
+    # Get the full text as a string for finding chunk positions
+    full_text_str = tokenizer.decode(full_tokens[0], skip_special_tokens=True)
+    
+    # Find the position of each chunk in the full text
+    chunk_token_ranges = []
+    current_pos = 0
     
     for chunk in chunks:
-        tokens = tokenizer.encode(chunk, add_special_tokens=False)
-        chunk_tokens.append(tokens)
+        # Find the chunk in the full text, starting from current_pos
+        chunk_start = full_text_str.find(chunk, current_pos)
+        
+        if chunk_start == -1:
+            print(f"Warning: Chunk not found in full text: {chunk[:50]}...")
+            # Use a placeholder range
+            chunk_token_ranges.append((0, 0))
+            continue
+        
+        chunk_end = chunk_start + len(chunk)
+        current_pos = chunk_end  # Update for next search
+        
+        # Convert character positions to token indices
+        chunk_start_token = tokenizer.encode(full_text_str[:chunk_start], add_special_tokens=False)
+        chunk_start_token_idx = len(chunk_start_token)
+        
+        chunk_end_token = tokenizer.encode(full_text_str[:chunk_end], add_special_tokens=False)
+        chunk_end_token_idx = len(chunk_end_token)
+        
+        chunk_token_ranges.append((chunk_start_token_idx, chunk_end_token_idx))
     
-    # Process each chunk as a query
-    for i, query_chunk in enumerate(tqdm(chunks, desc="Processing query chunks")):
-        # Get full context up to and including this chunk
-        context = "".join(chunks[:i+1])
+    # Run the model to get attention weights
+    with torch.no_grad():
+        outputs = model(full_tokens, output_attentions=True)
         
-        # Tokenize the full context
-        context_tokens = tokenizer.encode(context, add_special_tokens=False)
-        
-        # Get attention weights for the full context
-        try:
-            attn_weights = get_attention_weights(model, tokenizer, context, layers)
+    # Extract attention weights
+    # Shape: [layers, batch, heads, seq_len, seq_len]
+    attention_weights = outputs.attentions
+    
+    # Initialize attention matrix
+    attention_matrix = np.zeros((n_chunks, n_chunks))
+    
+    # Compute average attention from each chunk to each other chunk
+    for i, (start_i, end_i) in enumerate(chunk_token_ranges):
+        if start_i == end_i:  # Skip invalid ranges
+            continue
             
-            # Find token indices for the current (query) chunk
-            # These are the last len(chunk_tokens[i]) tokens in the context
-            query_start_idx = len(context_tokens) - len(chunk_tokens[i])
-            query_end_idx = len(context_tokens)
-            query_indices = list(range(query_start_idx, query_end_idx))
-            
-            # Average attention weights across layers and heads
-            avg_attn = None
-            count = 0
-            
-            for layer in layers:
-                if layer in attn_weights:
-                    # Shape should be [batch, heads, query_seq_len, key_seq_len]
-                    layer_attn = attn_weights[layer]
-                    
-                    # Check tensor dimensions and reshape if needed
-                    if len(layer_attn.shape) == 4:  # [batch, heads, query_seq_len, key_seq_len]
-                        # Average across heads and batch dimensions
-                        layer_attn = layer_attn.mean(dim=(0, 1))  # Now shape: [query_seq_len, key_seq_len]
-                    elif len(layer_attn.shape) == 3:  # [heads, query_seq_len, key_seq_len]
-                        # Average across heads dimension
-                        layer_attn = layer_attn.mean(dim=0)  # Now shape: [query_seq_len, key_seq_len]
-                    elif len(layer_attn.shape) == 2:  # [query_seq_len, key_seq_len]
-                        # Already in the right shape
-                        pass
-                    else:
-                        print(f"Warning: Unexpected attention tensor shape: {layer_attn.shape}")
-                        continue
-                    
-                    if avg_attn is None:
-                        avg_attn = layer_attn
-                    else:
-                        avg_attn += layer_attn
-                    count += 1
-            
-            if count > 0 and avg_attn is not None:
-                avg_attn = avg_attn / count
-            else:
-                # Skip if no valid attention weights
-                print(f"Warning: No valid attention weights for chunk {i}")
-                continue
-            
-            # Check if avg_attn has the expected shape
-            if len(avg_attn.shape) != 2:
-                print(f"Warning: Unexpected averaged attention shape: {avg_attn.shape}")
+        for j, (start_j, end_j) in enumerate(chunk_token_ranges):
+            if start_j == end_j:  # Skip invalid ranges
                 continue
                 
-            # Extract attention from query chunk tokens to all previous tokens
-            query_attn = avg_attn[query_indices, :]
+            # Mark self-attention as 1.0
+            if i == j:
+                attention_matrix[i, j] = 1.0
+                continue
             
-            # For each key chunk, compute average attention from query chunk
-            for j in range(i+1):  # Only process chunks up to the current one (causal attention)
-                if i == j:  # Self-attention (diagonal)
-                    attention_matrix[i, j] = 1.0
-                    continue
+            # Extract attention from chunk i to chunk j
+            # Average across specified layers and all heads
+            layer_attentions = []
+            
+            for layer_idx in layers:
+                # Get attention weights for this layer
+                # Shape: [batch, heads, seq_len, seq_len]
+                layer_attention = attention_weights[layer_idx][0]  # batch size is 1
                 
-                # Find token indices for the key chunk in the context
-                key_tokens = chunk_tokens[j]
+                # Average across all heads
+                # Shape: [seq_len, seq_len]
+                avg_head_attention = layer_attention.mean(dim=0)
                 
-                # Find the start position of this chunk in the context
-                key_start_idx = 0
-                for k in range(j):
-                    key_start_idx += len(chunk_tokens[k])
-                key_end_idx = key_start_idx + len(key_tokens)
-                
-                # Ensure indices are within bounds
-                if key_end_idx > query_attn.shape[1]:
-                    print(f"Warning: Key chunk indices out of bounds. Adjusting.")
-                    key_end_idx = query_attn.shape[1]
-                
-                if key_start_idx >= key_end_idx:
-                    print(f"Warning: Invalid key chunk indices: {key_start_idx}-{key_end_idx}")
-                    continue
-                
-                key_indices = list(range(key_start_idx, key_end_idx))
-                
-                # Calculate average attention from query tokens to key tokens
-                chunk_attention = query_attn[:, key_indices].mean().item()
-                attention_matrix[i, j] = chunk_attention
-                
-        except Exception as e:
-            print(f"Error processing chunk {i}: {str(e)}")
-            # Set diagonal to 1.0 (self-attention)
-            attention_matrix[i, i] = 1.0
+                # Extract attention from tokens in chunk i to tokens in chunk j
+                # and average across all token pairs
+                chunk_attention = avg_head_attention[start_i:end_i, start_j:end_j].mean().item()
+                layer_attentions.append(chunk_attention)
+            
+            # Average across layers
+            attention_matrix[i, j] = np.mean(layer_attentions)
     
     return attention_matrix
 
@@ -1104,8 +1079,8 @@ def analyze_problem_solution(
             layers=layers
         )
         
-        # Compute attention weights
-        attention_matrix = compute_chunk_attention(chunks, model, tokenizer, layers)
+        # Compute attention weights from the full context
+        attention_matrix = compute_chunk_attention(chunks, model, tokenizer, layers, solution)
         
         # Save attention matrix as numpy array
         np.save(problem_output_dir / f"chunk_attention_layer_{layers[0]}.npy", attention_matrix)
