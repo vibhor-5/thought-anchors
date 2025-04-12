@@ -128,7 +128,7 @@ def get_existing_solutions(problem_dir: str) -> List[Dict]:
     Returns:
         List of existing solutions or empty list if none exist
     """
-    solutions_file = os.path.join(problem_dir, f"{os.path.basename(problem_dir)}_solutions.json")
+    solutions_file = os.path.join(problem_dir, "solutions.json")
     if os.path.exists(solutions_file):
         try:
             with open(solutions_file, 'r', encoding='utf-8') as f:
