@@ -16,7 +16,7 @@ import anthropic
 import time
 
 # Set up paths
-results_dir = Path("results")
+cots_dir = Path("cots")
 output_dir = Path("analysis")
 output_dir.mkdir(exist_ok=True)
 
@@ -44,17 +44,17 @@ def load_problem_and_solutions(problem_dir: Path) -> Tuple[Dict, List[Dict]]:
     
     return problem, solutions
 
-def get_problem_dirs(results_dir: Path) -> List[Path]:
+def get_problem_dirs(cots_dir: Path) -> List[Path]:
     """
-    Get all problem directories in the results directory.
+    Get all problem directories in the CoTs directory.
     
     Args:
-        results_dir: Path to the results directory
+        cots_dir: Path to the CoTs directory
         
     Returns:
         List of problem directory paths
     """
-    return [d for d in results_dir.iterdir() if d.is_dir() and d.name.startswith("problem_")]
+    return [d for d in cots_dir.iterdir() if d.is_dir() and d.name.startswith("problem_")]
 
 def load_model_and_tokenizer(model_name: str) -> Tuple[AutoModelForCausalLM, AutoTokenizer]:
     """
@@ -1055,13 +1055,17 @@ def analyze_problem_solution(
                 json.dump(chunks_with_categories, f, indent=2)
         
         # Get activations for each chunk from the full context
-        print("Getting chunk activations from full context...")
         chunk_activations = get_chunk_activations_from_full_context(
             solution, chunks, model, tokenizer, layers
         )
         
-        # Compute and plot Pearson correlation
+        # Compute Pearson correlation
         corr_matrix = compute_chunk_correlations(chunks, model, tokenizer, layers)
+        
+        # Save correlation matrix as numpy array
+        np.save(problem_output_dir / f"chunk_correlation_layer_{layers[0]}.npy", corr_matrix)
+        
+        # Plot correlation heatmap
         plot_correlation_heatmap(
             corr_matrix, 
             problem_output_dir / f"chunk_correlation_layer_{layers[0]}.png", 
@@ -1070,8 +1074,13 @@ def analyze_problem_solution(
             layers=layers
         )
         
-        # Compute and plot cosine similarity
+        # Compute cosine similarity
         cosine_sim_matrix = compute_cosine_similarity(chunk_activations)
+        
+        # Save cosine similarity matrix as numpy array
+        np.save(problem_output_dir / f"chunk_cosine_similarity_layer_{layers[0]}.npy", cosine_sim_matrix)
+        
+        # Plot cosine similarity heatmap
         plot_cosine_similarity_heatmap(
             cosine_sim_matrix, 
             problem_output_dir / f"chunk_cosine_similarity_layer_{layers[0]}.png", 
@@ -1080,8 +1089,13 @@ def analyze_problem_solution(
             layers=layers
         )
         
-        # Compute and plot L2 distance
+        # Compute L2 distance
         l2_distance_matrix = compute_l2_distance(chunk_activations)
+        
+        # Save L2 distance matrix as numpy array
+        np.save(problem_output_dir / f"chunk_l2_distance_layer_{layers[0]}.npy", l2_distance_matrix)
+        
+        # Plot L2 distance heatmap
         plot_l2_distance_heatmap(
             l2_distance_matrix, 
             problem_output_dir / f"chunk_l2_distance_layer_{layers[0]}.png", 
@@ -1089,9 +1103,14 @@ def analyze_problem_solution(
             chunk_labels=chunk_abbreviations,
             layers=layers
         )
-
-        # Compute and plot attention
+        
+        # Compute attention weights
         attention_matrix = compute_chunk_attention(chunks, model, tokenizer, layers)
+        
+        # Save attention matrix as numpy array
+        np.save(problem_output_dir / f"chunk_attention_layer_{layers[0]}.npy", attention_matrix)
+        
+        # Plot attention heatmap
         plot_attention_heatmap(
             attention_matrix, 
             problem_output_dir / f"chunk_attention_layer_{layers[0]}.png", 
@@ -1115,9 +1134,9 @@ else:
 model, tokenizer = load_model_and_tokenizer(model_name)
 
 # Get problem directories
-problem_dirs = get_problem_dirs(results_dir)
+problem_dirs = get_problem_dirs(cots_dir)
 print(f"Found {len(problem_dirs)} problem directories")
 
 # Analyze problems
-for problem_dir in tqdm(problem_dirs[0:10], desc="Analyzing problems"):
+for problem_dir in tqdm(problem_dirs, desc="Analyzing problems"):
     analyze_problem_solution(problem_dir, model, tokenizer, claude_client, layers)

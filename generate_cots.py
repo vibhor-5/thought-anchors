@@ -18,7 +18,7 @@ parser.add_argument('-t', '--temperature', type=float, default=0.6, help='Temper
 parser.add_argument('-mt', '--max_new_tokens', type=int, default=4096, help='Maximum number of tokens to generate')
 parser.add_argument('-tp', '--top_p', type=float, default=0.95, help='Top-p value for nucleus sampling')
 parser.add_argument('-np', '--num_problems', type=int, default=1000, help='Number of problems to sample')
-parser.add_argument('-od', '--output_dir', type=str, default='results', help='Directory to save results')
+parser.add_argument('-od', '--output_dir', type=str, default='cots', help='Directory to save results')
 parser.add_argument('-s', '--seed', type=int, default=42, help='Random seed for reproducibility')
 parser.add_argument('-i', '--input_file', type=str, default='reasoning_problems.json', help='Input JSON file with reasoning problems')
 parser.add_argument('-bs', '--batch_size', type=int, default=1, help='Batch size for generation')

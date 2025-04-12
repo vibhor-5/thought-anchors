@@ -1,0 +1,500 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: Consider the following statements about people in a small town:\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "All doctors in this town are wealthy.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "2. Some teachers in this town are not wealthy.",
+    "category": "Example Testing",
+    "abbreviation": "ET-4"
+  },
+  {
+    "index": 5,
+    "text": "Which of the following conclusions can be validly deduced from these statements?\n\nA) Some teachers are not doctors.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "B) No teachers are doctors.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "C) Some doctors are teachers.",
+    "category": "Deduction",
+    "abbreviation": "D-7"
+  },
+  {
+    "index": 8,
+    "text": "D) All wealthy people are doctors.",
+    "category": "Deduction",
+    "abbreviation": "D-8"
+  },
+  {
+    "index": 9,
+    "text": "Solution: \n<think>\nAlright, so I've got this logic problem here about people in a small town and their professions and wealth.",
+    "category": "Initializing",
+    "abbreviation": "I-9"
+  },
+  {
+    "index": 10,
+    "text": "Let me try to break it down step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-10"
+  },
+  {
+    "index": 11,
+    "text": "First, the problem presents two statements:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-11"
+  },
+  {
+    "index": 12,
+    "text": "All doctors in this town are wealthy.",
+    "category": "Initializing",
+    "abbreviation": "I-12"
+  },
+  {
+    "index": 13,
+    "text": "2. Some teachers in this town are not wealthy.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "And then it asks which of the four conclusions can be validly deduced from these statements.",
+    "category": "Initializing",
+    "abbreviation": "I-14"
+  },
+  {
+    "index": 15,
+    "text": "The options are A) Some teachers are not doctors, B) No teachers are doctors, C) Some doctors are teachers, and D) All wealthy people are doctors.",
+    "category": "Initializing",
+    "abbreviation": "I-15"
+  },
+  {
+    "index": 16,
+    "text": "Okay, let me start by understanding each statement and what they imply.",
+    "category": "Initializing",
+    "abbreviation": "I-16"
+  },
+  {
+    "index": 17,
+    "text": "The first statement says, \"All doctors in this town are wealthy.\" So, if someone is a doctor, they must be wealthy.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "That means the set of doctors is entirely within the set of wealthy people.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "So, doctors are a subset of wealthy individuals.",
+    "category": "Deduction",
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "The second statement is, \"Some teachers in this town are not wealthy.\" So, within the teacher population, there's at least one person who isn't wealthy.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "That means the set of teachers isn't entirely within the wealthy people; there's an overlap with the non-wealthy group.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Now, I need to see which of the conclusions can be drawn from these two statements.",
+    "category": "Question Posing",
+    "abbreviation": "QP-22"
+  },
+  {
+    "index": 23,
+    "text": "Let's look at each option one by one.",
+    "category": "Initializing",
+    "abbreviation": "I-23"
+  },
+  {
+    "index": 24,
+    "text": "Option A: Some teachers are not doctors.",
+    "category": "Example Testing",
+    "abbreviation": "ET-24"
+  },
+  {
+    "index": 25,
+    "text": "Hmm, does that follow from the given statements? Well, we know that some teachers are not wealthy, but does that mean they're not doctors? Not necessarily.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "It's possible that some teachers are doctors, but since all doctors are wealthy, those teachers who are doctors are wealthy, but some teachers are not.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "So, it's possible that teachers who are not wealthy are not doctors, but it's also possible that some teachers are doctors and others are not.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "So, can we conclude that some teachers are not doctors? I'm not sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-28"
+  },
+  {
+    "index": 29,
+    "text": "It seems like it might not necessarily be true.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-29"
+  },
+  {
+    "index": 30,
+    "text": "Option B: No teachers are doctors.",
+    "category": "Final Answer",
+    "abbreviation": "FA-30"
+  },
+  {
+    "index": 31,
+    "text": "This seems a bit strong.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-31"
+  },
+  {
+    "index": 32,
+    "text": "Just because some teachers are not wealthy, and all doctors are wealthy, does that mean no teachers can be doctors? Wait, if all doctors are wealthy, and some teachers are not wealthy, does that mean teachers and doctors don't overlap at all? I don't think so.",
+    "category": "Question Posing",
+    "abbreviation": "QP-32"
+  },
+  {
+    "index": 33,
+    "text": "It's possible that some teachers are doctors, as long as those particular teachers are wealthy.",
+    "category": "Deduction",
+    "abbreviation": "D-33"
+  },
+  {
+    "index": 34,
+    "text": "So, for example, a teacher who is a doctor would be wealthy, but the statement only says some teachers are not wealthy, not all.",
+    "category": "Example Testing",
+    "abbreviation": "ET-34"
+  },
+  {
+    "index": 35,
+    "text": "So, it's possible that some teachers are doctors, and others are not.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "Therefore, I don't think we can conclude that no teachers are doctors.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "Option C: Some doctors are teachers.",
+    "category": "Final Answer",
+    "abbreviation": "FA-37"
+  },
+  {
+    "index": 38,
+    "text": "Okay, this is interesting.",
+    "category": "Initializing",
+    "abbreviation": "I-38"
+  },
+  {
+    "index": 39,
+    "text": "We know that all doctors are wealthy, and some teachers are not wealthy.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "But does that mean that some doctors are teachers? Let me think about this.",
+    "category": "Question Posing",
+    "abbreviation": "QP-40"
+  },
+  {
+    "index": 41,
+    "text": "If all doctors are wealthy, and some teachers are not wealthy, then teachers and doctors must be separate groups in some way, but does that necessarily mean that some doctors are teachers? Not directly.",
+    "category": "Deduction",
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "It's possible that doctors and teachers don't overlap at all, or they might overlap, but the given statements don't provide enough information to conclude that some doctors are teachers.",
+    "category": "Deduction",
+    "abbreviation": "D-42"
+  },
+  {
+    "index": 43,
+    "text": "So, I'm not sure about this one either.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-43"
+  },
+  {
+    "index": 44,
+    "text": "Option D: All wealthy people are doctors.",
+    "category": "Final Answer",
+    "abbreviation": "FA-44"
+  },
+  {
+    "index": 45,
+    "text": "Wait, from the first statement, we know that all doctors are wealthy, but does that mean that being wealthy implies being a doctor? No, not necessarily.",
+    "category": "Backtracking",
+    "abbreviation": "B-45"
+  },
+  {
+    "index": 46,
+    "text": "It's possible that there are wealthy people who are not doctors.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-46"
+  },
+  {
+    "index": 47,
+    "text": "The statement only tells us about doctors being wealthy, not the other way around.",
+    "category": "Deduction",
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "So, we can't conclude that all wealthy people are doctors.",
+    "category": "Deduction",
+    "abbreviation": "D-48"
+  },
+  {
+    "index": 49,
+    "text": "So, after considering each option, it seems like none of them can be definitively concluded from the given statements.",
+    "category": "Summary",
+    "abbreviation": "S-49"
+  },
+  {
+    "index": 50,
+    "text": "However, let me double-check, maybe I missed something.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-50"
+  },
+  {
+    "index": 51,
+    "text": "Going back to Option A: Some teachers are not doctors.",
+    "category": "Backtracking",
+    "abbreviation": "B-51"
+  },
+  {
+    "index": 52,
+    "text": "We know that some teachers are not wealthy, and all doctors are wealthy.",
+    "category": "Deduction",
+    "abbreviation": "D-52"
+  },
+  {
+    "index": 53,
+    "text": "So, teachers who are not wealthy cannot be doctors because all doctors are wealthy.",
+    "category": "Deduction",
+    "abbreviation": "D-53"
+  },
+  {
+    "index": 54,
+    "text": "Therefore, some teachers must not be doctors.",
+    "category": "Deduction",
+    "abbreviation": "D-54"
+  },
+  {
+    "index": 55,
+    "text": "So, that seems to hold.",
+    "category": "Deduction",
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "Wait, that makes sense.",
+    "category": "Deduction",
+    "abbreviation": "D-56"
+  },
+  {
+    "index": 57,
+    "text": "Since all doctors are wealthy, any teacher who is not wealthy cannot be a doctor.",
+    "category": "Deduction",
+    "abbreviation": "D-57"
+  },
+  {
+    "index": 58,
+    "text": "Therefore, those teachers who are not wealthy are not doctors.",
+    "category": "Deduction",
+    "abbreviation": "D-58"
+  },
+  {
+    "index": 59,
+    "text": "So, there must exist some teachers who are not doctors.",
+    "category": "Deduction",
+    "abbreviation": "D-59"
+  },
+  {
+    "index": 60,
+    "text": "Therefore, Option A is valid.",
+    "category": "Final Answer",
+    "abbreviation": "FA-60"
+  },
+  {
+    "index": 61,
+    "text": "Now, let me reconsider the other options in light of this.",
+    "category": "Backtracking",
+    "abbreviation": "B-61"
+  },
+  {
+    "index": 62,
+    "text": "Option B: No teachers are doctors.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-62"
+  },
+  {
+    "index": 63,
+    "text": "That's too strong because it's possible that some teachers are doctors (the wealthy ones), and others are not.",
+    "category": "Backtracking",
+    "abbreviation": "B-63"
+  },
+  {
+    "index": 64,
+    "text": "So, it's not necessarily true that no teachers are doctors.",
+    "category": "Deduction",
+    "abbreviation": "D-64"
+  },
+  {
+    "index": 65,
+    "text": "Option C: Some doctors are teachers.",
+    "category": "Final Answer",
+    "abbreviation": "FA-65"
+  },
+  {
+    "index": 66,
+    "text": "From the first statement, all doctors are wealthy.",
+    "category": "Deduction",
+    "abbreviation": "D-66"
+  },
+  {
+    "index": 67,
+    "text": "From the second, some teachers are not wealthy.",
+    "category": "Deduction",
+    "abbreviation": "D-67"
+  },
+  {
+    "index": 68,
+    "text": "But does that mean that some doctors are teachers? Not necessarily.",
+    "category": "Question Posing",
+    "abbreviation": "QP-68"
+  },
+  {
+    "index": 69,
+    "text": "It's possible that doctors and teachers don't overlap at all, or they might.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-69"
+  },
+  {
+    "index": 70,
+    "text": "The statements don't provide information about the overlap between doctors and teachers.",
+    "category": "Deduction",
+    "abbreviation": "D-70"
+  },
+  {
+    "index": 71,
+    "text": "So, we can't conclude that some doctors are teachers.",
+    "category": "Deduction",
+    "abbreviation": "D-71"
+  },
+  {
+    "index": 72,
+    "text": "Option D: All wealthy people are doctors.",
+    "category": "Deduction",
+    "abbreviation": "D-72"
+  },
+  {
+    "index": 73,
+    "text": "As I thought earlier, this is not necessarily true.",
+    "category": "Deduction",
+    "abbreviation": "D-73"
+  },
+  {
+    "index": 74,
+    "text": "Just because all doctors are wealthy doesn't mean that only doctors are wealthy.",
+    "category": "Deduction",
+    "abbreviation": "D-74"
+  },
+  {
+    "index": 75,
+    "text": "There could be wealthy people in other professions.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-75"
+  },
+  {
+    "index": 76,
+    "text": "So, after this reconsideration, Option A seems to be the only conclusion that can be validly deduced from the given statements.",
+    "category": "Final Answer",
+    "abbreviation": "FA-76"
+  },
+  {
+    "index": 77,
+    "text": "</think>\n\nA) Some teachers are not doctors.",
+    "category": "Final Answer",
+    "abbreviation": "FA-77"
+  },
+  {
+    "index": 78,
+    "text": "**Step-by-Step Explanation:**\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-78"
+  },
+  {
+    "index": 79,
+    "text": "**Given Statements:**\n   - **All doctors are wealthy.**\n   - **Some teachers are not wealthy.**\n\n2.",
+    "category": "Initializing",
+    "abbreviation": "I-79"
+  },
+  {
+    "index": 80,
+    "text": "**Analysis:**\n   - Since all doctors are wealthy, any teacher who is not wealthy cannot be a doctor (because doctors are all wealthy).",
+    "category": "Deduction",
+    "abbreviation": "D-80"
+  },
+  {
+    "index": 81,
+    "text": "- Therefore, there must exist some teachers who are not doctors.",
+    "category": "Deduction",
+    "abbreviation": "D-81"
+  },
+  {
+    "index": 82,
+    "text": "3. **Conclusion:**\n   - Hence, it can be validly deduced that **Some teachers are not doctors.**\n\n**Final Answer:**\n\nA) Some teachers are not doctors.",
+    "category": "Final Answer",
+    "abbreviation": "FA-82"
+  }
+]
