@@ -1,0 +1,7 @@
+{
+  "topic": "Mathematical Logic",
+  "subtopic": "Quantifiers and Predicate Logic",
+  "difficulty": "Easy",
+  "question": "Consider a universe of discourse consisting of all people. Let the following predicates be defined:\nP(x): x is a professor\nS(x): x is a student\nT(x,y): x teaches y\n\nTranslate the following English statement into predicate logic with quantifiers:\n\n'Every professor teaches at least one student who is not a professor.'",
+  "answer": "To translate this statement into predicate logic, I'll break it down step by step:\n\n1. 'Every professor' indicates a universal quantifier over all professors: \u2200x(P(x) \u2192 ...)\n\n2. 'teaches at least one student' means there exists at least one y such that T(x,y) and S(y): \u2203y(T(x,y) \u2227 S(y) \u2227 ...)\n\n3. 'who is not a professor' means \u00acP(y)\n\nPutting it all together:\n\n\u2200x(P(x) \u2192 \u2203y(T(x,y) \u2227 S(y) \u2227 \u00acP(y)))\n\nThis translates to: For all x, if x is a professor, then there exists at least one y such that x teaches y, y is a student, and y is not a professor."
+}

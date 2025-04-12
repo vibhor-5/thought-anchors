@@ -1,0 +1,7 @@
+{
+  "topic": "Probabilistic Thinking",
+  "subtopic": "Stochastic Processes",
+  "difficulty": "Easy",
+  "question": "A weather station tracks the daily weather in a certain region, classifying each day as either 'Sunny' or 'Rainy'. Based on historical data, if today is Sunny, there's a 70% chance that tomorrow will also be Sunny. If today is Rainy, there's a 60% chance that tomorrow will also be Rainy. If it's Sunny today, what is the probability that it will be Rainy exactly 2 days from now?",
+  "answer": "This problem involves a Markov chain with two states: Sunny and Rainy.\n\nLet's denote:\n- S = Sunny state\n- R = Rainy state\n\nGiven information:\n- P(tomorrow is S | today is S) = 0.7\n- P(tomorrow is R | today is S) = 0.3\n- P(tomorrow is R | today is R) = 0.6\n- P(tomorrow is S | today is R) = 0.4\n\nWe need to find P(day 2 is R | day 0 is S).\n\nTo solve this, we need to consider all possible paths from day 0 to day 2:\n\nPath 1: Sunny (day 0) \u2192 Sunny (day 1) \u2192 Rainy (day 2)\nProbability = P(S\u2192S) \u00d7 P(S\u2192R) = 0.7 \u00d7 0.3 = 0.21\n\nPath 2: Sunny (day 0) \u2192 Rainy (day 1) \u2192 Rainy (day 2)\nProbability = P(S\u2192R) \u00d7 P(R\u2192R) = 0.3 \u00d7 0.6 = 0.18\n\nThe total probability of being Rainy on day 2 is the sum of these two path probabilities:\n0.21 + 0.18 = 0.39 or 39%\n\nTherefore, if it's Sunny today, the probability that it will be Rainy exactly 2 days from now is 39%."
+}

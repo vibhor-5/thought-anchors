@@ -1,0 +1,7 @@
+{
+  "topic": "Pattern Recognition",
+  "subtopic": "Anomaly Detection",
+  "difficulty": "Easy",
+  "question": "A quality control inspector at a factory receives boxes of widgets that should all be identical. The inspector examines 8 widgets and records their weights in grams: 145, 146, 145, 146, 145, 146, 159, 145. Based on this data, which widget is most likely defective, and what pattern in the data leads to this conclusion?",
+  "answer": "The anomalous widget is the one weighing 159 grams.\n\nStep 1: Examine the data set to look for patterns.\nThe weights are: 145, 146, 145, 146, 145, 146, 159, 145\n\nStep 2: Identify the standard pattern.\nWe can see that most weights alternate between 145 and 146 grams. This suggests that normal widgets weigh either 145 or 146 grams, with the small 1-gram difference likely representing acceptable manufacturing variation.\n\nStep 3: Detect deviations from the pattern.\nOne value, 159 grams, stands significantly outside this pattern. It's 13-14 grams heavier than the other widgets.\n\nStep 4: Quantify the deviation.\nIf we calculate the mean of the other values (145, 146, 145, 146, 145, 146, 145), we get approximately 145.4 grams.\nThe value 159 deviates by 159 - 145.4 = 13.6 grams from this mean.\n\nStep 5: Conclusion.\nThe widget weighing 159 grams is clearly an outlier and most likely defective. It deviates significantly from the consistent pattern established by the other widgets, which all fall within a narrow 1-gram range of variation."
+}

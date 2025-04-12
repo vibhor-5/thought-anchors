@@ -1,0 +1,446 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: Sarah is at a picnic in the park and has brought a bottle of juice for herself.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "The juice is in a glass bottle with a metal cap that requires a bottle opener to remove.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "When she tries to open it, she realizes she forgot to bring a bottle opener.",
+    "category": "Deduction",
+    "abbreviation": "D-4"
+  },
+  {
+    "index": 5,
+    "text": "Looking around, she has the following items: a sandwich, a cloth napkin, a metal spoon, her car keys, and a park bench nearby.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-5"
+  },
+  {
+    "index": 6,
+    "text": "How can Sarah open her bottle of juice using only these available items? \n\n Solution: \n<think>\nAlright, so Sarah is at this picnic and she's got a juice bottle that she can't open because she forgot the opener.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "She's got a sandwich, a cloth napkin, a metal spoon, her car keys, and a park bench nearby.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "Hmm, let's see how she can tackle this.",
+    "category": "Question Posing",
+    "abbreviation": "QP-8"
+  },
+  {
+    "index": 9,
+    "text": "First off, the obvious things are the spoon and the keys.",
+    "category": "Initializing",
+    "abbreviation": "I-9"
+  },
+  {
+    "index": 10,
+    "text": "Maybe the spoon can be used somehow.",
+    "category": "Question Posing",
+    "abbreviation": "QP-10"
+  },
+  {
+    "index": 11,
+    "text": "But how? If she could get the metal cap off, she could pour the juice.",
+    "category": "Question Posing",
+    "abbreviation": "QP-11"
+  },
+  {
+    "index": 12,
+    "text": "But the spoon is for eating, right? Maybe she can use it to pry the cap open.",
+    "category": "Question Posing",
+    "abbreviation": "QP-12"
+  },
+  {
+    "index": 13,
+    "text": "But wait, metal against metal might work if she can create some leverage.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "Then there's the car keys.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-14"
+  },
+  {
+    "index": 15,
+    "text": "Those are made of metal too.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-15"
+  },
+  {
+    "index": 16,
+    "text": "Maybe she can use one of the keys to help open the bottle.",
+    "category": "Example Testing",
+    "abbreviation": "ET-16"
+  },
+  {
+    "index": 17,
+    "text": "But how? If she can't get the cap off, maybe she can create a tool from the spoon or the keys.",
+    "category": "Question Posing",
+    "abbreviation": "QP-17"
+  },
+  {
+    "index": 18,
+    "text": "The cloth napkin is probably just for wiping stuff, but maybe it can be used as a makeshift handle or something.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-18"
+  },
+  {
+    "index": 19,
+    "text": "The park bench is there, so maybe she can place the bottle on it for support while she's trying to open it.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-19"
+  },
+  {
+    "index": 20,
+    "text": "Let me think about the spoon first.",
+    "category": "Question Posing",
+    "abbreviation": "QP-20"
+  },
+  {
+    "index": 21,
+    "text": "If she can use the spoon to scrape the edges of the cap, maybe she can create a little gap.",
+    "category": "Example Testing",
+    "abbreviation": "ET-21"
+  },
+  {
+    "index": 22,
+    "text": "Then, with the cloth napkin, she could maybe get a better grip.",
+    "category": "Example Testing",
+    "abbreviation": "ET-22"
+  },
+  {
+    "index": 23,
+    "text": "But it's still just a thought.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-23"
+  },
+  {
+    "index": 24,
+    "text": "Wait, the keys are metal, and the spoon is metal.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "Maybe she can use the key to scratch the cap or the bottle.",
+    "category": "Example Testing",
+    "abbreviation": "ET-25"
+  },
+  {
+    "index": 26,
+    "text": "If the bottle is glass, maybe the key can create some friction to open it.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "But I'm not sure if that would work.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-27"
+  },
+  {
+    "index": 28,
+    "text": "Alternatively, maybe she can use the spoon to create a lever.",
+    "category": "Backtracking",
+    "abbreviation": "B-28"
+  },
+  {
+    "index": 29,
+    "text": "If she can bend the spoon or shape it somehow, she could use it as a tool to pry the cap off.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "But the spoon is pretty straight, so that might be tricky.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "Another idea: maybe the car keys have a flat edge, like a Phillips head or something.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-31"
+  },
+  {
+    "index": 32,
+    "text": "She could use that edge to scrape the cap.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "If she can get the cap to move, even a little, she might be able to twist it off.",
+    "category": "Deduction",
+    "abbreviation": "D-33"
+  },
+  {
+    "index": 34,
+    "text": "Or, maybe she can use the cloth napkin to cover the bottle and create some leverage by pressing down while twisting.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-34"
+  },
+  {
+    "index": 35,
+    "text": "But without an opener, it's hard to see how that would work.",
+    "category": "Backtracking",
+    "abbreviation": "B-35"
+  },
+  {
+    "index": 36,
+    "text": "Wait, maybe the spoon can be used as a hammer.",
+    "category": "Backtracking",
+    "abbreviation": "B-36"
+  },
+  {
+    "index": 37,
+    "text": "If she taps the cap with the spoon, maybe it'll loosen up.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "But glass is pretty tough, so that might not be effective.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "Hmm, I'm stuck.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-39"
+  },
+  {
+    "index": 40,
+    "text": "Let me try to think of other uses for the items.",
+    "category": "Backtracking",
+    "abbreviation": "B-40"
+  },
+  {
+    "index": 41,
+    "text": "The keys are for the car, but maybe one of them can be used as a screwdriver or something.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-41"
+  },
+  {
+    "index": 42,
+    "text": "But without a screwdriver, that's not helpful.",
+    "category": "Deduction",
+    "abbreviation": "D-42"
+  },
+  {
+    "index": 43,
+    "text": "Oh, what if she can make a better tool from the spoon and the keys? Maybe bend the spoon into a shape that can fit into the cap.",
+    "category": "Backtracking",
+    "abbreviation": "B-43"
+  },
+  {
+    "index": 44,
+    "text": "But that seems complicated without any tools.",
+    "category": "Deduction",
+    "abbreviation": "D-44"
+  },
+  {
+    "index": 45,
+    "text": "Wait a minute, maybe the keys can be used to create a better grip on the bottle.",
+    "category": "Backtracking",
+    "abbreviation": "B-45"
+  },
+  {
+    "index": 46,
+    "text": "If she can hold the bottle steady, maybe she can twist it while using the keys to leverage the cap off.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "But I'm not sure how that would work exactly.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-47"
+  },
+  {
+    "index": 48,
+    "text": "Another thought: maybe the cloth napkin can be used as a cushion to protect the bottle while she's trying to open it.",
+    "category": "Example Testing",
+    "abbreviation": "ET-48"
+  },
+  {
+    "index": 49,
+    "text": "Or maybe it can be used to create a better grip by wrapping around it.",
+    "category": "Example Testing",
+    "abbreviation": "ET-49"
+  },
+  {
+    "index": 50,
+    "text": "I'm going in circles here.",
+    "category": "Backtracking",
+    "abbreviation": "B-50"
+  },
+  {
+    "index": 51,
+    "text": "Let's try to break it down.",
+    "category": "Backtracking",
+    "abbreviation": "B-51"
+  },
+  {
+    "index": 52,
+    "text": "The main issue is opening the bottle without an opener.",
+    "category": "Initializing",
+    "abbreviation": "I-52"
+  },
+  {
+    "index": 53,
+    "text": "The tools she has are a spoon, keys, napkin, and a bench.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-53"
+  },
+  {
+    "index": 54,
+    "text": "So she needs to use these to manipulate the bottle.",
+    "category": "Deduction",
+    "abbreviation": "D-54"
+  },
+  {
+    "index": 55,
+    "text": "Maybe the spoon can be used to create a lever by placing it under the cap and lifting, creating pressure that pops the cap off.",
+    "category": "Example Testing",
+    "abbreviation": "ET-55"
+  },
+  {
+    "index": 56,
+    "text": "Or, using the spoon to scrape the edge of the cap to create a weak point.",
+    "category": "Example Testing",
+    "abbreviation": "ET-56"
+  },
+  {
+    "index": 57,
+    "text": "Alternatively, using the keys to create a better grip on the bottle, maybe by placing them in a way that applies more force when twisting.",
+    "category": "Example Testing",
+    "abbreviation": "ET-57"
+  },
+  {
+    "index": 58,
+    "text": "Wait, maybe the keys can be used to make a hole in the cap.",
+    "category": "Backtracking",
+    "abbreviation": "B-58"
+  },
+  {
+    "index": 59,
+    "text": "If she can scratch the cap enough with a key, she might be able to twist it off.",
+    "category": "Deduction",
+    "abbreviation": "D-59"
+  },
+  {
+    "index": 60,
+    "text": "Or, she could use the spoon to make a small dent in the cap, then use the keys to twist it off.",
+    "category": "Deduction",
+    "abbreviation": "D-60"
+  },
+  {
+    "index": 61,
+    "text": "I think the key here is to use the spoon and keys together to create leverage and friction to open the bottle.",
+    "category": "Deduction",
+    "abbreviation": "D-61"
+  },
+  {
+    "index": 62,
+    "text": "Maybe by placing the spoon under the cap and using the keys to twist the bottle while applying pressure with the spoon.",
+    "category": "Example Testing",
+    "abbreviation": "ET-62"
+  },
+  {
+    "index": 63,
+    "text": "So, the plan would be:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-63"
+  },
+  {
+    "index": 64,
+    "text": "Use the spoon to create a gap under the cap by pressing it against the bottom of the cap.",
+    "category": "Final Answer",
+    "abbreviation": "FA-64"
+  },
+  {
+    "index": 65,
+    "text": "2.",
+    "category": "Deduction",
+    "abbreviation": "D-65"
+  },
+  {
+    "index": 66,
+    "text": "Use the keys to grip the bottle tightly and twist it while applying pressure with the spoon, which would pop the cap off.",
+    "category": "Final Answer",
+    "abbreviation": "FA-66"
+  },
+  {
+    "index": 67,
+    "text": "3.",
+    "category": "Initializing",
+    "abbreviation": "I-67"
+  },
+  {
+    "index": 68,
+    "text": "Once the cap is off, she can pour the juice.",
+    "category": "Final Answer",
+    "abbreviation": "FA-68"
+  },
+  {
+    "index": 69,
+    "text": "I think that makes sense.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-69"
+  },
+  {
+    "index": 70,
+    "text": "It might take some effort, but with the right leverage, it should work.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-70"
+  },
+  {
+    "index": 71,
+    "text": "</think>\n\nSarah can open her juice bottle using the metal spoon and car keys.",
+    "category": "Final Answer",
+    "abbreviation": "FA-71"
+  },
+  {
+    "index": 72,
+    "text": "She can place the spoon under the bottle cap to create leverage, then use the keys to grip the bottle firmly and twist it, applying pressure with the spoon to pop the cap off.",
+    "category": "Final Answer",
+    "abbreviation": "FA-72"
+  },
+  {
+    "index": 73,
+    "text": "Once the cap is removed, she can enjoy her juice.",
+    "category": "Final Answer",
+    "abbreviation": "FA-73"
+  }
+]
