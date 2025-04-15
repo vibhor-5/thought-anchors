@@ -1,0 +1,338 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: In a classroom of 25 students, each student is assigned a number from 1 to 20 (inclusive).",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Prove that there must be at least two students who are assigned the same number.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nAlright, so I have this problem here where there are 25 students in a classroom, and each student is assigned a unique number from 1 to 20.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "I need to prove that at least two students must have the same number.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Hmm, okay, let me try to wrap my head around this.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "First off, let me make sure I understand the problem correctly.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "We have 25 students, and each is given a number.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "The numbers available are from 1 through 20.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "So, each number can be assigned to only one student, right? But wait, there are 25 students and only 20 numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "That means not all students can have a unique number because there aren't enough numbers to go around.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Let me think about it in terms of something I remember called the pigeonhole principle.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "If I recall correctly, the pigeonhole principle is this idea that if you have more items than containers, at least one container must hold more than one item.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "So, in this case, the \"items\" are the students, and the \"containers\" are the numbers from 1 to 20.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Okay, so if there are 25 students and 20 numbers, that means each number can be assigned to only one student, but since there are more students than numbers, some numbers must be assigned to more than one student.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Therefore, at least two students must share the same number.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "But let me try to put this into a more formal structure to make sure I'm not missing anything.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "Let's denote the students as S1, S2, S3, ..., S25.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Each student needs to be assigned a number from the set N = {1, 2, 3, ..., 20}.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Now, if each student is assigned a unique number, that would mean each number in N is used exactly once.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "However, since there are 25 students and only 20 numbers, we can't assign each student a unique number.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "Therefore, the only possibility is that at least one number must be assigned to more than one student.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Wait, let me check this again.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "If each number can only be used once, and there are 20 numbers, the maximum number of unique assignments we can have is 20.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "But we have 25 students, which is 5 more than 20.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "So, those extra 5 students have to share the numbers with the existing assignments.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "That means at least one number must be used twice, right?\n\nAnother way to think about it is by considering the total number of possible unique assignments.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Since we have 20 numbers, the number of ways to assign numbers to 25 students without any restrictions is 20^25.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "But that's not really necessary here because the key point is that we can't have all numbers assigned uniquely to 25 students because we don't have enough numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Let me try to visualize this.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Imagine each number from 1 to 20 as slots in a box.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "Each slot can hold one student.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "If I have 25 students, I need to place each student into one of these slots.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "But there are only 20 slots.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "So, by the pigeonhole principle, at least one slot must contain more than one student.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Therefore, at least two students must share the same number.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Is there any other angle I should consider? Maybe by using combinatorics or something else? Let me think.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "If I try to calculate the number of ways to assign numbers, it's a different approach, but the core idea remains the same.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "The key is that the number of students exceeds the number of available numbers, forcing at least one number to be reused.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "Wait, could there be a scenario where some numbers are used more than once while others are not? For example, maybe some numbers are used twice, and others are not used at all.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "But in this problem, each student must be assigned a number, so all 25 students must be assigned a number, even if some numbers are used multiple times.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "Therefore, the total number of assignments is 25, and the total number of available numbers is 20.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Since 25 > 20, at least one number must be used more than once.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "I think I'm getting the hang of it.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "So, the crux is that with more students than numbers, duplication is inevitable.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "It's a straightforward application of the pigeonhole principle.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "There's no way around it because each student needs a number, and there aren't enough unique numbers to go around.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Just to make sure, let me consider a smaller example.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "Suppose there are 3 students and numbers from 1 to 2.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "If I try to assign unique numbers, I can only assign two numbers, so the third student must share a number with one of the others.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "That makes sense.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Similarly, if there are 5 students and numbers from 1 to 3, at least one number must be used twice because 5 > 3.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "Applying this logic back to the original problem, with 25 students and 20 numbers, it's clear that at least one number must be assigned to more than one student.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "Therefore, there must be at least two students with the same number.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "</think>\n\nDONE.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  }
+]

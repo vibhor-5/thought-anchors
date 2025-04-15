@@ -1,0 +1,122 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A hospital offers a screening test for a rare disease that affects 1% of the population.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "The test is 95% accurate, meaning that if a person has the disease, the test will correctly identify them as positive 95% of the time (sensitivity), and if a person does not have the disease, the test will correctly identify them as negative 95% of the time (specificity).",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "If a person receives a positive test result, what is the probability that they actually have the disease? \n\n Solution: \n<think>\nTo determine the probability that a person actually has the disease after testing positive, I'll use the formula for conditional probability.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "First, I'll identify the given values:\n- Prevalence of the disease (P(D)) is 1% or 0.01.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "- Probability of testing positive given the disease (P(T+|D)) is 95% or 0.95.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "- Probability of testing negative given no disease (P(T-|\u00acD))) is 95% or 0.95.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "Next, I'll calculate the probability of testing positive when the person does not have the disease (P(T+|\u00acD)).",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "Since the probability of testing negative is 0.95, the probability of testing positive when not having the disease is 1 - 0.95 = 0.05.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Now, I'll apply Bayes' Theorem to find the probability that the person actually has the disease given a positive test result:\nP(D|T+) = [P(T+|D) * P(D)] / [P(T+|D) * P(D) + P(T+|\u00acD) * P(\u00acD)].",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Plugging in the values:\nP(D|T+) = (0.95 * 0.01) / [(0.95 * 0.01) + (0.05 * 0.99)].",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Finally, I'll calculate the numerical value:\nP(D|T+) = 0.0095 / (0.0095 + 0.0495) = 0.0095 / 0.059 \u2248 0.16, or 16%.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "So, there is a 16% probability that a person who tested positive actually has the disease.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "</think>\n\nTo determine the probability that a person **actually has the disease** after testing positive, we'll use **Bayes' Theorem**.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "This theorem allows us to update our probability estimates based on new evidence, in this case, a positive test result.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "### Given:\n- **Prevalence of the disease (P(D))**: 1% or 0.01.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "- **Sensitivity of the test (P(T+|D))**: 95% or 0.95.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "- **Specificity of the test (P(T-|\u00acD))**: 95% or 0.95.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "### Step 1: Determine the Probability of Testing Positive When Disease is Absent\nThe probability of testing positive when **not** having the disease can be found using the complement of specificity:\n\\[\nP(T+|\u00acD) = 1 - P(T-|\u00acD) = 1 - 0.95 = 0.05\n\\]\n\n### Step 2: Apply Bayes' Theorem\nBayes' Theorem states:\n\\[\nP(D|T+) = \\frac{P(T+|D) \\cdot P(D)}{P(T+|D) \\cdot P(D) + P(T+|\u00acD) \\cdot P(\u00acD)}\n\\]\nWhere:\n- \\( P(\u00acD) = 1 - P(D) = 1 - 0.01 = 0.99 \\)\n\nPlugging in the values:\n\\[\nP(D|T+) = \\frac{0.95 \\cdot 0.01}{(0.95 \\cdot 0.01) + (0.05 \\cdot 0.99)}\n\\]\n\\[\nP(D|T+) = \\frac{0.0095}{0.0095 + 0.0495}\n\\]\n\\[\nP(D|T+) = \\frac{0.0095}{0.059}\n\\]\n\\[\nP(D|T+) \\approx 0.16 \\text{ or } 16\\%\n\\]\n\n### Final Answer:\n\\[\n\\boxed{16\\%}\n\\]\n\nDONE.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  }
+]

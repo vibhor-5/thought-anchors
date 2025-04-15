@@ -1,0 +1,236 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A weather forecasting system classifies each day as either 'Sunny', 'Cloudy', or 'Rainy'.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Based on historical data, if today is Sunny, tomorrow has a 70% chance of being Sunny, a 20% chance of being Cloudy, and a 10% chance of being Rainy.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-3"
+  },
+  {
+    "index": 4,
+    "text": "If today is Cloudy, tomorrow has a 30% chance of being Sunny, a 50% chance of being Cloudy, and a 20% chance of being Rainy.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
+  },
+  {
+    "index": 5,
+    "text": "If today is Rainy, tomorrow has a 20% chance of being Sunny, a 30% chance of being Cloudy, and a 50% chance of being Rainy.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-5"
+  },
+  {
+    "index": 6,
+    "text": "If today (Monday) is Sunny, what is the probability that Wednesday will also be Sunny? \n\n Solution: \n<think>\nAlright, so I need to figure out the probability that Wednesday will be Sunny, given that today, Monday, is Sunny.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "Hmm, okay, let's break this down step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "First, the problem gives me transition probabilities between the days based on the weather.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-8"
+  },
+  {
+    "index": 9,
+    "text": "So, depending on what the weather is today, there's a certain chance it'll be something else tomorrow.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "This seems like a Markov chain problem where each day's weather depends only on the previous day's weather.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-10"
+  },
+  {
+    "index": 11,
+    "text": "Let me list out the probabilities again to make sure I have them right:\n\n- **If today is Sunny:**\n  - Tomorrow is Sunny: 70% (0.7)\n  - Tomorrow is Cloudy: 20% (0.2)\n  - Tomorrow is Rainy: 10% (0.1)\n\n- **If today is Cloudy:**\n  - Tomorrow is Sunny: 30% (0.3)\n  - Tomorrow is Cloudy: 50% (0.5)\n  - Tomorrow is Rainy: 20% (0.2)\n\n- **If today is Rainy:**\n  - Tomorrow is Sunny: 20% (0.2)\n  - Tomorrow is Cloudy: 30% (0.3)\n  - Tomorrow is Rainy: 50% (0.5)\n\nOkay, so I need to go from Monday to Tuesday to Wednesday.",
+    "category": "Summary",
+    "abbreviation": "S-11"
+  },
+  {
+    "index": 12,
+    "text": "Each day's weather depends only on the previous day.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "That means I can model this as a two-step transition: from Monday to Tuesday, and then from Tuesday to Wednesday.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "Given that Monday is Sunny, I can compute the probabilities for Tuesday and then use those to compute the probabilities for Wednesday.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "Let me denote the days as follows:\n\n- **Monday (Today):** Sunny\n- **Tuesday:** ?\n- **Wednesday:** ?\n\nSince we're dealing with two transitions, I'll need to compute the probability distribution for Tuesday first and then use that to find the distribution for Wednesday.",
+    "category": "Initializing",
+    "abbreviation": "I-15"
+  },
+  {
+    "index": 16,
+    "text": "Starting with Monday being Sunny, let's compute the probabilities for Tuesday:\n\n- **Tuesday:**\n  - Sunny: 70% (0.7)\n  - Cloudy: 20% (0.2)\n  - Rainy: 10% (0.1)\n\nNow, for each possible Tuesday weather, I'll compute the probabilities for Wednesday.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "Let's break it down:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-17"
+  },
+  {
+    "index": 18,
+    "text": "**Case 1:** Tuesday is Sunny (70% chance)\n   - From Tuesday (Sunny) to Wednesday:\n     - Sunny: 70% (0.7)\n     - Cloudy: 20% (0.2)\n     - Rainy: 10% (0.1)\n   - So, the probability that Wednesday is Sunny given Tuesday is Sunny is 70%.",
+    "category": "Example Testing",
+    "abbreviation": "ET-18"
+  },
+  {
+    "index": 19,
+    "text": "2. **Case 2:** Tuesday is Cloudy (20% chance)\n   - From Tuesday (Cloudy) to Wednesday:\n     - Sunny: 30% (0.3)\n     - Cloudy: 50% (0.5)\n     - Rainy: 20% (0.2)\n   - Therefore, the probability that Wednesday is Sunny given Tuesday is Cloudy is 30%.",
+    "category": "Example Testing",
+    "abbreviation": "ET-19"
+  },
+  {
+    "index": 20,
+    "text": "3. **Case 3:** Tuesday is Rainy (10% chance)\n   - From Tuesday (Rainy) to Wednesday:\n     - Sunny: 20% (0.2)\n     - Cloudy: 30% (0.3)\n     - Rainy: 50% (0.5)\n   - So, the probability that Wednesday is Sunny given Tuesday is Rainy is 20%.",
+    "category": "Example Testing",
+    "abbreviation": "ET-20"
+  },
+  {
+    "index": 21,
+    "text": "Now, to find the total probability that Wednesday is Sunny, I need to consider each case weighted by their probabilities.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "So, the total probability P(Wednesday is Sunny) is:\n\nP(Tuesday is Sunny) * P(Wednesday is Sunny | Tuesday is Sunny) +\nP(Tuesday is Cloudy) * P(Wednesday is Sunny | Tuesday is Cloudy) +\nP(Tuesday is Rainy) * P(Wednesday is Sunny | Tuesday is Rainy)\n\nPlugging in the numbers:\n\n= 0.7 * 0.7 + 0.2 * 0.3 + 0.1 * 0.2\n\nLet me compute each term:\n\n- 0.7 * 0.7 = 0.49\n- 0.2 * 0.3 = 0.06\n- 0.1 * 0.2 = 0.02\n\nAdding them up:\n\n0.49 + 0.06 = 0.55\n\n0.55 + 0.02 = 0.57\n\nSo, the total probability is 0.57, or 57%.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "Wait, let me double-check that.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-23"
+  },
+  {
+    "index": 24,
+    "text": "Maybe I made a calculation error.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-24"
+  },
+  {
+    "index": 25,
+    "text": "0.7 * 0.7 is indeed 0.49.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "0.2 * 0.3 is 0.06.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "0.1 * 0.2 is 0.02.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "Adding 0.49 + 0.06 gives 0.55, and adding 0.02 gives 0.57.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "Yep, that's correct.",
+    "category": "Final Answer",
+    "abbreviation": "FA-29"
+  },
+  {
+    "index": 30,
+    "text": "So, the probability that Wednesday will be Sunny given that Monday is Sunny is 57%.",
+    "category": "Final Answer",
+    "abbreviation": "FA-30"
+  },
+  {
+    "index": 31,
+    "text": "I think that's it.",
+    "category": "Summary",
+    "abbreviation": "S-31"
+  },
+  {
+    "index": 32,
+    "text": "I considered all possible transitions from Monday to Tuesday and then from Tuesday to Wednesday, weighted by their respective probabilities.",
+    "category": "Summary",
+    "abbreviation": "S-32"
+  },
+  {
+    "index": 33,
+    "text": "It seems like the Markov chain approach is the right way to go here since each day only depends on the previous day.",
+    "category": "Initializing",
+    "abbreviation": "I-33"
+  },
+  {
+    "index": 34,
+    "text": "</think>\n\nTo determine the probability that Wednesday will be Sunny given that Monday is Sunny, we model the transitions using a Markov chain approach.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "We calculate the probability for each day step by step.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "1. **Monday to Tuesday:**\n   - **Sunny:** 70% (0.7)\n   - **Cloudy:** 20% (0.2)\n   - **Rainy:** 10% (0.1)\n\n2.",
+    "category": "Example Testing",
+    "abbreviation": "ET-36"
+  },
+  {
+    "index": 37,
+    "text": "**Tuesday to Wednesday:**\n   - **From Sunny:**\n     - Sunny: 70% (0.7)\n   - **From Cloudy:**\n     - Sunny: 30% (0.3)\n   - **From Rainy:**\n     - Sunny: 20% (0.2)\n\n3.",
+    "category": "Example Testing",
+    "abbreviation": "ET-37"
+  },
+  {
+    "index": 38,
+    "text": "**Calculate total probability:**\n   - \\( 0.7 \\times 0.7 + 0.2 \\times 0.3 + 0.1 \\times 0.2 = 0.49 + 0.06 + 0.02 = 0.57 \\)\n\n**Final Answer:** The probability that Wednesday will be Sunny is 57%.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  }
+]

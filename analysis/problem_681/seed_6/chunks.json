@@ -1,0 +1,230 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: In a survey of 120 college students, the following information was gathered:\n- 75 students enjoy reading fiction\n- 65 students enjoy reading non-fiction\n- 40 students enjoy reading both fiction and non-fiction\n\nBased on this information, answer the following questions:\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "How many students enjoy reading fiction but not non-fiction?\n2.",
+    "category": "Question Posing",
+    "abbreviation": "QP-3"
+  },
+  {
+    "index": 4,
+    "text": "How many students enjoy reading non-fiction but not fiction?\n3.",
+    "category": "Question Posing",
+    "abbreviation": "QP-4"
+  },
+  {
+    "index": 5,
+    "text": "How many students don't enjoy reading either type of book? \n\n Solution: \n<think>\nAlright, so I've got this problem about a survey of 120 college students and their reading habits.",
+    "category": "Question Posing",
+    "abbreviation": "QP-5"
+  },
+  {
+    "index": 6,
+    "text": "It says that 75 students enjoy reading fiction, 65 enjoy reading non-fiction, and 40 enjoy both.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "I need to figure out three things: how many students enjoy reading fiction but not non-fiction, how many enjoy non-fiction but not fiction, and how many don't enjoy either type of book.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "Hmm, okay.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "I think this is a problem about sets and maybe using a Venn diagram to visualize it.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "There are two sets: one for students who enjoy fiction and another for those who enjoy non-fiction.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-10"
+  },
+  {
+    "index": 11,
+    "text": "The overlap between these two sets is the 40 students who enjoy both.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "So, the total number of students surveyed is 120.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "First, let me write down what I know:\n\n- Total students = 120\n- Students who enjoy fiction (F) = 75\n- Students who enjoy non-fiction (NF) = 65\n- Students who enjoy both (F \u2229 NF) = 40\n\nI need to find:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-13"
+  },
+  {
+    "index": 14,
+    "text": "Students who enjoy only fiction: F only = F - (F \u2229 NF)\n2.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "Students who enjoy only non-fiction: NF only = NF - (F \u2229 NF)\n3.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "Students who don't enjoy either: this would be the total students minus those who enjoy either fiction or non-fiction.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "So, it's Total - (F + NF - (F \u2229 NF)).",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "That makes sense because if we just add F and NF, we're double-counting those who enjoy both, so we subtract the overlap once.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "Let me compute each part step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-19"
+  },
+  {
+    "index": 20,
+    "text": "First, for the number of students who enjoy only fiction:\n\nF only = F - (F \u2229 NF) = 75 - 40 = 35\n\nSo, 35 students enjoy reading fiction but not non-fiction.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "Next, the number of students who enjoy only non-fiction:\n\nNF only = NF - (F \u2229 NF) = 65 - 40 = 25\n\nSo, 25 students enjoy reading non-fiction but not fiction.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Now, for the number of students who don't enjoy either:\n\nStudents who don't enjoy either = Total - (F + NF - (F \u2229 NF)) = 120 - (75 + 65 - 40)\n\nLet me calculate inside the parentheses first:\n\n75 + 65 = 140\n\n140 - 40 = 100\n\nSo, 120 - 100 = 20\n\nTherefore, 20 students don't enjoy reading either type of book.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "Wait, let me double-check these calculations to make sure I didn't make a mistake.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-23"
+  },
+  {
+    "index": 24,
+    "text": "For F only: 75 total fiction lovers minus 40 who also like non-fiction gives 35.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "That seems right.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-25"
+  },
+  {
+    "index": 26,
+    "text": "For NF only: 65 total non-fiction lovers minus 40 who also like fiction gives 25.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "That also makes sense.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "For those who don't enjoy either: total is 120.",
+    "category": "Final Answer",
+    "abbreviation": "FA-28"
+  },
+  {
+    "index": 29,
+    "text": "If 75+65=140, but 40 are in both, so the unique count is 140 - 40=100.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "So, 120 - 100=20.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "Yep, that checks out.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "I think that's all correct.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "So, the answers should be 35, 25, and 20 for the respective questions.",
+    "category": "Final Answer",
+    "abbreviation": "FA-33"
+  },
+  {
+    "index": 34,
+    "text": "</think>\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "NA-34"
+  },
+  {
+    "index": 35,
+    "text": "**Students who enjoy reading fiction but not non-fiction**: 35  \n2.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "**Students who enjoy reading non-fiction but not fiction**: 25  \n3.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "**Students who don't enjoy reading either type of book**: 20  \n\nDONE.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  }
+]

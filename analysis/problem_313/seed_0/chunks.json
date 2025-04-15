@@ -1,0 +1,194 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A weather forecast indicates a 30% chance of rain tomorrow.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "You are planning a picnic, and if it rains, you will lose $50 in non-refundable supplies.",
+    "category": "Question Posing",
+    "abbreviation": "QP-3"
+  },
+  {
+    "index": 4,
+    "text": "Alternatively, you can host an indoor gathering, which would cost an additional $20 to rent a space, but this option is not affected by weather.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
+  },
+  {
+    "index": 5,
+    "text": "Should you plan the picnic or the indoor gathering to minimize your expected cost? Show your reasoning using expected value calculations.",
+    "category": "Question Posing",
+    "abbreviation": "QP-5"
+  },
+  {
+    "index": 6,
+    "text": "Solution: \n<think>\nAlright, so I'm trying to decide whether to plan a picnic or an indoor gathering for my picnic tomorrow.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "The weather forecast says there's a 30% chance of rain, and if it rains, I lose $50 in non-refundable supplies.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-7"
+  },
+  {
+    "index": 8,
+    "text": "If I go with the indoor gathering, I have to pay an extra $20 to rent a space, but the weather doesn't affect it.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-8"
+  },
+  {
+    "index": 9,
+    "text": "I need to figure out which option is better financially.",
+    "category": "Question Posing",
+    "abbreviation": "QP-9"
+  },
+  {
+    "index": 10,
+    "text": "Okay, first, let's break down the costs for each option.",
+    "category": "Initializing",
+    "abbreviation": "I-10"
+  },
+  {
+    "index": 11,
+    "text": "If I choose the picnic, the only variable cost is the $50 loss if it rains.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "The $50 is non-refundable, so if it doesn't rain, I don't lose anything.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "If I choose the indoor gathering, I have a fixed cost of $20 regardless of the weather.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "So, for the picnic, I need to calculate the expected cost.",
+    "category": "Question Posing",
+    "abbreviation": "QP-14"
+  },
+  {
+    "index": 15,
+    "text": "Expected value is like the average outcome we can expect if we were to repeat this scenario many times.",
+    "category": "Metaphorical Thinking",
+    "abbreviation": "MT-15"
+  },
+  {
+    "index": 16,
+    "text": "It's calculated by multiplying each outcome by its probability and then summing those up.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-16"
+  },
+  {
+    "index": 17,
+    "text": "In this case, there are two outcomes for the picnic: it rains or it doesn't rain.",
+    "category": "Example Testing",
+    "abbreviation": "ET-17"
+  },
+  {
+    "index": 18,
+    "text": "The probability of rain is 30%, or 0.3, and the probability of no rain is 70%, or 0.7.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "If it rains, my cost is $50.",
+    "category": "Deduction",
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "If it doesn't rain, my cost is $0.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "So, the expected cost for the picnic would be:\n\nExpected Cost (Picnic) = (Probability of Rain * Cost if Rain) + (Probability of No Rain * Cost if No Rain)\nExpected Cost (Picnic) = (0.3 * $50) + (0.7 * $0)\n\nLet me calculate that:\n\n0.3 * 50 = $15\n0.7 * 0 = $0\nSo, Expected Cost (Picnic) = $15 + $0 = $15\n\nOkay, so on average, planning a picnic would cost me $15.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Now, for the indoor gathering, the cost is fixed at $20, regardless of the weather.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "So, the expected cost here is just $20 because there's no uncertainty involved.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "So, comparing the two:\n- Picnic: Expected cost $15\n- Indoor Gathering: Expected cost $20\n\nSince $15 is less than $20, the picnic seems like the cheaper option on average.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-24"
+  },
+  {
+    "index": 25,
+    "text": "Therefore, I should plan the picnic to minimize my expected cost.",
+    "category": "Final Answer",
+    "abbreviation": "FA-25"
+  },
+  {
+    "index": 26,
+    "text": "Wait, let me double-check to make sure I didn't make a mistake.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-26"
+  },
+  {
+    "index": 27,
+    "text": "The picnic has a 30% chance of losing $50, which is a pretty high chance, but the loss is also a significant amount.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "The expected value is $15, which is lower than the fixed $20 for the indoor gathering.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "So yeah, the picnic is better in this case because even though there's a chance of losing money, the average cost is lower than the guaranteed $20.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "</think>\n\nTo determine which option is more cost-effective, we'll calculate the expected cost for both scenarios.",
+    "category": "Initializing",
+    "abbreviation": "I-30"
+  },
+  {
+    "index": 31,
+    "text": "**Picnic:**\n- Probability of Rain = 30% (0.3)\n- Cost if it rains = $50\n- Probability of No Rain = 70% (0.7)\n- Cost if it doesn't rain = $0\n\nExpected Cost (Picnic) = (0.3 * $50) + (0.7 * $0) = $15 + $0 = $15\n\n**Indoor Gathering:**\n- Fixed Cost = $20\n- No dependency on weather\n\nExpected Cost (Indoor) = $20\n\n**Comparison:**\n- Picnic: Expected Cost = $15\n- Indoor Gathering: Expected Cost = $20\n\n**Conclusion:**\nSince the expected cost of the picnic ($15) is less than that of the indoor gathering ($20), you should plan the picnic to minimize your expected cost.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  }
+]

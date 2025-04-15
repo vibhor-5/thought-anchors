@@ -1,0 +1,200 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: Consider the following sequence of transformations:\n\nInput \u2192 Output\n2 \u2192 5\n5 \u2192 14\n8 \u2192 23\n11 \u2192 32\n14 \u2192 41\n\nBased on the pattern above, determine the rule that transforms the input into the output.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Then, calculate the output for the input value 20.",
+    "category": "Question Posing",
+    "abbreviation": "QP-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nTo identify the pattern, I'll examine the difference between each input and output.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "Starting with the first pair:\n2 \u2192 5\nThe difference is 3.",
+    "category": "Deduction",
+    "abbreviation": "D-5"
+  },
+  {
+    "index": 6,
+    "text": "Next:\n5 \u2192 14\nThe difference is 9.",
+    "category": "Deduction",
+    "abbreviation": "D-6"
+  },
+  {
+    "index": 7,
+    "text": "Then:\n8 \u2192 23\nThe difference is 15.",
+    "category": "Deduction",
+    "abbreviation": "D-7"
+  },
+  {
+    "index": 8,
+    "text": "Continuing:\n11 \u2192 32\nThe difference is 21.",
+    "category": "Deduction",
+    "abbreviation": "D-8"
+  },
+  {
+    "index": 9,
+    "text": "Finally:\n14 \u2192 41\nThe difference is 27.",
+    "category": "Deduction",
+    "abbreviation": "D-9"
+  },
+  {
+    "index": 10,
+    "text": "I notice that the differences are 3, 9, 15, 21, and 27, which form an arithmetic sequence increasing by 6 each time.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-10"
+  },
+  {
+    "index": 11,
+    "text": "This suggests that the rule involves multiplying the input by a certain factor and then adding a number.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "Looking closer, the differences can be represented as 6 times the step number minus 3:\nFor step 1: 6(1) - 3 = 3\nFor step 2: 6(2) - 3 = 9\nFor step 3: 6(3) - 3 = 15\nFor step 4: 6(4) - 3 = 21\nFor step 5: 6(5) - 3 = 27\n\nAdding this to the input gives the output:\n2 + 3 = 5\n5 + 9 = 14\n8 + 15 = 23\n11 + 21 = 32\n14 + 27 = 41\n\nTherefore, the rule is to add 6 times the step number minus 3 to the input number.",
+    "category": "Example Testing",
+    "abbreviation": "ET-12"
+  },
+  {
+    "index": 13,
+    "text": "Applying this to the input value 20:\n\nFirst, determine the step number.",
+    "category": "Question Posing",
+    "abbreviation": "QP-13"
+  },
+  {
+    "index": 14,
+    "text": "Since 20 is the 5th term (2, 5, 8, 11, 14, 20), it's step 5.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "Calculate 6 times 5 minus 3:\n6 * 5 - 3 = 30 - 3 = 27\n\nAdd this to 20:\n20 + 27 = 47\n\nSo, the output for 20 is 47.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "</think>\n\n**Solution:**\n\nLet's analyze the given sequence to identify the pattern and determine the rule that transforms the input into the output.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-16"
+  },
+  {
+    "index": 17,
+    "text": "**Given Transformations:**\n\n- **Input \u2192 Output**\n  - 2 \u2192 5\n  - 5 \u2192 14\n  - 8 \u2192 23\n  - 11 \u2192 32\n  - 14 \u2192 41\n\n**Step 1: Determine the Differences**\n\nCalculate the difference between each input and output:\n\n1.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "**2 \u2192 5**  \n   Difference = 5 - 2 = **3**\n\n2.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "**5 \u2192 14**  \n   Difference = 14 - 5 = **9**\n\n3.",
+    "category": "Deduction",
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "**8 \u2192 23**  \n   Difference = 23 - 8 = **15**\n\n4.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "**11 \u2192 32**  \n   Difference = 32 - 11 = **21**\n\n5.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "**14 \u2192 41**  \n   Difference = 41 - 14 = **27**\n\n**Step 2: Analyze the Differences**\n\nNotice that the differences are: **3, 9, 15, 21, 27**.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "These differences form an arithmetic sequence where each term increases by **6**.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "**Step 3: Find the Pattern**\n\nThe differences can be represented as:\n\n- **First difference:** 6 \u00d7 1 - 3 = 3\n- **Second difference:** 6 \u00d7 2 - 3 = 9\n- **Third difference:** 6 \u00d7 3 - 3 = 15\n- **Fourth difference:** 6 \u00d7 4 - 3 = 21\n- **Fifth difference:** 6 \u00d7 5 - 3 = 27\n\nThis indicates that for each step **n**, the difference is calculated as:\n\n\\[ \\text{Difference} = 6n - 3 \\]\n\n**Step 4: Derive the Rule**\n\nThe output is obtained by adding the calculated difference to the input:\n\n\\[ \\text{Output} = \\text{Input} + (6n - 3) \\]\n\n**Step 5: Apply the Rule to Find the Output for Input 20**\n\nFirst, determine the step number **n** for the input **20**.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "Looking at the sequence:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-25"
+  },
+  {
+    "index": 26,
+    "text": "2\n2.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "5\n3.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "8\n4.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "11\n5.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "14\n6.",
+    "category": "Example Testing",
+    "abbreviation": "ET-30"
+  },
+  {
+    "index": 31,
+    "text": "**20**\n\n**20** is the **6th** term, so **n = 6**.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "Calculate the difference:\n\n\\[ \\text{Difference} = 6 \\times 6 - 3 = 36 - 3 = 33 \\]\n\nAdd this to the input:\n\n\\[ \\text{Output} = 20 + 33 = 53 \\]\n\n**Final Answer:**\n\n\\boxed{53}\n\n**DONE.**",
+    "category": "Final Answer",
+    "abbreviation": "FA-32"
+  }
+]

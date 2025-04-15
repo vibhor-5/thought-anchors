@@ -1,0 +1,266 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A weather station tracks the daily weather in a certain region, classifying each day as either 'Sunny' or 'Rainy'.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Based on historical data, if today is Sunny, there's a 70% chance that tomorrow will also be Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "If today is Rainy, there's a 60% chance that tomorrow will also be Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "If it's Sunny today, what is the probability that it will be Rainy exactly 2 days from now? \n\n Solution: \n<think>\nAlright, so I need to figure out the probability that it will be Rainy exactly 2 days from now, given that today is Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Hmm, okay.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Let me break this down step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "First, the problem mentions that each day is either Sunny or Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "The weather station tracks this and gives probabilities for the next day based on today's weather.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Specifically, if today is Sunny, there's a 70% chance tomorrow will also be Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Conversely, if today is Rainy, there's a 60% chance tomorrow will also be Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "So, today is Sunny, and I want to find the probability that two days from now it will be Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "That means I need to look at what happens tomorrow and the day after tomorrow.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Let me visualize this.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Today is Day 0, which is Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Tomorrow is Day 1, and the day after that is Day 2.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "I need to find the probability that Day 2 is Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "To do this, I should consider the possible outcomes for each day leading up to Day 2.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Since the weather depends only on the previous day, I can model this as a Markov process, where the state of the weather (Sunny or Rainy) today affects the state tomorrow, and so on.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "So, starting from Day 0, which is Sunny, let's figure out the probabilities for Day 1 and Day 2.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "**Day 0 to Day 1:**\n- Today is Sunny, so the probability that tomorrow (Day 1) is Sunny is 70%, or 0.7.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "- Therefore, the probability that tomorrow is Rainy is 1 - 0.7 = 30%, or 0.3.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "So, on Day 1, there's a 0.7 chance it's Sunny and a 0.3 chance it's Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "**Day 1 to Day 2:**\n- Now, depending on what Day 1's weather is, we can determine the probability for Day 2.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Let's consider two scenarios:\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "**Day 1 is Sunny (70% chance):**\n   - If Day 1 is Sunny, the probability that Day 2 is Sunny is 70%, so Rainy would be 30%.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "2. **Day 1 is Rainy (30% chance):**\n   - If Day 1 is Rainy, the probability that Day 2 is Rainy is 60%, so Rainy would be 60%.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "So, to find the total probability that Day 2 is Rainy, I need to combine these two scenarios, weighted by their respective probabilities.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "**Calculating the Total Probability:**\n- Probability that Day 1 is Sunny: 0.7\n  - Probability Day 2 is Rainy given Day 1 is Sunny: 0.3\n  - Joint probability: 0.7 * 0.3 = 0.21\n\n- Probability that Day 1 is Rainy: 0.3\n  - Probability Day 2 is Rainy given Day 1 is Rainy: 0.6\n  - Joint probability: 0.3 * 0.6 = 0.18\n\n- Total probability that Day 2 is Rainy: 0.21 + 0.18 = 0.39\n\nSo, converting that to a percentage, it's 39%.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Wait, let me double-check that.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "So, 70% chance Day 1 is Sunny, and then 30% chance Day 2 is Rainy from there.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "That's 0.7 * 0.3 = 0.21.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Then, 30% chance Day 1 is Rainy, and 60% chance Day 2 is Rainy from there: 0.3 * 0.6 = 0.18.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Adding them up: 0.21 + 0.18 = 0.39, which is 39%.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "Yeah, that seems correct.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "So, the probability that it will be Rainy exactly two days from now is 39%.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "**Final Answer**\nThe probability that it will be Rainy exactly two days from now is \\boxed{0.39}.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "</think>\n\nGiven that today is Sunny, we need to find the probability that it will be Rainy exactly two days from now.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "1. **Day 0 to Day 1:**\n   - Today is Sunny, so the probability that tomorrow (Day 1) is Sunny is 70% (0.7).",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "- Therefore, the probability that tomorrow is Rainy is 30% (0.3).",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "2. **Day 1 to Day 2:**\n   - If Day 1 is Sunny (70% chance):\n     - The probability that Day 2 is Rainy is 30% (0.3).",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "- If Day 1 is Rainy (30% chance):\n     - The probability that Day 2 is Rainy is 60% (0.6).",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "3. **Calculating the Total Probability:**\n   - Probability that Day 1 is Sunny: 0.7\n     - Probability Day 2 is Rainy given Day 1 is Sunny: 0.3\n     - Joint probability: \\(0.7 \\times 0.3 = 0.21\\)\n   - Probability that Day 1 is Rainy: 0.3\n     - Probability Day 2 is Rainy given Day 1 is Rainy: 0.6\n     - Joint probability: \\(0.3 \\times 0.6 = 0.18\\)\n   - Total probability that Day 2 is Rainy: \\(0.21 + 0.18 = 0.39\\)\n\nThus, the probability that it will be Rainy exactly two days from now is \\(\\boxed{0.39}\\).",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  }
+]

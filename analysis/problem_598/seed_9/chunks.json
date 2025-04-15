@@ -1,0 +1,1292 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A game show has 5 identical boxes.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "One box contains a car key (grand prize), three boxes contain $100 bills, and one box contains nothing.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "A contestant randomly selects one box at a time without replacement.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "After each selection, the contestant can either keep what's in the box or continue selecting.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "If the contestant decides to continue, they forfeit whatever was in the previously selected box.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "The contestant's goal is to get the car key.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "What is the optimal strategy for the contestant, and what is the probability of winning the car with this strategy? \n\n Solution: \n<think>\nAlright, so I'm trying to figure out this game show problem.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "There are 5 boxes: 1 with a car key, 3 with $100 bills, and 1 with nothing.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "The contestant picks boxes one by one without replacement.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "After each pick, they can decide to keep the box or continue, but if they continue, they lose whatever was in the current box.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "The goal is to get the car key.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "Hmm, okay, so I need to find the optimal strategy and the probability of winning with that strategy.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "First, I should think about the contestant's options at each step.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Each time they pick a box, they have two choices: keep it or continue.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "If they keep it, they have to stick with that box, right? So, the key is to decide when to stop and when to keep going to maximize their chance of getting the car key.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "Since there's only one car key, the contestant needs to be smart about when to stop.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "If they keep a box with nothing, that's bad because they could have kept a box with money or the key.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "But if they decide to keep a box with money, they might be turning down the chance to get the key.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "So, the strategy probably involves some kind of threshold\u2014like only keeping a box if it's the best possible outcome so far.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Let me break it down step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "There are 5 boxes, so the contestant will have 5 picks in the worst case.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "But they can choose to stop earlier.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Let's consider the possible scenarios.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "On the first pick, the contestant has a 1/5 chance of getting the car key.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "If they get the key, they win.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "If they don't, they have to decide whether to keep whatever they have or continue.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "If they continue, they lose the current box and go to the next one.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Wait, but if they don't get the key on the first try, they have to decide whether to keep the box or not.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "If they keep it, they might have a box with money or nothing.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "If they keep a box with money, they can at least get $100, but if they keep a box with nothing, they lose that and have to continue.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "So, maybe the optimal strategy is to keep the box only if it's the best possible outcome so far.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Hmm, so maybe the contestant should keep a box if it's better than what they could get by continuing.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "For example, if they pick a box with money, they might think it's better to keep it because at least they have some money, but they might miss the car key.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "Alternatively, if they keep going, they might risk losing the money but have a chance to get the key.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "But the goal is specifically to get the car key, so maybe the contestant should prioritize getting the key over money.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "So, maybe the strategy is to keep going until they either find the key or until they have to stop because they've run out of boxes.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "But how?\n\nAlternatively, maybe the contestant should set a threshold\u2014like if they have picked a certain number of boxes without the key, they decide to stop.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "But I'm not sure what that number should be.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "Wait, let's think in terms of the worst-case scenario.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "The contestant wants to maximize their probability of getting the key.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "So, the key is in one of the five boxes.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "If they can find a way to ensure they pick that box before they have to stop, that would be optimal.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "But the problem is that the contestant can choose to stop at any time, which complicates things.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "They can choose to keep a box or continue, but if they continue, they lose whatever is in the current box.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "So, the strategy involves deciding when to hold onto a box and when to discard it.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "Maybe the optimal strategy is to keep the box only if it's the best possible outcome so far.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "For example, if they pick a box with money, they might decide to keep it because it's better than nothing, but then they might miss the key.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "Alternatively, they might decide to continue because the key is more valuable.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "Alternatively, the contestant could use a strategy where they keep the box if it's the first non-empty box, or something like that.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "But I need to think more carefully.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Let me consider the possible scenarios.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "The contestant picks boxes one by one.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "Each time, they can choose to keep or continue.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "If they continue, they lose the current box and move on.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "So, the key is to decide when to stop and when to keep.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "If the contestant keeps a box, they have to stick with it for the rest of the game.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "So, if they keep a box with money, they might end up with $100, but if they keep a box with nothing, they lose that and have to continue.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "Wait, but if they keep a box with nothing, they lose it and have to continue.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "So, maybe the optimal strategy is to never keep a box unless it's the car key.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "But if they don't know where the car key is, they can't be sure.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "So, they have to decide based on the boxes they've picked.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "Alternatively, maybe the contestant should keep the first box that gives them the car key.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "But since they don't know where it is, they have to decide based on the boxes they've picked so far.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Wait, maybe the optimal strategy is to continue until you have picked all boxes, but that's not possible because you can choose to stop at any time.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "So, the contestant can choose to stop after any number of picks, but if they stop, they keep whatever they have.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "But the problem is that if you stop, you can't go back and pick another box.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "So, the contestant needs to decide when to stop in a way that maximizes the probability of having the car key.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "Alternatively, maybe the optimal strategy is to keep going until you have either found the car key or have only the last box left.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "Because if you get to the last box, you have to take it, and if it's the car key, you win; otherwise, you lose.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "But let's think about the probabilities.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "At each step, the contestant can choose to keep or continue.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "So, let's model this as a decision tree.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "First pick: 1/5 chance of key, 3/5 chance of money, 1/5 chance of nothing.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "If the contestant picks the key first, they win.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "If they pick money or nothing, they have to decide to keep or continue.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "If they pick money, they can choose to keep it (and have $100) or continue (and lose the money, but have a chance to get the key in the next picks).",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "Similarly, if they pick nothing, they can choose to continue, but they lose the nothing, which doesn't matter.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "So, the optimal strategy would involve deciding whether to keep the money or continue based on the potential gain.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "But since the goal is to get the car key, the contestant might be willing to risk losing the money to get the key.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "So, perhaps the optimal strategy is to continue until you have either found the key or have only one box left, which would be the last box.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "If it's the key, you win; otherwise, you lose.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "But let's see.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "Let's think about the probabilities at each step.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "At the first pick:\n\n- 1/5 chance of key: win immediately.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "- 3/5 chance of money: you can choose to keep it or continue.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "- 1/5 chance of nothing: you can choose to continue (since keeping nothing is bad).",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "So, if you pick money on the first try, you have to decide whether to keep it or continue.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "If you keep it, you have $100, but you might have missed the key.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "If you continue, you lose the money but have a chance to get the key in the next picks.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "Similarly, if you pick nothing, you have to continue because keeping it would be bad.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "So, the contestant's strategy should be: if you pick a box with money, decide whether to keep it or continue based on the potential to get the key.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "Since the key is more valuable than money, the contestant might prefer to continue to try and get the key, even if it means losing the money.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "Similarly, if you pick nothing, you have to continue because keeping it is worse than nothing.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "So, the optimal strategy would be:\n\n- Always continue unless you have already found the car key.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "But wait, no, because if you have picked a box with money, you can choose to keep it or continue.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "So, the contestant needs to decide whether to keep the money or continue to try for the key.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "So, perhaps the optimal strategy is to continue until you have either found the key or have only the last box left.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "That is, keep going until you have no boxes left to pick except one, which you have to take.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "Alternatively, the contestant could use a strategy where they keep going until they have two boxes left.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "Then, if one of them is the key, they can choose to keep it, otherwise, they have to take the last one.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "But I'm not sure.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "Let's think step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "Suppose the contestant follows this strategy:\n\n- Continue until you have only one box left, then take it.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "But that would mean that if the key is in the last box, you get it.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "Otherwise, you lose.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "But the probability of the key being in the last box is 1/5, which is 20%.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "That seems low.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "Alternatively, maybe the contestant should stop earlier.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "For example, after picking two boxes, if neither has the key, stop and take the better of the two.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "But that might not be optimal because the key could be in a later box.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "Alternatively, perhaps the optimal strategy is to keep going until you have either found the key or have only one box left.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "But I'm not sure.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "Wait, let's think about the probability of winning if you follow this strategy:\n\nYou keep going until you either find the key or have only one box left.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "Then, you take that last box.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "So, the probability of winning is the probability that the key is in the last box.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "Since all boxes are equally likely, that's 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "But that's worse than just picking a box and stopping, which would give a 1/5 chance.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "So, that can't be optimal.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "Alternatively, maybe the contestant can do better by sometimes stopping earlier.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "Wait, perhaps the optimal strategy is to keep going until you have two boxes left.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "Then, if one of them is the key, you can choose to keep it, otherwise, you have to take the last one.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "But let's see.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "If you have two boxes left, one could be the key, one could be money, or one could be nothing.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "The probability that the key is in either of the two boxes is 2/5, so 40%.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "But if you decide to stop at two boxes, and take the better one, you can maximize your expected value.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "But since the key is more valuable than money, which is more valuable than nothing, you might prefer to keep going to try to get the key.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "Alternatively, if you have two boxes, you can choose to keep the one with money and discard the other, but then you might have missed the key.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "This is getting complicated.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "Maybe I need to model it as a decision tree.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "Let me try to outline the possible strategies and their outcomes.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "Strategy 1: Always continue until you have to stop.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "In this case, you will end up with the last box.",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  },
+  {
+    "index": 134,
+    "text": "The probability of winning is 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-134"
+  },
+  {
+    "index": 135,
+    "text": "Strategy 2: Stop after the first pick.",
+    "category": "Unknown",
+    "abbreviation": "C-135"
+  },
+  {
+    "index": 136,
+    "text": "If you pick the key, you win (1/5).",
+    "category": "Unknown",
+    "abbreviation": "C-136"
+  },
+  {
+    "index": 137,
+    "text": "If not, you get either money or nothing.",
+    "category": "Unknown",
+    "abbreviation": "C-137"
+  },
+  {
+    "index": 138,
+    "text": "So, the probability is 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-138"
+  },
+  {
+    "index": 139,
+    "text": "Strategy 3: Continue until you have two boxes left, then take the better one.",
+    "category": "Unknown",
+    "abbreviation": "C-139"
+  },
+  {
+    "index": 140,
+    "text": "Wait, but if you have two boxes left, one could be the key, one could be money, or one could be nothing.",
+    "category": "Unknown",
+    "abbreviation": "C-140"
+  },
+  {
+    "index": 141,
+    "text": "The probability that the key is in either is 2/5.",
+    "category": "Unknown",
+    "abbreviation": "C-141"
+  },
+  {
+    "index": 142,
+    "text": "If you take the better one, which is either money or the key, your probability of winning is 1/5 (if the key is in the two boxes) plus 0 (if the key is not in the two boxes).",
+    "category": "Unknown",
+    "abbreviation": "C-142"
+  },
+  {
+    "index": 143,
+    "text": "Wait, no, if you have two boxes left, the key could be in one of them, so the probability is 2/5 that the key is in the two boxes, and then you have a 1/2 chance of picking the correct one if you have to choose between two boxes.",
+    "category": "Unknown",
+    "abbreviation": "C-143"
+  },
+  {
+    "index": 144,
+    "text": "Wait, no, because you can choose to keep either, but you have to decide which one to keep.",
+    "category": "Unknown",
+    "abbreviation": "C-144"
+  },
+  {
+    "index": 145,
+    "text": "Wait, no, if you have two boxes left, you can choose to keep one and discard the other.",
+    "category": "Unknown",
+    "abbreviation": "C-145"
+  },
+  {
+    "index": 146,
+    "text": "So, if you have two boxes, you can choose the one that gives you the best outcome.",
+    "category": "Unknown",
+    "abbreviation": "C-146"
+  },
+  {
+    "index": 147,
+    "text": "If one has money and the other has nothing, you would choose the money.",
+    "category": "Unknown",
+    "abbreviation": "C-147"
+  },
+  {
+    "index": 148,
+    "text": "If one has the key, you would choose that.",
+    "category": "Unknown",
+    "abbreviation": "C-148"
+  },
+  {
+    "index": 149,
+    "text": "But the key is in one of the two boxes with probability 2/5.",
+    "category": "Unknown",
+    "abbreviation": "C-149"
+  },
+  {
+    "index": 150,
+    "text": "So, if you decide to keep the better of the two, you have a 1/2 chance of picking the key if it's in the two boxes.",
+    "category": "Unknown",
+    "abbreviation": "C-150"
+  },
+  {
+    "index": 151,
+    "text": "Wait, no, because if you have two boxes, one could be the key, one could be money, or one could be nothing.",
+    "category": "Unknown",
+    "abbreviation": "C-151"
+  },
+  {
+    "index": 152,
+    "text": "But the key is only in one box, so the probability that the key is in the two boxes is 2/5, and if it is, you have a 1/2 chance of picking it.",
+    "category": "Unknown",
+    "abbreviation": "C-152"
+  },
+  {
+    "index": 153,
+    "text": "So, the probability of winning would be (2/5)*(1/2) = 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-153"
+  },
+  {
+    "index": 154,
+    "text": "Alternatively, if you have three boxes left, you can choose to keep one, but I think this is getting too complicated.",
+    "category": "Unknown",
+    "abbreviation": "C-154"
+  },
+  {
+    "index": 155,
+    "text": "Wait, maybe the optimal strategy is to continue until you have only one box left, which gives a 1/5 chance of winning.",
+    "category": "Unknown",
+    "abbreviation": "C-155"
+  },
+  {
+    "index": 156,
+    "text": "But that's the same as just picking a random box at the end.",
+    "category": "Unknown",
+    "abbreviation": "C-156"
+  },
+  {
+    "index": 157,
+    "text": "But that's worse than other strategies.",
+    "category": "Unknown",
+    "abbreviation": "C-157"
+  },
+  {
+    "index": 158,
+    "text": "For example, if you pick a box and decide to continue if you don't have the key, you might have a better chance.",
+    "category": "Unknown",
+    "abbreviation": "C-158"
+  },
+  {
+    "index": 159,
+    "text": "Wait, let's think about it differently.",
+    "category": "Unknown",
+    "abbreviation": "C-159"
+  },
+  {
+    "index": 160,
+    "text": "Suppose the contestant follows this strategy:\n\n- Keep going until you have two boxes left.",
+    "category": "Unknown",
+    "abbreviation": "C-160"
+  },
+  {
+    "index": 161,
+    "text": "Then, decide to keep the better one (money or key) and discard the worse one (nothing or the other money box).",
+    "category": "Unknown",
+    "abbreviation": "C-161"
+  },
+  {
+    "index": 162,
+    "text": "If the key is in the two boxes, you have a 50% chance of picking it.",
+    "category": "Unknown",
+    "abbreviation": "C-162"
+  },
+  {
+    "index": 163,
+    "text": "If not, you lose.",
+    "category": "Unknown",
+    "abbreviation": "C-163"
+  },
+  {
+    "index": 164,
+    "text": "But the probability of winning would be (2/5)*(1/2) = 1/5, same as before.",
+    "category": "Unknown",
+    "abbreviation": "C-164"
+  },
+  {
+    "index": 165,
+    "text": "Alternatively, if the contestant follows this strategy:\n\n- Keep going until you have three boxes left.",
+    "category": "Unknown",
+    "abbreviation": "C-165"
+  },
+  {
+    "index": 166,
+    "text": "Then, decide to keep the best one (key or money) and discard the others.",
+    "category": "Unknown",
+    "abbreviation": "C-166"
+  },
+  {
+    "index": 167,
+    "text": "The probability that the key is in the three boxes is 3/5, so you have a 1/3 chance of picking it if it's in the three boxes.",
+    "category": "Unknown",
+    "abbreviation": "C-167"
+  },
+  {
+    "index": 168,
+    "text": "So, the probability of winning would be (3/5)*(1/3) = 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-168"
+  },
+  {
+    "index": 169,
+    "text": "Same result.",
+    "category": "Unknown",
+    "abbreviation": "C-169"
+  },
+  {
+    "index": 170,
+    "text": "Hmm, so maybe no matter how many boxes you leave, the probability of winning is 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-170"
+  },
+  {
+    "index": 171,
+    "text": "But that can't be right because if you pick a box earlier, you can have a chance to win.",
+    "category": "Unknown",
+    "abbreviation": "C-171"
+  },
+  {
+    "index": 172,
+    "text": "Wait, let's think about a different strategy.",
+    "category": "Unknown",
+    "abbreviation": "C-172"
+  },
+  {
+    "index": 173,
+    "text": "Suppose the contestant picks a box, and if it's not the key, they continue.",
+    "category": "Unknown",
+    "abbreviation": "C-173"
+  },
+  {
+    "index": 174,
+    "text": "So, they keep going until they either find the key or have to stop.",
+    "category": "Unknown",
+    "abbreviation": "C-174"
+  },
+  {
+    "index": 175,
+    "text": "But since they can choose to stop at any time, they can decide when to stop based on the boxes they've picked.",
+    "category": "Unknown",
+    "abbreviation": "C-175"
+  },
+  {
+    "index": 176,
+    "text": "Wait, maybe the optimal strategy is to continue until you have picked all the money boxes, and then stop.",
+    "category": "Unknown",
+    "abbreviation": "C-176"
+  },
+  {
+    "index": 177,
+    "text": "But since there are three money boxes, that would mean picking three boxes, which is not efficient.",
+    "category": "Unknown",
+    "abbreviation": "C-177"
+  },
+  {
+    "index": 178,
+    "text": "Alternatively, maybe the contestant can use a strategy where they keep going until they have picked a certain number of boxes, say two, and then decide based on what they've found.",
+    "category": "Unknown",
+    "abbreviation": "C-178"
+  },
+  {
+    "index": 179,
+    "text": "Wait, perhaps the optimal strategy is to continue until you have either found the key or have only one box left.",
+    "category": "Unknown",
+    "abbreviation": "C-179"
+  },
+  {
+    "index": 180,
+    "text": "But as I thought earlier, that gives a 1/5 chance.",
+    "category": "Unknown",
+    "abbreviation": "C-180"
+  },
+  {
+    "index": 181,
+    "text": "Alternatively, maybe the contestant can do better by sometimes stopping earlier if they have a good chance.",
+    "category": "Unknown",
+    "abbreviation": "C-181"
+  },
+  {
+    "index": 182,
+    "text": "Wait, let's think about it as a decision process where at each step, the contestant can choose to keep or continue, and we need to maximize the probability of having the key.",
+    "category": "Unknown",
+    "abbreviation": "C-182"
+  },
+  {
+    "index": 183,
+    "text": "At each step, the contestant has a decision based on the current state, which is the set of boxes remaining and what they've picked so far.",
+    "category": "Unknown",
+    "abbreviation": "C-183"
+  },
+  {
+    "index": 184,
+    "text": "But this can get complex, so maybe we can model it as a Markov decision process.",
+    "category": "Unknown",
+    "abbreviation": "C-184"
+  },
+  {
+    "index": 185,
+    "text": "Alternatively, perhaps the optimal strategy is to always continue until you have either found the key or have only one box left, which gives a 1/5 chance.",
+    "category": "Unknown",
+    "abbreviation": "C-185"
+  },
+  {
+    "index": 186,
+    "text": "But that seems worse than other strategies.",
+    "category": "Unknown",
+    "abbreviation": "C-186"
+  },
+  {
+    "index": 187,
+    "text": "Wait, let's think about it differently.",
+    "category": "Unknown",
+    "abbreviation": "C-187"
+  },
+  {
+    "index": 188,
+    "text": "Suppose the contestant uses the following strategy:\n\n- Always keep the box if it's the first box with money or the key.",
+    "category": "Unknown",
+    "abbreviation": "C-188"
+  },
+  {
+    "index": 189,
+    "text": "- If you get a box with money, keep it, otherwise continue.",
+    "category": "Unknown",
+    "abbreviation": "C-189"
+  },
+  {
+    "index": 190,
+    "text": "Wait, but that might not be optimal because you might have to discard the key if you pick it later.",
+    "category": "Unknown",
+    "abbreviation": "C-190"
+  },
+  {
+    "index": 191,
+    "text": "Alternatively, the contestant could use a strategy where they keep the first box that gives them the key or the first box that gives them money, whichever comes first.",
+    "category": "Unknown",
+    "abbreviation": "C-191"
+  },
+  {
+    "index": 192,
+    "text": "But that might not be optimal either.",
+    "category": "Unknown",
+    "abbreviation": "C-192"
+  },
+  {
+    "index": 193,
+    "text": "Wait, perhaps the optimal strategy is to keep going until you have two boxes left, and then decide to keep the one that's better (key or money).",
+    "category": "Unknown",
+    "abbreviation": "C-193"
+  },
+  {
+    "index": 194,
+    "text": "The probability of winning would be the probability that the key is in the two boxes, which is 2/5, and then a 50% chance of picking it, so 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-194"
+  },
+  {
+    "index": 195,
+    "text": "But that's the same as before.",
+    "category": "Unknown",
+    "abbreviation": "C-195"
+  },
+  {
+    "index": 196,
+    "text": "Alternatively, the contestant can use a strategy where they keep going until they have three boxes left, and then decide to keep the best one.",
+    "category": "Unknown",
+    "abbreviation": "C-196"
+  },
+  {
+    "index": 197,
+    "text": "The probability of the key being in the three boxes is 3/5, and then a 1/3 chance of picking it, so again 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-197"
+  },
+  {
+    "index": 198,
+    "text": "Hmm, seems like all these strategies give the same probability of 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-198"
+  },
+  {
+    "index": 199,
+    "text": "But that can't be right because if you pick a box earlier, you can have a higher chance of winning.",
+    "category": "Unknown",
+    "abbreviation": "C-199"
+  },
+  {
+    "index": 200,
+    "text": "Wait, perhaps the optimal strategy is to continue until you have to stop, which gives 1/5, but that's not optimal.",
+    "category": "Unknown",
+    "abbreviation": "C-200"
+  },
+  {
+    "index": 201,
+    "text": "Maybe there's a better strategy.",
+    "category": "Unknown",
+    "abbreviation": "C-201"
+  },
+  {
+    "index": 202,
+    "text": "Wait, let's think about it as a search problem.",
+    "category": "Unknown",
+    "abbreviation": "C-202"
+  },
+  {
+    "index": 203,
+    "text": "The contestant wants to find the key, and each time they pick a box, they can choose to keep it or continue.",
+    "category": "Unknown",
+    "abbreviation": "C-203"
+  },
+  {
+    "index": 204,
+    "text": "If they continue, they lose the current box.",
+    "category": "Unknown",
+    "abbreviation": "C-204"
+  },
+  {
+    "index": 205,
+    "text": "So, the optimal strategy is to keep going until you have either found the key or have no boxes left to pick except one.",
+    "category": "Unknown",
+    "abbreviation": "C-205"
+  },
+  {
+    "index": 206,
+    "text": "But that gives 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-206"
+  },
+  {
+    "index": 207,
+    "text": "Alternatively, maybe the contestant can do better by sometimes stopping earlier if they have a better chance.",
+    "category": "Unknown",
+    "abbreviation": "C-207"
+  },
+  {
+    "index": 208,
+    "text": "Wait, perhaps the optimal strategy is to continue until you have two boxes left, and then decide to keep the one that gives you the key if it's there, otherwise keep the money.",
+    "category": "Unknown",
+    "abbreviation": "C-208"
+  },
+  {
+    "index": 209,
+    "text": "But the probability of winning would still be 1/5.",
+    "category": "Unknown",
+    "abbreviation": "C-209"
+  },
+  {
+    "index": 210,
+    "text": "Wait, maybe I'm overcomplicating it.",
+    "category": "Unknown",
+    "abbreviation": "C-210"
+  },
+  {
+    "index": 211,
+    "text": "Let me think about it in terms of expected value.",
+    "category": "Unknown",
+    "abbreviation": "C-211"
+  },
+  {
+    "index": 212,
+    "text": "The expected value of winning the key is 1/5, which is 20%.",
+    "category": "Unknown",
+    "abbreviation": "C-212"
+  },
+  {
+    "index": 213,
+    "text": "If the contestant can increase this probability, that would be better.",
+    "category": "Unknown",
+    "abbreviation": "C-213"
+  },
+  {
+    "index": 214,
+    "text": "But given the rules, I don't think the contestant can increase the probability beyond 1/5 because the key is in one of five boxes, and the contestant can only pick one box at a time",
+    "category": "Unknown",
+    "abbreviation": "C-214"
+  }
+]

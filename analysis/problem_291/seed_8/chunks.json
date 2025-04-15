@@ -1,0 +1,188 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A local ornithologist is trying to understand the feeding patterns of hummingbirds in the city park.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "She observes that the hummingbirds seem to visit red flowers more frequently than flowers of other colors.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-3"
+  },
+  {
+    "index": 4,
+    "text": "She decides to test this by placing four feeders in the park: a red one, a blue one, a yellow one, and a green one.",
+    "category": "Example Testing",
+    "abbreviation": "ET-4"
+  },
+  {
+    "index": 5,
+    "text": "All feeders contain the same sugar solution.",
+    "category": "Example Testing",
+    "abbreviation": "ET-5"
+  },
+  {
+    "index": 6,
+    "text": "After one week, she counts the number of visits to each feeder:\n\nRed feeder: 152 visits\nBlue feeder: 58 visits\nYellow feeder: 89 visits\nGreen feeder: 45 visits\n\nBased on this data, the ornithologist builds a simple model: 'Hummingbirds in this park prefer red feeders, followed by yellow, then blue, and finally green.'\n\nWhat is a significant limitation of this model, and what modification to the experimental design would help address this limitation? \n\n Solution: \n<think>\nOkay, so I need to figure out the limitation of the ornithologist's model and how to fix it.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "Let's start by understanding the problem.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "The ornithologist has four feeders: red, blue, yellow, and green.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "She observes that hummingbirds visit the red feeder the most, followed by yellow, then blue, and lastly green.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "Based on this, she builds a model that hummingbirds prefer red feeders first, then yellow, blue, and green.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "First, I should think about what her model is suggesting.",
+    "category": "Question Posing",
+    "abbreviation": "QP-11"
+  },
+  {
+    "index": 12,
+    "text": "It seems like she's ranking the feeders based on the number of visits, assuming that more visits mean higher preference.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "But is that the only factor she's considering?\n\nHmm, maybe there are other variables she hasn't accounted for.",
+    "category": "Question Posing",
+    "abbreviation": "QP-13"
+  },
+  {
+    "index": 14,
+    "text": "For example, the placement of the feeders could affect the number of visits.",
+    "category": "Example Testing",
+    "abbreviation": "ET-14"
+  },
+  {
+    "index": 15,
+    "text": "If the red feeder is in a more visible or accessible area, birds might visit it more regardless of their preference.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-15"
+  },
+  {
+    "index": 16,
+    "text": "She hasn't controlled for factors like feeder location, frequency of refilling the sugar solution, or the time of day when she observes the visits.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-16"
+  },
+  {
+    "index": 17,
+    "text": "Another thing is the bird species.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-17"
+  },
+  {
+    "index": 18,
+    "text": "Maybe not all hummingbirds have the same preferences.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-18"
+  },
+  {
+    "index": 19,
+    "text": "Some species might prefer different colors more than others.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-19"
+  },
+  {
+    "index": 20,
+    "text": "The model assumes all hummingbirds have the same preferences, which might not be true.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-20"
+  },
+  {
+    "index": 21,
+    "text": "Also, she only used one type of sugar solution in all feeders.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-21"
+  },
+  {
+    "index": 22,
+    "text": "What if the concentration or the type of sugar affects how appealing the feeders are? Without varying those factors, she can't tell if the color preference is due to the color itself or the sugar solution.",
+    "category": "Question Posing",
+    "abbreviation": "QP-22"
+  },
+  {
+    "index": 23,
+    "text": "So the main limitation is that her model assumes that the number of visits directly reflects the bird's color preference, ignoring other variables like feeder placement, bird species, and the sugar solution's characteristics.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "To fix this, she should control for these variables.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "For example, she could use multiple sugar solutions of different concentrations or types to see if the color preference holds.",
+    "category": "Example Testing",
+    "abbreviation": "ET-25"
+  },
+  {
+    "index": 26,
+    "text": "Also, she should ensure all feeders are equally accessible and placed in similar environments.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "Additionally, she might need to consider different bird species separately.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-27"
+  },
+  {
+    "index": 28,
+    "text": "By controlling these variables, she can more accurately determine the true color preference of the hummingbirds.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "</think>\n\nThe model's limitation is that it assumes the number of visits directly reflects color preference without considering external factors like feeder placement, sugar solution composition, and bird species differences.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "To address this, the experiment should control for these variables, such as varying sugar types and ensuring equal feeder accessibility.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  }
+]

@@ -1,0 +1,476 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small coffee shop owner notices that customer satisfaction follows a nonlinear pattern based on waiting time and coffee quality.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "When the waiting time is under 5 minutes, each additional point of coffee quality (rated 1-10) increases customer satisfaction by 15%.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "When waiting time exceeds 5 minutes, each additional point of coffee quality only increases satisfaction by 5%.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "If the baseline satisfaction is 50 (out of 100) for average coffee (rating 5) with no wait, and each minute of waiting reduces satisfaction by 5 points, determine the customer satisfaction score when: (a) Coffee quality is rated 8 and waiting time is 3 minutes, and (b) Coffee quality is rated 9 and waiting time is 7 minutes.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Which scenario yields higher customer satisfaction, and what insight does this provide about the nonlinear relationship between these variables? \n\n Solution: \n<think>\nAlright, so I've got this problem about customer satisfaction in a coffee shop, and I need to figure out the satisfaction scores for two different scenarios.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Let me break this down step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "First, let's understand the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "The owner notices that customer satisfaction isn't linear\u2014it depends on both waiting time and coffee quality.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "There are two different behaviors depending on whether the waiting time is under 5 minutes or over.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "When waiting time is under 5 minutes, each additional point of coffee quality (rated 1-10) increases satisfaction by 15%.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "That means if the coffee is rated 5, and it's under 5 minutes, satisfaction is 50 (the baseline).",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "If it's rated 8, under 5 minutes, how much would that add? Each point adds 15%, so 8 - 5 = 3 points.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "3 * 15% = 0.45.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "So 50 + 0.45 = 50.45.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "But wait, does that make sense? Or is the 15% per additional point regardless of the starting point? Maybe it's 15% per point added, so for each point above 5, it's 15%.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "So for 8, that's 3 points, so 3 * 15% = 0.45, making it 50.45.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "But then, when waiting time is over 5 minutes, each additional point only adds 5%.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "So for the same coffee quality, the satisfaction increase is less because of the waiting time.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Also, the waiting time itself reduces satisfaction by 5 points per minute.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "So, for example, if you have a 3-minute wait, that's 3 * (-5) = -15 satisfaction points.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "So the baseline is 50, minus 15, which would be 35, and then the coffee quality adds 15% per point.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Wait, no.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Let me clarify.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "The baseline is 50 for average coffee (rating 5) with no wait.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "So when waiting time is 3 minutes, the satisfaction is reduced by 5 points per minute, so 3 * 5 = 15 points lost.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "So 50 - 15 = 35.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Then, coffee quality is 8, which is 3 points above average.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "So 3 * 15% = 0.45, so total satisfaction is 35 + 0.45 = 35.45.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "But wait, is the waiting time reducing satisfaction in addition to the coffee quality effect? Or does the waiting time affect the baseline? Let me read the problem again.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "\"Baseline satisfaction is 50 (out of 100) for average coffee (rating 5) with no wait, and each minute of waiting reduces satisfaction by 5 points.\"\n\nSo the baseline is 50 for coffee 5 with no wait.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "If waiting time is 3 minutes, then satisfaction is reduced by 15 (3*5), so 50 - 15 = 35.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Then, coffee quality is 8, which is 3 points above 5.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "So each point adds 15%, so 3 * 0.15 = 0.45.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "So total satisfaction is 35.45.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Similarly, for part (b), coffee quality is 9, so that's 4 points above average.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "So 4 * 0.15 = 0.60.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "But the waiting time is 7 minutes, which is over 5 minutes, so each additional point adds 5% instead of 15%.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "So the coffee quality adds 4 * 0.05 = 0.20.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "Then, the waiting time reduces satisfaction by 7 * 5 = 35.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "So 50 - 35 = 15, then add 0.20, making it 15.20.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "Wait, but let me make sure.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Is the waiting time reduction applied before or after the coffee quality adjustment? The problem says the baseline is 50 for average coffee with no wait.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "Each minute of waiting reduces satisfaction by 5 points.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "So for each minute, it's a linear reduction.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "Then, coffee quality adds a percentage based on the nonlinear effect.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "So, for part (a), 3 minutes wait: 3*5=15 reduction.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "So 50-15=35.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "Coffee quality is 8, which is 3 points above 5.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "Each point adds 15%, so 3*0.15=0.45.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "So total is 35.45.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "For part (b), 7 minutes wait: 7*5=35 reduction.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "So 50-35=15.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "Coffee quality is 9, which is 4 points above 5.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "Each point adds 15%: 4*0.15=0.60.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "But since waiting time is over 5 minutes, each additional point only adds 5%, so 4*0.05=0.20.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "So total is 15 + 0.20 = 15.20.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "Wait, that's different.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "So in part (a), the coffee quality adds more because it's under 5 minutes, but the waiting time is short, so the reduction is less.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "In part (b), the coffee quality adds less because waiting time is over 5 minutes, but the waiting time is longer, so the reduction is more.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "So which scenario has higher satisfaction? Part (a) is 35.45, part (b) is 15.20.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "So part (a) is higher.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "The insight is that the nonlinear relationship shows that when waiting time is low, higher coffee quality gives more satisfaction, but when waiting time is high, the effect of coffee quality diminishes because each point only adds a little.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "So the owner should probably focus on reducing waiting time to maximize the impact of coffee quality on satisfaction.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "But let me double-check.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Maybe I misapplied the coffee quality effect.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "When waiting time is over 5 minutes, each additional point only increases by 5%, so for part (b), it's 4*(5/100)=0.20, yes.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "So 15.20.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "For part (a), it's 3*(15/100)=0.45, so 35.45.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "Yes, that seems correct.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "So part (a) is higher.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "</think>\n\nThe customer satisfaction score for (a) is 35.45, and for (b) it's 15.20.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "Therefore, scenario (a) yields higher satisfaction.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "The nonlinear relationship shows that shorter waiting times amplify the positive effect of coffee quality on satisfaction, while longer waits reduce satisfaction more significantly, diminishing the impact of coffee quality.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "**Answer:**\n\n(a) Customer satisfaction score is 35.45.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "(b) Customer satisfaction score is 15.20.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Scenario (a) yields higher customer satisfaction.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "The nonlinear relationship indicates that reducing waiting time can significantly enhance the impact of coffee quality on customer satisfaction.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  }
+]

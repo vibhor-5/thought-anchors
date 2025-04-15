@@ -1,0 +1,260 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: You are faced with two investment options for your $10,000 savings:\n\nOption A: A conservative bond with a guaranteed 3% annual return.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Option B: A stock investment with a 60% chance of earning an 8% annual return and a 40% chance of losing 5% of your investment.",
+    "category": "Question Posing",
+    "abbreviation": "QP-3"
+  },
+  {
+    "index": 4,
+    "text": "If you want to maximize your expected return after one year, which option should you choose and why? \n\n Solution: \n<think>\nAlright, so I've got this investment problem to solve.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "I have $10,000 that I can invest in one of two options, and I need to figure out which one will give me a better expected return after one year.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "Let's break it down step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "First, let me understand what each option entails.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "**Option A:** It's a conservative bond with a guaranteed 3% annual return.",
+    "category": "Deduction",
+    "abbreviation": "D-8"
+  },
+  {
+    "index": 9,
+    "text": "That means no matter what happens, I'll get 3% of my investment back each year.",
+    "category": "Deduction",
+    "abbreviation": "D-9"
+  },
+  {
+    "index": 10,
+    "text": "So, for $10,000, that would be 3% of 10,000.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "Let me calculate that real quick.",
+    "category": "Initializing",
+    "abbreviation": "I-11"
+  },
+  {
+    "index": 12,
+    "text": "3% of $10,000 is 0.03 * 10,000 = $300.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "So, I'll get $300 as interest, making my total $10,300 after one year.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "Okay, that's straightforward.",
+    "category": "Initializing",
+    "abbreviation": "I-14"
+  },
+  {
+    "index": 15,
+    "text": "No risks involved here since it's guaranteed.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "**Option B:** This one is a bit riskier.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-16"
+  },
+  {
+    "index": 17,
+    "text": "It's a stock investment with two possible outcomes: a 60% chance of earning an 8% annual return and a 40% chance of losing 5% of my investment.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "Hmm, so there's a 60% chance I make 8%, and a 40% chance I lose 5%.",
+    "category": "Initializing",
+    "abbreviation": "I-18"
+  },
+  {
+    "index": 19,
+    "text": "Let me figure out what each outcome would be in terms of dollar amounts.",
+    "category": "Initializing",
+    "abbreviation": "I-19"
+  },
+  {
+    "index": 20,
+    "text": "Starting with the 8% gain.",
+    "category": "Initializing",
+    "abbreviation": "I-20"
+  },
+  {
+    "index": 21,
+    "text": "8% of $10,000 is 0.08 * 10,000 = $800.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "So, if I earn 8%, I'll have $10,000 + $800 = $10,800.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "Now, the other outcome is losing 5%.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "5% of $10,000 is 0.05 * 10,000 = $500.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "So, if I lose 5%, I'll have $10,000 - $500 = $9,500.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "Alright, so Option B could lead to either $10,800 with 60% probability or $9,500 with 40% probability.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "Now, to find the expected return for Option B, I need to calculate the weighted average of these two outcomes.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "That means multiplying each outcome by its probability and then adding them together.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "Let me do that:\n\nExpected return = (Probability of 8% gain * 8%) + (Probability of 5% loss * (-5%))\n\nPlugging in the numbers:\n\nExpected return = (0.60 * 8%) + (0.40 * (-5%))\n\nCalculating each part:\n\n0.60 * 8% = 4.8%\n0.40 * (-5%) = -2%\n\nAdding them together: 4.8% - 2% = 2.8%\n\nWait a minute, so the expected return for Option B is 2.8%? That's actually lower than Option A, which gives a guaranteed 3% return.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "So, even though Option B has the potential for a higher return (8%) in some cases, the chance of losing money brings the expected return down to 2.8%.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "That's less than what I can get with Option A, which is risk-free.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-31"
+  },
+  {
+    "index": 32,
+    "text": "Therefore, Option A seems like the better choice because it guarantees a 3% return, whereas Option B, despite its potential for higher returns, doesn't consistently outperform due to the risk involved.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "I should double-check my calculations to make sure I didn't make a mistake.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-33"
+  },
+  {
+    "index": 34,
+    "text": "Let's recalculate the expected return for Option B.",
+    "category": "Backtracking",
+    "abbreviation": "B-34"
+  },
+  {
+    "index": 35,
+    "text": "0.60 * 8% = 4.8%\n0.40 * (-5%) = -2%\nTotal expected return = 4.8% - 2% = 2.8%\n\nYep, that's correct.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "So, the expected return for Option B is indeed 2.8%, which is less than 3%.",
+    "category": "Final Answer",
+    "abbreviation": "FA-36"
+  },
+  {
+    "index": 37,
+    "text": "That means, on average, Option A is better.",
+    "category": "Final Answer",
+    "abbreviation": "FA-37"
+  },
+  {
+    "index": 38,
+    "text": "I guess sometimes even though the potential for higher returns exists, the risk involved can lower the expected return.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "So, in this case, the guaranteed 3% is more attractive because it doesn't come with the risk of a potential loss.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "So, after considering both options, I think Option A is the way to go because it offers a higher expected return with no risk, whereas Option B, despite its higher potential, doesn't consistently deliver a better return due to the risk of loss.",
+    "category": "Summary",
+    "abbreviation": "S-40"
+  },
+  {
+    "index": 41,
+    "text": "</think>\n\nAfter evaluating both investment options, Option A is the better choice because it provides a guaranteed 3% annual return with no risk, whereas Option B has a lower expected return of 2.8% due to the risk of a 5% loss.",
+    "category": "Final Answer",
+    "abbreviation": "FA-41"
+  },
+  {
+    "index": 42,
+    "text": "**Answer:** Choose Option A because it offers a guaranteed 3% return, resulting in an expected $300 gain, which is higher than the 2.8% expected return of Option B.",
+    "category": "Final Answer",
+    "abbreviation": "FA-42"
+  }
+]

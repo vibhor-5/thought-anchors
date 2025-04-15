@@ -1,0 +1,1076 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small educational startup needs to design a classroom layout with limited resources.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "They have 20 identical square tables, each seating one student per side.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "The principal wants to maximize the number of students who can be seated while ensuring that all students can see the teacher at the front of the room.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "Additionally, there must be clear walking paths for the teacher to reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "How many different valid arrangements can you generate, and what is the maximum number of students that can be accommodated in the best arrangement? \n\n Solution: \n<think>\nOkay, so I need to figure out how to arrange these 20 identical square tables in a classroom to maximize the number of students while making sure everyone can see the teacher and there are clear paths for the teacher to move around.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Hmm, let's break this down.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "First, each table is square and has one student on each side.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "That means each table can seat 4 students.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "But since they are identical, I can't differentiate between them; they're all the same.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Now, the goal is to place these tables in such a way that all students can see the teacher at the front, and the teacher can walk through without obstacles.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "I think the key here is to arrange the tables in a grid formation.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "That way, students can sit in rows and columns, and the teacher can walk through the paths between the tables.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "But I need to figure out the optimal number of rows and columns to maximize the number of students.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Let me consider that each table takes up a certain amount of space.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Since they are square, let's assume each table has a side length of 's'.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "The walking paths need to be clear, so the teacher can move freely.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "That probably means there should be aisles between the rows and columns of tables.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "If I arrange the tables in a grid, the number of students would be rows multiplied by columns.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "But I need to make sure that the teacher can reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "So, the number of rows and columns can't be too large, otherwise, the teacher wouldn't be able to get through the paths.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "Wait, but how do the walking paths affect the number of students? Maybe the number of rows and columns is limited by the need for the teacher to have a path.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "So, if there are 'r' rows, there must be 'r-1' aisles between them, and similarly for columns.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "But the tables themselves are square, so maybe the number of tables in each direction is limited by the space.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Let's think about it as a grid where the number of tables in each row and column affects the walking paths.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Suppose I have 'm' rows and 'n' columns of tables.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Then, the number of students would be m*n.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "But the teacher needs to be able to walk from the front to any student.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "So, the teacher can't have to walk through a table to reach someone in the same row or column.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Wait, maybe the teacher is at the front, so the arrangement must allow the teacher to see all students without obstruction.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "That suggests that the tables should be arranged in a way that there's a clear line of sight from the front to every student.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "In a grid arrangement, as long as the teacher is at the front, students in the same row can see the teacher, but students in the next row behind would have their view blocked by the tables in front of them.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "So, to have everyone see the teacher, perhaps all students need to be in a single row or column? But that would limit the number of students.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Alternatively, maybe arranging the tables in multiple rows but ensuring that the teacher can walk through the paths between the tables to reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "So, if the tables are arranged in a grid with clear paths (aisles) between them, the teacher can move through those paths to reach students in any row or column.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "But then, the number of students would be m*n, but the teacher needs to have a path to each student.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "So, the number of rows and columns can't be too large because each additional row or column adds more tables but also more paths that the teacher has to navigate.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "Wait, perhaps the maximum number of students is achieved when the number of rows and columns are as balanced as possible.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Because if you have too many rows, the number of columns might be too small, and vice versa.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "So, maybe the optimal arrangement is a square grid, like a square number close to 20.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "But 20 tables...",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "If I arrange them in a 5x4 grid, that's 20 tables, but wait, 5x4 is 20.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "So, 5 rows and 4 columns, each row has 4 tables, each column has 5 tables.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "But then, the number of students would be 5*4=20, but that's the total number of tables.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "Wait, each table seats 4 students, so 20 tables would seat 80 students.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "But that can't be right because the problem says the tables are for seating students, each table seating one student per side.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "Wait, maybe I misinterpreted.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Wait, the problem says each table seats one student per side.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "So, each table can seat 4 students, one on each side.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "But the tables are arranged in the classroom, so each table is a square, and each side can have a student.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "So, each table can have up to 4 students, but in reality, each table is for one student, sitting on one side.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Or is it that each table can seat 4 students, each on a side?\n\nWait, I need to clarify.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "The problem says \"each seating one student per side.\" So, each table has four sides, each side can seat one student.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "So, each table can seat up to four students, but in this case, the startup has 20 identical square tables.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "So, each table is a separate unit, and they can be arranged in the classroom.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "But the principal wants to maximize the number of students who can be seated while ensuring that all can see the teacher and the teacher can reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "So, perhaps the tables are individual units, each with four sides, each side can have a student.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "So, each table can have up to four students, but the tables themselves are separate.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "So, the total number of students would be the sum of students per table, but the arrangement must allow all students to see the teacher and have clear paths for the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "Wait, that's a different interpretation.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "So, each table is a square, and each side can have a student.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "So, each table can have 0 to 4 students, but the tables themselves are separate.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "So, the total number of students is the sum of students at each table.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "But the problem says \"each seating one student per side.\" So, each table is designed to seat one student per side, implying that each table can seat up to four students, but they have to be arranged in such a way that all can see the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Wait, this is confusing.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Let me read the problem again.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "\"A small educational startup needs to design a classroom layout with limited resources.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "They have 20 identical square tables, each seating one student per side.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "The principal wants to maximize the number of students who can be seated while ensuring that all students can see the teacher at the front of the room.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "Additionally, there must be clear walking paths for the teacher to reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "How many different valid arrangements can you generate, and what is the maximum number of students that can be accommodated in the best arrangement?\"\n\nSo, they have 20 identical square tables, each seating one student per side.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "So, each table is designed for one student per side, but they can seat up to four students, one on each side.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "So, each table is a square, and each side can have a student.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "So, each table can have 0 to 4 students, but the arrangement must allow all students to see the teacher and have clear paths for the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "But the principal wants to maximize the number of students seated, so we need to arrange the tables in the classroom in such a way that as many students as possible can be seated, each on a side of a table, and all can see the teacher, and the teacher can walk through clear paths to reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "So, the problem is about arranging the 20 tables in the classroom, placing students on their sides, ensuring that all students can see the teacher and the teacher can move through the classroom.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "First, I think the key is to arrange the tables in a grid formation, with each table placed in a way that allows for clear lines of sight and walking paths.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "Let me consider that the classroom is a rectangle, and the teacher is at the front, say at the front of the classroom.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "The tables need to be arranged in rows and columns, with clear paths (aisles) between them.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "Each table is square, so the length of the classroom in both directions would need to accommodate the tables and the aisles.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "But since the tables are identical and the startup has limited resources, they probably want to use the space efficiently.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "Let me think about how to model this.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "Suppose the classroom is a rectangle, and the teacher is at one corner, say the front-left corner.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "The tables need to be arranged in rows and columns, each table placed in a way that students can sit on each side.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "But wait, each table is a square, so when placed adjacent to another table, the sides are aligned.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "So, the arrangement is like a grid where each cell is a table, and the teacher is at the front.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Now, to ensure that all students can see the teacher, each student must have a clear line of sight to the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "That means that the arrangement of tables must not block the view.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "So, if a student is in a row behind another table, their view to the teacher would be blocked unless the teacher can move through the classroom to reach them.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "But the problem says that there must be clear walking paths for the teacher to reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "So, the teacher can move through the classroom, but the students must be arranged such that the teacher can get to them without obstruction.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "Wait, but if the teacher is at the front, and the students are arranged in a grid behind, the teacher can walk through the aisles to reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "However, the students in the same row can see the teacher, but students in the next row behind would have their view blocked by the tables in front of them.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "So, unless the teacher moves to their row, they can't see the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "But the problem says that all students must be able to see the teacher, which suggests that each student must have a direct line of sight to the teacher without needing the teacher to move through the classroom.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "That complicates things.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "Alternatively, maybe the teacher can move through the classroom, but the students must be arranged in such a way that the teacher can reach them, but they can still see the teacher even if the teacher is moving.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "Wait, but the problem states that all students can see the teacher at the front, which implies that each student must have a clear view to the teacher without the teacher needing to move.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "So, the arrangement must allow for that.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "In that case, the only way for all students to see the teacher is if they are all in the same row or same column as the teacher, but that's not practical because the teacher is at the front, so only the students in the front row can see the teacher unless the classroom is arranged in a way that students in the back can see the teacher through clear lines.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "Wait, perhaps the classroom is laid out like a theater, with students seated in rows and columns, and the teacher at the front.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "But in that case, students in the back rows would have their view blocked by the students in front of them.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "So, unless the teacher can move through the classroom, the students in the back can't see the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "But the problem says that the teacher must be able to reach any student via clear walking paths, so the teacher can move through the classroom to reach any student, but the students must be able to see the teacher regardless of where the teacher is.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "This seems contradictory.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "Either the students must all be in a single row or column, which would limit the number of students, or the arrangement must allow for the teacher to move through the classroom while students can still see the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "Wait, maybe the key is that the teacher can move through the classroom, but the students must be arranged such that their view to the teacher isn't blocked by other students or tables.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "So, the tables must be arranged in a way that allows for both the teacher to move through and the students to see the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "This is tricky.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "Let me think of a possible arrangement.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "Suppose the classroom is divided into a grid of tables, with clear paths (aisles) between them.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "The teacher can walk through these aisles to reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "For the students to see the teacher, their line of sight must not be blocked by other tables or students.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "So, if the classroom is arranged in a grid where each table is placed with walking paths between them, the students can be seated on the sides of the tables.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "Each table can have students on all four sides, but the teacher needs to be able to walk through the paths between the tables to reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "But the problem is that the teacher is at the front, so the arrangement must allow the teacher to see all students and reach them via walking paths.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "I think the solution involves arranging the tables in a grid where the number of rows and columns is such that the teacher can walk through the classroom and all students can see the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "Let me consider that the classroom is a rectangle, and the tables are arranged in rows and columns with clear paths between them.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "The teacher is at one corner, say the front-left.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "Each table is square, so the length of the classroom in both directions must be a multiple of the table's side length plus the walking paths.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "But since the tables are identical and the startup has limited resources, they probably want to minimize the classroom size, but the problem doesn't mention the size, so maybe it's assumed that the size is sufficient.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "Alternatively, the number of tables in each direction is limited by the need for walking paths.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "Let me think of the number of tables in rows and columns.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "Suppose we have 'r' rows and 'c' columns of tables.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "Then, the number of students would be the sum of students at each table, but each table can have up to 4 students.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "However, the arrangement must allow all students to see the teacher and have clear paths for the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "Wait, but the problem says they have 20 tables, each seating one student per side.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "So, each table can have up to 4 students, but they have 20 tables.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "So, the total number of students can be up to 80, but the principal wants to maximize the number of students seated, so probably all 80.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "But the problem is about arranging the tables in the classroom such that all students can see the teacher and the teacher can walk through.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "But the problem is asking for the maximum number of students that can be accommodated, not the total number of tables.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "Wait, no, the total number of tables is fixed at 20, each seating up to 4 students.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "So, the maximum number of students is 20*4=80, but the arrangement must allow all 80 to see the teacher and have clear paths.",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  },
+  {
+    "index": 134,
+    "text": "But that seems too straightforward.",
+    "category": "Unknown",
+    "abbreviation": "C-134"
+  },
+  {
+    "index": 135,
+    "text": "Maybe I'm misunderstanding.",
+    "category": "Unknown",
+    "abbreviation": "C-135"
+  },
+  {
+    "index": 136,
+    "text": "Wait, perhaps each table is for one student, and each table has four sides, but only one student can sit on each side.",
+    "category": "Unknown",
+    "abbreviation": "C-136"
+  },
+  {
+    "index": 137,
+    "text": "So, each table can have up to four students, but the problem says \"each seating one student per side.\" So, each table can seat one student per side, but they can seat multiple students, one on each side.",
+    "category": "Unknown",
+    "abbreviation": "C-137"
+  },
+  {
+    "index": 138,
+    "text": "But the startup has 20 identical square tables, each seating one student per side.",
+    "category": "Unknown",
+    "abbreviation": "C-138"
+  },
+  {
+    "index": 139,
+    "text": "So, each table is a unit that can have up to four students, but they have 20 such tables.",
+    "category": "Unknown",
+    "abbreviation": "C-139"
+  },
+  {
+    "index": 140,
+    "text": "So, the total number of students can be up to 80, but the arrangement must allow all students to see the teacher and have clear walking paths.",
+    "category": "Unknown",
+    "abbreviation": "C-140"
+  },
+  {
+    "index": 141,
+    "text": "But the problem is asking for the maximum number of students that can be accommodated, which would be 80, but the arrangement must allow that.",
+    "category": "Unknown",
+    "abbreviation": "C-141"
+  },
+  {
+    "index": 142,
+    "text": "However, the teacher needs to be able to reach any student via clear paths, and all students must be able to see the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-142"
+  },
+  {
+    "index": 143,
+    "text": "So, the arrangement must be such that all 80 students can see the teacher, and the teacher can walk through clear paths to reach any student.",
+    "category": "Unknown",
+    "abbreviation": "C-143"
+  },
+  {
+    "index": 144,
+    "text": "But that seems impossible because if all 80 students are seated around the tables, they would block each other's view of the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-144"
+  },
+  {
+    "index": 145,
+    "text": "Unless the classroom is designed like a theater with all students facing the teacher, but that would require all students to be in a single row or column, which isn't practical with 80 students.",
+    "category": "Unknown",
+    "abbreviation": "C-145"
+  },
+  {
+    "index": 146,
+    "text": "Wait, maybe the tables are arranged in a circular fashion around the teacher, but the problem says the teacher is at the front, so probably not.",
+    "category": "Unknown",
+    "abbreviation": "C-146"
+  },
+  {
+    "index": 147,
+    "text": "Alternatively, the tables are arranged in a grid where each table is placed such that the teacher can walk through the paths between them, and all students can see the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-147"
+  },
+  {
+    "index": 148,
+    "text": "Let me consider that the classroom is a rectangle, and the tables are arranged in a grid with clear paths between them.",
+    "category": "Unknown",
+    "abbreviation": "C-148"
+  },
+  {
+    "index": 149,
+    "text": "The teacher is at the front, say at the front-left corner.",
+    "category": "Unknown",
+    "abbreviation": "C-149"
+  },
+  {
+    "index": 150,
+    "text": "Each table is placed in the grid, and students sit on the sides of the tables.",
+    "category": "Unknown",
+    "abbreviation": "C-150"
+  },
+  {
+    "index": 151,
+    "text": "For all students to see the teacher, their line of sight must not be blocked by other tables or students.",
+    "category": "Unknown",
+    "abbreviation": "C-151"
+  },
+  {
+    "index": 152,
+    "text": "So, if a student is seated on the side of a table that is facing the teacher, they can see the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-152"
+  },
+  {
+    "index": 153,
+    "text": "If a student is seated on the opposite side, their view would be blocked by the table itself.",
+    "category": "Unknown",
+    "abbreviation": "C-153"
+  },
+  {
+    "index": 154,
+    "text": "Therefore, to have all students see the teacher, only the students seated on the sides facing the teacher can see the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-154"
+  },
+  {
+    "index": 155,
+    "text": "The students seated on the opposite sides cannot see the teacher unless the teacher moves to their side.",
+    "category": "Unknown",
+    "abbreviation": "C-155"
+  },
+  {
+    "index": 156,
+    "text": "But the problem says that the teacher must be able to reach any student via clear walking paths.",
+    "category": "Unknown",
+    "abbreviation": "C-156"
+  },
+  {
+    "index": 157,
+    "text": "So, the teacher can move through the classroom to reach the students on the opposite sides, but those students cannot see the teacher unless the teacher is standing next to them.",
+    "category": "Unknown",
+    "abbreviation": "C-157"
+  },
+  {
+    "index": 158,
+    "text": "Wait, but the problem says that all students must be able to see the teacher, regardless of where the teacher is.",
+    "category": "Unknown",
+    "abbreviation": "C-158"
+  },
+  {
+    "index": 159,
+    "text": "So, the students must have a clear view to the teacher's position, which is at the front.",
+    "category": "Unknown",
+    "abbreviation": "C-159"
+  },
+  {
+    "index": 160,
+    "text": "Therefore, the only way for all students to see the teacher is if all students are seated on the sides facing the teacher.",
+    "category": "Unknown",
+    "abbreviation": "C-160"
+  },
+  {
+    "index": 161,
+    "text": "That means that for each table, only the side facing the teacher can have a student, and the opposite side cannot have a student because that would block the view.",
+    "category": "Unknown",
+    "abbreviation": "C-161"
+  },
+  {
+    "index": 162,
+    "text": "Wait, but that would limit the number of students to half the number of tables, since each table can have at most two students (one on each side facing the teacher).",
+    "category": "Unknown",
+    "abbreviation": "C-162"
+  },
+  {
+    "index": 163,
+    "text": "But since the tables are arranged in a grid, each table can have students on both sides facing the teacher, but the opposite sides would block the view.",
+    "category": "Unknown",
+    "abbreviation": "C-163"
+  },
+  {
+    "index": 164,
+    "text": "Alternatively, maybe the teacher can move through the classroom, but the students must be arranged such that their view to the teacher isn't blocked by other students or tables.",
+    "category": "Unknown",
+    "abbreviation": "C-164"
+  },
+  {
+    "index": 165,
+    "text": "This is getting complicated.",
+    "category": "Unknown",
+    "abbreviation": "C-165"
+  },
+  {
+    "index": 166,
+    "text": "Let me try to model it.",
+    "category": "Unknown",
+    "abbreviation": "C-166"
+  },
+  {
+    "index": 167,
+    "text": "Suppose the classroom is a rectangle with length L and width W.",
+    "category": "Unknown",
+    "abbreviation": "C-167"
+  },
+  {
+    "index": 168,
+    "text": "The teacher is at the front, say at (0,0).",
+    "category": "Unknown",
+    "abbreviation": "C-168"
+  },
+  {
+    "index": 169,
+    "text": "The tables are square with side length s.",
+    "category": "Unknown",
+    "abbreviation": "C-169"
+  },
+  {
+    "index": 170,
+    "text": "The number of tables in each row and column must be such that the teacher can walk through the classroom.",
+    "category": "Unknown",
+    "abbreviation": "C-170"
+  },
+  {
+    "index": 171,
+    "text": "Let me assume that the classroom is large enough to accommodate the tables and walking paths.",
+    "category": "Unknown",
+    "abbreviation": "C-171"
+  },
+  {
+    "index": 172,
+    "text": "Each table is placed in a grid, say with 'm' rows and 'n' columns.",
+    "category": "Unknown",
+    "abbreviation": "C-172"
+  },
+  {
+    "index": 173,
+    "text": "The teacher can walk through the paths between the tables, which would be the aisles.",
+    "category": "Unknown",
+    "abbreviation": "C-173"
+  },
+  {
+    "index": 174,
+    "text": "For the students to see the teacher, their line of sight must not be blocked by other tables or students.",
+    "category": "Unknown",
+    "abbreviation": "C-174"
+  },
+  {
+    "index": 175,
+    "text": "So, if a student is seated on a table in row i and column j, the teacher at (0,0) must have a clear line of sight to that student.",
+    "category": "Unknown",
+    "abbreviation": "C-175"
+  },
+  {
+    "index": 176,
+    "text": "In a grid arrangement, the line of sight would be blocked by the tables in front of them.",
+    "category": "Unknown",
+    "abbreviation": "C-176"
+  },
+  {
+    "index": 177,
+    "text": "So, unless the student is in the first row, their view is blocked.",
+    "category": "Unknown",
+    "abbreviation": "C-177"
+  },
+  {
+    "index": 178,
+    "text": "Wait, that can't be right because the teacher is at the front",
+    "category": "Unknown",
+    "abbreviation": "C-178"
+  }
+]

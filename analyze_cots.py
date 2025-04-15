@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from tqdm import tqdm
 from pathlib import Path
-from typing import List, Dict, Tuple
+from typing import List, Dict, Tuple, Union
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import re
 from scipy.stats import pearsonr
@@ -76,13 +76,14 @@ def load_model_and_tokenizer(model_name: str) -> Tuple[AutoModelForCausalLM, Aut
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
         torch_dtype=torch.float16 if device == "cuda" else torch.float32,
-        device_map=device
+        device_map=device,
     )
     
     # Set model to evaluation mode
     model.eval()
     
     print('Number of layers:', model.config.num_hidden_layers)
+    print('Number of attention heads:', model.config.num_attention_heads)
     print('Hidden size:', model.config.hidden_size)
     
     return model, tokenizer
@@ -687,7 +688,14 @@ def compute_chunk_attention(
     model: AutoModelForCausalLM,
     tokenizer: AutoTokenizer,
     layers: List[int],
-    full_text: str
+    heads: List[Union[str, int]],
+    full_text: str,
+    token_aggregation: str = "sum",        # Options: "sum", "mean"
+    token_normalization: str = "source",   # Options: "source", "product", "none"
+    head_aggregation: str = "late",       # Options: "early", "late"
+    head_aggregation_method: str = "max", # Options: "mean", "max" 
+    layer_aggregation: str = "mean",       # Options: "mean", "max"
+    final_normalization: str = "minmax",  # Options: "softmax", "minmax", "none"
 ) -> np.ndarray:
     """
     Compute attention weights between chunks from the full context.
@@ -697,7 +705,14 @@ def compute_chunk_attention(
         model: Hugging Face model
         tokenizer: Tokenizer
         layers: List of layers to analyze
+        heads: List of heads to analyze or ['avg'] for average/max across all heads
         full_text: The full solution text
+        token_aggregation: How to aggregate token-level attention ("sum" or "mean")
+        token_normalization: How to normalize for chunk sizes ("source", "product", "none")
+        head_aggregation: When to aggregate across heads ("early" or "late")
+        head_aggregation_method: How to aggregate across heads ("mean" or "max")
+        layer_aggregation: How to aggregate across layers ("mean" or "max")
+        final_normalization: Final matrix normalization ("softmax", "minmax", "none")
         
     Returns:
         Attention matrix (n_chunks x n_chunks)
@@ -734,53 +749,161 @@ def compute_chunk_attention(
         chunk_end_token = tokenizer.encode(full_text_str[:chunk_end], add_special_tokens=False)
         chunk_end_token_idx = len(chunk_end_token)
         
-        chunk_token_ranges.append((chunk_start_token_idx, chunk_end_token_idx))
-    
-    # Run the model to get attention weights
-    with torch.no_grad():
-        outputs = model(full_tokens, output_attentions=True)
-        
-    # Extract attention weights
-    # Shape: [layers, batch, heads, seq_len, seq_len]
-    attention_weights = outputs.attentions
+        chunk_token_ranges.append((chunk_start_token_idx, chunk_end_token_idx + 1))
     
     # Initialize attention matrix
     attention_matrix = np.zeros((n_chunks, n_chunks))
     
-    # Compute average attention from each chunk to each other chunk
-    for i, (start_i, end_i) in enumerate(chunk_token_ranges):
-        if start_i == end_i:  # Skip invalid ranges
-            continue
-            
-        for j, (start_j, end_j) in enumerate(chunk_token_ranges):
-            if start_j == end_j:  # Skip invalid ranges
-                continue
+    # Set diagonal to 0.0 (we'll ignore self-attention)
+    np.fill_diagonal(attention_matrix, 0.0)
+    
+    # Get attention weights for the full text
+    attention_weights = {}
+    
+    # Register hooks for each layer
+    handles = []
+    
+    def get_attention_hook(layer_idx):
+        def hook(module, input, output):
+            # For most transformer models, attention weights are in output[1]
+            # This is the raw attention weights before softmax
+            # Shape: [batch, heads, seq_len, seq_len]
+            if isinstance(output, tuple) and len(output) > 1:
+                # Get attention weights and apply softmax to get probabilities
+                layer_attention_weights = output[1]
+                if layer_attention_weights is not None:
+                    attention_weights[layer_idx] = layer_attention_weights.detach().cpu()
+        return hook
+    
+    # Register hooks for each layer's attention module
+    for layer_idx in layers:
+        # The exact module path may vary depending on the model architecture
+        layer = model.model.layers[layer_idx].self_attn
+        handle = layer.register_forward_hook(get_attention_hook(layer_idx))
+        handles.append(handle)
+    
+    try:
+        # Forward pass
+        with torch.no_grad():
+            model(full_tokens, output_attentions=True)
+        
+        # Process attention weights
+        for i, (start_i, end_i) in enumerate(chunk_token_ranges):  
+            for j, (start_j, end_j) in enumerate(chunk_token_ranges):
+                # Extract attention from chunk i to chunk j
+                layer_attentions = []
                 
-            # Mark self-attention as 1.0
-            if i == j:
-                attention_matrix[i, j] = 1.0
-                continue
-            
-            # Extract attention from chunk i to chunk j
-            # Average across specified layers and all heads
-            layer_attentions = []
-            
-            for layer_idx in layers:
-                # Get attention weights for this layer
-                # Shape: [batch, heads, seq_len, seq_len]
-                layer_attention = attention_weights[layer_idx][0]  # batch size is 1
+                for layer_idx in layers:
+                    if layer_idx not in attention_weights:
+                        continue
+                    
+                    # Shape: [batch, heads, seq_len, seq_len]
+                    layer_attn = attention_weights[layer_idx]
+                    
+                    if head_aggregation == "early":
+                        # Early head aggregation
+                        if heads[0] == 'avg':
+                            if head_aggregation_method == "mean":
+                                # Average across all heads
+                                head_attention = layer_attn.mean(dim=1)  # [batch, seq_len, seq_len]
+                            else:  # "max"
+                                # Max across all heads
+                                head_attention = layer_attn.max(dim=1)[0]  # [batch, seq_len, seq_len]
+                        else:
+                            # Use specified heads
+                            selected_heads = layer_attn[:, heads, :, :]
+                            if head_aggregation_method == "mean":
+                                head_attention = selected_heads.mean(dim=1)  # [batch, seq_len, seq_len]
+                            else:  # "max"
+                                head_attention = selected_heads.max(dim=1)[0]  # [batch, seq_len, seq_len]
+                        
+                        # Extract chunk-level attention
+                        chunk_region = head_attention[:, start_i:end_i, start_j:end_j]
+                        
+                        # Aggregate token-level attention to chunk-level
+                        if token_aggregation == "sum":
+                            chunk_attention = chunk_region.sum().item()
+                        else:  # "mean"
+                            chunk_attention = chunk_region.mean().item()
+                        
+                        # Apply token-level normalization
+                        if token_normalization == "source":
+                            tokens_in_source = end_i - start_i
+                            chunk_attention = chunk_attention / tokens_in_source if tokens_in_source > 0 else 0
+                        elif token_normalization == "product":
+                            token_pairs = (end_i - start_i) * (end_j - start_j)
+                            chunk_attention = chunk_attention / token_pairs if token_pairs > 0 else 0
+                        # For "none", no normalization is applied
+                        
+                        layer_attentions.append(chunk_attention)
+                    
+                    else:  # "late" head aggregation
+                        head_attentions = []
+                        head_indices = range(layer_attn.size(1)) if heads[0] == 'avg' else heads
+                        
+                        for head_idx in head_indices:
+                            # Get attention for this head
+                            single_head_attn = layer_attn[:, head_idx, :, :]
+                            
+                            # Extract chunk-level attention for this head
+                            chunk_region = single_head_attn[:, start_i:end_i, start_j:end_j]
+                            
+                            # Aggregate token-level attention to chunk-level
+                            if token_aggregation == "sum":
+                                chunk_head_attention = chunk_region.sum().item()
+                            else:  # "mean"
+                                chunk_head_attention = chunk_region.mean().item()
+                            
+                            # Apply token-level normalization
+                            if token_normalization == "source":
+                                tokens_in_source = end_i - start_i
+                                chunk_head_attention = chunk_head_attention / tokens_in_source if tokens_in_source > 0 else 0
+                            elif token_normalization == "product":
+                                token_pairs = (end_i - start_i) * (end_j - start_j)
+                                chunk_head_attention = chunk_head_attention / token_pairs if token_pairs > 0 else 0
+                            # For "none", no normalization is applied
+                            
+                            head_attentions.append(chunk_head_attention)
+                        
+                        # Aggregate across heads
+                        if head_attentions:
+                            if head_aggregation_method == "mean":
+                                layer_attentions.append(np.mean(head_attentions))
+                            else:  # "max"
+                                layer_attentions.append(np.max(head_attentions))
                 
-                # Average across all heads
-                # Shape: [seq_len, seq_len]
-                avg_head_attention = layer_attention.mean(dim=0)
-                
-                # Extract attention from tokens in chunk i to tokens in chunk j
-                # and average across all token pairs
-                chunk_attention = avg_head_attention[start_i:end_i, start_j:end_j].mean().item()
-                layer_attentions.append(chunk_attention)
-            
-            # Average across layers
-            attention_matrix[i, j] = np.mean(layer_attentions)
+                # Aggregate across layers
+                if layer_attentions:
+                    if layer_aggregation == "mean":
+                        attention_matrix[i, j] = np.mean(layer_attentions)
+                    elif layer_aggregation == "max":
+                        attention_matrix[i, j] = np.max(layer_attentions)
+                    
+        # Apply final matrix normalization
+        if final_normalization == "softmax":
+            # Apply softmax row-wise
+            attention_matrix = np.exp(attention_matrix)
+            row_sums = attention_matrix.sum(axis=1, keepdims=True)
+            attention_matrix = np.divide(attention_matrix, row_sums, out=np.zeros_like(attention_matrix), where=row_sums!=0)
+        
+        elif final_normalization == "minmax":
+            # Row-wise min-max normalization
+            row_mins = attention_matrix.min(axis=1, keepdims=True)
+            row_maxs = attention_matrix.max(axis=1, keepdims=True)
+            diff = row_maxs - row_mins
+            attention_matrix = np.divide(attention_matrix - row_mins, diff, 
+                                         out=np.zeros_like(attention_matrix), 
+                                         where=diff!=0)
+        
+        # For "none", no normalization is applied
+    
+    finally:
+        # Remove hooks
+        for handle in handles:
+            handle.remove()
+        
+        # Clear memory
+        torch.cuda.empty_cache()
     
     return attention_matrix
 
@@ -903,7 +1026,6 @@ def get_chunk_activations_from_full_context(
         current_pos = chunk_end  # Update for next search
         
         # Convert character positions to token indices
-        # This is an approximation - for exact mapping, we'd need alignment tools
         chunk_start_token = tokenizer.encode(full_text_str[:chunk_start], add_special_tokens=False)
         chunk_start_token_idx = len(chunk_start_token)
         
@@ -916,7 +1038,7 @@ def get_chunk_activations_from_full_context(
             if layer in activations:
                 # Extract activations for this chunk's tokens
                 # Shape: [batch, seq_len, hidden_size]
-                layer_act = activations[layer][0, chunk_start_token_idx:chunk_end_token_idx, :]
+                layer_act = activations[layer][0, chunk_start_token_idx:chunk_end_token_idx+1, :]
                 
                 # Average across tokens
                 avg_act = layer_act.mean(dim=0)
@@ -940,6 +1062,8 @@ def analyze_problem_solution(
     tokenizer: AutoTokenizer,
     claude_client,
     layers: List[int],
+    heads: List[int],
+    mode: str = "all" # Options: "all", "chunks", "stats"
 ):
     """
     Analyze a problem solution and generate correlation heatmap.
@@ -950,6 +1074,8 @@ def analyze_problem_solution(
         tokenizer: Tokenizer
         claude_client: Anthropic Claude client
         layers: List of layers to analyze
+        heads: List of heads to analyze
+        mode: str = "all" # Options: "all", "chunks", "stats"
     """
     problem_id = problem_dir.name
     
@@ -961,7 +1087,7 @@ def analyze_problem_solution(
         print(f"No solutions found for {problem_id}")
         return
     
-    for solution_dict in tqdm(solutions[:1], desc="Iterating over seeds"):  # Just analyze the first solution
+    for solution_dict in tqdm(solutions, desc="Iterating over seeds"):
         seed = solution_dict["seed"]
         solution = solution_dict["solution"]
         
@@ -980,7 +1106,7 @@ def analyze_problem_solution(
             chunks = [item["text"] for item in chunks_data]
             chunk_categories = [item["category"] for item in chunks_data]
             chunk_abbreviations = [item["abbreviation"] for item in chunks_data]
-        else:
+        elif mode == "chunks" or mode == "all":
             # Split solution into chunks
             chunks = split_text_into_chunks(solution, tokenizer)
             
@@ -1028,74 +1154,82 @@ def analyze_problem_solution(
             
             with open(chunks_file, 'w', encoding='utf-8') as f:
                 json.dump(chunks_with_categories, f, indent=2)
-        
-        # Get activations for each chunk from the full context
-        chunk_activations = get_chunk_activations_from_full_context(
-            solution, chunks, model, tokenizer, layers
-        )
-        
-        # Compute Pearson correlation
-        corr_matrix = compute_chunk_correlations(chunks, model, tokenizer, layers)
-        
-        # Save correlation matrix as numpy array
-        np.save(problem_output_dir / f"chunk_correlation_layer_{layers[0]}.npy", corr_matrix)
-        
-        # Plot correlation heatmap
-        plot_correlation_heatmap(
-            corr_matrix, 
-            problem_output_dir / f"chunk_correlation_layer_{layers[0]}.png", 
-            f"{problem_id} - Seed {seed} - Chunk Residual Stream Correlation",
-            chunk_labels=chunk_abbreviations,
-            layers=layers
-        )
-        
-        # Compute cosine similarity
-        cosine_sim_matrix = compute_cosine_similarity(chunk_activations)
-        
-        # Save cosine similarity matrix as numpy array
-        np.save(problem_output_dir / f"chunk_cosine_similarity_layer_{layers[0]}.npy", cosine_sim_matrix)
-        
-        # Plot cosine similarity heatmap
-        plot_cosine_similarity_heatmap(
-            cosine_sim_matrix, 
-            problem_output_dir / f"chunk_cosine_similarity_layer_{layers[0]}.png", 
-            f"{problem_id} - Seed {seed} - Chunk Cosine Similarity",
-            chunk_labels=chunk_abbreviations,
-            layers=layers
-        )
-        
-        # Compute L2 distance
-        l2_distance_matrix = compute_l2_distance(chunk_activations)
-        
-        # Save L2 distance matrix as numpy array
-        np.save(problem_output_dir / f"chunk_l2_distance_layer_{layers[0]}.npy", l2_distance_matrix)
-        
-        # Plot L2 distance heatmap
-        plot_l2_distance_heatmap(
-            l2_distance_matrix, 
-            problem_output_dir / f"chunk_l2_distance_layer_{layers[0]}.png", 
-            f"{problem_id} - Seed {seed} - Chunk L2 Distance",
-            chunk_labels=chunk_abbreviations,
-            layers=layers
-        )
-        
-        # Compute attention weights from the full context
-        attention_matrix = compute_chunk_attention(chunks, model, tokenizer, layers, solution)
-        
-        # Save attention matrix as numpy array
-        np.save(problem_output_dir / f"chunk_attention_layer_{layers[0]}.npy", attention_matrix)
-        
-        # Plot attention heatmap
-        plot_attention_heatmap(
-            attention_matrix, 
-            problem_output_dir / f"chunk_attention_layer_{layers[0]}.png", 
-            f"{problem_id} - Seed {seed} - Chunk Attention",
-            chunk_labels=chunk_abbreviations,
-            layers=layers
-        )
+                
+        if mode == "chunks":
+            continue
+    
+        try:
+            # Get activations for each chunk from the full context
+            chunk_activations = get_chunk_activations_from_full_context(solution, chunks, model, tokenizer, layers)
+            
+            # Compute Pearson correlation
+            corr_matrix = compute_chunk_correlations(chunks, model, tokenizer, layers)
+            
+            # Save correlation matrix as numpy array
+            np.save(problem_output_dir / f"chunk_correlation_layer_{layers[0]}.npy", corr_matrix)
+            
+            # Plot correlation heatmap
+            plot_correlation_heatmap(
+                corr_matrix, 
+                problem_output_dir / f"chunk_correlation_layer_{layers[0]}.png", 
+                f"{problem_id} - Seed {seed} - Chunk Residual Stream Correlation",
+                chunk_labels=chunk_abbreviations,
+                layers=layers
+            )
+            
+            if False:
+                # Compute cosine similarity
+                cosine_sim_matrix = compute_cosine_similarity(chunk_activations)
+                
+                # Save cosine similarity matrix as numpy array
+                np.save(problem_output_dir / f"chunk_cosine_similarity_layer_{layers[0]}.npy", cosine_sim_matrix)
+                
+                # Plot cosine similarity heatmap
+                plot_cosine_similarity_heatmap(
+                    cosine_sim_matrix, 
+                    problem_output_dir / f"chunk_cosine_similarity_layer_{layers[0]}.png", 
+                    f"{problem_id} - Seed {seed} - Chunk Cosine Similarity",
+                    chunk_labels=chunk_abbreviations,
+                    layers=layers
+                )
+            
+            if False:
+                # Compute L2 distance
+                l2_distance_matrix = compute_l2_distance(chunk_activations)
+                
+                # Save L2 distance matrix as numpy array
+                np.save(problem_output_dir / f"chunk_l2_distance_layer_{layers[0]}.npy", l2_distance_matrix)
+                
+                # Plot L2 distance heatmap
+                plot_l2_distance_heatmap(
+                    l2_distance_matrix, 
+                    problem_output_dir / f"chunk_l2_distance_layer_{layers[0]}.png", 
+                    f"{problem_id} - Seed {seed} - Chunk L2 Distance",
+                    chunk_labels=chunk_abbreviations,
+                    layers=layers
+                )
+            
+            # Compute attention weights from the full context
+            attention_matrix = compute_chunk_attention(chunks, model, tokenizer, layers, heads, solution)
+            
+            # Save attention matrix as numpy array
+            np.save(problem_output_dir / f"chunk_attention_layer_{layers[0]}_head_{heads[0]}.npy", attention_matrix)
+            
+            # Plot attention heatmap
+            plot_attention_heatmap(
+                attention_matrix, 
+                problem_output_dir / f"chunk_attention_layer_{layers[0]}_head_{heads[0]}.png", 
+                f"{problem_id} - Seed {seed} - Chunk Attention",
+                chunk_labels=chunk_abbreviations,
+                layers=layers
+            )
+        except Exception as e:
+            print(f"Skipping - Error analyzing {problem_id} - Seed {seed}: {e}")
 
 # Set layers to analyze
-layers = [11]
+layers = [31]
+heads = ['avg']
+mode = 'chunks' # Options: "all", "chunks", "stats"
 
 # Initialize Anthropic client
 api_key = os.environ.get('ANTHROPIC_API_KEY')
@@ -1106,12 +1240,16 @@ else:
     claude_client = anthropic.Anthropic(api_key=api_key)
 
 # Load model and tokenizer
-model, tokenizer = load_model_and_tokenizer(model_name)
+if mode == 'chunks':
+    model, tokenizer = None, None
+else:
+    model, tokenizer = load_model_and_tokenizer(model_name)
 
 # Get problem directories
 problem_dirs = get_problem_dirs(cots_dir)
 print(f"Found {len(problem_dirs)} problem directories")
 
 # Analyze problems
-for problem_dir in tqdm(problem_dirs, desc="Analyzing problems"):
-    analyze_problem_solution(problem_dir, model, tokenizer, claude_client, layers)
+for layer in layers:
+    for problem_dir in tqdm(problem_dirs, desc="Analyzing problems"):
+        analyze_problem_solution(problem_dir, model, tokenizer, claude_client, [layer], heads, mode)

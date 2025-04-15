@@ -1,0 +1,7 @@
+{
+  "topic": "Mathematical Logic",
+  "subtopic": "Proof by Induction",
+  "difficulty": "Easy",
+  "question": "Prove that for all natural numbers n \u2265 1, the following identity holds: 1 + 2 + 3 + ... + n = n(n+1)/2.",
+  "answer": "To prove that 1 + 2 + 3 + ... + n = n(n+1)/2 for all natural numbers n \u2265 1, we will use mathematical induction.\n\nStep 1: Establish the base case (n = 1).\nFor n = 1, the left side gives us: 1\nThe right side gives us: 1(1+1)/2 = 1(2)/2 = 2/2 = 1\nSince both sides equal 1, the base case is verified.\n\nStep 2: Inductive hypothesis.\nAssume that the statement is true for some arbitrary natural number k \u2265 1.\nThat is, assume 1 + 2 + 3 + ... + k = k(k+1)/2.\n\nStep 3: Inductive step.\nWe need to prove that if the statement is true for n = k, then it is also true for n = k+1.\nThat is, we need to prove: 1 + 2 + 3 + ... + k + (k+1) = (k+1)(k+2)/2\n\nStarting with the left side:\n1 + 2 + 3 + ... + k + (k+1)\n= [1 + 2 + 3 + ... + k] + (k+1)   [Grouping the first k terms]\n= k(k+1)/2 + (k+1)   [Using the inductive hypothesis]\n= k(k+1)/2 + 2(k+1)/2   [Finding a common denominator]\n= (k(k+1) + 2(k+1))/2   [Factoring out common terms]\n= (k+1)(k+2)/2   [Simplifying]\n\nThis is exactly the right side of our desired equation for n = k+1.\n\nStep 4: Conclusion.\nBy the principle of mathematical induction, we have proven that 1 + 2 + 3 + ... + n = n(n+1)/2 holds for all natural numbers n \u2265 1."
+}

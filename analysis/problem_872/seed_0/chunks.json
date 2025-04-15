@@ -1,0 +1,788 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: You have only a compass and a straightedge (unmarked ruler).",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Construct a square given only a single line segment AB that will be one side of the square.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "Describe the step-by-step process that would allow you to complete this construction without any measurements.",
+    "category": "Question Posing",
+    "abbreviation": "QP-4"
+  },
+  {
+    "index": 5,
+    "text": "Solution: \n<think>\nAlright, so I have this problem where I need to construct a square using only a compass and a straightedge, and I'm given a single line segment AB which will be one side of the square.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "Hmm, okay, let's think about how to approach this.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "First, I remember that with just a compass and straightedge, I can perform certain geometric constructions, but squares specifically require some precise steps.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-7"
+  },
+  {
+    "index": 8,
+    "text": "I think the key here is to use the properties of circles and intersections.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "Let me try to recall the steps involved in constructing a square.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "So, starting with segment AB, I need to find the other sides of the square.",
+    "category": "Initializing",
+    "abbreviation": "I-10"
+  },
+  {
+    "index": 11,
+    "text": "I know that all sides of a square are equal, and all angles are right angles.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-11"
+  },
+  {
+    "index": 12,
+    "text": "So, I need to somehow construct a perpendicular line at point B and then mark the same length as AB to complete the square.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "Wait, but how do I ensure that the new segment is equal in length to AB without a ruler? I can use the compass for that.",
+    "category": "Question Posing",
+    "abbreviation": "QP-13"
+  },
+  {
+    "index": 14,
+    "text": "I can set the compass to length AB by placing the points on AB and drawing a circle with one end at B.",
+    "category": "Example Testing",
+    "abbreviation": "ET-14"
+  },
+  {
+    "index": 15,
+    "text": "Okay, so first step: Use the compass to measure AB and draw a circle centered at B with radius AB.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "That should give me a circle with center at B and radius AB.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "Next, I need to construct a perpendicular line at B.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "To do that, I can construct a circle centered at A with the same radius AB, and then find the intersection point of these two circles.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "Let me think.",
+    "category": "Initializing",
+    "abbreviation": "I-19"
+  },
+  {
+    "index": 20,
+    "text": "If I draw a circle centered at A with radius AB, and another circle centered at B with radius AB, their intersection points will form an equilateral triangle, but actually, that might not directly help me.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "Maybe I'm mixing things up.",
+    "category": "Backtracking",
+    "abbreviation": "B-21"
+  },
+  {
+    "index": 22,
+    "text": "Wait, no, if I draw a circle centered at A with radius AB, and then another circle centered at B with radius AB, the points where these circles intersect will be the other vertices of the square.",
+    "category": "Backtracking",
+    "abbreviation": "B-22"
+  },
+  {
+    "index": 23,
+    "text": "But I think I need to find a point that will help me draw the perpendicular.",
+    "category": "Question Posing",
+    "abbreviation": "QP-23"
+  },
+  {
+    "index": 24,
+    "text": "Maybe if I construct the perpendicular bisector?\n\nAlternatively, perhaps I can construct a right angle using the circles.",
+    "category": "Question Posing",
+    "abbreviation": "QP-24"
+  },
+  {
+    "index": 25,
+    "text": "I remember that the intersection of two circles can help create a right angle.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-25"
+  },
+  {
+    "index": 26,
+    "text": "So, if I can construct a circle centered at A with radius AB, and another circle centered at B with radius AB, their intersection points will be at (A and B's positions) but I need a different approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-26"
+  },
+  {
+    "index": 27,
+    "text": "Wait, maybe I should construct a circle centered at A with radius AB, and then draw a line from B that is tangent to this circle.",
+    "category": "Question Posing",
+    "abbreviation": "QP-27"
+  },
+  {
+    "index": 28,
+    "text": "The tangent will be perpendicular to the radius at the point of tangency.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-28"
+  },
+  {
+    "index": 29,
+    "text": "So, if I can construct a tangent line at B, that might help me find the perpendicular.",
+    "category": "Question Posing",
+    "abbreviation": "QP-29"
+  },
+  {
+    "index": 30,
+    "text": "But how do I construct a tangent line with just a compass and straightedge? I think the way to do it is to draw a circle centered at A with radius AB, and then construct a circle centered at B with a radius equal to AB.",
+    "category": "Question Posing",
+    "abbreviation": "QP-30"
+  },
+  {
+    "index": 31,
+    "text": "The intersection points will help me find the tangent.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "Wait, actually, when two circles intersect, the line connecting their centers (AB) is the line segment we have, and the other intersection point forms an equilateral triangle.",
+    "category": "Backtracking",
+    "abbreviation": "B-32"
+  },
+  {
+    "index": 33,
+    "text": "But I'm not sure how that helps me get a perpendicular.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-33"
+  },
+  {
+    "index": 34,
+    "text": "Maybe I should try a different approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-34"
+  },
+  {
+    "index": 35,
+    "text": "I've heard of the geometric construction where you can use the compass to create a perpendicular by constructing two circles and finding their intersections.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-35"
+  },
+  {
+    "index": 36,
+    "text": "Let me try this: \n\n1.",
+    "category": "Example Testing",
+    "abbreviation": "ET-36"
+  },
+  {
+    "index": 37,
+    "text": "Draw a circle centered at A with radius AB.",
+    "category": "Example Testing",
+    "abbreviation": "ET-37"
+  },
+  {
+    "index": 38,
+    "text": "2. Draw another circle centered at B with radius AB.",
+    "category": "Example Testing",
+    "abbreviation": "ET-38"
+  },
+  {
+    "index": 39,
+    "text": "3. Let these circles intersect at points C and D.",
+    "category": "Example Testing",
+    "abbreviation": "ET-39"
+  },
+  {
+    "index": 40,
+    "text": "4. Then, connect C and D to form a line.",
+    "category": "Example Testing",
+    "abbreviation": "ET-40"
+  },
+  {
+    "index": 41,
+    "text": "This line CD should be perpendicular to AB because triangle ABC and ABD are both equilateral, making angle at C and D right angles.",
+    "category": "Deduction",
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "Wait, is that correct? If AB is a side of the square, then CD should be the other side, but I'm not sure if it's the correct perpendicular.",
+    "category": "Backtracking",
+    "abbreviation": "B-42"
+  },
+  {
+    "index": 43,
+    "text": "Alternatively, maybe I should construct a point that is the midpoint of AB and then construct a perpendicular from there.",
+    "category": "Backtracking",
+    "abbreviation": "B-43"
+  },
+  {
+    "index": 44,
+    "text": "But without measurements, I can't just bisect AB.",
+    "category": "Deduction",
+    "abbreviation": "D-44"
+  },
+  {
+    "index": 45,
+    "text": "Wait, but with compass and straightedge, I can find the midpoint by constructing two circles and finding their intersections.",
+    "category": "Backtracking",
+    "abbreviation": "B-45"
+  },
+  {
+    "index": 46,
+    "text": "Hmm. Alternatively, I think the standard method is to use the compass to create a perpendicular by constructing two circles and then drawing the perpendicular bisector.",
+    "category": "Backtracking",
+    "abbreviation": "B-46"
+  },
+  {
+    "index": 47,
+    "text": "Wait, let me try to outline the steps clearly:\n\n1.",
+    "category": "Backtracking",
+    "abbreviation": "B-47"
+  },
+  {
+    "index": 48,
+    "text": "Given segment AB.",
+    "category": "Initializing",
+    "abbreviation": "I-48"
+  },
+  {
+    "index": 49,
+    "text": "2. With compass, draw a circle centered at A with radius AB; let's call this circle C1.",
+    "category": "Deduction",
+    "abbreviation": "D-49"
+  },
+  {
+    "index": 50,
+    "text": "3. With compass, draw another circle centered at B with radius AB; let's call this circle C2.",
+    "category": "Deduction",
+    "abbreviation": "D-50"
+  },
+  {
+    "index": 51,
+    "text": "4. The intersection points of C1 and C2 (other than A and B) are points C and D.",
+    "category": "Deduction",
+    "abbreviation": "D-51"
+  },
+  {
+    "index": 52,
+    "text": "5. Connect points C and D with a straight line.",
+    "category": "Deduction",
+    "abbreviation": "D-52"
+  },
+  {
+    "index": 53,
+    "text": "6. This line CD should be the perpendicular bisector of AB.",
+    "category": "Deduction",
+    "abbreviation": "D-53"
+  },
+  {
+    "index": 54,
+    "text": "7. Now, set the compass to length AB again and draw a circle centered at C (or D) with radius AB; let's say centered at C.",
+    "category": "Deduction",
+    "abbreviation": "D-54"
+  },
+  {
+    "index": 55,
+    "text": "8. The intersection of this circle with CD will give me the fourth corner of the square.",
+    "category": "Deduction",
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "Wait, no, that might not be accurate.",
+    "category": "Backtracking",
+    "abbreviation": "B-56"
+  },
+  {
+    "index": 57,
+    "text": "Let me think again.",
+    "category": "Backtracking",
+    "abbreviation": "B-57"
+  },
+  {
+    "index": 58,
+    "text": "Alternatively, after drawing circles C1 and C2, their intersection points C and D form a rhombus with AB, but I need to find the right angle.",
+    "category": "Backtracking",
+    "abbreviation": "B-58"
+  },
+  {
+    "index": 59,
+    "text": "Wait, perhaps I should construct a square by creating a right angle at B.",
+    "category": "Question Posing",
+    "abbreviation": "QP-59"
+  },
+  {
+    "index": 60,
+    "text": "So, after drawing circles C1 and C2, I can draw a circle centered at C with radius CB (which is AB), and see where it intersects CD.",
+    "category": "Deduction",
+    "abbreviation": "D-60"
+  },
+  {
+    "index": 61,
+    "text": "Wait, I'm getting confused.",
+    "category": "Backtracking",
+    "abbreviation": "B-61"
+  },
+  {
+    "index": 62,
+    "text": "Maybe I should look up the standard geometric construction for a square given one side, but since I can't do that, I'll try to proceed step by step.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-62"
+  },
+  {
+    "index": 63,
+    "text": "Another approach: To construct a square, you need to create a right angle.",
+    "category": "Backtracking",
+    "abbreviation": "B-63"
+  },
+  {
+    "index": 64,
+    "text": "So, if I can construct a right angle at B, then I can mark off the same length as AB to complete the square.",
+    "category": "Deduction",
+    "abbreviation": "D-64"
+  },
+  {
+    "index": 65,
+    "text": "To construct a right angle with compass and straightedge, one method is to use the concept of intersecting circles.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-65"
+  },
+  {
+    "index": 66,
+    "text": "So, here's a possible method:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-66"
+  },
+  {
+    "index": 67,
+    "text": "Given AB.",
+    "category": "Example Testing",
+    "abbreviation": "ET-67"
+  },
+  {
+    "index": 68,
+    "text": "2. Draw a circle centered at A with radius AB; let's call this circle C1.",
+    "category": "Deduction",
+    "abbreviation": "D-68"
+  },
+  {
+    "index": 69,
+    "text": "3. Draw another circle centered at B with radius AB; let's call this circle C2.",
+    "category": "Deduction",
+    "abbreviation": "D-69"
+  },
+  {
+    "index": 70,
+    "text": "4. Let C1 and C2 intersect at points C and D.",
+    "category": "Deduction",
+    "abbreviation": "D-70"
+  },
+  {
+    "index": 71,
+    "text": "5. Draw line CD; this line is perpendicular to AB and bisects it.",
+    "category": "Deduction",
+    "abbreviation": "D-71"
+  },
+  {
+    "index": 72,
+    "text": "6. Now, set the compass to length AB and draw a circle centered at C; this circle will intersect CD at a point E such that CE = AB.",
+    "category": "Deduction",
+    "abbreviation": "D-72"
+  },
+  {
+    "index": 73,
+    "text": "7. Similarly, draw a circle centered at D with radius AB, intersecting CD at point F, where DF = AB.",
+    "category": "Deduction",
+    "abbreviation": "D-73"
+  },
+  {
+    "index": 74,
+    "text": "8. Connect points E and F; this should form the square ABEF.",
+    "category": "Deduction",
+    "abbreviation": "D-74"
+  },
+  {
+    "index": 75,
+    "text": "Wait, but I'm not sure if that's correct.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-75"
+  },
+  {
+    "index": 76,
+    "text": "Let me check.",
+    "category": "Question Posing",
+    "abbreviation": "QP-76"
+  },
+  {
+    "index": 77,
+    "text": "Alternatively, after step 5, where CD is the perpendicular bisector, I can use that to help me construct the square.",
+    "category": "Backtracking",
+    "abbreviation": "B-77"
+  },
+  {
+    "index": 78,
+    "text": "Wait, perhaps a better approach is:\n\n1.",
+    "category": "Backtracking",
+    "abbreviation": "B-78"
+  },
+  {
+    "index": 79,
+    "text": "Given AB.",
+    "category": "Initializing",
+    "abbreviation": "I-79"
+  },
+  {
+    "index": 80,
+    "text": "2. Draw circle C1 centered at A with radius AB.",
+    "category": "Example Testing",
+    "abbreviation": "ET-80"
+  },
+  {
+    "index": 81,
+    "text": "3. Draw circle C2 centered at B with radius AB.",
+    "category": "Example Testing",
+    "abbreviation": "ET-81"
+  },
+  {
+    "index": 82,
+    "text": "4. Let C1 and C2 intersect at points C and D.",
+    "category": "Example Testing",
+    "abbreviation": "ET-82"
+  },
+  {
+    "index": 83,
+    "text": "5. Draw line CD, which is perpendicular to AB and bisects it at point M (the midpoint).",
+    "category": "Example Testing",
+    "abbreviation": "ET-83"
+  },
+  {
+    "index": 84,
+    "text": "6. Now, using the compass, draw a circle centered at C with radius CB (which is AB), and let it intersect CD at point E.",
+    "category": "Example Testing",
+    "abbreviation": "ET-84"
+  },
+  {
+    "index": 85,
+    "text": "7. Similarly, draw a circle centered at D with radius DB (AB), intersecting CD at point F.",
+    "category": "Example Testing",
+    "abbreviation": "ET-85"
+  },
+  {
+    "index": 86,
+    "text": "8. Connect points E and F to form EF, which should be equal and parallel to AB, completing the square.",
+    "category": "Deduction",
+    "abbreviation": "D-86"
+  },
+  {
+    "index": 87,
+    "text": "Hmm, but I'm still not entirely confident.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-87"
+  },
+  {
+    "index": 88,
+    "text": "Maybe I should try to visualize this.",
+    "category": "Question Posing",
+    "abbreviation": "QP-88"
+  },
+  {
+    "index": 89,
+    "text": "Imagine AB is the base.",
+    "category": "Metaphorical Thinking",
+    "abbreviation": "MT-89"
+  },
+  {
+    "index": 90,
+    "text": "Drawing two circles from A and B with radius AB gives me points C and D above and below AB.",
+    "category": "Example Testing",
+    "abbreviation": "ET-90"
+  },
+  {
+    "index": 91,
+    "text": "Connecting C and D gives me a line that's perpendicular to AB.",
+    "category": "Deduction",
+    "abbreviation": "D-91"
+  },
+  {
+    "index": 92,
+    "text": "Then, using the compass, I can mark off the same length from C and D to get E and F, which would form the top side of the square.",
+    "category": "Deduction",
+    "abbreviation": "D-92"
+  },
+  {
+    "index": 93,
+    "text": "Wait, but actually, the line CD is the perpendicular bisector, so the distance from C to M (midpoint of AB) is equal to the distance from D to M.",
+    "category": "Backtracking",
+    "abbreviation": "B-93"
+  },
+  {
+    "index": 94,
+    "text": "So, if I set the compass to AB, and draw a circle from C, it will intersect CD at E such that CE = AB.",
+    "category": "Deduction",
+    "abbreviation": "D-94"
+  },
+  {
+    "index": 95,
+    "text": "Similarly, from D, it will intersect CD at F such that DF = AB.",
+    "category": "Deduction",
+    "abbreviation": "D-95"
+  },
+  {
+    "index": 96,
+    "text": "Then, connecting E and F would give me the top side of the square, which is equal and parallel to AB, thus completing the square.",
+    "category": "Deduction",
+    "abbreviation": "D-96"
+  },
+  {
+    "index": 97,
+    "text": "Alternatively, perhaps I can use triangle properties.",
+    "category": "Backtracking",
+    "abbreviation": "B-97"
+  },
+  {
+    "index": 98,
+    "text": "Since triangles ABC and ABD are equilateral, the angles at C and D are 60 degrees, but I need a right angle, so maybe that's not directly helpful.",
+    "category": "Deduction",
+    "abbreviation": "D-98"
+  },
+  {
+    "index": 99,
+    "text": "Wait, but when I connect C and D, the angle at M is 90 degrees because the line CD is the perpendicular bisector.",
+    "category": "Backtracking",
+    "abbreviation": "B-99"
+  },
+  {
+    "index": 100,
+    "text": "So, that might be the right angle I need.",
+    "category": "Deduction",
+    "abbreviation": "D-100"
+  },
+  {
+    "index": 101,
+    "text": "Hmm, I think I'm overcomplicating it.",
+    "category": "Backtracking",
+    "abbreviation": "B-101"
+  },
+  {
+    "index": 102,
+    "text": "Let me try to summarize the steps clearly:\n\n1.",
+    "category": "Summary",
+    "abbreviation": "S-102"
+  },
+  {
+    "index": 103,
+    "text": "With compass, draw circle C1 centered at A with radius AB.",
+    "category": "Example Testing",
+    "abbreviation": "ET-103"
+  },
+  {
+    "index": 104,
+    "text": "2. With compass, draw circle C2 centered at B with radius AB.",
+    "category": "Example Testing",
+    "abbreviation": "ET-104"
+  },
+  {
+    "index": 105,
+    "text": "3. Let C1 and C2 intersect at points C and D.",
+    "category": "Deduction",
+    "abbreviation": "D-105"
+  },
+  {
+    "index": 106,
+    "text": "4. Draw line CD, which is the perpendicular bisector of AB.",
+    "category": "Deduction",
+    "abbreviation": "D-106"
+  },
+  {
+    "index": 107,
+    "text": "5. With compass, draw circle C3 centered at C with radius CB (which is AB).",
+    "category": "Deduction",
+    "abbreviation": "D-107"
+  },
+  {
+    "index": 108,
+    "text": "6. Let C3 intersect CD at point E.",
+    "category": "Deduction",
+    "abbreviation": "D-108"
+  },
+  {
+    "index": 109,
+    "text": "7. Similarly, draw circle C4 centered at D with radius DB (AB), intersecting CD at point F.",
+    "category": "Deduction",
+    "abbreviation": "D-109"
+  },
+  {
+    "index": 110,
+    "text": "8. Connect points E and F to form side EF, which is equal and parallel to AB.",
+    "category": "Deduction",
+    "abbreviation": "D-110"
+  },
+  {
+    "index": 111,
+    "text": "9. Connect points F and B, and points E and A to complete the square ABEF.",
+    "category": "Deduction",
+    "abbreviation": "D-111"
+  },
+  {
+    "index": 112,
+    "text": "Wait, but in step 6 and 7, I'm drawing circles from C and D with radius AB, but CD is already a line perpendicular to AB.",
+    "category": "Backtracking",
+    "abbreviation": "B-112"
+  },
+  {
+    "index": 113,
+    "text": "So, the intersections E and F should be at a distance AB from C and D along CD.",
+    "category": "Deduction",
+    "abbreviation": "D-113"
+  },
+  {
+    "index": 114,
+    "text": "Therefore, EF will be a line segment equal to AB and parallel to AB, forming the top side of the square.",
+    "category": "Deduction",
+    "abbreviation": "D-114"
+  },
+  {
+    "index": 115,
+    "text": "Yes, that makes sense.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-115"
+  },
+  {
+    "index": 116,
+    "text": "So, the square has sides AB, BE, EF, and FA, all equal and at right angles.",
+    "category": "Deduction",
+    "abbreviation": "D-116"
+  },
+  {
+    "index": 117,
+    "text": "I think that's the correct method.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-117"
+  },
+  {
+    "index": 118,
+    "text": "So, the key steps are drawing the two circles to find the perpendicular bisector, then using the compass to mark off the same length on that bisector to form the top side of the square.",
+    "category": "Deduction",
+    "abbreviation": "D-118"
+  },
+  {
+    "index": 119,
+    "text": "</think>\n\nTo construct a square given a single line segment AB using only a compass and straightedge, follow these steps:\n\n1.",
+    "category": "Question Posing",
+    "abbreviation": "QP-119"
+  },
+  {
+    "index": 120,
+    "text": "**Draw Circles for Perpendicular Bisector**:\n   - Use the compass to draw a circle centered at point A with radius AB.",
+    "category": "Deduction",
+    "abbreviation": "D-120"
+  },
+  {
+    "index": 121,
+    "text": "- Draw another circle centered at point B with the same radius AB.",
+    "category": "Deduction",
+    "abbreviation": "D-121"
+  },
+  {
+    "index": 122,
+    "text": "- Let these circles intersect at points C and D.",
+    "category": "Deduction",
+    "abbreviation": "D-122"
+  },
+  {
+    "index": 123,
+    "text": "2. **Construct the Perpendicular Bisector**:\n   - Draw the line connecting points C and D.",
+    "category": "Deduction",
+    "abbreviation": "D-123"
+  },
+  {
+    "index": 124,
+    "text": "This line CD is the perpendicular bisector of segment AB.",
+    "category": "Deduction",
+    "abbreviation": "D-124"
+  },
+  {
+    "index": 125,
+    "text": "3. **Mark Equal Lengths on the Bisector**:\n   - Set the compass to length AB.",
+    "category": "Example Testing",
+    "abbreviation": "ET-125"
+  },
+  {
+    "index": 126,
+    "text": "- Draw a circle centered at point C with radius AB; let it intersect CD at point E.",
+    "category": "Example Testing",
+    "abbreviation": "ET-126"
+  },
+  {
+    "index": 127,
+    "text": "- Draw another circle centered at point D with radius AB; let it intersect CD at point F.",
+    "category": "Example Testing",
+    "abbreviation": "ET-127"
+  },
+  {
+    "index": 128,
+    "text": "4. **Complete the Square**:\n   - Connect points E and F to form segment EF, which is equal and parallel to AB.",
+    "category": "Deduction",
+    "abbreviation": "D-128"
+  },
+  {
+    "index": 129,
+    "text": "- Connect points E to A and F to B to complete the square ABEF.",
+    "category": "Deduction",
+    "abbreviation": "D-129"
+  },
+  {
+    "index": 130,
+    "text": "**Final Result**: The square ABEF is constructed with AB as one side and all sides equal and at right angles.",
+    "category": "Final Answer",
+    "abbreviation": "FA-130"
+  }
+]

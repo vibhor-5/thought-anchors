@@ -1,0 +1,536 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small bakery tracks the number of customers who enter per hour.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "They've determined that the arrival of customers follows a Poisson process with an average rate of 6 customers per hour.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "The owner wants to understand the probabilities to help with staffing decisions.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "1. What is the probability of exactly 4 customers arriving during a randomly chosen hour?\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "What is the probability of 8 or more customers arriving during a randomly chosen hour?\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "If the bakery is open for 2 hours, what is the probability of exactly 10 customers arriving in total during this period? \n\n Solution: \n<think>\nAlright, so I need to solve these three probability questions related to a Poisson process.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "I remember that a Poisson process is a counting process that counts the number of events occurring in a fixed interval.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "It's characterized by a constant average rate and independent increments.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "The rate here is given as 6 customers per hour.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Let me start with the first question: What is the probability of exactly 4 customers arriving during a randomly chosen hour?\n\nOkay, so for a Poisson distribution, the probability mass function is given by the formula:\n\nP(k) = (\u03bb^k * e^(-\u03bb)) / k!\n\nWhere \u03bb is the average rate (which is 6 in this case), k is the number of occurrences we're interested in (which is 4 here), and \"e\" is the base of the natural logarithm.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "So plugging in the numbers, we have:\n\nP(4) = (6^4 * e^(-6)) / 4!\n\nFirst, let me calculate 6^4.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "6 squared is 36, so 36 squared is 1296.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "So 6^4 is 1296.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Next, e^(-6).",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "I remember that e^(-6) is approximately 0.002478752.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "Then, 4! is 24.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "So putting it all together:\n\nP(4) = (1296 * 0.002478752) / 24\n\nLet me compute the numerator first: 1296 * 0.002478752.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Hmm, let me see.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "1296 * 0.002 is 2.592, and 1296 * 0.000478752 is approximately 0.619.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "So adding those together, roughly 2.592 + 0.619 = 3.211.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "Wait, that seems a bit off.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Maybe I should do it more accurately.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Alternatively, let me compute 1296 * 0.002478752.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "First, 1296 * 0.002 = 2.592.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Then, 1296 * 0.0004 = 0.5184.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Then, 1296 * 0.000078752.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Let's see, 1296 * 0.00007 = 0.09072, and 1296 * 0.000008752 \u2248 0.0113.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "So adding those: 0.09072 + 0.0113 \u2248 0.102.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "So adding all parts: 2.592 + 0.5184 + 0.102 \u2248 3.2124.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Wait, but I think I might have miscalculated because 0.002478752 is equal to 0.002 + 0.0004 + 0.000078752.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "So adding those correctly:\n\n0.002 * 1296 = 2.592\n\n0.0004 * 1296 = 0.5184\n\n0.000078752 * 1296 \u2248 0.102 (as above)\n\nSo total is 2.592 + 0.5184 = 3.1104 + 0.102 \u2248 3.2124.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "So numerator is approximately 3.2124.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Then divide by 24: 3.2124 / 24 \u2248 0.1338.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "So approximately 0.1338, or 13.38%.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Wait, let me check with a calculator approach.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Alternatively, I can compute 6^4 = 1296, e^(-6) \u2248 0.002478752, and 4! = 24.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "So P(4) = (1296 * 0.002478752) / 24.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Let me compute 1296 * 0.002478752 first.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "1296 * 0.002 = 2.592\n\n1296 * 0.000478752 = Let's compute 1296 * 0.0004 = 0.5184, and 1296 * 0.000078752 \u2248 0.102 (as before)\n\nSo total for 0.000478752 is 0.5184 + 0.102 \u2248 0.6204\n\nSo total numerator: 2.592 + 0.6204 \u2248 3.2124\n\nThen, 3.2124 / 24 \u2248 0.1338\n\nSo yes, approximately 0.1338.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "So the probability is about 0.1338, which is 13.38%.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "I think that's reasonable.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Since the average rate is 6, the probabilities should be highest around 6, so 4 is somewhat on the lower side, but not too low.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "Okay, moving on to the second question: What is the probability of 8 or more customers arriving during a randomly chosen hour?\n\nHmm, so that's P(X \u2265 8).",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "For a Poisson distribution, that's the sum from k=8 to infinity of P(k).",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "But since the average rate is 6, the probabilities will become very small as k increases beyond 6, so maybe we can compute up to some point where the terms become negligible.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "Alternatively, we can use the complementary probability: P(X \u2265 8) = 1 - P(X \u2264 7).",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "That might be easier because we can compute P(0) + P(1) + ...",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "+ P(7) and subtract that from 1.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "Let me calculate P(X \u2264 7) and then subtract from 1.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "Compute each term:\n\nP(0) = (6^0 * e^(-6)) / 0! = (1 * 0.002478752) / 1 = 0.002478752\n\nP(1) = (6^1 * e^(-6)) / 1! = 6 * 0.002478752 / 1 = 0.014872512\n\nP(2) = (6^2 * e^(-6)) / 2! = 36 * 0.002478752 / 2 \u2248 36 * 0.001239376 \u2248 0.044776096\n\nWait, let me compute that again: 36 / 2 = 18, so 18 * 0.002478752 \u2248 0.044776096\n\nP(3) = (6^3 * e^(-6)) / 6 = 216 * 0.002478752 / 6\n\n216 / 6 = 36, so 36 * 0.002478752 \u2248 0.089065472\n\nP(4) we already calculated as \u22480.1338\n\nP(5) = (6^5 * e^(-6)) / 5! = 7776 * 0.002478752 / 120\n\nWait, 6^5 is 7776, and 5! is 120.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "So 7776 / 120 = 64.8\n\nSo 64.8 * 0.002478752 \u2248 64.8 * 0.002478752 \u2248 let's compute 64 * 0.002478752 = 0.1593, and 0.8 * 0.002478752 \u2248 0.001982, so total \u2248 0.1613\n\nWait, no, that's not right.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "Wait, 64.8 * 0.002478752.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "Let me compute 64 * 0.002478752 = 64 * 0.002 = 0.128, and 64 * 0.000478752 \u2248 0.0306, so total \u2248 0.128 + 0.0306 \u2248 0.1586\n\nThen 0.8 * 0.002478752 \u2248 0.001982, so total P(5) \u2248 0.1586 + 0.001982 \u2248 0.1606\n\nSimilarly, P(6) = (6^6 * e^(-6)) / 6! = 46656 * 0.002478752 / 720\n\nCompute 46656 / 720.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "Let me see, 720 * 64 = 46080, so 46656 - 46080 = 576, so 720 goes into 576 0.8 times.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "So total is 64.8.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "So P(6) = 64.8 * 0.002478752 \u2248 same as P(5), which was approximately 0.1606\n\nWait, that seems a bit high, but let's check.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "Wait, 46656 / 720 = 64.8, correct.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "So 64.8 * 0.002478752 \u2248 64.8 * 0.002478752.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "Let me compute 64 * 0.002478752 = 0.1586 (as above)\n\n0.8 * 0.002478752 \u2248 0.001982\n\nSo total \u2248 0.1586 + 0.001982 \u2248 0.1606\n\nSo P(6) \u2248 0.1606\n\nNow, P(7) = (6^7 * e^(-6)) / 7! = 279936 * 0.002478752 / 5040\n\nCompute 279936 / 5040.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "5040 * 55 = 277200, so 279936 - 277200 = 2736\n\n2736 / 5040 = 0.542857\n\nSo total is 55.542857\n\nSo P(7) = 55.542857 * 0.002478752 \u2248\n\nCompute 55 * 0.002478752 = 0.1363\n\n0.542857 * 0.002478752 \u2248 0.001346\n\nSo total \u2248 0.1363 + 0.001346 \u2248 0.1376\n\nWait, that seems a bit high, but let's accept it for now.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "So now, let's sum up P(0) to P(7):\n\nP(0) = 0.002478752\n\nP(1) = 0.014872512\n\nP(2) \u2248 0.044776096\n\nP(3) \u2248 0.089065472\n\nP(4) \u2248 0.1338\n\nP(5) \u2248 0.1606\n\nP(6) \u2248 0.1606\n\nP(7) \u2248 0.1376\n\nLet me add these up step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "Start with P(0): 0.002478752\n\nAdd P(1): 0.002478752 + 0.014872512 \u2248 0.017351264\n\nAdd P(2): 0.017351264 + 0.044776096 \u2248 0.06212736\n\nAdd P(3): 0.06212736 + 0.089065472 \u2248 0.151192832\n\nAdd P(4): 0.151192832 + 0.1338 \u2248 0.2850\n\nWait, 0.151192832 + 0.1338 = 0.2850 (approximately)\n\nAdd P(5): 0.2850 + 0.1606 \u2248 0.4456\n\nAdd P(6): 0.4456 + 0.1606 \u2248 0.6062\n\nAdd P(7): 0.6062 + 0.1376 \u2248 0.7438\n\nSo P(X \u22647) \u2248 0.7438\n\nTherefore, P(X \u22658) = 1 - 0.7438 \u2248 0.2562\n\nSo approximately 25.62%.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "That seems plausible.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Since the average is 6, the probability of more than 6 is about 25.6%, which makes sense because the distribution is symmetric around the mean in a Poisson distribution? Wait, no, Poisson isn't symmetric, but it does have the property that the probability of being above the mean is about 0.5.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Wait, but here we're looking at 8 or more, which is two units above the mean.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "So the probability should be less than 0.5, which it is, about 0.2562.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "Alternatively, I can check the cumulative probabilities using a Poisson table or a calculator, but I think my calculations are reasonable.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "Now, the third question: If the bakery is open for 2 hours, what is the probability of exactly 10 customers arriving in total during this period?\n\nOkay, so this is a Poisson process over 2 hours.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "Since the process is stationary and independent over intervals, the number of customers in 2 hours follows a Poisson distribution with \u03bb = 2*6 = 12.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "Because for independent periods, the total is the sum of Poisson variables, which is also Poisson with \u03bb equal to the sum of individual \u03bbs.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "So the number of customers in 2 hours, X ~ Poisson(12).",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "We need P(X =10).",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "Using the Poisson PMF again:\n\nP(10) = (12^10 * e^(-12)) / 10!\n\nCompute this.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "First, compute 12^10.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "Let me see, 12^2=144, 12^3=1728, 12^4=20736, 12^5=248832, 12^6=2985984, 12^7=35831808, 12^8=429981696, 12^9=5159780352, 12^10=61917364224.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Wait, that's a big number.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "Let me confirm:\n\n12^1=12\n\n12^2=144\n\n12^3=1728\n\n12^4=20736\n\n12^5=248832\n\n12^6=2,985,984\n\n12^7=35,831,808\n\n12^8=429,981,696\n\n12^9=5,159,780,352\n\n12^10=61,917,364,224\n\nYes, so 12^10 = 61,917,364,224\n\ne^(-12) \u2248 0.0000067379\n\n10! = 3,628,800\n\nSo P(10) = (61,917,364,224 * 0.0000067379) / 3,628,800\n\nFirst, compute the numerator: 61,917,364,224 * 0.0000067379\n\nLet me compute that:\n\nFirst, 61,917,364,224 * 0.000006 = 61,917,364,224 * 6e-6 = approx 61,917,364,224 * 0.000006 = 371,503.184\n\nThen, 61,917,364,224 * 0.0000007379 \u2248 Let's compute 61,917,364,224 * 0.0000007 = 61,917,364,224 * 7e-7 \u2248 4,362,254.368\n\nAnd 61,917,364,224 * 0.0000000379 \u2248 approx 61,917,364,224 * 3.79e-8 \u2248 approx 2,349,548.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "So total is approx 4,362,254.368 + 2,349,548 \u2248 6,711,802.368\n\nSo total numerator \u2248 371,503.184 + 6,711,802.368 \u2248 6,083,305.552\n\nWait, but that's probably not precise.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "Let me do it more accurately.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "Alternatively, use exponent rules.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "Wait, 0.0000067379 is 6.7379e-6.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "So 61,917,364,224 * 6.7379e-6.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "Compute 61,917,364,224 * 6e-6 = 61,917,364,224 * 0.000006 = 371,503.184\n\nCompute 61,917,364,224 * 0.0000007379 \u2248 61,917,364,224 * 0.0000007379\n\nLet me compute 61,917,364,224 * 0.0000007 = 61,917,364,224 * 7e-7 \u2248 4,362,254.368\n\nAnd 61,917,364,224 * 0.0000000379 \u2248 61,917,364,224 * 3.79e-8 \u2248 2,349,548.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "So total \u2248 4,362,254.368 + 2,349,548 \u2248 6,711,802.368\n\nSo total numerator \u2248 371,503.184 + 6,711,802.368 \u2248 6,083,305.552\n\nThen, divide by 3,628,800:\n\n6,083,305.552 / 3,628,800 \u2248 Let's see.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "Divide numerator and denominator by 1000: 6083.305552 / 3628.8 \u2248\n\nCompute 3628.8 * 1.68 \u2248 3628.8*1=3628.8, 3628.8*0.6=2177.28, 3628.8*0.08=290.304, so total \u2248 3628.8 + 2177.28 + 290.304 \u2248 6106.384\n\nWhich is close to 6083.305552, so approximately 1.68 - a bit less.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Compute 3628.8 * 1.68 = 6106.384\n\nDifference: 6083.305552 - 6106.384 \u2248 -23.078\n\nSo, 1.68 - (23.078 / 3628.8) \u2248 1.68 - 0.00635 \u2248 1.67365\n\nSo approximately 1.67365\n\nSo P(10) \u2248 1.67365 / 1000? Wait, no, wait:\n\nWait, earlier step: numerator was 6,083,305.552, denominator is 3,628,800.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "So 6,083,305.552 / 3,628,800 \u2248 Let me compute 3,628,800 * 1.67365 \u2248 3,628,800 * 1 = 3,628,800, 3,628,800 * 0.6 = 2,177,280, 3,628,800 * 0.07 = 254,016, 3,628,800 * 0.00365 \u2248 13,245.6\n\nSo total \u2248 3,628,800 + 2,177,280 = 5,806,080 + 254,016 = 6,060,096 + 13,245.6 \u2248 6,073,341.6\n\nWhich is close to 6,083,305.552, so the ratio is approximately 1.67365 + (6,083,305.552 - 6,073,341.6)/3,628,800\n\nDifference: 6,083,305.552 - 6,073,341.6 \u2248 9,963.952\n\nSo 9,963.952 / 3,628,800 \u2248 0.00275\n\nSo total \u2248 1.67365 + 0.00275 \u2248",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  }
+]

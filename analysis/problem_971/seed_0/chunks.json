@@ -1,0 +1,1184 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: In a logic puzzle, three students (Amy, Ben, and Carla) each make one statement:\n\nAmy: 'If Ben is telling the truth, then Carla is lying.'\nBen: 'Either Amy is telling the truth or Carla is telling the truth, but not both.'\nCarla: 'Ben is lying.'\n\nIf exactly two of these students are telling the truth, who is lying? \n\n Solution: \n<think>\nAlright, so I've got this logic puzzle here with three students: Amy, Ben, and Carla.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Each of them makes a statement, and I need to figure out who is lying, given that exactly two of them are telling the truth.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Let me break this down step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "First, let's list out their statements:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "**Amy**: \"If Ben is telling the truth, then Carla is lying.\"\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "**Ben**: \"Either Amy is telling the truth or Carla is telling the truth, but not both.\"\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "**Carla**: \"Ben is lying.\"\n\nAnd the key piece of information is that exactly two of these three are telling the truth.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "So, one of them is lying, and we need to find out who that is.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Let me start by assigning some variables to make this clearer.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Let's say:\n\n- Let A = Amy's statement is true.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "- Let B = Ben's statement is true.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "- Let C = Carla's statement is true.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "We know that exactly two of A, B, C are true, so one of them must be false.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Now, let's analyze each statement and see how they relate to each other.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "**Analyzing Amy's Statement (A):**\nAmy says, \"If Ben is telling the truth, then Carla is lying.\" In logical terms, this can be written as:\n- If B, then not C.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "So, A is true only if B is true and C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "If B is false, then A's statement is automatically true (since an implication with a false premise is always true).",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "**Analyzing Ben's Statement (B):**\nBen says, \"Either Amy is telling the truth or Carla is telling the truth, but not both.\" In logical terms:\n- (A \u2228 C) \u2227 \u00ac(A \u2227 C)\n  \nThis simplifies to:\n- A \u2228 C, and A \u2260 C.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "So, Ben is saying that either Amy or Carla is telling the truth, but not both.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "If both A and C were true, Ben would be lying.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "**Analyzing Carla's Statement (C):**\nCarla says, \"Ben is lying.\" So, if C is true, Ben is lying, which means B is false.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Now, let's consider the possibilities.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Since exactly two are telling the truth, let's go through each case.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "**Case 1: Suppose Amy is telling the truth (A = True).**\n- If A is true, then from Amy's statement: If B is true, then C must be false.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "- So, if A is true and B is true, C must be false.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "But we know that exactly two are telling the truth, so if A is true, let's see if B can also be true.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "- If A and B are true:\n  - From A: If B, then not C.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "So, since B is true, C must be false.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "- From B: (A \u2228 C) \u2227 \u00ac(A \u2227 C).",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Since A is true and C is false, (A \u2228 C) is true, and (A \u2227 C) is false, so B's statement is true.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "- From C: C is false, so Carla is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "So in this scenario, A and B are true, and C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "That means two truths and one lie.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "This fits the condition.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "But let's check the other possibilities to be thorough.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "**Case 2: Suppose Ben is telling the truth (B = True).**\n- From B's statement: Either A or C is true, but not both.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "So, if B is true, then either A is true and C is false, or A is false and C is true.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Let's explore both sub-cases.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "- **Sub-case 2a: A is true and C is false.**\n  - From A: If B is true, then C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "This holds because we've assumed C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "- From B: (A \u2228 C) \u2227 \u00ac(A \u2227 C).",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Since A is true and C is false, (A \u2228 C) is true, and (A \u2227 C) is false, so B is true.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "- From C: C is false, so Carla is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "So here, A and B are true, C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "Again, two truths and one lie.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "Same as Case 1.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "- **Sub-case 2b: A is false and C is true.**\n  - From A: If B is true, then C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "But we've assumed C is true, which contradicts A's statement.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "Since A is false, the implication holds regardless of C, but here it leads to a contradiction because if B is true, C must be false.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "So this sub-case is invalid.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Thus, in Case 2, the only valid sub-case is Sub-case 2a, where A and B are true, and C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "**Case 3: Suppose Carla is telling the truth (C = True).**\n- From C: Carla is telling the truth, so Ben is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "Thus, B is false.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "Now, since exactly two are telling the truth, and C is true, either A or B must be true, but not both.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "Let's check if A is true or false.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "- If A is true:\n  - From A: If B is true, then C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "But we've assumed B is false, so the implication is automatically true.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "So A can be true.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "Now, since C is true and A is true, that would mean both A and C are true.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "But from B's statement, B is false, so Ben is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "Let's check if this holds.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "- From B: (A \u2228 C) \u2227 \u00ac(A \u2227 C).",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "Since A and C are both true, (A \u2228 C) is true, but (A \u2227 C) is true, so \u00ac(A \u2227 C) is false.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Therefore, B's statement is false, which is consistent because we've assumed B is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "So in this scenario, A and C are true, and B is false.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "That also fits the condition of two truths and one lie.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "But let's double-check if A can be false when C is true.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "- If A is false:\n  - From A: If B is true, then C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "But since A is false, the implication doesn't necessarily hold.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "However, we've already assumed C is true and B is false, so A being false doesn't contradict anything.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "Wait, but if A is false and C is true, then from B's perspective, since B is false, let's see:\n\n- B is false, so (A \u2228 C) \u2227 \u00ac(A \u2227 C).",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "Since B is false, the entire statement is false.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "But we have C is true, so (A \u2228 C) is true, and \u00ac(A \u2227 C) is \u00ac(false \u2227 true) = \u00acfalse = true.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "So (A \u2228 C) \u2227 \u00ac(A \u2227 C) would be true \u2227 true = true.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "But since B is false, this would mean Ben is lying, so his statement is false.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Therefore, the statement (A \u2228 C) \u2227 \u00ac(A \u2227 C) must be false.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "But in this scenario, (A \u2228 C) is true (because C is true), and \u00ac(A \u2227 C) is true (because A is false and C is true, so A \u2227 C is false).",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "So (true) \u2227 (true) = true.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "Therefore, Ben's statement is true, which contradicts our assumption that B is false.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "So, if we assume C is true and A is false, then B's statement would be true, which contradicts the requirement that exactly two are telling the truth (since C is true, A is false, and B would be true, making two truths and one lie, but we've already assumed C is true and A is false, so B must be false to have two truths).",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "This seems a bit tangled.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "Wait, perhaps I made a mistake here.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "Let me re-examine.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "If C is true, then B is false (from C's statement).",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "So, B is false.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Now, if A is false:\n\n- From A: If B is true, then C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "But since B is false, the implication holds regardless of C.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "So A can be either true or false.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "But we need exactly two truths, so if C is true, and A is false, then B must be true to have two truths.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "However, we've assumed B is false, so that's a contradiction.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "Therefore, if C is true, A must also be true to have two truths.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "But then, from B's statement, since A and C are both true, B's statement (Either A or C, but not both) becomes false because both are true.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "So B is lying, which is consistent because we've assumed B is false.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "Therefore, in this case, A and C are true, B is false.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "That works.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "So, summarizing:\n\n- If A is true and B is true, C is false.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "- If C is true, then B must be false, and A must be true.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "Wait, but in the first case, when A and B are true, C is false, that's one scenario.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "In the second case, when C is true, A is true, and B is false, that's another scenario.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "Both satisfy exactly two truths.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "But the problem is, the statements might be overlapping or conflicting.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "Let's check for consistency.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "Wait, let's make a table to clarify.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "| Scenario | A | B | C | A's Statement | B's Statement | C's Statement | Number of Truths |\n|----------|---|---|---|---------------|---------------|---------------|------------------|\n| 1        | T | T | F | Holds (since B=T, so C=F) | (A=T or C=F) and not (A=T and C=F) \u2192 T | C=F \u2192 B=Lying | 2 truths, 1 lie |\n| 2        | T | F | T | A=T, but B=F \u2192 A's statement holds because the premise is false | B=F \u2192 B's statement is false | C=T \u2192 Ben=Lying | 2 truths, 1 lie |\n| 3        | F | T | F | A=F, so statement is true regardless of B and C | (A=F or C=F) and not (A=F and C=F) \u2192 (F or F) and not (F and F) \u2192 F and T \u2192 F | C=F \u2192 Ben=Telling truth | 1 truth, 2 lies |\n| 4        | F | F | T | A=F, so statement is true regardless | B=F \u2192 statement is false | C=T \u2192 Ben=Lying | 1 truth, 2 lies |\n| 5        | T | T | T | Impossible because A says if B=T, then C=F, but here C=T | B=T \u2192 (A=T or C=T) and not (A=T and C=T) \u2192 (T or T) and not (T and T) \u2192 T and F \u2192 F | C=T \u2192 Ben=Lying | 1 truth, 2 lies |\n| 6        | F | T | T | A=F, so statement is true regardless | B=T \u2192 (A=T or C=T) and not (A=T and C=T) \u2192 (F or T) and not (F and T) \u2192 T and T \u2192 T | C=T \u2192 Ben=Lying | 2 truths, 1 lie |\n| 7        | T | F | T | A=T, but B=F \u2192 A's statement holds | B=F \u2192 (A=T or C=T) and not (A=T and C=T) \u2192 (T or T) and not (T and T) \u2192 T and F \u2192 F | C=T \u2192 Ben=Lying | 2 truths, 1 lie |\n\nWait, this is getting a bit messy.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "Let me try a different approach.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "Let's consider each possibility of who is lying and see if it fits.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "**Case 1: Suppose Amy is lying (A=F).**\n- If Amy is lying, then her statement \"If Ben is telling the truth, then Carla is lying\" is false.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "- For an implication to be false, the premise must be true, and the conclusion must be false.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "- So, if Amy is lying, then Ben is telling the truth (B=T), and Carla is not lying (C=T).",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "Now, since Amy is lying, Ben and Carla must be telling the truth.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "But we know that exactly two are telling the truth, so this would mean Ben and Carla are truthful, and Amy is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "Let's check if this holds.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "- Ben's statement: \"Either Amy is telling the truth or Carla is telling the truth, but not both.\"\n  - Since Amy is lying (A=F) and Carla is truthful (C=T), (A \u2228 C) is T (because C=T), and (A \u2227 C) is F (because A=F).",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "So Ben's statement is T \u2227 \u00acF = T \u2227 T = T.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "So Ben is truthful.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "- Carla's statement: \"Ben is lying.\" But Carla is truthful, so Ben must be lying.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "But we've just determined Ben is truthful.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "This is a contradiction.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "Therefore, Case 1 leads to a contradiction, so Amy cannot be the one lying.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "**Case 2: Suppose Ben is lying (B=F).**\n- If Ben is lying, then his statement \"Either Amy is telling the truth or Carla is telling the truth, but not both\" is false.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "- For Ben's statement to be false, the negation must hold: (A \u2227 C) = T (both are true) or \u00ac(A \u2228 C) = T (neither is true).",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "But since exactly two are telling the truth, we can't have both being true or both being false.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "So, the only possibility is that both A and C are true.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "Wait, but if both A and C are true, then from Amy's statement: If Ben is truthful, then Carla is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "But we've assumed Ben is lying (B=F), so Amy's statement is automatically true (since the premise is false).",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "So Amy is truthful.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "So, in this case, A=T, C=T, B=F.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "That's two truths and one lie.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "Let's check if this holds.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "- Amy's statement: If B=T, then C=F.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "Since B=F, the statement is true regardless.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "- Ben's statement: (A \u2228 C) \u2227 \u00ac(A \u2227 C).",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  },
+  {
+    "index": 134,
+    "text": "Since A=T and C=T, (A \u2228 C)=T and (A \u2227 C)=T, so \u00ac(A \u2227 C)=F.",
+    "category": "Unknown",
+    "abbreviation": "C-134"
+  },
+  {
+    "index": 135,
+    "text": "Thus, Ben's statement is T \u2227 F = F, which is consistent because Ben is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-135"
+  },
+  {
+    "index": 136,
+    "text": "- Carla's statement: \"Ben is lying.\" Since Carla is truthful, Ben is indeed lying.",
+    "category": "Unknown",
+    "abbreviation": "C-136"
+  },
+  {
+    "index": 137,
+    "text": "So this holds.",
+    "category": "Unknown",
+    "abbreviation": "C-137"
+  },
+  {
+    "index": 138,
+    "text": "Therefore, in this scenario, Ben is lying, Amy and Carla are truthful.",
+    "category": "Unknown",
+    "abbreviation": "C-138"
+  },
+  {
+    "index": 139,
+    "text": "This fits the condition of exactly two truths.",
+    "category": "Unknown",
+    "abbreviation": "C-139"
+  },
+  {
+    "index": 140,
+    "text": "**Case 3: Suppose Carla is lying (C=F).**\n- If Carla is lying, then her statement \"Ben is lying\" is false.",
+    "category": "Unknown",
+    "abbreviation": "C-140"
+  },
+  {
+    "index": 141,
+    "text": "So Ben is truthful (B=T).",
+    "category": "Unknown",
+    "abbreviation": "C-141"
+  },
+  {
+    "index": 142,
+    "text": "Now, since exactly two are telling the truth, and Carla is lying, either Amy or Ben must be truthful, but not both.",
+    "category": "Unknown",
+    "abbreviation": "C-142"
+  },
+  {
+    "index": 143,
+    "text": "- If Amy is truthful (A=T):\n  - From Amy's statement: If Ben is truthful, then Carla is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-143"
+  },
+  {
+    "index": 144,
+    "text": "Since Ben is truthful (B=T), Carla must be lying (C=F), which is consistent.",
+    "category": "Unknown",
+    "abbreviation": "C-144"
+  },
+  {
+    "index": 145,
+    "text": "- From Ben's statement: (A \u2228 C) \u2227 \u00ac(A \u2227 C).",
+    "category": "Unknown",
+    "abbreviation": "C-145"
+  },
+  {
+    "index": 146,
+    "text": "Since A=T and C=F, this becomes (T \u2228 F) \u2227 \u00ac(T \u2227 F) = T \u2227 T = T.",
+    "category": "Unknown",
+    "abbreviation": "C-146"
+  },
+  {
+    "index": 147,
+    "text": "So Ben's statement is true, which is consistent since Ben is truthful.",
+    "category": "Unknown",
+    "abbreviation": "C-147"
+  },
+  {
+    "index": 148,
+    "text": "So in this scenario, Amy and Ben are truthful, Carla is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-148"
+  },
+  {
+    "index": 149,
+    "text": "That's two truths and one lie.",
+    "category": "Unknown",
+    "abbreviation": "C-149"
+  },
+  {
+    "index": 150,
+    "text": "This also fits.",
+    "category": "Unknown",
+    "abbreviation": "C-150"
+  },
+  {
+    "index": 151,
+    "text": "Wait, but earlier in Case 2, when Ben is lying, we had Amy and Carla truthful.",
+    "category": "Unknown",
+    "abbreviation": "C-151"
+  },
+  {
+    "index": 152,
+    "text": "Now, in Case 3, when Carla is lying, we have Amy and Ben truthful.",
+    "category": "Unknown",
+    "abbreviation": "C-152"
+  },
+  {
+    "index": 153,
+    "text": "So both scenarios are possible? That can't be, because only one of them can be the case.",
+    "category": "Unknown",
+    "abbreviation": "C-153"
+  },
+  {
+    "index": 154,
+    "text": "Wait, let me double-check.",
+    "category": "Unknown",
+    "abbreviation": "C-154"
+  },
+  {
+    "index": 155,
+    "text": "In Case 2: Ben is lying (B=F).",
+    "category": "Unknown",
+    "abbreviation": "C-155"
+  },
+  {
+    "index": 156,
+    "text": "So Ben's statement is false.",
+    "category": "Unknown",
+    "abbreviation": "C-156"
+  },
+  {
+    "index": 157,
+    "text": "Therefore, (A \u2228 C) \u2227 \u00ac(A \u2227 C) is false.",
+    "category": "Unknown",
+    "abbreviation": "C-157"
+  },
+  {
+    "index": 158,
+    "text": "Which means either both A and C are true or both are false.",
+    "category": "Unknown",
+    "abbreviation": "C-158"
+  },
+  {
+    "index": 159,
+    "text": "But since exactly two are truthful, A and C can't both be false.",
+    "category": "Unknown",
+    "abbreviation": "C-159"
+  },
+  {
+    "index": 160,
+    "text": "Therefore, A and C must both be true.",
+    "category": "Unknown",
+    "abbreviation": "C-160"
+  },
+  {
+    "index": 161,
+    "text": "So, in this case, A=T, C=T, B=F.",
+    "category": "Unknown",
+    "abbreviation": "C-161"
+  },
+  {
+    "index": 162,
+    "text": "In Case 3: Carla is lying (C=F).",
+    "category": "Unknown",
+    "abbreviation": "C-162"
+  },
+  {
+    "index": 163,
+    "text": "So her statement is false, meaning Ben is truthful (B=T).",
+    "category": "Unknown",
+    "abbreviation": "C-163"
+  },
+  {
+    "index": 164,
+    "text": "Now, since exactly two are truthful, and C=F, either A=T or A=F, but not both.",
+    "category": "Unknown",
+    "abbreviation": "C-164"
+  },
+  {
+    "index": 165,
+    "text": "If A=T:\n- From Amy's statement: If B=T, then C=F.",
+    "category": "Unknown",
+    "abbreviation": "C-165"
+  },
+  {
+    "index": 166,
+    "text": "Since B=T and C=F, this holds.",
+    "category": "Unknown",
+    "abbreviation": "C-166"
+  },
+  {
+    "index": 167,
+    "text": "- Ben's statement: (A \u2228 C) \u2227 \u00ac(A \u2227 C) = (T \u2228 F) \u2227 \u00ac(T \u2227 F) = T \u2227 T = T.",
+    "category": "Unknown",
+    "abbreviation": "C-167"
+  },
+  {
+    "index": 168,
+    "text": "So Ben's statement is true.",
+    "category": "Unknown",
+    "abbreviation": "C-168"
+  },
+  {
+    "index": 169,
+    "text": "If A=F:\n- From Amy's statement: If B=T, then C=F.",
+    "category": "Unknown",
+    "abbreviation": "C-169"
+  },
+  {
+    "index": 170,
+    "text": "But A=F, so the statement is automatically true regardless.",
+    "category": "Unknown",
+    "abbreviation": "C-170"
+  },
+  {
+    "index": 171,
+    "text": "- Ben's statement: (F \u2228 F) \u2227 \u00ac(F \u2227 F) = F \u2227 T = F.",
+    "category": "Unknown",
+    "abbreviation": "C-171"
+  },
+  {
+    "index": 172,
+    "text": "So Ben's statement is false, which contradicts because we've assumed B=T.",
+    "category": "Unknown",
+    "abbreviation": "C-172"
+  },
+  {
+    "index": 173,
+    "text": "Therefore, in Case 3, if Carla is lying, then Amy must be truthful, Ben must be truthful.",
+    "category": "Unknown",
+    "abbreviation": "C-173"
+  },
+  {
+    "index": 174,
+    "text": "So, A=T, B=T, C=F.",
+    "category": "Unknown",
+    "abbreviation": "C-174"
+  },
+  {
+    "index": 175,
+    "text": "Which is the same as Case 1, but we previously saw that Case 1 leads to a contradiction because Carla's statement would imply Ben is lying, but Ben is truthful.",
+    "category": "Unknown",
+    "abbreviation": "C-175"
+  },
+  {
+    "index": 176,
+    "text": "Wait, but in Case 3, Carla is lying, so her statement \"Ben is lying\" is false, meaning Ben is truthful.",
+    "category": "Unknown",
+    "abbreviation": "C-176"
+  },
+  {
+    "index": 177,
+    "text": "So, in this scenario, Amy is truthful, Ben is truthful, Carla is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-177"
+  },
+  {
+    "index": 178,
+    "text": "But earlier, when I considered Case 1, assuming Amy is lying, it led to a contradiction.",
+    "category": "Unknown",
+    "abbreviation": "C-178"
+  },
+  {
+    "index": 179,
+    "text": "Now, in Case 3, assuming Carla is lying, it leads to Amy and Ben being truthful, which is a valid scenario.",
+    "category": "Unknown",
+    "abbreviation": "C-179"
+  },
+  {
+    "index": 180,
+    "text": "But wait, in this scenario, Amy is truthful, Ben is truthful, Carla is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-180"
+  },
+  {
+    "index": 181,
+    "text": "So two truths, one lie.",
+    "category": "Unknown",
+    "abbreviation": "C-181"
+  },
+  {
+    "index": 182,
+    "text": "That's valid.",
+    "category": "Unknown",
+    "abbreviation": "C-182"
+  },
+  {
+    "index": 183,
+    "text": "But earlier, in Case 2, assuming Ben is lying, it leads to Amy and Carla being truthful, which is also valid.",
+    "category": "Unknown",
+    "abbreviation": "C-183"
+  },
+  {
+    "index": 184,
+    "text": "So, both scenarios seem possible.",
+    "category": "Unknown",
+    "abbreviation": "C-184"
+  },
+  {
+    "index": 185,
+    "text": "But that can't be because there should be only one solution.",
+    "category": "Unknown",
+    "abbreviation": "C-185"
+  },
+  {
+    "index": 186,
+    "text": "Wait, perhaps I made a mistake in considering the cases.",
+    "category": "Unknown",
+    "abbreviation": "C-186"
+  },
+  {
+    "index": 187,
+    "text": "Let me re-examine the two scenarios:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-187"
+  },
+  {
+    "index": 188,
+    "text": "**Scenario 1**: Ben is lying (B=F), so A=T, C=T.",
+    "category": "Unknown",
+    "abbreviation": "C-188"
+  },
+  {
+    "index": 189,
+    "text": "This works because:\n   - Amy's statement holds because B=F.",
+    "category": "Unknown",
+    "abbreviation": "C-189"
+  },
+  {
+    "index": 190,
+    "text": "- Ben's statement is false because A and C are both true.",
+    "category": "Unknown",
+    "abbreviation": "C-190"
+  },
+  {
+    "index": 191,
+    "text": "- Carla's statement is true because Ben is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-191"
+  },
+  {
+    "index": 192,
+    "text": "2. **Scenario 2**: Carla is lying (C=F), so B=T.",
+    "category": "Unknown",
+    "abbreviation": "C-192"
+  },
+  {
+    "index": 193,
+    "text": "Then:\n   - Amy's statement must hold.",
+    "category": "Unknown",
+    "abbreviation": "C-193"
+  },
+  {
+    "index": 194,
+    "text": "If B=T, then C=F, which is consistent.",
+    "category": "Unknown",
+    "abbreviation": "C-194"
+  },
+  {
+    "index": 195,
+    "text": "- Ben's statement is true because (A=T or C=F) and not (A=T and C=F).",
+    "category": "Unknown",
+    "abbreviation": "C-195"
+  },
+  {
+    "index": 196,
+    "text": "Since A=T and C=F, (A",
+    "category": "Unknown",
+    "abbreviation": "C-196"
+  }
+]

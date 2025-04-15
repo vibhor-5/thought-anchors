@@ -1,0 +1,434 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A cube has each face painted with a different color: red, blue, green, yellow, orange, and purple.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "The cube is photographed from a particular angle, showing exactly three faces: the red face is on the left, the blue face is on the right, and the yellow face is on top.",
+    "category": "Deduction",
+    "abbreviation": "D-3"
+  },
+  {
+    "index": 4,
+    "text": "If the cube is rotated 90 degrees clockwise around the vertical axis (the axis passing through the centers of the top and bottom faces), which three colors will be visible, and in what positions (left, right, top)? \n\n Solution: \n<think>\nAlright, so I've got this cube problem to solve.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "Let me try to visualize it step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "First, the cube has six faces, each painted with a different color: red, blue, green, yellow, orange, and purple.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-6"
+  },
+  {
+    "index": 7,
+    "text": "The cube is being photographed from a particular angle that shows exactly three faces: red on the left, blue on the right, and yellow on top.",
+    "category": "Deduction",
+    "abbreviation": "D-7"
+  },
+  {
+    "index": 8,
+    "text": "Okay, so the initial setup is that from the camera's viewpoint, the left face is red, the right face is blue, and the top face is yellow.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "Now, the cube is going to be rotated 90 degrees clockwise around the vertical axis.",
+    "category": "Initializing",
+    "abbreviation": "I-9"
+  },
+  {
+    "index": 10,
+    "text": "The vertical axis here passes through the centers of the top and bottom faces.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-10"
+  },
+  {
+    "index": 11,
+    "text": "So, rotating the cube 90 degrees clockwise around this axis will move the front, back, left, and right faces, but the top and bottom faces remain in place.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "Let me think about how the cube looks before the rotation.",
+    "category": "Initializing",
+    "abbreviation": "I-12"
+  },
+  {
+    "index": 13,
+    "text": "If I imagine the cube in front of me, red is on the left, blue on the right, and yellow on top.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-13"
+  },
+  {
+    "index": 14,
+    "text": "The other faces must be green, orange, and purple.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-14"
+  },
+  {
+    "index": 15,
+    "text": "Now, I need to figure out where each of these colors ends up after a 90-degree clockwise rotation.",
+    "category": "Question Posing",
+    "abbreviation": "QP-15"
+  },
+  {
+    "index": 16,
+    "text": "When you rotate a cube 90 degrees clockwise around the vertical axis, the front face becomes the right face, the right face becomes the back face, the back face becomes the left face, and the left face becomes the front face.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-16"
+  },
+  {
+    "index": 17,
+    "text": "However, since the cube is being rotated, the orientation of these faces changes as well.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "So, the colors on these faces will also move accordingly.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "Starting with the initial positions:\n\n- Left: Red\n- Right: Blue\n- Top: Yellow\n\nNow, the bottom face is opposite the top.",
+    "category": "Initializing",
+    "abbreviation": "I-19"
+  },
+  {
+    "index": 20,
+    "text": "Since the top is yellow, the bottom must be a different color.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "Let's say the bottom is, for example, green.",
+    "category": "Example Testing",
+    "abbreviation": "ET-21"
+  },
+  {
+    "index": 22,
+    "text": "But wait, actually, the problem doesn't specify the bottom color, so maybe I need to figure that out as well.",
+    "category": "Backtracking",
+    "abbreviation": "B-22"
+  },
+  {
+    "index": 23,
+    "text": "But the key is that the rotation affects the front, back, left, and right faces.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "The top and bottom remain the same.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "So, after the rotation, the left, right, and top faces will have different colors.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "Let me try to map this out.",
+    "category": "Initializing",
+    "abbreviation": "I-26"
+  },
+  {
+    "index": 27,
+    "text": "Before rotation:\n\n- Front: Let's say it's purple (since we have red, blue, yellow, and the others are green, orange, purple).",
+    "category": "Example Testing",
+    "abbreviation": "ET-27"
+  },
+  {
+    "index": 28,
+    "text": "- Back: Orange\n- Left: Red\n- Right: Blue\n- Top: Yellow\n- Bottom: Green\n\nWait, but I'm not sure if that's correct.",
+    "category": "Example Testing",
+    "abbreviation": "ET-28"
+  },
+  {
+    "index": 29,
+    "text": "The initial setup only mentions left, right, and top, so maybe the front and back are different.",
+    "category": "Question Posing",
+    "abbreviation": "QP-29"
+  },
+  {
+    "index": 30,
+    "text": "Let me think again.",
+    "category": "Backtracking",
+    "abbreviation": "B-30"
+  },
+  {
+    "index": 31,
+    "text": "Alternatively, perhaps the front is green, and the back is orange.",
+    "category": "Backtracking",
+    "abbreviation": "B-31"
+  },
+  {
+    "index": 32,
+    "text": "So:\n\n- Front: Green\n- Back: Orange\n- Left: Red\n- Right: Blue\n- Top: Yellow\n- Bottom: Purple\n\nWait, that's six colors: red, blue, green, yellow, orange, purple.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "So that works.",
+    "category": "Deduction",
+    "abbreviation": "D-33"
+  },
+  {
+    "index": 34,
+    "text": "Now, when I rotate the cube 90 degrees clockwise around the vertical axis, the front face (green) moves to the right, the right face (blue) moves to the back, the back face (orange) moves to the left, and the left face (red) moves to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "The top and bottom remain the same.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "So after the rotation:\n\n- Front: Red (from left)\n- Back: Blue (from right)\n- Left: Orange (from back)\n- Right: Green (from front)\n- Top: Yellow\n- Bottom: Purple\n\nBut wait, that doesn't seem right.",
+    "category": "Backtracking",
+    "abbreviation": "B-36"
+  },
+  {
+    "index": 37,
+    "text": "Let me double-check.",
+    "category": "Question Posing",
+    "abbreviation": "QP-37"
+  },
+  {
+    "index": 38,
+    "text": "When you rotate the cube 90 degrees clockwise, the front becomes the right, right becomes the back, back becomes the left, and left becomes the front.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-38"
+  },
+  {
+    "index": 39,
+    "text": "So, the colors move as follows:\n\n- Front (green) \u2192 Right\n- Right (blue) \u2192 Back\n- Back (orange) \u2192 Left\n- Left (red) \u2192 Front\n\nSo, after rotation:\n\n- Front: Red\n- Back: Blue\n- Left: Orange\n- Right: Green\n- Top: Yellow\n- Bottom: Purple\n\nWait, but the question is asking about the visible faces after rotation, specifically the three faces: left, right, and top.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "So, after the rotation, the left face was originally red but has moved.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-40"
+  },
+  {
+    "index": 41,
+    "text": "Let me track each face's movement.",
+    "category": "Example Testing",
+    "abbreviation": "ET-41"
+  },
+  {
+    "index": 42,
+    "text": "Initially:\n\n- Left: Red\n- Right: Blue\n- Front: Green\n- Back: Orange\n- Top: Yellow\n- Bottom: Purple\n\nAfter 90-degree clockwise rotation:\n\n- Front becomes Right: So Right was Blue, now Front is Blue? Wait, no, the front face moves to the right.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-42"
+  },
+  {
+    "index": 43,
+    "text": "So, the color that was on the front (green) moves to the right.",
+    "category": "Deduction",
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "Wait, I'm getting confused.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-44"
+  },
+  {
+    "index": 45,
+    "text": "Let me think about the cube's orientation.",
+    "category": "Question Posing",
+    "abbreviation": "QP-45"
+  },
+  {
+    "index": 46,
+    "text": "When you look at the cube with red on the left, blue on the right, and yellow on top, the front face is in front of you.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "So, if you rotate it 90 degrees clockwise, the front face (which was, say, green) will move to the right side, the right face (blue) will move to the back, the back face (orange) will move to the left, and the left face (red) will move to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "So, after rotation:\n\n- Front: Red (from left)\n- Back: Blue (from right)\n- Left: Orange (from back)\n- Right: Green (from front)\n- Top: Yellow\n- Bottom: Purple\n\nTherefore, the visible faces after rotation are:\n\n- Left: Orange\n- Right: Green\n- Top: Yellow\n\nWait, but the initial left was red, and after rotation, the left becomes orange.",
+    "category": "Deduction",
+    "abbreviation": "D-48"
+  },
+  {
+    "index": 49,
+    "text": "Similarly, the right was blue and becomes green.",
+    "category": "Deduction",
+    "abbreviation": "D-49"
+  },
+  {
+    "index": 50,
+    "text": "The top remains yellow, as the rotation is around the vertical axis.",
+    "category": "Deduction",
+    "abbreviation": "D-50"
+  },
+  {
+    "index": 51,
+    "text": "So, the colors visible after rotation are orange on the left, green on the right, and yellow on top.",
+    "category": "Summary",
+    "abbreviation": "S-51"
+  },
+  {
+    "index": 52,
+    "text": "But let me confirm.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-52"
+  },
+  {
+    "index": 53,
+    "text": "When you rotate the cube 90 degrees clockwise, the left face becomes the back face, the back face becomes the right face, the right face becomes the front face, and the front face becomes the left face.",
+    "category": "Deduction",
+    "abbreviation": "D-53"
+  },
+  {
+    "index": 54,
+    "text": "Wait, no, that's not quite right.",
+    "category": "Backtracking",
+    "abbreviation": "B-54"
+  },
+  {
+    "index": 55,
+    "text": "Actually, in a 90-degree clockwise rotation, the front face moves to the right, the right face moves to the back, the back face moves to the left, and the left face moves to the front.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-55"
+  },
+  {
+    "index": 56,
+    "text": "So, the front (green) \u2192 right, right (blue) \u2192 back, back (orange) \u2192 left, left (red) \u2192 front.",
+    "category": "Deduction",
+    "abbreviation": "D-56"
+  },
+  {
+    "index": 57,
+    "text": "So, the new positions are:\n\n- Front: Red (from left)\n- Back: Blue (from right)\n- Left: Orange (from back)\n- Right: Green (from front)\n- Top: Yellow\n- Bottom: Purple\n\nTherefore, the visible faces are:\n\n- Left: Orange\n- Right: Green\n- Top: Yellow\n\nSo, the colors visible after rotation are orange on the left, green on the right, and yellow on top.",
+    "category": "Deduction",
+    "abbreviation": "D-57"
+  },
+  {
+    "index": 58,
+    "text": "Wait, but the problem says \"which three colors will be visible, and in what positions (left, right, top)?\" So, the colors are orange, green, and yellow, with their respective positions.",
+    "category": "Final Answer",
+    "abbreviation": "FA-58"
+  },
+  {
+    "index": 59,
+    "text": "But let me think again.",
+    "category": "Backtracking",
+    "abbreviation": "B-59"
+  },
+  {
+    "index": 60,
+    "text": "Maybe I got the front and back mixed up.",
+    "category": "Backtracking",
+    "abbreviation": "B-60"
+  },
+  {
+    "index": 61,
+    "text": "Let's try another approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-61"
+  },
+  {
+    "index": 62,
+    "text": "Let's assign the colors to each face before rotation:\n\n- Left: Red\n- Right: Blue\n- Front: Green\n- Back: Orange\n- Top: Yellow\n- Bottom: Purple\n\nNow, when rotating 90 degrees clockwise around the vertical axis, the front face (green) moves to the right, the right face (blue) moves to the back, the back face (orange) moves to the left, and the left face (red) moves to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-62"
+  },
+  {
+    "index": 63,
+    "text": "So, after rotation:\n\n- Front: Red (from left)\n- Back: Blue (from right)\n- Left: Orange (from back)\n- Right: Green (from front)\n- Top: Yellow\n- Bottom: Purple\n\nSo, the visible faces are:\n\n- Left: Orange\n- Right: Green\n- Top: Yellow\n\nTherefore, the three colors visible are orange, green, and yellow, with orange on the left, green on the right, and yellow on top.",
+    "category": "Deduction",
+    "abbreviation": "D-63"
+  },
+  {
+    "index": 64,
+    "text": "Wait, but the problem says \"the cube is rotated 90 degrees clockwise around the vertical axis.\" So, I think my reasoning is correct.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-64"
+  },
+  {
+    "index": 65,
+    "text": "The front moves to the right, the right moves to the back, the back moves to the left, and the left moves to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-65"
+  },
+  {
+    "index": 66,
+    "text": "So, the colors after rotation are:\n\n- Left: Orange\n- Right: Green\n- Top: Yellow\n\nI think that's the answer.",
+    "category": "Final Answer",
+    "abbreviation": "FA-66"
+  },
+  {
+    "index": 67,
+    "text": "</think>\n\nAfter a 90-degree clockwise rotation around the vertical axis, the visible faces of the cube will be orange on the left, green on the right, and yellow on top.",
+    "category": "Final Answer",
+    "abbreviation": "FA-67"
+  },
+  {
+    "index": 68,
+    "text": "**Answer:** After the rotation, the visible colors are orange (left), green (right), and yellow (top).",
+    "category": "Final Answer",
+    "abbreviation": "FA-68"
+  },
+  {
+    "index": 69,
+    "text": "So, the three visible colors are orange, green, and yellow in the positions left, right, and top respectively.",
+    "category": "Final Answer",
+    "abbreviation": "FA-69"
+  },
+  {
+    "index": 70,
+    "text": "**Final Answer:** The three visible colors are orange (left), green (right), and yellow (top).",
+    "category": "Final Answer",
+    "abbreviation": "FA-70"
+  },
+  {
+    "index": 71,
+    "text": "So, the answer is orange, green, and yellow in those positions.",
+    "category": "Final Answer",
+    "abbreviation": "FA-71"
+  }
+]

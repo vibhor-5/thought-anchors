@@ -1,0 +1,1058 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A hospital is evaluating two different surgical procedures for a particular condition.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Procedure A has a 3% risk of minor complications and a 1% risk of major complications.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Procedure B has a 2% risk of minor complications and a 1.5% risk of major complications.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "If the hospital values avoiding major complications twice as much as avoiding minor complications, which procedure represents the lower overall risk? \n\n Solution: \n<think>\nAlright, so I need to figure out which surgical procedure, A or B, has a lower overall risk.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "The hospital values avoiding major complications twice as much as avoiding minor ones.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Hmm, okay.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "Let me break this down step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "First, let's understand what's given for each procedure:\n\n**Procedure A:**\n- Risk of minor complications: 3%\n- Risk of major complications: 1%\n\n**Procedure B:**\n- Risk of minor complications: 2%\n- Risk of major complications: 1.5%\n\nThe hospital wants to minimize overall risk, and they prioritize avoiding major complications more than minor ones.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Specifically, they value major complications twice as much as minor ones.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "So, I think this means that the impact of major complications is considered twice as severe as minor ones when calculating the overall risk.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Wait, how do I translate this into a numerical value? Maybe I need to assign a weight to each type of complication.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "Since major is valued twice as much as minor, I can assign a weight of 2 to major complications and a weight of 1 to minor complications.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "That way, when calculating the overall risk, major complications contribute twice as much as minor ones.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "So, for each procedure, I should calculate the overall risk by multiplying each complication type by its respective weight and then sum them up.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Let me write this out for both procedures.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "**For Procedure A:**\n- Minor: 3% * 1 = 3%\n- Major: 1% * 2 = 2%\n- Total overall risk = 3% + 2% = 5%\n\n**For Procedure B:**\n- Minor: 2% * 1 = 2%\n- Major: 1.5% * 2 = 3%\n- Total overall risk = 2% + 3% = 5%\n\nWait, both procedures have the same overall risk of 5%? That can't be right.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "Maybe I did something wrong.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Let me double-check.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "The weights: since major is valued twice as much as minor, I think the weight for major should be 2, and minor remains 1.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "So, for each procedure, calculate (minor risk * weight_minor) + (major risk * weight_major).",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "So, for Procedure A:\n(3% * 1) + (1% * 2) = 3% + 2% = 5%\n\nFor Procedure B:\n(2% * 1) + (1.5% * 2) = 2% + 3% = 5%\n\nHmm, same result.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "But that doesn't make sense because the question states that one has a lower overall risk.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Maybe I'm missing something.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Wait, perhaps I should consider the probabilities differently.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Maybe the overall risk is the sum of minor and major complications, but with major being weighted higher.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Alternatively, maybe I should convert the percentages into decimals and then apply the weights.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Let me try that.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "For Procedure A:\nMinor: 0.03 * 1 = 0.03\nMajor: 0.01 * 2 = 0.02\nTotal: 0.03 + 0.02 = 0.05 \u2192 5%\n\nFor Procedure B:\nMinor: 0.02 * 1 = 0.02\nMajor: 0.015 * 2 = 0.03\nTotal: 0.02 + 0.03 = 0.05 \u2192 5%\n\nSame result again.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "But that would mean both have the same overall risk, which contradicts the problem statement.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "So, I must have misinterpreted the weights.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "Wait, perhaps the weights are applied differently.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Maybe the hospital values avoiding major complications twice as much as minor, so the impact of major is considered more severe, but how does that translate into the overall risk calculation?\n\nPerhaps instead of weighting the probabilities, we should calculate the expected value where the major complications are given a higher importance.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Alternatively, maybe the hospital's preference is such that they prefer to avoid major complications more, so the overall risk is calculated by assigning a higher penalty to major complications.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "But in terms of probability, maybe the overall risk is the sum of the probabilities, but with major complications weighted more.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Alternatively, perhaps the overall risk is the sum of minor and major, but when major is more severe, it's given a higher weight in the total.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Wait, perhaps the way to calculate it is to assign a value to each complication, where major is worth 2 units and minor is worth 1 unit, and then total risk is the sum of these units.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "So, for Procedure A:\nMinor: 3% * 1 = 3\nMajor: 1% * 2 = 2\nTotal = 5\n\nProcedure B:\nMinor: 2% * 1 = 2\nMajor: 1.5% * 2 = 3\nTotal = 5\n\nAgain, same result.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Hmm. But the problem says the hospital values avoiding major complications twice as much as minor.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "So perhaps the weights are applied differently.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Maybe the hospital's utility or value function assigns a higher penalty to major complications.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "Perhaps the overall risk is calculated as (minor risk) + 2*(major risk).",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Let me try that.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "For Procedure A:\nMinor: 3% + 2*(1%) = 3% + 2% = 5%\n\nProcedure B:\nMinor: 2% + 2*(1.5%) = 2% + 3% = 5%\n\nSame result again.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "So both have 5% total risk.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "But that can't be, because the question is asking which one has a lower overall risk.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "Wait, maybe I'm overcomplicating this.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Perhaps the weights are applied to the probabilities, so the overall risk is calculated as minor risk * weight_minor + major risk * weight_major.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "But if weight_major is 2, and weight_minor is 1, then:\n\nProcedure A:\n0.03*1 + 0.01*2 = 0.03 + 0.02 = 0.05 or 5%\n\nProcedure B:\n0.02*1 + 0.015*2 = 0.02 + 0.03 = 0.05 or 5%\n\nSame again.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "So both have the same overall risk.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "But the question states that one is lower.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Therefore, perhaps the weights are applied differently.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "Maybe the hospital's value is such that the risk of major complications is considered twice as bad as minor, so the weight for major is higher.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "Alternatively, perhaps the weights are the inverse.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "Maybe the hospital prefers to avoid minor complications more, but in this case, they value major twice as much as minor.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "Wait, perhaps the weights should be applied as the inverse.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "Let me think.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "If the hospital values avoiding major complications twice as much as minor, then the weight for major is higher.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "So, when calculating the overall risk, major is weighted more.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "But in the previous calculations, both came to 5%.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "That suggests they have the same overall risk, which contradicts the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "Alternatively, perhaps the way to calculate the overall risk is to consider the weighted sum where the weight for major is 2 and minor is 1.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "So, for each procedure, compute (minor risk * 1) + (major risk * 2).",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "But as we saw, both end up with 5%.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Wait, maybe I should consider that the overall risk is the sum of the probabilities, but with major complications being considered twice as bad, so the total is minor + 2*major.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "So, for Procedure A: 3 + 2*1 = 5\n\nProcedure B: 2 + 2*1.5 = 5\n\nSame result.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "Alternatively, perhaps the weights should be applied differently.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "Maybe the weight for major is 2, and minor is 1, but in terms of probabilities, so the overall risk is (minor + major*2).",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "But again, same result.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "Wait, perhaps I'm misunderstanding the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "Maybe the hospital's preference is that they are willing to accept a higher minor risk to avoid major complications, but in this case, the weights are applied to the probabilities.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "Alternatively, perhaps the overall risk is calculated as the sum of the minor and major risks, but with major being weighted more, so the total is minor + major*weight.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "But in all cases, both procedures have the same total.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "Wait, perhaps I'm making a mistake in the initial step.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "Let me re-examine.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "The problem says the hospital values avoiding major complications twice as much as avoiding minor.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "So, if minor is worth 1 unit, major is worth 2 units.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "So, the overall risk for each procedure is the sum of the minor and major, with major being worth twice as much.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "Therefore:\n\nProcedure A:\nMinor: 3% * 1 = 3%\nMajor: 1% * 2 = 2%\nTotal: 3% + 2% = 5%\n\nProcedure B:\nMinor: 2% * 1 = 2%\nMajor: 1.5% * 2 = 3%\nTotal: 2% + 3% = 5%\n\nSame result.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "So both have the same overall risk.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "But the question is asking which one represents the lower overall risk, implying that one is better.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "Therefore, perhaps I'm misinterpreting the weights.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "Maybe the weights are applied differently.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "Perhaps the weight for major is 2, but we should consider the probabilities multiplied by their weights and then summed.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "Alternatively, perhaps the weights are applied as penalties, so the overall risk is calculated as (minor risk * weight_minor) + (major risk * weight_major), where weight_major = 2 * weight_minor.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "Since the hospital values avoiding major complications twice as much as minor, perhaps the weight for major is twice the weight for minor.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Let me assume that weight_minor = 1, so weight_major = 2.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "Then, for each procedure, compute:\n\nOverall risk = (minor risk * weight_minor) + (major risk * weight_major)\n\nSo for Procedure A:\n(3% * 1) + (1% * 2) = 3% + 2% = 5%\n\nFor Procedure B:\n(2% * 1) + (1.5% * 2) = 2% + 3% = 5%\n\nSame result again.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "Alternatively, perhaps the weights are applied as multipliers to the probabilities, so the overall risk is (minor + major * weight).",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "But again, same result.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "Wait, maybe the weights are applied in terms of importance, so the hospital would prefer the procedure where the sum of the weighted risks is lower.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "But in all cases, both are 5%.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "Alternatively, perhaps I'm supposed to calculate the expected value where major complications are twice as likely to be avoided, but that doesn't make sense.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "Wait, perhaps the way to calculate the overall risk is to consider that the hospital is more averse to major complications, so the risk of major is considered twice as bad as minor.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "So, the overall risk is calculated as minor risk + 2*(major risk).",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "So for Procedure A: 3 + 2*1 = 5\n\nProcedure B: 2 + 2*1.5 = 5\n\nSame result.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "Alternatively, perhaps the weights are applied to the probabilities, so the overall risk is (minor * 1) + (major * 2).",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "But again, same result.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "Wait, perhaps I'm missing something.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "Maybe the overall risk is the sum of minor and major, but with major being weighted more in terms of their impact, not just their probability.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "Alternatively, perhaps the way to think about it is to consider the hospital's utility, where the utility of avoiding a major complication is twice that of avoiding a minor one.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "So, the overall utility is (minor risk * 1) + (major risk * 2).",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "But again, same result.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "Wait, perhaps I should think in terms of percentages.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "Since the hospital values major complications twice as much as minor, the impact of major is considered twice as severe.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "So, the overall risk is calculated as:\n\nFor each procedure, compute (minor risk) + 2*(major risk).",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "So, for Procedure A: 3 + 2*1 = 5\n\nFor Procedure B: 2 + 2*1.5 = 5\n\nSame result.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "But the question says the hospital is evaluating which procedure has a lower overall risk, implying that one is better.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "Therefore, perhaps I'm misunderstanding the weights.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "Wait, perhaps the weights are applied differently.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "Maybe the weight for major is 2, so the overall risk is (minor + major*2).",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "But again, same result.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "Alternatively, perhaps the weights are applied to the probabilities, so the overall risk is (minor*weight_minor) + (major*weight_major).",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "So, if weight_major = 2 and weight_minor = 1, then:\n\nProcedure A: 0.03*1 + 0.01*2 = 0.05 or 5%\n\nProcedure B: 0.02*1 + 0.015*2 = 0.05 or 5%\n\nSame result.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "But the problem states that the hospital values avoiding major complications twice as much as minor, so perhaps the weights should be applied in a different way.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "Alternatively, maybe the weights are the inverse.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "Since major is valued twice as much as minor, perhaps the weight for minor is 2 and major is 1.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "Wait, no, because the hospital values avoiding major complications more, so major should have a higher weight.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "Wait, perhaps the weights are based on the inverse of the probabilities.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "That doesn't make sense.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "Alternatively, perhaps the weights are applied as the inverse of the complication rates.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "Wait, perhaps the way to think about it is that the hospital's preference is such that the risk of major complications is twice as bad as minor.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "So, when calculating the overall risk, the major complications are weighted more.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "But in all the calculations, both end up with the same overall risk.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "Wait, perhaps I'm misinterpreting the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "Maybe the weights are applied to the risk of complications, not the probabilities.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "So, the overall risk is calculated as (minor risk * weight_minor) + (major risk * weight_major).",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "But same result.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "Alternatively, perhaps the weights are applied to the probabilities, so the overall risk is (minor probability * weight_minor) + (major probability * weight_major).",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "But same result again.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "Wait, maybe the weights are not 1 and 2, but something else.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "Maybe the weights are the inverse.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "Let me think.",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  },
+  {
+    "index": 134,
+    "text": "If the hospital values avoiding major complications twice as much as minor, then the weight for major is 2 and minor is 1.",
+    "category": "Unknown",
+    "abbreviation": "C-134"
+  },
+  {
+    "index": 135,
+    "text": "So, for each procedure, compute (minor * 1) + (major * 2).",
+    "category": "Unknown",
+    "abbreviation": "C-135"
+  },
+  {
+    "index": 136,
+    "text": "But same result.",
+    "category": "Unknown",
+    "abbreviation": "C-136"
+  },
+  {
+    "index": 137,
+    "text": "Wait, perhaps the weights should be the inverse, so the weight for minor is 2 and major is 1, but that doesn't make sense because the hospital values major more.",
+    "category": "Unknown",
+    "abbreviation": "C-137"
+  },
+  {
+    "index": 138,
+    "text": "Wait, I'm stuck.",
+    "category": "Unknown",
+    "abbreviation": "C-138"
+  },
+  {
+    "index": 139,
+    "text": "Both procedures seem to have the same overall risk when weighted as per the hospital's preference.",
+    "category": "Unknown",
+    "abbreviation": "C-139"
+  },
+  {
+    "index": 140,
+    "text": "But the problem states that one has a lower overall risk.",
+    "category": "Unknown",
+    "abbreviation": "C-140"
+  },
+  {
+    "index": 141,
+    "text": "Therefore, perhaps I'm misinterpreting the weights.",
+    "category": "Unknown",
+    "abbreviation": "C-141"
+  },
+  {
+    "index": 142,
+    "text": "Wait, perhaps the weights are applied differently.",
+    "category": "Unknown",
+    "abbreviation": "C-142"
+  },
+  {
+    "index": 143,
+    "text": "Maybe the weight for major is 2, so the overall risk is (minor + major*2).",
+    "category": "Unknown",
+    "abbreviation": "C-143"
+  },
+  {
+    "index": 144,
+    "text": "But same result.",
+    "category": "Unknown",
+    "abbreviation": "C-144"
+  },
+  {
+    "index": 145,
+    "text": "Alternatively, perhaps the weights are applied as the inverse of the complication rates.",
+    "category": "Unknown",
+    "abbreviation": "C-145"
+  },
+  {
+    "index": 146,
+    "text": "Wait, perhaps the way to calculate the overall risk is to compute the weighted average where major is weighted twice as much as minor.",
+    "category": "Unknown",
+    "abbreviation": "C-146"
+  },
+  {
+    "index": 147,
+    "text": "So, for each procedure, compute:\n\nOverall risk = (minor risk / total minor + major risk / total major) * something.",
+    "category": "Unknown",
+    "abbreviation": "C-147"
+  },
+  {
+    "index": 148,
+    "text": "No, that doesn't make sense.",
+    "category": "Unknown",
+    "abbreviation": "C-148"
+  },
+  {
+    "index": 149,
+    "text": "Alternatively, perhaps the overall risk is the sum of the minor and major, but with major being weighted more.",
+    "category": "Unknown",
+    "abbreviation": "C-149"
+  },
+  {
+    "index": 150,
+    "text": "Wait, I think I'm going in circles here.",
+    "category": "Unknown",
+    "abbreviation": "C-150"
+  },
+  {
+    "index": 151,
+    "text": "Let me try a different approach.",
+    "category": "Unknown",
+    "abbreviation": "C-151"
+  },
+  {
+    "index": 152,
+    "text": "Let me assign a value to each complication type based on the hospital's preference.",
+    "category": "Unknown",
+    "abbreviation": "C-152"
+  },
+  {
+    "index": 153,
+    "text": "Since the hospital values avoiding major complications twice as much as minor, I can assign a value of 1 to minor complications and 2 to major complications.",
+    "category": "Unknown",
+    "abbreviation": "C-153"
+  },
+  {
+    "index": 154,
+    "text": "Then, for each procedure, calculate the total risk by summing the values of each complication.",
+    "category": "Unknown",
+    "abbreviation": "C-154"
+  },
+  {
+    "index": 155,
+    "text": "So, for Procedure A:\nMinor: 3% \u2192 value = 3\nMajor: 1% \u2192 value = 2\nTotal = 3 + 2 = 5\n\nFor Procedure B:\nMinor: 2% \u2192 value = 2\nMajor: 1.5% \u2192 value = 3\nTotal = 2 + 3 = 5\n\nSame result.",
+    "category": "Unknown",
+    "abbreviation": "C-155"
+  },
+  {
+    "index": 156,
+    "text": "But the problem states that one has a lower overall risk, so perhaps the way to calculate it is to consider that the hospital is more averse to major complications, so the overall risk is the sum of minor and major, but with major being weighted more in terms of their impact.",
+    "category": "Unknown",
+    "abbreviation": "C-156"
+  },
+  {
+    "index": 157,
+    "text": "Alternatively, perhaps the way to think about it is to calculate the expected value where the probability of major complications is weighted twice as much as minor.",
+    "category": "Unknown",
+    "abbreviation": "C-157"
+  },
+  {
+    "index": 158,
+    "text": "But same result.",
+    "category": "Unknown",
+    "abbreviation": "C-158"
+  },
+  {
+    "index": 159,
+    "text": "Wait, perhaps the way to calculate the overall risk is to compute the sum of the probabilities, but with major being weighted more.",
+    "category": "Unknown",
+    "abbreviation": "C-159"
+  },
+  {
+    "index": 160,
+    "text": "So, for each procedure, compute:\n\nOverall risk = (minor probability * 1) + (major probability * 2)\n\nSo, for Procedure A: 3% + 2% = 5%\n\nFor Procedure B: 2% + 3% = 5%\n\nSame result.",
+    "category": "Unknown",
+    "abbreviation": "C-160"
+  },
+  {
+    "index": 161,
+    "text": "Alternatively, perhaps the weights should be applied to the probabilities, so the overall risk is (minor * 1) + (major * 2).",
+    "category": "Unknown",
+    "abbreviation": "C-161"
+  },
+  {
+    "index": 162,
+    "text": "But same result.",
+    "category": "Unknown",
+    "abbreviation": "C-162"
+  },
+  {
+    "index": 163,
+    "text": "Wait, perhaps the weights are applied as the inverse, so the weight for minor is 2 and major is 1.",
+    "category": "Unknown",
+    "abbreviation": "C-163"
+  },
+  {
+    "index": 164,
+    "text": "So, for Procedure A: 3*2 + 1*1 = 6 + 1 = 7%\n\nFor Procedure B: 2*2 + 1.5*1 = 4 + 1.5 = 5.5%\n\nBut this changes the result, with Procedure B being lower.",
+    "category": "Unknown",
+    "abbreviation": "C-164"
+  },
+  {
+    "index": 165,
+    "text": "But does this make sense? The hospital values avoiding major complications twice as much as minor, so perhaps the weight for major is 2 and minor is 1.",
+    "category": "Unknown",
+    "abbreviation": "C-165"
+  },
+  {
+    "index": 166,
+    "text": "But if I do that, both are 5%.",
+    "category": "Unknown",
+    "abbreviation": "C-166"
+  },
+  {
+    "index": 167,
+    "text": "Alternatively, if I assign weight_minor = 1 and weight_major = 2, then both are 5%.",
+    "category": "Unknown",
+    "abbreviation": "C-167"
+  },
+  {
+    "index": 168,
+    "text": "Alternatively, if I assign weight_minor = 2 and weight_major = 1, then:\n\nProcedure A: 3*2 + 1*1 = 6 + 1 = 7%\n\nProcedure B: 2*2 + 1.5*1 = 4 + 1.5 = 5.5%\n\nSo, in this case, Procedure B has a lower overall risk.",
+    "category": "Unknown",
+    "abbreviation": "C-168"
+  },
+  {
+    "index": 169,
+    "text": "But does this interpretation make sense? The hospital values avoiding major complications twice as much as minor, so the weight for major should be higher, not lower.",
+    "category": "Unknown",
+    "abbreviation": "C-169"
+  },
+  {
+    "index": 170,
+    "text": "Therefore, perhaps the correct weights are weight_major = 2 and weight_minor = 1.",
+    "category": "Unknown",
+    "abbreviation": "C-170"
+  },
+  {
+    "index": 171,
+    "text": "Thus, both procedures have the same overall risk of 5%.",
+    "category": "Unknown",
+    "abbreviation": "C-171"
+  },
+  {
+    "index": 172,
+    "text": "But the problem states that one is lower.",
+    "category": "Unknown",
+    "abbreviation": "C-172"
+  },
+  {
+    "index": 173,
+    "text": "Therefore, perhaps I'm missing something.",
+    "category": "Unknown",
+    "abbreviation": "C-173"
+  },
+  {
+    "index": 174,
+    "text": "Wait, perhaps the way to calculate the overall risk is to consider that the hospital is more averse to major complications, so the risk of major complications is considered twice as bad as minor, meaning that the overall risk is calculated as:\n\nOverall risk = (minor risk) + 2*(major risk)\n\nSo, for Procedure A: 3 + 2*1 = 5\n\nFor Procedure B: 2 + 2*1.5 = 5\n\nSame result.",
+    "category": "Unknown",
+    "abbreviation": "C-174"
+  },
+  {
+    "index": 175,
+    "text": "But the problem says the hospital is evaluating",
+    "category": "Unknown",
+    "abbreviation": "C-175"
+  }
+]

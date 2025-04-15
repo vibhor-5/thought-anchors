@@ -1,0 +1,338 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: In a group of 15 people, some pairs are friends on a social media platform.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "If each person has at least 10 friends in the group, prove that there must exist at least one set of 3 people who are all friends with each other (forming a 'friendship triangle').",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nAlright, so I have this problem: In a group of 15 people, each person has at least 10 friends.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "I need to prove that there must be at least one set of 3 people who are all friends with each other, forming a 'friendship triangle'.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Hmm, okay, let me think about this.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "First, I remember something about graph theory from my studies.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "This problem sounds like it's related to graph theory because we can model the social media friendships as a graph where each person is a vertex, and each friendship is an edge connecting two vertices.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "So, if each person has at least 10 friends, that means the graph is 10-regular or more.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "But wait, regular graphs have all vertices with the same degree, but here it's just that each vertex has at least degree 10.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "So, it's a graph with minimum degree 10.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Now, the problem is about proving that such a graph must contain a triangle, which is a set of three vertices where each pair is connected by an edge.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "I think there's a theorem related to this.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Maybe Tur\u00e1n's theorem? Let me recall.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Tur\u00e1n's theorem gives the maximum number of edges a graph can have without containing a complete subgraph of a certain size.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "For triangle-free graphs, Tur\u00e1n's theorem says that the maximum number of edges is achieved by the complete bipartite graph with partitions as equal as possible.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "So, for triangle-free graphs, the maximum number of edges is given by Tur\u00e1n's theorem when r=2, which is the case for bipartite graphs.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "The formula is:\n\n\\[ \\text{Ex}(n, K_3) = \\left\\lfloor \\frac{n^2}{4} \\right\\rfloor \\]\n\nWhere n is the number of vertices.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "In this case, n=15.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Let me calculate that:\n\n\\[ \\frac{15^2}{4} = \\frac{225}{4} = 56.25 \\]\n\nSince we can't have a fraction of an edge, we take the floor, so the maximum number of edges without a triangle is 56.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Now, let's think about the total number of edges in our graph.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "Each person has at least 10 friends, so the minimum number of edges is:\n\n\\[ \\frac{15 \\times 10}{2} = 75 \\]\n\nBecause each edge is counted twice when summing the degrees.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "So, our graph has at least 75 edges.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "But wait, Tur\u00e1n's theorem says that a triangle-free graph on 15 vertices can have at most 56 edges.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "However, our graph has at least 75 edges, which is way more than 56.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "That seems contradictory.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "So, does that mean that our graph cannot be triangle-free? Yes, exactly! If a graph has more edges than the Tur\u00e1n number for triangle-free graphs, it must contain at least one triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Therefore, in our case, since the graph has 75 edges, which is greater than the maximum triangle-free edges of 56, it must contain at least one triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "So, there must be at least one set of three people who are all friends with each other.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Wait, let me double-check my reasoning.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Tur\u00e1n's theorem for triangle-free (i.e., no K3) graphs indeed gives the maximum edges as floor(n\u00b2/4).",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "For n=15, that's 56.25, so 56 edges.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "If our graph has more than 56 edges, then it must contain at least one triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Since each person has at least 10 friends, the total number of edges is at least 75, which is more than 56.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "Hence, a triangle must exist.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "I think that makes sense.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "So, the key was to apply Tur\u00e1n's theorem to find the maximum number of edges a triangle-free graph can have and then compare it to the minimum number of edges in our case.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "Since our graph has more edges than that maximum, it must contain a triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Another way to think about it is using the pigeonhole principle or maybe considering the degrees of the vertices.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "If everyone has a high enough degree, it's inevitable that some connections will overlap in a way that forms a triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Alternatively, maybe using Dirac's theorem, which says that if each vertex has degree at least n/2, then the graph is Hamiltonian, meaning it has a cycle that visits every vertex exactly once.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "But in our case, n=15, so n/2=7.5.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Our minimum degree is 10, which is higher, so Dirac's theorem would apply, but I'm not sure if that directly helps with triangles.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "Maybe it's overcomplicating.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "No, Tur\u00e1n's theorem seems the right approach here.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "It directly gives the condition for the existence of a triangle based on the number of edges.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "So, I think my reasoning is correct.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "</think>\n\nAlright, so after thinking it through, here's the step-by-step explanation:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "**Model the Problem as a Graph**: Represent each person as a vertex and each friendship as an edge in a graph with 15 vertices.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "2. **Minimum Degree Condition**: Each vertex (person) has a degree of at least 10, meaning each person has at least 10 friends.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "3. **Calculate Total Edges**: The minimum number of edges in this graph is calculated by summing the degrees and dividing by 2 (since each edge is counted twice):\n   \\[\n   \\frac{15 \\times 10}{2} = 75 \\text{ edges}\n   \\]\n\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "**Apply Tur\u00e1n's Theorem**: Tur\u00e1n's theorem states that the maximum number of edges in a triangle-free (no K\u2083) graph with 15 vertices is:\n   \\[\n   \\left\\lfloor \\frac{15^2}{4} \\right\\rfloor = 56 \\text{ edges}\n   \\]\n\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "**Compare Edges**: Since our graph has 75 edges, which is more than the maximum 56 edges allowed for a triangle-free graph, it must contain at least one triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "Therefore, there must exist at least one set of 3 people who are all friends with each other.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "**DONE.**",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  }
+]

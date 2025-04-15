@@ -1,0 +1,254 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A university has the following policy for its philosophy course: 'If a student attends all lectures, then the student will pass the course.' Unfortunately, Jane attended all lectures but still failed the course.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "From this information alone, which of the following statements is correct?\n\nA) The university's policy is false.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "B) Jane must have failed to complete other requirements of the course.",
+    "category": "Final Answer",
+    "abbreviation": "FA-4"
+  },
+  {
+    "index": 5,
+    "text": "C) Attending all lectures is a necessary condition for passing the course.",
+    "category": "Final Answer",
+    "abbreviation": "FA-5"
+  },
+  {
+    "index": 6,
+    "text": "D) Attending all lectures is both necessary and sufficient for passing the course.",
+    "category": "Final Answer",
+    "abbreviation": "FA-6"
+  },
+  {
+    "index": 7,
+    "text": "Solution: \n<think>\nAlright, so I've got this logic problem here about a university's philosophy course policy.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "Let me try to break it down step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "The policy says, \"If a student attends all lectures, then the student will pass the course.\" Hmm, okay, so in logical terms, that's like saying \"If A, then B,\" where A is \"attending all lectures\" and B is \"passing the course.\" I remember from my logic class that this is a conditional statement, which can also be written as A \u2192 B.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "Now, the problem states that Jane attended all lectures but still failed the course.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "So, Jane did A, but did not do B.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "That means we have a situation where A is true and B is false.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "In logic terms, we're looking at A being true and B being false, which is written as A \u2227 \u00acB.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "I think this is a case of a counterexample.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "The policy is a conditional statement, but it's not universally true because there's at least one instance where the condition holds but the result doesn't.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "So, the policy isn't universally applicable in all cases, which would mean that the policy is false.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "Wait, but hold on.",
+    "category": "Question Posing",
+    "abbreviation": "QP-17"
+  },
+  {
+    "index": 18,
+    "text": "Is the policy itself false, or is it just that the policy doesn't hold in this specific case? I think it's the latter.",
+    "category": "Question Posing",
+    "abbreviation": "QP-18"
+  },
+  {
+    "index": 19,
+    "text": "The policy is a conditional, and conditionals can be true even if they aren't always true.",
+    "category": "Deduction",
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "For example, \"If it rains, the ground gets wet.\" That's a true statement, but it doesn't say that the ground will always be wet; maybe someone spilled water.",
+    "category": "Example Testing",
+    "abbreviation": "ET-20"
+  },
+  {
+    "index": 21,
+    "text": "So, in this case, the policy is still true because it's just a promise that attending all lectures will lead to passing, but it doesn't say it's the only way to pass.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "But wait, Jane attended all lectures and didn't pass.",
+    "category": "Backtracking",
+    "abbreviation": "B-22"
+  },
+  {
+    "index": 23,
+    "text": "So, does that mean the policy is false? Because in this case, attending all lectures didn't guarantee passing.",
+    "category": "Question Posing",
+    "abbreviation": "QP-23"
+  },
+  {
+    "index": 24,
+    "text": "So, the policy is a conditional that's not always true, which would make the policy itself false.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "Hmm, that makes sense.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-25"
+  },
+  {
+    "index": 26,
+    "text": "So, looking at the options:\n\nA) The university's policy is false.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-26"
+  },
+  {
+    "index": 27,
+    "text": "That seems to fit because the policy didn't hold for Jane, so it's not universally true.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "B) Jane must have failed to complete other requirements of the course.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "That's possible, but the problem doesn't give information about other requirements, so we can't conclude that for sure.",
+    "category": "Backtracking",
+    "abbreviation": "B-29"
+  },
+  {
+    "index": 30,
+    "text": "C) Attending all lectures is a necessary condition for passing the course.",
+    "category": "Final Answer",
+    "abbreviation": "FA-30"
+  },
+  {
+    "index": 31,
+    "text": "Well, necessary condition means that without attending all lectures, you can't pass.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-31"
+  },
+  {
+    "index": 32,
+    "text": "But since Jane attended all and still failed, that suggests that attending all lectures isn't sufficient, but maybe it's necessary.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "Wait, but if attending all is necessary, then not attending all would mean failure, but Jane attended all, so it doesn't directly say if it's necessary or not.",
+    "category": "Backtracking",
+    "abbreviation": "B-33"
+  },
+  {
+    "index": 34,
+    "text": "Maybe it's not necessary because she failed despite attending all.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "D) Attending all lectures is both necessary and sufficient for passing the course.",
+    "category": "Example Testing",
+    "abbreviation": "ET-35"
+  },
+  {
+    "index": 36,
+    "text": "No, because attending all isn't sufficient since Jane failed, so it can't be both.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "So, putting it all together, the policy is a conditional that's not always true, so it's false.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "Therefore, the correct answer is A.",
+    "category": "Final Answer",
+    "abbreviation": "FA-38"
+  },
+  {
+    "index": 39,
+    "text": "</think>\n\nThe university's policy is a conditional statement that is not always true, as evidenced by Jane's situation.",
+    "category": "Final Answer",
+    "abbreviation": "FA-39"
+  },
+  {
+    "index": 40,
+    "text": "Therefore, the policy is false.",
+    "category": "Final Answer",
+    "abbreviation": "FA-40"
+  },
+  {
+    "index": 41,
+    "text": "**Answer: A) The university's policy is false.**\n\nDONE.",
+    "category": "Final Answer",
+    "abbreviation": "FA-41"
+  }
+]

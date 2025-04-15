@@ -1,0 +1,266 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: In the language of Verbia, there are four rules that determine how sentences are formed:\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "All sentences begin with either 'kip' or 'mep'.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-3"
+  },
+  {
+    "index": 4,
+    "text": "2. If a sentence begins with 'kip', then it must end with 'tol'.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
+  },
+  {
+    "index": 5,
+    "text": "3. If a sentence contains the word 'faz', then it must also contain the word 'rin'.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-5"
+  },
+  {
+    "index": 6,
+    "text": "4. The word 'rin' can only appear in sentences that begin with 'mep'.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-6"
+  },
+  {
+    "index": 7,
+    "text": "Which of the following sentences is a valid sentence in Verbia?\nA.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "kip faz rin tol\nB.",
+    "category": "Example Testing",
+    "abbreviation": "ET-8"
+  },
+  {
+    "index": 9,
+    "text": "mep faz rin dom\nC.",
+    "category": "Example Testing",
+    "abbreviation": "ET-9"
+  },
+  {
+    "index": 10,
+    "text": "mep tol kip faz\nD.",
+    "category": "Example Testing",
+    "abbreviation": "ET-10"
+  },
+  {
+    "index": 11,
+    "text": "kip dom tol rin \n\n Solution: \n<think>\nAlright, let's try to tackle this problem step by step.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "So, we have four rules in Verbia that determine how sentences are formed, and we need to figure out which of the given options (A to D) is a valid sentence in Verbia.",
+    "category": "Initializing",
+    "abbreviation": "I-12"
+  },
+  {
+    "index": 13,
+    "text": "First, I'll list out the rules again to make sure I have them clear:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-13"
+  },
+  {
+    "index": 14,
+    "text": "**All sentences begin with either 'kip' or 'mep'.**  \n   So, every sentence must start with one of these two words.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "That means options that start with any other word are automatically invalid.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "Let's check each option:\n\n   - **Option A: kip faz rin tol**  \n     Starts with 'kip' \u2013 valid so far.",
+    "category": "Example Testing",
+    "abbreviation": "ET-16"
+  },
+  {
+    "index": 17,
+    "text": "- **Option B: mep faz rin dom**  \n     Starts with 'mep' \u2013 also valid.",
+    "category": "Example Testing",
+    "abbreviation": "ET-17"
+  },
+  {
+    "index": 18,
+    "text": "- **Option C: mep tol kip faz**  \n     Starts with 'mep' \u2013 valid.",
+    "category": "Example Testing",
+    "abbreviation": "ET-18"
+  },
+  {
+    "index": 19,
+    "text": "- **Option D: kip dom tol rin**  \n     Starts with 'kip' \u2013 valid.",
+    "category": "Example Testing",
+    "abbreviation": "ET-19"
+  },
+  {
+    "index": 20,
+    "text": "So, all four options start correctly.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "Next, let's move on to the other rules.",
+    "category": "Question Posing",
+    "abbreviation": "QP-21"
+  },
+  {
+    "index": 22,
+    "text": "2. **If a sentence begins with 'kip', then it must end with 'tol'.**  \n   This means that any sentence starting with 'kip' must have 'tol' as its last word.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-22"
+  },
+  {
+    "index": 23,
+    "text": "Let's check each option:\n\n   - **Option A: kip faz rin tol**  \n     Ends with 'tol' \u2013 good.",
+    "category": "Example Testing",
+    "abbreviation": "ET-23"
+  },
+  {
+    "index": 24,
+    "text": "- **Option B: mep faz rin dom**  \n     Doesn't start with 'kip', so this rule doesn't apply.",
+    "category": "Example Testing",
+    "abbreviation": "ET-24"
+  },
+  {
+    "index": 25,
+    "text": "- **Option C: mep tol kip faz**  \n     Doesn't start with 'kip', so this rule doesn't apply.",
+    "category": "Example Testing",
+    "abbreviation": "ET-25"
+  },
+  {
+    "index": 26,
+    "text": "- **Option D: kip dom tol rin**  \n     Ends with 'rin', not 'tol' \u2013 violates this rule.",
+    "category": "Example Testing",
+    "abbreviation": "ET-26"
+  },
+  {
+    "index": 27,
+    "text": "So, based on rule 2, Option D is invalid because it starts with 'kip' but doesn't end with 'tol'.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "So, we can eliminate Option D.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "3. **If a sentence contains the word 'faz', then it must also contain the word 'rin'.**  \n   This means that whenever 'faz' is present, 'rin' must also be present in the sentence.",
+    "category": "Initializing",
+    "abbreviation": "I-29"
+  },
+  {
+    "index": 30,
+    "text": "Let's check each remaining option:\n\n   - **Option A: kip faz rin tol**  \n     Contains 'faz' and 'rin' \u2013 good.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "- **Option B: mep faz rin dom**  \n     Contains 'faz' and 'rin' \u2013 good.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "- **Option C: mep tol kip faz**  \n     Contains 'faz' but doesn't contain 'rin' \u2013 violates this rule.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "So, Option C is invalid because it has 'faz' without 'rin'.",
+    "category": "Deduction",
+    "abbreviation": "D-33"
+  },
+  {
+    "index": 34,
+    "text": "Now, we're down to Options A and B.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "4. **The word 'rin' can only appear in sentences that begin with 'mep'.**  \n   This means that if 'rin' is present in a sentence, the sentence must start with 'mep'.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "Let's check the remaining options:\n\n   - **Option A: kip faz rin tol**  \n     Contains 'rin' but starts with 'kip' \u2013 violates this rule.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "- **Option B: mep faz rin dom**  \n     Contains 'rin' and starts with 'mep' \u2013 good.",
+    "category": "Example Testing",
+    "abbreviation": "ET-37"
+  },
+  {
+    "index": 38,
+    "text": "So, Option A is invalid because it contains 'rin' but starts with 'kip', which is not allowed.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "Therefore, the only valid option left is Option B.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "But wait, let's double-check to make sure I didn't make any mistakes.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-40"
+  },
+  {
+    "index": 41,
+    "text": "I'll go through each rule again for Option B:\n\n- **Starts with 'mep' \u2013 yes.**\n- **Doesn't start with 'kip', so rule 2 doesn't apply.**\n- **Contains 'faz' and 'rin' \u2013 yes.**\n- **Starts with 'mep', so 'rin' is allowed \u2013 yes.**\n\nEverything seems to check out for Option B.",
+    "category": "Deduction",
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "Therefore, the valid sentence is Option B.",
+    "category": "Final Answer",
+    "abbreviation": "FA-42"
+  },
+  {
+    "index": 43,
+    "text": "</think>\n\nThe valid sentence in Verbia is option B: **mep faz rin dom**.",
+    "category": "Final Answer",
+    "abbreviation": "FA-43"
+  }
+]

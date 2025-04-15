@@ -1,0 +1,500 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: You have five towns (A, B, C, D, and E) that need to be connected by roads.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Due to the geography of the region, each town can only be connected directly to at most three other towns.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "Is it possible to construct roads such that a person can travel from any town to any other town (directly or indirectly), while using exactly 7 roads in total? If so, provide one possible arrangement of the roads.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "Solution: \n<think>\nAlright, so I have this problem where I need to connect five towns: A, B, C, D, and E.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "Each town can be directly connected to at most three others.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "The goal is to have all towns connected such that you can travel from any town to any other town, either directly or indirectly, using exactly 7 roads.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "Hmm, okay, let's break this down.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "First, I remember that in graph theory terms, this is about creating a connected graph with five vertices where each vertex has a degree of at most three.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "The number of edges (roads) needed for a connected graph with n vertices is at least n-1, which in this case is 4.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "But we need exactly 7 roads, which is more than 4, so it's definitely a connected graph with cycles, not just a tree.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "I also recall that the sum of all vertex degrees in a graph is equal to twice the number of edges.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-12"
+  },
+  {
+    "index": 13,
+    "text": "So, if we have 7 edges, the sum of degrees should be 14.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "Since there are five towns, each with a maximum degree of 3, we need to distribute 14 degrees across these five towns, making sure none exceed 3.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "Let me think about how to distribute the degrees.",
+    "category": "Initializing",
+    "abbreviation": "I-15"
+  },
+  {
+    "index": 16,
+    "text": "If all towns had the same degree, it would be 14 divided by 5, which is 2.8.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "Since degrees have to be whole numbers, we can't have all towns with degree 2 or 3.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "So, some towns will have degree 3, and others will have degree 2 or 1.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "But wait, if a town has a degree of 1, that means it's only connected to one other town.",
+    "category": "Question Posing",
+    "abbreviation": "QP-19"
+  },
+  {
+    "index": 20,
+    "text": "But in a connected graph, every town must have at least degree 1.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "So, we need to make sure that no town is isolated.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Let's try to maximize the number of towns with degree 3 because that will minimize the number of edges.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "If three towns have degree 3, that accounts for 9 degrees.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "The remaining two towns would need to have 14 - 9 = 5 degrees.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "So, each of those two towns would have degree 2.5, which isn't possible because degrees must be integers.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "Therefore, maybe two towns have degree 3, and the remaining three have degree 2.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "That gives 2*3 + 3*2 = 6 + 6 = 12, which is less than 14.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "We're missing 2 degrees.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "Hmm, that doesn't work either.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-29"
+  },
+  {
+    "index": 30,
+    "text": "Wait, maybe one town has degree 3, and the rest have degree 2.",
+    "category": "Question Posing",
+    "abbreviation": "QP-30"
+  },
+  {
+    "index": 31,
+    "text": "That would be 3 + 2 + 2 + 2 + 2 = 11, which is still less than 14.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "So, we need more degrees.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "If two towns have degree 3, that's 6 degrees, and the remaining three towns need to have 8 degrees.",
+    "category": "Deduction",
+    "abbreviation": "D-33"
+  },
+  {
+    "index": 34,
+    "text": "If each of those three has degree 2, that's 6, so total degrees would be 12, still not 14.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "So, perhaps one of the remaining towns needs to have degree 3 instead of 2.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "Let's see: two towns with degree 3 (total 6) and three towns with degrees 3, 3, and 2 (total 8).",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "Wait, that adds up to 6 + 8 = 14.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "But that would mean three towns have degree 3, and two have degree 2.5, which isn't possible.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "Hmm, confusing.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-39"
+  },
+  {
+    "index": 40,
+    "text": "Maybe I need to approach this differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-40"
+  },
+  {
+    "index": 41,
+    "text": "Let's consider that each town can have a maximum of 3 roads.",
+    "category": "Example Testing",
+    "abbreviation": "ET-41"
+  },
+  {
+    "index": 42,
+    "text": "So, the degrees are capped at 3.",
+    "category": "Deduction",
+    "abbreviation": "D-42"
+  },
+  {
+    "index": 43,
+    "text": "To reach a total degree of 14, we need to have some towns with degree 3 and others with lower degrees.",
+    "category": "Deduction",
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "Let's try:\n\n- Town A: degree 3\n- Town B: degree 3\n- Town C: degree 3\n- Town D: degree 2\n- Town E: degree 2\n\nTotal degrees: 3+3+3+2+2=13.",
+    "category": "Example Testing",
+    "abbreviation": "ET-44"
+  },
+  {
+    "index": 45,
+    "text": "Close, but we need 14.",
+    "category": "Deduction",
+    "abbreviation": "D-45"
+  },
+  {
+    "index": 46,
+    "text": "Maybe adjust one of the degree 2 towns to degree 3.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "- Town A: 3\n- Town B: 3\n- Town C: 3\n- Town D: 3\n- Town E: 2\n\nTotal: 3+3+3+3+2=14.",
+    "category": "Example Testing",
+    "abbreviation": "ET-47"
+  },
+  {
+    "index": 48,
+    "text": "Perfect! So, four towns have degree 3, and one has degree 2.",
+    "category": "Deduction",
+    "abbreviation": "D-48"
+  },
+  {
+    "index": 49,
+    "text": "Now, can we arrange the roads so that each town is connected appropriately?\n\nLet me try to visualize this.",
+    "category": "Question Posing",
+    "abbreviation": "QP-49"
+  },
+  {
+    "index": 50,
+    "text": "Let's name the towns A, B, C, D, E.",
+    "category": "Initializing",
+    "abbreviation": "I-50"
+  },
+  {
+    "index": 51,
+    "text": "We need each of A, B, C, D to have 3 roads, and E to have 2 roads.",
+    "category": "Deduction",
+    "abbreviation": "D-51"
+  },
+  {
+    "index": 52,
+    "text": "First, let's connect A to B, C, D.",
+    "category": "Example Testing",
+    "abbreviation": "ET-52"
+  },
+  {
+    "index": 53,
+    "text": "So A is connected to B, C, D.",
+    "category": "Deduction",
+    "abbreviation": "D-53"
+  },
+  {
+    "index": 54,
+    "text": "Now, B already has one connection (to A).",
+    "category": "Deduction",
+    "abbreviation": "D-54"
+  },
+  {
+    "index": 55,
+    "text": "It needs two more.",
+    "category": "Deduction",
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "Let's connect B to E and maybe C.",
+    "category": "Example Testing",
+    "abbreviation": "ET-56"
+  },
+  {
+    "index": 57,
+    "text": "Wait, but E can only have two connections.",
+    "category": "Deduction",
+    "abbreviation": "D-57"
+  },
+  {
+    "index": 58,
+    "text": "So, if B connects to E, E is now connected to B and maybe someone else.",
+    "category": "Deduction",
+    "abbreviation": "D-58"
+  },
+  {
+    "index": 59,
+    "text": "Similarly, C is connected to A and maybe B.",
+    "category": "Deduction",
+    "abbreviation": "D-59"
+  },
+  {
+    "index": 60,
+    "text": "Let's connect C to B and E.",
+    "category": "Deduction",
+    "abbreviation": "D-60"
+  },
+  {
+    "index": 61,
+    "text": "Wait, let's try:\n\n- A connected to B, C, D\n- B connected to A, C, E\n- C connected to A, B, D\n- D connected to A, C, E\n- E connected to B, D\n\nLet's check the degrees:\n\n- A: B, C, D \u2192 3\n- B: A, C, E \u2192 3\n- C: A, B, D \u2192 3\n- D: A, C, E \u2192 3\n- E: B, D \u2192 2\n\nPerfect, that adds up to 14 degrees, which is 7 roads.",
+    "category": "Deduction",
+    "abbreviation": "D-61"
+  },
+  {
+    "index": 62,
+    "text": "Wait, but let's check if all towns are connected.",
+    "category": "Question Posing",
+    "abbreviation": "QP-62"
+  },
+  {
+    "index": 63,
+    "text": "Starting from A, you can reach B, C, D directly.",
+    "category": "Deduction",
+    "abbreviation": "D-63"
+  },
+  {
+    "index": 64,
+    "text": "From B, you can reach E.",
+    "category": "Deduction",
+    "abbreviation": "D-64"
+  },
+  {
+    "index": 65,
+    "text": "From C, you can reach D, and through D, E.",
+    "category": "Deduction",
+    "abbreviation": "D-65"
+  },
+  {
+    "index": 66,
+    "text": "From D, you can reach E.",
+    "category": "Deduction",
+    "abbreviation": "D-66"
+  },
+  {
+    "index": 67,
+    "text": "So, yes, all towns are connected.",
+    "category": "Final Answer",
+    "abbreviation": "FA-67"
+  },
+  {
+    "index": 68,
+    "text": "Now, let's list the roads:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-68"
+  },
+  {
+    "index": 69,
+    "text": "A-B\n2.",
+    "category": "Deduction",
+    "abbreviation": "D-69"
+  },
+  {
+    "index": 70,
+    "text": "A-C\n3.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-70"
+  },
+  {
+    "index": 71,
+    "text": "A-D\n4.",
+    "category": "Example Testing",
+    "abbreviation": "ET-71"
+  },
+  {
+    "index": 72,
+    "text": "B-C\n5.",
+    "category": "Example Testing",
+    "abbreviation": "ET-72"
+  },
+  {
+    "index": 73,
+    "text": "B-E\n6.",
+    "category": "Example Testing",
+    "abbreviation": "ET-73"
+  },
+  {
+    "index": 74,
+    "text": "C-D\n7.",
+    "category": "Example Testing",
+    "abbreviation": "ET-74"
+  },
+  {
+    "index": 75,
+    "text": "D-E\n\nYes, that's 7 roads.",
+    "category": "Final Answer",
+    "abbreviation": "FA-75"
+  },
+  {
+    "index": 76,
+    "text": "Each town's connections:\n\n- A: B, C, D\n- B: A, C, E\n- C: A, B, D\n- D: A, C, E\n- E: B, D\n\nSo, this works.",
+    "category": "Final Answer",
+    "abbreviation": "FA-76"
+  },
+  {
+    "index": 77,
+    "text": "Each town is connected, no town has more than 3 roads, and exactly 7 roads are used.",
+    "category": "Summary",
+    "abbreviation": "S-77"
+  },
+  {
+    "index": 78,
+    "text": "I think that's a valid arrangement.",
+    "category": "Final Answer",
+    "abbreviation": "FA-78"
+  },
+  {
+    "index": 79,
+    "text": "Let me double-check the connections to ensure there are no cycles that would make it disconnected, but since all towns are reachable, it's connected.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-79"
+  },
+  {
+    "index": 80,
+    "text": "Also, each town has the required number of connections.",
+    "category": "Deduction",
+    "abbreviation": "D-80"
+  },
+  {
+    "index": 81,
+    "text": "</think>\n\nYes, it is possible to construct such a road network.",
+    "category": "Final Answer",
+    "abbreviation": "FA-81"
+  },
+  {
+    "index": 82,
+    "text": "One possible arrangement is as follows:\n\n- Road A-B\n- Road A-C\n- Road A-D\n- Road B-C\n- Road B-E\n- Road C-D\n- Road D-E\n\nThis configuration connects all five towns with exactly 7 roads, ensuring each town has at most three direct connections and that all towns are reachable from each other.",
+    "category": "Final Answer",
+    "abbreviation": "FA-82"
+  }
+]

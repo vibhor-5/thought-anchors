@@ -1,0 +1,278 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: In a survey of 120 college students, the following information was collected:\n- 75 students enjoy reading fiction\n- 65 students enjoy reading non-fiction\n- 40 students enjoy reading both fiction and non-fiction\n\nBased on this information, answer the following questions:\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "How many students enjoy reading fiction but not non-fiction?\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "How many students enjoy reading non-fiction but not fiction?\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "How many students do not enjoy reading either type of book? \n\n Solution: \n<think>\nAlright, so I have this problem about a survey of 120 college students and their reading habits.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Let me try to figure it out step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "First, I'll write down all the given information to make it clearer.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "Okay, the survey says:\n- 75 students enjoy reading fiction.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "- 65 students enjoy reading non-fiction.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "- 40 students enjoy reading both fiction and non-fiction.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "And the total number of students surveyed is 120.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Now, the questions are:\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "How many students enjoy reading fiction but not non-fiction?\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "How many students enjoy reading non-fiction but not fiction?\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "How many students do not enjoy reading either type of book?\n\nHmm, this seems like a problem involving sets and maybe using a Venn diagram to visualize it.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Let me recall the principle of inclusion-exclusion for sets.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "I think it goes like this:\n\nThe total number in either set A or set B is equal to the number in set A plus the number in set B minus the number in both sets A and B.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "In mathematical terms, that's:\n|A \u222a B| = |A| + |B| - |A \u2229 B|\n\nSo, applying that here, where set A is students who enjoy reading fiction and set B is students who enjoy reading non-fiction, the total number of students who enjoy reading either fiction or non-fiction or both would be:\n\n|A \u222a B| = 75 (fiction) + 65 (non-fiction) - 40 (both) = 75 + 65 = 140; 140 - 40 = 100.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "So, 100 students enjoy reading either fiction, non-fiction, or both.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "But wait, the total number of students surveyed is 120.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "That means the remaining students didn't enjoy reading either type.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "Let me note that down for question 3.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Now, moving on to question 1: How many students enjoy reading fiction but not non-fiction?\n\nHmm, that's the number of students who are only in set A, not in set B.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "In set notation, that would be |A - B|.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "To find this, I think we can subtract the number of students who enjoy both from the total number who enjoy fiction.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "So, |A - B| = |A| - |A \u2229 B| = 75 - 40 = 35.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "So, 35 students enjoy reading fiction but not non-fiction.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "For question 2: How many students enjoy reading non-fiction but not fiction?\n\nSimilarly, this is the number of students who are only in set B, not in set A.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "So, |B - A| = |B| - |A \u2229 B| = 65 - 40 = 25.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "So, 25 students enjoy reading non-fiction but not fiction.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "And for question 3: How many students do not enjoy reading either type of book?\n\nWell, earlier I calculated that 100 students enjoy reading either fiction or non-fiction or both.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "Since the total number of students is 120, the number who don't enjoy either is 120 - 100 = 20.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Let me double-check my calculations to make sure I didn't make a mistake.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Starting with |A \u222a B| = 75 + 65 - 40 = 100.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "That seems right because adding 75 and 65 gives 140, and subtracting the overlap of 40 gives 100.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Then, for those who enjoy only fiction, it's 75 total fiction lovers minus the 40 who also like non-fiction, so 35.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Similarly, for non-fiction only, it's 65 total minus 40, which is 25.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "Adding those up: 35 (only fiction) + 25 (only non-fiction) + 40 (both) = 100, which matches the earlier total.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Subtracting that from 120 gives 20 students who don't enjoy either.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "That all adds up correctly.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "So, I think I've got the answers.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "</think>\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "**Students who enjoy reading fiction but not non-fiction:**  \n   35 students.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "2. **Students who enjoy reading non-fiction but not fiction:**  \n   25 students.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "3. **Students who do not enjoy reading either type of book:**  \n   20 students.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  }
+]

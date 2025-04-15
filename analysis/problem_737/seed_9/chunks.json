@@ -1,0 +1,422 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: Three colleagues, Alex, Blake, and Casey, each make one statement about who brought cookies to the office:\n\nAlex: 'I did not bring the cookies.'\nBlake: 'Casey brought the cookies.'\nCasey: 'Blake is lying.'\n\nIf exactly one of these three statements is true, who brought the cookies? \n\n Solution: \n<think>\nAlright, so I have this problem here with three colleagues: Alex, Blake, and Casey.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Each of them makes a statement about who brought the cookies to the office.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "The question is, if exactly one of these three statements is true, who brought the cookies?\n\nLet me start by writing down their statements to keep things clear:\n\n- Alex says: \"I did not bring the cookies.\"\n- Blake says: \"Casey brought the cookies.\"\n- Casey says: \"Blake is lying.\"\n\nNow, the problem states that exactly one of these statements is true.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "My goal is to figure out who actually brought the cookies based on this information.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "First, I'll consider each statement one by one and see how they can be true or false, and how that affects the others.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Let's start with Alex's statement: \"I did not bring the cookies.\" If Alex is telling the truth, then Alex is not the one who brought the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "But if Alex is lying, that means Alex did bring the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "Next, Blake's statement: \"Casey brought the cookies.\" If Blake is telling the truth, then Casey is the one who brought them.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "But if Blake is lying, then Casey didn't bring them, so someone else did.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Then, Casey's statement: \"Blake is lying.\" If Casey is telling the truth, then Blake is indeed lying.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "But if Casey is lying, then Blake is not lying, meaning Blake is telling the truth.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "Since exactly one statement is true, I need to find a scenario where only one of these three statements is true, and the other two are false.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Let me try each possibility step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "**Case 1: Suppose Alex's statement is true.**\n- Alex: True (\"I did not bring the cookies.\")\n- If Alex is telling the truth, then Alex didn't bring the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "- Now, since only one statement is true, both Blake and Casey must be lying.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "- Blake's statement: \"Casey brought the cookies.\" If Blake is lying, then Casey did not bring the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "- Casey's statement: \"Blake is lying.\" If Casey is lying, then Blake is not lying, which means Blake is telling the truth.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "But this contradicts our assumption that only Alex is telling the truth.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "- Therefore, this case is impossible because if Alex is true, Casey's statement leads to Blake being true, resulting in two truths, which violates the condition that only one statement is true.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "So, Case 1 doesn't work.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "**Case 2: Suppose Blake's statement is true.**\n- Blake: True (\"Casey brought the cookies.\")\n- If Blake is telling the truth, then Casey brought the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "- Since only one statement is true, both Alex and Casey must be lying.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "- Alex's statement: \"I did not bring the cookies.\" If Alex is lying, then Alex did bring the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "But this contradicts Blake's statement that Casey brought them.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "- Wait, hold on.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "If Blake is true, Casey brought them.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "But if Alex is lying, Alex brought them.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "So, both Casey and Alex can't have brought them.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "That's a problem.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Therefore, this case also leads to a contradiction.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "So, Case 2 isn't possible either.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "**Case 3: Suppose Casey's statement is true.**\n- Casey: True (\"Blake is lying.\")\n- If Casey is telling the truth, then Blake is indeed lying.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "- Since only one statement is true, both Alex and Blake must be lying.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "- Alex's statement: \"I did not bring the cookies.\" If Alex is lying, then Alex brought the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "- Blake's statement: \"Casey brought the cookies.\" If Blake is lying, then Casey did not bring the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "- Wait, but Casey's statement is true, meaning Blake is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "So, Casey didn't bring them, but Alex did.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "That fits because Alex brought them, and Casey didn't.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "And Blake is lying about Casey bringing them.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "So, in this scenario, only Casey's statement is true, and the others are false, which satisfies the condition that exactly one statement is true.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "Let me double-check to ensure I didn't miss anything.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "- Alex says he didn't bring them, but if he's lying, he did bring them.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "So, Alex = Brought.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "- Blake says Casey brought them, but since he's lying, Casey didn't.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "- Casey says Blake is lying, which is true because Blake is indeed lying.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "Yes, this works without any contradictions.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Only Casey's statement is true.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "So, the conclusion is that Alex brought the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "</think>\n\nThe solution is that Alex brought the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "**Step-by-Step Explanation:**\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "**Identify Statements:**\n   - Alex: \"I did not bring the cookies.\"\n   - Blake: \"Casey brought the cookies.\"\n   - Casey: \"Blake is lying.\"\n\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "**Assume Each Statement is True and Check for Contradictions:**\n\n   - **If Alex's statement is true:**\n     - Alex didn't bring cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "- Both Blake and Casey must be lying.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "- If Blake is lying, Casey didn't bring cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "- If Casey is lying, Blake is telling the truth \u2192 Contradiction (two truths).",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "- **Contradiction.** Not possible.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "- **If Blake's statement is true:**\n     - Casey brought cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "- Both Alex and Casey must be lying.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "- If Alex is lying, he brought cookies \u2192 Contradiction with Blake's statement.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "- **Contradiction.** Not possible.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "- **If Casey's statement is true:**\n     - Blake is lying.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "- Both Alex and Blake must be lying.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "- If Alex is lying, he brought cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "- If Blake is lying, Casey didn't bring cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "- This scenario is consistent with only Casey's statement being true.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "3. **Conclusion:**\n   - Only Casey's statement is true.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "- Therefore, Alex brought the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "**Answer:** Alex brought the cookies.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  }
+]

@@ -1,0 +1,260 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: Dr.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Greene has developed a test for a rare disease that affects 1% of the population.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "The test has a 95% true positive rate (sensitivity), meaning that if someone has the disease, the test will correctly identify them as positive 95% of the time.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
+  },
+  {
+    "index": 5,
+    "text": "The test also has a 90% true negative rate (specificity), meaning that if someone does not have the disease, the test will correctly identify them as negative 90% of the time.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-5"
+  },
+  {
+    "index": 6,
+    "text": "If a randomly selected person tests positive for the disease, what is the probability that they actually have the disease? \n\n Solution: \n<think>\nAlright, so I need to figure out the probability that someone actually has the disease given that they tested positive.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "Hmm, this sounds like a conditional probability problem.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "I remember something about Bayes' Theorem from my statistics class.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-8"
+  },
+  {
+    "index": 9,
+    "text": "Let me recall how that works.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "First, I think I need to define the events involved.",
+    "category": "Initializing",
+    "abbreviation": "I-10"
+  },
+  {
+    "index": 11,
+    "text": "Let me denote:\n\n- D: the event that the person has the disease.",
+    "category": "Initializing",
+    "abbreviation": "I-11"
+  },
+  {
+    "index": 12,
+    "text": "- T+: the event that the test result is positive.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-12"
+  },
+  {
+    "index": 13,
+    "text": "I need to find P(D | T+), which is the probability of having the disease given a positive test result.",
+    "category": "Initializing",
+    "abbreviation": "I-13"
+  },
+  {
+    "index": 14,
+    "text": "Bayes' Theorem states that:\n\nP(D | T+) = [P(T+ | D) * P(D)] / P(T+)\n\nOkay, so I have the sensitivity of the test, which is 95%, so P(T+ | D) is 0.95.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-14"
+  },
+  {
+    "index": 15,
+    "text": "The specificity is 90%, so P(T- | D') is 0.90, where D' is the event that the person does not have the disease.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-15"
+  },
+  {
+    "index": 16,
+    "text": "I also know that the prevalence of the disease is 1%, so P(D) is 0.01.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-16"
+  },
+  {
+    "index": 17,
+    "text": "But wait, I need P(T+), the total probability of testing positive.",
+    "category": "Question Posing",
+    "abbreviation": "QP-17"
+  },
+  {
+    "index": 18,
+    "text": "To find this, I can use the law of total probability, which in this case would consider both the true positive rate and the false positive rate.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "P(T+) = P(T+ | D) * P(D) + P(T+ | D') * P(D')\n\nI already have P(T+ | D) = 0.95 and P(D) = 0.01.",
+    "category": "Deduction",
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "Now, I need to find P(T+ | D') and P(D').",
+    "category": "Question Posing",
+    "abbreviation": "QP-20"
+  },
+  {
+    "index": 21,
+    "text": "Since the specificity is 90%, P(T- | D') = 0.90, which means the false positive rate is 10%, so P(T+ | D') = 1 - 0.90 = 0.10.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Also, P(D') is the probability of not having the disease, which is 1 - P(D) = 0.99.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "Now, plugging these into the equation for P(T+):\n\nP(T+) = (0.95 * 0.01) + (0.10 * 0.99)\n\nLet me calculate each part:\n\n0.95 * 0.01 = 0.0095\n\n0.10 * 0.99 = 0.099\n\nAdding these together: 0.0095 + 0.099 = 0.1085\n\nSo, P(T+) is 0.1085.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "Now, going back to Bayes' Theorem:\n\nP(D | T+) = (0.95 * 0.01) / 0.1085 = 0.0095 / 0.1085\n\nLet me compute that division:\n\n0.0095 divided by 0.1085.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "Hmm, let's see.",
+    "category": "Initializing",
+    "abbreviation": "I-25"
+  },
+  {
+    "index": 26,
+    "text": "Maybe I can multiply numerator and denominator by 10000 to eliminate the decimals:\n\n95 / 1085\n\nNow, simplifying this fraction.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "Let's see if 95 divides into 1085.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "1085 divided by 95: 95 * 11 = 1045, which is less than 1085.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "1085 - 1045 = 40.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "So 95 * 11.42...",
+    "category": "Example Testing",
+    "abbreviation": "ET-30"
+  },
+  {
+    "index": 31,
+    "text": "Wait, maybe a better approach is to divide both numerator and denominator by 5:\n\n95 \u00f7 5 = 19\n\n1085 \u00f7 5 = 217\n\nSo now it's 19/217.",
+    "category": "Backtracking",
+    "abbreviation": "B-31"
+  },
+  {
+    "index": 32,
+    "text": "I don't think 19 divides into 217 evenly.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "Let me check: 19*11=209, 19*11.4=216.6, so approximately 11.42.",
+    "category": "Deduction",
+    "abbreviation": "D-33"
+  },
+  {
+    "index": 34,
+    "text": "So, 19/217 \u2248 0.0879, or 8.79%.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "Wait, but let me double-check my calculations to make sure I didn't make a mistake.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-35"
+  },
+  {
+    "index": 36,
+    "text": "First, P(T+) = 0.95*0.01 + 0.10*0.99 = 0.0095 + 0.099 = 0.1085.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "That seems correct.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "Then, P(D | T+) = 0.0095 / 0.1085 \u2248 0.0879, which is about 8.8%.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "Hmm, that seems low, but considering the disease is rare (1%) and the false positive rate is 10%, it makes sense that most positive tests are false positives.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "So, the probability that someone actually has the disease given a positive test is approximately 8.8%.",
+    "category": "Final Answer",
+    "abbreviation": "FA-40"
+  },
+  {
+    "index": 41,
+    "text": "</think>\n\nThe probability that a randomly selected person actually has the disease given a positive test result is approximately 8.8%.",
+    "category": "Final Answer",
+    "abbreviation": "FA-41"
+  },
+  {
+    "index": 42,
+    "text": "**Answer:** The probability is 0.088 or 8.8%.",
+    "category": "Final Answer",
+    "abbreviation": "FA-42"
+  }
+]

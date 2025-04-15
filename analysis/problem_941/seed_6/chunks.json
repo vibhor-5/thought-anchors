@@ -1,0 +1,374 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small tech company has 20 employees in its engineering department.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "12 of these engineers know Python, 15 know JavaScript, and 10 know both Python and JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "If you randomly select one engineer from this department, what is the probability that they know JavaScript given that they know Python? \n\n Solution: \n<think>\nAlright, so I have this probability problem to solve, and I want to make sure I understand it correctly before diving into calculations.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "Let me read it again:\n\n\"A small tech company has 20 employees in its engineering department.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "12 of these engineers know Python, 15 know JavaScript, and 10 know both Python and JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "If you randomly select one engineer from this department, what is the probability that they know JavaScript given that they know Python?\"\n\nOkay, so we're dealing with conditional probability here.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "The question is asking for the probability of knowing JavaScript given that they know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "In probability terms, this is P(Javascript | Python).",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "I remember that conditional probability is calculated by P(A|B) = P(A and B) / P(B).",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "So, in this case, A is knowing JavaScript, and B is knowing Python.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Therefore, P(Javascript | Python) = P(Javascript and Python) / P(Python).",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "Alright, so I need to find P(Javascript and Python), which is the probability that an engineer knows both languages, and P(Python), the probability that an engineer knows Python.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "The problem gives me some numbers:\n\n- Total employees: 20\n- Engineers who know Python: 12\n- Engineers who know JavaScript: 15\n- Engineers who know both Python and JavaScript: 10\n\nHmm, so out of 20 engineers, 12 know Python, 15 know JavaScript, and 10 know both.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "I think a Venn diagram might help visualize this.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "There's a circle for Python and a circle for JavaScript, overlapping somewhere.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "The overlapping area represents engineers who know both languages.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "So, the number of engineers who know both is 10.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Let me think about the rest.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "For Python, if 12 know Python, and out of those, 10 also know JavaScript, then the number of engineers who know only Python is 12 - 10 = 2.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Similarly, for JavaScript, if 15 know JavaScript, and 10 also know Python, then the number who know only JavaScript is 15 - 10 = 5.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "So, in the Venn diagram, we have:\n\n- Only Python: 2\n- Only JavaScript: 5\n- Both: 10\n\nLet me double-check that.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Total should be 2 + 5 + 10 = 17.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Wait, but the total number of employees is 20.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Hmm, that leaves 3 unaccounted for.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Maybe the problem doesn't specify what those 3 know.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Perhaps they don't know either language? Or maybe I made a mistake.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Wait, no.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Let me recalculate.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Total engineers: 20.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Only Python: 12 total Python speakers minus 10 who also know JavaScript = 2.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "Only JavaScript: 15 total JavaScript speakers minus 10 who also know Python = 5.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Both: 10.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Adding those up: 2 + 5 + 10 = 17.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "So, where are the remaining 3? Maybe the problem assumes that some engineers don't know either language.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "But the problem doesn't mention that.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Hmm, perhaps I misread the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "Wait, let me check again.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "It says 12 know Python, 15 know JavaScript, and 10 know both.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "So, it's possible that the total is 20, but the sum of only Python, only JavaScript, and both is 17, which leaves 3 unaccounted for.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Maybe those 3 don't know either language, but the problem doesn't specify.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "Since the problem only asks about engineers who know Python, perhaps we can ignore those who don't know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Or maybe it's a typo, but I don't think so.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "Wait, but for the probability calculation, we're only considering engineers who know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "So, the total number of engineers who know Python is 12, out of 20.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "Among these 12, 10 know both languages, and 2 know only Python.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "So, when we're looking for the probability that an engineer who knows Python also knows JavaScript, it's 10 out of 12.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Wait, that seems straightforward.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "So, P(Javascript | Python) = 10 / 12, which simplifies to 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "But let me think again.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "The total number of engineers is 20, but when we condition on knowing Python, we're restricting our sample space to the 12 engineers who know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Among these, 10 also know JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "So, the probability is 10/12, which is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "But earlier, I noticed that the total adds up to 17, leaving 3 engineers unaccounted for.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "However, since we're only considering engineers who know Python, those 3 who don't know Python don't affect the calculation.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "So, it's okay.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "Alternatively, if the problem had said that all 20 know at least one language, the numbers would add up correctly, but it doesn't.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "So, we have to proceed with the given numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "Therefore, the probability is 10/12, which simplifies to 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "</think>\n\nThe probability that an engineer knows JavaScript given that they know Python is 10/12, which simplifies to 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "**Answer:** The probability is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  }
+]

@@ -1,0 +1,386 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A community library has 5,000 books in its collection (its stock).",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Each week, patrons borrow 200 books and return 180 books.",
+    "category": "Deduction",
+    "abbreviation": "D-3"
+  },
+  {
+    "index": 4,
+    "text": "The library also purchases 30 new books each week and removes 10 damaged books from circulation.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
+  },
+  {
+    "index": 5,
+    "text": "If this pattern continues consistently, how many books will be in the library's collection after 8 weeks? Additionally, explain what would happen to the library's collection size in the long term if these rates remain constant.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "Solution: \n<think>\nAlright, so I've got this problem about a community library's book collection.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "Let me try to figure it out step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "First, the library starts with 5,000 books.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "Each week, several things happen:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-9"
+  },
+  {
+    "index": 10,
+    "text": "**Patrons borrow 200 books.**\n2.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "**They return 180 books.**\n3.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "**The library buys 30 new books.**\n4.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "**It removes 10 damaged books from circulation.**\n\nI need to find out how many books will be in the library after 8 weeks.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "Also, I need to explain what happens in the long term.",
+    "category": "Question Posing",
+    "abbreviation": "QP-14"
+  },
+  {
+    "index": 15,
+    "text": "Okay, let's break this down week by week.",
+    "category": "Initializing",
+    "abbreviation": "I-15"
+  },
+  {
+    "index": 16,
+    "text": "Maybe I can model the number of books each week based on the previous week's count.",
+    "category": "Example Testing",
+    "abbreviation": "ET-16"
+  },
+  {
+    "index": 17,
+    "text": "Let me denote the number of books at the end of week \\( n \\) as \\( B_n \\).",
+    "category": "Initializing",
+    "abbreviation": "I-17"
+  },
+  {
+    "index": 18,
+    "text": "Starting with \\( B_0 = 5000 \\) books.",
+    "category": "Initializing",
+    "abbreviation": "I-18"
+  },
+  {
+    "index": 19,
+    "text": "Each week, the following changes occur:\n\n- **Borrowed books**: 200 are taken out.",
+    "category": "Initializing",
+    "abbreviation": "I-19"
+  },
+  {
+    "index": 20,
+    "text": "- **Returned books**: 180 are brought back.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-20"
+  },
+  {
+    "index": 21,
+    "text": "- **New books added**: 30 are purchased.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-21"
+  },
+  {
+    "index": 22,
+    "text": "- **Damaged books removed**: 10 are taken out.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-22"
+  },
+  {
+    "index": 23,
+    "text": "So, the net change each week would be:\n\n\\( B_{n} = B_{n-1} - 200 + 180 + 30 - 10 \\)\n\nWait, let me make sure I'm doing this right.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "Borrowing and returning...",
+    "category": "Initializing",
+    "abbreviation": "I-24"
+  },
+  {
+    "index": 25,
+    "text": "So, the net effect of borrowing and returning is that the number of books in the library changes by:\n\n\\( -200 + 180 = -20 \\)\n\nThen, adding new books: +30\n\nAnd removing damaged books: -10\n\nSo overall, each week the library's collection changes by:\n\n\\( -20 + 30 - 10 = 0 \\)\n\nWait, that can't be right.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "If each week the net change is zero, then the number of books would stay the same every week.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "But that seems odd because the library is both adding and removing books.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-27"
+  },
+  {
+    "index": 28,
+    "text": "Let me check the math again.",
+    "category": "Question Posing",
+    "abbreviation": "QP-28"
+  },
+  {
+    "index": 29,
+    "text": "Starting with \\( B_0 = 5000 \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-29"
+  },
+  {
+    "index": 30,
+    "text": "After week 1:\n\n- Borrow 200, so 5000 - 200 = 4800\n- Return 180, so 4800 + 180 = 4980\n- Add 30, so 4980 + 30 = 5010\n- Remove 10, so 5010 - 10 = 5000\n\nOh, okay, so after week 1, it's back to 5000.",
+    "category": "Example Testing",
+    "abbreviation": "ET-30"
+  },
+  {
+    "index": 31,
+    "text": "So, the net change is indeed zero each week.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "That means the library's collection size remains the same every week.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "Wait, but that seems counterintuitive because the library is adding 30 books and removing 10.",
+    "category": "Backtracking",
+    "abbreviation": "B-33"
+  },
+  {
+    "index": 34,
+    "text": "But since 200 are borrowed each week, that's more than the 180 returned.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "So, the net effect is a loss of 20 books per week, but then 30 are added, and 10 are removed.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "So, 20 - 30 + 10? Wait, that doesn't add up.",
+    "category": "Backtracking",
+    "abbreviation": "B-36"
+  },
+  {
+    "index": 37,
+    "text": "Wait, let me think again.",
+    "category": "Backtracking",
+    "abbreviation": "B-37"
+  },
+  {
+    "index": 38,
+    "text": "Let's model it properly.",
+    "category": "Initializing",
+    "abbreviation": "I-38"
+  },
+  {
+    "index": 39,
+    "text": "Each week:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-39"
+  },
+  {
+    "index": 40,
+    "text": "**Borrow 200**: Library loses 200.",
+    "category": "Example Testing",
+    "abbreviation": "ET-40"
+  },
+  {
+    "index": 41,
+    "text": "2. **Return 180**: Library gains 180.",
+    "category": "Example Testing",
+    "abbreviation": "ET-41"
+  },
+  {
+    "index": 42,
+    "text": "3. **Add 30**: Library gains 30.",
+    "category": "Example Testing",
+    "abbreviation": "ET-42"
+  },
+  {
+    "index": 43,
+    "text": "4. **Remove 10**: Library loses 10.",
+    "category": "Example Testing",
+    "abbreviation": "ET-43"
+  },
+  {
+    "index": 44,
+    "text": "So, the net change is:\n\n\\( -200 + 180 + 30 - 10 = (-200 + 180) + (30 - 10) = (-20) + 20 = 0 \\)\n\nAh, so the net change is zero.",
+    "category": "Deduction",
+    "abbreviation": "D-44"
+  },
+  {
+    "index": 45,
+    "text": "So, each week, the library's collection size remains the same.",
+    "category": "Final Answer",
+    "abbreviation": "FA-45"
+  },
+  {
+    "index": 46,
+    "text": "That means after 8 weeks, the number of books is still 5000.",
+    "category": "Final Answer",
+    "abbreviation": "FA-46"
+  },
+  {
+    "index": 47,
+    "text": "Wait, but let me double-check with week 2 to be sure.",
+    "category": "Backtracking",
+    "abbreviation": "B-47"
+  },
+  {
+    "index": 48,
+    "text": "Start with 5000.",
+    "category": "Initializing",
+    "abbreviation": "I-48"
+  },
+  {
+    "index": 49,
+    "text": "Week 1:\n\n- Borrow 200 \u2192 4800\n- Return 180 \u2192 4980\n- Add 30 \u2192 5010\n- Remove 10 \u2192 5000\n\nWeek 2:\n\n- Borrow 200 \u2192 4800\n- Return 180 \u2192 4980\n- Add 30 \u2192 5010\n- Remove 10 \u2192 5000\n\nSame as week 1.",
+    "category": "Example Testing",
+    "abbreviation": "ET-49"
+  },
+  {
+    "index": 50,
+    "text": "So, yes, it's a cycle.",
+    "category": "Final Answer",
+    "abbreviation": "FA-50"
+  },
+  {
+    "index": 51,
+    "text": "The library's collection size doesn't change.",
+    "category": "Final Answer",
+    "abbreviation": "FA-51"
+  },
+  {
+    "index": 52,
+    "text": "So, after 8 weeks, it's still 5000.",
+    "category": "Final Answer",
+    "abbreviation": "FA-52"
+  },
+  {
+    "index": 53,
+    "text": "Now, what happens in the long term? Since each week the net change is zero, the library's collection size remains constant at 5000 books.",
+    "category": "Summary",
+    "abbreviation": "S-53"
+  },
+  {
+    "index": 54,
+    "text": "But wait, maybe I'm missing something.",
+    "category": "Backtracking",
+    "abbreviation": "B-54"
+  },
+  {
+    "index": 55,
+    "text": "If the library is removing 10 damaged books each week, does that mean the total number of books is decreasing over time? Or is it a fixed number of 10 each week?\n\nIn this problem, it's specified that 10 damaged books are removed each week.",
+    "category": "Question Posing",
+    "abbreviation": "QP-55"
+  },
+  {
+    "index": 56,
+    "text": "So, if the library has enough damaged books to remove 10 each week, the number of books in circulation remains the same.",
+    "category": "Deduction",
+    "abbreviation": "D-56"
+  },
+  {
+    "index": 57,
+    "text": "If the number of damaged books exceeds 10, then the library might have to reduce the number further, but in this case, since the net change is zero, it's just 5000 every week.",
+    "category": "Deduction",
+    "abbreviation": "D-57"
+  },
+  {
+    "index": 58,
+    "text": "So, in the long term, the collection size remains at 5000 books.",
+    "category": "Final Answer",
+    "abbreviation": "FA-58"
+  },
+  {
+    "index": 59,
+    "text": "</think>\n\nThe library's collection size remains constant at 5,000 books each week because the net change is zero.",
+    "category": "Final Answer",
+    "abbreviation": "FA-59"
+  },
+  {
+    "index": 60,
+    "text": "After 8 weeks, there will still be 5,000 books.",
+    "category": "Final Answer",
+    "abbreviation": "FA-60"
+  },
+  {
+    "index": 61,
+    "text": "In the long term, the collection size will remain at 5,000 books.",
+    "category": "Final Answer",
+    "abbreviation": "FA-61"
+  },
+  {
+    "index": 62,
+    "text": "**Answer:** After 8 weeks, the library will have 5,000 books.",
+    "category": "Final Answer",
+    "abbreviation": "FA-62"
+  },
+  {
+    "index": 63,
+    "text": "In the long term, the collection size will remain at 5,000 books.",
+    "category": "Final Answer",
+    "abbreviation": "FA-63"
+  }
+]

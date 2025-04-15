@@ -1,0 +1,350 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A shape is placed on a 5\u00d75 grid, with the bottom-left corner of the grid being position (0,0) and the top-right corner being position (4,4).",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "The shape consists of filled squares at positions (1,1), (1,2), (2,1), and (3,2).",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "If this shape is reflected across the vertical line x=2 (which runs through the middle of the grid), what positions will be filled in the reflected shape? \n\n Solution: \n<think>\nAlright, so I have this problem where there's a 5x5 grid, and a shape is placed on it.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "The grid's bottom-left corner is at (0,0) and the top-right corner is at (4,4).",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "The shape is made up of filled squares at positions (1,1), (1,2), (2,1), and (3,2).",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Now, I need to figure out what happens when this shape is reflected across the vertical line x=2, which is right in the middle of the grid.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "First, I need to visualize the grid.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "It's a 5x5 grid, so the coordinates go from (0,0) to (4,4).",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Each position is a square on the grid.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "The shape we're dealing with is filled at four specific points: (1,1), (1,2), (2,1), and (3,2).",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Let me plot these points mentally.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "Starting at (1,1): that's one unit to the right and one unit up from the origin.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Then (1,2): same x-coordinate, two units up.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "(2,1): two units right, one unit up.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "And (3,2): three units right, two units up.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "So, if I imagine this, it's like a sort of L-shape but with an extra point at (3,2).",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "Hmm, maybe it's a combination of smaller shapes.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Now, reflecting across the vertical line x=2.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Reflection across a vertical line means that the x-coordinate of each point will be mirrored with respect to x=2.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "The formula for reflecting a point (x,y) across the line x=a is (2a - x, y).",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "In this case, a is 2, so the reflection of (x,y) would be (4 - x, y).",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Let me test this formula with a point I know.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "If I take (1,1), reflecting it across x=2 should give me (4 - 1, 1) = (3,1).",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Similarly, (1,2) would reflect to (3,2).",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Let me check another point: (2,1).",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Reflecting that would be (4 - 2, 1) = (2,1).",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Wait, that's the same as the original point.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Makes sense because x=2 is the axis of reflection, so points on the line of reflection stay the same.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "What about (3,2)? Reflecting that would give me (4 - 3, 2) = (1,2).",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "So, the reflection of (3,2) is (1,2).",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "Interesting, so the reflection swaps (1,1) with (3,1), (1,2) with (3,2), and leaves (2,1) unchanged.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "So, the original shape has four points: (1,1), (1,2), (2,1), (3,2).",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "After reflection, these points will be transformed as follows:\n\n- (1,1) \u2192 (3,1)\n- (1,2) \u2192 (3,2)\n- (2,1) stays at (2,1)\n- (3,2) \u2192 (1,2)\n\nTherefore, the reflected shape should have the points (3,1), (3,2), (2,1), and (1,2).",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "Wait, let me double-check.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "If I reflect each original point correctly:\n\n- (1,1) becomes (3,1)\n- (1,2) becomes (3,2)\n- (2,1) stays\n- (3,2) becomes (1,2)\n\nYes, that's correct.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "So, the reflected shape has four points: (3,1), (3,2), (2,1), and (1,2).",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "I should also visualize this.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "The original shape is on the left side of the grid, near the bottom and middle.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "After reflection, it should be on the right side, mirroring the original.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "So, (3,1) is on the right side, one unit up from the bottom, (3,2) is two units up, (2,1) is still in the center bottom, and (1,2) is on the left side, two units up.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "Wait, (1,2) is actually on the left side, but after reflection, (3,2) is on the right.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Hmm, but (1,2) is now on the left, but since we reflected across x=2, the left and right are swapped.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "So, (1,2) is actually on the right side after reflection.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "Wait, no, (1,2) is on the left, but after reflection, it's mirrored to (3,2).",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "So, perhaps I got confused.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "Let me clarify: the reflection across x=2 maps the left side (x < 2) to the right side (x > 2) and vice versa.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "So, points originally on the left (x < 2) will be on the right after reflection, and points on the right will be on the left.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "So, (1,1) is on the left, becomes (3,1) on the right.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "(1,2) is on the left, becomes (3,2) on the right.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "(2,1) is on the axis, stays.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "(3,2) is on the right, becomes (1,2) on the left.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "So, the reflected shape has points on both the left and right sides, but their positions are mirrored.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "So, the filled squares after reflection are at (3,1), (3,2), (2,1), and (1,2).",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "I think that's it.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "The reflection correctly mirrors each point across the vertical line x=2, resulting in the new set of points.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "</think>\n\nThe reflected shape will have filled squares at positions (1,2), (2,1), (3,1), and (3,2).",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  }
+]

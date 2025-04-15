@@ -1,0 +1,302 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A square is divided into 4 equal quadrants, with each quadrant labeled as follows: the top-left is white, the top-right is black, the bottom-left is black, and the bottom-right is white.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "If this square is reflected across a vertical line running through its center, what will be the resulting pattern? Describe which quadrants will be white and which will be black after the reflection.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nAlright, so I've got this problem here about a square divided into four equal quadrants, each labeled with colors: top-left is white, top-right is black, bottom-left is black, and bottom-right is white.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "The question is asking what happens to the pattern when the square is reflected across a vertical line running through its center.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "Hmm, okay, let me try to visualize this.",
+    "category": "Example Testing",
+    "abbreviation": "ET-6"
+  },
+  {
+    "index": 7,
+    "text": "First, let me sketch this out in my mind.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "The square has four quadrants: top-left (white), top-right (black), bottom-left (black), and bottom-right (white).",
+    "category": "Deduction",
+    "abbreviation": "D-8"
+  },
+  {
+    "index": 9,
+    "text": "So, if I imagine the square on a coordinate plane, with the center at the origin (0,0), the quadrants would be as follows:\n\n- Top-left: Quadrant I (white)\n- Top-right: Quadrant II (black)\n- Bottom-left: Quadrant III (black)\n- Bottom-right: Quadrant IV (white)\n\nNow, reflecting across a vertical line through the center means we're flipping the square horizontally.",
+    "category": "Example Testing",
+    "abbreviation": "ET-9"
+  },
+  {
+    "index": 10,
+    "text": "So, any point (x, y) in the original square will be mapped to (-x, y) in the reflected square.",
+    "category": "Example Testing",
+    "abbreviation": "ET-10"
+  },
+  {
+    "index": 11,
+    "text": "But wait, reflection across the vertical line through the center is a bit different.",
+    "category": "Backtracking",
+    "abbreviation": "B-11"
+  },
+  {
+    "index": 12,
+    "text": "It's like flipping the square left to right.",
+    "category": "Metaphorical Thinking",
+    "abbreviation": "MT-12"
+  },
+  {
+    "index": 13,
+    "text": "So, the left side becomes the right and vice versa, but the top and bottom stay the same.",
+    "category": "Metaphorical Thinking",
+    "abbreviation": "MT-13"
+  },
+  {
+    "index": 14,
+    "text": "Let me think about each quadrant and where they end up after reflection.",
+    "category": "Question Posing",
+    "abbreviation": "QP-14"
+  },
+  {
+    "index": 15,
+    "text": "Starting with the top-left quadrant (Quadrant I, white).",
+    "category": "Initializing",
+    "abbreviation": "I-15"
+  },
+  {
+    "index": 16,
+    "text": "Since we're reflecting across the vertical center, this quadrant will move to the top-right side of the square.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "So, after reflection, the area that was top-left becomes top-right.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "Since the original top-left was white, the reflected top-right will also be white.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "Next, the top-right quadrant (Quadrant II, black).",
+    "category": "Deduction",
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "This quadrant is on the right side of the square.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "After reflection, it will swap places with the left side's top-left quadrant.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "So, the original black top-right becomes the new left side's top-left.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "Therefore, the reflected top-right quadrant will now be black.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "Moving on to the bottom-left quadrant (Quadrant III, black).",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "This is on the left side, below the center.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "After reflection, it will move to the bottom-right side of the square.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "Since the original bottom-left was black, the reflected bottom-right will also be black.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "Lastly, the bottom-right quadrant (Quadrant IV, white).",
+    "category": "Example Testing",
+    "abbreviation": "ET-28"
+  },
+  {
+    "index": 29,
+    "text": "This is on the right side, below the center.",
+    "category": "Example Testing",
+    "abbreviation": "ET-29"
+  },
+  {
+    "index": 30,
+    "text": "After reflection, it will move to the bottom-left side of the square.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "So, the original white bottom-right becomes the new bottom-left.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "Therefore, the reflected bottom-left quadrant will now be white.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "Wait a second, let me make sure I got that right.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-33"
+  },
+  {
+    "index": 34,
+    "text": "The top-left goes to top-right and remains white.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "The top-right goes to top-left and becomes black.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "The bottom-left goes to bottom-right and remains black.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "The bottom-right goes to bottom-left and becomes white.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "So, after reflection, the quadrants would be:\n\n- Top-left: Originally white, now black (since top-right moved here)\n- Top-right: Originally black, now white (since top-left moved here)\n- Bottom-left: Originally black, now white (since bottom-right moved here)\n- Bottom-right: Originally white, now black (since bottom-left moved here)\n\nSo, the new pattern after reflection should have the top-left as black, top-right as white, bottom-left as white, and bottom-right as black.",
+    "category": "Summary",
+    "abbreviation": "S-38"
+  },
+  {
+    "index": 39,
+    "text": "I think that makes sense.",
+    "category": "Final Answer",
+    "abbreviation": "FA-39"
+  },
+  {
+    "index": 40,
+    "text": "Each quadrant is swapping places horizontally across the vertical center line, so their colors are also swapping accordingly.",
+    "category": "Deduction",
+    "abbreviation": "D-40"
+  },
+  {
+    "index": 41,
+    "text": "I should double-check to make sure I didn't mix up any quadrants.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-41"
+  },
+  {
+    "index": 42,
+    "text": "Original Quadrants:\n- TL: White\n- TR: Black\n- BL: Black\n- BR: White\n\nAfter Reflection:\n- TL becomes TR's color: Black\n- TR becomes TL's color: White\n- BL becomes BR's color: White\n- BR becomes BL's color: Black\n\nYes, that seems consistent.",
+    "category": "Example Testing",
+    "abbreviation": "ET-42"
+  },
+  {
+    "index": 43,
+    "text": "So, the resulting pattern after the reflection would have the top-left and bottom-right quadrants as black, and the top-right and bottom-left as white.",
+    "category": "Deduction",
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "I don't think I made any mistakes here.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-44"
+  },
+  {
+    "index": 45,
+    "text": "Each quadrant's reflection is straightforward since it's a simple horizontal flip.",
+    "category": "Deduction",
+    "abbreviation": "D-45"
+  },
+  {
+    "index": 46,
+    "text": "So, the final pattern should look like a checkerboard again but with the colors swapped in the top and bottom halves.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "</think>\n\nAfter reflecting the square across the vertical center line, each quadrant's position is mirrored on the opposite side.",
+    "category": "Deduction",
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "The original top-left and bottom-right quadrants (white) become the top-right and bottom-left, respectively, while the original top-right and bottom-left (black) become the top-left and bottom-right.",
+    "category": "Deduction",
+    "abbreviation": "D-48"
+  },
+  {
+    "index": 49,
+    "text": "Resulting Pattern:\n- Top-left: Black\n- Top-right: White\n- Bottom-left: White\n- Bottom-right: Black\n\nDONE.",
+    "category": "Summary",
+    "abbreviation": "S-49"
+  }
+]

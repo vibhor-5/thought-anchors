@@ -1,0 +1,1838 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small town has six neighborhoods connected by roads.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "The connections are as follows:\n- Downtown is connected to Riverside, Hillcrest, and Eastside\n- Riverside is connected to Downtown and Westside\n- Hillcrest is connected to Downtown and Parkview\n- Eastside is connected to Downtown and Parkview\n- Westside is connected to Riverside\n- Parkview is connected to Hillcrest and Eastside\n\nThe town council wants to establish emergency service centers that can reach any neighborhood within one connection.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "What is the minimum number of emergency service centers needed, and in which neighborhoods should they be placed to ensure full coverage of the town? \n\n Solution: \n<think>\nAlright, so I have this problem about a small town with six neighborhoods connected by roads.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "The goal is to figure out the minimum number of emergency service centers needed so that any neighborhood can be reached within one connection.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "The town council wants this setup to ensure that every neighborhood is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "First, I need to visualize the connections.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "Let me list out all the neighborhoods and their connections:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "Downtown is connected to Riverside, Hillcrest, and Eastside.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "2. Riverside is connected to Downtown and Westside.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "3. Hillcrest is connected to Downtown and Parkview.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "4. Eastside is connected to Downtown and Parkview.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "5. Westside is connected to Riverside.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "6. Parkview is connected to Hillcrest and Eastside.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Hmm, so it's like a graph with six nodes (neighborhoods) and edges (roads).",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Each node is connected to others based on the given connections.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "My task is to determine the minimum number of service centers (nodes) such that every other node is within one edge from at least one service center.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "This is similar to a domination problem in graph theory, where the goal is to find the smallest set of nodes that can dominate all other nodes either directly or through one intermediate node.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "To approach this, I can represent the graph and analyze it.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Let me sketch it mentally:\n\n- Downtown (D) is connected to Riverside (R), Hillcrest (H), and Eastside (E).",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "- Riverside (R) is connected to D and Westside (W).",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "- Hillcrest (H) is connected to D and Parkview (P).",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "- Eastside (E) is connected to D and P.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "- Westside (W) is connected only to R.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "- Parkview (P) is connected to H and E.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "So, the graph has a central node D connected to three others: R, H, and E.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Then, R is connected to W, and H and E are connected to P.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "It seems like a bipartite structure, perhaps?\n\nLet me think about the degrees of each node:\n\n- D: degree 3 (connected to R, H, E)\n- R: degree 2 (D, W)\n- H: degree 2 (D, P)\n- E: degree 2 (D, P)\n- W: degree 1 (R)\n- P: degree 2 (H, E)\n\nIn graph domination, often the nodes with higher degrees are more important because they can cover more areas.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "So, D, R, H, and E have higher degrees than W and P.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "If I choose D as a service center, it covers D, R, H, and E directly.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Then, from R, I can cover W, and from H and E, I can cover P.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "Wait, but H is connected to P, and E is connected to P, so if I have H or E as a service center, P is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Similarly, if I have R as a service center, W is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "But the problem is to cover all neighborhoods within one connection.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "So, if D is a service center, then:\n\n- D covers itself, R, H, E directly.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "- R is covered by D, so W needs to be covered.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Since W is only connected to R, if R is a service center, W is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "Alternatively, if I don't have R as a service center, then W must be covered by another center within one connection, which would have to be R itself or someone connected to R.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "But R is only connected to D and W, so if R isn't a service center, the only way to cover W is through R being connected to a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "But W is only connected to R, so W cannot be covered unless R is either a service center or adjacent to one.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Since R is only connected to D and W, and D is a service center, does that cover W? Wait, no, because W is connected to R, not directly to D.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "So, if D is a service center, it covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Then, R is a neighbor of D, so R is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "But W is a neighbor of R.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "So, does that mean W is covered through R? Or does it require W to be adjacent to a service center?\n\nWait, the problem says \"any neighborhood within one connection.\" So, for W, it needs to be within one connection of a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "Since W is connected only to R, which is connected to D, but W is not directly connected to D.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "So, if D is a service center, it covers R, but R is connected to W, so does that mean W is covered through R? Or is W considered to be two connections away from D?\n\nI think it's the latter.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "The problem states that each neighborhood must be reachable within one connection, meaning each neighborhood must be either a service center or adjacent to a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "So, W is only adjacent to R, which is adjacent to D.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "So, W is two connections away from D.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "Therefore, W would not be covered if only D is a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Similarly, P is connected to H and E.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "If H or E is a service center, P is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "If neither is, then P is only connected to H and E, which are connected to D.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "So, P would be two connections away from D.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "Therefore, to cover W and P, we need either R, H, or E as service centers.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "So, if I choose D and R as service centers:\n\n- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "- H is covered by D, so H is fine.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "- E is covered by D, so E is fine.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "- P is connected to H and E, both of which are covered by D, but P itself is not directly connected to a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "So, P would need to be covered either by H or E being a service center or by another service center connected to it.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "Wait, so if I have D as a service center, and then I have either H or E as a service center, that would cover P.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "Alternatively, I could have both H and E as service centers, but that's more than needed.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Alternatively, if I have D and R, then P is still not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "So, perhaps I need to add either H or E as a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "Alternatively, maybe having D and R and P? No, that's more.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "Wait, let's think step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "Option 1: Choose D as a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "- Now, W is connected to R, so W needs to be covered.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "Since R is covered, but W is only connected to R, so W needs to be adjacent to a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "So, if R is a service center, W is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "Alternatively, if W is a service center, but that's more.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "Similarly, P is connected to H and E.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "Since H and E are covered by D, but P is not directly connected to a service center, so P needs to be covered by either H or E being a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "So, to cover W and P, we need either R and H/E or H/E and someone else.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "Wait, perhaps choosing D and R and P.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "But P is connected to H and E, so if I have P as a service center, it would cover itself and H and E.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "But H and E are already covered by D.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "Wait, no, P is only connected to H and E.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "So, if I have P as a service center, it covers P, H, and E.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "But H and E are already covered by D, so P being a service center would cover itself.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "But P is already covered through H or E if H or E is a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "Alternatively, if I have D and R, then W is covered, but P is not.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "So, I need to cover P.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "So, either H or E needs to be a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "Therefore, the minimal set would be D, R, and H, or D, R, and E.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "Similarly, if I choose D, H, and E, that would cover everything, but perhaps there's a more efficient way.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "Wait, let's consider another approach.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "Maybe choosing R, H, and E as service centers.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "- R covers R and W.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "- H covers H and P.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "- E covers E.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "But then, D is only connected to R, H, E, which are service centers, so D is covered through R, H, or E.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "So, D is covered, and all others are covered.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "But that's three service centers.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "Maybe we can do better.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "Alternatively, choose D and R and P.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "- P covers P, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "But H and E are already covered by D, so P covers itself.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "So, total service centers: D, R, P.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "That's three.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "Alternatively, choose D and R and H.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "- H covers P.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "That's three as well.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "Alternatively, choose D, R, and E.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "- E covers P.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "That's three.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "Is there a way to do it with two?\n\nSuppose I choose D and R.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "- P is connected to H and E, both covered by D, but P itself is not covered by a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "So, P is two connections away from D, which is a service center, but P is not adjacent to any service center.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "Therefore, P is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "So, to cover P, I need either H or E as a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "Therefore, it's impossible to cover all neighborhoods with just D and R.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "Similarly, if I choose D and H.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "- H covers P.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "- R is covered by D, but W is connected to R, which is not a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "So, W is two connections away from D, which is a service center, but W is not adjacent to any service center.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "Therefore, W is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "Same issue.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "Alternatively, choose D and E.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "- E covers P.",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  },
+  {
+    "index": 134,
+    "text": "- H is covered by D.",
+    "category": "Unknown",
+    "abbreviation": "C-134"
+  },
+  {
+    "index": 135,
+    "text": "- R is covered by D, but W is connected to R, which is not a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-135"
+  },
+  {
+    "index": 136,
+    "text": "So, W is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-136"
+  },
+  {
+    "index": 137,
+    "text": "Same problem.",
+    "category": "Unknown",
+    "abbreviation": "C-137"
+  },
+  {
+    "index": 138,
+    "text": "Alternatively, choose D and R and E.",
+    "category": "Unknown",
+    "abbreviation": "C-138"
+  },
+  {
+    "index": 139,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-139"
+  },
+  {
+    "index": 140,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-140"
+  },
+  {
+    "index": 141,
+    "text": "- E covers P.",
+    "category": "Unknown",
+    "abbreviation": "C-141"
+  },
+  {
+    "index": 142,
+    "text": "That's three, and all are covered.",
+    "category": "Unknown",
+    "abbreviation": "C-142"
+  },
+  {
+    "index": 143,
+    "text": "Alternatively, choose D, R, and H.",
+    "category": "Unknown",
+    "abbreviation": "C-143"
+  },
+  {
+    "index": 144,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-144"
+  },
+  {
+    "index": 145,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-145"
+  },
+  {
+    "index": 146,
+    "text": "- H covers P.",
+    "category": "Unknown",
+    "abbreviation": "C-146"
+  },
+  {
+    "index": 147,
+    "text": "Three again.",
+    "category": "Unknown",
+    "abbreviation": "C-147"
+  },
+  {
+    "index": 148,
+    "text": "Alternatively, choose D, R, and P.",
+    "category": "Unknown",
+    "abbreviation": "C-148"
+  },
+  {
+    "index": 149,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-149"
+  },
+  {
+    "index": 150,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-150"
+  },
+  {
+    "index": 151,
+    "text": "- P covers H and E.",
+    "category": "Unknown",
+    "abbreviation": "C-151"
+  },
+  {
+    "index": 152,
+    "text": "But H and E are already covered by D, so P covers itself.",
+    "category": "Unknown",
+    "abbreviation": "C-152"
+  },
+  {
+    "index": 153,
+    "text": "So, that's three.",
+    "category": "Unknown",
+    "abbreviation": "C-153"
+  },
+  {
+    "index": 154,
+    "text": "Is there a way to cover all with two service centers?\n\nSuppose I choose R and P.",
+    "category": "Unknown",
+    "abbreviation": "C-154"
+  },
+  {
+    "index": 155,
+    "text": "- R covers R and W.",
+    "category": "Unknown",
+    "abbreviation": "C-155"
+  },
+  {
+    "index": 156,
+    "text": "- P covers P, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-156"
+  },
+  {
+    "index": 157,
+    "text": "- D is connected to R, H, E, but D is not directly connected to a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-157"
+  },
+  {
+    "index": 158,
+    "text": "So, D is two connections away from R, which is a service center, but D is not adjacent to any service center.",
+    "category": "Unknown",
+    "abbreviation": "C-158"
+  },
+  {
+    "index": 159,
+    "text": "Therefore, D is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-159"
+  },
+  {
+    "index": 160,
+    "text": "Similarly, if I choose H and E.",
+    "category": "Unknown",
+    "abbreviation": "C-160"
+  },
+  {
+    "index": 161,
+    "text": "- H covers H and P.",
+    "category": "Unknown",
+    "abbreviation": "C-161"
+  },
+  {
+    "index": 162,
+    "text": "- E covers E.",
+    "category": "Unknown",
+    "abbreviation": "C-162"
+  },
+  {
+    "index": 163,
+    "text": "- R is connected to D and W, but R is not covered by H or E.",
+    "category": "Unknown",
+    "abbreviation": "C-163"
+  },
+  {
+    "index": 164,
+    "text": "So, R is two connections away from H and E, but not adjacent.",
+    "category": "Unknown",
+    "abbreviation": "C-164"
+  },
+  {
+    "index": 165,
+    "text": "So, R is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-165"
+  },
+  {
+    "index": 166,
+    "text": "Alternatively, choose R and H.",
+    "category": "Unknown",
+    "abbreviation": "C-166"
+  },
+  {
+    "index": 167,
+    "text": "- R covers R and W.",
+    "category": "Unknown",
+    "abbreviation": "C-167"
+  },
+  {
+    "index": 168,
+    "text": "- H covers H and P.",
+    "category": "Unknown",
+    "abbreviation": "C-168"
+  },
+  {
+    "index": 169,
+    "text": "- D is connected to R, H, E, but D is not adjacent to R or H.",
+    "category": "Unknown",
+    "abbreviation": "C-169"
+  },
+  {
+    "index": 170,
+    "text": "So, D is two connections away, not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-170"
+  },
+  {
+    "index": 171,
+    "text": "Alternatively, choose R and E.",
+    "category": "Unknown",
+    "abbreviation": "C-171"
+  },
+  {
+    "index": 172,
+    "text": "- R covers R and W.",
+    "category": "Unknown",
+    "abbreviation": "C-172"
+  },
+  {
+    "index": 173,
+    "text": "- E covers E and P.",
+    "category": "Unknown",
+    "abbreviation": "C-173"
+  },
+  {
+    "index": 174,
+    "text": "- D is connected to R, H, E, but D is not adjacent to R or E.",
+    "category": "Unknown",
+    "abbreviation": "C-174"
+  },
+  {
+    "index": 175,
+    "text": "So, D is two connections away, not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-175"
+  },
+  {
+    "index": 176,
+    "text": "Alternatively, choose H and E.",
+    "category": "Unknown",
+    "abbreviation": "C-176"
+  },
+  {
+    "index": 177,
+    "text": "Same issue as above.",
+    "category": "Unknown",
+    "abbreviation": "C-177"
+  },
+  {
+    "index": 178,
+    "text": "Alternatively, choose D and P.",
+    "category": "Unknown",
+    "abbreviation": "C-178"
+  },
+  {
+    "index": 179,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-179"
+  },
+  {
+    "index": 180,
+    "text": "- P covers P, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-180"
+  },
+  {
+    "index": 181,
+    "text": "- W is connected to R, which is covered by D, but W is not adjacent to a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-181"
+  },
+  {
+    "index": 182,
+    "text": "So, W is two connections away.",
+    "category": "Unknown",
+    "abbreviation": "C-182"
+  },
+  {
+    "index": 183,
+    "text": "Thus, W is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-183"
+  },
+  {
+    "index": 184,
+    "text": "Alternatively, choose D and W.",
+    "category": "Unknown",
+    "abbreviation": "C-184"
+  },
+  {
+    "index": 185,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-185"
+  },
+  {
+    "index": 186,
+    "text": "- W covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-186"
+  },
+  {
+    "index": 187,
+    "text": "- But P is connected to H and E, which are covered by D, but P is not covered by a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-187"
+  },
+  {
+    "index": 188,
+    "text": "So, P is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-188"
+  },
+  {
+    "index": 189,
+    "text": "Alternatively, choose D and W and P.",
+    "category": "Unknown",
+    "abbreviation": "C-189"
+  },
+  {
+    "index": 190,
+    "text": "But that's three.",
+    "category": "Unknown",
+    "abbreviation": "C-190"
+  },
+  {
+    "index": 191,
+    "text": "Alternatively, choose R, W, and P.",
+    "category": "Unknown",
+    "abbreviation": "C-191"
+  },
+  {
+    "index": 192,
+    "text": "- R covers R and W.",
+    "category": "Unknown",
+    "abbreviation": "C-192"
+  },
+  {
+    "index": 193,
+    "text": "- W is covered by R.",
+    "category": "Unknown",
+    "abbreviation": "C-193"
+  },
+  {
+    "index": 194,
+    "text": "- P covers P, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-194"
+  },
+  {
+    "index": 195,
+    "text": "- H and E are covered by P.",
+    "category": "Unknown",
+    "abbreviation": "C-195"
+  },
+  {
+    "index": 196,
+    "text": "- D is connected to R, H, E, but D is not adjacent to any service center.",
+    "category": "Unknown",
+    "abbreviation": "C-196"
+  },
+  {
+    "index": 197,
+    "text": "So, D is two connections away, not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-197"
+  },
+  {
+    "index": 198,
+    "text": "Thus, D is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-198"
+  },
+  {
+    "index": 199,
+    "text": "Alternatively, choose D, R, and P.",
+    "category": "Unknown",
+    "abbreviation": "C-199"
+  },
+  {
+    "index": 200,
+    "text": "As before, that's three.",
+    "category": "Unknown",
+    "abbreviation": "C-200"
+  },
+  {
+    "index": 201,
+    "text": "So, from these attempts, it seems that two service centers are insufficient because certain neighborhoods would be two connections away from any service center.",
+    "category": "Unknown",
+    "abbreviation": "C-201"
+  },
+  {
+    "index": 202,
+    "text": "Therefore, the minimum number of service centers needed is three.",
+    "category": "Unknown",
+    "abbreviation": "C-202"
+  },
+  {
+    "index": 203,
+    "text": "To confirm, let's choose three service centers: D, R, and P.",
+    "category": "Unknown",
+    "abbreviation": "C-203"
+  },
+  {
+    "index": 204,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-204"
+  },
+  {
+    "index": 205,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-205"
+  },
+  {
+    "index": 206,
+    "text": "- P covers P, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-206"
+  },
+  {
+    "index": 207,
+    "text": "Wait, but H and E are already covered by D, so P covers itself.",
+    "category": "Unknown",
+    "abbreviation": "C-207"
+  },
+  {
+    "index": 208,
+    "text": "But does this cover all? Let's see:\n\n- D: covered by D.",
+    "category": "Unknown",
+    "abbreviation": "C-208"
+  },
+  {
+    "index": 209,
+    "text": "- R: covered by D.",
+    "category": "Unknown",
+    "abbreviation": "C-209"
+  },
+  {
+    "index": 210,
+    "text": "- H: covered by D.",
+    "category": "Unknown",
+    "abbreviation": "C-210"
+  },
+  {
+    "index": 211,
+    "text": "- E: covered by D.",
+    "category": "Unknown",
+    "abbreviation": "C-211"
+  },
+  {
+    "index": 212,
+    "text": "- W: covered by R.",
+    "category": "Unknown",
+    "abbreviation": "C-212"
+  },
+  {
+    "index": 213,
+    "text": "- P: covered by P.",
+    "category": "Unknown",
+    "abbreviation": "C-213"
+  },
+  {
+    "index": 214,
+    "text": "Yes, all neighborhoods are covered.",
+    "category": "Unknown",
+    "abbreviation": "C-214"
+  },
+  {
+    "index": 215,
+    "text": "Alternatively, choosing D, R, and H.",
+    "category": "Unknown",
+    "abbreviation": "C-215"
+  },
+  {
+    "index": 216,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-216"
+  },
+  {
+    "index": 217,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-217"
+  },
+  {
+    "index": 218,
+    "text": "- H covers P.",
+    "category": "Unknown",
+    "abbreviation": "C-218"
+  },
+  {
+    "index": 219,
+    "text": "Yes, all are covered.",
+    "category": "Unknown",
+    "abbreviation": "C-219"
+  },
+  {
+    "index": 220,
+    "text": "Similarly, choosing D, R, and E.",
+    "category": "Unknown",
+    "abbreviation": "C-220"
+  },
+  {
+    "index": 221,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-221"
+  },
+  {
+    "index": 222,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-222"
+  },
+  {
+    "index": 223,
+    "text": "- E covers P.",
+    "category": "Unknown",
+    "abbreviation": "C-223"
+  },
+  {
+    "index": 224,
+    "text": "All covered.",
+    "category": "Unknown",
+    "abbreviation": "C-224"
+  },
+  {
+    "index": 225,
+    "text": "Alternatively, choosing R, H, and E.",
+    "category": "Unknown",
+    "abbreviation": "C-225"
+  },
+  {
+    "index": 226,
+    "text": "- R covers R and W.",
+    "category": "Unknown",
+    "abbreviation": "C-226"
+  },
+  {
+    "index": 227,
+    "text": "- H covers H and P.",
+    "category": "Unknown",
+    "abbreviation": "C-227"
+  },
+  {
+    "index": 228,
+    "text": "- E covers E.",
+    "category": "Unknown",
+    "abbreviation": "C-228"
+  },
+  {
+    "index": 229,
+    "text": "But D is only connected to R, H, E, which are service centers, so D is covered through R, H, or E.",
+    "category": "Unknown",
+    "abbreviation": "C-229"
+  },
+  {
+    "index": 230,
+    "text": "Therefore, D is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-230"
+  },
+  {
+    "index": 231,
+    "text": "Wait, but in this case, D is not directly a service center, but it's connected to service centers R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-231"
+  },
+  {
+    "index": 232,
+    "text": "So, D is covered because it's adjacent to service centers.",
+    "category": "Unknown",
+    "abbreviation": "C-232"
+  },
+  {
+    "index": 233,
+    "text": "So, in this case, with service centers R, H, and E, D is covered through adjacency.",
+    "category": "Unknown",
+    "abbreviation": "C-233"
+  },
+  {
+    "index": 234,
+    "text": "Then:\n\n- R covers R and W.",
+    "category": "Unknown",
+    "abbreviation": "C-234"
+  },
+  {
+    "index": 235,
+    "text": "- H covers H and P.",
+    "category": "Unknown",
+    "abbreviation": "C-235"
+  },
+  {
+    "index": 236,
+    "text": "- E covers E.",
+    "category": "Unknown",
+    "abbreviation": "C-236"
+  },
+  {
+    "index": 237,
+    "text": "But D is covered because it's connected to R, H, E, which are service centers.",
+    "category": "Unknown",
+    "abbreviation": "C-237"
+  },
+  {
+    "index": 238,
+    "text": "Wait, but the problem says \"emergency service centers that can reach any neighborhood within one connection.\" So, does that mean each neighborhood must be either a service center or adjacent to one?\n\nYes.",
+    "category": "Unknown",
+    "abbreviation": "C-238"
+  },
+  {
+    "index": 239,
+    "text": "So, in this case, with R, H, and E as service centers:\n\n- D is adjacent to R, H, E (all service centers), so D is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-239"
+  },
+  {
+    "index": 240,
+    "text": "- R is a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-240"
+  },
+  {
+    "index": 241,
+    "text": "- H is a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-241"
+  },
+  {
+    "index": 242,
+    "text": "- E is a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-242"
+  },
+  {
+    "index": 243,
+    "text": "- W is adjacent to R (service center).",
+    "category": "Unknown",
+    "abbreviation": "C-243"
+  },
+  {
+    "index": 244,
+    "text": "- P is adjacent to H (service center) and E (service center).",
+    "category": "Unknown",
+    "abbreviation": "C-244"
+  },
+  {
+    "index": 245,
+    "text": "So, all neighborhoods are covered with three service centers.",
+    "category": "Unknown",
+    "abbreviation": "C-245"
+  },
+  {
+    "index": 246,
+    "text": "Similarly, with D, R, and P:\n\n- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-246"
+  },
+  {
+    "index": 247,
+    "text": "- R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-247"
+  },
+  {
+    "index": 248,
+    "text": "- P covers P.",
+    "category": "Unknown",
+    "abbreviation": "C-248"
+  },
+  {
+    "index": 249,
+    "text": "But H and E are already covered by D, so P covers itself.",
+    "category": "Unknown",
+    "abbreviation": "C-249"
+  },
+  {
+    "index": 250,
+    "text": "So, that's three as well.",
+    "category": "Unknown",
+    "abbreviation": "C-250"
+  },
+  {
+    "index": 251,
+    "text": "Is there a way to do it with two?\n\nSuppose I choose D and P.",
+    "category": "Unknown",
+    "abbreviation": "C-251"
+  },
+  {
+    "index": 252,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-252"
+  },
+  {
+    "index": 253,
+    "text": "- P covers P, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-253"
+  },
+  {
+    "index": 254,
+    "text": "But W is connected to R, which is covered by D, but W is not adjacent to a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-254"
+  },
+  {
+    "index": 255,
+    "text": "So, W is two connections away from D, which is a service center, but not adjacent.",
+    "category": "Unknown",
+    "abbreviation": "C-255"
+  },
+  {
+    "index": 256,
+    "text": "Therefore, W is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-256"
+  },
+  {
+    "index": 257,
+    "text": "Similarly, if I choose R and P:\n\n- R covers R and W.",
+    "category": "Unknown",
+    "abbreviation": "C-257"
+  },
+  {
+    "index": 258,
+    "text": "- P covers P, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-258"
+  },
+  {
+    "index": 259,
+    "text": "But D is connected to R, H, E, which are service centers, so D is covered through adjacency.",
+    "category": "Unknown",
+    "abbreviation": "C-259"
+  },
+  {
+    "index": 260,
+    "text": "But H and E are covered by P, and R covers W.",
+    "category": "Unknown",
+    "abbreviation": "C-260"
+  },
+  {
+    "index": 261,
+    "text": "Wait, does that cover all?\n\n- D is adjacent to R, H, E (all covered by P or R).",
+    "category": "Unknown",
+    "abbreviation": "C-261"
+  },
+  {
+    "index": 262,
+    "text": "So, D is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-262"
+  },
+  {
+    "index": 263,
+    "text": "- R is a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-263"
+  },
+  {
+    "index": 264,
+    "text": "- H is covered by P.",
+    "category": "Unknown",
+    "abbreviation": "C-264"
+  },
+  {
+    "index": 265,
+    "text": "- E is covered by P.",
+    "category": "Unknown",
+    "abbreviation": "C-265"
+  },
+  {
+    "index": 266,
+    "text": "- W is covered by R.",
+    "category": "Unknown",
+    "abbreviation": "C-266"
+  },
+  {
+    "index": 267,
+    "text": "- P is a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-267"
+  },
+  {
+    "index": 268,
+    "text": "Yes! Wait, does that work?\n\nWait, let's check each neighborhood:\n\n- D: connected to R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-268"
+  },
+  {
+    "index": 269,
+    "text": "R, H, E are either service centers or adjacent to service centers.",
+    "category": "Unknown",
+    "abbreviation": "C-269"
+  },
+  {
+    "index": 270,
+    "text": "So, D is covered because it's adjacent to service centers.",
+    "category": "Unknown",
+    "abbreviation": "C-270"
+  },
+  {
+    "index": 271,
+    "text": "- R: service center.",
+    "category": "Unknown",
+    "abbreviation": "C-271"
+  },
+  {
+    "index": 272,
+    "text": "- H: connected to D and P.",
+    "category": "Unknown",
+    "abbreviation": "C-272"
+  },
+  {
+    "index": 273,
+    "text": "P is a service center, so H is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-273"
+  },
+  {
+    "index": 274,
+    "text": "- E: connected to D and P.",
+    "category": "Unknown",
+    "abbreviation": "C-274"
+  },
+  {
+    "index": 275,
+    "text": "P is a service center, so E is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-275"
+  },
+  {
+    "index": 276,
+    "text": "- W: connected to R, which is a service center, so W is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-276"
+  },
+  {
+    "index": 277,
+    "text": "- P: service center.",
+    "category": "Unknown",
+    "abbreviation": "C-277"
+  },
+  {
+    "index": 278,
+    "text": "So, with service centers at R and P, we cover all neighborhoods.",
+    "category": "Unknown",
+    "abbreviation": "C-278"
+  },
+  {
+    "index": 279,
+    "text": "Wait, is that correct? Let me double-check.",
+    "category": "Unknown",
+    "abbreviation": "C-279"
+  },
+  {
+    "index": 280,
+    "text": "- D is connected to R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-280"
+  },
+  {
+    "index": 281,
+    "text": "R is a service center, so D is covered through R.",
+    "category": "Unknown",
+    "abbreviation": "C-281"
+  },
+  {
+    "index": 282,
+    "text": "- H is connected to D and P.",
+    "category": "Unknown",
+    "abbreviation": "C-282"
+  },
+  {
+    "index": 283,
+    "text": "P is a service center, so H is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-283"
+  },
+  {
+    "index": 284,
+    "text": "- E is connected to D and P.",
+    "category": "Unknown",
+    "abbreviation": "C-284"
+  },
+  {
+    "index": 285,
+    "text": "P is a service center, so E is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-285"
+  },
+  {
+    "index": 286,
+    "text": "- W is connected to R, which is a service center, so W is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-286"
+  },
+  {
+    "index": 287,
+    "text": "- P is a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-287"
+  },
+  {
+    "index": 288,
+    "text": "So yes, with R and P as service centers, all neighborhoods are covered.",
+    "category": "Unknown",
+    "abbreviation": "C-288"
+  },
+  {
+    "index": 289,
+    "text": "Similarly, could I choose other pairs?\n\nSuppose I choose D and H.",
+    "category": "Unknown",
+    "abbreviation": "C-289"
+  },
+  {
+    "index": 290,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-290"
+  },
+  {
+    "index": 291,
+    "text": "- H covers H and P.",
+    "category": "Unknown",
+    "abbreviation": "C-291"
+  },
+  {
+    "index": 292,
+    "text": "- But W is connected to R, which is covered by D, but W is not adjacent to a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-292"
+  },
+  {
+    "index": 293,
+    "text": "So, W is two connections away from D, but not adjacent to any service center.",
+    "category": "Unknown",
+    "abbreviation": "C-293"
+  },
+  {
+    "index": 294,
+    "text": "So, W is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-294"
+  },
+  {
+    "index": 295,
+    "text": "Similarly, choosing D and E.",
+    "category": "Unknown",
+    "abbreviation": "C-295"
+  },
+  {
+    "index": 296,
+    "text": "- D covers D, R, H, E.",
+    "category": "Unknown",
+    "abbreviation": "C-296"
+  },
+  {
+    "index": 297,
+    "text": "- E covers E and P.",
+    "category": "Unknown",
+    "abbreviation": "C-297"
+  },
+  {
+    "index": 298,
+    "text": "- But W is connected to R, which is covered by D, but W is not adjacent to a service center.",
+    "category": "Unknown",
+    "abbreviation": "C-298"
+  },
+  {
+    "index": 299,
+    "text": "So, W is not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-299"
+  },
+  {
+    "index": 300,
+    "text": "Alternatively, choosing R and E.",
+    "category": "Unknown",
+    "abbreviation": "C-300"
+  },
+  {
+    "index": 301,
+    "text": "- R covers R and W.",
+    "category": "Unknown",
+    "abbreviation": "C-301"
+  },
+  {
+    "index": 302,
+    "text": "- E covers E and P.",
+    "category": "Unknown",
+    "abbreviation": "C-302"
+  },
+  {
+    "index": 303,
+    "text": "- D is connected to R, H, E, which are service centers, so D is covered.",
+    "category": "Unknown",
+    "abbreviation": "C-303"
+  },
+  {
+    "index": 304,
+    "text": "- H is connected to D and P.",
+    "category": "Unknown",
+    "abbreviation": "C-304"
+  },
+  {
+    "index": 305,
+    "text": "P is covered by E, but H is not directly adjacent to a",
+    "category": "Unknown",
+    "abbreviation": "C-305"
+  }
+]

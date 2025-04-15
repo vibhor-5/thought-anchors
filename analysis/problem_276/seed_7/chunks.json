@@ -1,0 +1,1472 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small town has three autonomous delivery robots (A, B, and C) that deliver packages to residents.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Each robot can carry up to 5 packages at once and operates independently.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "The robots need to deliver a total of 12 packages to different locations around town, with each package having a specific destination.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "The town council wants to minimize the total distance traveled by all robots.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "If the town can be represented as a simple grid where:\n- Robot A starts at position (0,0)\n- Robot B starts at position (10,0)\n- Robot C starts at position (5,5)\n\nAnd the 12 packages need to be delivered to these coordinates:\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "(1,2)\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "(3,4)\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "(8,2)\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "(9,3)\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "(2,7)\n6.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "(4,8)\n7.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "(7,6)\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "(6,1)\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "(2,3)\n10.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "(4,2)\n11.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "(8,7)\n12.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "(5,2)\n\nWhich robot should deliver which packages to minimize the total distance traveled? Assume that each robot returns to its starting position after completing all deliveries, and that the distance is calculated using Manhattan distance (|x\u2081-x\u2082| + |y\u2081-y\u2082|).",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Solution: \n<think>\nAlright, so I have this problem about three delivery robots in a small town.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "The goal is to assign 12 packages to the robots in a way that minimizes the total distance they all travel.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Each robot starts at a specific location, can carry up to 5 packages, and needs to return to their starting point after deliveries.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "The distance is measured using Manhattan distance, which is just the sum of the absolute differences in the x and y coordinates.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "First, let's list out all the starting positions of the robots:\n\n- Robot A starts at (0,0)\n- Robot B starts at (10,0)\n- Robot C starts at (5,5)\n\nAnd the packages need to be delivered to these 12 locations:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "(1,2)\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "(3,4)\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "(8,2)\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "(9,3)\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "(2,7)\n6.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "(4,8)\n7.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "(7,6)\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "(6,1)\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "(2,3)\n10.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "(4,2)\n11.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "(8,7)\n12.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "(5,2)\n\nEach robot can carry up to 5 packages, so we need to distribute these 12 packages among the three robots, ensuring that no robot has more than 5 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Also, after delivering all their packages, each robot must return to their starting point.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "The total distance is the sum of the distances each robot travels to deliver their packages and return home.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "My initial thought is that to minimize the total distance, we should assign packages to each robot in such a way that the robot's path is as efficient as possible.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "That is, each robot should cover a group of packages that are close to each other, minimizing the total distance traveled for that group.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "Maybe I can start by grouping the packages based on their proximity to each robot's starting position or to each other.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Let's see.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "First, let's look at where each package is located relative to the robots:\n\n- Robot A is at (0,0), so it's closest to packages in the lower-left area of the grid.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "- Robot B is at (10,0), so it's closest to packages in the lower-right area.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "- Robot C is at (5,5), so it's in the center, so it's well-positioned to cover packages in the middle or upper areas.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "Looking at the package locations:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "(1,2) - Near Robot A\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "(3,4) - Near Robot A\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "(8,2) - Near Robot B\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "(9,3) - Near Robot B\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "(2,7) - Near Robot A\n6.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "(4,8) - Upper area, could be delivered by Robot A or C\n7.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "(7,6) - Near Robot B\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "(6,1) - Near Robot A\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "(2,3) - Near Robot A\n10.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "(4,2) - Near Robot A\n11.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "(8,7) - Near Robot B\n12.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "(5,2) - Near Robot C\n\nWait, (5,2) is actually quite close to Robot C's starting point at (5,5).",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "The Manhattan distance from (5,2) to (5,5) is 3, which is pretty short.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "So maybe assigning that package to Robot C makes sense.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "Similarly, (6,1) is near Robot A, but its distance to Robot C is |5-6| + |5-1| = 1 + 4 = 5, which is more than the distance to Robot A (|0-6| + |0-1| = 6 + 1 = 7).",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "So Robot A is closer.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "Similarly, (8,2) is closer to Robot B (distance |10-8| + |0-2| = 2 + 2 = 4) than to Robot C (|5-8| + |5-2| = 3 + 3 = 6).",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "So Robot B is closer.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "So, perhaps the first step is to assign each package to the closest robot.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "But wait, we can also consider that robots can carry multiple packages, so maybe grouping packages that are close together to minimize the total distance.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Let me try to group the packages by their proximity to each robot.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "Robot A's area:\n\nLooking at the packages:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "(1,2)\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "(3,4)\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "(2,7)\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "(6,1)\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "(2,3)\n10.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "(4,2)\n12.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "(5,2) \u2013 Wait, (5,2) is closer to Robot C, but maybe it's better to assign it to Robot A? Let's check.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "Distance from Robot A to (5,2): |0-5| + |0-2| = 5 + 2 = 7\nDistance from Robot C to (5,2): |5-5| + |5-2| = 0 + 3 = 3\nSo definitely better to assign (5,2) to Robot C.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "Similarly, (6,1): distance to A is 7, to C is 5, so better to assign to A.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Wait, but Robot A can carry up to 5 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "Let's see how many packages are in Robot A's area.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "Looking at the list, packages 1,2,5,8,9,10,12 are near Robot A.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "Wait, no, package 12 is (5,2), which is closer to C.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "So excluding 12, we have packages 1,2,5,8,9,10.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "That's 6 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "But each robot can carry up to 5, so Robot A can carry 5, leaving 1 package for Robot C.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "Similarly, Robot B has packages 3,4,7,11.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "That's 4 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "So Robot B can carry all 4, and Robot C can carry the remaining 3, including package 12.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Wait, but Robot C can carry up to 5.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "So maybe Robot C can carry more.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "Wait, let's count:\n\nRobot A: 1,2,5,8,9,10 \u2013 6 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "But can only carry 5, so 5 packages, leaving 1.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "Robot B: 3,4,7,11 \u2013 4 packages, can carry all 4.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "Robot C: 12 and any leftovers.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "So if Robot A leaves 1, then Robot C can carry 4, but Robot C can carry up to 5.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "Wait, but maybe there's a better way to group.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "Alternatively, maybe group packages that are close together to minimize the total distance.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "Let me try another approach.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "Let me list all packages with their coordinates:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "(1,2)\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "(3,4)\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "(8,2)\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "(9,3)\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "(2,7)\n6.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "(4,8)\n7.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "(7,6)\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "(6,1)\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "(2,3)\n10.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "(4,2)\n11.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "(8,7)\n12.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "(5,2)\n\nNow, let's see which packages are close to each starting point.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "Robot A at (0,0):\n\n- Packages near (0,0) are 1,2,5,8,9,10.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "Robot B at (10,0):\n\n- Packages near (10,0) are 3,4,7,11.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "Robot C at (5,5):\n\n- Packages near (5,5) are 12, and maybe others.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "But let's calculate the distances:\n\nFor Robot A:\n\n- (1,2): distance to A is 1+2=3; to B is |10-1| + |0-2|=9+2=11; to C is |5-1| + |5-2|=4+3=7.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "So closest to A.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "- (3,4): distance to A is 3+4=7; to B is |10-3| + |0-4|=7+4=11; to C is |5-3| + |5-4|=2+1=3.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "So closest to C.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "Wait, that's interesting.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "So (3,4) is actually closer to Robot C than to A or B.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "Similarly, (8,2): distance to A is 8+2=10; to B is 2+2=4; to C is 3+3=6.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "So closest to B.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "(9,3): distance to A is 9+3=12; to B is 1+3=4; to C is 4+2=6.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "So closest to B.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "(2,7): distance to A is 2+7=9; to B is 8+7=15; to C is 3+2=5.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "So closest to C.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "(4,8): distance to A is 4+8=12; to B is 6+8=14; to C is 1+3=4.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "So closest to C.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "(7,6): distance to A is 7+6=13; to B is 3+6=9; to C is 2+1=3.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "So closest to C.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "(6,1): distance to A is 6+1=7; to B is 4+1=5; to C is 1+4=5.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "So equidistant to B and C.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "(2,3): distance to A is 2+3=5; to B is 8+3=11; to C is 3+2=5.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "Equidistant to A and C.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "(4,2): distance to A is 4+2=6; to B is 6+2=8; to C is 1+3=4.",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  },
+  {
+    "index": 134,
+    "text": "So closest to C.",
+    "category": "Unknown",
+    "abbreviation": "C-134"
+  },
+  {
+    "index": 135,
+    "text": "(8,7): distance to A is 8+7=15; to B is 2+7=9; to C is 3+2=5.",
+    "category": "Unknown",
+    "abbreviation": "C-135"
+  },
+  {
+    "index": 136,
+    "text": "So closest to C.",
+    "category": "Unknown",
+    "abbreviation": "C-136"
+  },
+  {
+    "index": 137,
+    "text": "(5,2): distance to A is 5+2=7; to B is 5+2=7; to C is 0+3=3.",
+    "category": "Unknown",
+    "abbreviation": "C-137"
+  },
+  {
+    "index": 138,
+    "text": "So closest to C.",
+    "category": "Unknown",
+    "abbreviation": "C-138"
+  },
+  {
+    "index": 139,
+    "text": "Wait a minute, this changes things.",
+    "category": "Unknown",
+    "abbreviation": "C-139"
+  },
+  {
+    "index": 140,
+    "text": "So many of these packages are closer to Robot C than to A or B, especially (3,4), (2,7), (4,8), (7,6), (4,2), (8,7), and (5,2).",
+    "category": "Unknown",
+    "abbreviation": "C-140"
+  },
+  {
+    "index": 141,
+    "text": "So perhaps Robot C is the most efficient for many of these packages.",
+    "category": "Unknown",
+    "abbreviation": "C-141"
+  },
+  {
+    "index": 142,
+    "text": "Similarly, Robot B is the closest for (8,2), (9,3), and (6,1) (if we consider equal distance to B and C).",
+    "category": "Unknown",
+    "abbreviation": "C-142"
+  },
+  {
+    "index": 143,
+    "text": "So maybe we should assign as many packages as possible to Robot C, since it's efficient for many.",
+    "category": "Unknown",
+    "abbreviation": "C-143"
+  },
+  {
+    "index": 144,
+    "text": "But Robot C can carry up to 5 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-144"
+  },
+  {
+    "index": 145,
+    "text": "Let's see which packages are closest to C.",
+    "category": "Unknown",
+    "abbreviation": "C-145"
+  },
+  {
+    "index": 146,
+    "text": "From the above, the packages closest to C are:\n\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-146"
+  },
+  {
+    "index": 147,
+    "text": "(3,4)\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-147"
+  },
+  {
+    "index": 148,
+    "text": "(2,7)\n6.",
+    "category": "Unknown",
+    "abbreviation": "C-148"
+  },
+  {
+    "index": 149,
+    "text": "(4,8)\n7.",
+    "category": "Unknown",
+    "abbreviation": "C-149"
+  },
+  {
+    "index": 150,
+    "text": "(7,6)\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-150"
+  },
+  {
+    "index": 151,
+    "text": "(9,3) \u2013 Wait, no, (9,3) is closer to B.",
+    "category": "Unknown",
+    "abbreviation": "C-151"
+  },
+  {
+    "index": 152,
+    "text": "Wait, (9,3) is closer to B, as we saw earlier.",
+    "category": "Unknown",
+    "abbreviation": "C-152"
+  },
+  {
+    "index": 153,
+    "text": "Wait, let me correct:\n\nFrom the earlier list:\n\n- (3,4) \u2013 closest to C\n- (2,7) \u2013 closest to C\n- (4,8) \u2013 closest to C\n- (7,6) \u2013 closest to C\n- (4,2) \u2013 closest to C\n- (8,7) \u2013 closest to C\n- (5,2) \u2013 closest to C\n\nSo that's 7 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-153"
+  },
+  {
+    "index": 154,
+    "text": "But Robot C can carry only 5, so we need to choose the 5 closest to C.",
+    "category": "Unknown",
+    "abbreviation": "C-154"
+  },
+  {
+    "index": 155,
+    "text": "Looking at their distances to C:\n\n- (3,4): distance 3\n- (2,7): distance 5\n- (4,8): distance 4\n- (7,6): distance 3\n- (4,2): distance 4\n- (8,7): distance 5\n- (5,2): distance 3\n\nSo the closest are (3,4), (7,6), (5,2), (4,2), and (8,7) with distances 3,3,3,4,5.",
+    "category": "Unknown",
+    "abbreviation": "C-155"
+  },
+  {
+    "index": 156,
+    "text": "Wait, (3,4), (7,6), (5,2), (4,2), and (8,7).",
+    "category": "Unknown",
+    "abbreviation": "C-156"
+  },
+  {
+    "index": 157,
+    "text": "But (8,7) is 5 units away, which is more than the others.",
+    "category": "Unknown",
+    "abbreviation": "C-157"
+  },
+  {
+    "index": 158,
+    "text": "Maybe it's better to pick the 5 closest.",
+    "category": "Unknown",
+    "abbreviation": "C-158"
+  },
+  {
+    "index": 159,
+    "text": "Alternatively, maybe (3,4), (7,6), (5,2), (4,2), and (2,7).",
+    "category": "Unknown",
+    "abbreviation": "C-159"
+  },
+  {
+    "index": 160,
+    "text": "But (2,7) is 5 units away.",
+    "category": "Unknown",
+    "abbreviation": "C-160"
+  },
+  {
+    "index": 161,
+    "text": "Alternatively, maybe exclude (2,7) and (8,7) which are 5 units away.",
+    "category": "Unknown",
+    "abbreviation": "C-161"
+  },
+  {
+    "index": 162,
+    "text": "So the closest 5 would be:\n\n(3,4), (7,6), (5,2), (4,2), and (8,7).",
+    "category": "Unknown",
+    "abbreviation": "C-162"
+  },
+  {
+    "index": 163,
+    "text": "Hmm, but (8,7) is 5 away.",
+    "category": "Unknown",
+    "abbreviation": "C-163"
+  },
+  {
+    "index": 164,
+    "text": "Alternatively, maybe (3,4), (7,6), (5,2), (4,2), and (2,7).",
+    "category": "Unknown",
+    "abbreviation": "C-164"
+  },
+  {
+    "index": 165,
+    "text": "But (2,7) is 5 away.",
+    "category": "Unknown",
+    "abbreviation": "C-165"
+  },
+  {
+    "index": 166,
+    "text": "Alternatively, perhaps (3,4), (7,6), (5,2), (4,2), and (4,8).",
+    "category": "Unknown",
+    "abbreviation": "C-166"
+  },
+  {
+    "index": 167,
+    "text": "(4,8) is 4 away.",
+    "category": "Unknown",
+    "abbreviation": "C-167"
+  },
+  {
+    "index": 168,
+    "text": "Wait, (4,8) is 4 away, which is better than (2,7) and (8,7).",
+    "category": "Unknown",
+    "abbreviation": "C-168"
+  },
+  {
+    "index": 169,
+    "text": "So maybe the 5 closest are:\n\n(3,4), (7,6), (5,2), (4,2), and (4,8).",
+    "category": "Unknown",
+    "abbreviation": "C-169"
+  },
+  {
+    "index": 170,
+    "text": "But let's confirm:\n\n- (3,4): 3\n- (7,6): 3\n- (5,2): 3\n- (4,2): 4\n- (4,8): 4\n\nAlternatively, maybe include (2,7) instead of (4,8).",
+    "category": "Unknown",
+    "abbreviation": "C-170"
+  },
+  {
+    "index": 171,
+    "text": "But (2,7) is 5 away, which is worse.",
+    "category": "Unknown",
+    "abbreviation": "C-171"
+  },
+  {
+    "index": 172,
+    "text": "So, Robot C can carry these 5 packages with distances 3,3,3,4,4.",
+    "category": "Unknown",
+    "abbreviation": "C-172"
+  },
+  {
+    "index": 173,
+    "text": "Then, Robot A can carry the remaining packages.",
+    "category": "Unknown",
+    "abbreviation": "C-173"
+  },
+  {
+    "index": 174,
+    "text": "Let's see:\n\nFrom the list, the packages not assigned to C are:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-174"
+  },
+  {
+    "index": 175,
+    "text": "(1,2)\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-175"
+  },
+  {
+    "index": 176,
+    "text": "(3,4) \u2013 assigned to C\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-176"
+  },
+  {
+    "index": 177,
+    "text": "(8,2)\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-177"
+  },
+  {
+    "index": 178,
+    "text": "(9,3)\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-178"
+  },
+  {
+    "index": 179,
+    "text": "(2,7) \u2013 not assigned yet\n6.",
+    "category": "Unknown",
+    "abbreviation": "C-179"
+  },
+  {
+    "index": 180,
+    "text": "(4,8) \u2013 assigned to C\n7.",
+    "category": "Unknown",
+    "abbreviation": "C-180"
+  },
+  {
+    "index": 181,
+    "text": "(7,6) \u2013 assigned to C\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-181"
+  },
+  {
+    "index": 182,
+    "text": "(6,1)\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-182"
+  },
+  {
+    "index": 183,
+    "text": "(2,3)\n10.",
+    "category": "Unknown",
+    "abbreviation": "C-183"
+  },
+  {
+    "index": 184,
+    "text": "(4,2) \u2013 assigned to C\n11.",
+    "category": "Unknown",
+    "abbreviation": "C-184"
+  },
+  {
+    "index": 185,
+    "text": "(8,7)\n12.",
+    "category": "Unknown",
+    "abbreviation": "C-185"
+  },
+  {
+    "index": 186,
+    "text": "(5,2) \u2013 assigned to C\n\nWait, no, we assigned (3,4), (7,6), (5,2), (4,2), (4,8) to C, which are 5 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-186"
+  },
+  {
+    "index": 187,
+    "text": "So the remaining packages are:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-187"
+  },
+  {
+    "index": 188,
+    "text": "(1,2)\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-188"
+  },
+  {
+    "index": 189,
+    "text": "(8,2)\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-189"
+  },
+  {
+    "index": 190,
+    "text": "(9,3)\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-190"
+  },
+  {
+    "index": 191,
+    "text": "(2,7)\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-191"
+  },
+  {
+    "index": 192,
+    "text": "(6,1)\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-192"
+  },
+  {
+    "index": 193,
+    "text": "(2,3)\n11.",
+    "category": "Unknown",
+    "abbreviation": "C-193"
+  },
+  {
+    "index": 194,
+    "text": "(8,7)\n\nThat's 8 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-194"
+  },
+  {
+    "index": 195,
+    "text": "But Robot A can carry up to 5, and Robot B can carry the rest.",
+    "category": "Unknown",
+    "abbreviation": "C-195"
+  },
+  {
+    "index": 196,
+    "text": "Wait, but Robot B can carry up to 5 as well.",
+    "category": "Unknown",
+    "abbreviation": "C-196"
+  },
+  {
+    "index": 197,
+    "text": "So let's see how many are left.",
+    "category": "Unknown",
+    "abbreviation": "C-197"
+  },
+  {
+    "index": 198,
+    "text": "Wait, total packages: 12\n\nAssigned to C: 5\n\nSo remaining: 7\n\nRobot A can carry 5, so assign 5 to A, leaving 2 for Robot B.",
+    "category": "Unknown",
+    "abbreviation": "C-198"
+  },
+  {
+    "index": 199,
+    "text": "But let's see which packages are left:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-199"
+  },
+  {
+    "index": 200,
+    "text": "(1,2)\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-200"
+  },
+  {
+    "index": 201,
+    "text": "(8,2)\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-201"
+  },
+  {
+    "index": 202,
+    "text": "(9,3)\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-202"
+  },
+  {
+    "index": 203,
+    "text": "(2,7)\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-203"
+  },
+  {
+    "index": 204,
+    "text": "(6,1)\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-204"
+  },
+  {
+    "index": 205,
+    "text": "(2,3)\n11.",
+    "category": "Unknown",
+    "abbreviation": "C-205"
+  },
+  {
+    "index": 206,
+    "text": "(8,7)\n\nSo 8 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-206"
+  },
+  {
+    "index": 207,
+    "text": "Wait, that can't be right because we assigned 5 to C, so 12-5=7 remaining.",
+    "category": "Unknown",
+    "abbreviation": "C-207"
+  },
+  {
+    "index": 208,
+    "text": "Wait, I think I miscounted.",
+    "category": "Unknown",
+    "abbreviation": "C-208"
+  },
+  {
+    "index": 209,
+    "text": "Wait, total packages assigned to C: 5\n\nSo remaining: 12-5=7\n\nSo Robot A can carry 5, Robot B carries 2.",
+    "category": "Unknown",
+    "abbreviation": "C-209"
+  },
+  {
+    "index": 210,
+    "text": "So from the remaining 7, assign 5 to A, 2 to B.",
+    "category": "Unknown",
+    "abbreviation": "C-210"
+  },
+  {
+    "index": 211,
+    "text": "Now, which packages are left:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-211"
+  },
+  {
+    "index": 212,
+    "text": "(1,2)\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-212"
+  },
+  {
+    "index": 213,
+    "text": "(8,2)\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-213"
+  },
+  {
+    "index": 214,
+    "text": "(9,3)\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-214"
+  },
+  {
+    "index": 215,
+    "text": "(2,7)\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-215"
+  },
+  {
+    "index": 216,
+    "text": "(6,1)\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-216"
+  },
+  {
+    "index": 217,
+    "text": "(2,3)\n11.",
+    "category": "Unknown",
+    "abbreviation": "C-217"
+  },
+  {
+    "index": 218,
+    "text": "(8,7)\n\nSo 7 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-218"
+  },
+  {
+    "index": 219,
+    "text": "Which 5 should go to A? Let's see.",
+    "category": "Unknown",
+    "abbreviation": "C-219"
+  },
+  {
+    "index": 220,
+    "text": "Robot A's starting point is (0,0).",
+    "category": "Unknown",
+    "abbreviation": "C-220"
+  },
+  {
+    "index": 221,
+    "text": "So which of these are closer to A.",
+    "category": "Unknown",
+    "abbreviation": "C-221"
+  },
+  {
+    "index": 222,
+    "text": "Calculate distance from A to each:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-222"
+  },
+  {
+    "index": 223,
+    "text": "(1,2): 3\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-223"
+  },
+  {
+    "index": 224,
+    "text": "(8,2): 10\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-224"
+  },
+  {
+    "index": 225,
+    "text": "(9,3): 12\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-225"
+  },
+  {
+    "index": 226,
+    "text": "(2,7): 9\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-226"
+  },
+  {
+    "index": 227,
+    "text": "(6,1): 7\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-227"
+  },
+  {
+    "index": 228,
+    "text": "(2,3): 5\n11.",
+    "category": "Unknown",
+    "abbreviation": "C-228"
+  },
+  {
+    "index": 229,
+    "text": "(8,7): 15\n\nSo the closest are (1,2), (6,1), (2,3), (8,2), and (2,7).",
+    "category": "Unknown",
+    "abbreviation": "C-229"
+  },
+  {
+    "index": 230,
+    "text": "Wait, but Robot A can carry 5, so let's assign these 5:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-230"
+  },
+  {
+    "index": 231,
+    "text": "(1,2)\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-231"
+  },
+  {
+    "index": 232,
+    "text": "(6,1)\n9.",
+    "category": "Unknown",
+    "abbreviation": "C-232"
+  },
+  {
+    "index": 233,
+    "text": "(2,3)\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-233"
+  },
+  {
+    "index": 234,
+    "text": "(8,2)\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-234"
+  },
+  {
+    "index": 235,
+    "text": "(2,7)\n\nThat's 5 packages.",
+    "category": "Unknown",
+    "abbreviation": "C-235"
+  },
+  {
+    "index": 236,
+    "text": "Then Robot B gets the remaining 2:\n\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-236"
+  },
+  {
+    "index": 237,
+    "text": "(9,3)\n11.",
+    "category": "Unknown",
+    "abbreviation": "C-237"
+  },
+  {
+    "index": 238,
+    "text": "(8,7)\n\nNow, let's check if Robot B can carry these 2.",
+    "category": "Unknown",
+    "abbreviation": "C-238"
+  },
+  {
+    "index": 239,
+    "text": "But Robot B can carry up to 5, so it's okay.",
+    "category": "Unknown",
+    "abbreviation": "C-239"
+  },
+  {
+    "index": 240,
+    "text": "Now, we need to calculate the total distance for each robot.",
+    "category": "Unknown",
+    "abbreviation": "C-240"
+  },
+  {
+    "index": 241,
+    "text": "First, Robot C's route:\n\nStarts at (5,5).",
+    "category": "Unknown",
+    "abbreviation": "C-241"
+  },
+  {
+    "index": 242,
+    "text": "Delivers to:\n\n(3,4), (7,6), (5,2), (4,2), (4,8)\n\nThen returns to (5,5).",
+    "category": "Unknown",
+    "abbreviation": "C-242"
+  },
+  {
+    "index": 243,
+    "text": "So the distance for Robot C is the sum of distances from (5,5) to each delivery point, plus the return trip.",
+    "category": "Unknown",
+    "abbreviation": "C-243"
+  },
+  {
+    "index": 244,
+    "text": "Calculating:\n\nFrom (5,5) to (3,4): |5-3| + |5-4| = 2 + 1 = 3\nFrom (3,4) to (7,6): |7-3| + |6-4| = 4 + 2 = 6\nFrom (7,6) to (5,2): |5-7| + |2-6| = 2 + 4 = 6\nFrom (5,2) to (4,2): |4-5| + |2-2| = 1 + 0 = 1\nFrom (4,2) to (4,8): |4-4| + |8-2| =",
+    "category": "Unknown",
+    "abbreviation": "C-244"
+  }
+]

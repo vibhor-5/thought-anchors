@@ -1,0 +1,248 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: In a group of 15 people, some pairs are friends on a social media platform.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "If each person has at least 10 friends in the group, prove that there must exist at least one set of 3 people who are all friends with each other (forming a 'friendship triangle').",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nAlright, so I have this problem here: In a group of 15 people, each person has at least 10 friends.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "I need to prove that there must be at least one friendship triangle, meaning three people who are all friends with each other.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Hmm, okay, let me try to figure this out.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "First off, I remember something about graph theory from my math class.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "I think this problem can be modeled as a graph where each person is a vertex, and each friendship is an edge connecting two vertices.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "So, we have 15 vertices, and each vertex has at least 10 edges connected to it.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "That means the graph is pretty densely connected.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "I also recall something about Tur\u00e1n's theorem, which gives the maximum number of edges a graph can have without containing a complete subgraph of a certain size.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Maybe that's relevant here because we want to ensure there's a triangle, which is a complete subgraph of size 3.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "Tur\u00e1n's theorem states that for a graph to not contain a (k+1)-clique, the maximum number of edges it can have is given by a specific formula.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "In our case, we're dealing with triangles, so k would be 2.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "The formula is:\n\n\\[ \\text{Maximum edges without a triangle} = \\left\\lfloor \\frac{n^2}{4} \\right\\rfloor \\]\n\nWhere n is the number of vertices.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Plugging in 15 for n, we get:\n\n\\[ \\frac{15^2}{4} = \\frac{225}{4} = 56.25 \\]\n\nSince the number of edges must be an integer, we take the floor, so 56 edges.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "That means if a graph with 15 vertices has more than 56 edges, it must contain at least one triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "Now, let's check how many edges we have in our problem.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Each of the 15 people has at least 10 friends.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "In graph terms, each vertex has a degree of at least 10.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "The sum of all degrees is twice the number of edges because each edge is counted twice (once for each endpoint).",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "So, the total degree is:\n\n15 people * 10 friends = 150\n\nTherefore, the number of edges is:\n\n150 / 2 = 75\n\nSo, we have 75 edges in the graph.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Comparing this to Tur\u00e1n's theorem, 75 is greater than 56, which means the graph must contain at least one triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Therefore, there must be at least one set of three people who are all friends with each other.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Wait, let me make sure I didn't make a mistake.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Tur\u00e1n's theorem says that any graph with more than n\u00b2/4 edges has a triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "For n=15, n\u00b2/4 is 56.25, so 75 edges is definitely more than that.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "So, yes, that seems right.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Also, each person having at least 10 friends means the graph is quite dense, so it's likely to have triangles.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "I think that covers it.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "So, by Tur\u00e1n's theorem, the number of edges exceeds the maximum without a triangle, so a triangle must exist.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "</think>\n\nTo prove that in a group of 15 people, where each person has at least 10 friends, there must exist at least one friendship triangle, we can use Tur\u00e1n's theorem.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "1. **Model the Problem as a Graph**: Represent each person as a vertex and each friendship as an edge.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "This gives a graph with 15 vertices, each having a degree of at least 10.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "2. **Calculate the Total Number of Edges**: Since each of the 15 vertices has at least 10 edges, the total degree is 15 \u00d7 10 = 150.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "The number of edges is half the total degree, which is 75.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "3. **Apply Tur\u00e1n's Theorem**: Tur\u00e1n's theorem states that a graph with more than \\(\\left\\lfloor \\frac{n^2}{4} \\right\\rfloor\\) edges must contain a triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "For n = 15, this threshold is \\(\\frac{15^2}{4} = 56.25\\), so 56 edges.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "4. **Compare the Number of Edges**: Since the graph has 75 edges, which is greater than 56, it must contain at least one triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "**Conclusion**: Therefore, there must exist at least one set of three people who are all friends with each other, forming a friendship triangle.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  }
+]

@@ -1,0 +1,2072 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A man needs to transport a wolf, a goat, and a cabbage across a river.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "He has a small boat that can only carry himself and one item at a time.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "If left unattended together, the wolf would eat the goat, and the goat would eat the cabbage.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
+  },
+  {
+    "index": 5,
+    "text": "How can the man transport all three items across the river without any of them being eaten? \n\n Solution: \n<think>\nAlright, so I have this classic river crossing puzzle to solve.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "The man needs to transport a wolf, a goat, and a cabbage across the river.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "But the boat can only carry the man and one item at a time.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "The tricky part is that if the wolf and goat are left together, the wolf will eat the goat, and if the goat and cabbage are left together, the goat will eat the cabbage.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-8"
+  },
+  {
+    "index": 9,
+    "text": "Hmm, okay, let me think through this step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-9"
+  },
+  {
+    "index": 10,
+    "text": "First, I need to figure out a way to get all three items across without any of them being eaten.",
+    "category": "Question Posing",
+    "abbreviation": "QP-10"
+  },
+  {
+    "index": 11,
+    "text": "Since the boat can only carry one item at a time along with the man, I have to make multiple trips.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "Let me list out what I know:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-12"
+  },
+  {
+    "index": 13,
+    "text": "The boat can carry the man and one item.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "2. Wolf eats goat if left alone.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "3. Goat eats cabbage if left alone.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "4. Need to get all three across without any being eaten.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "So, the man has to be present whenever he's moving items across, otherwise, the animals will eat each other.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "Let me try to outline the possible moves.",
+    "category": "Example Testing",
+    "abbreviation": "ET-18"
+  },
+  {
+    "index": 19,
+    "text": "Maybe the first trip is the man taking one item.",
+    "category": "Example Testing",
+    "abbreviation": "ET-19"
+  },
+  {
+    "index": 20,
+    "text": "Let's say he takes the wolf first.",
+    "category": "Example Testing",
+    "abbreviation": "ET-20"
+  },
+  {
+    "index": 21,
+    "text": "So, he takes the wolf in the boat and leaves it on the other side.",
+    "category": "Example Testing",
+    "abbreviation": "ET-21"
+  },
+  {
+    "index": 22,
+    "text": "Then, he comes back alone.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "Wait, but if he leaves the wolf alone on the far side, is that safe? The problem says if left unattended, the wolf would eat the goat and the goat would eat the cabbage.",
+    "category": "Question Posing",
+    "abbreviation": "QP-23"
+  },
+  {
+    "index": 24,
+    "text": "But if the wolf is alone, does it pose a threat? I think the wolf only eats the goat and the goat eats the cabbage, so maybe the wolf alone is okay.",
+    "category": "Question Posing",
+    "abbreviation": "QP-24"
+  },
+  {
+    "index": 25,
+    "text": "So, after the first trip, the wolf is on the far side, and the man is back on the near side with the goat and cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "Next, he needs to get either the goat or the cabbage across.",
+    "category": "Question Posing",
+    "abbreviation": "QP-26"
+  },
+  {
+    "index": 27,
+    "text": "Let's say he takes the goat next.",
+    "category": "Example Testing",
+    "abbreviation": "ET-27"
+  },
+  {
+    "index": 28,
+    "text": "He takes the goat in the boat and leaves it on the far side with the wolf.",
+    "category": "Example Testing",
+    "abbreviation": "ET-28"
+  },
+  {
+    "index": 29,
+    "text": "Now, on the far side, we have wolf and goat.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "Oh no, the wolf will eat the goat! That's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "So, that's not a good move.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "So, taking the goat second is a problem because the wolf is already there.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "Maybe instead, after getting the wolf across, the man should take the cabbage first on the next trip.",
+    "category": "Backtracking",
+    "abbreviation": "B-33"
+  },
+  {
+    "index": 34,
+    "text": "Let's try that.",
+    "category": "Example Testing",
+    "abbreviation": "ET-34"
+  },
+  {
+    "index": 35,
+    "text": "So, first trip: Man takes wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-35"
+  },
+  {
+    "index": 36,
+    "text": "Now, wolf is on the far side, man is back.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "Second trip: Man takes cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-37"
+  },
+  {
+    "index": 38,
+    "text": "Now, cabbage is on the far side, man is back.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "Now, on the far side, we have wolf and cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "That's okay because the wolf doesn't eat cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-40"
+  },
+  {
+    "index": 41,
+    "text": "The man is back with the goat on the near side.",
+    "category": "Deduction",
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "Third trip: Man takes the goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-42"
+  },
+  {
+    "index": 43,
+    "text": "Now, goat is on the far side, and the man is back alone.",
+    "category": "Deduction",
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "Wait, but on the far side, we have wolf, goat, and cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-44"
+  },
+  {
+    "index": 45,
+    "text": "Does that work? Let me check.",
+    "category": "Question Posing",
+    "abbreviation": "QP-45"
+  },
+  {
+    "index": 46,
+    "text": "After the first trip, wolf is on far, man is near with goat and cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "Second trip: man takes cabbage, so far side has wolf and cabbage, man is near with goat.",
+    "category": "Deduction",
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "Third trip: man takes goat, so far side has wolf, goat, and cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-48"
+  },
+  {
+    "index": 49,
+    "text": "But if the goat is there with the wolf and cabbage, the goat will eat the cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-49"
+  },
+  {
+    "index": 50,
+    "text": "So, that's a problem.",
+    "category": "Deduction",
+    "abbreviation": "D-50"
+  },
+  {
+    "index": 51,
+    "text": "Hmm, so the last trip leads to a conflict because the goat is there with the cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-51"
+  },
+  {
+    "index": 52,
+    "text": "So, maybe I need to adjust the order.",
+    "category": "Backtracking",
+    "abbreviation": "B-52"
+  },
+  {
+    "index": 53,
+    "text": "Let me try another approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-53"
+  },
+  {
+    "index": 54,
+    "text": "Maybe after getting the wolf across, instead of taking the cabbage, take the goat first, but that leads to the wolf eating the goat.",
+    "category": "Deduction",
+    "abbreviation": "D-54"
+  },
+  {
+    "index": 55,
+    "text": "So that's not good.",
+    "category": "Deduction",
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "Alternatively, maybe the first trip is the goat.",
+    "category": "Question Posing",
+    "abbreviation": "QP-56"
+  },
+  {
+    "index": 57,
+    "text": "Let's see.",
+    "category": "Initializing",
+    "abbreviation": "I-57"
+  },
+  {
+    "index": 58,
+    "text": "First trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-58"
+  },
+  {
+    "index": 59,
+    "text": "Now, goat is on far, man is near with wolf and cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-59"
+  },
+  {
+    "index": 60,
+    "text": "Second trip: Man takes wolf across.",
+    "category": "Deduction",
+    "abbreviation": "D-60"
+  },
+  {
+    "index": 61,
+    "text": "Now, far side has goat and wolf.",
+    "category": "Deduction",
+    "abbreviation": "D-61"
+  },
+  {
+    "index": 62,
+    "text": "Oh, the wolf will eat the goat.",
+    "category": "Deduction",
+    "abbreviation": "D-62"
+  },
+  {
+    "index": 63,
+    "text": "So that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-63"
+  },
+  {
+    "index": 64,
+    "text": "So, that's worse.",
+    "category": "Deduction",
+    "abbreviation": "D-64"
+  },
+  {
+    "index": 65,
+    "text": "So, taking the goat first is not a good idea.",
+    "category": "Deduction",
+    "abbreviation": "D-65"
+  },
+  {
+    "index": 66,
+    "text": "So, maybe the first trip has to be the wolf.",
+    "category": "Question Posing",
+    "abbreviation": "QP-66"
+  },
+  {
+    "index": 67,
+    "text": "Then, the second trip has to be the cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-67"
+  },
+  {
+    "index": 68,
+    "text": "Let me try that again.",
+    "category": "Backtracking",
+    "abbreviation": "B-68"
+  },
+  {
+    "index": 69,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-69"
+  },
+  {
+    "index": 70,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-70"
+  },
+  {
+    "index": 71,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-71"
+  },
+  {
+    "index": 72,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-72"
+  },
+  {
+    "index": 73,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-73"
+  },
+  {
+    "index": 74,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-74"
+  },
+  {
+    "index": 75,
+    "text": "But goat will eat cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-75"
+  },
+  {
+    "index": 76,
+    "text": "So, that's a problem.",
+    "category": "Deduction",
+    "abbreviation": "D-76"
+  },
+  {
+    "index": 77,
+    "text": "So, the issue is that on the far side, after the third trip, the goat is with the cabbage, leading to the goat eating the cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-77"
+  },
+  {
+    "index": 78,
+    "text": "So, perhaps after getting the wolf and cabbage across, the man needs to bring something back to prevent the goat from being left alone with the cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-78"
+  },
+  {
+    "index": 79,
+    "text": "Wait, but the boat can only carry one item at a time.",
+    "category": "Question Posing",
+    "abbreviation": "QP-79"
+  },
+  {
+    "index": 80,
+    "text": "So, maybe after the second trip, where the man has taken the cabbage across, he needs to bring the goat back or bring the wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-80"
+  },
+  {
+    "index": 81,
+    "text": "Let me think again.",
+    "category": "Backtracking",
+    "abbreviation": "B-81"
+  },
+  {
+    "index": 82,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-82"
+  },
+  {
+    "index": 83,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-83"
+  },
+  {
+    "index": 84,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-84"
+  },
+  {
+    "index": 85,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-85"
+  },
+  {
+    "index": 86,
+    "text": "Now, the man is on the near side with the goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-86"
+  },
+  {
+    "index": 87,
+    "text": "He needs to get the goat across, but if he takes the goat, the wolf will eat it.",
+    "category": "Question Posing",
+    "abbreviation": "QP-87"
+  },
+  {
+    "index": 88,
+    "text": "So, perhaps he needs to bring the wolf back.",
+    "category": "Question Posing",
+    "abbreviation": "QP-88"
+  },
+  {
+    "index": 89,
+    "text": "But wait, if he brings the wolf back, then on the near side, he has wolf, goat, and cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-89"
+  },
+  {
+    "index": 90,
+    "text": "But that's okay because the wolf doesn't eat the goat, and the goat doesn't eat the cabbage when the man is present.",
+    "category": "Deduction",
+    "abbreviation": "D-90"
+  },
+  {
+    "index": 91,
+    "text": "Wait, but the problem is that if left unattended, the wolf eats the goat and the goat eats the cabbage.",
+    "category": "Backtracking",
+    "abbreviation": "B-91"
+  },
+  {
+    "index": 92,
+    "text": "So, as long as the man is present, it's fine.",
+    "category": "Deduction",
+    "abbreviation": "D-92"
+  },
+  {
+    "index": 93,
+    "text": "So, maybe:\n\nFirst trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-93"
+  },
+  {
+    "index": 94,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-94"
+  },
+  {
+    "index": 95,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-95"
+  },
+  {
+    "index": 96,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-96"
+  },
+  {
+    "index": 97,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-97"
+  },
+  {
+    "index": 98,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-98"
+  },
+  {
+    "index": 99,
+    "text": "But goat will eat cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-99"
+  },
+  {
+    "index": 100,
+    "text": "Hmm, same problem.",
+    "category": "Backtracking",
+    "abbreviation": "B-100"
+  },
+  {
+    "index": 101,
+    "text": "Wait, maybe after the second trip, instead of taking the goat, the man should take the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-101"
+  },
+  {
+    "index": 102,
+    "text": "So:\n\nFirst trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-102"
+  },
+  {
+    "index": 103,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-103"
+  },
+  {
+    "index": 104,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-104"
+  },
+  {
+    "index": 105,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-105"
+  },
+  {
+    "index": 106,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-106"
+  },
+  {
+    "index": 107,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-107"
+  },
+  {
+    "index": 108,
+    "text": "Now, on the far side, there's only cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-108"
+  },
+  {
+    "index": 109,
+    "text": "On the near side, we have wolf, goat, and man.",
+    "category": "Deduction",
+    "abbreviation": "D-109"
+  },
+  {
+    "index": 110,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Deduction",
+    "abbreviation": "D-110"
+  },
+  {
+    "index": 111,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Deduction",
+    "abbreviation": "D-111"
+  },
+  {
+    "index": 112,
+    "text": "But now, on the far side, goat and cabbage are together.",
+    "category": "Deduction",
+    "abbreviation": "D-112"
+  },
+  {
+    "index": 113,
+    "text": "The goat will eat the cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-113"
+  },
+  {
+    "index": 114,
+    "text": "So, that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-114"
+  },
+  {
+    "index": 115,
+    "text": "Hmm, maybe another approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-115"
+  },
+  {
+    "index": 116,
+    "text": "Alternatively, after the second trip, take the goat across, but bring something back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-116"
+  },
+  {
+    "index": 117,
+    "text": "Wait, let me try:\n\nFirst trip: Wolf across.",
+    "category": "Initializing",
+    "abbreviation": "I-117"
+  },
+  {
+    "index": 118,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-118"
+  },
+  {
+    "index": 119,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-119"
+  },
+  {
+    "index": 120,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-120"
+  },
+  {
+    "index": 121,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-121"
+  },
+  {
+    "index": 122,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-122"
+  },
+  {
+    "index": 123,
+    "text": "But goat eats cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-123"
+  },
+  {
+    "index": 124,
+    "text": "So, same problem.",
+    "category": "Deduction",
+    "abbreviation": "D-124"
+  },
+  {
+    "index": 125,
+    "text": "Alternatively, after the second trip, bring the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-125"
+  },
+  {
+    "index": 126,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-126"
+  },
+  {
+    "index": 127,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-127"
+  },
+  {
+    "index": 128,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-128"
+  },
+  {
+    "index": 129,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Deduction",
+    "abbreviation": "D-129"
+  },
+  {
+    "index": 130,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-130"
+  },
+  {
+    "index": 131,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-131"
+  },
+  {
+    "index": 132,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-132"
+  },
+  {
+    "index": 133,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Example Testing",
+    "abbreviation": "ET-133"
+  },
+  {
+    "index": 134,
+    "text": "But again, goat and cabbage are together, which is bad.",
+    "category": "Deduction",
+    "abbreviation": "D-134"
+  },
+  {
+    "index": 135,
+    "text": "Wait, maybe the solution is that after getting the wolf and cabbage across, the man needs to bring the goat over and then bring the wolf back, but I'm not sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-135"
+  },
+  {
+    "index": 136,
+    "text": "Alternatively, maybe the man needs to make a trip where he brings an item back to prevent the goat from being left with the others.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-136"
+  },
+  {
+    "index": 137,
+    "text": "Wait, let's try:\n\nFirst trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-137"
+  },
+  {
+    "index": 138,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-138"
+  },
+  {
+    "index": 139,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-139"
+  },
+  {
+    "index": 140,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-140"
+  },
+  {
+    "index": 141,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-141"
+  },
+  {
+    "index": 142,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-142"
+  },
+  {
+    "index": 143,
+    "text": "But goat eats cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-143"
+  },
+  {
+    "index": 144,
+    "text": "So, that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-144"
+  },
+  {
+    "index": 145,
+    "text": "So, maybe instead, after the second trip, the man should bring the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-145"
+  },
+  {
+    "index": 146,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-146"
+  },
+  {
+    "index": 147,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-147"
+  },
+  {
+    "index": 148,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-148"
+  },
+  {
+    "index": 149,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-149"
+  },
+  {
+    "index": 150,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-150"
+  },
+  {
+    "index": 151,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-151"
+  },
+  {
+    "index": 152,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-152"
+  },
+  {
+    "index": 153,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Example Testing",
+    "abbreviation": "ET-153"
+  },
+  {
+    "index": 154,
+    "text": "But again, goat and cabbage are together, which is a problem.",
+    "category": "Deduction",
+    "abbreviation": "D-154"
+  },
+  {
+    "index": 155,
+    "text": "Wait, maybe the man needs to take the goat first, but that leads to the wolf eating the goat.",
+    "category": "Backtracking",
+    "abbreviation": "B-155"
+  },
+  {
+    "index": 156,
+    "text": "Alternatively, maybe the man needs to take the goat first, but that's not possible because the wolf would be left alone, which is okay.",
+    "category": "Backtracking",
+    "abbreviation": "B-156"
+  },
+  {
+    "index": 157,
+    "text": "Wait, let me try:\n\nFirst trip: Goat across.",
+    "category": "Initializing",
+    "abbreviation": "I-157"
+  },
+  {
+    "index": 158,
+    "text": "Far: goat; near: man, wolf, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-158"
+  },
+  {
+    "index": 159,
+    "text": "Second trip: Wolf across.",
+    "category": "Deduction",
+    "abbreviation": "D-159"
+  },
+  {
+    "index": 160,
+    "text": "Far: goat, wolf; near: man, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-160"
+  },
+  {
+    "index": 161,
+    "text": "But then, on the far side, goat and wolf are together, which is bad because the wolf will eat the goat.",
+    "category": "Deduction",
+    "abbreviation": "D-161"
+  },
+  {
+    "index": 162,
+    "text": "So, that's worse.",
+    "category": "Deduction",
+    "abbreviation": "D-162"
+  },
+  {
+    "index": 163,
+    "text": "Hmm, maybe I'm missing something.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-163"
+  },
+  {
+    "index": 164,
+    "text": "Let me think differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-164"
+  },
+  {
+    "index": 165,
+    "text": "The key is that the man has to be present whenever any two items are left together.",
+    "category": "Deduction",
+    "abbreviation": "D-165"
+  },
+  {
+    "index": 166,
+    "text": "So, perhaps the man needs to shuttle items back and forth to prevent the animals from being alone together.",
+    "category": "Question Posing",
+    "abbreviation": "QP-166"
+  },
+  {
+    "index": 167,
+    "text": "Let me try this approach:\n\nFirst trip: Wolf across.",
+    "category": "Initializing",
+    "abbreviation": "I-167"
+  },
+  {
+    "index": 168,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-168"
+  },
+  {
+    "index": 169,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-169"
+  },
+  {
+    "index": 170,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-170"
+  },
+  {
+    "index": 171,
+    "text": "Now, on the far side, we have wolf and cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-171"
+  },
+  {
+    "index": 172,
+    "text": "That's okay because the wolf doesn't eat cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-172"
+  },
+  {
+    "index": 173,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-173"
+  },
+  {
+    "index": 174,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-174"
+  },
+  {
+    "index": 175,
+    "text": "But goat will eat cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-175"
+  },
+  {
+    "index": 176,
+    "text": "So, that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-176"
+  },
+  {
+    "index": 177,
+    "text": "Wait, maybe after the second trip, the man needs to bring the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-177"
+  },
+  {
+    "index": 178,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-178"
+  },
+  {
+    "index": 179,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-179"
+  },
+  {
+    "index": 180,
+    "text": "Second trip: Cabbage across.",
+    "category": "Deduction",
+    "abbreviation": "D-180"
+  },
+  {
+    "index": 181,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Deduction",
+    "abbreviation": "D-181"
+  },
+  {
+    "index": 182,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-182"
+  },
+  {
+    "index": 183,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-183"
+  },
+  {
+    "index": 184,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-184"
+  },
+  {
+    "index": 185,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Example Testing",
+    "abbreviation": "ET-185"
+  },
+  {
+    "index": 186,
+    "text": "But again, goat and cabbage are together, which is bad.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-186"
+  },
+  {
+    "index": 187,
+    "text": "Wait, maybe after the fourth trip, the man needs to bring the goat back.",
+    "category": "Question Posing",
+    "abbreviation": "QP-187"
+  },
+  {
+    "index": 188,
+    "text": "But that would mean the goat is on the far side with cabbage, and then the man brings the goat back, but then the man is on the far side with cabbage, and the goat is back on the near side with wolf.",
+    "category": "Deduction",
+    "abbreviation": "D-188"
+  },
+  {
+    "index": 189,
+    "text": "Wait, let's see:\n\nFirst trip: Wolf across.",
+    "category": "Question Posing",
+    "abbreviation": "QP-189"
+  },
+  {
+    "index": 190,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-190"
+  },
+  {
+    "index": 191,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-191"
+  },
+  {
+    "index": 192,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-192"
+  },
+  {
+    "index": 193,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-193"
+  },
+  {
+    "index": 194,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-194"
+  },
+  {
+    "index": 195,
+    "text": "But goat eats cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-195"
+  },
+  {
+    "index": 196,
+    "text": "So, that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-196"
+  },
+  {
+    "index": 197,
+    "text": "Alternatively, after the second trip, bring the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-197"
+  },
+  {
+    "index": 198,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-198"
+  },
+  {
+    "index": 199,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-199"
+  },
+  {
+    "index": 200,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-200"
+  },
+  {
+    "index": 201,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-201"
+  },
+  {
+    "index": 202,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-202"
+  },
+  {
+    "index": 203,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-203"
+  },
+  {
+    "index": 204,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-204"
+  },
+  {
+    "index": 205,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Example Testing",
+    "abbreviation": "ET-205"
+  },
+  {
+    "index": 206,
+    "text": "But again, goat and cabbage are together.",
+    "category": "Deduction",
+    "abbreviation": "D-206"
+  },
+  {
+    "index": 207,
+    "text": "Wait, maybe the solution is that after getting the wolf and cabbage across, the man needs to bring the goat over and then bring the wolf back, but I'm not seeing it.",
+    "category": "Backtracking",
+    "abbreviation": "B-207"
+  },
+  {
+    "index": 208,
+    "text": "Alternatively, maybe the man needs to take the goat over first, but that leads to the wolf eating the goat.",
+    "category": "Question Posing",
+    "abbreviation": "QP-208"
+  },
+  {
+    "index": 209,
+    "text": "Wait, maybe I'm overcomplicating this.",
+    "category": "Backtracking",
+    "abbreviation": "B-209"
+  },
+  {
+    "index": 210,
+    "text": "Let me try a different strategy.",
+    "category": "Backtracking",
+    "abbreviation": "B-210"
+  },
+  {
+    "index": 211,
+    "text": "The man needs to make sure that whenever the goat and cabbage are on the same side, the wolf is also there to prevent the goat from eating the cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-211"
+  },
+  {
+    "index": 212,
+    "text": "But the wolf can't be left alone with the goat either.",
+    "category": "Deduction",
+    "abbreviation": "D-212"
+  },
+  {
+    "index": 213,
+    "text": "So, perhaps the man needs to take the goat over last, but ensure that the goat isn't left alone with the cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-213"
+  },
+  {
+    "index": 214,
+    "text": "Wait, maybe the solution is:\n\nFirst trip: Wolf across.",
+    "category": "Backtracking",
+    "abbreviation": "B-214"
+  },
+  {
+    "index": 215,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-215"
+  },
+  {
+    "index": 216,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-216"
+  },
+  {
+    "index": 217,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-217"
+  },
+  {
+    "index": 218,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-218"
+  },
+  {
+    "index": 219,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-219"
+  },
+  {
+    "index": 220,
+    "text": "But goat eats cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-220"
+  },
+  {
+    "index": 221,
+    "text": "So, that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-221"
+  },
+  {
+    "index": 222,
+    "text": "Alternatively, after the second trip, bring the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-222"
+  },
+  {
+    "index": 223,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-223"
+  },
+  {
+    "index": 224,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-224"
+  },
+  {
+    "index": 225,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-225"
+  },
+  {
+    "index": 226,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Deduction",
+    "abbreviation": "D-226"
+  },
+  {
+    "index": 227,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Deduction",
+    "abbreviation": "D-227"
+  },
+  {
+    "index": 228,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Question Posing",
+    "abbreviation": "QP-228"
+  },
+  {
+    "index": 229,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-229"
+  },
+  {
+    "index": 230,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Example Testing",
+    "abbreviation": "ET-230"
+  },
+  {
+    "index": 231,
+    "text": "But goat and cabbage are together.",
+    "category": "Example Testing",
+    "abbreviation": "ET-231"
+  },
+  {
+    "index": 232,
+    "text": "Wait, maybe the man needs to take the goat across, then bring the wolf over, but that seems messy.",
+    "category": "Backtracking",
+    "abbreviation": "B-232"
+  },
+  {
+    "index": 233,
+    "text": "Alternatively, maybe the man needs to make a trip where he takes the goat over and then brings the wolf over, but I'm not sure.",
+    "category": "Backtracking",
+    "abbreviation": "B-233"
+  },
+  {
+    "index": 234,
+    "text": "Wait, perhaps the solution is that the man takes the goat over first, then the wolf, then the cabbage, but that leads to the wolf eating the goat.",
+    "category": "Deduction",
+    "abbreviation": "D-234"
+  },
+  {
+    "index": 235,
+    "text": "Wait, let me try:\n\nFirst trip: Goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-235"
+  },
+  {
+    "index": 236,
+    "text": "Far: goat; near: man, wolf, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-236"
+  },
+  {
+    "index": 237,
+    "text": "Second trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-237"
+  },
+  {
+    "index": 238,
+    "text": "Far: goat, wolf; near: man, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-238"
+  },
+  {
+    "index": 239,
+    "text": "But then, on the far side, goat and wolf are together, which is bad.",
+    "category": "Deduction",
+    "abbreviation": "D-239"
+  },
+  {
+    "index": 240,
+    "text": "So, that's worse.",
+    "category": "Deduction",
+    "abbreviation": "D-240"
+  },
+  {
+    "index": 241,
+    "text": "Hmm, I'm stuck.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-241"
+  },
+  {
+    "index": 242,
+    "text": "Maybe I should look for a different approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-242"
+  },
+  {
+    "index": 243,
+    "text": "Wait, perhaps the man needs to take the cabbage over first.",
+    "category": "Question Posing",
+    "abbreviation": "QP-243"
+  },
+  {
+    "index": 244,
+    "text": "First trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-244"
+  },
+  {
+    "index": 245,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-245"
+  },
+  {
+    "index": 246,
+    "text": "Second trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-246"
+  },
+  {
+    "index": 247,
+    "text": "Far: cabbage, wolf; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-247"
+  },
+  {
+    "index": 248,
+    "text": "Now, on the far side, cabbage and wolf are together.",
+    "category": "Deduction",
+    "abbreviation": "D-248"
+  },
+  {
+    "index": 249,
+    "text": "That's okay because the wolf doesn't eat cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-249"
+  },
+  {
+    "index": 250,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-250"
+  },
+  {
+    "index": 251,
+    "text": "Far: cabbage, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-251"
+  },
+  {
+    "index": 252,
+    "text": "But goat will eat cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-252"
+  },
+  {
+    "index": 253,
+    "text": "So, that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-253"
+  },
+  {
+    "index": 254,
+    "text": "Alternatively, after the second trip, bring the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-254"
+  },
+  {
+    "index": 255,
+    "text": "First trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-255"
+  },
+  {
+    "index": 256,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-256"
+  },
+  {
+    "index": 257,
+    "text": "Second trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-257"
+  },
+  {
+    "index": 258,
+    "text": "Far: cabbage, wolf; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-258"
+  },
+  {
+    "index": 259,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-259"
+  },
+  {
+    "index": 260,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-260"
+  },
+  {
+    "index": 261,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-261"
+  },
+  {
+    "index": 262,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Example Testing",
+    "abbreviation": "ET-262"
+  },
+  {
+    "index": 263,
+    "text": "Again, goat and cabbage are together.",
+    "category": "Example Testing",
+    "abbreviation": "ET-263"
+  },
+  {
+    "index": 264,
+    "text": "Wait, maybe the solution is that the man needs to take the goat over last, but bring the wolf back to prevent the goat from being alone with the cabbage.",
+    "category": "Backtracking",
+    "abbreviation": "B-264"
+  },
+  {
+    "index": 265,
+    "text": "Wait, let's try:\n\nFirst trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-265"
+  },
+  {
+    "index": 266,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-266"
+  },
+  {
+    "index": 267,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-267"
+  },
+  {
+    "index": 268,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-268"
+  },
+  {
+    "index": 269,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-269"
+  },
+  {
+    "index": 270,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-270"
+  },
+  {
+    "index": 271,
+    "text": "But goat eats cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-271"
+  },
+  {
+    "index": 272,
+    "text": "So, that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-272"
+  },
+  {
+    "index": 273,
+    "text": "Alternatively, after the second trip, bring the wolf back.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-273"
+  },
+  {
+    "index": 274,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-274"
+  },
+  {
+    "index": 275,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-275"
+  },
+  {
+    "index": 276,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-276"
+  },
+  {
+    "index": 277,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-277"
+  },
+  {
+    "index": 278,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-278"
+  },
+  {
+    "index": 279,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-279"
+  },
+  {
+    "index": 280,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-280"
+  },
+  {
+    "index": 281,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Deduction",
+    "abbreviation": "D-281"
+  },
+  {
+    "index": 282,
+    "text": "But goat and cabbage are together.",
+    "category": "Deduction",
+    "abbreviation": "D-282"
+  },
+  {
+    "index": 283,
+    "text": "Wait, maybe the solution is that the man needs to take the goat over, then bring the wolf over, but I'm not sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-283"
+  },
+  {
+    "index": 284,
+    "text": "Alternatively, maybe the man needs to take the goat over, then bring the goat back, but that seems counterproductive.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-284"
+  },
+  {
+    "index": 285,
+    "text": "Wait, perhaps the solution is that the man needs to take the goat over last, but ensure that the goat isn't left alone with the cabbage by bringing the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-285"
+  },
+  {
+    "index": 286,
+    "text": "Wait, let me try:\n\nFirst trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-286"
+  },
+  {
+    "index": 287,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-287"
+  },
+  {
+    "index": 288,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-288"
+  },
+  {
+    "index": 289,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-289"
+  },
+  {
+    "index": 290,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-290"
+  },
+  {
+    "index": 291,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-291"
+  },
+  {
+    "index": 292,
+    "text": "But goat eats cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-292"
+  },
+  {
+    "index": 293,
+    "text": "So, that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-293"
+  },
+  {
+    "index": 294,
+    "text": "Alternatively, after the second trip, bring the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-294"
+  },
+  {
+    "index": 295,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-295"
+  },
+  {
+    "index": 296,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-296"
+  },
+  {
+    "index": 297,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-297"
+  },
+  {
+    "index": 298,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-298"
+  },
+  {
+    "index": 299,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-299"
+  },
+  {
+    "index": 300,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-300"
+  },
+  {
+    "index": 301,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-301"
+  },
+  {
+    "index": 302,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Example Testing",
+    "abbreviation": "ET-302"
+  },
+  {
+    "index": 303,
+    "text": "But again, goat and cabbage are together.",
+    "category": "Deduction",
+    "abbreviation": "D-303"
+  },
+  {
+    "index": 304,
+    "text": "Wait, maybe the solution is that the man needs to take the goat over first, then bring the wolf over, then take the goat back, but that seems complicated.",
+    "category": "Backtracking",
+    "abbreviation": "B-304"
+  },
+  {
+    "index": 305,
+    "text": "Alternatively, maybe the solution is that the man needs to take the goat over, then bring the wolf over, then take the goat back, then bring the wolf back, then take the goat over again.",
+    "category": "Backtracking",
+    "abbreviation": "B-305"
+  },
+  {
+    "index": 306,
+    "text": "But that seems like too many trips.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-306"
+  },
+  {
+    "index": 307,
+    "text": "Wait, let me think differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-307"
+  },
+  {
+    "index": 308,
+    "text": "Maybe the solution is:\n\nFirst trip: Wolf across.",
+    "category": "Final Answer",
+    "abbreviation": "FA-308"
+  },
+  {
+    "index": 309,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-309"
+  },
+  {
+    "index": 310,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-310"
+  },
+  {
+    "index": 311,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-311"
+  },
+  {
+    "index": 312,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-312"
+  },
+  {
+    "index": 313,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-313"
+  },
+  {
+    "index": 314,
+    "text": "But goat eats cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-314"
+  },
+  {
+    "index": 315,
+    "text": "So, that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-315"
+  },
+  {
+    "index": 316,
+    "text": "Alternatively, after the second trip, bring the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-316"
+  },
+  {
+    "index": 317,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-317"
+  },
+  {
+    "index": 318,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-318"
+  },
+  {
+    "index": 319,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-319"
+  },
+  {
+    "index": 320,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Deduction",
+    "abbreviation": "D-320"
+  },
+  {
+    "index": 321,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-321"
+  },
+  {
+    "index": 322,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-322"
+  },
+  {
+    "index": 323,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-323"
+  },
+  {
+    "index": 324,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Example Testing",
+    "abbreviation": "ET-324"
+  },
+  {
+    "index": 325,
+    "text": "But goat and cabbage are together.",
+    "category": "Example Testing",
+    "abbreviation": "ET-325"
+  },
+  {
+    "index": 326,
+    "text": "Wait, maybe the solution is that the man needs to take the goat over last, but bring the wolf back to prevent the goat from being alone with the cabbage.",
+    "category": "Backtracking",
+    "abbreviation": "B-326"
+  },
+  {
+    "index": 327,
+    "text": "Wait, let me try:\n\nFirst trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-327"
+  },
+  {
+    "index": 328,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Example Testing",
+    "abbreviation": "ET-328"
+  },
+  {
+    "index": 329,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-329"
+  },
+  {
+    "index": 330,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-330"
+  },
+  {
+    "index": 331,
+    "text": "Third trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-331"
+  },
+  {
+    "index": 332,
+    "text": "Far: wolf, cabbage, goat.",
+    "category": "Deduction",
+    "abbreviation": "D-332"
+  },
+  {
+    "index": 333,
+    "text": "But goat eats cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-333"
+  },
+  {
+    "index": 334,
+    "text": "So, that's bad.",
+    "category": "Deduction",
+    "abbreviation": "D-334"
+  },
+  {
+    "index": 335,
+    "text": "Alternatively, after the second trip, bring the wolf back.",
+    "category": "Backtracking",
+    "abbreviation": "B-335"
+  },
+  {
+    "index": 336,
+    "text": "First trip: Wolf across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-336"
+  },
+  {
+    "index": 337,
+    "text": "Far: wolf; near: man, goat, cabbage.",
+    "category": "Deduction",
+    "abbreviation": "D-337"
+  },
+  {
+    "index": 338,
+    "text": "Second trip: Cabbage across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-338"
+  },
+  {
+    "index": 339,
+    "text": "Far: wolf, cabbage; near: man, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-339"
+  },
+  {
+    "index": 340,
+    "text": "Third trip: Man takes wolf back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-340"
+  },
+  {
+    "index": 341,
+    "text": "Far: cabbage; near: man, wolf, goat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-341"
+  },
+  {
+    "index": 342,
+    "text": "Fourth trip: Man takes goat across.",
+    "category": "Example Testing",
+    "abbreviation": "ET-342"
+  },
+  {
+    "index": 343,
+    "text": "Far: cabbage, goat; near: man, wolf.",
+    "category": "Example Testing",
+    "abbreviation": "ET-343"
+  },
+  {
+    "index": 344,
+    "text": "But again, goat and cabbage",
+    "category": "Example Testing",
+    "abbreviation": "ET-344"
+  }
+]

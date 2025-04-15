@@ -1,0 +1,608 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A man lives on the 10th floor of a building.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Every morning he takes the elevator down to the ground floor to go to work.",
+    "category": "Deduction",
+    "abbreviation": "D-3"
+  },
+  {
+    "index": 4,
+    "text": "When he returns in the evening, he takes the elevator to the 7th floor and walks up the stairs to reach his apartment on the 10th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-4"
+  },
+  {
+    "index": 5,
+    "text": "However, on rainy days and when there are other people in the elevator, he goes directly to the 10th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-5"
+  },
+  {
+    "index": 6,
+    "text": "Why does he normally get off on the 7th floor? \n\n Solution: \n<think>\nOkay, so I'm trying to figure out why this man takes the elevator down to the 7th floor every morning instead of going all the way to the ground floor.",
+    "category": "Question Posing",
+    "abbreviation": "QP-6"
+  },
+  {
+    "index": 7,
+    "text": "Let me start by breaking down the problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "First, the man lives on the 10th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-8"
+  },
+  {
+    "index": 9,
+    "text": "Every morning, he takes the elevator down to the ground floor.",
+    "category": "Deduction",
+    "abbreviation": "D-9"
+  },
+  {
+    "index": 10,
+    "text": "That part seems straightforward.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "Then, in the evening, he returns and takes the elevator to the 7th floor, and then walks up the stairs to his apartment on the 10th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "But here's the twist: on rainy days or when there are other people in the elevator, he goes directly to the 10th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "So, the question is, why does he normally get off on the 7th floor?\n\nHmm.",
+    "category": "Question Posing",
+    "abbreviation": "QP-13"
+  },
+  {
+    "index": 14,
+    "text": "Let me think about the possible reasons.",
+    "category": "Question Posing",
+    "abbreviation": "QP-14"
+  },
+  {
+    "index": 15,
+    "text": "Maybe it's something to do with the elevator's behavior or the building's design.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-15"
+  },
+  {
+    "index": 16,
+    "text": "Perhaps the elevator has a limit to how far it can go, or maybe the man is trying to save time or avoid waiting.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-16"
+  },
+  {
+    "index": 17,
+    "text": "Wait, the problem mentions that on rainy days and when there are other people in the elevator, he goes directly to the 10th floor.",
+    "category": "Backtracking",
+    "abbreviation": "B-17"
+  },
+  {
+    "index": 18,
+    "text": "So, normally, he stops at the 7th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "That makes me think that there's a specific reason he doesn't go all the way down every day.",
+    "category": "Deduction",
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "Maybe the elevator is programmed to stop at certain floors based on the time of day or the number of people.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-20"
+  },
+  {
+    "index": 21,
+    "text": "Or perhaps the man has a routine where he needs to get off at the 7th floor for some reason related to his commute.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-21"
+  },
+  {
+    "index": 22,
+    "text": "Another angle could be that the man works on the ground floor.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-22"
+  },
+  {
+    "index": 23,
+    "text": "If he takes the elevator down to the ground floor every morning, he could be going to work there.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "But then in the evening, he takes the elevator up to the 7th floor and walks up to his apartment.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "That seems a bit odd because why would he walk up from the 7th to the 10th? Maybe he has a preference for not riding the elevator all the way up, or perhaps he doesn't mind the walk.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "Wait, but on rainy days and when there are other people in the elevator, he goes directly to the 10th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "So, normally, he stops at the 7th, but on those days, he goes all the way.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "That suggests that normally, there's a reason he shouldn't go all the way, maybe because the elevator isn't running or there's something else.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-28"
+  },
+  {
+    "index": 29,
+    "text": "Alternatively, perhaps the man works on the 7th floor.",
+    "category": "Question Posing",
+    "abbreviation": "QP-29"
+  },
+  {
+    "index": 30,
+    "text": "But that doesn't quite fit because he takes the elevator down to the ground floor in the morning.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "Maybe he's going to a different building or a different part of the building that's on the ground floor.",
+    "category": "Example Testing",
+    "abbreviation": "ET-31"
+  },
+  {
+    "index": 32,
+    "text": "Wait, another thought: maybe the elevator only goes up to the 7th floor, or it's the only stop he needs in the morning.",
+    "category": "Question Posing",
+    "abbreviation": "QP-32"
+  },
+  {
+    "index": 33,
+    "text": "But that doesn't make much sense because he lives on the 10th floor, so the elevator should go all the way down.",
+    "category": "Deduction",
+    "abbreviation": "D-33"
+  },
+  {
+    "index": 34,
+    "text": "Alternatively, maybe the man is trying to avoid waiting for the elevator.",
+    "category": "Question Posing",
+    "abbreviation": "QP-34"
+  },
+  {
+    "index": 35,
+    "text": "If he takes it down to the 7th floor, maybe he can then walk up the stairs from there, saving time compared to waiting for the elevator to go all the way down to the ground floor on busy days.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "But the problem says that on rainy days and when there are other people in the elevator, he goes directly to the 10th floor.",
+    "category": "Backtracking",
+    "abbreviation": "B-36"
+  },
+  {
+    "index": 37,
+    "text": "So, normally, he doesn't go all the way, but on those days, he does.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "So, the normal reason must be that he doesn't need to go all the way down, perhaps because he can get off earlier.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "Wait, maybe the man works on the ground floor, so he takes the elevator down to the 7th floor, but that doesn't make sense because he needs to get to work.",
+    "category": "Backtracking",
+    "abbreviation": "B-39"
+  },
+  {
+    "index": 40,
+    "text": "Unless he works on the 7th floor, but then he wouldn't need to go all the way down.",
+    "category": "Backtracking",
+    "abbreviation": "B-40"
+  },
+  {
+    "index": 41,
+    "text": "I'm getting a bit confused.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-41"
+  },
+  {
+    "index": 42,
+    "text": "Let me try to outline the facts:\n\n- Lives on 10th floor.",
+    "category": "Initializing",
+    "abbreviation": "I-42"
+  },
+  {
+    "index": 43,
+    "text": "- Morning: takes elevator down to ground floor.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-43"
+  },
+  {
+    "index": 44,
+    "text": "- Evening: takes elevator up to 7th floor, walks up to 10th.",
+    "category": "Example Testing",
+    "abbreviation": "ET-44"
+  },
+  {
+    "index": 45,
+    "text": "- On rainy days or when there are other people in the elevator: takes elevator directly to 10th floor.",
+    "category": "Example Testing",
+    "abbreviation": "ET-45"
+  },
+  {
+    "index": 46,
+    "text": "- Why does he normally get off on 7th floor?\n\nSo, the key is to find a reason that explains why he doesn't go all the way down on normal days but does on rainy days or when there are others in the elevator.",
+    "category": "Question Posing",
+    "abbreviation": "QP-46"
+  },
+  {
+    "index": 47,
+    "text": "Perhaps the man works on the ground floor, so he needs to go all the way down.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-47"
+  },
+  {
+    "index": 48,
+    "text": "But then in the evening, he takes the elevator up to the 7th floor, which is above the ground floor, and then walks up to his apartment on the 10th.",
+    "category": "Deduction",
+    "abbreviation": "D-48"
+  },
+  {
+    "index": 49,
+    "text": "That seems a bit strange because if he's coming from the ground floor, he doesn't need to take the elevator up; he could just walk up the stairs directly from the ground floor to the 10th.",
+    "category": "Question Posing",
+    "abbreviation": "QP-49"
+  },
+  {
+    "index": 50,
+    "text": "Unless the elevator is faster or he doesn't want to walk up 10 flights of stairs.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-50"
+  },
+  {
+    "index": 51,
+    "text": "Wait, but in the evening, he takes the elevator to the 7th floor and walks up.",
+    "category": "Deduction",
+    "abbreviation": "D-51"
+  },
+  {
+    "index": 52,
+    "text": "So, maybe the elevator only goes up to the 7th floor, or he prefers to get off at the 7th floor for some reason.",
+    "category": "Deduction",
+    "abbreviation": "D-52"
+  },
+  {
+    "index": 53,
+    "text": "Alternatively, maybe the man is in a hurry in the morning but not in the evening, so he takes the elevator down to the ground floor quickly, and in the evening, he takes the elevator up to the 7th floor and walks up the stairs because it's quicker than waiting for the elevator to go all the way up to the 10th floor, especially when there are other people in the elevator.",
+    "category": "Deduction",
+    "abbreviation": "D-53"
+  },
+  {
+    "index": 54,
+    "text": "But the problem says that on rainy days and when there are other people in the elevator, he goes directly to the 10th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-54"
+  },
+  {
+    "index": 55,
+    "text": "So, normally, he doesn't go all the way, but on those days, he does.",
+    "category": "Deduction",
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "So, the normal reason must be that he doesn't need to go all the way down, perhaps because he can get off earlier.",
+    "category": "Deduction",
+    "abbreviation": "D-56"
+  },
+  {
+    "index": 57,
+    "text": "Wait, another angle: maybe the man is waiting for the elevator to be less crowded.",
+    "category": "Backtracking",
+    "abbreviation": "B-57"
+  },
+  {
+    "index": 58,
+    "text": "If he takes it down to the 7th floor, maybe he can control the number of people in the elevator, or perhaps he's trying to avoid waiting for the elevator to go all the way down when there are others.",
+    "category": "Deduction",
+    "abbreviation": "D-58"
+  },
+  {
+    "index": 59,
+    "text": "Alternatively, perhaps the man is going to a different building or part of the building that's on the 7th floor, but that doesn't fit with him living on the 10th.",
+    "category": "Deduction",
+    "abbreviation": "D-59"
+  },
+  {
+    "index": 60,
+    "text": "Wait, maybe the man is a maintenance worker or something who needs to go to the 7th floor for some reason, like checking something, and then he walks up to his apartment.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-60"
+  },
+  {
+    "index": 61,
+    "text": "But that seems a bit far-fetched.",
+    "category": "Backtracking",
+    "abbreviation": "B-61"
+  },
+  {
+    "index": 62,
+    "text": "I think I'm overcomplicating it.",
+    "category": "Backtracking",
+    "abbreviation": "B-62"
+  },
+  {
+    "index": 63,
+    "text": "Let me try to think of it differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-63"
+  },
+  {
+    "index": 64,
+    "text": "The key is that on rainy days and when there are other people in the elevator, he goes directly to the 10th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-64"
+  },
+  {
+    "index": 65,
+    "text": "So, normally, he gets off at the 7th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-65"
+  },
+  {
+    "index": 66,
+    "text": "Why? Maybe because he doesn't need to go all the way down, perhaps because he can get off earlier at the 7th floor for some reason.",
+    "category": "Question Posing",
+    "abbreviation": "QP-66"
+  },
+  {
+    "index": 67,
+    "text": "Wait, perhaps the man works on the 7th floor, but in the morning, he takes the elevator down to the ground floor to go to work, but in the evening, he goes back up to the 7th floor and then walks up to his apartment on the 10th.",
+    "category": "Deduction",
+    "abbreviation": "D-67"
+  },
+  {
+    "index": 68,
+    "text": "That would make sense because he might have an office on the 7th floor and lives higher up.",
+    "category": "Deduction",
+    "abbreviation": "D-68"
+  },
+  {
+    "index": 69,
+    "text": "But then, why would he take the elevator directly to the 10th floor on rainy days or when there are others in the elevator? Maybe because on those days, he doesn't need to stop at the 7th floor, or perhaps he's in a hurry and prefers to go directly.",
+    "category": "Question Posing",
+    "abbreviation": "QP-69"
+  },
+  {
+    "index": 70,
+    "text": "Alternatively, maybe the man works on the ground floor, so he takes the elevator down to go to work, and in the evening, he takes the elevator up to the 7th floor and then walks up to his apartment because he doesn't want to take the elevator all the way up when there are others in it, hence he gets off at the 7th floor and walks up.",
+    "category": "Backtracking",
+    "abbreviation": "B-70"
+  },
+  {
+    "index": 71,
+    "text": "But then, on rainy days and when there are others, he goes directly to the 10th floor, which would mean that on normal days, he doesn't need to go all the way down, perhaps because he can get off earlier at the 7th floor for some reason.",
+    "category": "Deduction",
+    "abbreviation": "D-71"
+  },
+  {
+    "index": 72,
+    "text": "Wait, I think I'm going in circles.",
+    "category": "Backtracking",
+    "abbreviation": "B-72"
+  },
+  {
+    "index": 73,
+    "text": "Let me try to summarize:\n\n- He lives on 10th floor.",
+    "category": "Summary",
+    "abbreviation": "S-73"
+  },
+  {
+    "index": 74,
+    "text": "- Morning: takes elevator down to ground floor (to work, perhaps).",
+    "category": "Deduction",
+    "abbreviation": "D-74"
+  },
+  {
+    "index": 75,
+    "text": "- Evening: takes elevator up to 7th floor, walks up to 10th.",
+    "category": "Deduction",
+    "abbreviation": "D-75"
+  },
+  {
+    "index": 76,
+    "text": "- On rainy days or when there are others in the elevator: takes elevator directly to 10th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-76"
+  },
+  {
+    "index": 77,
+    "text": "So, the normal reason for stopping at the 7th floor is that he doesn't need to go all the way down, perhaps because he can get off at the 7th floor for some practical reason, like avoiding waiting or because the elevator doesn't go beyond the 7th floor normally.",
+    "category": "Deduction",
+    "abbreviation": "D-77"
+  },
+  {
+    "index": 78,
+    "text": "Wait, maybe the elevator only goes up to the 7th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-78"
+  },
+  {
+    "index": 79,
+    "text": "But that wouldn't make sense because he lives on the 10th floor.",
+    "category": "Deduction",
+    "abbreviation": "D-79"
+  },
+  {
+    "index": 80,
+    "text": "Unless the elevator is a two-way elevator that goes up and down, but stops at certain floors.",
+    "category": "Backtracking",
+    "abbreviation": "B-80"
+  },
+  {
+    "index": 81,
+    "text": "Alternatively, maybe the man is in a hurry in the morning, so he takes the elevator down to the 7th floor, then walks down the stairs to the ground floor, but that seems unlikely because he's going to work, which is probably on the ground floor.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-81"
+  },
+  {
+    "index": 82,
+    "text": "Wait, perhaps the man is going to work on the 7th floor, but that contradicts taking the elevator down to the ground floor.",
+    "category": "Backtracking",
+    "abbreviation": "B-82"
+  },
+  {
+    "index": 83,
+    "text": "Hmm. I think the key is that he works on the ground floor, so he takes the elevator down to the ground floor every morning.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-83"
+  },
+  {
+    "index": 84,
+    "text": "In the evening, he takes the elevator up to the 7th floor, perhaps because it's closer to his apartment, and then walks up the stairs from the 7th to the 10th.",
+    "category": "Deduction",
+    "abbreviation": "D-84"
+  },
+  {
+    "index": 85,
+    "text": "On rainy days or when there are others in the elevator, he takes the elevator all the way up to the 10th floor because he doesn't want to walk up the stairs in the rain or when it's crowded.",
+    "category": "Deduction",
+    "abbreviation": "D-85"
+  },
+  {
+    "index": 86,
+    "text": "So, normally, he takes the elevator down to the ground floor because that's where his work is, but in the evening, he takes it up to the 7th floor and walks up because he doesn't mind the walk, or it's quicker than waiting for the elevator to go all the way up when there are others in it.",
+    "category": "Deduction",
+    "abbreviation": "D-86"
+  },
+  {
+    "index": 87,
+    "text": "On rainy days, he might prefer not to walk in the rain, so he takes the elevator all the way up.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-87"
+  },
+  {
+    "index": 88,
+    "text": "But the question is, why does he normally get off on the 7th floor? So, the normal reason is that he doesn't need to go all the way up because he can walk up from the 7th floor, or perhaps because the elevator is faster or more convenient to the 7th floor.",
+    "category": "Question Posing",
+    "abbreviation": "QP-88"
+  },
+  {
+    "index": 89,
+    "text": "Alternatively, maybe the man works on the 7th floor, but in the morning, he takes the elevator down to the ground floor to go to work, and in the evening, he goes back up to the 7th floor and then walks up to his apartment.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-89"
+  },
+  {
+    "index": 90,
+    "text": "That could be a possible reason.",
+    "category": "Deduction",
+    "abbreviation": "D-90"
+  },
+  {
+    "index": 91,
+    "text": "But I'm not entirely sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-91"
+  },
+  {
+    "index": 92,
+    "text": "I think the main point is that on rainy days and when there are others in the elevator, he prefers to go directly to the 10th floor, so normally, he stops at the 7th floor for a practical reason, like avoiding waiting or because it's more convenient.",
+    "category": "Summary",
+    "abbreviation": "S-92"
+  },
+  {
+    "index": 93,
+    "text": "After thinking through all these possibilities, I believe the most plausible explanation is that the man works on the ground floor, so he takes the elevator down to the ground floor in the morning.",
+    "category": "Summary",
+    "abbreviation": "S-93"
+  },
+  {
+    "index": 94,
+    "text": "In the evening, he takes the elevator up to the 7th floor, which is closer to his apartment, and then walks up the stairs to his 10th-floor apartment.",
+    "category": "Deduction",
+    "abbreviation": "D-94"
+  },
+  {
+    "index": 95,
+    "text": "On rainy days or when there are others in the elevator, he takes the elevator all the way up to the 10th floor because he doesn't want to walk in the rain or deal with a crowded elevator.",
+    "category": "Deduction",
+    "abbreviation": "D-95"
+  },
+  {
+    "index": 96,
+    "text": "So, normally, he gets off at the 7th floor because he prefers to walk up the stairs from there, perhaps because it's quicker or he doesn't mind the walk, whereas on those busy or rainy days, he opts to ride the elevator all the way up.",
+    "category": "Deduction",
+    "abbreviation": "D-96"
+  },
+  {
+    "index": 97,
+    "text": "</think>\n\nThe man normally gets off at the 7th floor because he prefers to walk up the stairs from there to his 10th-floor apartment.",
+    "category": "Deduction",
+    "abbreviation": "D-97"
+  },
+  {
+    "index": 98,
+    "text": "In the morning, he takes the elevator down to the ground floor to go to work.",
+    "category": "Deduction",
+    "abbreviation": "D-98"
+  },
+  {
+    "index": 99,
+    "text": "In the evening, he takes the elevator up to the 7th floor, where it's more convenient for him to walk up the remaining flights of stairs.",
+    "category": "Deduction",
+    "abbreviation": "D-99"
+  },
+  {
+    "index": 100,
+    "text": "On rainy days or when the elevator is crowded, he takes it directly to the 10th floor to avoid walking in the rain or dealing with a busy elevator.",
+    "category": "Deduction",
+    "abbreviation": "D-100"
+  }
+]

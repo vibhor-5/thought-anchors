@@ -1,0 +1,674 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A school offers three languages: Spanish, French, and German.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Among all students, 45% study Spanish, 35% study French, and 25% study German.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Some students study multiple languages: 10% study both Spanish and French, 8% study both Spanish and German, and 7% study both French and German.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "Additionally, 3% of students study all three languages.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "If a student is randomly selected and you learn that they study Spanish, what is the probability that they also study French? \n\n Solution: \n<think>\nAlright, so I have this probability problem to solve, and I need to figure it out step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Let me try to understand what the question is asking.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "The problem is about students in a school learning three languages: Spanish, French, and German.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "The percentages of students studying each language are given: 45% for Spanish, 35% for French, and 25% for German.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Then, there are some percentages for students studying multiple languages: 10% study both Spanish and French, 8% study both Spanish and German, and 7% study both French and German.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Additionally, 3% of students study all three languages.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "The question is asking: If a student is randomly selected and we learn that they study Spanish, what is the probability that they also study French? \n\nOkay, so we need to find the probability that a student studies French given that they study Spanish.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "This sounds like a conditional probability problem, so I should probably use Bayes' Theorem or something similar.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Let me recall Bayes' Theorem.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "It states that the probability of an event A given that B has occurred is equal to the probability of B given A multiplied by the probability of A, divided by the probability of B.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "In formula terms, P(A|B) = [P(B|A) * P(A)] / P(B).",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "In this case, event A is the student studying French, and event B is the student studying Spanish.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "So, we need to find P(French | Spanish) = [P(Spanish | French) * P(Spanish)] / P(Spanish).",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Wait, actually, that formula might not be directly applicable here because I think I need to consider the overlap probabilities.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Maybe I should draw a Venn diagram in my mind or use inclusion-exclusion principles for three sets.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Let me define the events more clearly:\n\n- Let S be the event that a student studies Spanish.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "- Let F be the event that a student studies French.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "- Let G be the event that a student studies German.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Given:\n\n- P(S) = 45% = 0.45\n- P(F) = 35% = 0.35\n- P(G) = 25% = 0.25\n\nThen, the probabilities of studying two languages:\n\n- P(S \u2229 F) = 10% = 0.10\n- P(S \u2229 G) = 8% = 0.08\n- P(F \u2229 G) = 7% = 0.07\n\nAnd the probability of studying all three languages:\n\n- P(S \u2229 F \u2229 G) = 3% = 0.03\n\nWe need to find P(F | S).",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Using Bayes' Theorem, P(F | S) = [P(S | F) * P(F)] / P(S)\n\nBut wait, I think I need to compute P(S | F) as well.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Hmm, no, actually, in this case, since we're given that the student studies Spanish, we need to find the probability that they also study French.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "So, I might need to compute the probability that a Spanish student is also a French student.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Alternatively, maybe it's better to compute the total probability of S, considering all overlaps.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Let me think.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "First, let's compute P(S).",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "It's given as 45%.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "But this includes students who might also be studying French or German or both.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Similarly, P(F) is 35%, which includes students who might also be studying Spanish or German or both.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "But since we're given that the student is in S, we need to find P(F | S).",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "So, perhaps, I should calculate the proportion of students in S who are also in F.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "To do this, let's break down the students into different categories based on the languages they study.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Let me define the categories:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "Only Spanish: Students who study Spanish but not French and not German.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "2. Only French: Students who study French but not Spanish and not German.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "3. Only German: Students who study German but not Spanish and not French.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "4. Spanish and French only: Students who study both Spanish and French but not German.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "5. Spanish and German only: Students who study both Spanish and German but not French.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "6. French and German only: Students who study both French and German but not Spanish.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "7. All three: Students who study Spanish, French, and German.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "Given that, let's denote the probabilities for each category.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "Let me denote:\n\n- a = Only Spanish\n- b = Only French\n- c = Only German\n- d = Spanish and French only\n- e = Spanish and German only\n- f = French and German only\n- g = All three\n\nWe know that:\n\n- a + b + c + d + e + f + g = 1 (since these are the only possibilities)\n\nGiven data:\n\n- P(S) = a + d + e + g = 0.45\n- P(F) = b + d + f + g = 0.35\n- P(G) = c + e + f + g = 0.25\n\nAdditionally:\n\n- P(S \u2229 F) = d + g = 0.10\n- P(S \u2229 G) = e + g = 0.08\n- P(F \u2229 G) = f + g = 0.07\n\nAnd:\n\n- P(S \u2229 F \u2229 G) = g = 0.03\n\nSo, we can plug in g = 0.03 into the other equations.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "From P(S \u2229 F) = d + g = 0.10, so d = 0.10 - g = 0.10 - 0.03 = 0.07\n\nSimilarly, from P(S \u2229 G) = e + g = 0.08, so e = 0.08 - g = 0.08 - 0.03 = 0.05\n\nFrom P(F \u2229 G) = f + g = 0.07, so f = 0.07 - g = 0.07 - 0.03 = 0.04\n\nNow, we have:\n\na = P(S) - d - e - g = 0.45 - 0.07 - 0.05 - 0.03 = 0.45 - 0.15 = 0.30\n\nb = P(F) - d - f - g = 0.35 - 0.07 - 0.04 - 0.03 = 0.35 - 0.14 = 0.21\n\nc = P(G) - e - f - g = 0.25 - 0.05 - 0.04 - 0.03 = 0.25 - 0.12 = 0.13\n\nSo, summarizing:\n\n- a = 0.30\n- b = 0.21\n- c = 0.13\n- d = 0.07\n- e = 0.05\n- f = 0.04\n- g = 0.03\n\nLet me check if these add up to 1:\n\n0.30 + 0.21 + 0.13 + 0.07 + 0.05 + 0.04 + 0.03 = \n\n0.30 + 0.21 = 0.51\n\n0.51 + 0.13 = 0.64\n\n0.64 + 0.07 = 0.71\n\n0.71 + 0.05 = 0.76\n\n0.76 + 0.04 = 0.80\n\n0.80 + 0.03 = 0.83\n\nWait, that's only 83%.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Hmm, that's not 100%.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "Did I make a mistake in my calculations?\n\nLet me double-check the individual category probabilities.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "First, P(S) = a + d + e + g = 0.30 + 0.07 + 0.05 + 0.03 = 0.45.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "Correct. P(F) = b + d + f + g = 0.21 + 0.07 + 0.04 + 0.03 = 0.35.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Correct. P(G) = c + e + f + g = 0.13 + 0.05 + 0.04 + 0.03 = 0.25.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "Correct. So, the categories add up to 0.83, but they should add up to 1.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "So, where is the missing 17%?\n\nWait, perhaps I made a mistake in computing the overlaps.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "Let me go back.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "Given:\n\n- P(S \u2229 F) = d + g = 0.10\n- P(S \u2229 G) = e + g = 0.08\n- P(F \u2229 G) = f + g = 0.07\n- P(S \u2229 F \u2229 G) = g = 0.03\n\nTherefore, d = 0.10 - 0.03 = 0.07\n\ne = 0.08 - 0.03 = 0.05\n\nf = 0.07 - 0.03 = 0.04\n\nSo, that's correct.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "Then, a = P(S) - (d + e + g) = 0.45 - (0.07 + 0.05 + 0.03) = 0.45 - 0.15 = 0.30\n\nSimilarly, b = P(F) - (d + f + g) = 0.35 - (0.07 + 0.04 + 0.03) = 0.35 - 0.14 = 0.21\n\nc = P(G) - (e + f + g) = 0.25 - (0.05 + 0.04 + 0.03) = 0.25 - 0.12 = 0.13\n\nSo, the categories are correct.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "Then, the sum is 0.83.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "So, where is the missing 0.17?\n\nWait, perhaps the problem is that the given percentages include those who study all three languages multiple times.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "Let me think.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "In the given data:\n\n- 10% study both Spanish and French, which includes those who also study German.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "- Similarly for the others.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "So, when we subtract g, we're correctly removing the overlap.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "But then, why is the total only 0.83? Maybe the problem is that the percentages given are not mutually exclusive, so when we compute the individual categories, we need to ensure that all categories are accounted for.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Wait, perhaps the total percentage is 100%, but in our calculation, we have 0.83, so the missing 0.17 is the percentage of students who don't study any languages? But the problem says \"Among all students,\" so I assume all students study at least one language.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Wait, but the problem doesn't specify whether all students study at least one language.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "It just says \"Among all students, 45% study Spanish, 35% study French, and 25% study German.\" So, it's possible that some students might not study any of these languages, but the problem doesn't provide that information.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "But in the problem statement, it says \"Some students study multiple languages,\" which implies that at least some students study more than one language.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "It doesn't say anything about students not studying any language.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "Wait, but if we proceed with the given data, and assuming that all students study at least one language, then the total should be 1.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "But in our calculation, it's only 0.83, which suggests that perhaps some students study all three languages, but that's already accounted for.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "Wait, no, because g is 0.03, and we have included all categories except for the ones who don't study any language.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "So, if the problem doesn't mention students not studying any language, perhaps the total is less than 1, but that doesn't make sense because the percentages given are of students studying each language, so it's possible that some students don't study any language.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "But the problem says \"Among all students,\" which suggests that the percentages are among all students, so perhaps the total is 1.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "Wait, maybe I made a mistake in the initial calculation.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "Let me try a different approach.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Let's use inclusion-exclusion for three sets to compute the total percentage.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "The formula for three sets is:\n\nP(S \u222a F \u222a G) = P(S) + P(F) + P(G) - P(S \u2229 F) - P(S \u2229 G) - P(F \u2229 G) + P(S \u2229 F \u2229 G)\n\nSo, plugging in the numbers:\n\nP(S \u222a F \u222a G) = 0.45 + 0.35 + 0.25 - 0.10 - 0.08 - 0.07 + 0.03\n\nLet me compute this step by step:\n\n0.45 + 0.35 = 0.80\n\n0.80 + 0.25 = 1.05\n\nNow, subtracting the pairwise intersections:\n\n1.05 - 0.10 = 0.95\n\n0.95 - 0.08 = 0.87\n\n0.87 - 0.07 = 0.80\n\nThen, adding back the triple intersection:\n\n0.80 + 0.03 = 0.83\n\nSo, P(S \u222a F \u222a G) = 0.83\n\nThis means that 83% of students study at least one of the languages.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "So, the remaining 17% don't study any of the languages.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "But the problem says \"Among all students,\" which includes all students, so perhaps the 17% not studying any language is outside the scope, but the problem doesn't mention them.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "But since we're only considering students who study Spanish, which is 45%, we need to see how many of those 45% also study French.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "So, the students who study Spanish include:\n\n- Only Spanish: a = 0.30\n- Spanish and French only: d = 0.07\n- Spanish and German only: e = 0.05\n- All three: g = 0.03\n\nSo, total Spanish students: 0.30 + 0.07 + 0.05 + 0.03 = 0.45, which is correct.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "Now, among these Spanish students, how many also study French?\n\nThat would be d + g = 0.07 + 0.03 = 0.10\n\nSo, the probability that a Spanish student also studies French is 0.10 / 0.45\n\nLet me compute that: 0.10 / 0.45 = 2/9 \u2248 0.2222 or 22.22%\n\nWait, but let me double-check.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "Because in the Spanish students, 0.10 are also studying French.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "So, yes, 10% of Spanish students also study French.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "But wait, let me think again.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Because the total percentage of students studying both Spanish and French is 10%, which includes those who also study German.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "So, when we condition on Spanish, the 10% includes those who also study German.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "But in the Spanish students, the number who also study French is d + g, which is 0.07 + 0.03 = 0.10, as we have.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "So, the probability is 0.10 / 0.45 \u2248 0.2222, which is 2/9.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "Alternatively, let's compute it using Bayes' Theorem properly.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "We need P(F | S) = [P(S | F) * P(F)] / P(S)\n\nBut we don't have P(S | F), but we can compute it.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "P(S | F) is the probability that a student studies Spanish given that they study French.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "Similarly, from the categories:\n\nP(S | F) = (a + d + e + g) / (b + d + f + g)\n\nWait, no, that's not correct.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "Let me think.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "Actually, P(S | F) is the probability that a student studies Spanish given that they study French.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "So, it's the proportion of French students who also study Spanish.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "From the categories, the French students are b + d + f + g.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "Out of these, the ones who also study Spanish are d + g.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "So, P(S | F) = (d + g) / (b + d + f + g)\n\nSimilarly, P(F | S) = (d + g) / (a + d + e + g)\n\nSo, P(F | S) = 0.10 / 0.45 = 2/9 \u2248 0.2222 or 22.22%\n\nSo, the probability is 2/9.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "Alternatively, let's compute it using the inclusion-exclusion formula.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "But I think the first approach is correct.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "So, the probability that a Spanish student also studies French is 10% / 45% = 2/9.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "So, the answer is 2/9.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "Wait, but let me double-check using another method.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "Another way is to compute the probability that a student studies both Spanish and French, which is 10%, and the probability that a student studies Spanish is 45%, so the conditional probability is 10% / 45% = 2/9.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "Yes, that's the same result.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "So, I think the answer is 2/9.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "</think>\n\nTo determine the probability that a student studies French given that they study Spanish, we use the given percentages and conditional probability.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "We know:\n- P(S) = 45% (probability of studying Spanish)\n- P(S \u2229 F) = 10% (probability of studying both Spanish and French)\n\nUsing conditional probability:\nP(F | S) = P(S \u2229 F) / P(S) = 10% / 45% = 2/9 \u2248 0.2222 or 22.22%\n\nSo, the probability is 2/9.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "**Answer:** The probability is \\boxed{\\dfrac{2}{9}}.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  }
+]

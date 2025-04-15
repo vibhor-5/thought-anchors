@@ -1,0 +1,1130 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: In a small university class of 15 students, each student is assigned a unique student ID number from 1 to 30 inclusive.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Prove that regardless of which specific ID numbers are assigned, there must be at least one pair of students whose ID numbers sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nAlright, so I've got this problem here about a university class with 15 students.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "Each student gets a unique ID number from 1 to 30.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "The question is asking me to prove that no matter which IDs are assigned, there must be at least one pair of students whose numbers add up to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Hmm, okay, let me try to wrap my head around this.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "First, let me make sure I understand the problem correctly.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "There are 15 students, each with a unique ID from 1 to 30.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "So, out of 30 possible IDs, only 15 are used.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "The task is to show that in any such assignment, there's at least one pair of numbers that sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "That seems like a problem that might involve some sort of pairing or maybe the pigeonhole principle.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "I remember the pigeonhole principle is about ensuring that if you have more items than containers, at least one container must hold more than one item.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Maybe that applies here.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Let me think about how the numbers from 1 to 30 can pair up to sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "If I take a number, say 1, then its complement to 31 would be 30, because 1 + 30 = 31.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "Similarly, 2 pairs with 29, 3 pairs with 28, and so on.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "So, each number from 1 to 15 pairs with a number from 16 to 30 to make 31.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "That gives me 15 pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Let me write that down:\n\n1 \u2194 30\n\n2 \u2194 29\n\n3 \u2194 28\n\n...",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "15 \u2194 16\n\nSo, there are 15 such pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "Now, each ID assigned to a student must be one of these numbers from 1 to 30.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Since only 15 students are there, each student's ID must belong to one of these 15 pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "If each student's ID is unique, then each pair can be assigned to at most one student.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "But wait, there are 15 pairs and 15 students.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "So, if each pair can be assigned to only one student, does that mean that each pair is assigned exactly once? Because if you have 15 pairs and 15 students, each student would have to take one ID from a unique pair.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "But hold on, if that's the case, then each student's ID would be from a different pair, meaning that no two students have IDs that sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "That contradicts the problem statement, which says that there must be at least one such pair.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Hmm, maybe I'm missing something here.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Wait, maybe it's not about assigning both numbers from a pair to different students.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Let me think again.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "If a student is assigned, say, ID 1, then 30 can't be assigned to anyone else because 1 + 30 = 31.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Similarly, if someone gets 2, then 29 is off-limits.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "So, each time you assign an ID from one of these pairs, you effectively block the other ID in the pair from being assigned.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "Since there are 15 pairs, and each assignment blocks one ID, how does that affect the total number of assignments?\n\nLet me try a different approach.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Maybe using graph theory.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Imagine each number from 1 to 30 as a vertex in a graph, and connect two vertices with an edge if their sum is 31.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "So, this graph would consist of 15 disjoint edges (each pair) plus the number 16, which is connected to 15, but wait, no, 16 is paired with 15 as 15 + 16 = 31.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Wait, actually, all numbers from 1 to 15 are paired with numbers from 16 to 30.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "So, the graph is a perfect matching of 15 edges, right? Each edge represents a pair that sums to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Now, in this graph, if we pick 15 vertices (since there are 15 students), we need to see if at least one edge must be entirely included in this selection.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "In other words, can we pick 15 vertices such that no two are connected by an edge? That would mean that no two picked vertices sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "But since the graph is a perfect matching, any selection of 15 vertices must include at least one edge from the matching.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "Is that always true?\n\nWait, let me think about the maximum independent set in this graph.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "An independent set is a set of vertices with no edges between them.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "In this case, the graph is a collection of 15 independent edges.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "The size of the maximum independent set in such a graph is 15, because you can pick one vertex from each edge, right? So, the maximum independent set is 15.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "But we are selecting 15 vertices, which is exactly the size of the maximum independent set.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "Hmm, so does that mean it's possible to have an independent set of size 15? That would imply that there exists an assignment where no two IDs sum to 31, which contradicts the problem statement.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "Wait, that can't be right because the problem says that regardless of the assignment, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "So, maybe my reasoning is flawed here.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Let me double-check.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "If the graph is a perfect matching with 15 edges, then the maximum independent set is indeed 15, which means it's possible to select 15 vertices with no edges between them.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "But in our case, the students are assigned unique IDs, so they are selecting 15 vertices.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "If the maximum independent set is 15, then it's possible that all 15 are selected without any edges, meaning no two sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "But the problem says that regardless of the assignment, there must be at least one such pair.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "So, there's a contradiction here.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "That means my assumption that the maximum independent set is 15 might be incorrect.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "Wait, no, the maximum independent set in a graph of 15 disjoint edges is 15 because you can pick one vertex from each edge.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "So, in that case, it's possible to have an independent set of size 15, which would mean that it's possible to assign IDs without any two summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "But the problem says that it's impossible; every assignment must have at least one such pair.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "So, perhaps my graph theory approach isn't capturing the problem correctly.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "Let me try a different angle.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "Let's consider that each ID from 1 to 30 is either used or not used.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Since there are 15 students, exactly 15 IDs are used.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Now, if we think about the pairs that sum to 31, there are 15 such pairs: (1,30), (2,29), ..., (15,16).",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "Each pair consists of two numbers that sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "If we can show that in any selection of 15 numbers, at least one of these pairs is entirely included, then we're done.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "So, suppose for contradiction that none of these pairs are entirely included.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "That means that for each pair, at most one number is selected.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "So, for each of the 15 pairs, we can choose at most one number.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "Therefore, the maximum number of numbers we can select without completing any pair is 15 (since each pair contributes at most one number).",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "But we need to select 15 numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "So, is it possible to select 15 numbers without completing any pair? It seems yes, because we can pick one number from each pair, totaling 15 numbers, and none of them would sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "Wait, but that's exactly the maximum independent set again.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "So, that suggests that it's possible to have an assignment where no two IDs sum to 31, which contradicts the problem statement.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Therefore, my reasoning must be wrong somewhere.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "Hold on, maybe I'm misunderstanding the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "It says that each student is assigned a unique ID from 1 to 30 inclusive.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "So, 15 students, 15 IDs.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "The problem is to prove that regardless of which IDs are assigned, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "But from my earlier reasoning, it seems possible to assign IDs such that no two sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "For example, assign all IDs from 1 to 15.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "Then, no two IDs sum to 31 because the maximum sum would be 15 + 14 = 29.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "Wait, no, 15 + 16 would be 31, but 16 isn't assigned.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "So, in this case, assigning 1 to 15, none of them sum to 31 because their complements (16 to 30) aren't assigned.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Therefore, this assignment would have no two IDs summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "But the problem says that regardless of the assignment, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "So, this seems to contradict the problem statement.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "Wait, maybe I'm misinterpreting the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "Let me read it again.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "It says, \"each student is assigned a unique student ID number from 1 to 30 inclusive.\" So, 15 students, IDs 1-30, each unique.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "\"Prove that regardless of which specific ID numbers are assigned, there must be at least one pair of students whose ID numbers sum to 31.\"\n\nBut from my example, if I assign IDs 1-15, there's no pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "So, that would mean the problem statement is false, which can't be.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "Therefore, I must have made a mistake in my reasoning.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "Wait, maybe I'm misunderstanding the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "Perhaps the IDs are assigned in such a way that each student has a unique ID, but not necessarily all IDs from 1 to 30.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "Wait, no, the problem says \"from 1 to 30 inclusive,\" so all IDs are from 1 to 30, but only 15 are assigned, each unique.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "So, the problem is that regardless of which 15 IDs are chosen, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "But my earlier example shows that it's possible to choose 15 IDs (1-15) where no two sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "Therefore, the problem statement must have a different condition.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "Maybe the problem is that the IDs are assigned from 1 to 30, but the class has 15 students, so 15 IDs are used.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "The problem is to prove that in any assignment, there's at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "Wait, perhaps I'm missing something in the pairing.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "Let me think again about the pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "The pairs that sum to 31 are (1,30), (2,29), ..., (15,16).",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "So, there are 15 such pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "Now, if we have 15 students, each assigned a unique ID, and each ID belongs to one of these pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "If each pair can contribute at most one ID to the assignment, then the maximum number of IDs we can assign without having a pair summing to 31 is 15 (one from each pair).",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "Therefore, if we have 15 students, each assigned one ID from each pair, then no two IDs sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "But the problem says that regardless of the assignment, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "So, that seems contradictory.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "Wait, maybe the problem is that the IDs are from 1 to 30, and the class has 15 students, but the IDs are assigned in such a way that exactly 15 are used.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "So, the question is, in any selection of 15 IDs from 1 to 30, is there necessarily at least one pair summing to 31?\n\nBut as I thought earlier, if you select IDs 1-15, there's no pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "So, that would mean the problem statement is false, which can't be.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "Therefore, perhaps the problem is stated incorrectly, or I'm misunderstanding it.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "Wait, maybe the problem is that the IDs are assigned to the students, but the students are numbered from 1 to 15.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "So, each student has an ID number, but the IDs themselves are from 1 to 30, and each ID is unique.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "So, the problem is that regardless of how you assign these IDs to the 15 students, there must be at least one pair whose IDs sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "But again, my earlier example shows that you can assign IDs 1-15, and no two sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "So, that would mean the problem statement is incorrect.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "Alternatively, maybe I'm missing something in the problem's phrasing.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "Wait, perhaps the problem is that the IDs are assigned in such a way that the IDs are from 1 to 30, and the class has 15 students, but the IDs are assigned in a way that each student has a unique ID, and the problem is to prove that in any such assignment, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "But as I saw, it's possible to assign IDs 1-15, so that no two sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "Therefore, the problem statement must be incorrect, or I'm missing a key point.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "Wait, maybe the problem is that the IDs are assigned such that each student has an ID from 1 to 30, but there are exactly 15 students, so 15 IDs are used.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "The problem is to prove that in any such assignment, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "But again, my earlier example shows that it's possible to assign IDs 1-15, so no two sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "Therefore, the problem statement must be incorrect.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "Alternatively, perhaps the problem is that the IDs are assigned in such a way that exactly 15 are used, and the rest are not, but the problem is to prove that in any such assignment, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "But if that's the case, then as I showed, it's possible to have an assignment without any such pair.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "Therefore, the problem statement must be incorrect.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "Wait, maybe the problem is that the IDs are assigned from 1 to 30, and the class has 15 students, but the IDs are assigned in such a way that each student's ID is unique, and the problem is to prove that in any such assignment, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  },
+  {
+    "index": 134,
+    "text": "But again, my earlier reasoning shows that it's possible to have an assignment without any such pair.",
+    "category": "Unknown",
+    "abbreviation": "C-134"
+  },
+  {
+    "index": 135,
+    "text": "Therefore, I must be missing something.",
+    "category": "Unknown",
+    "abbreviation": "C-135"
+  },
+  {
+    "index": 136,
+    "text": "Wait, perhaps the problem is that the IDs are assigned such that the sum of any two IDs is not 31.",
+    "category": "Unknown",
+    "abbreviation": "C-136"
+  },
+  {
+    "index": 137,
+    "text": "So, the problem is to show that it's impossible to have 15 IDs without having at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-137"
+  },
+  {
+    "index": 138,
+    "text": "But from my example, it's possible.",
+    "category": "Unknown",
+    "abbreviation": "C-138"
+  },
+  {
+    "index": 139,
+    "text": "So, the problem must be incorrect.",
+    "category": "Unknown",
+    "abbreviation": "C-139"
+  },
+  {
+    "index": 140,
+    "text": "Alternatively, maybe the problem is to show that in any assignment of 15 IDs from 1 to 30, there exists a pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-140"
+  },
+  {
+    "index": 141,
+    "text": "But as I showed, that's not true.",
+    "category": "Unknown",
+    "abbreviation": "C-141"
+  },
+  {
+    "index": 142,
+    "text": "Wait, perhaps the problem is that the IDs are assigned in a way that each student has an ID, and the IDs are from 1 to 30, but the problem is to prove that in any such assignment, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-142"
+  },
+  {
+    "index": 143,
+    "text": "But again, my example shows that it's possible to have an assignment without such a pair.",
+    "category": "Unknown",
+    "abbreviation": "C-143"
+  },
+  {
+    "index": 144,
+    "text": "Therefore, I must be misunderstanding the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-144"
+  },
+  {
+    "index": 145,
+    "text": "Let me read it again.",
+    "category": "Unknown",
+    "abbreviation": "C-145"
+  },
+  {
+    "index": 146,
+    "text": "\"In a small university class of 15 students, each student is assigned a unique student ID number from 1 to 30 inclusive.",
+    "category": "Unknown",
+    "abbreviation": "C-146"
+  },
+  {
+    "index": 147,
+    "text": "Prove that regardless of which specific ID numbers are assigned, there must be at least one pair of students whose ID numbers sum to 31.\"\n\nWait, perhaps the problem is that the IDs are assigned in such a way that each student has a unique ID, but the IDs are from 1 to 30, and the class has 15 students.",
+    "category": "Unknown",
+    "abbreviation": "C-147"
+  },
+  {
+    "index": 148,
+    "text": "The problem is to prove that in any such assignment, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-148"
+  },
+  {
+    "index": 149,
+    "text": "But as I thought, assigning IDs 1-15 avoids this.",
+    "category": "Unknown",
+    "abbreviation": "C-149"
+  },
+  {
+    "index": 150,
+    "text": "Therefore, the problem statement must be incorrect.",
+    "category": "Unknown",
+    "abbreviation": "C-150"
+  },
+  {
+    "index": 151,
+    "text": "Alternatively, perhaps the problem is that the IDs are assigned in such a way that each student's ID is unique, but the problem is to prove that in any such assignment, there must be at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-151"
+  },
+  {
+    "index": 152,
+    "text": "But again, my example shows that it's possible to avoid it.",
+    "category": "Unknown",
+    "abbreviation": "C-152"
+  },
+  {
+    "index": 153,
+    "text": "Wait, maybe the problem is that the IDs are assigned such that the sum of any two IDs is not 31.",
+    "category": "Unknown",
+    "abbreviation": "C-153"
+  },
+  {
+    "index": 154,
+    "text": "So, the problem is to show that it's impossible to have 15 IDs without having at least one pair summing to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-154"
+  },
+  {
+    "index": 155,
+    "text": "But again, my example shows that it's possible.",
+    "category": "Unknown",
+    "abbreviation": "C-155"
+  },
+  {
+    "index": 156,
+    "text": "Therefore, I think I'm missing something here.",
+    "category": "Unknown",
+    "abbreviation": "C-156"
+  },
+  {
+    "index": 157,
+    "text": "Maybe the problem is about the sum of all IDs, but that doesn't make sense because the sum of all IDs from 1 to 30 is (30\u00d731)/2 = 465, which is not relevant here.",
+    "category": "Unknown",
+    "abbreviation": "C-157"
+  },
+  {
+    "index": 158,
+    "text": "Alternatively, perhaps the problem is about the sum of the IDs of two students, not all pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-158"
+  },
+  {
+    "index": 159,
+    "text": "So, regardless of how you assign the IDs, there must be at least one pair that sums to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-159"
+  },
+  {
+    "index": 160,
+    "text": "But as I saw, you can assign IDs 1-15, and no two sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-160"
+  },
+  {
+    "index": 161,
+    "text": "Therefore, the problem statement must be incorrect.",
+    "category": "Unknown",
+    "abbreviation": "C-161"
+  },
+  {
+    "index": 162,
+    "text": "Wait, perhaps the problem is that the IDs are assigned in such a way that the sum of any two IDs is not 31, and the problem is to show that it's impossible.",
+    "category": "Unknown",
+    "abbreviation": "C-162"
+  },
+  {
+    "index": 163,
+    "text": "But again, my example shows that it's possible.",
+    "category": "Unknown",
+    "abbreviation": "C-163"
+  },
+  {
+    "index": 164,
+    "text": "Therefore, perhaps the problem is incorrectly stated.",
+    "category": "Unknown",
+    "abbreviation": "C-164"
+  },
+  {
+    "index": 165,
+    "text": "Alternatively, maybe I'm misunderstanding the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-165"
+  },
+  {
+    "index": 166,
+    "text": "Wait, perhaps the problem is that the IDs are assigned in such a way that the sum of any two IDs is not 31, and the problem is to show that it's impossible.",
+    "category": "Unknown",
+    "abbreviation": "C-166"
+  },
+  {
+    "index": 167,
+    "text": "But as I saw, it's possible to assign IDs 1-15, so the problem must be incorrect.",
+    "category": "Unknown",
+    "abbreviation": "C-167"
+  },
+  {
+    "index": 168,
+    "text": "Alternatively, maybe the problem is that the IDs are assigned in such a way that the sum of any two IDs is not 31, and the problem is to show that it's impossible.",
+    "category": "Unknown",
+    "abbreviation": "C-168"
+  },
+  {
+    "index": 169,
+    "text": "But again, my example shows that it's possible.",
+    "category": "Unknown",
+    "abbreviation": "C-169"
+  },
+  {
+    "index": 170,
+    "text": "Therefore, I think the problem statement might be incorrect.",
+    "category": "Unknown",
+    "abbreviation": "C-170"
+  },
+  {
+    "index": 171,
+    "text": "However, perhaps I'm missing a key point in the reasoning.",
+    "category": "Unknown",
+    "abbreviation": "C-171"
+  },
+  {
+    "index": 172,
+    "text": "Wait, let me think about it differently.",
+    "category": "Unknown",
+    "abbreviation": "C-172"
+  },
+  {
+    "index": 173,
+    "text": "Suppose we have 15 students, each with a unique ID from 1 to 30.",
+    "category": "Unknown",
+    "abbreviation": "C-173"
+  },
+  {
+    "index": 174,
+    "text": "We need to show that in any such assignment, there exists at least one pair whose IDs sum to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-174"
+  },
+  {
+    "index": 175,
+    "text": "Let me consider the complement pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-175"
+  },
+  {
+    "index": 176,
+    "text": "For each ID x, there's a complement y = 31 - x.",
+    "category": "Unknown",
+    "abbreviation": "C-176"
+  },
+  {
+    "index": 177,
+    "text": "So, if x is assigned, y cannot be assigned, and vice versa.",
+    "category": "Unknown",
+    "abbreviation": "C-177"
+  },
+  {
+    "index": 178,
+    "text": "Now, since there are 15 pairs (1,30), (2,29), ..., (15,16), each pair sums to 31.",
+    "category": "Unknown",
+    "abbreviation": "C-178"
+  },
+  {
+    "index": 179,
+    "text": "So, the total number of such pairs is 15.",
+    "category": "Unknown",
+    "abbreviation": "C-179"
+  },
+  {
+    "index": 180,
+    "text": "If we have 15 students, each assigned a unique ID, and each ID belongs to one of these 15 pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-180"
+  },
+  {
+    "index": 181,
+    "text": "Now, if we assign an ID from a pair, we block the other ID in that pair from being assigned.",
+    "category": "Unknown",
+    "abbreviation": "C-181"
+  },
+  {
+    "index": 182,
+    "text": "Therefore, the maximum number of IDs we can assign without having any pair summing to 31 is 15, by choosing one ID from each pair.",
+    "category": "Unknown",
+    "abbreviation": "C-182"
+  },
+  {
+    "index": 183,
+    "text": "But in our case, we have exactly 15 students, so we must assign exactly one ID from each pair.",
+    "category": "Unknown",
+    "abbreviation": "C-183"
+  },
+  {
+    "index": 184,
+    "text": "Therefore, in this case, no two IDs sum to 31 because each pair contributes at most one ID.",
+    "category": "Unknown",
+    "abbreviation": "C-184"
+  },
+  {
+    "index": 185,
+    "text": "Wait, but that contradicts the problem statement.",
+    "category": "Unknown",
+    "abbreviation": "C-185"
+  },
+  {
+    "index": 186,
+    "text": "Therefore, I must have made a mistake in my reasoning.",
+    "category": "Unknown",
+    "abbreviation": "C-186"
+  },
+  {
+    "index": 187,
+    "text": "Wait, no, if we have 15 pairs, and we need to assign 15 IDs",
+    "category": "Unknown",
+    "abbreviation": "C-187"
+  }
+]

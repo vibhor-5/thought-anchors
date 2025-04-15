@@ -1,0 +1,1256 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: In a classroom of 35 students, each student is assigned a student ID number from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Prove that there must be at least two different students whose ID numbers add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nAlright, so I have this problem here that says in a classroom of 35 students, each student gets a unique student ID from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "I need to prove that there must be at least two different students whose ID numbers add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Hmm, okay, let me think about how to approach this.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "First, I remember something about the pigeonhole principle.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "Is that the right tool for this kind of problem? The pigeonhole principle says that if you have more pigeons than pigeonholes, at least two pigeons must share a hole.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "Maybe I can apply that here.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "So, in this case, the students are the pigeons and the ID numbers are the pigeonholes.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "But wait, the IDs are from 1 to 99, which is 99 different numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "But there are only 35 students.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "That seems like fewer students than the number of ID numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "So, does that mean something?\n\nWait, actually, the pigeonhole principle is about distributing items into containers and finding overlaps.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Maybe I should think about pairs of numbers that add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Let me list out some pairs:\n\n1 and 99,\n2 and 98,\n3 and 97,\n...",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "50 and 50.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "Wait, 50 is the middle number because 50 + 50 = 100.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "But since each student has a unique ID, can two students have the same ID? No, each ID is assigned to one student.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "So, 50 can only be used once.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "That means the pairs go from 1 and 99 up to 49 and 51, and then 50 is left alone.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "Let me count how many such pairs there are.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Starting from 1 and 99, each pair uses two different numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "So, from 1 to 49, that's 49 pairs, right? Because 49 + 51 is the last pair before 50.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "So, 49 pairs, each containing two unique numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "But wait, each pair is (1,99), (2,98), ..., (49,51).",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "So, that's 49 pairs, each with two numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "So, 49 times 2 is 98 numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Plus the number 50, which is in the middle.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "So, total numbers from 1 to 99 is 99 numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "So, if we have 35 students, each assigned a unique ID, that means we're choosing 35 numbers out of 99.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "Now, the question is, can we avoid having any two numbers that add up to 100?\n\nIf we could, that would mean that for each number we pick, we don't pick its complement (the number that adds up to 100).",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "For example, if we pick 1, we don't pick 99.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "If we pick 2, we don't pick 98, and so on.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "But how many numbers are we excluding? For each number we pick, we exclude one other number.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "So, if we pick 35 numbers, we have to exclude 35 numbers as well.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "But wait, the total numbers we can exclude are only 49 (from 1 to 49) because each of those has a complement from 51 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "So, we have 49 possible pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "If we pick one number from each pair, we can only pick 49 numbers without getting a pair that adds up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "But we have 35 students, which is less than 49.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "So, can we pick 35 numbers without any two adding to 100?\n\nWait, no.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "Because if we have 49 pairs and we pick 35 numbers, each time we pick a number from a pair, we have to leave the other number out.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "But since 35 is less than 49, we can't cover all the pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "So, does that mean that at least one pair must have both numbers picked?\n\nLet me think again.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "If there are 49 pairs, and we have 35 students, each student picks one number from a pair.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "So, the maximum number of pairs we can cover is 35, but we have 49 pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "So, that means we can't cover all 49 pairs with just 35 picks.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Therefore, some pairs must have both numbers not picked, or only one picked.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "Wait, no.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "The problem is that if we pick 35 numbers, each from different pairs, but there are 49 pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "So, 35 is less than 49, meaning we can only pick 35 numbers without covering all the pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "But does that necessarily mean that at least two numbers add up to 100?\n\nHmm, maybe I need to think differently.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "Let's consider that each number from 1 to 49 has a complement from 51 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "So, the total number of unique pairs that sum to 100 is 49.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "Each pair consists of two numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "Now, if we have 35 students, each assigned a unique number from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "The worst-case scenario is that we try to pick numbers such that no two sum to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "So, we can pick at most one number from each pair.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "But since there are 49 pairs, and we need to pick 35 numbers, we can only pick one number from each pair.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "Wait, but 35 is less than 49, so we can pick 35 numbers, each from different pairs, without any two adding to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "Wait, but that can't be right because the problem states that there must be at least two students whose IDs add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "So, maybe I'm missing something here.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "Oh, wait! The number 50 is also in the range.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "So, 50 pairs with itself because 50 + 50 = 100.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "But since each student has a unique ID, we can only have one student with ID 50.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "So, 50 can't be paired with another 50.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "So, the total number of pairs is 49, each with two distinct numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "Plus the number 50, which can't form a pair with another 50.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "So, the total numbers from 1 to 99 are 99, which is 49 pairs plus 1 singleton (50).",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "So, if we have 35 students, we need to assign them numbers such that no two sum to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "The maximum number of students we can have without any two IDs summing to 100 is 49 (picking one from each pair) plus 1 (the 50).",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "So, that's 50 students.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "But we have only 35 students, which is less than 50.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "So, we can indeed have 35 students without any two IDs summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "Wait, but the problem says that there must be at least two students whose IDs add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "So, that contradicts what I just thought.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Wait, no.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "Maybe I'm misunderstanding.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "The problem says that each student is assigned a unique ID from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "So, we have 35 students, each with a unique ID.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "The question is, must there be at least two students whose IDs add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "But if we can have 35 students where none of their IDs add up to 100, then the statement is false.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "But the problem says to prove that there must be at least two students whose IDs add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "So, maybe my reasoning is wrong.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "Wait, let me think again.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "The maximum number of students we can have without any two IDs summing to 100 is 49 (choosing one from each pair) plus 1 (the 50), making 50.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "So, 50 students can be assigned without any two IDs summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "But in our case, we have 35 students, which is less than 50.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "So, it's possible to have 35 students without any two IDs summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "Therefore, the statement is false.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "But the problem says to prove that there must be at least two students whose IDs add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "So, I must have made a mistake.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "Wait, maybe I'm missing something about the pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "Let me recount.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "The pairs are (1,99), (2,98), ..., (49,51).",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "That's 49 pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "Plus the number 50.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "So, total numbers is 49*2 +1=99.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "If we have 35 students, each assigned a unique ID, we need to pick 35 numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "The maximum number of students without any two IDs summing to 100 is 49 (one from each pair) plus 1 (the 50), making 50.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "So, 35 is less than 50, meaning it's possible to have 35 students without any two IDs summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "But the problem says that in a classroom of 35 students, there must be at least two whose IDs add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "So, either my reasoning is wrong or the problem is misstated.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "Wait, maybe I'm not considering that 50 is a single number, so if we include 50, we can't include another number that pairs with it.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "But in reality, 50 pairs with itself, but since we can't have two students with ID 50, including 50 doesn't affect the pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "So, if we have 35 students, we can choose 35 numbers, each from different pairs, avoiding the other number in each pair.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "Since there are 49 pairs, and we're choosing 35, we can indeed choose one from each of 35 pairs, and leave the remaining 14 pairs untouched.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "Therefore, no two IDs would sum to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "Wait, but that would mean that the statement in the problem is false.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "But the problem says to prove that there must be at least two students whose IDs add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "So, perhaps I'm misunderstanding the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "Wait, maybe the problem is stating that each student has an ID from 1 to 99, but there are only 35 students.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "So, the IDs are assigned, but not necessarily all numbers from 1 to 99 are used.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "Wait, no, the problem says each student is assigned a student ID number from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "So, each student has a unique ID in that range.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "So, the total number of IDs used is 35, but they are all unique and from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "So, in that case, we have 35 numbers chosen from 1 to 99, all unique.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "We need to prove that at least two of them add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "So, perhaps I need to use the pigeonhole principle differently.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "Let's consider the numbers from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "We can pair them into 49 pairs that sum to 100: (1,99), (2,98), ..., (49,51).",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "Plus the number 50, which is alone.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "Now, if we have 35 numbers chosen from 1 to 99, we need to show that at least two of them are in the same pair.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "So, the total number of pairs is 49.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "If we have 35 numbers, and each number is in a pair, then by the pigeonhole principle, if we have more numbers than pairs, at least one pair must contain two numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "Wait, but 35 is less than 49, so that doesn't apply directly.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "Wait, no, the pigeonhole principle says that if you have n items and m containers, with n > m, then at least one container has more than one item.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "But here, the items are the numbers chosen, and the containers are the pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "So, if we have 35 items (numbers) and 49 containers (pairs), then 35 < 49, so it's possible that each container has at most one item.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "Therefore, it's possible to have 35 numbers, each from different pairs, without any two summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "Wait, but that contradicts the problem statement.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "So, perhaps I'm missing something.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "Wait, maybe I should consider that the number 50 is in the middle.",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  },
+  {
+    "index": 134,
+    "text": "If we include 50, we can't include any other number that pairs with it, but since 50 pairs with itself, but we can only have one 50.",
+    "category": "Unknown",
+    "abbreviation": "C-134"
+  },
+  {
+    "index": 135,
+    "text": "So, including 50 doesn't affect the pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-135"
+  },
+  {
+    "index": 136,
+    "text": "So, if we have 35 numbers, and we can choose 35 numbers from the 49 pairs, each time choosing one number from a pair, and possibly including 50.",
+    "category": "Unknown",
+    "abbreviation": "C-136"
+  },
+  {
+    "index": 137,
+    "text": "So, in that case, we can have 35 numbers, each from different pairs, and none of them summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-137"
+  },
+  {
+    "index": 138,
+    "text": "But the problem says that in a classroom of 35 students, each with unique IDs from 1 to 99, there must be at least two whose IDs add to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-138"
+  },
+  {
+    "index": 139,
+    "text": "So, perhaps the problem is that the IDs are assigned, and we have 35 students, but the IDs are not necessarily all distinct? No, the problem says each student is assigned a unique ID from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-139"
+  },
+  {
+    "index": 140,
+    "text": "Wait, maybe I'm overcomplicating this.",
+    "category": "Unknown",
+    "abbreviation": "C-140"
+  },
+  {
+    "index": 141,
+    "text": "Let me think of it differently.",
+    "category": "Unknown",
+    "abbreviation": "C-141"
+  },
+  {
+    "index": 142,
+    "text": "The maximum number of students that can be assigned without any two IDs summing to 100 is 50: 49 from the pairs and 1 from the middle (50).",
+    "category": "Unknown",
+    "abbreviation": "C-142"
+  },
+  {
+    "index": 143,
+    "text": "So, if we have 35 students, which is less than 50, it's possible to have no two IDs summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-143"
+  },
+  {
+    "index": 144,
+    "text": "But the problem says that in a classroom of 35 students, there must be at least two whose IDs add to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-144"
+  },
+  {
+    "index": 145,
+    "text": "So, either the problem is incorrect, or my reasoning is wrong.",
+    "category": "Unknown",
+    "abbreviation": "C-145"
+  },
+  {
+    "index": 146,
+    "text": "Wait, maybe I'm miscounting the number of pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-146"
+  },
+  {
+    "index": 147,
+    "text": "Let me list them out:\n\n1+99=100,\n\n2+98=100,\n\n...",
+    "category": "Unknown",
+    "abbreviation": "C-147"
+  },
+  {
+    "index": 148,
+    "text": "49+51=100. So, that's 49 pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-148"
+  },
+  {
+    "index": 149,
+    "text": "Plus the number 50.",
+    "category": "Unknown",
+    "abbreviation": "C-149"
+  },
+  {
+    "index": 150,
+    "text": "So, total numbers is 49*2 +1=99.",
+    "category": "Unknown",
+    "abbreviation": "C-150"
+  },
+  {
+    "index": 151,
+    "text": "So, if we have 35 students, and we want to assign IDs such that no two sum to 100, we can choose one number from each of 35 pairs, and ignore the remaining 14 pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-151"
+  },
+  {
+    "index": 152,
+    "text": "So, that would give us 35 numbers, each from different pairs, none of which sum to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-152"
+  },
+  {
+    "index": 153,
+    "text": "Therefore, it's possible to have 35 students without any two IDs summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-153"
+  },
+  {
+    "index": 154,
+    "text": "But the problem says to prove that there must be at least two students whose IDs add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-154"
+  },
+  {
+    "index": 155,
+    "text": "So, perhaps the problem is incorrect, or I'm misunderstanding it.",
+    "category": "Unknown",
+    "abbreviation": "C-155"
+  },
+  {
+    "index": 156,
+    "text": "Wait, maybe the problem is that the IDs are assigned, but not necessarily all from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-156"
+  },
+  {
+    "index": 157,
+    "text": "Wait, no, the problem says each student is assigned a student ID number from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-157"
+  },
+  {
+    "index": 158,
+    "text": "Wait, maybe I'm misapplying the pigeonhole principle.",
+    "category": "Unknown",
+    "abbreviation": "C-158"
+  },
+  {
+    "index": 159,
+    "text": "Let's try a different approach.",
+    "category": "Unknown",
+    "abbreviation": "C-159"
+  },
+  {
+    "index": 160,
+    "text": "Consider that for each number x from 1 to 49, there is a complement number 100 - x.",
+    "category": "Unknown",
+    "abbreviation": "C-160"
+  },
+  {
+    "index": 161,
+    "text": "So, for each x, we have a pair (x, 100 - x).",
+    "category": "Unknown",
+    "abbreviation": "C-161"
+  },
+  {
+    "index": 162,
+    "text": "Now, if we have 35 students, each assigned a unique number from 1 to 99, we need to show that at least two of these numbers are paired.",
+    "category": "Unknown",
+    "abbreviation": "C-162"
+  },
+  {
+    "index": 163,
+    "text": "So, the total number of pairs is 49.",
+    "category": "Unknown",
+    "abbreviation": "C-163"
+  },
+  {
+    "index": 164,
+    "text": "If we have 35 numbers, and each number is in a pair, then the maximum number of pairs that can be covered is 35, but since there are 49 pairs, it's possible that some pairs are not covered.",
+    "category": "Unknown",
+    "abbreviation": "C-164"
+  },
+  {
+    "index": 165,
+    "text": "Wait, but the problem is to show that at least one pair must be covered, meaning that at least two numbers are in the same pair.",
+    "category": "Unknown",
+    "abbreviation": "C-165"
+  },
+  {
+    "index": 166,
+    "text": "But since 35 is less than 49, it's possible to have 35 numbers, each from different pairs, so no two numbers sum to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-166"
+  },
+  {
+    "index": 167,
+    "text": "Therefore, the statement in the problem is false.",
+    "category": "Unknown",
+    "abbreviation": "C-167"
+  },
+  {
+    "index": 168,
+    "text": "Wait, but the problem says to prove that there must be at least two students whose IDs add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-168"
+  },
+  {
+    "index": 169,
+    "text": "So, maybe I'm missing something.",
+    "category": "Unknown",
+    "abbreviation": "C-169"
+  },
+  {
+    "index": 170,
+    "text": "Wait, perhaps the problem is that the IDs are assigned, but the students are only 35, so the IDs are 35 distinct numbers from 1 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-170"
+  },
+  {
+    "index": 171,
+    "text": "We need to show that at least two of these numbers sum to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-171"
+  },
+  {
+    "index": 172,
+    "text": "So, perhaps I should think in terms of the maximum number of numbers we can have without any two summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-172"
+  },
+  {
+    "index": 173,
+    "text": "As I thought earlier, the maximum is 49 (choosing one from each pair) plus 1 (the 50), making 50.",
+    "category": "Unknown",
+    "abbreviation": "C-173"
+  },
+  {
+    "index": 174,
+    "text": "So, if we have 35 numbers, which is less than 50, it's possible to have no two numbers summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-174"
+  },
+  {
+    "index": 175,
+    "text": "But the problem says that in a classroom of 35 students, there must be at least two whose IDs add to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-175"
+  },
+  {
+    "index": 176,
+    "text": "So, perhaps the problem is incorrect, or I'm misunderstanding it.",
+    "category": "Unknown",
+    "abbreviation": "C-176"
+  },
+  {
+    "index": 177,
+    "text": "Wait, maybe I'm miscounting the number of pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-177"
+  },
+  {
+    "index": 178,
+    "text": "Let me recount:\n\nFrom 1 to 49, each pairs with 51 to 99.",
+    "category": "Unknown",
+    "abbreviation": "C-178"
+  },
+  {
+    "index": 179,
+    "text": "So, that's 49 pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-179"
+  },
+  {
+    "index": 180,
+    "text": "Plus 50.",
+    "category": "Unknown",
+    "abbreviation": "C-180"
+  },
+  {
+    "index": 181,
+    "text": "So, total pairs is 49.",
+    "category": "Unknown",
+    "abbreviation": "C-181"
+  },
+  {
+    "index": 182,
+    "text": "Now, if we have 35 numbers, and each number is in a pair, then we can have at most 35 pairs covered, but since there are 49 pairs, it's possible to have 35 numbers, each from different pairs, so no two sum to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-182"
+  },
+  {
+    "index": 183,
+    "text": "Therefore, the problem's statement seems to be incorrect because it's possible to have 35 students without any two IDs summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-183"
+  },
+  {
+    "index": 184,
+    "text": "Wait, but maybe I'm wrong.",
+    "category": "Unknown",
+    "abbreviation": "C-184"
+  },
+  {
+    "index": 185,
+    "text": "Let me think again.",
+    "category": "Unknown",
+    "abbreviation": "C-185"
+  },
+  {
+    "index": 186,
+    "text": "Suppose we have 35 students.",
+    "category": "Unknown",
+    "abbreviation": "C-186"
+  },
+  {
+    "index": 187,
+    "text": "We need to assign them numbers from 1 to 99, all unique.",
+    "category": "Unknown",
+    "abbreviation": "C-187"
+  },
+  {
+    "index": 188,
+    "text": "We need to show that at least two of them sum to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-188"
+  },
+  {
+    "index": 189,
+    "text": "Alternatively, we can think of it as a graph where each number is a node, and edges connect numbers that sum to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-189"
+  },
+  {
+    "index": 190,
+    "text": "Then, we need to show that any selection of 35 nodes must include at least one edge.",
+    "category": "Unknown",
+    "abbreviation": "C-190"
+  },
+  {
+    "index": 191,
+    "text": "But in graph theory, the maximum independent set is the largest set of nodes with no edges between them.",
+    "category": "Unknown",
+    "abbreviation": "C-191"
+  },
+  {
+    "index": 192,
+    "text": "So, if the maximum independent set is less than 35, then any selection of 35 nodes must include at least one edge.",
+    "category": "Unknown",
+    "abbreviation": "C-192"
+  },
+  {
+    "index": 193,
+    "text": "So, what's the maximum independent set in this graph? It's the largest set of numbers where no two sum to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-193"
+  },
+  {
+    "index": 194,
+    "text": "As we thought earlier, the maximum independent set is 50: 49 from the pairs (choosing one from each pair) plus 1 (the 50).",
+    "category": "Unknown",
+    "abbreviation": "C-194"
+  },
+  {
+    "index": 195,
+    "text": "So, if the maximum independent set is 50, then any selection of more than 50 nodes must include at least one edge.",
+    "category": "Unknown",
+    "abbreviation": "C-195"
+  },
+  {
+    "index": 196,
+    "text": "But in our case, we have 35, which is less than 50, so it's possible to have an independent set of 35.",
+    "category": "Unknown",
+    "abbreviation": "C-196"
+  },
+  {
+    "index": 197,
+    "text": "Therefore, the problem's statement is incorrect because it's possible to have 35 students without any two IDs summing to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-197"
+  },
+  {
+    "index": 198,
+    "text": "Wait, but the problem says to prove that there must be at least two students whose IDs add up to 100.",
+    "category": "Unknown",
+    "abbreviation": "C-198"
+  },
+  {
+    "index": 199,
+    "text": "So, perhaps the problem is incorrect, or I'm misunderstanding it.",
+    "category": "Unknown",
+    "abbreviation": "C-199"
+  },
+  {
+    "index": 200,
+    "text": "Alternatively, maybe I'm miscounting the number of pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-200"
+  },
+  {
+    "index": 201,
+    "text": "Let me check again.",
+    "category": "Unknown",
+    "abbreviation": "C-201"
+  },
+  {
+    "index": 202,
+    "text": "From 1 to 99, the pairs that sum to 100 are:\n\n1 + 99 = 100,\n\n2 + 98 = 100,\n\n...",
+    "category": "Unknown",
+    "abbreviation": "C-202"
+  },
+  {
+    "index": 203,
+    "text": "49 + 51 = 100.",
+    "category": "Unknown",
+    "abbreviation": "C-203"
+  },
+  {
+    "index": 204,
+    "text": "So, that's 49 pairs.",
+    "category": "Unknown",
+    "abbreviation": "C-204"
+  },
+  {
+    "index": 205,
+    "text": "Plus the number 50.",
+    "category": "Unknown",
+    "abbreviation": "C-205"
+  },
+  {
+    "index": 206,
+    "text": "So, total numbers is 99.",
+    "category": "Unknown",
+    "abbreviation": "C-206"
+  },
+  {
+    "index": 207,
+    "text": "Therefore, the maximum independent set is 49 (choosing one from each pair) plus 1 (the 50), making 50.",
+    "category": "Unknown",
+    "abbreviation": "C-207"
+  },
+  {
+    "index": 208,
+    "text": "So, if we have 35 students, which is less than 50, it's possible to have no two IDs summing to",
+    "category": "Unknown",
+    "abbreviation": "C-208"
+  }
+]

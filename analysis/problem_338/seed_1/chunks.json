@@ -1,0 +1,170 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: Consider a universe of discourse consisting of all people.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Let the following predicates be defined:\nP(x): x is a professor\nS(x): x is a student\nT(x,y): x teaches y\n\nTranslate the following English statement into predicate logic with quantifiers:\n\n'Every professor teaches at least one student who is not a professor.' \n\n Solution: \n<think>\nAlright, so I've got this problem here, and I need to translate an English statement into predicate logic using quantifiers.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "The statement is: \"Every professor teaches at least one student who is not a professor.\" \n\nFirst, I need to understand the components of the statement.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "Let's break it down.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "We have three predicates here:\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "P(x): x is a professor.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "2. S(x): x is a student.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "3. T(x,y): x teaches y.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "The statement talks about every professor, so that suggests a universal quantifier.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "So, I'll start with \u2200x P(x).",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Now, each professor is supposed to teach at least one student.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "So, for each professor x, there exists at least one student y such that x teaches y.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "That would be \u2200x P(x) \u2192 \u2203y S(y) \u2227 T(x,y).",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "But wait, the original statement specifies that the student is not a professor.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "So, I need to ensure that y is a student but not a professor.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "So, I need to add a condition that y is a student and y is not a professor.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "That translates to S(y) \u2227 \u00acP(y).",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Putting it all together, the statement becomes: For every professor x, there exists a student y who is not a professor such that x teaches y.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Therefore, the predicate logic expression should be: \u2200x P(x) \u2192 \u2203y (S(y) \u2227 \u00acP(y) \u2227 T(x,y)).",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Let me double-check to make sure I haven't missed anything.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "The original statement says \"at least one student who is not a professor.\" So, for each professor, there must be at least one such student in their teaching set.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "The logic I've written captures that by stating that for every professor x, there exists a y that is a student, not a professor, and x teaches y.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "I think that covers it.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "No need for more quantifiers or variables since we're already specifying the existence within the scope of x.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "So, the final predicate logic should be as I've written.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "</think>\n\nThe translated predicate logic is:\n\n\u2200x P(x) \u2192 \u2203y (S(y) \u2227 \u00acP(y) \u2227 T(x,y))\n\nDONE.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  }
+]

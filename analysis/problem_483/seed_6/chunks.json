@@ -1,0 +1,620 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Question Posing",
+    "abbreviation": "QP-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small wooden block has a cylindrical hole drilled through it from the front to the back.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "The block measures 3cm \u00d7 3cm \u00d7 3cm, and the cylindrical hole has a diameter of 1cm.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-3"
+  },
+  {
+    "index": 4,
+    "text": "The center of the hole is positioned exactly in the middle of the front face.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
+  },
+  {
+    "index": 5,
+    "text": "Draw or describe the top view, front view, and side view of this object in orthographic projection.",
+    "category": "Question Posing",
+    "abbreviation": "QP-5"
+  },
+  {
+    "index": 6,
+    "text": "In which view(s) will the hole be visible as a complete circle? In which view(s) will the hole appear as a rectangle? \n\n Solution: \n<think>\nAlright, so I have this problem about a wooden block with a cylindrical hole drilled through it.",
+    "category": "Question Posing",
+    "abbreviation": "QP-6"
+  },
+  {
+    "index": 7,
+    "text": "The block is a cube, 3 cm on each side, and the hole has a diameter of 1 cm.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "The center of the hole is right in the middle of the front face.",
+    "category": "Deduction",
+    "abbreviation": "D-8"
+  },
+  {
+    "index": 9,
+    "text": "I need to figure out how the hole looks in the top view, front view, and side view.",
+    "category": "Question Posing",
+    "abbreviation": "QP-9"
+  },
+  {
+    "index": 10,
+    "text": "Also, I need to determine in which views the hole appears as a complete circle and in which it appears as a rectangle.",
+    "category": "Question Posing",
+    "abbreviation": "QP-10"
+  },
+  {
+    "index": 11,
+    "text": "First, let me visualize the block.",
+    "category": "Initializing",
+    "abbreviation": "I-11"
+  },
+  {
+    "index": 12,
+    "text": "It's a cube, so all sides are squares, 3 cm each.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "The hole is cylindrical, so it's a circle in cross-section.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "The diameter is 1 cm, which means the radius is 0.5 cm.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "The hole goes from the front to the back of the block.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "The center is in the middle of the front face.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "So, the front face is a square, 3 cm by 3 cm.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "The center of this face is at (1.5 cm, 1.5 cm) if I consider the origin at the bottom left corner.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "Now, I need to think about orthographic projections.",
+    "category": "Initializing",
+    "abbreviation": "I-19"
+  },
+  {
+    "index": 20,
+    "text": "Orthographic projection is like projecting the 3D object onto a 2D plane, typically the front, top, or side face.",
+    "category": "Metaphorical Thinking",
+    "abbreviation": "MT-20"
+  },
+  {
+    "index": 21,
+    "text": "Each view shows the maximum extent of the object in that plane.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Starting with the top view.",
+    "category": "Initializing",
+    "abbreviation": "I-22"
+  },
+  {
+    "index": 23,
+    "text": "The top view looks down onto the block from above.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "So, I imagine looking at the top face of the cube, which is also a 3 cm by 3 cm square.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "The hole is drilled from the front to the back, so in the top view, I'm seeing the hole as it appears from above.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "Since the hole is centered on the front face, its center is at the front center, but from the top, we might see a different part of the hole.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "Wait, the hole is vertical, going through the block from front to back.",
+    "category": "Backtracking",
+    "abbreviation": "B-27"
+  },
+  {
+    "index": 28,
+    "text": "So, in the top view, which looks down onto the top face, the hole would be represented as a circle, but only partially, right?\n\nBecause the hole is vertical, only the part that's at the top of the block would be visible from above.",
+    "category": "Question Posing",
+    "abbreviation": "QP-28"
+  },
+  {
+    "index": 29,
+    "text": "So, the top view would show a circle, but it might be a smaller circle because we're seeing only a cross-section of the hole.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "Wait, no.",
+    "category": "Backtracking",
+    "abbreviation": "B-30"
+  },
+  {
+    "index": 31,
+    "text": "Actually, the hole is cylindrical, so in any cross-sectional view that's perpendicular to the axis of the hole, it would appear as a circle.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-31"
+  },
+  {
+    "index": 32,
+    "text": "But the top view is looking along the top face, which is perpendicular to the hole's axis if the hole is vertical.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "Wait, no, the hole is drilled from front to back, so the axis of the hole is along the depth of the block.",
+    "category": "Backtracking",
+    "abbreviation": "B-33"
+  },
+  {
+    "index": 34,
+    "text": "So, the top view is looking along the top face, which is perpendicular to the hole's axis.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "Therefore, the hole would appear as a circle in the top view.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "But wait, the hole is only 1 cm in diameter, and the block is 3 cm tall.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-36"
+  },
+  {
+    "index": 37,
+    "text": "So, the hole is much smaller than the block.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "So, in the top view, which is a projection onto the top face, the hole would be a circle, but only at the center, since the hole is vertical.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "Similarly, in the front view, which looks directly at the front face, the hole is centered in the front face, so the front view would show the hole as a circle, but again, only a cross-section of it because the hole goes through the entire block.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "Wait, no.",
+    "category": "Backtracking",
+    "abbreviation": "B-40"
+  },
+  {
+    "index": 41,
+    "text": "The front view is looking directly at the front face, so the hole is centered on that face.",
+    "category": "Deduction",
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "Therefore, the front view would show the entire circular cross-section of the hole, because the hole is drilled straight back, and from the front, you'd see the full circle.",
+    "category": "Deduction",
+    "abbreviation": "D-42"
+  },
+  {
+    "index": 43,
+    "text": "Wait, but the hole is only 1 cm in diameter, so in the front view, which is a projection onto the front face, the hole would appear as a circle with a diameter of 1 cm.",
+    "category": "Backtracking",
+    "abbreviation": "B-43"
+  },
+  {
+    "index": 44,
+    "text": "Now, the side view.",
+    "category": "Initializing",
+    "abbreviation": "I-44"
+  },
+  {
+    "index": 45,
+    "text": "The side view looks at the side face of the cube.",
+    "category": "Deduction",
+    "abbreviation": "D-45"
+  },
+  {
+    "index": 46,
+    "text": "The hole is drilled from front to back, so in the side view, which is looking along the side, the hole would appear as a rectangle.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "Because when you look at a cylinder from the side, it's a rectangle, not a circle.",
+    "category": "Deduction",
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "Wait, no.",
+    "category": "Backtracking",
+    "abbreviation": "B-48"
+  },
+  {
+    "index": 49,
+    "text": "If the side view is looking along the axis of the hole, then it would show the circular cross-section as a line, but since the hole is drilled straight through, the side view would show the hole as a rectangle because it's a vertical cylinder.",
+    "category": "Deduction",
+    "abbreviation": "D-49"
+  },
+  {
+    "index": 50,
+    "text": "Wait, no, the side view is perpendicular to the axis of the hole.",
+    "category": "Backtracking",
+    "abbreviation": "B-50"
+  },
+  {
+    "index": 51,
+    "text": "The hole is vertical, so the side view is along the horizontal axis.",
+    "category": "Deduction",
+    "abbreviation": "D-51"
+  },
+  {
+    "index": 52,
+    "text": "Therefore, the side view would show the hole as a circle because the projection is along the axis perpendicular to the hole's axis.",
+    "category": "Deduction",
+    "abbreviation": "D-52"
+  },
+  {
+    "index": 53,
+    "text": "Wait, I'm getting confused.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-53"
+  },
+  {
+    "index": 54,
+    "text": "Let me clarify.",
+    "category": "Backtracking",
+    "abbreviation": "B-54"
+  },
+  {
+    "index": 55,
+    "text": "The hole is vertical, going through the block from front to back.",
+    "category": "Deduction",
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "So, the axis of the hole is along the vertical direction.",
+    "category": "Deduction",
+    "abbreviation": "D-56"
+  },
+  {
+    "index": 57,
+    "text": "Top view: looking down from above, onto the top face.",
+    "category": "Example Testing",
+    "abbreviation": "ET-57"
+  },
+  {
+    "index": 58,
+    "text": "The hole is vertical, so in the top view, the hole would appear as a circle, but only at the center, because the top view shows the projection of the entire hole onto the top face.",
+    "category": "Deduction",
+    "abbreviation": "D-58"
+  },
+  {
+    "index": 59,
+    "text": "Front view: looking directly at the front face.",
+    "category": "Deduction",
+    "abbreviation": "D-59"
+  },
+  {
+    "index": 60,
+    "text": "The hole is centered on the front face, so the front view would show the full circular cross-section of the hole.",
+    "category": "Deduction",
+    "abbreviation": "D-60"
+  },
+  {
+    "index": 61,
+    "text": "Side view: looking along the side face, which is either left or right.",
+    "category": "Deduction",
+    "abbreviation": "D-61"
+  },
+  {
+    "index": 62,
+    "text": "The hole is vertical, so in the side view, the hole would appear as a rectangle because when you project a cylinder onto a plane perpendicular to its axis, you get a rectangle.",
+    "category": "Deduction",
+    "abbreviation": "D-62"
+  },
+  {
+    "index": 63,
+    "text": "Wait, no.",
+    "category": "Backtracking",
+    "abbreviation": "B-63"
+  },
+  {
+    "index": 64,
+    "text": "If the side view is looking along the side, which is perpendicular to the front and top views, then the hole is vertical, so the projection would be a rectangle because you're seeing the height and the diameter of the hole.",
+    "category": "Deduction",
+    "abbreviation": "D-64"
+  },
+  {
+    "index": 65,
+    "text": "But wait, the diameter is 1 cm, and the height of the block is 3 cm.",
+    "category": "Deduction",
+    "abbreviation": "D-65"
+  },
+  {
+    "index": 66,
+    "text": "So, the rectangle would be 1 cm wide (diameter) and 3 cm tall (height of the block).",
+    "category": "Deduction",
+    "abbreviation": "D-66"
+  },
+  {
+    "index": 67,
+    "text": "But actually, the hole is only 1 cm in diameter, so the rectangle would be 1 cm wide and 3 cm tall.",
+    "category": "Deduction",
+    "abbreviation": "D-67"
+  },
+  {
+    "index": 68,
+    "text": "Wait, no.",
+    "category": "Backtracking",
+    "abbreviation": "B-68"
+  },
+  {
+    "index": 69,
+    "text": "The hole is a cylinder, so its projection on the side view would be a rectangle because the side view is perpendicular to the hole's axis.",
+    "category": "Deduction",
+    "abbreviation": "D-69"
+  },
+  {
+    "index": 70,
+    "text": "The width of the rectangle would be the diameter of the hole (1 cm), and the height would be the length of the hole, which is the same as the block's height, 3 cm.",
+    "category": "Deduction",
+    "abbreviation": "D-70"
+  },
+  {
+    "index": 71,
+    "text": "But wait, the hole is drilled through the entire block, so in the side view, the hole would appear as a rectangle that spans the entire height of the block, but only the width of the hole.",
+    "category": "Backtracking",
+    "abbreviation": "B-71"
+  },
+  {
+    "index": 72,
+    "text": "So, in the top view, the hole appears as a circle because the projection is along the horizontal axis, perpendicular to the hole's axis.",
+    "category": "Deduction",
+    "abbreviation": "D-72"
+  },
+  {
+    "index": 73,
+    "text": "In the front view, the hole appears as a circle because we're looking directly at it.",
+    "category": "Deduction",
+    "abbreviation": "D-73"
+  },
+  {
+    "index": 74,
+    "text": "In the side view, the hole appears as a rectangle because the projection is along the vertical axis, which is the hole's axis, so we see the width (diameter) and the height (length) of the hole.",
+    "category": "Deduction",
+    "abbreviation": "D-74"
+  },
+  {
+    "index": 75,
+    "text": "Wait, no.",
+    "category": "Backtracking",
+    "abbreviation": "B-75"
+  },
+  {
+    "index": 76,
+    "text": "In orthographic projection, each view is a projection onto a plane.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-76"
+  },
+  {
+    "index": 77,
+    "text": "The top view is onto the top face, which is perpendicular to the vertical axis.",
+    "category": "Deduction",
+    "abbreviation": "D-77"
+  },
+  {
+    "index": 78,
+    "text": "The front view is onto the front face, which is perpendicular to the horizontal axis.",
+    "category": "Deduction",
+    "abbreviation": "D-78"
+  },
+  {
+    "index": 79,
+    "text": "The side view is onto the side face, which is also perpendicular to the horizontal axis.",
+    "category": "Deduction",
+    "abbreviation": "D-79"
+  },
+  {
+    "index": 80,
+    "text": "Wait, no, the side view is looking along the horizontal axis, which is the same as the front and back faces.",
+    "category": "Backtracking",
+    "abbreviation": "B-80"
+  },
+  {
+    "index": 81,
+    "text": "So, the hole is vertical, going through the block from front to back.",
+    "category": "Deduction",
+    "abbreviation": "D-81"
+  },
+  {
+    "index": 82,
+    "text": "So, in the top view, which is looking down from above, the hole would appear as a circle at the center of the top face.",
+    "category": "Deduction",
+    "abbreviation": "D-82"
+  },
+  {
+    "index": 83,
+    "text": "In the front view, looking directly at the front face, the hole is centered on the front face, so the front view would show the circular cross-section of the hole.",
+    "category": "Deduction",
+    "abbreviation": "D-83"
+  },
+  {
+    "index": 84,
+    "text": "In the side view, looking along the side, the hole is vertical, so the projection would show the height and the diameter.",
+    "category": "Deduction",
+    "abbreviation": "D-84"
+  },
+  {
+    "index": 85,
+    "text": "Therefore, it would appear as a rectangle.",
+    "category": "Deduction",
+    "abbreviation": "D-85"
+  },
+  {
+    "index": 86,
+    "text": "Wait, but the side view is perpendicular to the front and back faces.",
+    "category": "Question Posing",
+    "abbreviation": "QP-86"
+  },
+  {
+    "index": 87,
+    "text": "So, if the hole is vertical, going through the block, then in the side view, the hole would appear as a rectangle because the projection would show the width (diameter) and the height (length of the hole).",
+    "category": "Deduction",
+    "abbreviation": "D-87"
+  },
+  {
+    "index": 88,
+    "text": "But wait, the hole is only 1 cm in diameter, so the rectangle would be 1 cm wide and 3 cm tall.",
+    "category": "Deduction",
+    "abbreviation": "D-88"
+  },
+  {
+    "index": 89,
+    "text": "So, to summarize:\n\n- Top view: the hole appears as a circle because the projection is perpendicular to the hole's axis.",
+    "category": "Summary",
+    "abbreviation": "S-89"
+  },
+  {
+    "index": 90,
+    "text": "- Front view: the hole appears as a circle because we're looking directly at it.",
+    "category": "Summary",
+    "abbreviation": "S-90"
+  },
+  {
+    "index": 91,
+    "text": "- Side view: the hole appears as a rectangle because the projection is along the hole's axis, showing the width and height.",
+    "category": "Deduction",
+    "abbreviation": "D-91"
+  },
+  {
+    "index": 92,
+    "text": "Wait, but the side view is perpendicular to the front and back faces, so the hole is vertical, and the side view would show the circular cross-section as a rectangle.",
+    "category": "Backtracking",
+    "abbreviation": "B-92"
+  },
+  {
+    "index": 93,
+    "text": "Yes, that makes sense.",
+    "category": "Deduction",
+    "abbreviation": "D-93"
+  },
+  {
+    "index": 94,
+    "text": "So, in the top and front views, the hole is a circle, and in the side view, it's a rectangle.",
+    "category": "Deduction",
+    "abbreviation": "D-94"
+  },
+  {
+    "index": 95,
+    "text": "But wait, in the top view, the hole is only 1 cm in diameter, so the circle is small compared to the top face of the cube.",
+    "category": "Deduction",
+    "abbreviation": "D-95"
+  },
+  {
+    "index": 96,
+    "text": "Similarly, in the front view, the hole is a circle of 1 cm diameter centered on the front face.",
+    "category": "Deduction",
+    "abbreviation": "D-96"
+  },
+  {
+    "index": 97,
+    "text": "In the side view, the hole is a rectangle of 1 cm width and 3 cm height.",
+    "category": "Deduction",
+    "abbreviation": "D-97"
+  },
+  {
+    "index": 98,
+    "text": "So, the hole is visible as a complete circle in the top and front views, and as a rectangle in the side view.",
+    "category": "Summary",
+    "abbreviation": "S-98"
+  },
+  {
+    "index": 99,
+    "text": "I think that's the correct answer.",
+    "category": "Final Answer",
+    "abbreviation": "FA-99"
+  },
+  {
+    "index": 100,
+    "text": "</think>\n\nThe top view and front view show the hole as a complete circle, while the side view shows it as a rectangle.",
+    "category": "Deduction",
+    "abbreviation": "D-100"
+  },
+  {
+    "index": 101,
+    "text": "Top view: Circle  \nFront view: Circle  \nSide view: Rectangle  \n\nIn the top and front orthographic projections, the cylindrical hole appears as a complete circle.",
+    "category": "Deduction",
+    "abbreviation": "D-101"
+  },
+  {
+    "index": 102,
+    "text": "In the side orthographic projection, the hole appears as a rectangle.",
+    "category": "Deduction",
+    "abbreviation": "D-102"
+  }
+]

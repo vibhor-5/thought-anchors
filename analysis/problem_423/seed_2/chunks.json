@@ -1,0 +1,338 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: Use proof by contradiction to prove the following statement: If n is an integer and n\u00b2 is even, then n is even.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Solution: \n<think>\nOkay, so I need to prove that if n is an integer and n squared is even, then n must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Hmm, the problem suggests using proof by contradiction, which means I should assume the opposite of what I want to prove and then show that this assumption leads to a contradiction.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "Alright, let me start by writing down what I know.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "I know that an integer is any whole number, positive or negative, including zero.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Now, an even number is any integer that can be written as 2 times another integer, right? So, if n is even, then n = 2k for some integer k.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "That makes sense.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "Now, the statement says that if n squared is even, then n is even.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Let me think about what n squared being even implies.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "If n squared is even, that means n\u00b2 is divisible by 2.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "So, n\u00b2 = 2m for some integer m.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "But wait, I need to prove that n must be even if n\u00b2 is even.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Maybe I should assume the opposite and see where that leads me.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "So, let's assume that n is odd.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "If n is odd, then it can be written as 2k + 1 for some integer k.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "That's the standard form for odd numbers.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "If n is 2k + 1, then n squared would be (2k + 1)\u00b2.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Let me expand that.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "(2k + 1)\u00b2 = 4k\u00b2 + 4k + 1.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Hmm, so n\u00b2 = 4k\u00b2 + 4k + 1.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "Now, looking at this expression, 4k\u00b2 and 4k are both multiples of 4, right? So, 4k\u00b2 + 4k is divisible by 4, and then we have +1.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "So, n\u00b2 = 4(k\u00b2 + k) + 1.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Wait a second, if n\u00b2 is 4(k\u00b2 + k) + 1, that means n\u00b2 is one more than a multiple of 4.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "So, n\u00b2 is congruent to 1 modulo 4.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "But earlier, we assumed that n\u00b2 is even, which means n\u00b2 is divisible by 2.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "But if n\u00b2 is congruent to 1 modulo 4, that tells us something about its divisibility by 2.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Let me think about this.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "If n\u00b2 is congruent to 1 mod 4, then it's odd because 1 mod 4 is an odd number.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "But wait, we were told that n\u00b2 is even.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "So, we have a contradiction here because n\u00b2 cannot be both even and odd at the same time.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "That's a problem.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "So, our initial assumption that n is odd leads us to conclude that n\u00b2 is odd, which contradicts the given that n\u00b2 is even.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Therefore, our assumption that n is odd must be false.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "Hence, n must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Wait, did I make a mistake here? Let me double-check.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "If n is odd, then n = 2k + 1, and n\u00b2 = 4k\u00b2 + 4k + 1, which is indeed 1 more than a multiple of 4, so it's odd.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "But the problem states that n\u00b2 is even, so that's a contradiction.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Therefore, n cannot be odd, so n must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "Yes, that seems correct.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "So, by assuming that n is odd, we derived that n\u00b2 is odd, which contradicts the given that n\u00b2 is even.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "Therefore, our initial assumption is wrong, and n must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "That's a solid proof by contradiction.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "</think>\n\nAlright, let me lay out the proof step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "**Proof by Contradiction:**\n\n*Statement to Prove:* If \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "**Step 1:** Assume the opposite of what we want to prove.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "That is, assume \\( n \\) is odd.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "**Step 2:** If \\( n \\) is odd, it can be expressed in the form \\( n = 2k + 1 \\) where \\( k \\) is an integer.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "**Step 3:** Compute \\( n^2 \\) using the expression from Step 2:\n\\[\nn^2 = (2k + 1)^2 = 4k^2 + 4k + 1\n\\]\n\n**Step 4:** Simplify the expression:\n\\[\nn^2 = 4(k^2 + k) + 1\n\\]\nThis shows that \\( n^2 \\) is one more than a multiple of 4, meaning \\( n^2 \\) is odd.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "**Step 5:** Recall the given condition that \\( n^2 \\) is even.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "This implies that \\( n^2 \\) is divisible by 2.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "**Step 6:** We now have a contradiction because \\( n^2 \\) cannot be both even and odd simultaneously.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "**Step 7:** Since our assumption that \\( n \\) is odd leads to a contradiction, the assumption must be false.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "**Step 8:** Therefore, \\( n \\) must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "**Conclusion:** If \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  }
+]

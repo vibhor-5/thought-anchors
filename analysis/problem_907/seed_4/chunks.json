@@ -1,0 +1,68 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A hospital offers a screening test for a rare disease that affects 1% of the population.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "The test is 95% accurate, meaning that if a person has the disease, the test will correctly identify them as positive 95% of the time (sensitivity), and if a person does not have the disease, the test will correctly identify them as negative 95% of the time (specificity).",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "If a person receives a positive test result, what is the probability that they actually have the disease? \n\n Solution: \n<think>\nTo determine the probability that a person actually has the disease given a positive test result, I'll use Bayes' Theorem.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "First, I'll define the probabilities:\n- P(D) = 0.01 (Probability of having the disease)\n- P(\u00acD) = 0.99 (Probability of not having the disease)\n- P(T+|D) = 0.95 (Sensitivity of the test)\n- P(T-|\u00acD) = 0.95 (Specificity of the test)\n\nNext, I'll calculate the probability of testing positive:\nP(T+|D) * P(D) = 0.95 * 0.01 = 0.0095\n\nThen, the probability of testing positive when not having the disease:\nP(T+|\u00acD) * P(\u00acD) = 0.95 * 0.99 = 0.9405\n\nNow, the total probability of testing positive is:\nP(T+) = P(T+|D) * P(D) + P(T+|\u00acD) * P(\u00acD) = 0.0095 + 0.9405 = 0.95\n\nFinally, the probability that a person actually has the disease given a positive test result is:\nP(D|T+) = P(T+|D) * P(D) / P(T+) = 0.0095 / 0.95 = 0.01\n\nSo, the probability is 1%.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "</think>\n\n**Solution:**\n\nTo determine the probability that a person **actually has the disease** given a positive test result, we can use **Bayes' Theorem**.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Here's a step-by-step breakdown:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "**Define the probabilities:**\n   - **P(D)** = Probability of having the disease = 1% = 0.01\n   - **P(\u00acD)** = Probability of not having the disease = 99% = 0.99\n   - **P(T+|D)** = Probability of testing positive given the disease = 95% = 0.95\n   - **P(T-|\u00acD)** = Probability of testing negative given no disease = 95% = 0.95\n\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "**Calculate the total probability of testing positive:**\n   - **P(T+)** = P(T+|D) * P(D) + P(T+|\u00acD) * P(\u00acD)\n   - **P(T+)** = 0.95 * 0.01 + 0.95 * 0.99\n   - **P(T+)** = 0.0095 + 0.9405\n   - **P(T+)** = **0.95**\n\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "**Apply Bayes' Theorem to find P(D|T+):**\n   - **P(D|T+)** = [P(T+|D) * P(D)] / P(T+)\n   - **P(D|T+)** = (0.95 * 0.01) / 0.95\n   - **P(D|T+)** = 0.0095 / 0.95\n   - **P(D|T+)** = **0.01**\n\n**Final Answer:**\n\nThe probability that a person actually has the disease given a positive test result is \\(\\boxed{1\\%}\\).",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  }
+]

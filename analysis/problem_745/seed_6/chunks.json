@@ -1,0 +1,86 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: Consider the following sequence of transformations:\n\nInput \u2192 Output\n2 \u2192 5\n5 \u2192 14\n8 \u2192 23\n11 \u2192 32\n14 \u2192 41\n\nBased on the pattern above, determine the rule that transforms the input into the output.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Then, calculate the output for the input value 20.",
+    "category": "Question Posing",
+    "abbreviation": "QP-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nTo determine the rule that transforms the input into the output, I'll start by analyzing the given pairs:\n\nInput: 2 \u2192 Output: 5\nInput: 5 \u2192 Output: 14\nInput: 8 \u2192 Output: 23\nInput: 11 \u2192 Output: 32\nInput: 14 \u2192 Output: 41\n\nLooking at the differences between consecutive inputs and outputs:\n\n5 - 2 = 3\n14 - 5 = 9\n23 - 8 = 15\n32 - 11 = 21\n41 - 14 = 27\n\nI notice that these differences are multiples of 3: 3, 9, 15, 21, 27.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "Specifically, they are 3 multiplied by 1, 3, 5, 7, and 9.",
+    "category": "Deduction",
+    "abbreviation": "D-5"
+  },
+  {
+    "index": 6,
+    "text": "Next, I'll calculate the sum of the input and the difference:\n\nFor input 2: 2 + 3 = 5\nFor input 5: 5 + 9 = 14\nFor input 8: 8 + 15 = 23\nFor input 11: 11 + 21 = 32\nFor input 14: 14 + 27 = 41\n\nThis confirms that the output is the sum of the input and a multiple of 3.",
+    "category": "Deduction",
+    "abbreviation": "D-6"
+  },
+  {
+    "index": 7,
+    "text": "To generalize, the rule is:\n\nOutput = Input + 3 \u00d7 (2n - 1), where n is the position of the input in the sequence.",
+    "category": "Final Answer",
+    "abbreviation": "FA-7"
+  },
+  {
+    "index": 8,
+    "text": "Applying this rule to the input value 20:\n\nn = 5 (since 20 is the fifth input in the sequence)\nOutput = 20 + 3 \u00d7 (2\u00d75 - 1) = 20 + 3\u00d79 = 20 + 27 = 47\n\nDONE.",
+    "category": "Example Testing",
+    "abbreviation": "ET-8"
+  },
+  {
+    "index": 9,
+    "text": "</think>\n\nTo determine the rule that transforms the input into the output, let's analyze the given pairs:\n\n**Input:** 2 \u2192 **Output:** 5  \n**Input:** 5 \u2192 **Output:** 14  \n**Input:** 8 \u2192 **Output:** 23  \n**Input:** 11 \u2192 **Output:** 32  \n**Input:** 14 \u2192 **Output:** 41  \n\nLet's compute the differences between consecutive inputs and outputs:\n\n- **5 - 2 = 3**  \n- **14 - 5 = 9**  \n- **23 - 8 = 15**  \n- **32 - 11 = 21**  \n- **41 - 14 = 27**  \n\nWe notice that these differences are multiples of **3**:  \n**3, 9, 15, 21, 27**  \nSpecifically, they are **3 \u00d7 1, 3 \u00d7 3, 3 \u00d7 5, 3 \u00d7 7, 3 \u00d7 9**.",
+    "category": "Deduction",
+    "abbreviation": "D-9"
+  },
+  {
+    "index": 10,
+    "text": "Next, we'll express the output as the sum of the input and a multiple of **3**:\n\n- **Output = Input + 3 \u00d7 (2n - 1)**  \n  where **n** is the position of the input in the sequence.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "**Applying this rule to the input value 20:**\n\n1.",
+    "category": "Example Testing",
+    "abbreviation": "ET-11"
+  },
+  {
+    "index": 12,
+    "text": "**Identify the position of 20 in the sequence:**  \n   The sequence is **2, 5, 8, 11, 14, 20, ...**  \n   So, **20** is the **6th** term, meaning **n = 6**.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "2. **Calculate the output:**  \n   **Output = 20 + 3 \u00d7 (2 \u00d7 6 - 1) = 20 + 3 \u00d7 11 = 20 + 33 = 53**\n\n**DONE.**  \n**Answer:** \\boxed{53}",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  }
+]

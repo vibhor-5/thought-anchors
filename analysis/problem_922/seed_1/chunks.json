@@ -1,0 +1,806 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A neighborhood bookstore runs a weekly raffle where customers have an equal chance of winning one of three prizes: a $10 gift card, a $25 gift card, or a $50 gift card.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "If you enter this raffle once each week for 12 consecutive weeks, what is the probability that the total value of your winnings will be exactly $120? Assume each weekly drawing is independent.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nAlright, so I've got this problem here about a raffle at a neighborhood bookstore.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "Let me try to understand it step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Okay, the raffle works like this: each week, customers have an equal chance of winning one of three prizes: a $10 gift card, a $25 gift card, or a $50 gift card.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "I enter this raffle once each week for 12 consecutive weeks.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "The question is asking for the probability that the total value of my winnings will be exactly $120.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "They also mention that each weekly drawing is independent.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Hmm, so I need to find the probability that after 12 weeks, the total amount I've won is exactly $120.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Since each week's raffle is independent, the outcome of one week doesn't affect the others.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "That means each week, I have three possible outcomes, each with equal probability.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "First, let me figure out the probability of winning each prize each week.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Since there are three prizes, each has a 1/3 chance.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "So, the probability of winning $10 is 1/3, $25 is 1/3, and $50 is 1/3.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Now, I'm doing this 12 times, and I want the total to be exactly $120.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "Let me think about how to model this.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "It sounds like a problem that involves probability and combinatorics, maybe something with combinations or permutations.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Since each week is independent, maybe I can use the multiplication rule for independent events.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Let me define some variables to make this clearer.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Let me denote:\n\n- \\( W_{10} \\) as the number of weeks I win a $10 gift card.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "- \\( W_{25} \\) as the number of weeks I win a $25 gift card.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "- \\( W_{50} \\) as the number of weeks I win a $50 gift card.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Since I enter the raffle 12 times, the sum of these should be 12:\n\n\\( W_{10} + W_{25} + W_{50} = 12 \\)\n\nAnd the total value I win is:\n\nTotal = \\( 10W_{10} + 25W_{25} + 50W_{50} \\)\n\nAnd I want this total to be exactly $120.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "So:\n\n\\( 10W_{10} + 25W_{25} + 50W_{50} = 120 \\)\n\nNow, I need to find all possible non-negative integer solutions to these equations, considering that \\( W_{10} \\), \\( W_{25} \\), and \\( W_{50} \\) are non-negative integers (since you can't win a negative number of weeks).",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Let me try to simplify this equation.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Maybe I can divide everything by 5 to make the numbers smaller:\n\nTotal = \\( 10W_{10} + 25W_{25} + 50W_{50} = 120 \\)\n\nDivide by 5:\n\n\\( 2W_{10} + 5W_{25} + 10W_{50} = 24 \\)\n\nHmm, that might be easier to work with.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Now, I need to find all triples \\( (W_{10}, W_{25}, W_{50}) \\) such that \\( 2W_{10} + 5W_{25} + 10W_{50} = 24 \\), and \\( W_{10} + W_{25} + W_{50} = 12 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "This seems like a system of linear Diophantine equations.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "I remember that for two variables, we can find solutions using substitution, but with three variables, it might get a bit more complex.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Maybe I can express one variable in terms of the others.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "Let me try to express \\( W_{10} \\) from the first equation:\n\n\\( 2W_{10} = 24 - 5W_{25} - 10W_{50} \\)\n\nSo,\n\n\\( W_{10} = (24 - 5W_{25} - 10W_{50}) / 2 \\)\n\nSince \\( W_{10} \\) must be an integer, the numerator must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "So, \\( 24 - 5W_{25} - 10W_{50} \\) must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Let me note that 5W_{25} and 10W_{50} are multiples of 5.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "24 is even, so subtracting multiples of 5 from it must result in an even number.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Since 5 is odd, each term 5W_{25} and 10W_{50} will have different parity depending on W_{25} and W_{50}.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Wait, 10W_{50} is always even because 10 is even, so 10W_{50} is even regardless of W_{50}.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "Similarly, 5W_{25}: since 5 is odd, 5W_{25} is even if W_{25} is even, and odd if W_{25} is odd.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "So, 24 (even) minus 5W_{25} (which can be even or odd) minus 10W_{50} (even) must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "So, 24 - 5W_{25} - 10W_{50} must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Since 10W_{50} is even, we can write:\n\n24 - 5W_{25} must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "So, 5W_{25} must have the same parity as 24, which is even.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Therefore, 5W_{25} must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "But 5 is odd, so for 5W_{25} to be even, W_{25} must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "So, W_{25} must be even.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "Let me denote W_{25} as 2k, where k is an integer.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "So, W_{25} = 2k.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Similarly, I can express W_{10} as:\n\n\\( W_{10} = (24 - 5*(2k) - 10W_{50}) / 2 \\)\n= \\( (24 - 10k - 10W_{50}) / 2 \\)\n= \\( 12 - 5k - 5W_{50} \\)\n\nSo, W_{10} = 12 - 5k - 5W_{50}\n\nNow, since W_{10} must be non-negative, let's write:\n\n12 - 5k - 5W_{50} \u2265 0\n=> 5k + 5W_{50} \u2264 12\n=> k + W_{50} \u2264 12/5\n=> k + W_{50} \u2264 2.4\n\nBut k and W_{50} are non-negative integers, so the maximum value k + W_{50} can take is 2.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "So, possible values of k and W_{50} are such that k + W_{50} \u2264 2.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "Let me list the possible combinations:\n\nCase 1: k + W_{50} = 0\nThen, k=0, W_{50}=0\n\nCase 2: k + W_{50} = 1\nPossible subcases:\n- k=0, W_{50}=1\n- k=1, W_{50}=0\n\nCase 3: k + W_{50} = 2\nPossible subcases:\n- k=0, W_{50}=2\n- k=1, W_{50}=1\n- k=2, W_{50}=0\n\nWait, but since k is W_{25}/2, and W_{25} must be \u226412 because W_{25} + W_{10} + W_{50}=12, but with k being an integer, and W_{25}=2k, k can be up to 6 because 2*6=12.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "But from the earlier equation, k + W_{50} \u22642, so k can be 0,1,2.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Wait, let me double-check that.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "From W_{10} =12 -5k -5W_{50} \u22650\n\nSo, 12 -5(k + W_{50}) \u22650\n=> 5(k + W_{50}) \u226412\n=> k + W_{50} \u226412/5=2.4\n\nSince k and W_{50} are integers, their sum must be \u22642.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "So, possible values are:\n\nk=0, W_{50}=0,1,2\n\nk=1, W_{50}=0,1\n\nk=2, W_{50}=0\n\nBecause if k=3, then W_{50} would have to be \u2264-1, which isn't possible.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "So, let me list all possible (k, W_{50}) pairs:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "k=0, W_{50}=0\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "k=0, W_{50}=1\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "k=0, W_{50}=2\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "k=1, W_{50}=0\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "k=1, W_{50}=1\n6.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "k=2, W_{50}=0\n\nNow, for each of these, I can compute W_{10} and check if all W's are non-negative integers and satisfy the total weeks equation.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "Let's go through each case:\n\nCase 1: k=0, W_{50}=0\n\nThen,\n\nW_{25}=2k=0\n\nW_{10}=12 -5*0 -5*0=12\n\nNow, check if W_{10} + W_{25} + W_{50}=12+0+0=12, which is correct.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "Total value: 10*12 +25*0 +50*0=120+0+0=120.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "So this is a valid case.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Case 2: k=0, W_{50}=1\n\nThen,\n\nW_{25}=2*0=0\n\nW_{10}=12 -5*0 -5*1=12-0-5=7\n\nCheck total weeks: 7+0+1=8\u226012.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Wait, that's a problem.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "Wait, no, I think I made a mistake here.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "Because W_{10}=7, W_{25}=0, W_{50}=1.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "So total weeks=7+0+1=8, which is less than 12.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "That can't be, because I entered 12 times.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "So this case is invalid because the total weeks don't add up to 12.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "Wait, but earlier I thought that k + W_{50} \u22642, but perhaps I missed that W_{10} + W_{25} + W_{50}=12, so in this case, W_{10}=7, W_{25}=0, W_{50}=1.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "7+0+1=8\u226012. So this case is not valid.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "Therefore, this combination is invalid.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "Wait, that's a problem.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "Maybe I made a mistake in the substitution.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Wait, W_{10}=12 -5k -5W_{50}\n\nSo, in case 2: k=0, W_{50}=1\n\nW_{10}=12 -0 -5*1=7\n\nBut then total weeks=7+0+1=8, which is not 12.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "So this is invalid.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "Similarly, let's check case 3:\n\nCase 3: k=0, W_{50}=2\n\nThen,\n\nW_{25}=0\n\nW_{10}=12 -0 -5*2=12-10=2\n\nTotal weeks:2+0+2=4\u226012.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "So invalid.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "Case 4: k=1, W_{50}=0\n\nW_{25}=2*1=2\n\nW_{10}=12 -5*1 -0=12-5=7\n\nTotal weeks:7+2+0=9\u226012.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "Invalid. Case 5: k=1, W_{50}=1\n\nW_{25}=2\n\nW_{10}=12 -5*1 -5*1=12-10=2\n\nTotal weeks:2+2+1=5\u226012.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "Invalid. Case 6: k=2, W_{50}=0\n\nW_{25}=4\n\nW_{10}=12 -5*2 -0=12-10=2\n\nTotal weeks:2+4+0=6\u226012.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "Invalid. Wait, so all these cases except case 1 result in total weeks less than 12.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "That can't be right because I entered 12 times, so the sum of W_{10}+W_{25}+W_{50} must be 12.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "So, I must have made a mistake in my approach.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Maybe I should try a different method.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "Alternative approach: Let me think of the total value equation and the total weeks equation together.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "I have:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "\\( W_{10} + W_{25} + W_{50} =12 \\)\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "\\( 10W_{10} +25W_{25} +50W_{50}=120 \\)\n\nLet me try to express this as a linear system.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "Let me subtract 2.5 times equation 1 from equation 2:\n\nEquation 2: \\( 10W_{10} +25W_{25} +50W_{50}=120 \\)\n\n2.5 times equation 1: \\( 2.5W_{10} + 2.5W_{25} +2.5W_{50}=30 \\)\n\nSubtracting:\n\n\\( (10W_{10} -2.5W_{10}) + (25W_{25} -2.5W_{25}) + (50W_{50} -2.5W_{50}) =120 -30 \\)\n\nWhich simplifies to:\n\n\\( 7.5W_{10} +22.5W_{25} +47.5W_{50}=90 \\)\n\nHmm, that's not very helpful because of the decimals.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "Maybe a better approach is to manipulate the equations differently.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "Let me try to express equation 2 in terms of equation 1.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "From equation 1: \\( W_{10} + W_{25} + W_{50}=12 \\)\n\nLet me multiply equation 1 by 10:\n\n10W_{10} +10W_{25} +10W_{50}=120\n\nNow, subtract this from equation 2:\n\n(10W_{10} +25W_{25} +50W_{50}) - (10W_{10} +10W_{25} +10W_{50}) =120 -120\n\nWhich gives:\n\n15W_{25} +40W_{50}=0\n\nSo, 15W_{25} +40W_{50}=0\n\nSince W_{25} and W_{50} are non-negative integers, the only solution is W_{25}=0 and W_{50}=0.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "Wait, that's interesting.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "So, from this, W_{25}=0 and W_{50}=0.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "Then, from equation 1: W_{10}=12.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "So, the only solution is W_{10}=12, W_{25}=0, W_{50}=0.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "But wait, that would mean I won the $10 gift card 12 times, which seems possible, but let me check if that adds up to $120.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "Yes, 12*10=120.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "But is this the only solution?\n\nWait, but earlier when I tried the substitution method, I found that only W_{25}=0 and W_{50}=0 gives W_{10}=12, which satisfies both equations.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "So, perhaps that's the only solution.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "But that seems a bit restrictive.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "Let me check again.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "From equation 2: 10W_{10} +25W_{25} +50W_{50}=120\n\nFrom equation 1: W_{10}=12 - W_{25} - W_{50}\n\nSubstitute into equation 2:\n\n10*(12 - W_{25} - W_{50}) +25W_{25} +50W_{50}=120\n\nExpanding:\n\n120 -10W_{25} -10W_{50} +25W_{25} +50W_{50}=120\n\nCombine like terms:\n\n120 + ( -10W_{25} +25W_{25}) + (-10W_{50} +50W_{50})=120\n\nWhich simplifies to:\n\n120 +15W_{25} +40W_{50}=120\n\nSubtract 120 from both sides:\n\n15W_{25} +40W_{50}=0\n\nWhich again gives W_{25}=0 and W_{50}=0.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "So, indeed, the only solution is W_{10}=12, W_{25}=0, W_{50}=0.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "Wait, but that seems to suggest that the only way to get exactly $120 is to win the $10 gift card 12 times.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "Is that possible?\n\nBecause 12 weeks * $10 = $120, and any other combination would either give less than $120 or more than $120.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "Wait, let me check that.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "For example, if I won a $25 gift card once, that's $25, and then I have 11 weeks left.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "If I won $10 in the remaining 11 weeks, that would be 11*10 +25=115, which is less than 120.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "If I won $50 once, that's 50 +11*10=50+110=160, which is more than 120.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "Similarly, if I won two $25 gift cards, that's 50, and then 10 weeks left.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "10*10=100, total 150, which is more than 120.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "Alternatively, if I won one $25 and one $50, that's 75, and 10 weeks left: 10*10=100, total 175, which is way more.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "So, indeed, the only way to get exactly $120 is to win the $10 gift card 12 times.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "Therefore, the probability is the probability of winning $10 gift card 12 times in 12 weeks.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "Since each week is independent, the probability of winning $10 each week is (1/3)^12.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "So, the probability is (1/3)^12.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "Calculating that, (1/3)^12 = 1 / 531441 \u2248 0.00000188.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "But let me confirm that there are no other possible combinations that could sum to $120.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "Wait, perhaps I missed something.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "Let me think differently.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "Suppose I have W_{10}, W_{25}, W_{50} such that 10W_{10} +25W_{25} +50W_{50}=120.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "I can write this as 2W_{10} +5W_{25} +10W_{50}=24, as I did before.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "Let me try to find all non-negative integer solutions to this equation.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "Let me consider W_{50} first.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "Since 10W_{50} \u226424, W_{50} can be 0,1,2.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "Case 1: W_{50}=0\n\nThen, equation becomes 2W_{10} +5W_{25}=24.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "We can write this as 2W_{10}=24 -5W_{25}.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "So, 24 -5W_{25} must be even and non-negative.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "Since 5W_{25} must be \u226424 and even, W_{25} must be even because 5 is odd, so 5W_{25} is even only if W_{25} is even.",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  }
+]

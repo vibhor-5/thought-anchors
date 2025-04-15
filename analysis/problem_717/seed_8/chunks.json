@@ -1,0 +1,728 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small neighborhood library has received a donation of $1,200 to improve its children's section.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "The librarian needs to decide how to allocate this money among three options: new books ($20 each), educational games ($40 each), and comfortable seating cushions ($60 each).",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Based on feedback from patrons, the library should have at least twice as many books as games, and at least one cushion for every four books.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "What is the maximum number of total items (books, games, and cushions combined) that the library can purchase while staying within budget and meeting all requirements? \n\n Solution: \n<think>\nAlright, so I need to figure out how the librarian can allocate the $1,200 donation among books, games, and cushions.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "The goal is to maximize the total number of items while meeting the requirements.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Let me break down the problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "First, let's define the variables:\n\n- Let \\( b \\) be the number of new books.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "- Let \\( g \\) be the number of educational games.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "- Let \\( c \\) be the number of comfortable seating cushions.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Each book costs $20, each game costs $40, and each cushion costs $60.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "So, the total cost can be represented by the equation:\n\n\\[ 20b + 40g + 60c \\leq 1200 \\]\n\nNow, the library has some constraints based on the feedback:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "**At least twice as many books as games**: This means the number of books is at least two times the number of games.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Mathematically, this can be written as:\n   \n   \\[ b \\geq 2g \\]\n\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "**At least one cushion for every four books**: For every four books, there should be at least one cushion.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "This means the number of cushions is at least one-fourth of the number of books.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "So, the constraint is:\n   \n   \\[ c \\geq \\frac{b}{4} \\]\n\nOur goal is to maximize the total number of items, which is:\n\n\\[ \\text{Total Items} = b + g + c \\]\n\nTo maximize this, we need to express \\( c \\) in terms of \\( b \\) and \\( g \\) using the constraints and substitute back into the budget equation.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "Let's start by expressing \\( c \\) in terms of \\( b \\).",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "From the second constraint:\n\n\\[ c \\geq \\frac{b}{4} \\]\n\nTo find the maximum \\( c \\) without exceeding the budget, we'll use the minimum required \\( c \\) to free up more money for books and games.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "So, let's set \\( c = \\frac{b}{4} \\).",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Now, substitute \\( c = \\frac{b}{4} \\) into the budget equation:\n\n\\[ 20b + 40g + 60\\left(\\frac{b}{4}\\right) \\leq 1200 \\]\n\nSimplify the equation:\n\nFirst, calculate \\( 60 \\times \\frac{b}{4} \\):\n\\[ 60 \\times \\frac{b}{4} = 15b \\]\n\nSo, the equation becomes:\n\n\\[ 20b + 40g + 15b \\leq 1200 \\]\n\nCombine like terms:\n\n\\[ 35b + 40g \\leq 1200 \\]\n\nNow, from the first constraint \\( b \\geq 2g \\), we can express \\( g \\) in terms of \\( b \\):\n\n\\[ g \\leq \\frac{b}{2} \\]\n\nLet's substitute \\( g \\) with \\( \\frac{b}{2} \\) in the budget equation to find the maximum \\( b \\) possible.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "So, substituting \\( g = \\frac{b}{2} \\):\n\n\\[ 35b + 40\\left(\\frac{b}{2}\\right) \\leq 1200 \\]\n\nSimplify:\n\nFirst, calculate \\( 40 \\times \\frac{b}{2} \\):\n\\[ 40 \\times \\frac{b}{2} = 20b \\]\n\nNow, the equation becomes:\n\n\\[ 35b + 20b \\leq 1200 \\]\n\\[ 55b \\leq 1200 \\]\n\nSolving for \\( b \\):\n\n\\[ b \\leq \\frac{1200}{55} \\]\n\\[ b \\leq 21.\\overline{81} \\]\n\nSince the number of books must be a whole number, we take the integer part:\n\n\\[ b \\leq 21 \\]\n\nWait a second, let me double-check that calculation because 55 times 21 is 1155, which is less than 1200.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "Let me see how much money is left after buying 21 books.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Calculate the total cost for 21 books:\n\n\\[ 21 \\times 20 = 420 \\]\n\nThen, \\( c = \\frac{21}{4} = 5.25 \\), but since we can't have a fraction of a cushion, we need to round up to 6 cushions.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "However, if we do that, the total cost might exceed the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Let me verify.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Wait, I think I made a mistake here.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Earlier, I substituted \\( g = \\frac{b}{2} \\) into the budget equation, but perhaps I should consider that \\( g \\) could be less than \\( \\frac{b}{2} \\) to allow more money for books and cushions.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Alternatively, maybe I should express \\( g \\) in terms of \\( b \\) and substitute accordingly.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Let me try another approach.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Let's express \\( g \\) as \\( g = \\frac{b}{2} - x \\), where \\( x \\) is a non-negative integer.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "This way, \\( g \\) is less than or equal to \\( \\frac{b}{2} \\).",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "But this might complicate things.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Alternatively, let's express \\( g \\) in terms of \\( b \\) and substitute into the budget equation.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "From \\( b \\geq 2g \\), we can write \\( g \\leq \\frac{b}{2} \\).",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "So, to maximize the number of items, we should take \\( g \\) as large as possible, which is \\( g = \\frac{b}{2} \\).",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Therefore, substituting \\( g = \\frac{b}{2} \\) is correct.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "So, going back to the equation:\n\n\\[ 35b + 40g \\leq 1200 \\]\n\nSubstituting \\( g = \\frac{b}{2} \\):\n\n\\[ 35b + 40 \\times \\frac{b}{2} \\leq 1200 \\]\n\\[ 35b + 20b \\leq 1200 \\]\n\\[ 55b \\leq 1200 \\]\n\\[ b \\leq \\frac{1200}{55} \\approx 21.81 \\]\n\nSince \\( b \\) must be an integer, \\( b = 21 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Now, calculate \\( g \\):\n\n\\[ g = \\frac{b}{2} = \\frac{21}{2} = 10.5 \\]\n\nBut \\( g \\) must be an integer.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "So, \\( g = 10 \\) because we can't have half a game.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Wait, but if \\( b = 21 \\) and \\( g = 10 \\), does that satisfy \\( b \\geq 2g \\)?\n\nLet's check:\n\n\\[ 21 \\geq 2 \\times 10 \\]\n\\[ 21 \\geq 20 \\]\n\nYes, that's okay.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "So, \\( g = 10 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Now, calculate \\( c \\):\n\n\\[ c = \\frac{b}{4} = \\frac{21}{4} = 5.25 \\]\n\nAgain, \\( c \\) must be an integer, so we round up to 6 cushions.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "Now, let's calculate the total cost:\n\nBooks: 21 x $20 = $420\nGames: 10 x $40 = $400\nCushions: 6 x $60 = $360\nTotal: $420 + $400 + $360 = $1,180\n\nWe have $20 left unallocated, but since we can't buy more items without exceeding the budget, we'll have to stick with this.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "Now, let's check if we can increase \\( b \\) to 22.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "If \\( b = 22 \\), then:\n\n\\[ g \\leq \\frac{22}{2} = 11 \\]\nSo, \\( g = 11 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "Calculate the cost:\n\nBooks: 22 x $20 = $440\nGames: 11 x $40 = $440\nCushions: \\( c = \\frac{22}{4} = 5.5 \\), rounded up to 6.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Total cost: $440 + $440 + $360 = $1,240\n\nThat's over the budget by $40.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "So, we can't take \\( b = 22 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "Alternatively, maybe we can reduce \\( g \\) to 10 and see if we can have \\( b = 22 \\) and \\( c = 5 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "Wait, but \\( c = 5 \\) would mean \\( 5 = \\frac{22}{4} = 5.5 \\), which is less than 5.5, so it's okay, but we need at least one cushion for every four books, so 5.5 would require 6 cushions.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "So, we can't have \\( c = 5 \\) if \\( b = 22 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "Therefore, \\( c \\) must be at least 6 when \\( b = 22 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "So, with \\( b = 22 \\), \\( g = 11 \\), and \\( c = 6 \\), the total cost is $440 + $440 + $360 = $1,240, which is over by $40.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "So, we can't do that.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "What if we reduce \\( c \\) to 5? Then, the cost would be $440 + $440 + $300 = $1,180, which is within budget.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "But does that satisfy the constraint?\n\nWait, if \\( b = 22 \\), \\( c = 5 \\), then \\( c = \\frac{22}{4} = 5.5 \\), so 5 is less than 5.5, which violates the constraint of having at least one cushion for every four books.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "Therefore, \\( c \\) must be at least 6 when \\( b = 22 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "So, \\( b = 22 \\) is not possible without exceeding the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "Therefore, the maximum \\( b \\) we can have is 21.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "But let's check if \\( b = 21 \\) and \\( g = 10 \\), \\( c = 6 \\), as before, which gives a total of $1,180, leaving $20 unallocated.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "Alternatively, maybe we can adjust \\( g \\) and \\( c \\) differently to use up the remaining $20.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "For example, if we take \\( b = 21 \\), \\( g = 10 \\), \\( c = 6 \\), total spent is $1,180.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "We have $20 left.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Can we buy more items without violating the constraints?\n\nLet's see.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "To buy more books, we'd need to have \\( b = 21 + x \\), but that would require \\( g \\) to increase as well, which might not be possible without exceeding the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "Alternatively, we can see if we can buy more cushions or games with the remaining $20.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "Each cushion is $60, so we can't buy more with $20.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "Each game is $40, so we can buy one more game for $40, which would exceed the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "Alternatively, buy half a game, but that's not possible.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "Alternatively, maybe we can reduce the number of cushions to free up some money.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "If we have \\( b = 21 \\), \\( g = 10 \\), \\( c = 6 \\), total cost is $1,180.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "Let's see if we can reduce \\( c \\) to 5 and use the saved $5 (since 6x60=360, 5x60=300, so saving $60) but then we can use that $60 to buy more books or games.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "Wait, but reducing \\( c \\) to 5 would mean \\( c = 5 \\), which is less than \\( \\frac{21}{4} = 5.25 \\), so it violates the constraint.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "Therefore, \\( c \\) must be at least 6 when \\( b = 21 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "Alternatively, maybe we can reduce \\( g \\) to 9, which would allow us to increase \\( c \\) to 6, but let's check:\n\nIf \\( g = 9 \\), then:\n\nTotal cost would be:\n\nBooks: 21x20=420\nGames: 9x40=360\nCushions: 6x60=360\nTotal: 420+360+360=1,140\n\nThen, we have $60 left.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Can we use that to buy more books or games.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "Each book is $20, so 3 more books would cost $60, making \\( b = 24 \\), but then \\( g \\) needs to be at least 12 (since \\( b \\geq 2g \\)), so \\( g = 12 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "Calculate cost:\n\nBooks: 24x20=480\nGames: 12x40=480\nCushions: 6x60=360\nTotal: 480+480+360=1,320 > 1,200\n\nThat's over the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "So, can't do that.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "Alternatively, maybe buy 3 more books and 1 more game:\n\nBooks: 24x20=480\nGames: 10x40=400\nCushions: 6x60=360\nTotal: 480+400+360=1,240 >1,200\n\nStill over.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "Alternatively, buy 2 more books and 1 more game:\n\nBooks: 23x20=460\nGames: 11x40=440\nCushions: 6x60=360\nTotal: 460+440+360=1,260 >1,200\n\nStill over.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "Alternatively, buy 1 more book and 1 more game:\n\nBooks: 22x20=440\nGames: 11x40=440\nCushions: 6x60=360\nTotal: 440+440+360=1,240 >1,200\n\nStill over.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "So, it seems that reducing \\( g \\) to 9 and increasing \\( b \\) to 24 is not possible without exceeding the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "Alternatively, maybe reduce \\( g \\) to 10, \\( c \\) to 5, but that would violate the cushion constraint.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "Wait, perhaps a better approach is to express all variables in terms of \\( b \\) and then find the maximum \\( b \\) such that the total cost is within budget.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Let me try that.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "We have:\n\n\\[ c \\geq \\frac{b}{4} \\]\n\\[ g \\leq \\frac{b}{2} \\]\n\nSubstitute \\( g = \\frac{b}{2} \\) and \\( c = \\frac{b}{4} \\) into the budget equation:\n\n\\[ 20b + 40\\left(\\frac{b}{2}\\right) + 60\\left(\\frac{b}{4}\\right) \\leq 1200 \\]\n\\[ 20b + 20b + 15b \\leq 1200 \\]\n\\[ 55b \\leq 1200 \\]\n\\[ b \\leq \\frac{1200}{55} \\approx 21.81 \\]\n\nSo, \\( b = 21 \\) as before.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "Then, \\( g = 10 \\) and \\( c = 6 \\), total items = 21 + 10 + 6 = 37.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "But wait, earlier when I tried \\( b = 21 \\), \\( g = 10 \\), \\( c = 6 \\), total cost was $1,180, leaving $20.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "Is there a way to use that $20 to get more items without violating constraints?\n\nSince each book is $20, we can buy 1 more book, making \\( b = 22 \\), but then \\( g \\) must be at least 11 (since \\( 22 \\geq 2 \\times 11 \\)).",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "Let's see:\n\nBooks: 22x20=440\nGames: 11x40=440\nCushions: \\( c = \\frac{22}{4} = 5.5 \\), so 6.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "Total cost: 440 + 440 + 360 = 1,240 >1,200.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "Over by $40.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "So, can't do that.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "Alternatively, if we reduce \\( c \\) to 5, which is less than 5.5, but violates the constraint.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "So, not allowed.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "Alternatively, maybe reduce \\( g \\) to 10 and \\( c \\) to 6, but then \\( b = 22 \\) and \\( g = 10 \\) would require \\( 22 \\geq 2 \\times 10 \\), which is okay, but \\( c = 6 \\) is less than 5.5, which is not allowed.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "So, \\( c \\) must be at least 6.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "Therefore, \\( b = 21 \\), \\( g = 10 \\), \\( c = 6 \\) is the maximum possible without exceeding the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "But let's check if there's another combination where \\( b \\) is less than 21 but allows more total items.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "Suppose \\( b = 20 \\), then \\( g \\leq 10 \\) and \\( c \\geq 5 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "If \\( b = 20 \\), \\( g = 10 \\), \\( c = 5 \\), total cost:\n\n20x20=400\n10x40=400\n5x60=300\nTotal=1,100\n\nLeaving $100 unallocated.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "Could we use that to buy more items?\n\nEach book is $20, so 5 more books would cost $100, making \\( b = 25 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "Then \\( g = 13 \\) (since \\( 25 \\geq 2 \\times 13 \\)).",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "Calculate cost:\n\n25x20=500\n13x40=520\nc= \\( \\frac{25}{4}=6.25 \\), so 7.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "Total cost: 500+520+420=1,340 >1,200.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "Over by $140.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "Alternatively, buy 5 books and 2 games:\n\n25x20=500\n12x40=480\nc=7x60=420\nTotal=500+480+420=1,400 >1,200.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "Too much.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "Alternatively, buy 4 books and 1 game:\n\n24x20=480\n11x40=440\nc=7x60=420\nTotal=480+440+420=1,340 >1,200.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "Still over.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "Alternatively, buy 3 books and 1 game:\n\n23x20=460\n11x40=440\nc=7x60=420\nTotal=460+440+420=1,320 >1,200.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "Still over.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "Alternatively, buy 2 books and 1 game:\n\n22x20=440\n11x40=440\nc=7x60=420\nTotal=440+440+420=1,200 exactly.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "So, \\( b = 22 \\), \\( g = 11 \\), \\( c = 7 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "But wait, does this satisfy the constraints?\n\nBooks: 22 \u2265 2x11=22, which is okay.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "Cushions: c=7 \u2265 22/4=5.5, which is okay.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "Total cost: 22x20=440, 11x40=440, 7x60=420.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "Total=440+440+420=1",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  }
+]

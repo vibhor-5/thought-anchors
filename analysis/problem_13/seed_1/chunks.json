@@ -1,0 +1,194 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A researcher wants to determine whether a new study method improves test scores.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "She randomly assigns 100 high school students to two groups: 50 students use the new study method (treatment group), while 50 students use their regular study methods (control group).",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-3"
+  },
+  {
+    "index": 4,
+    "text": "After two weeks, all students take the same test, and the treatment group scores 8 points higher on average than the control group.",
+    "category": "Deduction",
+    "abbreviation": "D-4"
+  },
+  {
+    "index": 5,
+    "text": "However, when analyzing the data further, the researcher discovers that the treatment group spent an average of 3 more hours studying than the control group during the two-week period.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-5"
+  },
+  {
+    "index": 6,
+    "text": "What is the primary flaw in this experimental design, and how could the researcher modify the design to better determine whether the new study method itself (rather than study time) causes improved test scores? \n\n Solution: \n<think>\nOkay, so I'm trying to figure out the primary flaw in this researcher's experimental design.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "Let me start by understanding the problem.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "The researcher has two groups of 50 students each.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "The treatment group uses a new study method, and the control group uses their regular methods.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "After two weeks, they take a test, and the treatment group scores 8 points higher on average.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "But then, the researcher notices that the treatment group actually spent an average of 3 more hours studying than the control group during those two weeks.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-11"
+  },
+  {
+    "index": 12,
+    "text": "Hmm, that seems like a confounding variable.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "I think a confounding variable is something that affects the results but wasn't controlled for.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-13"
+  },
+  {
+    "index": 14,
+    "text": "So, in this case, the difference in study time between the two groups could be influencing the test scores, not necessarily the new study method itself.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "Wait, so the higher study time might be the reason why the treatment group did better.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "The researcher can't tell if it's the new method or just spending more time studying.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "That makes sense because more study hours usually lead to better scores.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-17"
+  },
+  {
+    "index": 18,
+    "text": "So the experiment isn't isolating the effect of the new method; instead, it's mixing it with the variable of study time.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "How could the researcher fix this? I think she needs to ensure that both groups study the same amount of time.",
+    "category": "Question Posing",
+    "abbreviation": "QP-19"
+  },
+  {
+    "index": 20,
+    "text": "Maybe she can monitor the study hours and ensure that the control group also spends 3 hours on average.",
+    "category": "Example Testing",
+    "abbreviation": "ET-20"
+  },
+  {
+    "index": 21,
+    "text": "That way, any differences in test scores can be attributed to the new study method, not the time spent.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Alternatively, she could randomly assign students to study groups but also randomly assign the amount of time each group studies.",
+    "category": "Example Testing",
+    "abbreviation": "ET-22"
+  },
+  {
+    "index": 23,
+    "text": "But that might complicate things.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "Maybe a better approach is to have both groups study for the same duration and then compare their test scores.",
+    "category": "Backtracking",
+    "abbreviation": "B-24"
+  },
+  {
+    "index": 25,
+    "text": "If the treatment group still scores higher, then it's likely the method itself is effective.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "If not, then maybe the method isn't the key factor.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "So, the primary flaw is the difference in study time between the groups, which isn't controlled and thus confounds the results.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "The researcher should equalize the study time to isolate the effect of the new method.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "</think>\n\nThe primary flaw in the experimental design is that the treatment group spent more time studying than the control group, introducing a confounding variable.",
+    "category": "Final Answer",
+    "abbreviation": "FA-29"
+  },
+  {
+    "index": 30,
+    "text": "To isolate the effect of the new study method, the researcher should ensure both groups study the same amount of time.",
+    "category": "Final Answer",
+    "abbreviation": "FA-30"
+  },
+  {
+    "index": 31,
+    "text": "This way, any score difference can be attributed solely to the method, not study duration.",
+    "category": "Final Answer",
+    "abbreviation": "FA-31"
+  }
+]

@@ -1,0 +1,296 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A traveler arrives at a fork in the road.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "One path leads to a village of truth-tellers who always tell the truth, and the other path leads to a village of liars who always lie.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-3"
+  },
+  {
+    "index": 4,
+    "text": "Standing at the fork is a resident from one of these villages, but the traveler doesn't know which village the person is from.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
+  },
+  {
+    "index": 5,
+    "text": "The traveler can ask only one question to determine which path leads to the truth-tellers' village.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "What single question should the traveler ask? \n\n Solution: \n<think>\nAlright, so I'm trying to solve this problem where a traveler arrives at a fork in the road.",
+    "category": "Question Posing",
+    "abbreviation": "QP-6"
+  },
+  {
+    "index": 7,
+    "text": "One path leads to a village of truth-tellers who always tell the truth, and the other path leads to a village of liars who always lie.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "There's a resident from one of these villages at the fork, but the traveler doesn't know which one.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "The challenge is to figure out which path leads to the truth-tellers' village by asking only one question.",
+    "category": "Initializing",
+    "abbreviation": "I-9"
+  },
+  {
+    "index": 10,
+    "text": "Hmm, okay.",
+    "category": "Initializing",
+    "abbreviation": "I-10"
+  },
+  {
+    "index": 11,
+    "text": "So the traveler needs to ask a question that will reveal the correct path, regardless of whether the person they're asking is a truth-teller or a liar.",
+    "category": "Initializing",
+    "abbreviation": "I-11"
+  },
+  {
+    "index": 12,
+    "text": "Since the traveler doesn't know which village the resident is from, the question has to be designed in a way that both types of people will give a consistent answer that points to the truth-tellers' village.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "Let me think about how to approach this.",
+    "category": "Initializing",
+    "abbreviation": "I-13"
+  },
+  {
+    "index": 14,
+    "text": "I remember that in logic puzzles like this, asking a specific type of question often works.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-14"
+  },
+  {
+    "index": 15,
+    "text": "Maybe something like asking about what the other person would say? Because if you ask a truth-teller, they'll give a truthful answer, and if you ask a liar, they'll lie about what the truth-teller would say, which might end up pointing to the truth.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "So, perhaps the question should be something along the lines of, \"If I asked you which path leads to the truth-tellers' village, would you tell me the truth?\" Wait, but if the resident is a truth-teller, they would honestly tell the traveler that they would say the truth.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "But if the resident is a liar, they would lie about their response, so they might say \"yes\" even though they would lie.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "Hmm, that might not be the right way to phrase it.",
+    "category": "Backtracking",
+    "abbreviation": "B-18"
+  },
+  {
+    "index": 19,
+    "text": "Alternatively, maybe the question should be more like, \"What would the other village's resident say about which path leads to the truth-tellers' village?\" Because if the traveler asks this, a truth-teller would truthfully relay what the liar would say, which would be the opposite of the truth.",
+    "category": "Question Posing",
+    "abbreviation": "QP-19"
+  },
+  {
+    "index": 20,
+    "text": "Conversely, a liar would lie about what the truth-teller would say, which would also end up pointing to the truth-tellers' village.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "Let me break it down.",
+    "category": "Initializing",
+    "abbreviation": "I-21"
+  },
+  {
+    "index": 22,
+    "text": "Suppose the traveler asks a truth-teller, \"What would the liar say about which path leads to the truth-tellers' village?\" The truth-teller knows that the liar would lie and point to the wrong path, so the truth-teller would truthfully report that the liar would say the wrong path.",
+    "category": "Example Testing",
+    "abbreviation": "ET-22"
+  },
+  {
+    "index": 23,
+    "text": "Therefore, the traveler would know that the opposite is the correct path.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "On the other hand, if the traveler is talking to a liar, the liar would lie about what the truth-teller would say.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "The truth-teller would say the correct path, so the liar would lie and say the incorrect path.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "Thus, the liar's answer would also point to the wrong path, and the traveler would again deduce that the opposite is correct.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "Wait, that seems a bit confusing.",
+    "category": "Backtracking",
+    "abbreviation": "B-27"
+  },
+  {
+    "index": 28,
+    "text": "Maybe I need to rephrase the question.",
+    "category": "Backtracking",
+    "abbreviation": "B-28"
+  },
+  {
+    "index": 29,
+    "text": "Perhaps asking, \"If I asked you which path leads to the truth-tellers' village, would you tell me the truth?\" If the person is a truth-teller, they'll say \"yes\" because they always tell the truth.",
+    "category": "Example Testing",
+    "abbreviation": "ET-29"
+  },
+  {
+    "index": 30,
+    "text": "If they're a liar, they'll say \"yes\" as well because they always lie.",
+    "category": "Example Testing",
+    "abbreviation": "ET-30"
+  },
+  {
+    "index": 31,
+    "text": "That doesn't help because both would say \"yes,\" which doesn't distinguish between the two.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "So that approach doesn't work.",
+    "category": "Backtracking",
+    "abbreviation": "B-32"
+  },
+  {
+    "index": 33,
+    "text": "Let me think again.",
+    "category": "Backtracking",
+    "abbreviation": "B-33"
+  },
+  {
+    "index": 34,
+    "text": "Maybe instead of asking about their own behavior, ask about what the other type would say.",
+    "category": "Question Posing",
+    "abbreviation": "QP-34"
+  },
+  {
+    "index": 35,
+    "text": "So, \"If I asked a resident from the other village which path leads to the truth-tellers' village, what would they say?\" If the traveler is talking to a truth-teller, they'll truthfully report what a liar would say, which is the wrong path.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "If they're talking to a liar, they'll lie about what a truth-teller would say, which is the correct path.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "So in both cases, the answer points to the wrong path, meaning the traveler should take the opposite.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "Wait, no, if the traveler is at a fork, and one path is truth-tellers, the other is liars.",
+    "category": "Backtracking",
+    "abbreviation": "B-38"
+  },
+  {
+    "index": 39,
+    "text": "So if the resident is a truth-teller, they'll truthfully say what a liar would say, which is the wrong path.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "So the traveler would know that the resident is a truth-teller and that the resident said the wrong path, so the correct path is the opposite.",
+    "category": "Deduction",
+    "abbreviation": "D-40"
+  },
+  {
+    "index": 41,
+    "text": "Similarly, if the resident is a liar, they'll lie about what a truth-teller would say, which is the correct path.",
+    "category": "Deduction",
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "So the liar would say the wrong path, and the traveler would realize that the correct path is the opposite.",
+    "category": "Deduction",
+    "abbreviation": "D-42"
+  },
+  {
+    "index": 43,
+    "text": "Therefore, the key is to ask a question that forces both types to indicate the wrong path, allowing the traveler to choose the opposite as the correct one.",
+    "category": "Deduction",
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "So the question should be, \"If I asked you which path leads to the truth-tellers' village, what would the other village's resident say?\" Or more concisely, \"What would the other village's resident say about the correct path?\" Either way, the answer points to the wrong path, so the traveler takes the other one.",
+    "category": "Deduction",
+    "abbreviation": "D-44"
+  },
+  {
+    "index": 45,
+    "text": "I think that's the solution.",
+    "category": "Final Answer",
+    "abbreviation": "FA-45"
+  },
+  {
+    "index": 46,
+    "text": "The traveler should ask a question that involves what the other village's resident would say.",
+    "category": "Final Answer",
+    "abbreviation": "FA-46"
+  },
+  {
+    "index": 47,
+    "text": "This way, regardless of whether the current resident is a truth-teller or a liar, the answer will indicate the wrong path, allowing the traveler to choose the correct one.",
+    "category": "Deduction",
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "</think>\n\nThe traveler should ask the resident: \"If I asked you which path leads to the truth-tellers' village, what would the other village's resident say?\" \n\nBy asking this, the traveler can determine the correct path by taking the opposite of what the resident indicates.",
+    "category": "Final Answer",
+    "abbreviation": "FA-48"
+  }
+]

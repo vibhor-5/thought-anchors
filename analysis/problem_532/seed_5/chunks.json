@@ -1,0 +1,200 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small town has a library with 5,000 books initially.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Each month, community members donate an average of 100 new books to the library, while an average of 80 books become too damaged to keep and are removed from circulation.",
+    "category": "Deduction",
+    "abbreviation": "D-3"
+  },
+  {
+    "index": 4,
+    "text": "The library director wants to predict the library's inventory over time.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "If this pattern continues consistently, approximately how many books will be in the library after 2 years? Additionally, explain what kind of system behavior this represents and when (if ever) the library's book collection would stabilize.",
+    "category": "Question Posing",
+    "abbreviation": "QP-5"
+  },
+  {
+    "index": 6,
+    "text": "Solution: \n<think>\nOkay, so I have this problem about a library's book inventory over time.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "Let me try to break it down step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "First, the library starts with 5,000 books.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "Each month, people donate an average of 100 new books.",
+    "category": "Deduction",
+    "abbreviation": "D-9"
+  },
+  {
+    "index": 10,
+    "text": "So, that's a positive addition.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "But then, 80 books become too damaged and are removed.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "That's a negative factor.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "I need to figure out how the total number of books changes each month based on these two numbers.",
+    "category": "Question Posing",
+    "abbreviation": "QP-13"
+  },
+  {
+    "index": 14,
+    "text": "Hmm, so each month, the net change in books would be the new donations minus the books removed.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "That would be 100 (added) minus 80 (removed), which equals 20 new books each month.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "So, every month, the library gains 20 books.",
+    "category": "Deduction",
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "Wait, but if that's the case, the number of books would keep increasing every month by 20, right? So, over a year, which has 12 months, that would be 20 times 12, which is 240 more books each year.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "But the question is asking about two years, so that would be 240 times 2, which is 480 additional books.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "Adding that to the initial 5,000 books, the total after two years would be 5,000 plus 480, which is 5,480 books.",
+    "category": "Deduction",
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "Now, thinking about this as a system behavior, it seems like the library's book collection is growing over time.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-20"
+  },
+  {
+    "index": 21,
+    "text": "Each month, it's increasing by 20 books, so it's an open system where resources are being added more than they are being lost.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "This kind of system doesn't stabilize because the inflow (donations) is greater than the outflow (removals).",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "So, the number of books will keep increasing indefinitely unless something changes to balance the donations and removals.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "So, to answer the question, after two years, the library would have approximately 5,480 books.",
+    "category": "Final Answer",
+    "abbreviation": "FA-24"
+  },
+  {
+    "index": 25,
+    "text": "And since the inflow is more than the outflow, the system doesn't stabilize; it keeps growing.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "</think>\n\nThe library starts with 5,000 books.",
+    "category": "Initializing",
+    "abbreviation": "I-26"
+  },
+  {
+    "index": 27,
+    "text": "Each month, 100 books are donated and 80 are removed, resulting in a net gain of 20 books per month.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "Over two years (24 months), this net gain amounts to 480 books.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "Adding this to the initial 5,000 gives a total of 5,480 books.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "The system grows indefinitely due to a greater inflow than outflow.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "**Answer:** After 2 years, the library will have approximately 5,480 books.",
+    "category": "Final Answer",
+    "abbreviation": "FA-31"
+  },
+  {
+    "index": 32,
+    "text": "This represents an open system with an increasing trend that will continue indefinitely unless the inflow and outflow rates balance.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  }
+]

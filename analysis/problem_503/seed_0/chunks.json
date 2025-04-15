@@ -1,0 +1,494 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A weather forecasting system classifies each day as either 'Sunny', 'Cloudy', or 'Rainy'.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Based on historical data, if today is Sunny, tomorrow has a 70% chance of being Sunny, a 20% chance of being Cloudy, and a 10% chance of being Rainy.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-3"
+  },
+  {
+    "index": 4,
+    "text": "If today is Cloudy, tomorrow has a 30% chance of being Sunny, a 50% chance of being Cloudy, and a 20% chance of being Rainy.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
+  },
+  {
+    "index": 5,
+    "text": "If today is Rainy, tomorrow has a 20% chance of being Sunny, a 30% chance of being Cloudy, and a 50% chance of being Rainy.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-5"
+  },
+  {
+    "index": 6,
+    "text": "If today (Monday) is Sunny, what is the probability that Wednesday will also be Sunny? \n\n Solution: \n<think>\nAlright, so I've got this weather forecasting problem here, and I need to figure out the probability that Wednesday will be Sunny, given that today, Monday, is Sunny.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "Hmm, let me break this down step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "First, the problem gives me transition probabilities between days.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "That is, depending on what the weather is today, there's a certain chance it'll be a particular weather type tomorrow.",
+    "category": "Deduction",
+    "abbreviation": "D-9"
+  },
+  {
+    "index": 10,
+    "text": "Since we're dealing with days of the week, I need to consider how these probabilities chain over multiple days.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "Specifically, from Monday to Tuesday to Wednesday.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "Let me list out the transition probabilities again to have them clear:\n\n- **Today is Sunny:**\n  - Tomorrow (Tuesday): 70% Sunny, 20% Cloudy, 10% Rainy.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-12"
+  },
+  {
+    "index": 13,
+    "text": "- **Today is Cloudy:**\n  - Tomorrow: 30% Sunny, 50% Cloudy, 20% Rainy.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-13"
+  },
+  {
+    "index": 14,
+    "text": "- **Today is Rainy:**\n  - Tomorrow: 20% Sunny, 30% Cloudy, 50% Rainy.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-14"
+  },
+  {
+    "index": 15,
+    "text": "So, starting from Monday, which is Sunny.",
+    "category": "Initializing",
+    "abbreviation": "I-15"
+  },
+  {
+    "index": 16,
+    "text": "I need to find the probability that Wednesday is Sunny.",
+    "category": "Initializing",
+    "abbreviation": "I-16"
+  },
+  {
+    "index": 17,
+    "text": "That means I have to consider the weather for Tuesday and Wednesday, but since Tuesday's weather depends on Monday, and Wednesday's depends on Tuesday, it's a two-step process.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "Let me think about this as a Markov chain.",
+    "category": "Metaphorical Thinking",
+    "abbreviation": "MT-18"
+  },
+  {
+    "index": 19,
+    "text": "Each day's weather depends only on the previous day's weather, not on days before that.",
+    "category": "Deduction",
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "So, from Monday to Tuesday to Wednesday, each transition is dependent only on the immediate previous day.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "Given that, I can model this by calculating the probabilities step by step.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Starting with Monday being Sunny:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-22"
+  },
+  {
+    "index": 23,
+    "text": "**Monday is Sunny (70% chance tomorrow is Sunny, 20% Cloudy, 10% Rainy).**\n\nSo, on Tuesday, there's a 70% chance it's Sunny, 20% Cloudy, and 10% Rainy.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "Now, for each of these possibilities, I need to calculate the probability that Wednesday is Sunny.",
+    "category": "Question Posing",
+    "abbreviation": "QP-24"
+  },
+  {
+    "index": 25,
+    "text": "Let me break it down:\n\n- **Case 1:** Tuesday is Sunny (70% chance)\n  \n  Then, Wednesday's forecast depends on Tuesday being Sunny.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "From the given probabilities, if today is Sunny, tomorrow has a 70% chance of being Sunny, 20% Cloudy, 10% Rainy.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "So, the probability that Wednesday is Sunny, given that Tuesday is Sunny, is 70%.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "- **Case 2:** Tuesday is Cloudy (20% chance)\n  \n  If Tuesday is Cloudy, then Wednesday's forecast depends on Cloudy.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "From the given, if today is Cloudy, tomorrow has a 30% chance of being Sunny, 50% Cloudy, 20% Rainy.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "So, the probability that Wednesday is Sunny, given Tuesday is Cloudy, is 30%.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "- **Case 3:** Tuesday is Rainy (10% chance)\n  \n  If Tuesday is Rainy, Wednesday's forecast depends on Rainy.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "From the given, if today is Rainy, tomorrow has a 20% chance of being Sunny, 30% Cloudy, 50% Rainy.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-32"
+  },
+  {
+    "index": 33,
+    "text": "So, the probability that Wednesday is Sunny, given Tuesday is Rainy, is 20%.",
+    "category": "Deduction",
+    "abbreviation": "D-33"
+  },
+  {
+    "index": 34,
+    "text": "Now, since these are mutually exclusive cases, I can calculate the total probability by multiplying each case's probability by the conditional probability of Wednesday being Sunny given that case, and then summing them up.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "Mathematically, that's:\n\nP(Wednesday is Sunny) = P(Tuesday is Sunny) * P(Wednesday is Sunny | Tuesday is Sunny) + P(Tuesday is Cloudy) * P(Wednesday is Sunny | Tuesday is Cloudy) + P(Tuesday is Rainy) * P(Wednesday is Sunny | Tuesday is Rainy)\n\nPlugging in the numbers:\n\n= (0.70 * 0.70) + (0.20 * 0.30) + (0.10 * 0.20)\n\nLet me compute each part:\n\n- 0.70 * 0.70 = 0.49\n- 0.20 * 0.30 = 0.06\n- 0.10 * 0.20 = 0.02\n\nAdding them together: 0.49 + 0.06 + 0.02 = 0.57\n\nSo, the probability that Wednesday will be Sunny, given that Monday is Sunny, is 57%.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "Wait, let me double-check that.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-36"
+  },
+  {
+    "index": 37,
+    "text": "Hmm, 70% today is Sunny, 20% Cloudy, 10% Rainy.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "Tuesday:\n\n- Sunny: 70% of 70% = 49%\n- Cloudy: 20% of 20% = 4%\n- Rainy: 10% of 10% = 1%\n\nWait, that doesn't seem right.",
+    "category": "Backtracking",
+    "abbreviation": "B-38"
+  },
+  {
+    "index": 39,
+    "text": "I think I made a mistake here.",
+    "category": "Backtracking",
+    "abbreviation": "B-39"
+  },
+  {
+    "index": 40,
+    "text": "I think I misapplied the probabilities.",
+    "category": "Backtracking",
+    "abbreviation": "B-40"
+  },
+  {
+    "index": 41,
+    "text": "Hold on, perhaps I should approach it differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-41"
+  },
+  {
+    "index": 42,
+    "text": "Instead of multiplying the probabilities as I did before, maybe I should consider the entire chain.",
+    "category": "Backtracking",
+    "abbreviation": "B-42"
+  },
+  {
+    "index": 43,
+    "text": "Let me try again.",
+    "category": "Backtracking",
+    "abbreviation": "B-43"
+  },
+  {
+    "index": 44,
+    "text": "Starting with Monday: Sunny (100% given).",
+    "category": "Deduction",
+    "abbreviation": "D-44"
+  },
+  {
+    "index": 45,
+    "text": "Tuesday:\n\n- Sunny: 70%\n- Cloudy: 20%\n- Rainy: 10%\n\nSo, the probability distribution for Tuesday is:\n\nP(Tuesday is Sunny) = 0.70\n\nP(Tuesday is Cloudy) = 0.20\n\nP(Tuesday is Rainy) = 0.10\n\nNow, for each of these, we need to find the probability that Wednesday is Sunny.",
+    "category": "Deduction",
+    "abbreviation": "D-45"
+  },
+  {
+    "index": 46,
+    "text": "So, for each Tuesday outcome, we have:\n\n- If Tuesday is Sunny, then Wednesday's probability of being Sunny is 0.70.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "- If Tuesday is Cloudy, Wednesday's probability is 0.30.",
+    "category": "Deduction",
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "- If Tuesday is Rainy, Wednesday's probability is 0.20.",
+    "category": "Deduction",
+    "abbreviation": "D-48"
+  },
+  {
+    "index": 49,
+    "text": "Therefore, the total probability is:\n\nP(Wednesday is Sunny) = P(Tuesday is Sunny) * 0.70 + P(Tuesday is Cloudy) * 0.30 + P(Tuesday is Rainy) * 0.20\n\nPlugging in the values:\n\n= 0.70 * 0.70 + 0.20 * 0.30 + 0.10 * 0.20\n\nCalculating each term:\n\n- 0.70 * 0.70 = 0.49\n- 0.20 * 0.30 = 0.06\n- 0.10 * 0.20 = 0.02\n\nAdding them together: 0.49 + 0.06 + 0.02 = 0.57\n\nSo, the probability is 57%.",
+    "category": "Deduction",
+    "abbreviation": "D-49"
+  },
+  {
+    "index": 50,
+    "text": "Wait, but earlier I thought I made a mistake because I was initially confused about the multiplication.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-50"
+  },
+  {
+    "index": 51,
+    "text": "But now, after recalculating, it seems consistent.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-51"
+  },
+  {
+    "index": 52,
+    "text": "Alternatively, maybe I should model this as a transition matrix and compute the probability step by step.",
+    "category": "Backtracking",
+    "abbreviation": "B-52"
+  },
+  {
+    "index": 53,
+    "text": "Let me define the transition matrix for the weather states, where each row represents the current day's weather, and each column represents the next day's weather.",
+    "category": "Initializing",
+    "abbreviation": "I-53"
+  },
+  {
+    "index": 54,
+    "text": "The states are: Sunny (S), Cloudy (C), Rainy (R).",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-54"
+  },
+  {
+    "index": 55,
+    "text": "The transition matrix, T, is:\n\n```\n      | S   C   R\nS    |70% 20% 10%\nC    |30% 50% 20%\nR    |20% 30% 50%\n```\n\nSo, T is:\n\n[ [0.7, 0.2, 0.1],\n  [0.3, 0.5, 0.2],\n  [0.2, 0.3, 0.5] ]\n\nNow, the initial state vector, Monday, is [1, 0, 0] because it's given that Monday is Sunny.",
+    "category": "Deduction",
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "To find the state vector for Wednesday, we need to apply the transition matrix twice, because it's two days ahead.",
+    "category": "Initializing",
+    "abbreviation": "I-56"
+  },
+  {
+    "index": 57,
+    "text": "So, starting from Monday (S), we go to Tuesday (first transition), then to Wednesday (second transition).",
+    "category": "Deduction",
+    "abbreviation": "D-57"
+  },
+  {
+    "index": 58,
+    "text": "First transition (Monday to Tuesday):\n\nState vector after first transition = [1, 0, 0] * T\n\n= [0.7, 0.2, 0.1]\n\nSecond transition (Tuesday to Wednesday):\n\n= [0.7, 0.2, 0.1] * T\n\nLet me compute that:\n\nFirst element (S):\n\n= 0.7 * 0.7 + 0.2 * 0.3 + 0.1 * 0.2\n= 0.49 + 0.06 + 0.02\n= 0.57\n\nSecond element (C):\n\n= 0.7 * 0.2 + 0.2 * 0.5 + 0.1 * 0.3\n= 0.14 + 0.10 + 0.03\n= 0.27\n\nThird element (R):\n\n= 0.7 * 0.1 + 0.2 * 0.2 + 0.1 * 0.5\n= 0.07 + 0.04 + 0.05\n= 0.16\n\nSo, the state vector for Wednesday is [0.57, 0.27, 0.16].",
+    "category": "Deduction",
+    "abbreviation": "D-58"
+  },
+  {
+    "index": 59,
+    "text": "Therefore, the probability that Wednesday is Sunny is 57%.",
+    "category": "Final Answer",
+    "abbreviation": "FA-59"
+  },
+  {
+    "index": 60,
+    "text": "Wait, that matches my earlier calculation.",
+    "category": "Backtracking",
+    "abbreviation": "B-60"
+  },
+  {
+    "index": 61,
+    "text": "So, it seems correct.",
+    "category": "Deduction",
+    "abbreviation": "D-61"
+  },
+  {
+    "index": 62,
+    "text": "Just to be thorough, let me consider another approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-62"
+  },
+  {
+    "index": 63,
+    "text": "Maybe using conditional probabilities step by step.",
+    "category": "Question Posing",
+    "abbreviation": "QP-63"
+  },
+  {
+    "index": 64,
+    "text": "Given Monday is Sunny (S), the probability distribution for Tuesday is:\n\n- P(Tuesday is S) = 0.7\n- P(Tuesday is C) = 0.2\n- P(Tuesday is R) = 0.1\n\nNow, for each Tuesday outcome, we find the probability that Wednesday is Sunny.",
+    "category": "Deduction",
+    "abbreviation": "D-64"
+  },
+  {
+    "index": 65,
+    "text": "So, P(Wednesday is S) = P(Tuesday is S) * P(Wednesday is S | Tuesday is S) + P(Tuesday is C) * P(Wednesday is S | Tuesday is C) + P(Tuesday is R) * P(Wednesday is S | Tuesday is R)\n\nWhich is:\n\n= 0.7 * 0.7 + 0.2 * 0.3 + 0.1 * 0.2\n= 0.49 + 0.06 + 0.02\n= 0.57\n\nSame result.",
+    "category": "Deduction",
+    "abbreviation": "D-65"
+  },
+  {
+    "index": 66,
+    "text": "So, it seems consistent.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-66"
+  },
+  {
+    "index": 67,
+    "text": "Alternatively, thinking about it as a tree diagram:\n\n- From Monday S, split into Tuesday S (70%), C (20%), R (10%).",
+    "category": "Metaphorical Thinking",
+    "abbreviation": "MT-67"
+  },
+  {
+    "index": 68,
+    "text": "- For Tuesday S (70%):\n    - Split into Wednesday S (70%), C (20%), R (10%)\n    - Contribution to Wednesday S: 70% * 70% = 49%\n\n  - For Tuesday C (20%):\n    - Split into Wednesday S (30%), C (50%), R (20%)\n    - Contribution to Wednesday S: 20% * 30% = 6%\n\n  - For Tuesday R (10%):\n    - Split into Wednesday S (20%), C (30%), R (50%)\n    - Contribution to Wednesday S: 10% * 20% = 2%\n\nAdding them up: 49% + 6% + 2% = 57%\n\nYes, same result.",
+    "category": "Deduction",
+    "abbreviation": "D-68"
+  },
+  {
+    "index": 69,
+    "text": "Therefore, the probability that Wednesday will be Sunny, given that Monday is Sunny, is 57%.",
+    "category": "Final Answer",
+    "abbreviation": "FA-69"
+  },
+  {
+    "index": 70,
+    "text": "I think that's solid.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-70"
+  },
+  {
+    "index": 71,
+    "text": "I can't see any mistakes in the calculations, and multiple methods lead to the same answer.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-71"
+  },
+  {
+    "index": 72,
+    "text": "</think>\n\nThe probability that Wednesday will be Sunny, given that Monday is Sunny, is calculated by considering the transition probabilities over two days.",
+    "category": "Deduction",
+    "abbreviation": "D-72"
+  },
+  {
+    "index": 73,
+    "text": "Using the given transition matrix, we find that the probability is 57%.",
+    "category": "Deduction",
+    "abbreviation": "D-73"
+  },
+  {
+    "index": 74,
+    "text": "**Step-by-Step Explanation:**\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-74"
+  },
+  {
+    "index": 75,
+    "text": "**Define Transition Probabilities:**\n   - From Sunny (S):\n     - S: 70%, C: 20%, R: 10%\n   - From Cloudy (C):\n     - S: 30%, C: 50%, R: 20%\n   - From Rainy (R):\n     - S: 20%, C: 30%, R: 50%\n\n2.",
+    "category": "Initializing",
+    "abbreviation": "I-75"
+  },
+  {
+    "index": 76,
+    "text": "**Initial State Vector (Monday):**\n   - Since Monday is Sunny, the initial state vector is [1, 0, 0].",
+    "category": "Initializing",
+    "abbreviation": "I-76"
+  },
+  {
+    "index": 77,
+    "text": "3. **First Transition (Monday to Tuesday):**\n   - Multiply the initial state vector by the transition matrix:\n     ```\n     [1, 0, 0] * [0.7, 0.2, 0.1;\n                  0.3, 0.5, 0.2;\n                  0.2, 0.3, 0.5] = [0.7, 0.2, 0.1]\n     ```\n   - Tuesday's state vector: [0.7, 0.2, 0.1].",
+    "category": "Deduction",
+    "abbreviation": "D-77"
+  },
+  {
+    "index": 78,
+    "text": "4. **Second Transition (Tuesday to Wednesday):**\n   - Multiply Tuesday's state vector by the transition matrix:\n     ```\n     [0.7, 0.2, 0.1] * [0.7, 0.2, 0.1;\n                         0.3, 0.5, 0.2;\n                         0.2, 0.3, 0.5] = [0.57, 0.27, 0.16]\n     ```\n   - Wednesday's state vector: [0.57, 0.27, 0.16].",
+    "category": "Deduction",
+    "abbreviation": "D-78"
+  },
+  {
+    "index": 79,
+    "text": "5. **Probability of Wednesday being Sunny:**\n   - The first element of the state vector is the probability of Sunny on Wednesday.",
+    "category": "Deduction",
+    "abbreviation": "D-79"
+  },
+  {
+    "index": 80,
+    "text": "- Therefore, the probability is 0.57 or 57%.",
+    "category": "Final Answer",
+    "abbreviation": "FA-80"
+  },
+  {
+    "index": 81,
+    "text": "**Final Answer:** The probability that Wednesday will be Sunny is 57%.",
+    "category": "Final Answer",
+    "abbreviation": "FA-81"
+  }
+]

@@ -1,0 +1,830 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A neighborhood bookstore runs a weekly raffle where customers have an equal chance of winning one of three prizes: a $10 gift card, a $25 gift card, or a $50 gift card.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "If you enter this raffle once each week for 12 consecutive weeks, what is the probability that the total value of your winnings will be exactly $120? Assume each weekly drawing is independent.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nAlright, so I have this probability problem to solve, and I need to figure it out step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "Let me try to understand the problem first.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "The problem says that a neighborhood bookstore runs a weekly raffle where customers have an equal chance of winning one of three prizes: a $10 gift card, a $25 gift card, or a $50 gift card.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "I enter this raffle once each week for 12 consecutive weeks.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "I need to find the probability that the total value of my winnings will be exactly $120.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "Each weekly drawing is independent.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Hmm, okay.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "So, each week, I have a 1/3 chance of winning $10, a 1/3 chance of winning $25, and a 1/3 chance of winning $50.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "I do this for 12 weeks, and I want the total winnings to add up exactly to $120.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "First, let me think about what this means.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "I'm looking for the probability that, over 12 weeks, the sum of the gift cards I win is $120.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Since each week's outcome is independent, the probability is the number of favorable outcomes divided by the total number of possible outcomes.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Wait, but calculating this directly might be complicated because there are a lot of possibilities.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "Maybe I can model this as a problem of finding the number of ways to get exactly $120 over 12 weeks, considering the different prize values.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "Let me denote:\n\n- Let \\( x \\) be the number of weeks I win a $10 gift card.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "- Let \\( y \\) be the number of weeks I win a $25 gift card.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "- Let \\( z \\) be the number of weeks I win a $50 gift card.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Since I enter the raffle once each week for 12 weeks, the total number of weeks is 12.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "So, I have:\n\n\\( x + y + z = 12 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "And the total value of the winnings is:\n\n\\( 10x + 25y + 50z = 120 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "I need to find the number of non-negative integer solutions (x, y, z) to these equations.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Okay, so I have two equations:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "\\( x + y + z = 12 \\)\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "\\( 10x + 25y + 50z = 120 \\)\n\nI can try to solve these equations to find possible values of x, y, z.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Let me simplify the second equation.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Maybe I can divide everything by 5 to make it easier.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Dividing equation 2 by 5:\n\n\\( 2x + 5y + 10z = 24 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Now, I have:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "\\( x + y + z = 12 \\)\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "\\( 2x + 5y + 10z = 24 \\)\n\nHmm, maybe I can express one variable in terms of the others using equation 1 and substitute into equation 2.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Let me solve equation 1 for x:\n\n\\( x = 12 - y - z \\).",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "Now, substitute x into equation 2:\n\n\\( 2(12 - y - z) + 5y + 10z = 24 \\)\n\nLet me expand this:\n\n\\( 24 - 2y - 2z + 5y + 10z = 24 \\)\n\nCombine like terms:\n\n24 + (5y - 2y) + (10z - 2z) = 24\n\nSo:\n\n24 + 3y + 8z = 24\n\nSubtract 24 from both sides:\n\n3y + 8z = 0\n\nWait, that's interesting.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "So, 3y + 8z = 0.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "But y and z are non-negative integers because they represent the number of times I won each prize.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "The only solution to 3y + 8z = 0 is y = 0 and z = 0.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "So, from this, y = 0 and z = 0.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "Then, from equation 1, x = 12 - y - z = 12 - 0 - 0 = 12.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "So, the only solution is x = 12, y = 0, z = 0.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "That means I won the $10 gift card every week for 12 weeks, and didn't win any $25 or $50 gift cards.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Wait, but let me check if this makes sense.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "If I won $10 twelve times, the total would be 12 * 10 = $120, which matches the desired total.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "Is this the only possible way? Let me think.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "Suppose I try to see if there are other solutions.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "Let's go back to 3y + 8z = 0.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Since y and z are non-negative integers, the only solution is y=0 and z=0.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "Because 8z must be zero, so z=0, and then 3y=0, so y=0.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "Therefore, the only possible way is to have y=0 and z=0, leading to x=12.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "So, the number of favorable outcomes is the number of ways to have x=12, y=0, z=0.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "But wait, in this case, it's just one specific outcome: winning $10 twelve times.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "Wait, but let me think again.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "Is there a possibility of having other combinations?\n\nWait, perhaps I made a mistake in simplifying.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "Let me double-check the equations.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "Original equations:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "\\( x + y + z = 12 \\)\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "\\( 10x + 25y + 50z = 120 \\)\n\nI divided equation 2 by 5:\n\n\\( 2x + 5y + 10z = 24 \\)\n\nThen, substituted x = 12 - y - z into equation 2:\n\n\\( 2*(12 - y - z) + 5y + 10z = 24 \\)\n\nWhich becomes:\n\n24 - 2y - 2z + 5y + 10z = 24\n\nCombine like terms:\n\n24 + 3y + 8z = 24\n\nSo, 3y + 8z = 0.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "Yes, that's correct.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "So, the only solution is y=0 and z=0.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "Therefore, the only way to get exactly $120 is to win $10 twelve times.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "Therefore, the number of favorable outcomes is 1 (since all 12 weeks must be $10).",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "Now, the total number of possible outcomes is the number of ways to win over 12 weeks, considering each week's prize.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "Each week, there are 3 possible outcomes, and since each week is independent, the total number of possible outcomes is \\( 3^{12} \\).",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "So, the probability is the number of favorable outcomes divided by the total number of possible outcomes.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Number of favorable outcomes: 1 (since only one way to win $10 twelve times).",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "Total number of possible outcomes: \\( 3^{12} \\).",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "So, the probability is \\( \\frac{1}{3^{12}} \\).",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "Wait, but let me check if I didn't miss any other solutions.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "Maybe I can think differently.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "Suppose I try to find all possible triples (x, y, z) such that:\n\nx + y + z = 12\n\nand\n\n10x + 25y + 50z = 120\n\nLet me see if there are other solutions.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "Let me try to express the equations again.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "From the first equation: x = 12 - y - z.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "Substitute into the second equation:\n\n10*(12 - y - z) + 25y + 50z = 120\n\nCalculate:\n\n120 - 10y - 10z + 25y + 50z = 120\n\nCombine like terms:\n\n120 + 15y + 40z = 120\n\nSubtract 120:\n\n15y + 40z = 0\n\nAgain, 15y + 40z = 0.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "Since y and z are non-negative integers, the only solution is y=0 and z=0.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "So, x=12.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Therefore, the only solution is x=12, y=0, z=0.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "So, yes, the probability is 1 divided by 3^12.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "Let me compute 3^12 to get the exact probability.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "3^1 = 3\n\n3^2 = 9\n\n3^3 = 27\n\n3^4 = 81\n\n3^5 = 243\n\n3^6 = 729\n\n3^7 = 2187\n\n3^8 = 6561\n\n3^9 = 19683\n\n3^10 = 59049\n\n3^11 = 177147\n\n3^12 = 531441\n\nSo, 3^12 is 531,441.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "Therefore, the probability is 1/531,441.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "Wait, but that seems very low, but considering the high number of possible outcomes, it makes sense.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "But let me think again: is there another way to reach $120?\n\nSuppose, for example, that I won a $50 gift card once.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "Let's see:\n\nIf I won a $50 gift card once, then the remaining 11 weeks need to sum up to 120 - 50 = 70.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "So, 10x +25y +50z =70, with x + y + z =11.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "Let me see if this is possible.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Again, let me express x=11 - y - z.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "Substitute into the total value equation:\n\n10*(11 - y - z) +25y +50z =70\n\nCalculate:\n\n110 -10y -10z +25y +50z =70\n\nCombine like terms:\n\n110 +15y +40z =70\n\nSubtract 110:\n\n15y +40z = -40\n\nThis is impossible because y and z are non-negative, so 15y +40z cannot be negative.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "Therefore, no solution in this case.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "Similarly, if I try to win a $25 gift card once, then the remaining 11 weeks need to sum up to 120 -25=95.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "So, 10x +25y +50z=95, with x+y+z=11.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "Express x=11 - y - z.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "Substitute:\n\n10*(11 - y - z) +25y +50z=95\n\nCalculate:\n\n110 -10y -10z +25y +50z=95\n\nCombine:\n\n110 +15y +40z=95\n\nSubtract 110:\n\n15y +40z= -15\n\nAgain, impossible because left side is non-negative and right side is negative.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "Similarly, if I try to win a $50 gift card twice, then remaining 10 weeks need to sum to 120 -100=20.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "So, 10x +25y +50z=20, with x+y+z=10.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "Express x=10 - y - z.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "Substitute:\n\n10*(10 - y - z) +25y +50z=20\n\nCalculate:\n\n100 -10y -10z +25y +50z=20\n\nCombine:\n\n100 +15y +40z=20\n\nSubtract 100:\n\n15y +40z= -80\n\nImpossible again.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "Similarly, if I try to win a $25 gift card twice, then the remaining 10 weeks need to sum to 120 -50=70.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "Wait, no, 25*2=50, so 120-50=70.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "Wait, no, wait: 25*2=50, so 120 -50=70.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "Wait, that's the same as earlier.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "So, 10x +25y +50z=70, with x+y+z=10.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "Again, x=10 - y - z.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "Substitute:\n\n10*(10 - y - z) +25y +50z=70\n\nCalculate:\n\n100 -10y -10z +25y +50z=70\n\nCombine:\n\n100 +15y +40z=70\n\nSubtract 100:\n\n15y +40z= -30\n\nImpossible.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "Similarly, if I try to win a $50 gift card three times, then the remaining 9 weeks need to sum to 120 -150= -30, which is impossible.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "So, in all cases where I win a $25 or $50 gift card, I end up with a negative total, which is impossible.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "Therefore, the only possible way is to win the $10 gift card every week.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "Therefore, the number of favorable outcomes is 1, and the total number of possible outcomes is 3^12=531,441.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "Hence, the probability is 1/531,441.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "Wait, but let me think again: is there another way to reach exactly $120?\n\nSuppose I won a $25 gift card once and a $50 gift card once.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "Then, the total from these two weeks is 25 +50=75.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "Then, the remaining 10 weeks need to sum to 120 -75=45.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "So, 10x +25y +50z=45, with x+y+z=10.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "Let me see if this is possible.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "Express x=10 - y - z.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "Substitute:\n\n10*(10 - y - z) +25y +50z=45\n\nCalculate:\n\n100 -10y -10z +25y +50z=45\n\nCombine:\n\n100 +15y +40z=45\n\nSubtract 100:\n\n15y +40z= -55\n\nImpossible, as before.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "Similarly, if I try to win a $50 gift card once and two $25 gift cards: total from these is 50 +25 +25=100.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "Remaining 9 weeks need to sum to 20.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "So, 10x +25y +50z=20, with x+y+z=9.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "Express x=9 - y - z.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "Substitute:\n\n10*(9 - y - z) +25y +50z=20\n\nCalculate:\n\n90 -10y -10z +25y +50z=20\n\nCombine:\n\n90 +15y +40z=20\n\nSubtract 90:\n\n15y +40z= -70\n\nImpossible.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "Therefore, any inclusion of a $25 or $50 gift card leads to a negative required sum, which is impossible.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "Hence, the only solution is to win $10 twelve times.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "Therefore, the probability is indeed 1 divided by 3^12, which is 1/531,441.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "So, I think that's the correct answer.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "</think>\n\nThe probability is 1 divided by 3 raised to the power of 12, which is 1/531,441.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "**Step-by-Step Explanation:**\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "**Define Variables:**\n   Let \\( x \\) = number of weeks winning $10,\n   \\( y \\) = number of weeks winning $25,\n   \\( z \\) = number of weeks winning $50.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "2. **Equations:**\n   - Total weeks: \\( x + y + z = 12 \\)\n   - Total winnings: \\( 10x + 25y + 50z = 120 \\)\n\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "**Simplify the Winnings Equation:**\n   Divide by 5: \\( 2x + 5y + 10z = 24 \\)\n\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "**Express \\( x \\) in Terms of \\( y \\) and \\( z \\):**\n   From \\( x + y + z = 12 \\), we get \\( x = 12 - y - z \\).",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "5. **Substitute \\( x \\) into the Simplified Winnings Equation:**\n   \\( 2(12 - y - z) + 5y + 10z = 24 \\)\n   Simplify: \\( 24 + 3y + 8z = 24 \\)\n   Thus, \\( 3y + 8z = 0 \\)\n\n6.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "**Solve for \\( y \\) and \\( z \\):**\n   The only non-negative integer solution is \\( y = 0 \\) and \\( z = 0 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  },
+  {
+    "index": 134,
+    "text": "7. **Find \\( x \\):**\n   \\( x = 12 - 0 - 0 = 12 \\)\n\n8.",
+    "category": "Unknown",
+    "abbreviation": "C-134"
+  },
+  {
+    "index": 135,
+    "text": "**Calculate the Number of Favorable Outcomes:**\n   Only one way: winning $10 each week for 12 weeks.",
+    "category": "Unknown",
+    "abbreviation": "C-135"
+  },
+  {
+    "index": 136,
+    "text": "9. **Total Possible Outcomes:**\n   Each week has 3 outcomes, so \\( 3^{12} = 531,441 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-136"
+  },
+  {
+    "index": 137,
+    "text": "10. **Probability:**\n    \\( \\frac{1}{531,441} \\)\n\n**Answer:** The probability is \\( \\frac{1}{531441} \\).",
+    "category": "Unknown",
+    "abbreviation": "C-137"
+  }
+]

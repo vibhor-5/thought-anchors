@@ -1,0 +1,52 @@
+{
+  "target_chunk_indices": [
+    7,
+    9,
+    10,
+    11,
+    12
+  ],
+  "target_chunk_texts": [
+    "So, in this case, the statement is \"If n is an integer and n\u00b2 is even, then n is even.\" The opposite of this statement would be that n is an integer, n\u00b2 is even, but n is odd.",
+    "Wait, but n is an integer, so if n is odd, then n can be written as 2k + 1 for some integer k.",
+    "Yeah, that's the standard form for odd integers.",
+    "So, let me write that down: n = 2k + 1, where k is an integer.",
+    "Now, if n is odd, then n squared would be (2k + 1) squared."
+  ],
+  "target_chunk_categories": [
+    "Deduction",
+    "Deduction",
+    "Deduction",
+    "Deduction",
+    "Deduction"
+  ],
+  "clean_answer": " \n\nAssume, for contradiction, that n is odd. Then n can be written as 2k + 1 for some integer k. Squaring n gives (2k + 1)\u00b2 = 4k\u00b2 + 4k + 1, which is odd. This contradicts the given that n\u00b2 is even. Hence, n must be even. \n\nDONE.",
+  "corrupted_answer": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume, for the sake of contradiction, that \\( n \\) is an odd integer. Then, \\( n \\) can be expressed as \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nCompute \\( n^2 \\):\n\\[\nn^2 = (2k + 1)^2 = 4k^2 + 4k + 1\n\\]\nNotice that \\( 4k^2 \\) and \\( 4k \\) are both even numbers since they are",
+  "answers_differ": true,
+  "patched_answers": {
+    "0": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume the contrary: \\( n \\) is an integer, \\( n^2 \\) is even, but \\( n \\) is odd.\n\nExpress \\( n \\) as an odd integer: \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nCompute \\( n^2 \\):\n\\[\nn^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1",
+    "3": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume the contrary: \\( n \\) is an integer, \\( n^2 \\) is even, but \\( n \\) is odd.\n\nExpress \\( n \\) as \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nThen, \\( n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1 \\), which is odd.\n\nThis contradicts the",
+    "6": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume the opposite of what we want to prove. That is, assume that \\( n \\) is an integer, \\( n^2 \\) is even, but \\( n \\) is odd.\n\nAn odd integer can be expressed in the form \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nThen, \\( n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k",
+    "9": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume the contrary: \\( n \\) is an integer, \\( n^2 \\) is even, but \\( n \\) is odd.\n\nIf \\( n \\) is odd, then \\( n \\) can be expressed as \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nSquaring \\( n \\):\n\\[\nn^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 +",
+    "12": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume the contrary, that \\( n \\) is an integer, \\( n^2 \\) is even, but \\( n \\) is odd.\n\nExpress \\( n \\) as \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nThen, \\( n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 \\).\n\nSimplify:\n\\[\nn^2 = 4k^2 + 4k + 1 = ",
+    "15": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume, for the sake of contradiction, that \\( n \\) is an odd integer. Then, \\( n \\) can be expressed in the form \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nCompute \\( n^2 \\):\n\\[\nn^2 = (2k + 1)^2 = 4k^2 + 4k + 1\n\\]\nSimplify:\n\\[\nn^2 = 4k^2 + 4k + 1 =",
+    "18": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume, for the sake of contradiction, that \\( n \\) is an odd integer. Then, \\( n \\) can be expressed in the form \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nCompute \\( n^2 \\):\n\\[\nn^2 = (2k + 1)^2 = 4k^2 + 4k + 1\n\\]\nSimplify:\n\\[\nn^2 = 4k^2 + 4k + 1 =",
+    "21": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume, for the sake of contradiction, that \\( n \\) is an odd integer. Then, \\( n \\) can be expressed as \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nCompute \\( n^2 \\):\n\\[\nn^2 = (2k + 1)^2 = 4k^2 + 4k + 1\n\\]\nNotice that \\( 4k^2 \\) and \\( 4k \\) are both even numbers since they are",
+    "24": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume, for the sake of contradiction, that \\( n \\) is an odd integer. Then, \\( n \\) can be expressed as \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nCompute \\( n^2 \\):\n\\[\nn^2 = (2k + 1)^2 = 4k^2 + 4k + 1\n\\]\nNotice that \\( 4k^2 \\) and \\( 4k \\) are both even numbers since they are",
+    "27": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume, for the sake of contradiction, that \\( n \\) is an odd integer. Then, \\( n \\) can be expressed as \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nCompute \\( n^2 \\):\n\\[\nn^2 = (2k + 1)^2 = 4k^2 + 4k + 1\n\\]\nNotice that \\( 4k^2 \\) and \\( 4k \\) are both even numbers since they are",
+    "30": "://\n\nTo prove that if \\( n \\) is an integer and \\( n^2 \\) is even, then \\( n \\) is even, we use proof by contradiction.\n\n**Proof:**\n\nAssume, for the sake of contradiction, that \\( n \\) is an odd integer. Then, \\( n \\) can be expressed as \\( n = 2k + 1 \\) for some integer \\( k \\).\n\nCompute \\( n^2 \\):\n\\[\nn^2 = (2k + 1)^2 = 4k^2 + 4k + 1\n\\]\nNotice that \\( 4k^2 \\) and \\( 4k \\) are both even numbers since they are"
+  },
+  "answer_match": {
+    "0": false,
+    "3": false,
+    "6": false,
+    "9": false,
+    "12": false,
+    "15": true,
+    "18": true,
+    "21": false,
+    "24": false,
+    "27": false,
+    "30": false
+  }
+}

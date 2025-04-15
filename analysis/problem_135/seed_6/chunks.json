@@ -1,0 +1,554 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: Four friends - Alex, Ben, Clara, and Diana - each own exactly one pet.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "The pets are a dog, a cat, a bird, and a fish, but not necessarily in that order.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "Based on the following clues, determine which pet belongs to which friend:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "Alex does not own the dog or the fish.",
+    "category": "Deduction",
+    "abbreviation": "D-5"
+  },
+  {
+    "index": 6,
+    "text": "2. Ben owns either the bird or the cat.",
+    "category": "Deduction",
+    "abbreviation": "D-6"
+  },
+  {
+    "index": 7,
+    "text": "3. Clara doesn't like animals with fur.",
+    "category": "Deduction",
+    "abbreviation": "D-7"
+  },
+  {
+    "index": 8,
+    "text": "4. Diana is allergic to feathers.",
+    "category": "Deduction",
+    "abbreviation": "D-8"
+  },
+  {
+    "index": 9,
+    "text": "Solution: \n<think>\nAlright, let's try to figure out which pet each friend owns.",
+    "category": "Initializing",
+    "abbreviation": "I-9"
+  },
+  {
+    "index": 10,
+    "text": "There are four friends: Alex, Ben, Clara, and Diana.",
+    "category": "Initializing",
+    "abbreviation": "I-10"
+  },
+  {
+    "index": 11,
+    "text": "Each owns one pet, and the pets are a dog, a cat, a bird, and a fish.",
+    "category": "Initializing",
+    "abbreviation": "I-11"
+  },
+  {
+    "index": 12,
+    "text": "We need to match each friend to a pet based on the given clues.",
+    "category": "Initializing",
+    "abbreviation": "I-12"
+  },
+  {
+    "index": 13,
+    "text": "First, let's list the clues again to keep them in mind:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-13"
+  },
+  {
+    "index": 14,
+    "text": "**Alex does not own the dog or the fish.**\n2.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "**Ben owns either the bird or the cat.**\n3.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "**Clara doesn't like animals with fur.**\n4.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-16"
+  },
+  {
+    "index": 17,
+    "text": "**Diana is allergic to feathers.**\n\nStarting with the first clue: Alex doesn't own the dog or the fish.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "That means Alex must own either the cat or the bird.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "But let's not jump to conclusions yet.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-19"
+  },
+  {
+    "index": 20,
+    "text": "Next, the second clue: Ben owns either the bird or the cat.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "So Ben could have either of those two pets.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "The third clue: Clara doesn't like animals with fur.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-22"
+  },
+  {
+    "index": 23,
+    "text": "So Clara doesn't own a pet with fur.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "Looking at the pets, the dog, cat, and bird all have fur, but the fish doesn't.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-24"
+  },
+  {
+    "index": 25,
+    "text": "So Clara must own the fish because that's the only pet without fur.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "Wait, is that right? Let's double-check.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-26"
+  },
+  {
+    "index": 27,
+    "text": "The problem says Clara doesn't like animals with fur, so she avoids pets that have fur.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "The dog, cat, and bird all have fur, so she can't have any of them.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "The only pet without fur is the fish.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "So yes, Clara must own the fish.",
+    "category": "Final Answer",
+    "abbreviation": "FA-30"
+  },
+  {
+    "index": 31,
+    "text": "Now, since Clara owns the fish, that pet is taken.",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "So the remaining pets are the dog, cat, and bird.",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "Let's go back to the first clue: Alex doesn't own the dog or the fish.",
+    "category": "Backtracking",
+    "abbreviation": "B-33"
+  },
+  {
+    "index": 34,
+    "text": "Since the fish is already taken by Clara, Alex can't have the dog either.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "So Alex must own the cat.",
+    "category": "Deduction",
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "Wait, but let's make sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-36"
+  },
+  {
+    "index": 37,
+    "text": "If Alex owns the cat, that's okay because the clue says Alex doesn't own the dog or the fish.",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "The cat is still available, so that works.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "Now, Ben owns either the bird or the cat.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "But we just assigned the cat to Alex, so Ben must own the bird.",
+    "category": "Deduction",
+    "abbreviation": "D-40"
+  },
+  {
+    "index": 41,
+    "text": "That leaves Diana with the remaining pet, which is the dog.",
+    "category": "Deduction",
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "Wait, let's check Diana's clue: she is allergic to feathers.",
+    "category": "Question Posing",
+    "abbreviation": "QP-42"
+  },
+  {
+    "index": 43,
+    "text": "The bird has feathers, so if Diana owns the bird, she would be allergic, which contradicts the clue.",
+    "category": "Deduction",
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "So that can't be right.",
+    "category": "Backtracking",
+    "abbreviation": "B-44"
+  },
+  {
+    "index": 45,
+    "text": "Hmm, so there's a mistake here.",
+    "category": "Backtracking",
+    "abbreviation": "B-45"
+  },
+  {
+    "index": 46,
+    "text": "Let's backtrack.",
+    "category": "Backtracking",
+    "abbreviation": "B-46"
+  },
+  {
+    "index": 47,
+    "text": "If Ben owns the bird, but Diana can't have the bird because she's allergic, then Ben must own the cat instead.",
+    "category": "Deduction",
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "Wait, but the second clue says Ben owns either the bird or the cat.",
+    "category": "Backtracking",
+    "abbreviation": "B-48"
+  },
+  {
+    "index": 49,
+    "text": "So if Ben owns the cat, then Alex, who can't have the dog or the fish, would have to own the bird.",
+    "category": "Deduction",
+    "abbreviation": "D-49"
+  },
+  {
+    "index": 50,
+    "text": "But let's see.",
+    "category": "Question Posing",
+    "abbreviation": "QP-50"
+  },
+  {
+    "index": 51,
+    "text": "Wait, no, if Ben owns the cat, then Alex can't have the cat because the first clue says Alex doesn't own the dog or the fish.",
+    "category": "Backtracking",
+    "abbreviation": "B-51"
+  },
+  {
+    "index": 52,
+    "text": "So Alex would have to own the bird.",
+    "category": "Deduction",
+    "abbreviation": "D-52"
+  },
+  {
+    "index": 53,
+    "text": "But then Diana would have to own the dog.",
+    "category": "Deduction",
+    "abbreviation": "D-53"
+  },
+  {
+    "index": 54,
+    "text": "Let's check if that works.",
+    "category": "Example Testing",
+    "abbreviation": "ET-54"
+  },
+  {
+    "index": 55,
+    "text": "Clara owns the fish, as before.",
+    "category": "Final Answer",
+    "abbreviation": "FA-55"
+  },
+  {
+    "index": 56,
+    "text": "Ben owns the cat, Alex owns the bird, and Diana owns the dog.",
+    "category": "Final Answer",
+    "abbreviation": "FA-56"
+  },
+  {
+    "index": 57,
+    "text": "Now, check Diana's allergy: she owns the dog, which doesn't have feathers, so she's not allergic.",
+    "category": "Deduction",
+    "abbreviation": "D-57"
+  },
+  {
+    "index": 58,
+    "text": "That works.",
+    "category": "Deduction",
+    "abbreviation": "D-58"
+  },
+  {
+    "index": 59,
+    "text": "Wait, but earlier when we thought Ben owned the bird, we had a problem with Diana.",
+    "category": "Backtracking",
+    "abbreviation": "B-59"
+  },
+  {
+    "index": 60,
+    "text": "So perhaps Ben owns the cat, and Alex owns the bird.",
+    "category": "Deduction",
+    "abbreviation": "D-60"
+  },
+  {
+    "index": 61,
+    "text": "Let me lay it out:\n\n- Clara: Fish (no fur, as per clue 3)\n- Alex: Bird (since he can't have dog or fish)\n- Ben: Cat (since he can own either bird or cat, and bird is taken by Alex)\n- Diana: Dog (remaining pet)\n\nBut wait, Diana owns the dog, which doesn't have feathers, so her allergy is fine.",
+    "category": "Deduction",
+    "abbreviation": "D-61"
+  },
+  {
+    "index": 62,
+    "text": "Alternatively, if Ben owns the bird, then:\n\n- Clara: Fish\n- Alex: Cat (since he can't have dog or fish)\n- Ben: Bird\n- Diana: Dog\n\nBut then Diana owns the dog, which is okay because she's not allergic to feathers.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-62"
+  },
+  {
+    "index": 63,
+    "text": "So both scenarios seem possible.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-63"
+  },
+  {
+    "index": 64,
+    "text": "Wait, but in the first scenario, Ben owns the cat, and in the second, Ben owns the bird.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-64"
+  },
+  {
+    "index": 65,
+    "text": "Which one is correct?\n\nWait, let's go back to the clues.",
+    "category": "Question Posing",
+    "abbreviation": "QP-65"
+  },
+  {
+    "index": 66,
+    "text": "The second clue says Ben owns either the bird or the cat.",
+    "category": "Deduction",
+    "abbreviation": "D-66"
+  },
+  {
+    "index": 67,
+    "text": "So both are possible.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-67"
+  },
+  {
+    "index": 68,
+    "text": "However, we need to see which one fits without contradictions.",
+    "category": "Question Posing",
+    "abbreviation": "QP-68"
+  },
+  {
+    "index": 69,
+    "text": "In the first scenario:\n\n- Ben: Cat\n- Alex: Bird\n- Diana: Dog\n- Clara: Fish\n\nDoes that work? Let's check all clues.",
+    "category": "Example Testing",
+    "abbreviation": "ET-69"
+  },
+  {
+    "index": 70,
+    "text": "1. Alex doesn't own dog or fish: Yes, he owns bird.",
+    "category": "Example Testing",
+    "abbreviation": "ET-70"
+  },
+  {
+    "index": 71,
+    "text": "2. Ben owns bird or cat: Yes, he owns cat.",
+    "category": "Example Testing",
+    "abbreviation": "ET-71"
+  },
+  {
+    "index": 72,
+    "text": "3. Clara doesn't like fur: Yes, she owns fish.",
+    "category": "Example Testing",
+    "abbreviation": "ET-72"
+  },
+  {
+    "index": 73,
+    "text": "4. Diana is allergic to feathers: She owns dog, which has no feathers, so that's okay.",
+    "category": "Example Testing",
+    "abbreviation": "ET-73"
+  },
+  {
+    "index": 74,
+    "text": "In the second scenario:\n\n- Ben: Bird\n- Alex: Cat\n- Diana: Dog\n- Clara: Fish\n\nCheck clues:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-74"
+  },
+  {
+    "index": 75,
+    "text": "Alex owns cat, not dog or fish: Yes.",
+    "category": "Deduction",
+    "abbreviation": "D-75"
+  },
+  {
+    "index": 76,
+    "text": "2. Ben owns bird: Yes.",
+    "category": "Deduction",
+    "abbreviation": "D-76"
+  },
+  {
+    "index": 77,
+    "text": "3. Clara owns fish: Yes.",
+    "category": "Deduction",
+    "abbreviation": "D-77"
+  },
+  {
+    "index": 78,
+    "text": "4. Diana owns dog: No feathers, so no problem.",
+    "category": "Deduction",
+    "abbreviation": "D-78"
+  },
+  {
+    "index": 79,
+    "text": "So both scenarios seem possible.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-79"
+  },
+  {
+    "index": 80,
+    "text": "But wait, the problem is that Diana is allergic to feathers.",
+    "category": "Backtracking",
+    "abbreviation": "B-80"
+  },
+  {
+    "index": 81,
+    "text": "So if she owned the bird, which has feathers, she would be allergic, which is not allowed.",
+    "category": "Deduction",
+    "abbreviation": "D-81"
+  },
+  {
+    "index": 82,
+    "text": "Therefore, Diana cannot own the bird.",
+    "category": "Deduction",
+    "abbreviation": "D-82"
+  },
+  {
+    "index": 83,
+    "text": "Therefore, Ben must own the cat, and Alex must own the bird.",
+    "category": "Deduction",
+    "abbreviation": "D-83"
+  },
+  {
+    "index": 84,
+    "text": "So the correct assignments are:\n\n- Alex: Bird\n- Ben: Cat\n- Clara: Fish\n- Diana: Dog\n\nWait, but let me make sure.",
+    "category": "Summary",
+    "abbreviation": "S-84"
+  },
+  {
+    "index": 85,
+    "text": "If Ben owns the cat, then Alex can't own the cat, so he must own the bird.",
+    "category": "Deduction",
+    "abbreviation": "D-85"
+  },
+  {
+    "index": 86,
+    "text": "Then Diana owns the dog, which is fine because she's not allergic to feathers.",
+    "category": "Deduction",
+    "abbreviation": "D-86"
+  },
+  {
+    "index": 87,
+    "text": "Yes, that works.",
+    "category": "Deduction",
+    "abbreviation": "D-87"
+  },
+  {
+    "index": 88,
+    "text": "So the final assignments are:\n\nAlex: Bird\n\nBen: Cat\n\nClara: Fish\n\nDiana: Dog\n</think>\n\nBased on the clues, we can determine the pets as follows:\n\n- **Alex** owns the **bird** because he doesn't own the dog or fish, and the only remaining pet is the bird.",
+    "category": "Summary",
+    "abbreviation": "S-88"
+  },
+  {
+    "index": 89,
+    "text": "- **Ben** owns the **cat** because he can own either the bird or the cat, and the bird is already taken by Alex.",
+    "category": "Deduction",
+    "abbreviation": "D-89"
+  },
+  {
+    "index": 90,
+    "text": "- **Clara** owns the **fish** because she doesn't like animals with fur, and the fish is the only pet without fur.",
+    "category": "Deduction",
+    "abbreviation": "D-90"
+  },
+  {
+    "index": 91,
+    "text": "- **Diana** owns the **dog** because she is allergic to feathers, and the dog doesn't have feathers.",
+    "category": "Deduction",
+    "abbreviation": "D-91"
+  }
+]

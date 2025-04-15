@@ -1,0 +1,770 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small fishing village relies on a local lake for its fish supply.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "When the village had just 50 residents, each person could catch 10 fish per day without affecting the fish population.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "As the village grew to 100 residents, they noticed the average catch per person dropped to 8 fish per day.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
+  },
+  {
+    "index": 5,
+    "text": "When the population reached 150 residents, the average catch fell further to 5 fish per day.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-5"
+  },
+  {
+    "index": 6,
+    "text": "If this trend continues in the same nonlinear pattern, how many fish per day would each person be able to catch if the village population reaches 200 residents? \n\n Solution: \n<think>\nAlright, let's try to figure out this problem.",
+    "category": "Question Posing",
+    "abbreviation": "QP-6"
+  },
+  {
+    "index": 7,
+    "text": "So, we have a fishing village where the number of people and the average fish they catch per day are related.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "It seems like the more people there are, the fewer fish each person can catch on average.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-8"
+  },
+  {
+    "index": 9,
+    "text": "I need to find out how many fish per day each person would catch when the population reaches 200 residents.",
+    "category": "Question Posing",
+    "abbreviation": "QP-9"
+  },
+  {
+    "index": 10,
+    "text": "First, let's break down the information given:\n\n- When the population was 50, each person caught 10 fish per day.",
+    "category": "Initializing",
+    "abbreviation": "I-10"
+  },
+  {
+    "index": 11,
+    "text": "- When the population grew to 100, the average catch dropped to 8 fish per day.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-11"
+  },
+  {
+    "index": 12,
+    "text": "- When the population increased further to 150, the average catch fell to 5 fish per day.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-12"
+  },
+  {
+    "index": 13,
+    "text": "Hmm, okay.",
+    "category": "Initializing",
+    "abbreviation": "I-13"
+  },
+  {
+    "index": 14,
+    "text": "So, as the population doubles, the average catch per person halves.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "From 50 to 100, it went from 10 to 8, which is a halving.",
+    "category": "Example Testing",
+    "abbreviation": "ET-15"
+  },
+  {
+    "index": 16,
+    "text": "Then from 100 to 150, it went from 8 to 5, which is also a halving.",
+    "category": "Example Testing",
+    "abbreviation": "ET-16"
+  },
+  {
+    "index": 17,
+    "text": "So, this seems like a pattern where the average catch per person is inversely proportional to the square of the population.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "That is, the more people, the fewer fish each can catch, following a certain inverse relationship.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "Let me try to model this mathematically.",
+    "category": "Initializing",
+    "abbreviation": "I-19"
+  },
+  {
+    "index": 20,
+    "text": "Let\u2019s denote:\n\n- \\( N \\) = population\n- \\( C \\) = average catch per person per day\n\nFrom the given data:\n\n- When \\( N = 50 \\), \\( C = 10 \\)\n- When \\( N = 100 \\), \\( C = 8 \\)\n- When \\( N = 150 \\), \\( C = 5 \\)\n\nLooking at the changes:\n\n- From 50 to 100: \\( N \\) doubled, \\( C \\) halved (10 to 5).",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "- From 100 to 150: \\( N \\) increased by 50, \\( C \\) halved again (8 to 4, but wait, the problem says it dropped to 5.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Hmm, maybe my initial assumption isn't perfect.)\n\nWait, from 100 to 150, \\( N \\) increased by 50, but \\( C \\) went from 8 to 5, which is a decrease of 3, not exactly a halving.",
+    "category": "Backtracking",
+    "abbreviation": "B-22"
+  },
+  {
+    "index": 23,
+    "text": "So maybe my initial thought isn't accurate.",
+    "category": "Backtracking",
+    "abbreviation": "B-23"
+  },
+  {
+    "index": 24,
+    "text": "Perhaps the relationship isn't perfectly inverse with each doubling but follows a different pattern.",
+    "category": "Backtracking",
+    "abbreviation": "B-24"
+  },
+  {
+    "index": 25,
+    "text": "Let me think again.",
+    "category": "Backtracking",
+    "abbreviation": "B-25"
+  },
+  {
+    "index": 26,
+    "text": "Maybe it's a quadratic relationship.",
+    "category": "Question Posing",
+    "abbreviation": "QP-26"
+  },
+  {
+    "index": 27,
+    "text": "If I consider the number of fish caught per day in the lake as a fixed quantity, then the total catch per day would be \\( F = kN \\), where \\( k \\) is the total fish per day.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "Then, the average catch per person \\( C \\) would be \\( C = \\frac{F}{N} = \\frac{k}{N} \\).",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "So, \\( C \\) is inversely proportional to \\( N \\).",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "Wait, if that's the case, then when \\( N \\) doubles, \\( C \\) should halve.",
+    "category": "Example Testing",
+    "abbreviation": "ET-30"
+  },
+  {
+    "index": 31,
+    "text": "Let's test this with the given data.",
+    "category": "Example Testing",
+    "abbreviation": "ET-31"
+  },
+  {
+    "index": 32,
+    "text": "When \\( N = 50 \\), \\( C = 10 \\), so total fish \\( F = 50 * 10 = 500 \\).",
+    "category": "Deduction",
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "When \\( N = 100 \\), \\( C = 8 \\), so total fish should still be 500.",
+    "category": "Deduction",
+    "abbreviation": "D-33"
+  },
+  {
+    "index": 34,
+    "text": "But 100 * 8 = 800, which is more than 500.",
+    "category": "Backtracking",
+    "abbreviation": "B-34"
+  },
+  {
+    "index": 35,
+    "text": "That contradicts, so maybe the total fish isn't fixed.",
+    "category": "Backtracking",
+    "abbreviation": "B-35"
+  },
+  {
+    "index": 36,
+    "text": "Alternatively, perhaps the fish population is being affected by the number of people, so it's a nonlinear relationship where the total fish isn't fixed.",
+    "category": "Backtracking",
+    "abbreviation": "B-36"
+  },
+  {
+    "index": 37,
+    "text": "Alternatively, maybe the total fish in the lake is a fixed number, say \\( F \\).",
+    "category": "Backtracking",
+    "abbreviation": "B-37"
+  },
+  {
+    "index": 38,
+    "text": "Then, as more people come in, each person catches fewer fish, so \\( C = \\frac{F}{N} \\).",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "But in that case, when \\( N \\) doubles, \\( C \\) halves, which fits the first two data points but not the third.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "Wait, let's check:\n\nIf \\( F \\) is fixed, then when \\( N = 50 \\), \\( C = 10 \\), so \\( F = 50 * 10 = 500 \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-40"
+  },
+  {
+    "index": 41,
+    "text": "When \\( N = 100 \\), \\( C = 8 \\), so \\( F = 100 * 8 = 800 \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-41"
+  },
+  {
+    "index": 42,
+    "text": "But that contradicts because \\( F \\) should be the same.",
+    "category": "Backtracking",
+    "abbreviation": "B-42"
+  },
+  {
+    "index": 43,
+    "text": "So, \\( F \\) isn't fixed, meaning the fish population is being affected by the number of people.",
+    "category": "Deduction",
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "So, perhaps the number of fish in the lake isn't fixed, and it's being depleted as more people catch them.",
+    "category": "Deduction",
+    "abbreviation": "D-44"
+  },
+  {
+    "index": 45,
+    "text": "Alternatively, maybe the total fish caught per day is a fixed number, so \\( F = 10 * 50 = 500 \\) when \\( N = 50 \\).",
+    "category": "Deduction",
+    "abbreviation": "D-45"
+  },
+  {
+    "index": 46,
+    "text": "Then, when \\( N = 100 \\), if each person catches 8, total fish caught per day would be 800, which is more than 500, which doesn't make sense because the fish can't be caught more than they exist.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "So, perhaps the total fish caught per day is fixed, and as more people come in, each person catches fewer fish, so \\( F = C * N \\).",
+    "category": "Deduction",
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "Wait, if \\( F \\) is fixed, then when \\( N = 50 \\), \\( F = 50 * 10 = 500 \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-48"
+  },
+  {
+    "index": 49,
+    "text": "When \\( N = 100 \\), \\( F = 100 * 8 = 800 \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-49"
+  },
+  {
+    "index": 50,
+    "text": "But that's more than 500, which is impossible.",
+    "category": "Backtracking",
+    "abbreviation": "B-50"
+  },
+  {
+    "index": 51,
+    "text": "So, perhaps \\( F \\) isn't fixed, and the fish population is being overexploited, leading to fewer fish over time.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-51"
+  },
+  {
+    "index": 52,
+    "text": "Alternatively, maybe the relationship is that the total fish caught per day is proportional to the population, but each person's catch is inversely proportional to the square of the population.",
+    "category": "Question Posing",
+    "abbreviation": "QP-52"
+  },
+  {
+    "index": 53,
+    "text": "So, \\( C = \\frac{k}{N^2} \\).",
+    "category": "Deduction",
+    "abbreviation": "D-53"
+  },
+  {
+    "index": 54,
+    "text": "Let me test this:\n\nWhen \\( N = 50 \\), \\( C = 10 \\), so \\( 10 = \\frac{k}{50^2} \\) \u2192 \\( k = 10 * 2500 = 25,000 \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-54"
+  },
+  {
+    "index": 55,
+    "text": "When \\( N = 100 \\), \\( C = 8 \\), so \\( 8 = \\frac{25,000}{100^2} = \\frac{25,000}{10,000} = 2.5 \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-55"
+  },
+  {
+    "index": 56,
+    "text": "Wait, that's not 8.",
+    "category": "Backtracking",
+    "abbreviation": "B-56"
+  },
+  {
+    "index": 57,
+    "text": "So that doesn't fit.",
+    "category": "Backtracking",
+    "abbreviation": "B-57"
+  },
+  {
+    "index": 58,
+    "text": "Alternatively, maybe it's linear.",
+    "category": "Example Testing",
+    "abbreviation": "ET-58"
+  },
+  {
+    "index": 59,
+    "text": "But from 50 to 100, \\( C \\) went from 10 to 8, which is a decrease of 2, and from 100 to 150, \\( C \\) went from 8 to 5, a decrease of 3.",
+    "category": "Deduction",
+    "abbreviation": "D-59"
+  },
+  {
+    "index": 60,
+    "text": "So, it's decreasing, but not linearly.",
+    "category": "Deduction",
+    "abbreviation": "D-60"
+  },
+  {
+    "index": 61,
+    "text": "The rate of decrease is increasing, meaning the function is concave down.",
+    "category": "Deduction",
+    "abbreviation": "D-61"
+  },
+  {
+    "index": 62,
+    "text": "Perhaps the relationship is \\( C = \\frac{k}{N} \\), but with \\( k \\) decreasing over time as the fish population is depleted.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-62"
+  },
+  {
+    "index": 63,
+    "text": "Alternatively, maybe it's a hyperbolic relationship, but I'm not sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-63"
+  },
+  {
+    "index": 64,
+    "text": "Alternatively, perhaps the total fish caught per day is a fixed number, and as more people come in, each person catches fewer fish.",
+    "category": "Backtracking",
+    "abbreviation": "B-64"
+  },
+  {
+    "index": 65,
+    "text": "So, total fish caught per day \\( F = C * N \\).",
+    "category": "Deduction",
+    "abbreviation": "D-65"
+  },
+  {
+    "index": 66,
+    "text": "If \\( F \\) is fixed, then:\n\nWhen \\( N = 50 \\), \\( C = 10 \\), so \\( F = 500 \\).",
+    "category": "Deduction",
+    "abbreviation": "D-66"
+  },
+  {
+    "index": 67,
+    "text": "When \\( N = 100 \\), \\( C = 8 \\), so \\( F = 800 \\).",
+    "category": "Deduction",
+    "abbreviation": "D-67"
+  },
+  {
+    "index": 68,
+    "text": "But that's impossible because \\( F \\) can't change unless the fish population changes, which it might be, as more people are catching them.",
+    "category": "Backtracking",
+    "abbreviation": "B-68"
+  },
+  {
+    "index": 69,
+    "text": "Alternatively, maybe the fish population is being overharvested, so the total number of fish available is decreasing.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-69"
+  },
+  {
+    "index": 70,
+    "text": "Let's assume that the total fish available in the lake is a fixed number, say \\( F \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-70"
+  },
+  {
+    "index": 71,
+    "text": "Then, the average catch per person \\( C \\) would be \\( C = \\frac{F}{N} \\), but as more people come in, \\( F \\) decreases because the fish are being caught and not replenished.",
+    "category": "Deduction",
+    "abbreviation": "D-71"
+  },
+  {
+    "index": 72,
+    "text": "Wait, but in the problem, it's stated that the village relies on the lake for its fish supply, implying that the lake's fish population is being maintained or is being affected by the fishing activities.",
+    "category": "Backtracking",
+    "abbreviation": "B-72"
+  },
+  {
+    "index": 73,
+    "text": "If the fish population isn't replenished, then as more people catch fish, the total fish available decreases, leading to fewer fish being caught per person.",
+    "category": "Deduction",
+    "abbreviation": "D-73"
+  },
+  {
+    "index": 74,
+    "text": "But the problem doesn't specify whether the fish population is renewable or not.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-74"
+  },
+  {
+    "index": 75,
+    "text": "It just says that as the village grows, the average catch per person drops.",
+    "category": "Deduction",
+    "abbreviation": "D-75"
+  },
+  {
+    "index": 76,
+    "text": "So perhaps the total fish available is fixed, and as more people come, each person catches fewer fish.",
+    "category": "Deduction",
+    "abbreviation": "D-76"
+  },
+  {
+    "index": 77,
+    "text": "So, let's assume that the total fish available is fixed, say \\( F \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-77"
+  },
+  {
+    "index": 78,
+    "text": "Then, the average catch per person \\( C \\) is \\( C = \\frac{F}{N} \\).",
+    "category": "Deduction",
+    "abbreviation": "D-78"
+  },
+  {
+    "index": 79,
+    "text": "From the data:\n\n- When \\( N = 50 \\), \\( C = 10 \\) \u2192 \\( F = 50 * 10 = 500 \\)\n- When \\( N = 100 \\), \\( C = 8 \\) \u2192 \\( F = 100 * 8 = 800 \\)\n- When \\( N = 150 \\), \\( C = 5 \\) \u2192 \\( F = 150 * 5 = 750 \\)\n\nBut this is inconsistent because \\( F \\) would have to change, which it shouldn't if it's a fixed total fish population.",
+    "category": "Example Testing",
+    "abbreviation": "ET-79"
+  },
+  {
+    "index": 80,
+    "text": "Therefore, this approach might not be correct.",
+    "category": "Backtracking",
+    "abbreviation": "B-80"
+  },
+  {
+    "index": 81,
+    "text": "Alternatively, perhaps the relationship is that the total fish caught per day remains the same, but as more people come in, each person catches fewer fish.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-81"
+  },
+  {
+    "index": 82,
+    "text": "So, the total fish caught per day \\( F \\) is a constant.",
+    "category": "Deduction",
+    "abbreviation": "D-82"
+  },
+  {
+    "index": 83,
+    "text": "From the data:\n\n- When \\( N = 50 \\), \\( C = 10 \\) \u2192 \\( F = 50 * 10 = 500 \\)\n- When \\( N = 100 \\), \\( C = 8 \\) \u2192 \\( F = 100 * 8 = 800 \\)\n- When \\( N = 150 \\), \\( C = 5 \\) \u2192 \\( F = 150 * 5 = 750 \\)\n\nBut again, \\( F \\) is changing, which isn't possible if it's a fixed total.",
+    "category": "Example Testing",
+    "abbreviation": "ET-83"
+  },
+  {
+    "index": 84,
+    "text": "So, this approach also doesn't hold.",
+    "category": "Backtracking",
+    "abbreviation": "B-84"
+  },
+  {
+    "index": 85,
+    "text": "Maybe the relationship is that the total fish caught per day is proportional to the square of the population, but that seems unlikely.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-85"
+  },
+  {
+    "index": 86,
+    "text": "Alternatively, perhaps the total fish caught per day is proportional to the population, but each person's catch is inversely proportional to the population, meaning \\( C = \\frac{k}{N} \\).",
+    "category": "Deduction",
+    "abbreviation": "D-86"
+  },
+  {
+    "index": 87,
+    "text": "Wait, if \\( C = \\frac{k}{N} \\), then when \\( N \\) doubles, \\( C \\) halves.",
+    "category": "Deduction",
+    "abbreviation": "D-87"
+  },
+  {
+    "index": 88,
+    "text": "Let's see:\n\n- \\( N = 50 \\), \\( C = 10 \\) \u2192 \\( k = 50 * 10 = 500 \\)\n- \\( N = 100 \\), \\( C = 8 \\) \u2192 \\( k = 100 * 8 = 800 \\)\n- \\( N = 150 \\), \\( C = 5 \\) \u2192 \\( k = 150 * 5 = 750 \\)\n\nBut \\( k \\) is changing, which it shouldn't if it's a fixed constant.",
+    "category": "Example Testing",
+    "abbreviation": "ET-88"
+  },
+  {
+    "index": 89,
+    "text": "So, this approach also doesn't fit.",
+    "category": "Backtracking",
+    "abbreviation": "B-89"
+  },
+  {
+    "index": 90,
+    "text": "Hmm, maybe the relationship is quadratic, like \\( C = \\frac{k}{N^2} \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-90"
+  },
+  {
+    "index": 91,
+    "text": "Let's try that.",
+    "category": "Example Testing",
+    "abbreviation": "ET-91"
+  },
+  {
+    "index": 92,
+    "text": "- When \\( N = 50 \\), \\( C = 10 \\) \u2192 \\( k = 10 * (50)^2 = 10 * 2500 = 25,000 \\)\n- When \\( N = 100 \\), \\( C = 8 \\) \u2192 \\( k = 8 * (100)^2 = 8 * 10,000 = 80,000 \\)\n- When \\( N = 150 \\), \\( C = 5 \\) \u2192 \\( k = 5 * (150)^2 = 5 * 22,500 = 112,500 \\)\n\nAgain, \\( k \\) is changing, which isn't consistent.",
+    "category": "Example Testing",
+    "abbreviation": "ET-92"
+  },
+  {
+    "index": 93,
+    "text": "So, this approach doesn't fit either.",
+    "category": "Backtracking",
+    "abbreviation": "B-93"
+  },
+  {
+    "index": 94,
+    "text": "Wait, maybe the relationship isn't a simple proportionality.",
+    "category": "Question Posing",
+    "abbreviation": "QP-94"
+  },
+  {
+    "index": 95,
+    "text": "Let's look at the changes:\n\nFrom 50 to 100: \\( N \\) doubles, \\( C \\) halves (from 10 to 5 if following \\( C \\propto 1/N \\)).",
+    "category": "Example Testing",
+    "abbreviation": "ET-95"
+  },
+  {
+    "index": 96,
+    "text": "But in the problem, when \\( N \\) goes from 50 to 100, \\( C \\) goes from 10 to 8, which is a decrease of 2, not 5.",
+    "category": "Deduction",
+    "abbreviation": "D-96"
+  },
+  {
+    "index": 97,
+    "text": "So, maybe it's not exactly a direct halving each time.",
+    "category": "Backtracking",
+    "abbreviation": "B-97"
+  },
+  {
+    "index": 98,
+    "text": "Similarly, from 100 to 150, \\( C \\) goes from 8 to 5, which is a decrease of 3.",
+    "category": "Deduction",
+    "abbreviation": "D-98"
+  },
+  {
+    "index": 99,
+    "text": "So, perhaps the rate of decrease is increasing, meaning the relationship is concave.",
+    "category": "Deduction",
+    "abbreviation": "D-99"
+  },
+  {
+    "index": 100,
+    "text": "Maybe it's a quadratic relationship where \\( C \\) decreases as \\( N \\) increases, but not in a simple linear or proportional way.",
+    "category": "Deduction",
+    "abbreviation": "D-100"
+  },
+  {
+    "index": 101,
+    "text": "Let me try to model it as a quadratic function.",
+    "category": "Question Posing",
+    "abbreviation": "QP-101"
+  },
+  {
+    "index": 102,
+    "text": "Let's assume that \\( C \\) is a function of \\( N \\), so \\( C = aN^2 + bN + c \\).",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-102"
+  },
+  {
+    "index": 103,
+    "text": "But since \\( C \\) is decreasing as \\( N \\) increases, the quadratic coefficient \\( a \\) should be negative.",
+    "category": "Deduction",
+    "abbreviation": "D-103"
+  },
+  {
+    "index": 104,
+    "text": "But with three data points, we can set up a system of equations to solve for \\( a \\), \\( b \\), and \\( c \\).",
+    "category": "Example Testing",
+    "abbreviation": "ET-104"
+  },
+  {
+    "index": 105,
+    "text": "Given:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-105"
+  },
+  {
+    "index": 106,
+    "text": "When \\( N = 50 \\), \\( C = 10 \\): \\( 10 = a(50)^2 + b(50) + c \\) \u2192 \\( 2500a + 50b + c = 10 \\)\n2.",
+    "category": "Example Testing",
+    "abbreviation": "ET-106"
+  },
+  {
+    "index": 107,
+    "text": "When \\( N = 100 \\), \\( C = 8 \\): \\( 8 = a(100)^2 + b(100) + c \\) \u2192 \\( 10,000a + 100b + c = 8 \\)\n3.",
+    "category": "Example Testing",
+    "abbreviation": "ET-107"
+  },
+  {
+    "index": 108,
+    "text": "When \\( N = 150 \\), \\( C = 5 \\): \\( 5 = a(150)^2 + b(150) + c \\) \u2192 \\( 22,500a + 150b + c = 5 \\)\n\nNow, we have three equations:\n\n1.",
+    "category": "Example Testing",
+    "abbreviation": "ET-108"
+  },
+  {
+    "index": 109,
+    "text": "\\( 2500a + 50b + c = 10 \\) \u2192 Equation (1)\n2.",
+    "category": "Deduction",
+    "abbreviation": "D-109"
+  },
+  {
+    "index": 110,
+    "text": "\\( 10,000a + 100b + c = 8 \\) \u2192 Equation (2)\n3.",
+    "category": "Deduction",
+    "abbreviation": "D-110"
+  },
+  {
+    "index": 111,
+    "text": "\\( 22,500a + 150b + c = 5 \\) \u2192 Equation (3)\n\nLet's subtract Equation (1) from Equation (2):\n\nEquation (2) - Equation (1):\n\n\\( (10,000a - 2500a) + (100b - 50b) + (c - c) = 8 - 10 \\)\n\n\\( 7500a + 50b = -2 \\) \u2192 Equation (4)\n\nSimilarly, subtract Equation (2) from Equation (3):\n\nEquation (3) - Equation (2):\n\n\\( (22,500a - 10,000a) + (150b - 100b) + (c - c) = 5 - 8 \\)\n\n\\( 12,500a + 50b = -3 \\) \u2192 Equation (5)\n\nNow, we have two equations:\n\nEquation (4): \\( 7500a + 50b = -2 \\)\n\nEquation (5): \\( 12,500a + 50b = -3 \\)\n\nSubtract Equation (4) from Equation (5):\n\n\\( (12,500a - 7500a) + (50b - 50b) = -3 - (-2) \\)\n\n\\( 5,000a = -1 \\)\n\nSo, \\( a = -1 / 5,000 = -0.0002 \\)\n\nNow, plug \\( a = -0.0002 \\) into Equation (4):\n\n\\( 7500*(-0.0002) + 50b = -2 \\)\n\nCalculate 7500*(-0.0002) = -1.5\n\nSo:\n\n-1.5 + 50b = -2\n\nAdd 1.5 to both sides:\n\n50b = -0.5\n\nSo, \\( b = -0.5 / 50 = -0.01 \\)\n\nNow, plug \\( a = -0.0002 \\) and \\( b = -0.01 \\) into Equation (1):\n\n2500*(-0.0002) + 50*(-0.01) + c = 10\n\nCalculate:\n\n2500*(-0.0002) = -0.5\n\n50*(-0.01) = -0.5\n\nSo:\n\n-0.5 -0.5 + c = 10\n\n-1 + c = 10\n\nc = 11\n\nSo, the quadratic function is:\n\n\\( C = -0.0002N^2 - 0.01N + 11 \\)\n\nNow, let's test this function with the given data points to see if it fits.",
+    "category": "Deduction",
+    "abbreviation": "D-111"
+  },
+  {
+    "index": 112,
+    "text": "For N=50:\n\nC = -0.0002*(2500) -0.01*50 +11 = -0.5 -0.5 +11 = 10.",
+    "category": "Example Testing",
+    "abbreviation": "ET-112"
+  },
+  {
+    "index": 113,
+    "text": "Correct. For N=100:\n\nC = -0.0002*(10,000) -0.01*100 +11 = -2 -1 +11 = 8.",
+    "category": "Example Testing",
+    "abbreviation": "ET-113"
+  },
+  {
+    "index": 114,
+    "text": "Correct. For N=150:\n\nC = -0.0002*(22,500) -0.01*150 +11 = -4.5 -1.5 +11 = 5.",
+    "category": "Example Testing",
+    "abbreviation": "ET-114"
+  },
+  {
+    "index": 115,
+    "text": "Correct. Great, it fits all three points.",
+    "category": "Deduction",
+    "abbreviation": "D-115"
+  },
+  {
+    "index": 116,
+    "text": "Now, we need to find the average catch when N=200.",
+    "category": "Initializing",
+    "abbreviation": "I-116"
+  },
+  {
+    "index": 117,
+    "text": "So, plug N=200 into the equation:\n\n\\( C = -0.0002*(200)^2 -0.01*(200) +11 \\)\n\nCalculate each term:\n\n- \\( -0.0002*(40,000) = -8 \\)\n- \\( -0.01*(200) = -2 \\)\n- So, total: -8 -2 +11 = 1\n\nTherefore, when the population reaches 200, the average catch per person per day would be 1 fish.",
+    "category": "Deduction",
+    "abbreviation": "D-117"
+  },
+  {
+    "index": 118,
+    "text": "Wait, that seems low, but according to the quadratic model, that's the result.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-118"
+  },
+  {
+    "index": 119,
+    "text": "Let me double-check the calculations.",
+    "category": "Backtracking",
+    "abbreviation": "B-119"
+  },
+  {
+    "index": 120,
+    "text": "Calculating for N=200:\n\n- \\( 200^2 = 40,000 \\)\n- \\( -0.0002 * 40,000 = -8 \\)\n- \\( -0.01 * 200 = -2 \\)\n- So, -8 -2 +11 = 1.",
+    "category": "Example Testing",
+    "abbreviation": "ET-120"
+  },
+  {
+    "index": 121,
+    "text": "Yes, correct.",
+    "category": "Final Answer",
+    "abbreviation": "FA-121"
+  },
+  {
+    "index": 122,
+    "text": "Alternatively, perhaps there's a simpler way to model this without going through quadratic equations.",
+    "category": "Backtracking",
+    "abbreviation": "B-122"
+  },
+  {
+    "index": 123,
+    "text": "Since the average catch is halving as the population doubles, it suggests an exponential decay in the average catch.",
+    "category": "Deduction",
+    "abbreviation": "D-123"
+  },
+  {
+    "index": 124,
+    "text": "Wait, if we model \\( C \\) as \\( C = C_0 * (1/2)^{N/50} \\), where \\( C_0 = 10 \\), then:\n\n- For N=50: 10*(1/2)^1 = 5.",
+    "category": "Example Testing",
+    "abbreviation": "ET-124"
+  },
+  {
+    "index": 125,
+    "text": "But in reality, it's 10, so that's not matching.",
+    "category": "Backtracking",
+    "abbreviation": "B-125"
+  },
+  {
+    "index": 126,
+    "text": "Alternatively, perhaps \\( C = C_0 * (1/2)^{log2(N)} \\).",
+    "category": "Backtracking",
+    "abbreviation": "B-126"
+  },
+  {
+    "index": 127,
+    "text": "Let me try:\n\nFor N=50: \\( log2(50) \u2248 5.64 \\), so \\(",
+    "category": "Initializing",
+    "abbreviation": "I-127"
+  }
+]

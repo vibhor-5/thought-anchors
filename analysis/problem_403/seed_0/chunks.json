@@ -1,0 +1,920 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A cube has each face painted with a different color: red, blue, green, yellow, orange, and purple.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "The cube is photographed from a particular angle, showing exactly three faces: the red face is on the left, the blue face is on the right, and the yellow face is on top.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "If the cube is rotated 90 degrees clockwise around the vertical axis (the axis passing through the centers of the top and bottom faces), which three colors will be visible, and in what positions (left, right, top)? \n\n Solution: \n<think>\nAlright, so I've got this cube problem here.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "Let me try to visualize it and figure out the solution step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "Okay, the cube has six faces, each painted a different color: red, blue, green, yellow, orange, and purple.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-6"
+  },
+  {
+    "index": 7,
+    "text": "When it's photographed from a certain angle, three faces are visible: red on the left, blue on the right, and yellow on top.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-7"
+  },
+  {
+    "index": 8,
+    "text": "Now, the cube is going to be rotated 90 degrees clockwise around the vertical axis.",
+    "category": "Deduction",
+    "abbreviation": "D-8"
+  },
+  {
+    "index": 9,
+    "text": "I need to figure out which three colors will be visible after this rotation and where they'll be positioned\u2014left, right, and top.",
+    "category": "Question Posing",
+    "abbreviation": "QP-9"
+  },
+  {
+    "index": 10,
+    "text": "First, let me get a clear picture of the cube in my mind.",
+    "category": "Initializing",
+    "abbreviation": "I-10"
+  },
+  {
+    "index": 11,
+    "text": "A cube has six faces: front, back, left, right, top, and bottom.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-11"
+  },
+  {
+    "index": 12,
+    "text": "Each face is a different color.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-12"
+  },
+  {
+    "index": 13,
+    "text": "So, in the initial position, red is on the left, blue on the right, and yellow on top.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "That leaves green, orange, and purple for the front, back, and bottom.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "Wait, actually, the bottom face hasn't been mentioned yet.",
+    "category": "Backtracking",
+    "abbreviation": "B-15"
+  },
+  {
+    "index": 16,
+    "text": "Hmm, the cube is being viewed from a particular angle, showing three faces: left, right, and top.",
+    "category": "Initializing",
+    "abbreviation": "I-16"
+  },
+  {
+    "index": 17,
+    "text": "So, the bottom face isn't visible in this view.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "Now, the cube is going to be rotated 90 degrees clockwise around the vertical axis.",
+    "category": "Initializing",
+    "abbreviation": "I-18"
+  },
+  {
+    "index": 19,
+    "text": "The vertical axis goes through the centers of the top and bottom faces.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-19"
+  },
+  {
+    "index": 20,
+    "text": "So, when I rotate the cube 90 degrees clockwise, the top face will move to the right, the right face will move to the back, and the back face will move to the left, while the left face moves to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "Wait, actually, that might not be accurate.",
+    "category": "Backtracking",
+    "abbreviation": "B-21"
+  },
+  {
+    "index": 22,
+    "text": "Let me think about how rotation affects each face.",
+    "category": "Question Posing",
+    "abbreviation": "QP-22"
+  },
+  {
+    "index": 23,
+    "text": "When you rotate a cube 90 degrees clockwise around the vertical axis, the top face moves towards the right, the right face moves towards the back, the back face moves towards the left, and the left face moves towards the front.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-23"
+  },
+  {
+    "index": 24,
+    "text": "So, each face's position shifts in that direction.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "But I need to map how the colors move after this rotation.",
+    "category": "Question Posing",
+    "abbreviation": "QP-25"
+  },
+  {
+    "index": 26,
+    "text": "Let me label the faces as follows for clarity:\n- Front: ?\n- Back: ?\n- Left: Red\n- Right: Blue\n- Top: Yellow\n- Bottom: ?\n\nWait, I don't know the colors for front, back, and bottom.",
+    "category": "Initializing",
+    "abbreviation": "I-26"
+  },
+  {
+    "index": 27,
+    "text": "But maybe I don't need them.",
+    "category": "Question Posing",
+    "abbreviation": "QP-27"
+  },
+  {
+    "index": 28,
+    "text": "Since the problem is about the visible faces after rotation, which are left, right, and top again, I just need to track how the existing visible faces move and where the new colors come from.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "In the initial position, the visible faces are:\n- Left: Red\n- Right: Blue\n- Top: Yellow\n\nAfter a 90-degree clockwise rotation around the vertical axis, the top face (Yellow) will move to the right, the right face (Blue) will move to the back, the back face will move to the left, and the left face (Red) will move to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "Wait, but the front face was initially hidden.",
+    "category": "Backtracking",
+    "abbreviation": "B-30"
+  },
+  {
+    "index": 31,
+    "text": "So, after rotation, the front face becomes the previous left face (Red), the right face becomes the previous top face (Yellow), and the back face becomes the previous right face (Blue).",
+    "category": "Deduction",
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "Hmm, that seems a bit confusing.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-32"
+  },
+  {
+    "index": 33,
+    "text": "Let me try to visualize it differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-33"
+  },
+  {
+    "index": 34,
+    "text": "Alternatively, perhaps it's better to think about how the cube looks from the camera's perspective.",
+    "category": "Backtracking",
+    "abbreviation": "B-34"
+  },
+  {
+    "index": 35,
+    "text": "When you rotate the cube 90 degrees clockwise, the top face moves to the right, the right face moves to the back, the back face moves to the left, and the left face moves to the front.",
+    "category": "Example Testing",
+    "abbreviation": "ET-35"
+  },
+  {
+    "index": 36,
+    "text": "So, the camera, which was initially seeing left, right, and top, will now see the new positions after rotation.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "But wait, the camera's perspective might change as well.",
+    "category": "Backtracking",
+    "abbreviation": "B-37"
+  },
+  {
+    "index": 38,
+    "text": "Let me think about the cube's orientation relative to the camera.",
+    "category": "Question Posing",
+    "abbreviation": "QP-38"
+  },
+  {
+    "index": 39,
+    "text": "When you rotate the cube 90 degrees clockwise, the top face (Yellow) moves to the right, so the right face (Blue) moves towards the back, and the back face (which was previously hidden) comes into view on the left, and the left face (Red) moves to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "Wait, I'm getting a bit tangled here.",
+    "category": "Backtracking",
+    "abbreviation": "B-40"
+  },
+  {
+    "index": 41,
+    "text": "Maybe a better approach is to assign coordinates to the cube's faces and track their positions after rotation.",
+    "category": "Backtracking",
+    "abbreviation": "B-41"
+  },
+  {
+    "index": 42,
+    "text": "Let's consider the cube with the vertical axis as the z-axis, and the horizontal axis as the x and y axes.",
+    "category": "Initializing",
+    "abbreviation": "I-42"
+  },
+  {
+    "index": 43,
+    "text": "In the initial position, the cube's top face is along the positive z-axis, bottom along the negative z-axis, left along the negative x-axis, right along the positive x-axis, front along the positive y-axis, and back along the negative y-axis.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-43"
+  },
+  {
+    "index": 44,
+    "text": "So, in the initial position:\n- Left face: Red (negative x)\n- Right face: Blue (positive x)\n- Top face: Yellow (positive z)\n- Bottom face: let's say it's purple (negative z)\n- Front face: green (positive y)\n- Back face: orange (negative y)\n\nWait, but the problem doesn't specify the colors for front, back, and bottom.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-44"
+  },
+  {
+    "index": 45,
+    "text": "It only mentions that the cube is photographed showing red, blue, and yellow.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-45"
+  },
+  {
+    "index": 46,
+    "text": "So maybe I don't need to know the exact colors for front, back, and bottom, but just their positions relative to the rotation.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "When the cube is rotated 90 degrees clockwise around the vertical axis (z-axis), the rotation will affect the x and y axes.",
+    "category": "Deduction",
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "A 90-degree clockwise rotation around the z-axis can be represented by the rotation matrix:\n\n[cos\u03b8  sin\u03b8  0]\n[-sin\u03b8 cos\u03b8  0]\n[ 0     0    1]\n\nFor \u03b8 = 90 degrees, cos\u03b8 = 0, sin\u03b8 = 1.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-48"
+  },
+  {
+    "index": 49,
+    "text": "So the rotation matrix becomes:\n\n[0  1  0]\n[-1 0  0]\n[0  0  1]\n\nThis means that any point (x, y, z) will be transformed to (y, -x, z).",
+    "category": "Deduction",
+    "abbreviation": "D-49"
+  },
+  {
+    "index": 50,
+    "text": "So, applying this rotation to each face:\n\n- The left face (Red) was at (negative x, 0, 0).",
+    "category": "Example Testing",
+    "abbreviation": "ET-50"
+  },
+  {
+    "index": 51,
+    "text": "After rotation, it moves to (0, -negative x, 0) which is (0, positive x, 0), so it's now on the positive x-axis, which is the right side.",
+    "category": "Deduction",
+    "abbreviation": "D-51"
+  },
+  {
+    "index": 52,
+    "text": "- The right face (Blue) was at (positive x, 0, 0).",
+    "category": "Deduction",
+    "abbreviation": "D-52"
+  },
+  {
+    "index": 53,
+    "text": "After rotation, it moves to (0, -positive x, 0) which is (0, negative x, 0), so it's now on the negative x-axis, which would be the left side.",
+    "category": "Deduction",
+    "abbreviation": "D-53"
+  },
+  {
+    "index": 54,
+    "text": "- The top face (Yellow) was at (0, 0, positive z).",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-54"
+  },
+  {
+    "index": 55,
+    "text": "After rotation, it remains at (0, 0, positive z), but its position relative to the cube changes.",
+    "category": "Deduction",
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "However, since we're rotating the cube, the top face will move to where the right face was, but wait, no.",
+    "category": "Backtracking",
+    "abbreviation": "B-56"
+  },
+  {
+    "index": 57,
+    "text": "Let me think again.",
+    "category": "Backtracking",
+    "abbreviation": "B-57"
+  },
+  {
+    "index": 58,
+    "text": "Wait, no.",
+    "category": "Backtracking",
+    "abbreviation": "B-58"
+  },
+  {
+    "index": 59,
+    "text": "The rotation affects the cube's orientation, so the faces that were previously visible will move.",
+    "category": "Deduction",
+    "abbreviation": "D-59"
+  },
+  {
+    "index": 60,
+    "text": "Let me think differently: when you rotate the cube 90 degrees clockwise, the top face (Yellow) moves to the right, the right face (Blue) moves to the back, the back face (which was previously hidden) moves to the left, and the left face (Red) moves to the front.",
+    "category": "Backtracking",
+    "abbreviation": "B-60"
+  },
+  {
+    "index": 61,
+    "text": "But the problem is that the cube's orientation relative to the camera is changing, so the visible faces from the camera's viewpoint will change as well.",
+    "category": "Deduction",
+    "abbreviation": "D-61"
+  },
+  {
+    "index": 62,
+    "text": "Let me try to map this.",
+    "category": "Initializing",
+    "abbreviation": "I-62"
+  },
+  {
+    "index": 63,
+    "text": "Initially, from the camera's view:\n- Left: Red\n- Right: Blue\n- Top: Yellow\n\nAfter a 90-degree clockwise rotation, the cube's top face (Yellow) moves to the right, so the right face (Blue) moves to the back, the back face (unknown color) moves to the left, and the left face (Red) moves to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-63"
+  },
+  {
+    "index": 64,
+    "text": "But the front face was previously hidden, so now it becomes visible on the left side.",
+    "category": "Deduction",
+    "abbreviation": "D-64"
+  },
+  {
+    "index": 65,
+    "text": "Wait, I'm getting confused.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-65"
+  },
+  {
+    "index": 66,
+    "text": "Let me try a different approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-66"
+  },
+  {
+    "index": 67,
+    "text": "Let's fix the cube in space and track each face's position.",
+    "category": "Initializing",
+    "abbreviation": "I-67"
+  },
+  {
+    "index": 68,
+    "text": "Let me assign coordinates again:\n\n- Front: positive y-axis\n- Back: negative y-axis\n- Left: negative x-axis\n- Right: positive x-axis\n- Top: positive z-axis\n- Bottom: negative z-axis\n\nInitial positions:\n- Left: Red (-x)\n- Right: Blue (+x)\n- Top: Yellow (+z)\n- Front: Green (+y)\n- Back: Orange (-y)\n- Bottom: Purple (-z)\n\nNow, after a 90-degree clockwise rotation around the vertical axis (z-axis), the cube's orientation changes.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-68"
+  },
+  {
+    "index": 69,
+    "text": "So, the front face (Green) will move to the right, the right face (Blue) will move to the back, the back face (Orange) will move to the left, and the left face (Red) will move to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-69"
+  },
+  {
+    "index": 70,
+    "text": "Wait, but that seems like a rotation of the cube itself, so the visible faces from the camera's perspective will change accordingly.",
+    "category": "Backtracking",
+    "abbreviation": "B-70"
+  },
+  {
+    "index": 71,
+    "text": "Wait, perhaps it's better to think about how the cube looks from the camera's viewpoint after rotation.",
+    "category": "Question Posing",
+    "abbreviation": "QP-71"
+  },
+  {
+    "index": 72,
+    "text": "Let me imagine holding the cube and rotating it 90 degrees clockwise.",
+    "category": "Example Testing",
+    "abbreviation": "ET-72"
+  },
+  {
+    "index": 73,
+    "text": "The top face (Yellow) will move to the right, the right face (Blue) will move to the back, the back face (Orange) will move to the left, and the left face (Red) will move to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-73"
+  },
+  {
+    "index": 74,
+    "text": "So, after rotation, the visible faces from the camera's viewpoint would be:\n\n- Left: Front face (which was Red, now moved to front)\n- Right: Back face (which was Blue, now moved to back)\n- Top: The previous top face (Yellow) has moved to the right, but now the right face is the back face (Blue), so the new top face is the previous back face, which was Orange.",
+    "category": "Deduction",
+    "abbreviation": "D-74"
+  },
+  {
+    "index": 75,
+    "text": "Wait, no, that doesn't make sense.",
+    "category": "Backtracking",
+    "abbreviation": "B-75"
+  },
+  {
+    "index": 76,
+    "text": "Alternatively, perhaps the top face remains the top face, but the cube's orientation changes.",
+    "category": "Question Posing",
+    "abbreviation": "QP-76"
+  },
+  {
+    "index": 77,
+    "text": "Wait, no, the top face is still the top face, but its position relative to the cube changes.",
+    "category": "Backtracking",
+    "abbreviation": "B-77"
+  },
+  {
+    "index": 78,
+    "text": "Let me think about it again.",
+    "category": "Backtracking",
+    "abbreviation": "B-78"
+  },
+  {
+    "index": 79,
+    "text": "When you rotate the cube 90 degrees clockwise, the top face (Yellow) moves to the right, so the right face (Blue) becomes the back face, and the back face (Orange) becomes the left face, while the left face (Red) becomes the front face.",
+    "category": "Deduction",
+    "abbreviation": "D-79"
+  },
+  {
+    "index": 80,
+    "text": "So, from the camera's viewpoint:\n\n- The left face is now the front face (Red)\n- The right face is now the back face (Blue)\n- The top face is now the right face (Yellow)\n\nWait, no, that doesn't seem right.",
+    "category": "Backtracking",
+    "abbreviation": "B-80"
+  },
+  {
+    "index": 81,
+    "text": "Let me try to track each face:\n\n1.",
+    "category": "Backtracking",
+    "abbreviation": "B-81"
+  },
+  {
+    "index": 82,
+    "text": "The left face (Red) moves to the front.",
+    "category": "Example Testing",
+    "abbreviation": "ET-82"
+  },
+  {
+    "index": 83,
+    "text": "2. The front face (Green) moves to the right.",
+    "category": "Example Testing",
+    "abbreviation": "ET-83"
+  },
+  {
+    "index": 84,
+    "text": "3. The right face (Blue) moves to the back.",
+    "category": "Example Testing",
+    "abbreviation": "ET-84"
+  },
+  {
+    "index": 85,
+    "text": "4. The back face (Orange) moves to the left.",
+    "category": "Example Testing",
+    "abbreviation": "ET-85"
+  },
+  {
+    "index": 86,
+    "text": "5. The top face (Yellow) remains on top but is now facing towards the right.",
+    "category": "Example Testing",
+    "abbreviation": "ET-86"
+  },
+  {
+    "index": 87,
+    "text": "6. The bottom face (Purple) remains at the bottom.",
+    "category": "Example Testing",
+    "abbreviation": "ET-87"
+  },
+  {
+    "index": 88,
+    "text": "But from the camera's perspective, which is fixed, the visible faces change as the cube rotates.",
+    "category": "Deduction",
+    "abbreviation": "D-88"
+  },
+  {
+    "index": 89,
+    "text": "So, initially, the camera sees left (Red), right (Blue), and top (Yellow).",
+    "category": "Example Testing",
+    "abbreviation": "ET-89"
+  },
+  {
+    "index": 90,
+    "text": "After rotation, the cube has moved, so the visible faces from the camera's viewpoint will be:\n\n- Left: The new left face, which was previously the front face (Green)\n- Right: The new right face, which was previously the back face (Orange)\n- Top: The new top face, which was previously the top face (Yellow) but now is on the right side, so the top face is now the back face (Blue)\n\nWait, I'm getting more confused.",
+    "category": "Backtracking",
+    "abbreviation": "B-90"
+  },
+  {
+    "index": 91,
+    "text": "Maybe I should use a method where I track each face's position relative to the cube's rotation.",
+    "category": "Backtracking",
+    "abbreviation": "B-91"
+  },
+  {
+    "index": 92,
+    "text": "Alternatively, think about how the cube looks from the camera's viewpoint.",
+    "category": "Question Posing",
+    "abbreviation": "QP-92"
+  },
+  {
+    "index": 93,
+    "text": "Initially, the cube is positioned such that the left face is Red, right is Blue, and top is Yellow.",
+    "category": "Initializing",
+    "abbreviation": "I-93"
+  },
+  {
+    "index": 94,
+    "text": "After a 90-degree clockwise rotation, the cube's orientation changes, so the left face becomes what was previously the front face, the right face becomes what was previously the back face, and the top face remains on top but has moved.",
+    "category": "Deduction",
+    "abbreviation": "D-94"
+  },
+  {
+    "index": 95,
+    "text": "Wait, perhaps a better way is to use the rotation to determine the new positions.",
+    "category": "Backtracking",
+    "abbreviation": "B-95"
+  },
+  {
+    "index": 96,
+    "text": "When you rotate the cube 90 degrees clockwise around the vertical axis, the top face (Yellow) moves to the right, the right face (Blue) moves to the back, the back face (Orange) moves to the left, and the left face (Red) moves to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-96"
+  },
+  {
+    "index": 97,
+    "text": "So, from the camera's perspective, which was initially seeing left (Red), right (Blue), and top (Yellow), after rotation, the cube's front face (Green) is now on the left, the left face (Red) is now on the front, the back face (Orange) is now on the right, and the right face (Blue) is now on the back.",
+    "category": "Deduction",
+    "abbreviation": "D-97"
+  },
+  {
+    "index": 98,
+    "text": "Wait, this is getting too tangled.",
+    "category": "Backtracking",
+    "abbreviation": "B-98"
+  },
+  {
+    "index": 99,
+    "text": "Maybe I should consider that after rotation, the three visible faces are the ones that were previously front, right, and top.",
+    "category": "Question Posing",
+    "abbreviation": "QP-99"
+  },
+  {
+    "index": 100,
+    "text": "But no, the cube's orientation changes, so the visible faces change.",
+    "category": "Backtracking",
+    "abbreviation": "B-100"
+  },
+  {
+    "index": 101,
+    "text": "Alternatively, perhaps I should use a more systematic approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-101"
+  },
+  {
+    "index": 102,
+    "text": "Let's assign numbers to the cube's faces for clarity.",
+    "category": "Initializing",
+    "abbreviation": "I-102"
+  },
+  {
+    "index": 103,
+    "text": "Let me label the cube's faces as follows:\n\n1.",
+    "category": "Initializing",
+    "abbreviation": "I-103"
+  },
+  {
+    "index": 104,
+    "text": "Front\n2.",
+    "category": "Initializing",
+    "abbreviation": "I-104"
+  },
+  {
+    "index": 105,
+    "text": "Back\n3.",
+    "category": "Deduction",
+    "abbreviation": "D-105"
+  },
+  {
+    "index": 106,
+    "text": "Left\n4.",
+    "category": "Deduction",
+    "abbreviation": "D-106"
+  },
+  {
+    "index": 107,
+    "text": "Right\n5.",
+    "category": "Deduction",
+    "abbreviation": "D-107"
+  },
+  {
+    "index": 108,
+    "text": "Top\n6.",
+    "category": "Deduction",
+    "abbreviation": "D-108"
+  },
+  {
+    "index": 109,
+    "text": "Bottom\n\nInitially, the visible faces are Left (3), Right (4), and Top (5).",
+    "category": "Deduction",
+    "abbreviation": "D-109"
+  },
+  {
+    "index": 110,
+    "text": "Their colors are Red, Blue, and Yellow.",
+    "category": "Deduction",
+    "abbreviation": "D-110"
+  },
+  {
+    "index": 111,
+    "text": "After a 90-degree clockwise rotation around the vertical axis (through top and bottom), the cube's faces will rotate as follows:\n\n- The front face (1) will move to the right.",
+    "category": "Deduction",
+    "abbreviation": "D-111"
+  },
+  {
+    "index": 112,
+    "text": "- The right face (4) will move to the back.",
+    "category": "Deduction",
+    "abbreviation": "D-112"
+  },
+  {
+    "index": 113,
+    "text": "- The back face (2) will move to the left.",
+    "category": "Deduction",
+    "abbreviation": "D-113"
+  },
+  {
+    "index": 114,
+    "text": "- The left face (3) will move to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-114"
+  },
+  {
+    "index": 115,
+    "text": "- The top face (5) remains on top but its orientation changes.",
+    "category": "Deduction",
+    "abbreviation": "D-115"
+  },
+  {
+    "index": 116,
+    "text": "- The bottom face (6) remains at the bottom.",
+    "category": "Deduction",
+    "abbreviation": "D-116"
+  },
+  {
+    "index": 117,
+    "text": "So, after rotation:\n\n- The new front face is the previous left face (3) which was Red.",
+    "category": "Deduction",
+    "abbreviation": "D-117"
+  },
+  {
+    "index": 118,
+    "text": "- The new right face is the previous back face (2) which was Orange.",
+    "category": "Deduction",
+    "abbreviation": "D-118"
+  },
+  {
+    "index": 119,
+    "text": "- The new back face is the previous right face (4) which was Blue.",
+    "category": "Deduction",
+    "abbreviation": "D-119"
+  },
+  {
+    "index": 120,
+    "text": "- The new left face is the previous front face (1) which was Green.",
+    "category": "Deduction",
+    "abbreviation": "D-120"
+  },
+  {
+    "index": 121,
+    "text": "- The top face (5) is still Yellow.",
+    "category": "Deduction",
+    "abbreviation": "D-121"
+  },
+  {
+    "index": 122,
+    "text": "- The bottom face (6) is still Purple.",
+    "category": "Deduction",
+    "abbreviation": "D-122"
+  },
+  {
+    "index": 123,
+    "text": "But from the camera's viewpoint, which was initially seeing left (3), right (4), and top (5), the visible faces after rotation will be:\n\n- The new left face (which was the previous front face, Green)\n- The new right face (which was the previous back face, Orange)\n- The top face (Yellow)\n\nWait, that doesn't seem right because the top face is still Yellow, but its position relative to the cube has changed.",
+    "category": "Deduction",
+    "abbreviation": "D-123"
+  },
+  {
+    "index": 124,
+    "text": "Let me think again.",
+    "category": "Question Posing",
+    "abbreviation": "QP-124"
+  },
+  {
+    "index": 125,
+    "text": "When you rotate the cube 90 degrees clockwise, the top face (Yellow) moves to the right, so the right face (Blue) moves to the back, the back face (Orange) moves to the left, and the left face (Red) moves to the front.",
+    "category": "Deduction",
+    "abbreviation": "D-125"
+  },
+  {
+    "index": 126,
+    "text": "Therefore, from the camera's viewpoint:\n\n- The left face is now the front face, which was Red.",
+    "category": "Deduction",
+    "abbreviation": "D-126"
+  },
+  {
+    "index": 127,
+    "text": "- The right face is now the back face, which was Blue.",
+    "category": "Deduction",
+    "abbreviation": "D-127"
+  },
+  {
+    "index": 128,
+    "text": "- The top face is now the right face, which was Yellow.",
+    "category": "Deduction",
+    "abbreviation": "D-128"
+  },
+  {
+    "index": 129,
+    "text": "Wait, no, the top face remains Yellow, but its position relative to the cube changes.",
+    "category": "Backtracking",
+    "abbreviation": "B-129"
+  },
+  {
+    "index": 130,
+    "text": "So, the visible faces after rotation would be:\n\n- Left: Front face (Red)\n- Right: Back face (Blue)\n- Top: The new top face, which was the previous right face (Yellow)\n\nBut that can't be because the top face was Yellow and it's moving to the right.",
+    "category": "Deduction",
+    "abbreviation": "D-130"
+  },
+  {
+    "index": 131,
+    "text": "So, perhaps the new top face is the previous back face, which was Orange.",
+    "category": "Deduction",
+    "abbreviation": "D-131"
+  },
+  {
+    "index": 132,
+    "text": "Wait, I'm getting stuck here.",
+    "category": "Backtracking",
+    "abbreviation": "B-132"
+  },
+  {
+    "index": 133,
+    "text": "Let me try a different approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-133"
+  },
+  {
+    "index": 134,
+    "text": "Let's consider that after rotation, the cube's orientation is such that:\n\n- The face that was on the left (Red) is now on the front.",
+    "category": "Deduction",
+    "abbreviation": "D-134"
+  },
+  {
+    "index": 135,
+    "text": "- The face that was on the right (Blue) is now on the back.",
+    "category": "Deduction",
+    "abbreviation": "D-135"
+  },
+  {
+    "index": 136,
+    "text": "- The face that was on the back (Orange) is now on the left.",
+    "category": "Deduction",
+    "abbreviation": "D-136"
+  },
+  {
+    "index": 137,
+    "text": "- The face that was on the front (Green) is now on the right.",
+    "category": "Deduction",
+    "abbreviation": "D-137"
+  },
+  {
+    "index": 138,
+    "text": "- The top remains Yellow.",
+    "category": "Deduction",
+    "abbreviation": "D-138"
+  },
+  {
+    "index": 139,
+    "text": "- The bottom remains Purple.",
+    "category": "Deduction",
+    "abbreviation": "D-139"
+  },
+  {
+    "index": 140,
+    "text": "So, from the camera's viewpoint, which was initially seeing left, right, and top, after rotation:\n\n- The left face is now the front face (Green)\n- The right face is now the back face (Orange)\n- The top face is still Yellow, but it's now facing towards the right.",
+    "category": "Deduction",
+    "abbreviation": "D-140"
+  },
+  {
+    "index": 141,
+    "text": "Wait, no, the top face is still Yellow but its position relative to the cube has changed.",
+    "category": "Backtracking",
+    "abbreviation": "B-141"
+  },
+  {
+    "index": 142,
+    "text": "So, the visible faces after rotation would be:\n\n- Left: Front face (Green)\n- Right: Back face (Orange)\n- Top: The previous top face (Yellow) has moved to the right, so the new top face is the previous right face (Blue)\n\nWait, that doesn't make sense because Blue was on the right, which moved to the back.",
+    "category": "Backtracking",
+    "abbreviation": "B-142"
+  },
+  {
+    "index": 143,
+    "text": "So, the top face remains Yellow, but it's now on the right side.",
+    "category": "Deduction",
+    "abbreviation": "D-143"
+  },
+  {
+    "index": 144,
+    "text": "So, the visible faces would be:\n\n- Left: Front face (Green)\n- Right: Back face (Orange)\n- Top: The previous right face (Blue) is now on the back, but Blue was on the right, which moved to the back, so the top face is still Yellow but now on the right, so the new top face is the previous back face (Orange)\n\nWait, I'm going around in circles here.",
+    "category": "Backtracking",
+    "abbreviation": "B-144"
+  },
+  {
+    "index": 145,
+    "text": "Let me try to summarize:\n\nAfter a 90-degree clockwise rotation, the cube's faces move as follows:\n\n- Front \u2192 Right\n- Right \u2192 Back\n- Back \u2192 Left\n- Left \u2192 Front\n- Top \u2192 remains Top\n- Bottom \u2192 remains Bottom\n\nSo, the colors move with the faces:\n\n- Front (Green) \u2192 Right\n- Right (Blue) \u2192 Back\n- Back (Orange) \u2192 Left\n- Left (Red) \u2192 Front\n- Top (Yellow) \u2192 Top\n- Bottom (Purple) \u2192 Bottom\n\nTherefore, from the camera's viewpoint, which was initially seeing Left (Red), Right (Blue), and Top (Yellow), after rotation, the visible faces will be:\n\n- Left: Front (Green)\n- Right: Back (Orange)\n- Top: Top (Yellow)\n\nWait, but the top face is still Yellow, but its position relative to the cube has changed.",
+    "category": "Summary",
+    "abbreviation": "S-145"
+  },
+  {
+    "index": 146,
+    "text": "So, the visible faces are:\n\n- Left: Green\n- Right: Orange\n- Top: Yellow\n\nBut the problem is asking for the three colors visible and their positions after rotation.",
+    "category": "Final Answer",
+    "abbreviation": "FA-146"
+  },
+  {
+    "index": 147,
+    "text": "So, the colors are Green, Orange, and Yellow, positioned on Left, Right, and Top respectively.",
+    "category": "Final Answer",
+    "abbreviation": "FA-147"
+  },
+  {
+    "index": 148,
+    "text": "Wait, but let me confirm this.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-148"
+  },
+  {
+    "index": 149,
+    "text": "Initially, the cube had:\n\n- Left: Red\n- Right: Blue\n- Top: Yellow\n\nAfter rotation, the cube's front face (Green) moves to the left, the back face (Orange) moves to the right, and the top face (Yellow) remains on top but has moved to the right.",
+    "category": "Deduction",
+    "abbreviation": "D-149"
+  },
+  {
+    "index": 150,
+    "text": "Wait, no, the rotation moves the front face to the right, not the left.",
+    "category": "Backtracking",
+    "abbreviation": "B-150"
+  },
+  {
+    "index": 151,
+    "text": "Let me correct that.",
+    "category": "Backtracking",
+    "abbreviation": "B-151"
+  },
+  {
+    "index": 152,
+    "text": "After rotation:\n\n- Front (Green) moves to the right\n- Right (Blue) moves to the back\n- Back (",
+    "category": "Deduction",
+    "abbreviation": "D-152"
+  }
+]

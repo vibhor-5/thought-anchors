@@ -1,0 +1,1262 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small neighborhood library has received a donation of $1,200 to improve its children's section.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "The librarian needs to decide how to allocate this money among three options: new books ($20 each), educational games ($40 each), and comfortable seating cushions ($60 each).",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Based on feedback from patrons, the library should have at least twice as many books as games, and at least one cushion for every four books.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "What is the maximum number of total items (books, games, and cushions combined) that the library can purchase while staying within budget and meeting all requirements? \n\n Solution: \n<think>\nAlright, so I have this problem about a small neighborhood library that received $1,200 to improve its children's section.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "The librarian needs to decide how to allocate this money among three options: new books at $20 each, educational games at $40 each, and comfortable seating cushions at $60 each.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "The requirements are that the library should have at least twice as many books as games, and at least one cushion for every four books.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "The goal is to find the maximum number of total items (books, games, and cushions combined) that the library can purchase while staying within budget and meeting all these requirements.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "Okay, let me start by breaking down the problem.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "We have three variables here: the number of books, games, and cushions.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Let's denote them as B, G, and C respectively.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "First, the budget is $1,200.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "So, the total cost for books, games, and cushions should not exceed $1,200.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "The cost for each item is given, so I can write an equation for the total cost:\n\n20B + 40G + 60C \u2264 1200\n\nNext, the librarian needs to ensure that there are at least twice as many books as games.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "That translates to:\n\nB \u2265 2G\n\nAlso, there needs to be at least one cushion for every four books.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "So, the number of cushions should be at least C \u2265 (1/4)B.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "Since the number of cushions has to be a whole number, I think that means C should be at least the ceiling of (1/4)B.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "But maybe I can represent it as C \u2265 (B/4).",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "I'll keep that in mind.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "So, summarizing the constraints:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "20B + 40G + 60C \u2264 1200\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "B \u2265 2G\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "C \u2265 (B/4)\n\nAnd all variables B, G, C are non-negative integers.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "The objective is to maximize the total number of items, which is:\n\nTotal = B + G + C\n\nSo, I need to find the maximum possible value of B + G + C given the constraints above.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Hmm, okay, so how do I approach this? Maybe I can express everything in terms of one variable and then find the maximum.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Let me try to express G and C in terms of B.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "From the second constraint, B \u2265 2G, which means G \u2264 B/2.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Since G has to be an integer, G can be at most floor(B/2).",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "But maybe it's better to express G as a function of B, so G = k, where k \u2264 B/2.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Similarly, from the third constraint, C \u2265 B/4.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "So, C can be expressed as C = m, where m \u2265 B/4.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "But maybe I can substitute these into the budget equation.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Let's try that.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "From the second constraint, G \u2264 B/2.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "Let's let G = t, where t \u2264 B/2.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Similarly, from the third constraint, C \u2265 B/4, so let's let C = s, where s \u2265 B/4.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Wait, but I need to express everything in terms of B to maximize the total.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "Alternatively, maybe I can find a way to express the total in terms of B and then find the optimal B.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Alternatively, perhaps I can set up inequalities to express G and C in terms of B and then substitute into the budget constraint.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "Let me try that.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "From B \u2265 2G, we can write G \u2264 B/2.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "From C \u2265 B/4, we can write C \u2265 B/4.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "So, to minimize the number of items, we can set G as small as possible and C as small as possible.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "But since we want to maximize the total number of items, we need to maximize B, G, and C, but within the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "Hmm, but the constraints might limit how much we can spend on each.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "Wait, perhaps a better approach is to express the budget in terms of B and then express G and C in terms of B, and then find the maximum B such that the total cost doesn't exceed $1,200, and then maximize the total items.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "Let me try that.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Let's let B be as large as possible, then G would be as large as possible given B, and C as large as possible given B.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "Wait, but the problem is that increasing B might require more money, so we need to find a balance where B is large enough to satisfy the constraints but not so large that the budget is exceeded.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "Alternatively, perhaps I can express G and C in terms of B and substitute into the budget equation.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "Let me try that.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "From B \u2265 2G, let's let G = B/2 (since we want to maximize G for a given B, because higher G would mean more items).",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "Similarly, from C \u2265 B/4, let's let C = B/4.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "But wait, if I set G = B/2 and C = B/4, then I can substitute these into the budget equation.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "So, the total cost would be:\n\n20B + 40*(B/2) + 60*(B/4) \u2264 1200\n\nLet me compute that.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "20B + 40*(B/2) = 20B + 20B = 40B\n\n60*(B/4) = 15B\n\nSo total cost = 40B + 15B = 55B\n\nSo, 55B \u2264 1200\n\nTherefore, B \u2264 1200 / 55 \u2248 21.818\n\nSince B must be an integer, the maximum possible B is 21.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "Wait, but let me check that.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "If B=21, then G=21/2=10.5, but G must be an integer, so G=10.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "Similarly, C=21/4=5.25, so C=5.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "Wait, but if B=21, G=10, and C=5, let's compute the total cost:\n\n20*21 + 40*10 + 60*5 = 420 + 400 + 300 = 1120\n\nThat's within the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "So, the total items would be 21+10+5=36.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "But wait, is this the maximum possible? Because if B=21, G=10, C=5, total items 36.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "But perhaps we can get a higher total by having a lower B but higher G and C.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "Wait, because the total items depend on B, G, and C.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "So, maybe if we reduce B a bit, we can increase G and C more, leading to a higher total.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Alternatively, maybe we can find a better allocation where B is a multiple of 4, so that C can be an integer.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "Wait, let me think again.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "If B is 24, which is a multiple of 4, then C=6, and G=12 (since G must be at least half of B, but wait, if B=24, G can be up to 12.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "Wait, but 24*20 + 12*40 + 6*60 = 480 + 480 + 360 = 1320, which is over the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "So, that's too much.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "So, B=24 is too much.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "What about B=20?\n\nThen G can be up to 10, and C can be 5.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "Total cost: 20*20 + 40*10 + 60*5 = 400 + 400 + 300 = 1100.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "Total items: 20+10+5=35.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "But when B=21, G=10, C=5, total items=36, which is better.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "Wait, but when B=21, G=10, C=5, total cost=1120, which is under 1200.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "So, perhaps we can use the remaining $80 (1200-1120=80) to buy more items.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "But how?\n\nBecause the librarian can allocate the money to buy more of any item, as long as the constraints are met.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "So, perhaps we can increase G or C beyond the minimal required.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "Wait, but the constraints are:\n\n- B \u2265 2G\n\n- C \u2265 B/4\n\nSo, if B=21, G can be up to 10 (since 21/2=10.5, so G=10), and C can be at least 5.25, so C=5.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "But if we have $80 left, perhaps we can buy more G or C.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "But we have to make sure that B \u2265 2G and C \u2265 B/4.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "So, let's see.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "We have B=21, G=10, C=5, total cost=1120.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "Remaining budget=1200-1120=80.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "We can try to buy more G or C.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "Let me see.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "If we buy more G:\n\nEach G costs $40, so with $80, we can buy 2 more G, making G=12.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "But check if B \u2265 2G.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "B=21, 2G=24, which is more than 21, so that violates the constraint.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "So, we cannot buy more G beyond 10 when B=21.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "Alternatively, we can buy more C.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "Each C costs $60, so with $80, we can buy 1 more C, making C=6.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "Check if C \u2265 B/4.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "B=21, B/4=5.25, so C=6 \u22655.25, which is okay.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "So, with B=21, G=10, C=6, total cost=20*21 +40*10 +60*6=420+400+360=1180, which is still under budget.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "Total items=21+10+6=37.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "That's better.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "Can we do more? Let's see.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "We have $20 left now (1200-1180=20).",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "Can we buy more?\n\nIf we buy another C, that would cost $60, which is over the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "So, no.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "Alternatively, buy more G, but as before, G=11 would require B=22, which would violate B \u22652G (22 \u226522), but B=21, so G=10.5, but G must be integer, so G=10.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "Wait, no, B=21, so G can be up to 10.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "If we try to increase G beyond 10, say to 11, then B would need to be at least 22, which we don't have.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "So, we can't increase G further.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "Alternatively, can we increase B beyond 21?\n\nWait, when B=21, we have total cost=1180, which leaves $20.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "If we increase B by 1, to 22, then G can be up to 11, and C can be at least 5.5, so C=6.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "Compute the cost:\n\n20*22 +40*11 +60*6=440+440+360=1240, which is over the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "So, that's too much.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "Alternatively, maybe we can adjust G and C differently.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "Wait, let's think differently.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "Let me set up equations.",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "Let me let B be the number of books, G the number of games, and C the number of cushions.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "We have the constraints:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "B \u2265 2G \u21d2 G \u2264 B/2\n\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "C \u2265 B/4\n\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "20B +40G +60C \u22641200\n\nOur goal is to maximize B + G + C.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "Let me express everything in terms of B.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "From constraint 1, G \u2264 B/2.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "From constraint 2, C \u2265 B/4.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "To maximize the total, we want G as large as possible and C as large as possible, given B.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "So, let's set G = floor(B/2) and C = ceil(B/4).",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "But since B must be an integer, and G and C as well, perhaps it's better to express G and C in terms of B.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "Alternatively, let's express G and C as multiples of B.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "Wait, but perhaps a better approach is to write G = (B - x)/2, where x is some non-negative integer such that B -x is even, but this might complicate things.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "Alternatively, perhaps I can write G = B/2 - k, where k is some integer \u22650, but that might not be straightforward.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "Wait, maybe I can consider that for a given B, the maximum G is floor(B/2), and the maximum C is ceil(B/4).",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "But perhaps I can think in terms of B being a multiple of 4, to make C an integer.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "Let me try that.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "Let me let B =4m, where m is an integer \u22651.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "Then, C \u2265 B/4 = m, so C = m.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "Also, G \u2264 B/2 =2m.",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  },
+  {
+    "index": 134,
+    "text": "To maximize the total, we can set G=2m.",
+    "category": "Unknown",
+    "abbreviation": "C-134"
+  },
+  {
+    "index": 135,
+    "text": "So, total cost would be:\n\n20*(4m) +40*(2m) +60*(m) =80m +80m +60m=220m\n\nWe have 220m \u22641200 \u21d2 m \u22641200/220\u22485.454, so m=5.",
+    "category": "Unknown",
+    "abbreviation": "C-135"
+  },
+  {
+    "index": 136,
+    "text": "So, B=20, G=10, C=5.",
+    "category": "Unknown",
+    "abbreviation": "C-136"
+  },
+  {
+    "index": 137,
+    "text": "Total items=35.",
+    "category": "Unknown",
+    "abbreviation": "C-137"
+  },
+  {
+    "index": 138,
+    "text": "But earlier, when B=21, G=10, C=6, total items=37, which is better.",
+    "category": "Unknown",
+    "abbreviation": "C-138"
+  },
+  {
+    "index": 139,
+    "text": "Wait, but B=21 is not a multiple of 4, so C=ceil(21/4)=6.",
+    "category": "Unknown",
+    "abbreviation": "C-139"
+  },
+  {
+    "index": 140,
+    "text": "Hmm, so perhaps letting B not be a multiple of 4 can give a better total.",
+    "category": "Unknown",
+    "abbreviation": "C-140"
+  },
+  {
+    "index": 141,
+    "text": "So, perhaps I should consider B as any integer, not necessarily a multiple of 4.",
+    "category": "Unknown",
+    "abbreviation": "C-141"
+  },
+  {
+    "index": 142,
+    "text": "So, let's proceed differently.",
+    "category": "Unknown",
+    "abbreviation": "C-142"
+  },
+  {
+    "index": 143,
+    "text": "Let me express G and C in terms of B.",
+    "category": "Unknown",
+    "abbreviation": "C-143"
+  },
+  {
+    "index": 144,
+    "text": "From constraint 1: G \u2264 B/2.",
+    "category": "Unknown",
+    "abbreviation": "C-144"
+  },
+  {
+    "index": 145,
+    "text": "From constraint 2: C \u2265 B/4.",
+    "category": "Unknown",
+    "abbreviation": "C-145"
+  },
+  {
+    "index": 146,
+    "text": "To maximize the total items, we should maximize G and C, so set G= floor(B/2) and C=ceil(B/4).",
+    "category": "Unknown",
+    "abbreviation": "C-146"
+  },
+  {
+    "index": 147,
+    "text": "But since B can be any integer, perhaps I can express G and C in terms of B.",
+    "category": "Unknown",
+    "abbreviation": "C-147"
+  },
+  {
+    "index": 148,
+    "text": "Alternatively, perhaps I can model this as an integer linear programming problem, but since I'm doing this manually, let's try to find the optimal B.",
+    "category": "Unknown",
+    "abbreviation": "C-148"
+  },
+  {
+    "index": 149,
+    "text": "Let me try different values of B and see what gives the maximum total.",
+    "category": "Unknown",
+    "abbreviation": "C-149"
+  },
+  {
+    "index": 150,
+    "text": "Start with B=20.",
+    "category": "Unknown",
+    "abbreviation": "C-150"
+  },
+  {
+    "index": 151,
+    "text": "Then G can be up to 10, C at least 5.",
+    "category": "Unknown",
+    "abbreviation": "C-151"
+  },
+  {
+    "index": 152,
+    "text": "Total cost=20*20 +40*10 +60*5=400+400+300=1100.",
+    "category": "Unknown",
+    "abbreviation": "C-152"
+  },
+  {
+    "index": 153,
+    "text": "Total items=35.",
+    "category": "Unknown",
+    "abbreviation": "C-153"
+  },
+  {
+    "index": 154,
+    "text": "With remaining $100, perhaps we can buy more.",
+    "category": "Unknown",
+    "abbreviation": "C-154"
+  },
+  {
+    "index": 155,
+    "text": "Wait, but how? Because we have already allocated the minimal required for G and C.",
+    "category": "Unknown",
+    "abbreviation": "C-155"
+  },
+  {
+    "index": 156,
+    "text": "Wait, no, the constraints are that G must be \u226410 and C must be \u22655.",
+    "category": "Unknown",
+    "abbreviation": "C-156"
+  },
+  {
+    "index": 157,
+    "text": "But we can choose to buy more G or C beyond that, as long as the budget allows.",
+    "category": "Unknown",
+    "abbreviation": "C-157"
+  },
+  {
+    "index": 158,
+    "text": "So, let's see.",
+    "category": "Unknown",
+    "abbreviation": "C-158"
+  },
+  {
+    "index": 159,
+    "text": "With B=20, G=10, C=5, total cost=1100.",
+    "category": "Unknown",
+    "abbreviation": "C-159"
+  },
+  {
+    "index": 160,
+    "text": "Remaining budget=100.",
+    "category": "Unknown",
+    "abbreviation": "C-160"
+  },
+  {
+    "index": 161,
+    "text": "We can try to buy more G or C.",
+    "category": "Unknown",
+    "abbreviation": "C-161"
+  },
+  {
+    "index": 162,
+    "text": "Each G costs $40, so with $100, we can buy 2 more G, making G=12.",
+    "category": "Unknown",
+    "abbreviation": "C-162"
+  },
+  {
+    "index": 163,
+    "text": "But check if B \u22652G: 20 \u226524? No, that's not possible.",
+    "category": "Unknown",
+    "abbreviation": "C-163"
+  },
+  {
+    "index": 164,
+    "text": "So, we can't buy more G beyond 10.",
+    "category": "Unknown",
+    "abbreviation": "C-164"
+  },
+  {
+    "index": 165,
+    "text": "Alternatively, buy more C: each C costs $60, so with $100, we can buy 1 more C, making C=6.",
+    "category": "Unknown",
+    "abbreviation": "C-165"
+  },
+  {
+    "index": 166,
+    "text": "Check if C=6 \u226520/4=5, which is okay.",
+    "category": "Unknown",
+    "abbreviation": "C-166"
+  },
+  {
+    "index": 167,
+    "text": "So, total items=20+12+6=38? Wait, no, wait: if B=20, G=12, C=6, but B must be \u22652G, which is 20\u226524? No, that's not true.",
+    "category": "Unknown",
+    "abbreviation": "C-167"
+  },
+  {
+    "index": 168,
+    "text": "So, that's invalid.",
+    "category": "Unknown",
+    "abbreviation": "C-168"
+  },
+  {
+    "index": 169,
+    "text": "Wait, so if B=20, G cannot be more than 10.",
+    "category": "Unknown",
+    "abbreviation": "C-169"
+  },
+  {
+    "index": 170,
+    "text": "So, G=12 is invalid because 20<24.",
+    "category": "Unknown",
+    "abbreviation": "C-170"
+  },
+  {
+    "index": 171,
+    "text": "Therefore, we can't buy more G beyond 10 when B=20.",
+    "category": "Unknown",
+    "abbreviation": "C-171"
+  },
+  {
+    "index": 172,
+    "text": "So, with B=20, G=10, C=6, total cost=20*20 +40*10 +60*6=400+400+360=1160.",
+    "category": "Unknown",
+    "abbreviation": "C-172"
+  },
+  {
+    "index": 173,
+    "text": "Total items=20+10+6=36.",
+    "category": "Unknown",
+    "abbreviation": "C-173"
+  },
+  {
+    "index": 174,
+    "text": "That's better than 35.",
+    "category": "Unknown",
+    "abbreviation": "C-174"
+  },
+  {
+    "index": 175,
+    "text": "Alternatively, with B=20, G=10, C=5, total items=35, but we can spend the remaining $100 on C, making C=5+1=6, so total items=36.",
+    "category": "Unknown",
+    "abbreviation": "C-175"
+  },
+  {
+    "index": 176,
+    "text": "So, 36 items.",
+    "category": "Unknown",
+    "abbreviation": "C-176"
+  },
+  {
+    "index": 177,
+    "text": "But earlier, when B=21, G=10, C=6, total items=37, which is better.",
+    "category": "Unknown",
+    "abbreviation": "C-177"
+  },
+  {
+    "index": 178,
+    "text": "So, let's try B=21.",
+    "category": "Unknown",
+    "abbreviation": "C-178"
+  },
+  {
+    "index": 179,
+    "text": "Then, G can be up to 10 (since 21/2=10.5, so G=10).",
+    "category": "Unknown",
+    "abbreviation": "C-179"
+  },
+  {
+    "index": 180,
+    "text": "C must be at least 21/4=5.25, so C=6.",
+    "category": "Unknown",
+    "abbreviation": "C-180"
+  },
+  {
+    "index": 181,
+    "text": "Total cost=20*21 +40*10 +60*6=420+400+360=1180.",
+    "category": "Unknown",
+    "abbreviation": "C-181"
+  },
+  {
+    "index": 182,
+    "text": "Total items=21+10+6=37.",
+    "category": "Unknown",
+    "abbreviation": "C-182"
+  },
+  {
+    "index": 183,
+    "text": "Remaining budget=20.",
+    "category": "Unknown",
+    "abbreviation": "C-183"
+  },
+  {
+    "index": 184,
+    "text": "Can we buy more?\n\nWe can try to buy more C: each C is $60, so with $20, we can't buy another C.",
+    "category": "Unknown",
+    "abbreviation": "C-184"
+  },
+  {
+    "index": 185,
+    "text": "Alternatively, buy more G: each G is $40, so with $20, we can't buy another G.",
+    "category": "Unknown",
+    "abbreviation": "C-185"
+  },
+  {
+    "index": 186,
+    "text": "So, total remains at 37.",
+    "category": "Unknown",
+    "abbreviation": "C-186"
+  },
+  {
+    "index": 187,
+    "text": "Alternatively, can we increase B beyond 21?\n\nLet's try B=22.",
+    "category": "Unknown",
+    "abbreviation": "C-187"
+  },
+  {
+    "index": 188,
+    "text": "Then, G can be up to 11 (since 22/2=11).",
+    "category": "Unknown",
+    "abbreviation": "C-188"
+  },
+  {
+    "index": 189,
+    "text": "C must be at least 22/4=5.5, so C=6.",
+    "category": "Unknown",
+    "abbreviation": "C-189"
+  },
+  {
+    "index": 190,
+    "text": "Total cost=20*22 +40*11 +60*6=440+440+360=1240, which is over the budget.",
+    "category": "Unknown",
+    "abbreviation": "C-190"
+  },
+  {
+    "index": 191,
+    "text": "So, that's not allowed.",
+    "category": "Unknown",
+    "abbreviation": "C-191"
+  },
+  {
+    "index": 192,
+    "text": "Alternatively, can we have B=22, G=11, C=5 (since 22/4=5.5, so C=6).",
+    "category": "Unknown",
+    "abbreviation": "C-192"
+  },
+  {
+    "index": 193,
+    "text": "But total cost=440+440+360=1240>1200.",
+    "category": "Unknown",
+    "abbreviation": "C-193"
+  },
+  {
+    "index": 194,
+    "text": "So, no.",
+    "category": "Unknown",
+    "abbreviation": "C-194"
+  },
+  {
+    "index": 195,
+    "text": "Alternatively, reduce C to 5, but then 5 <5.5? No, because 5<5.5, so that violates the constraint.",
+    "category": "Unknown",
+    "abbreviation": "C-195"
+  },
+  {
+    "index": 196,
+    "text": "So, C must be at least 6.",
+    "category": "Unknown",
+    "abbreviation": "C-196"
+  },
+  {
+    "index": 197,
+    "text": "Therefore, B=22 is too expensive.",
+    "category": "Unknown",
+    "abbreviation": "C-197"
+  },
+  {
+    "index": 198,
+    "text": "What about B=21, G=10, C=6, total cost=1180, remaining=20.",
+    "category": "Unknown",
+    "abbreviation": "C-198"
+  },
+  {
+    "index": 199,
+    "text": "As before, can't buy more.",
+    "category": "Unknown",
+    "abbreviation": "C-199"
+  },
+  {
+    "index": 200,
+    "text": "Alternatively, let's try B=19.",
+    "category": "Unknown",
+    "abbreviation": "C-200"
+  },
+  {
+    "index": 201,
+    "text": "Then, G can be up to 9 (since 19/2=9.5, so G=9).",
+    "category": "Unknown",
+    "abbreviation": "C-201"
+  },
+  {
+    "index": 202,
+    "text": "C must be at least 19/4=4.75, so C=5.",
+    "category": "Unknown",
+    "abbreviation": "C-202"
+  },
+  {
+    "index": 203,
+    "text": "Total cost=20*19 +40*9 +60*5=380+360+300=1040.",
+    "category": "Unknown",
+    "abbreviation": "C-203"
+  },
+  {
+    "index": 204,
+    "text": "Remaining budget=160.",
+    "category": "Unknown",
+    "abbreviation": "C-204"
+  },
+  {
+    "index": 205,
+    "text": "We can try to buy more G and C.",
+    "category": "Unknown",
+    "abbreviation": "C-205"
+  },
+  {
+    "index": 206,
+    "text": "Each G is $40, so 160/40=4, so G=9+4=13.",
+    "category": "Unknown",
+    "abbreviation": "C-206"
+  },
+  {
+    "index": 207,
+    "text": "But check if B=19 \u22652G=26? No, that's not true.",
+    "category": "Unknown",
+    "abbreviation": "C-207"
+  },
+  {
+    "index": 208,
+    "text": "So, can't increase G beyond 9.",
+    "category": "Unknown",
+    "abbreviation": "C-208"
+  },
+  {
+    "index": 209,
+    "text": "Alternatively, buy more C: each C is $60, so 160/60\u22482.666, so we can buy 2 more C, making C=5+2=7",
+    "category": "Unknown",
+    "abbreviation": "C-209"
+  }
+]

@@ -1,0 +1,398 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small tech company has 20 employees in its engineering department.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "12 of these engineers know Python, 15 know JavaScript, and 10 know both Python and JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "If you randomly select one engineer from this department, what is the probability that they know JavaScript given that they know Python? \n\n Solution: \n<think>\nAlright, so I've got this probability problem to solve.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "Let me try to break it down step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Sometimes probability questions can be a bit tricky, but I think if I take it one piece at a time, I can figure it out.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "First, let me restate the problem in my own words to make sure I understand it.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "There's a tech company with an engineering department that has 20 employees.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "Out of these 20 engineers:\n\n- 12 know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "- 15 know JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "- 10 know both Python and JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "The question is asking: If I randomly select one engineer from this department, what is the probability that they know JavaScript given that they know Python? \n\nHmm, okay.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "So we're dealing with conditional probability here.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "The wording \"given that they know Python\" means that we're focusing only on the subset of engineers who know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "We need to find out, within this subset, the chance that they also know JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Let me recall the formula for conditional probability.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "I think it's:\n\nP(A | B) = P(A \u2229 B) / P(B)\n\nWhere:\n- P(A | B) is the probability of event A happening given that B has happened.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "- P(A \u2229 B) is the probability of both A and B happening.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "- P(B) is the probability of event B happening.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "In this context:\n- Event A is \"knowing JavaScript.\"\n- Event B is \"knowing Python.\"\n\nSo, plugging into the formula, we have:\n\nP(Knows JavaScript | Knows Python) = P(Knows JavaScript and Knows Python) / P(Knows Python)\n\nAlright, so I need to figure out each of these probabilities.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "First, let's identify what each of these probabilities represents.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "- P(Knows JavaScript and Knows Python) is the probability that an engineer knows both JavaScript and Python.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "The problem tells us that 10 engineers know both.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Since the total number of engineers is 20, this probability is 10/20, which simplifies to 1/2 or 0.5.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "- P(Knows Python) is the probability that an engineer knows Python.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "The problem states that 12 engineers know Python, so this probability is 12/20.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Let me write that as a fraction: 12/20.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "I can simplify that by dividing numerator and denominator by 4, which gives 3/5 or 0.6.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "So now, plugging these into the formula:\n\nP(Knows JavaScript | Knows Python) = (10/20) / (12/20)\n\nWait a second, 10/20 divided by 12/20.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Hmm, both the numerator and the denominator have the same denominator, 20.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "So when I divide them, the 20s will cancel out.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "So, 10/20 divided by 12/20 is the same as 10/12.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Simplifying 10/12 by dividing numerator and denominator by 2 gives 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "So, the probability is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "But let me double-check to make sure I didn't make any mistakes.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Total engineers: 20.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Number who know Python: 12.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "Number who know JavaScript: 15.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "Number who know both: 10.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "So, using the formula for conditional probability, which is correct.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Another way to think about it is using a Venn diagram.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "The Python circle has 12, the JavaScript circle has 15, and their overlap is 10.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "So, the number of engineers who know only Python is 12 - 10 = 2.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "The number who know only JavaScript is 15 - 10 = 5.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "Then, the total number of engineers who know Python is 2 (only Python) + 10 (both) = 12, which matches the given information.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "Similarly, the total who know JavaScript is 5 (only JavaScript) + 10 (both) = 15, which also matches.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "So, when we condition on knowing Python, we're only considering the 12 engineers who know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Out of these 12, 10 also know JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "So, the probability is 10/12, which simplifies to 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "Yes, that makes sense.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "So, the probability is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "I think I've got it right.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "No mistakes noticed this time.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "</think>\n\nThe probability that an engineer knows JavaScript given that they know Python is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "**Step-by-Step Explanation:**\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "**Understand the Problem:**\n   - Total engineers: 20.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "- Engineers who know Python (P): 12.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "- Engineers who know JavaScript (J): 15.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "- Engineers who know both Python and JavaScript (P \u2229 J): 10.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "2. **Identify the Conditional Probability:**\n   - We need to find P(J | P), the probability of knowing JavaScript given knowing Python.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "3. **Apply the Conditional Probability Formula:**\n   - P(J | P) = P(P \u2229 J) / P(P)\n\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "**Calculate Each Probability:**\n   - P(P \u2229 J) = 10/20 = 1/2.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "- P(P) = 12/20 = 3/5.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "5. **Perform the Division:**\n   - (1/2) \u00f7 (3/5) = (1/2) * (5/3) = 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "**Answer:** The probability is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  }
+]

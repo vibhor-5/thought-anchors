@@ -1,0 +1,452 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small tech company has 20 employees in its engineering department.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "12 of these engineers know Python, 15 know JavaScript, and 10 know both Python and JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "If you randomly select one engineer from this department, what is the probability that they know JavaScript given that they know Python? \n\n Solution: \n<think>\nAlright, so I need to figure out the probability that an engineer knows JavaScript given that they know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "Hmm, okay, this sounds like a conditional probability problem.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "I remember something about Bayes' Theorem from my statistics class, but I'm not entirely sure how to apply it here.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Let me think through this step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "First, let's break down the information given:\n\n- Total engineers in the department: 20\n- Engineers who know Python: 12\n- Engineers who know JavaScript: 15\n- Engineers who know both Python and JavaScript: 10\n\nSo, out of 20 engineers, 12 know Python, 15 know JavaScript, and 10 know both.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "I need to find the probability that an engineer knows JavaScript given that they know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "That is, P(JavaScript | Python).",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "I recall that conditional probability is calculated as:\n\\[ P(A|B) = \\frac{P(B|A) \\times P(A)}{P(B)} \\]\nBut wait, in this case, I think I might have it reversed.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Let me make sure.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "If A is the event that the engineer knows JavaScript, and B is the event that they know Python, then the probability we're looking for is P(A | B), which is the probability of knowing JavaScript given that they know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "So, applying Bayes' Theorem:\n\\[ P(JavaScript | Python) = \\frac{P(Python | JavaScript) \\times P(JavaScript)}{P(Python)} \\]\n\nHmm, but I'm not entirely sure if I should use P(Python | JavaScript) or P(JavaScript | Python).",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Wait, no, in the formula, A is JavaScript and B is Python.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "So it's P(B | A), which is P(Python | JavaScript).",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "But I think that might complicate things.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "Maybe I should think differently.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Alternatively, perhaps it's better to use the formula for conditional probability directly.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "The formula is:\n\\[ P(JavaScript | Python) = \\frac{Number of engineers who know both JavaScript and Python}{Number of engineers who know Python} \\]\n\nWait, is that correct? Let me think.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "If I know that an engineer knows Python, then the probability they know JavaScript is equal to the number of engineers who know both divided by the total number of engineers who know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "Yes, that makes sense because among all Python-knowledgeable engineers, some also know JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "So, the number of engineers who know both is 10, and the number of engineers who know Python is 12.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Therefore, the probability should be 10/12, which simplifies to 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "But wait, let me double-check this because sometimes these problems can be tricky.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Let me visualize this with a Venn diagram.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "There are two circles: one for Python and one for JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "The overlap is 10 engineers who know both.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "The Python circle has 12 engineers, so the number who know only Python is 12 - 10 = 2.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "The JavaScript circle has 15 engineers, so the number who know only JavaScript is 15 - 10 = 5.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "So, total engineers = 2 (only Python) + 5 (only JavaScript) + 10 (both) = 17.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "Wait, but the total is 20.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Hmm, that's a problem.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "2 + 5 + 10 = 17, but we have 20 engineers.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "Where are the other 3? Maybe I made a mistake here.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "Wait, the problem says 12 know Python, 15 know JavaScript, and 10 know both.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "So, the total number of engineers is 12 + 15 - 10 = 17? But the problem states there are 20 engineers.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "That doesn't add up.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "So, perhaps the numbers are overlapping differently.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "Wait, no, that's not correct.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "The total number of engineers is 20, and the number who know Python is 12, who know JavaScript is 15, and both is 10.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "So, the number who know only Python is 12 - 10 = 2, only JavaScript is 15 - 10 = 5, and both is 10.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "So, 2 + 5 + 10 = 17.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "But the total is 20, so there are 3 engineers who don't know either Python or JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "Hmm, that's possible.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "But for the probability, I'm only concerned with the subset where they know Python.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "So, among the 12 who know Python, 10 also know JavaScript, and 2 know only Python.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Therefore, the probability that someone who knows Python also knows JavaScript is 10/12, which is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "Wait, but let me make sure I'm not making a mistake with the conditional probability formula.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "I think I should also consider the formula using the counts directly.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "The formula for conditional probability is:\n\\[ P(JavaScript | Python) = \\frac{P(JavaScript \\cap Python)}{P(Python)} \\]\nWhich translates to:\n\\[ P(JavaScript | Python) = \\frac{Number of engineers who know both}{Number of engineers who know Python} \\]\nSo, that's 10/12, which is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "Yes, that seems correct.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "So, the probability is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "But wait, let me check another approach using Bayes' Theorem properly to make sure I'm not missing anything.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "Bayes' Theorem states:\n\\[ P(A|B) = \\frac{P(B|A) \\times P(A)}{P(B)} \\]\nHere, A is knowing JavaScript, and B is knowing Python.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "We need to find P(JavaScript | Python), so A is JavaScript, B is Python.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "First, we need P(B|A), which is P(Python | JavaScript).",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "That is, the probability of knowing Python given that they know JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "We know that 10 engineers know both, out of 15 who know JavaScript.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "So, P(Python | JavaScript) = 10/15 = 2/3.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "Next, P(A) is the probability of knowing JavaScript, which is 15/20 = 3/4.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "P(B) is the probability of knowing Python, which is 12/20 = 3/5.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "So, plugging into Bayes' Theorem:\n\\[ P(JavaScript | Python) = \\frac{(2/3) \\times (3/4)}{(3/5)} \\]\n\nLet's compute that:\nFirst, multiply the numerators: (2/3) * (3/4) = (2*3)/(3*4) = 6/12 = 1/2.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "Then, divide by (3/5), which is the same as multiplying by (5/3):\n1/2 * 5/3 = 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "So, we get the same result: 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Therefore, the probability is indeed 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "I think this confirms that my initial approach was correct.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "So, the answer should be 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "</think>\n\nThe probability that an engineer knows JavaScript given that they know Python is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "**Step-by-Step Explanation:**\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "**Identify the Given Data:**\n   - Total engineers (N) = 20\n   - Engineers who know Python (P) = 12\n   - Engineers who know JavaScript (J) = 15\n   - Engineers who know both Python and JavaScript (P \u2229 J) = 10\n\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "**Understand the Problem:**\n   We need to find the probability that an engineer knows JavaScript given that they know Python, which is P(J | P).",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "3. **Use the Formula for Conditional Probability:**\n   \\[ P(J | P) = \\frac{P \\cap J}{P} \\]\n\n4.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "**Plug in the Numbers:**\n   \\[ P(J | P) = \\frac{10}{12} = \\frac{5}{6} \\]\n\n**Answer:**\n\nThe probability is 5/6.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  }
+]

@@ -1,0 +1,1430 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A janitor is asked to paint numbers on 100 doors in a long hallway, numbered consecutively from 1 to 100.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "The janitor has only black and gold paint available.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-3"
+  },
+  {
+    "index": 4,
+    "text": "The supervisor gives the following instructions: 'Paint all prime numbers in gold, and all other numbers in black.' When the janitor begins working, he realizes he doesn't know what a prime number is, but he doesn't want to ask and appear ignorant.",
+    "category": "Deduction",
+    "abbreviation": "D-4"
+  },
+  {
+    "index": 5,
+    "text": "However, he does remember a different property of numbers from school.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-5"
+  },
+  {
+    "index": 6,
+    "text": "If he uses this alternate property to decide which doors to paint gold, he will paint exactly all the doors that should be gold, plus some additional doors.",
+    "category": "Deduction",
+    "abbreviation": "D-6"
+  },
+  {
+    "index": 7,
+    "text": "What property could the janitor use to make sure all prime-numbered doors get painted gold, even if some non-prime doors also get painted gold? \n\n Solution: \n<think>\nAlright, so I have this problem about a janitor painting doors, and I need to figure out what property the janitor could use instead of knowing what prime numbers are.",
+    "category": "Question Posing",
+    "abbreviation": "QP-7"
+  },
+  {
+    "index": 8,
+    "text": "Let me try to break this down step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "First, the problem says that the janitor is supposed to paint all prime-numbered doors gold and all others black.",
+    "category": "Initializing",
+    "abbreviation": "I-9"
+  },
+  {
+    "index": 10,
+    "text": "But he doesn't know what prime numbers are.",
+    "category": "Question Posing",
+    "abbreviation": "QP-10"
+  },
+  {
+    "index": 11,
+    "text": "Instead, he remembers another property that, if he uses it, will ensure that all prime-numbered doors get painted gold, even if some non-prime doors also get painted gold.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-11"
+  },
+  {
+    "index": 12,
+    "text": "So, I need to find a property that guarantees this outcome.",
+    "category": "Question Posing",
+    "abbreviation": "QP-12"
+  },
+  {
+    "index": 13,
+    "text": "Hmm, okay.",
+    "category": "Initializing",
+    "abbreviation": "I-13"
+  },
+  {
+    "index": 14,
+    "text": "So, the key here is that using this alternate property will result in all primes being painted gold, but it might also paint some non-primes.",
+    "category": "Deduction",
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "The janitor doesn't want to miss any primes, but it's okay if some non-primes get painted incorrectly.",
+    "category": "Deduction",
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "Let me think about prime numbers for a moment.",
+    "category": "Initializing",
+    "abbreviation": "I-16"
+  },
+  {
+    "index": 17,
+    "text": "Prime numbers are numbers greater than 1 that have no positive divisors other than 1 and themselves.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-17"
+  },
+  {
+    "index": 18,
+    "text": "So, 2 is prime, 3 is prime, 4 is not because it's divisible by 2, 5 is prime, and so on.",
+    "category": "Example Testing",
+    "abbreviation": "ET-18"
+  },
+  {
+    "index": 19,
+    "text": "Now, the janitor needs a rule that will catch all primes but might include some composites.",
+    "category": "Question Posing",
+    "abbreviation": "QP-19"
+  },
+  {
+    "index": 20,
+    "text": "So, the rule should be such that every prime number satisfies it, but not necessarily vice versa.",
+    "category": "Question Posing",
+    "abbreviation": "QP-20"
+  },
+  {
+    "index": 21,
+    "text": "I remember that all prime numbers are odd except for 2.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-21"
+  },
+  {
+    "index": 22,
+    "text": "So, if the janitor uses the property of being odd, he would paint all odd-numbered doors gold.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "But wait, 2 is even and prime, so that wouldn't work because 2 is prime but even.",
+    "category": "Backtracking",
+    "abbreviation": "B-23"
+  },
+  {
+    "index": 24,
+    "text": "So, painting all odd doors would miss 2 and paint it black, which is wrong.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "Alternatively, maybe the janitor can use a different property.",
+    "category": "Backtracking",
+    "abbreviation": "B-25"
+  },
+  {
+    "index": 26,
+    "text": "Let me think about another characteristic of primes.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-26"
+  },
+  {
+    "index": 27,
+    "text": "Primes are numbers that cannot be expressed as the product of two smaller numbers.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-27"
+  },
+  {
+    "index": 28,
+    "text": "But how would that translate into a painting rule? I'm not sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-28"
+  },
+  {
+    "index": 29,
+    "text": "Wait, another thought: maybe the number of divisors.",
+    "category": "Question Posing",
+    "abbreviation": "QP-29"
+  },
+  {
+    "index": 30,
+    "text": "Prime numbers have exactly two divisors, 1 and themselves.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-30"
+  },
+  {
+    "index": 31,
+    "text": "Non-prime numbers have more than two divisors.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-31"
+  },
+  {
+    "index": 32,
+    "text": "But again, how does that help in painting? The janitor can't count the number of divisors on each door, so that might not be applicable.",
+    "category": "Question Posing",
+    "abbreviation": "QP-32"
+  },
+  {
+    "index": 33,
+    "text": "Hold on, perhaps the property related to being a square or not.",
+    "category": "Backtracking",
+    "abbreviation": "B-33"
+  },
+  {
+    "index": 34,
+    "text": "But I don't see how that directly relates to primes.",
+    "category": "Backtracking",
+    "abbreviation": "B-34"
+  },
+  {
+    "index": 35,
+    "text": "For example, 4 is a square of 2, but 4 is not prime.",
+    "category": "Example Testing",
+    "abbreviation": "ET-35"
+  },
+  {
+    "index": 36,
+    "text": "So, if he paints all non-square numbers gold, that might not work because some squares are primes (like 2 is not a square, but 3 is not a square either).",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "Wait, actually, primes are not squares except for maybe 2, but 2 is not a square.",
+    "category": "Backtracking",
+    "abbreviation": "B-37"
+  },
+  {
+    "index": 38,
+    "text": "So, if he paints all non-square numbers gold, primes would be included, but non-primes like squares would be black.",
+    "category": "Example Testing",
+    "abbreviation": "ET-38"
+  },
+  {
+    "index": 39,
+    "text": "But that's the opposite of what the supervisor said.",
+    "category": "Backtracking",
+    "abbreviation": "B-39"
+  },
+  {
+    "index": 40,
+    "text": "The supervisor said to paint primes gold and others black.",
+    "category": "Deduction",
+    "abbreviation": "D-40"
+  },
+  {
+    "index": 41,
+    "text": "So, if he uses non-squares, he would be painting non-primes as gold, which is not what he wants.",
+    "category": "Deduction",
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "Wait, maybe the opposite: paint squares gold.",
+    "category": "Backtracking",
+    "abbreviation": "B-42"
+  },
+  {
+    "index": 43,
+    "text": "But then, primes wouldn't be all painted gold because primes are not squares, except for 2, which isn't a square.",
+    "category": "Deduction",
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "So that wouldn't work either.",
+    "category": "Backtracking",
+    "abbreviation": "B-44"
+  },
+  {
+    "index": 45,
+    "text": "Hmm, maybe another approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-45"
+  },
+  {
+    "index": 46,
+    "text": "The janitor needs a rule where if a number satisfies it, it's prime, but if it doesn't, it might or might not be prime.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "Wait, no, the opposite: he needs a rule where all primes satisfy it, but non-primes might or might not.",
+    "category": "Backtracking",
+    "abbreviation": "B-47"
+  },
+  {
+    "index": 48,
+    "text": "So, the rule should be a subset of primes, but include some non-primes as well.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-48"
+  },
+  {
+    "index": 49,
+    "text": "Wait, maybe the property is being a prime power.",
+    "category": "Backtracking",
+    "abbreviation": "B-49"
+  },
+  {
+    "index": 50,
+    "text": "But I'm not sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-50"
+  },
+  {
+    "index": 51,
+    "text": "Alternatively, think about the property of having an even number of divisors.",
+    "category": "Backtracking",
+    "abbreviation": "B-51"
+  },
+  {
+    "index": 52,
+    "text": "Wait, no, primes have exactly two divisors, which is even, but composites can have more or less.",
+    "category": "Backtracking",
+    "abbreviation": "B-52"
+  },
+  {
+    "index": 53,
+    "text": "For example, 4 has three divisors, which is odd.",
+    "category": "Example Testing",
+    "abbreviation": "ET-53"
+  },
+  {
+    "index": 54,
+    "text": "So, if he paints numbers with an even number of divisors gold, primes would be included, but some composites like 4 would not.",
+    "category": "Deduction",
+    "abbreviation": "D-54"
+  },
+  {
+    "index": 55,
+    "text": "But that's not necessarily a rule the janitor can apply easily.",
+    "category": "Deduction",
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "Wait, perhaps the janitor can use the property that a number is the sum of two other numbers.",
+    "category": "Backtracking",
+    "abbreviation": "B-56"
+  },
+  {
+    "index": 57,
+    "text": "But no, that's not directly related.",
+    "category": "Backtracking",
+    "abbreviation": "B-57"
+  },
+  {
+    "index": 58,
+    "text": "Wait, another thought: All primes except 2 are odd.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-58"
+  },
+  {
+    "index": 59,
+    "text": "So, if the janitor paints all odd numbers gold, he would include all primes except 2.",
+    "category": "Deduction",
+    "abbreviation": "D-59"
+  },
+  {
+    "index": 60,
+    "text": "But 2 is prime and even, so he would miss it.",
+    "category": "Deduction",
+    "abbreviation": "D-60"
+  },
+  {
+    "index": 61,
+    "text": "So, that's not good.",
+    "category": "Backtracking",
+    "abbreviation": "B-61"
+  },
+  {
+    "index": 62,
+    "text": "Alternatively, if he paints all numbers that are not divisible by 2 or 3.",
+    "category": "Example Testing",
+    "abbreviation": "ET-62"
+  },
+  {
+    "index": 63,
+    "text": "Wait, that might not cover all primes.",
+    "category": "Backtracking",
+    "abbreviation": "B-63"
+  },
+  {
+    "index": 64,
+    "text": "Wait, maybe the janitor can use the property that the number is a multiple of a prime.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-64"
+  },
+  {
+    "index": 65,
+    "text": "But that's not helpful because non-primes can also be multiples of primes.",
+    "category": "Backtracking",
+    "abbreviation": "B-65"
+  },
+  {
+    "index": 66,
+    "text": "Wait, perhaps the janitor can use the property that the number is a perfect square plus one.",
+    "category": "Backtracking",
+    "abbreviation": "B-66"
+  },
+  {
+    "index": 67,
+    "text": "No, that doesn't make sense.",
+    "category": "Backtracking",
+    "abbreviation": "B-67"
+  },
+  {
+    "index": 68,
+    "text": "Wait, maybe the janitor can use the property that the number is a triangular number.",
+    "category": "Example Testing",
+    "abbreviation": "ET-68"
+  },
+  {
+    "index": 69,
+    "text": "But again, not sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-69"
+  },
+  {
+    "index": 70,
+    "text": "Wait, perhaps the janitor can use the property that the number is a power of 2.",
+    "category": "Backtracking",
+    "abbreviation": "B-70"
+  },
+  {
+    "index": 71,
+    "text": "But that's only for 2, 4, 8, 16, etc.",
+    "category": "Deduction",
+    "abbreviation": "D-71"
+  },
+  {
+    "index": 72,
+    "text": "That's too few.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-72"
+  },
+  {
+    "index": 73,
+    "text": "Wait, perhaps the janitor can use the property that the number is a factorial.",
+    "category": "Backtracking",
+    "abbreviation": "B-73"
+  },
+  {
+    "index": 74,
+    "text": "But factorials are 1, 2, 6, 24, etc.",
+    "category": "Deduction",
+    "abbreviation": "D-74"
+  },
+  {
+    "index": 75,
+    "text": "Again, too few.",
+    "category": "Deduction",
+    "abbreviation": "D-75"
+  },
+  {
+    "index": 76,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime number or one more than a prime number.",
+    "category": "Question Posing",
+    "abbreviation": "QP-76"
+  },
+  {
+    "index": 77,
+    "text": "But then, he would be including some non-primes as well, but ensuring that all primes are included.",
+    "category": "Deduction",
+    "abbreviation": "D-77"
+  },
+  {
+    "index": 78,
+    "text": "Wait, but that might not work because, for example, 4 is not a prime or one more than a prime (since 3 is prime, 4 is one more, but 4 is composite).",
+    "category": "Backtracking",
+    "abbreviation": "B-78"
+  },
+  {
+    "index": 79,
+    "text": "So, 4 would be painted gold, which is incorrect.",
+    "category": "Deduction",
+    "abbreviation": "D-79"
+  },
+  {
+    "index": 80,
+    "text": "Alternatively, perhaps the janitor can use the property that the number is a prime number or a multiple of a prime.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-80"
+  },
+  {
+    "index": 81,
+    "text": "But that would include all numbers except 1, which is not a prime or a multiple, but 1 is already supposed to be black, so that might work.",
+    "category": "Deduction",
+    "abbreviation": "D-81"
+  },
+  {
+    "index": 82,
+    "text": "Wait, but the janitor doesn't know what primes are, so he can't use that.",
+    "category": "Backtracking",
+    "abbreviation": "B-82"
+  },
+  {
+    "index": 83,
+    "text": "Wait, maybe the janitor can use the property that the number is a prime number or has an odd number of divisors.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-83"
+  },
+  {
+    "index": 84,
+    "text": "But that's not straightforward.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-84"
+  },
+  {
+    "index": 85,
+    "text": "Wait, another approach: The janitor needs a rule that ensures every prime is painted gold, but some non-primes are also painted gold.",
+    "category": "Backtracking",
+    "abbreviation": "B-85"
+  },
+  {
+    "index": 86,
+    "text": "So, the rule should be that if a number satisfies the rule, it's prime, but the rule might include some non-primes as well.",
+    "category": "Deduction",
+    "abbreviation": "D-86"
+  },
+  {
+    "index": 87,
+    "text": "Wait, perhaps the rule is that the number is the only even prime.",
+    "category": "Question Posing",
+    "abbreviation": "QP-87"
+  },
+  {
+    "index": 88,
+    "text": "But that's just 2, so that's not helpful.",
+    "category": "Backtracking",
+    "abbreviation": "B-88"
+  },
+  {
+    "index": 89,
+    "text": "Wait, maybe the janitor can use the property that the number is a prime number or a square number.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-89"
+  },
+  {
+    "index": 90,
+    "text": "But that would include some non-primes as gold, but not all primes.",
+    "category": "Deduction",
+    "abbreviation": "D-90"
+  },
+  {
+    "index": 91,
+    "text": "For example, 4 is a square but not prime, so it would be gold, but primes like 3,5,7, etc., would be painted black, which is wrong.",
+    "category": "Example Testing",
+    "abbreviation": "ET-91"
+  },
+  {
+    "index": 92,
+    "text": "Wait, maybe the opposite: paint all square numbers gold.",
+    "category": "Backtracking",
+    "abbreviation": "B-92"
+  },
+  {
+    "index": 93,
+    "text": "Then, primes would not be painted gold except for 2, which is not a square.",
+    "category": "Deduction",
+    "abbreviation": "D-93"
+  },
+  {
+    "index": 94,
+    "text": "So that's worse.",
+    "category": "Deduction",
+    "abbreviation": "D-94"
+  },
+  {
+    "index": 95,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime number or a number that is not divisible by 2 or 3.",
+    "category": "Backtracking",
+    "abbreviation": "B-95"
+  },
+  {
+    "index": 96,
+    "text": "But that might not cover all primes because some primes are divisible by 2 or 3.",
+    "category": "Backtracking",
+    "abbreviation": "B-96"
+  },
+  {
+    "index": 97,
+    "text": "For example, 2 is divisible by 2, 3 is divisible by 3, but they are primes.",
+    "category": "Example Testing",
+    "abbreviation": "ET-97"
+  },
+  {
+    "index": 98,
+    "text": "So, painting numbers not divisible by 2 or 3 would miss 2 and 3.",
+    "category": "Deduction",
+    "abbreviation": "D-98"
+  },
+  {
+    "index": 99,
+    "text": "Wait, maybe the janitor can use the property that the number is a prime number or a number that is the sum of two primes.",
+    "category": "Backtracking",
+    "abbreviation": "B-99"
+  },
+  {
+    "index": 100,
+    "text": "But that's too vague, and I don't see how that would ensure all primes are painted.",
+    "category": "Backtracking",
+    "abbreviation": "B-100"
+  },
+  {
+    "index": 101,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime number or a number that is a Mersenne prime.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-101"
+  },
+  {
+    "index": 102,
+    "text": "But that's too specific and doesn't help.",
+    "category": "Backtracking",
+    "abbreviation": "B-102"
+  },
+  {
+    "index": 103,
+    "text": "Wait, maybe the janitor can use the property that the number is a prime number or a number that is a perfect cube.",
+    "category": "Question Posing",
+    "abbreviation": "QP-103"
+  },
+  {
+    "index": 104,
+    "text": "But again, not sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-104"
+  },
+  {
+    "index": 105,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime number or a number that is a multiple of 5.",
+    "category": "Backtracking",
+    "abbreviation": "B-105"
+  },
+  {
+    "index": 106,
+    "text": "But that would include some non-primes, but not all primes.",
+    "category": "Deduction",
+    "abbreviation": "D-106"
+  },
+  {
+    "index": 107,
+    "text": "Wait, maybe the janitor can use the property that the number is a prime number or a number that is a multiple of 7.",
+    "category": "Backtracking",
+    "abbreviation": "B-107"
+  },
+  {
+    "index": 108,
+    "text": "But that's not comprehensive.",
+    "category": "Backtracking",
+    "abbreviation": "B-108"
+  },
+  {
+    "index": 109,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime number or a number that is a multiple of 11.",
+    "category": "Question Posing",
+    "abbreviation": "QP-109"
+  },
+  {
+    "index": 110,
+    "text": "Again, not helpful.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-110"
+  },
+  {
+    "index": 111,
+    "text": "Wait, maybe the janitor can use the property that the number is a prime number or a number that is a multiple of any prime.",
+    "category": "Backtracking",
+    "abbreviation": "B-111"
+  },
+  {
+    "index": 112,
+    "text": "But that's too broad and includes all numbers except 1.",
+    "category": "Backtracking",
+    "abbreviation": "B-112"
+  },
+  {
+    "index": 113,
+    "text": "Wait, but the janitor doesn't know what primes are, so he can't use that.",
+    "category": "Backtracking",
+    "abbreviation": "B-113"
+  },
+  {
+    "index": 114,
+    "text": "Wait, maybe the janitor can use the property that the number is a prime number or a number that is a perfect square.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-114"
+  },
+  {
+    "index": 115,
+    "text": "But that doesn't ensure all primes are included.",
+    "category": "Backtracking",
+    "abbreviation": "B-115"
+  },
+  {
+    "index": 116,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime number or a number that is a multiple of 4.",
+    "category": "Question Posing",
+    "abbreviation": "QP-116"
+  },
+  {
+    "index": 117,
+    "text": "But that would include some non-primes as gold, but not all primes.",
+    "category": "Deduction",
+    "abbreviation": "D-117"
+  },
+  {
+    "index": 118,
+    "text": "Wait, I'm getting stuck here.",
+    "category": "Backtracking",
+    "abbreviation": "B-118"
+  },
+  {
+    "index": 119,
+    "text": "Let me think differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-119"
+  },
+  {
+    "index": 120,
+    "text": "The janitor needs a rule that paints all primes gold, but may also paint some non-primes.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-120"
+  },
+  {
+    "index": 121,
+    "text": "So, the rule must be such that every prime satisfies it, but the rule may include some non-primes.",
+    "category": "Deduction",
+    "abbreviation": "D-121"
+  },
+  {
+    "index": 122,
+    "text": "So, in logical terms, the set of primes is a subset of the set defined by the rule.",
+    "category": "Deduction",
+    "abbreviation": "D-122"
+  },
+  {
+    "index": 123,
+    "text": "So, the rule must include all primes, but may include more.",
+    "category": "Deduction",
+    "abbreviation": "D-123"
+  },
+  {
+    "index": 124,
+    "text": "What property is such that all primes have it, but some non-primes also have it.",
+    "category": "Question Posing",
+    "abbreviation": "QP-124"
+  },
+  {
+    "index": 125,
+    "text": "One such property is being an odd number.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-125"
+  },
+  {
+    "index": 126,
+    "text": "Wait, but as I thought earlier, primes except 2 are odd, but 2 is even and prime, so painting all odd numbers would miss 2.",
+    "category": "Backtracking",
+    "abbreviation": "B-126"
+  },
+  {
+    "index": 127,
+    "text": "So, that's not good.",
+    "category": "Backtracking",
+    "abbreviation": "B-127"
+  },
+  {
+    "index": 128,
+    "text": "Alternatively, maybe the property is being a number that is not divisible by 2.",
+    "category": "Example Testing",
+    "abbreviation": "ET-128"
+  },
+  {
+    "index": 129,
+    "text": "But that's the same as being odd, so same problem.",
+    "category": "Deduction",
+    "abbreviation": "D-129"
+  },
+  {
+    "index": 130,
+    "text": "Wait, perhaps the property is being a number that is not divisible by 3.",
+    "category": "Question Posing",
+    "abbreviation": "QP-130"
+  },
+  {
+    "index": 131,
+    "text": "But that doesn't include all primes because 3 is divisible by 3, but it's prime.",
+    "category": "Backtracking",
+    "abbreviation": "B-131"
+  },
+  {
+    "index": 132,
+    "text": "So, that would miss 3.",
+    "category": "Deduction",
+    "abbreviation": "D-132"
+  },
+  {
+    "index": 133,
+    "text": "Alternatively, the property is being a number that is not divisible by any number other than 1 and itself.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-133"
+  },
+  {
+    "index": 134,
+    "text": "But that's the definition of a prime, which the janitor doesn't know.",
+    "category": "Deduction",
+    "abbreviation": "D-134"
+  },
+  {
+    "index": 135,
+    "text": "Wait, maybe the property is that the number is a prime or a power of a prime.",
+    "category": "Backtracking",
+    "abbreviation": "B-135"
+  },
+  {
+    "index": 136,
+    "text": "But again, the janitor doesn't know what primes are.",
+    "category": "Backtracking",
+    "abbreviation": "B-136"
+  },
+  {
+    "index": 137,
+    "text": "Wait, perhaps the property is that the number is a prime or a number that is the square of a prime.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-137"
+  },
+  {
+    "index": 138,
+    "text": "But that would include some non-primes as gold, but not all primes.",
+    "category": "Deduction",
+    "abbreviation": "D-138"
+  },
+  {
+    "index": 139,
+    "text": "Wait, I'm not getting anywhere.",
+    "category": "Backtracking",
+    "abbreviation": "B-139"
+  },
+  {
+    "index": 140,
+    "text": "Maybe I should think about the opposite: what if the janitor uses a rule that ensures all primes are included, but he doesn't care if some non-primes are included.",
+    "category": "Question Posing",
+    "abbreviation": "QP-140"
+  },
+  {
+    "index": 141,
+    "text": "So, he needs a rule that every prime satisfies, but some non-primes also satisfy.",
+    "category": "Deduction",
+    "abbreviation": "D-141"
+  },
+  {
+    "index": 142,
+    "text": "So, for example, if the rule is that the number is greater than 1, then all primes would be included, but so would all composites.",
+    "category": "Example Testing",
+    "abbreviation": "ET-142"
+  },
+  {
+    "index": 143,
+    "text": "But the problem is that the janitor is supposed to paint primes gold and others black, but using this rule would paint everything gold, which is not desired.",
+    "category": "Deduction",
+    "abbreviation": "D-143"
+  },
+  {
+    "index": 144,
+    "text": "Wait, but the problem says he needs to paint exactly all the doors that should be gold, plus some additional doors.",
+    "category": "Question Posing",
+    "abbreviation": "QP-144"
+  },
+  {
+    "index": 145,
+    "text": "So, he can't paint more doors than necessary, but he can paint exactly the primes and some more.",
+    "category": "Deduction",
+    "abbreviation": "D-145"
+  },
+  {
+    "index": 146,
+    "text": "Wait, no, the problem says he will paint exactly all the doors that should be gold, plus some additional doors.",
+    "category": "Backtracking",
+    "abbreviation": "B-146"
+  },
+  {
+    "index": 147,
+    "text": "So, he needs to paint all primes, and some non-primes as well.",
+    "category": "Deduction",
+    "abbreviation": "D-147"
+  },
+  {
+    "index": 148,
+    "text": "So, the rule must include all primes, but may include some non-primes.",
+    "category": "Deduction",
+    "abbreviation": "D-148"
+  },
+  {
+    "index": 149,
+    "text": "So, the rule must be such that every prime satisfies it, but not necessarily the other way around.",
+    "category": "Deduction",
+    "abbreviation": "D-149"
+  },
+  {
+    "index": 150,
+    "text": "So, perhaps the rule is that the number is a prime or a number that is the product of two primes.",
+    "category": "Example Testing",
+    "abbreviation": "ET-150"
+  },
+  {
+    "index": 151,
+    "text": "Wait, but that would include composites as well, but not necessarily all primes.",
+    "category": "Backtracking",
+    "abbreviation": "B-151"
+  },
+  {
+    "index": 152,
+    "text": "Wait, perhaps the rule is that the number is a prime or a number that is the sum of two primes.",
+    "category": "Deduction",
+    "abbreviation": "D-152"
+  },
+  {
+    "index": 153,
+    "text": "But I don't think that's a deterministic rule.",
+    "category": "Backtracking",
+    "abbreviation": "B-153"
+  },
+  {
+    "index": 154,
+    "text": "Wait, maybe the janitor can use the property that the number is a prime or a number that is a multiple of a prime.",
+    "category": "Question Posing",
+    "abbreviation": "QP-154"
+  },
+  {
+    "index": 155,
+    "text": "But that's too broad because all numbers except 1 are multiples of primes.",
+    "category": "Deduction",
+    "abbreviation": "D-155"
+  },
+  {
+    "index": 156,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime or a number that is a perfect power.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-156"
+  },
+  {
+    "index": 157,
+    "text": "But that doesn't include all primes.",
+    "category": "Deduction",
+    "abbreviation": "D-157"
+  },
+  {
+    "index": 158,
+    "text": "Wait, maybe the janitor can use the property that the number is a prime or a number that is a triangular number.",
+    "category": "Question Posing",
+    "abbreviation": "QP-158"
+  },
+  {
+    "index": 159,
+    "text": "But again, not sure.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-159"
+  },
+  {
+    "index": 160,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime or a number that is a Fibonacci number.",
+    "category": "Backtracking",
+    "abbreviation": "B-160"
+  },
+  {
+    "index": 161,
+    "text": "But that's too specific.",
+    "category": "Backtracking",
+    "abbreviation": "B-161"
+  },
+  {
+    "index": 162,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime or a number that is a Mersenne prime.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-162"
+  },
+  {
+    "index": 163,
+    "text": "But again, too specific.",
+    "category": "Backtracking",
+    "abbreviation": "B-163"
+  },
+  {
+    "index": 164,
+    "text": "Wait, maybe the janitor can use the property that the number is a prime or a number that is a square number.",
+    "category": "Question Posing",
+    "abbreviation": "QP-164"
+  },
+  {
+    "index": 165,
+    "text": "But that doesn't include all primes, as squares are not primes.",
+    "category": "Deduction",
+    "abbreviation": "D-165"
+  },
+  {
+    "index": 166,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime or a number that is a cube number.",
+    "category": "Question Posing",
+    "abbreviation": "QP-166"
+  },
+  {
+    "index": 167,
+    "text": "But same issue as squares.",
+    "category": "Backtracking",
+    "abbreviation": "B-167"
+  },
+  {
+    "index": 168,
+    "text": "Wait, perhaps the janitor can use the property that the number is a prime or a number that is a multiple of 5.",
+    "category": "Backtracking",
+    "abbreviation": "B-168"
+  },
+  {
+    "index": 169,
+    "text": "But that would include some non-primes, but not all primes.",
+    "category": "Deduction",
+    "abbreviation": "D-169"
+  },
+  {
+    "index": 170,
+    "text": "Wait, I'm going in circles here.",
+    "category": "Backtracking",
+    "abbreviation": "B-170"
+  },
+  {
+    "index": 171,
+    "text": "Let me try to think differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-171"
+  },
+  {
+    "index": 172,
+    "text": "The janitor needs a rule that, if he follows it, he will paint all primes gold, but may also paint some non-primes gold.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-172"
+  },
+  {
+    "index": 173,
+    "text": "So, the rule must include all primes, but may include some composites.",
+    "category": "Deduction",
+    "abbreviation": "D-173"
+  },
+  {
+    "index": 174,
+    "text": "So, the rule must be a superset of the primes.",
+    "category": "Deduction",
+    "abbreviation": "D-174"
+  },
+  {
+    "index": 175,
+    "text": "What is a property that all primes have, but some composites also have?\n\nOne such property is being an odd number, except for 2.",
+    "category": "Example Testing",
+    "abbreviation": "ET-175"
+  },
+  {
+    "index": 176,
+    "text": "But as I thought earlier, 2 is even and prime, so if the rule is to paint all odd numbers gold, then 2 would be missed.",
+    "category": "Deduction",
+    "abbreviation": "D-176"
+  },
+  {
+    "index": 177,
+    "text": "So, that's bad.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-177"
+  },
+  {
+    "index": 178,
+    "text": "Alternatively, perhaps the rule is that the number is not divisible by 2 or 3.",
+    "category": "Backtracking",
+    "abbreviation": "B-178"
+  },
+  {
+    "index": 179,
+    "text": "But that would miss 2 and 3, which are primes.",
+    "category": "Backtracking",
+    "abbreviation": "B-179"
+  },
+  {
+    "index": 180,
+    "text": "So, not good.",
+    "category": "Backtracking",
+    "abbreviation": "B-180"
+  },
+  {
+    "index": 181,
+    "text": "Wait, perhaps the rule is that the number is not divisible by any number except 1 and itself.",
+    "category": "Backtracking",
+    "abbreviation": "B-181"
+  },
+  {
+    "index": 182,
+    "text": "But that's the definition of a prime, which the janitor doesn't know.",
+    "category": "Backtracking",
+    "abbreviation": "B-182"
+  },
+  {
+    "index": 183,
+    "text": "Wait, maybe the rule is that the number is a prime or a number that is a power of a prime.",
+    "category": "Backtracking",
+    "abbreviation": "B-183"
+  },
+  {
+    "index": 184,
+    "text": "But again, the janitor doesn't know what primes are.",
+    "category": "Backtracking",
+    "abbreviation": "B-184"
+  },
+  {
+    "index": 185,
+    "text": "Wait, perhaps the rule is that the number is a prime or a number that is the sum of two primes.",
+    "category": "Deduction",
+    "abbreviation": "D-185"
+  },
+  {
+    "index": 186,
+    "text": "But I don't think that's a rule the janitor can apply.",
+    "category": "Backtracking",
+    "abbreviation": "B-186"
+  },
+  {
+    "index": 187,
+    "text": "Wait, maybe the rule is that the number is a prime or a number that is a multiple of a prime.",
+    "category": "Example Testing",
+    "abbreviation": "ET-187"
+  },
+  {
+    "index": 188,
+    "text": "But that's too broad because all numbers except 1 are multiples of primes.",
+    "category": "Deduction",
+    "abbreviation": "D-188"
+  },
+  {
+    "index": 189,
+    "text": "Wait, perhaps the rule is that the number is a prime or a number that is a perfect square.",
+    "category": "Question Posing",
+    "abbreviation": "QP-189"
+  },
+  {
+    "index": 190,
+    "text": "But that doesn't include all primes.",
+    "category": "Backtracking",
+    "abbreviation": "B-190"
+  },
+  {
+    "index": 191,
+    "text": "Wait, maybe the rule is that the number is a prime or a number that is a perfect cube.",
+    "category": "Example Testing",
+    "abbreviation": "ET-191"
+  },
+  {
+    "index": 192,
+    "text": "Same issue.",
+    "category": "Backtracking",
+    "abbreviation": "B-192"
+  },
+  {
+    "index": 193,
+    "text": "Wait, perhaps the rule is that the number is a prime or a number that is a multiple of 4.",
+    "category": "Question Posing",
+    "abbreviation": "QP-193"
+  },
+  {
+    "index": 194,
+    "text": "But that would include some non-primes, but not all primes.",
+    "category": "Deduction",
+    "abbreviation": "D-194"
+  },
+  {
+    "index": 195,
+    "text": "Wait, I'm stuck.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-195"
+  },
+  {
+    "index": 196,
+    "text": "Maybe I should think about it differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-196"
+  },
+  {
+    "index": 197,
+    "text": "The janitor needs a rule that ensures all primes are painted gold, but some non-primes may also be painted gold.",
+    "category": "Deduction",
+    "abbreviation": "D-197"
+  },
+  {
+    "index": 198,
+    "text": "So, the rule must be such that every prime satisfies it, but it's possible that some composites also satisfy it.",
+    "category": "Deduction",
+    "abbreviation": "D-198"
+  },
+  {
+    "index": 199,
+    "text": "So, the rule must include all primes, but may include some composites.",
+    "category": "Deduction",
+    "abbreviation": "D-199"
+  },
+  {
+    "index": 200,
+    "text": "What property is such that all primes have it, but some composites also have it.",
+    "category": "Initializing",
+    "abbreviation": "I-200"
+  },
+  {
+    "index": 201,
+    "text": "One such property is being a number that is not divisible by 2.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-201"
+  },
+  {
+    "index": 202,
+    "text": "So, all odd numbers.",
+    "category": "Deduction",
+    "abbreviation": "D-202"
+  },
+  {
+    "index": 203,
+    "text": "But as I thought earlier, 2 is prime and even, so it would be missed.",
+    "category": "Backtracking",
+    "abbreviation": "B-203"
+  },
+  {
+    "index": 204,
+    "text": "So, that's bad.",
+    "category": "Backtracking",
+    "abbreviation": "B-204"
+  },
+  {
+    "index": 205,
+    "text": "Alternatively, perhaps the rule is that the number is not divisible by 3.",
+    "category": "Question Posing",
+    "abbreviation": "QP-205"
+  },
+  {
+    "index": 206,
+    "text": "But that would miss 3, which is prime.",
+    "category": "Deduction",
+    "abbreviation": "D-206"
+  },
+  {
+    "index": 207,
+    "text": "Wait, perhaps the rule is that the number is not divisible by any number except 1 and itself.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-207"
+  },
+  {
+    "index": 208,
+    "text": "But that's the definition of a prime, which the janitor doesn't know.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-208"
+  },
+  {
+    "index": 209,
+    "text": "Wait, maybe the rule is that the number is a prime or a number that is a perfect square.",
+    "category": "Backtracking",
+    "abbreviation": "B-209"
+  },
+  {
+    "index": 210,
+    "text": "But that doesn't include all primes.",
+    "category": "Backtracking",
+    "abbreviation": "B-210"
+  },
+  {
+    "index": 211,
+    "text": "Wait, perhaps the rule is that the number is a prime or a number that is a perfect cube.",
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-211"
+  },
+  {
+    "index": 212,
+    "text": "Same issue.",
+    "category": "Backtracking",
+    "abbreviation": "B-212"
+  },
+  {
+    "index": 213,
+    "text": "Wait, maybe the rule is that the number is a prime or a number that is a multiple of 5.",
+    "category": "Backtracking",
+    "abbreviation": "B-213"
+  },
+  {
+    "index": 214,
+    "text": "But that would include some composites, but not all primes.",
+    "category": "Backtracking",
+    "abbreviation": "B-214"
+  },
+  {
+    "index": 215,
+    "text": "Wait, perhaps the rule is that the number is a prime or a number that is a multiple of 7.",
+    "category": "Question Posing",
+    "abbreviation": "QP-215"
+  },
+  {
+    "index": 216,
+    "text": "But that's not helpful.",
+    "category": "Backtracking",
+    "abbreviation": "B-216"
+  },
+  {
+    "index": 217,
+    "text": "Wait, perhaps the rule is that the number is a prime or a number that is a multiple of any prime.",
+    "category": "Question Posing",
+    "abbreviation": "QP-217"
+  },
+  {
+    "index": 218,
+    "text": "But that's too broad because all numbers except 1 are multiples of primes.",
+    "category": "Deduction",
+    "abbreviation": "D-218"
+  },
+  {
+    "index": 219,
+    "text": "Wait, maybe the rule is that the number is a prime or a number that is a perfect power.",
+    "category": "Question Posing",
+    "abbreviation": "QP-219"
+  },
+  {
+    "index": 220,
+    "text": "But that doesn't include all primes.",
+    "category": "Deduction",
+    "abbreviation": "D-220"
+  },
+  {
+    "index": 221,
+    "text": "Wait, perhaps the rule is that the number is a prime or a number that is a triangular number.",
+    "category": "Backtracking",
+    "abbreviation": "B-221"
+  },
+  {
+    "index": 222,
+    "text": "But I don't think that's relevant.",
+    "category": "Backtracking",
+    "abbreviation": "B-222"
+  },
+  {
+    "index": 223,
+    "text": "Wait, maybe the rule is that the number is a prime or a number that is a Fibonacci number.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-223"
+  },
+  {
+    "index": 224,
+    "text": "But again, not helpful.",
+    "category": "Backtracking",
+    "abbreviation": "B-224"
+  },
+  {
+    "index": 225,
+    "text": "Wait, perhaps the rule is that the number is a prime or a number that is a Mersenne prime.",
+    "category": "Question Posing",
+    "abbreviation": "QP-225"
+  },
+  {
+    "index": 226,
+    "text": "But that's too specific.",
+    "category": "Backtracking",
+    "abbreviation": "B-226"
+  },
+  {
+    "index": 227,
+    "text": "Wait, maybe the rule is that the number is a prime or a number that is a square number.",
+    "category": "Question Posing",
+    "abbreviation": "QP-227"
+  },
+  {
+    "index": 228,
+    "text": "But that doesn't include all primes.",
+    "category": "Backtracking",
+    "abbreviation": "B-228"
+  },
+  {
+    "index": 229,
+    "text": "Wait, perhaps the rule is that the number is a prime or a number that is a cube number.",
+    "category": "Example Testing",
+    "abbreviation": "ET-229"
+  },
+  {
+    "index": 230,
+    "text": "Same issue.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-230"
+  },
+  {
+    "index": 231,
+    "text": "Wait, I'm not getting anywhere.",
+    "category": "Backtracking",
+    "abbreviation": "B-231"
+  },
+  {
+    "index": 232,
+    "text": "Maybe I should think about the problem differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-232"
+  },
+  {
+    "index": 233,
+    "text": "The janitor needs a rule that, when applied, will result in all primes being painted gold, but some non-primes may also be painted gold.",
+    "category": "Initializing",
+    "abbreviation": "I-233"
+  },
+  {
+    "index": 234,
+    "text": "So, the rule must be such that every prime satisfies it, but not necessarily that every non-prime doesn't satisfy it.",
+    "category": "Deduction",
+    "abbreviation": "D-234"
+  },
+  {
+    "index": 235,
+    "text": "So, in logical terms, the set of primes is a subset of the set defined by the rule.",
+    "category": "Deduction",
+    "abbreviation": "D-235"
+  },
+  {
+    "index": 236,
+    "text": "So, what property is such that every prime has it, but some non-primes also have it.",
+    "category": "Question Posing",
+    "abbreviation": "QP-236"
+  },
+  {
+    "index": 237,
+    "text": "One",
+    "category": "Initializing",
+    "abbreviation": "I-237"
+  }
+]

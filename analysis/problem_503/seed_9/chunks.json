@@ -1,0 +1,176 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A weather forecasting system classifies each day as either 'Sunny', 'Cloudy', or 'Rainy'.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Based on historical data, if today is Sunny, tomorrow has a 70% chance of being Sunny, a 20% chance of being Cloudy, and a 10% chance of being Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "If today is Cloudy, tomorrow has a 30% chance of being Sunny, a 50% chance of being Cloudy, and a 20% chance of being Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "If today is Rainy, tomorrow has a 20% chance of being Sunny, a 30% chance of being Cloudy, and a 50% chance of being Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "If today (Monday) is Sunny, what is the probability that Wednesday will also be Sunny? \n\n Solution: \n<think>\nAlright, so I need to figure out the probability that Wednesday will be Sunny given that today, Monday, is Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Let's break this down step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "First, the problem gives me transition probabilities between different weather states.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "It tells me the probabilities for tomorrow based on today's weather.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Specifically:\n\n- If today is **Sunny**, tomorrow has:\n  - 70% chance of Sunny\n  - 20% chance of Cloudy\n  - 10% chance of Rainy\n\n- If today is **Cloudy**, tomorrow has:\n  - 30% chance of Sunny\n  - 50% chance of Cloudy\n  - 20% chance of Rainy\n\n- If today is **Rainy**, tomorrow has:\n  - 20% chance of Sunny\n  - 30% chance of Cloudy\n  - 50% chance of Rainy\n\nI need to find the probability that Wednesday is Sunny, given that Monday is Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "So, starting from Monday (Sunny), I need to consider what happens on Tuesday, and then from Tuesday's weather to Wednesday.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Since the weather can change each day based on the previous day's weather, this seems like a Markov process, where the next day's weather only depends on today's weather, not on any days before that.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "Let me represent this as a tree:\n\n**Monday (Today): Sunny**\n\n**Tuesday:**\n- From Monday's Sunny:\n  - 70% Sunny\n  - 20% Cloudy\n  - 10% Rainy\n\nSo, on Tuesday, there's a 70% chance it's Sunny, 20% Cloudy, and 10% Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Now, for each possible weather on Tuesday, I need to calculate the probability that Wednesday will be Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "So, I need to consider three cases:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "**Case 1:** Tuesday is Sunny\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "**Case 2:** Tuesday is Cloudy\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "**Case 3:** Tuesday is Rainy\n\nFor each case, I'll find the probability that Wednesday is Sunny given the weather on Tuesday, and then multiply by the probability of that case happening, then sum them all up.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Let's do this step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "**Case 1: Tuesday is Sunny**\n\n- Probability that Tuesday is Sunny: 70% (from Monday)\n- Given Tuesday is Sunny, what's the probability Wednesday is Sunny?\n  - From the given data, if today is Sunny, tomorrow has a 70% chance of being Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "- So, probability Wednesday is Sunny given Tuesday is Sunny: 70%\n\nSo, the contribution to the total probability from this case is:\n70% (Tuesday is Sunny) * 70% (Wednesday Sunny given Tuesday Sunny) = 0.7 * 0.7 = 0.49\n\n**Case 2: Tuesday is Cloudy**\n\n- Probability that Tuesday is Cloudy: 20% (from Monday)\n- Given Tuesday is Cloudy, what's the probability Wednesday is Sunny?\n  - From the given data, if today is Cloudy, tomorrow has a 30% chance of being Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "- So, probability Wednesday is Sunny given Tuesday is Cloudy: 30%\n\nContribution to total probability:\n20% (Tuesday Cloudy) * 30% (Wednesday Sunny given Tuesday Cloudy) = 0.2 * 0.3 = 0.06\n\n**Case 3: Tuesday is Rainy**\n\n- Probability that Tuesday is Rainy: 10% (from Monday)\n- Given Tuesday is Rainy, what's the probability Wednesday is Sunny?\n  - From the given data, if today is Rainy, tomorrow has a 20% chance of being Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "- So, probability Wednesday is Sunny given Tuesday is Rainy: 20%\n\nContribution to total probability:\n10% (Tuesday Rainy) * 20% (Wednesday Sunny given Tuesday Rainy) = 0.1 * 0.2 = 0.02\n\nNow, I'll sum up all the contributions:\n\nTotal probability = 0.49 (Case 1) + 0.06 (Case 2) + 0.02 (Case 3) = 0.57\n\nSo, the probability that Wednesday will be Sunny given that Monday is Sunny is 57%.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Wait, let me double-check to make sure I didn't make any mistakes.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Starting from Monday (Sunny):\n\n- Tuesday: 70% Sunny, 20% Cloudy, 10% Rainy\n\nThen, for each Tuesday outcome:\n\n- If Tuesday is Sunny: 70% chance Wednesday is Sunny\n- If Tuesday is Cloudy: 30% chance Wednesday is Sunny\n- If Tuesday is Rainy: 20% chance Wednesday is Sunny\n\nCalculating the contributions:\n\n0.7 * 0.7 = 0.49\n\n0.2 * 0.3 = 0.06\n\n0.1 * 0.2 = 0.02\n\nAdding them: 0.49 + 0.06 = 0.55; 0.55 + 0.02 = 0.57\n\nYes, that seems correct.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "So, the probability is 57%.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "</think>\n\nThe probability that Wednesday will be Sunny given that Monday is Sunny is 57%.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "**Answer:** The probability is 57%.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  }
+]

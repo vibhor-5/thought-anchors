@@ -1,0 +1,254 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A weather station tracks the daily weather in a certain region, classifying each day as either 'Sunny' or 'Rainy'.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Based on historical data, if today is Sunny, there's a 70% chance that tomorrow will also be Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "If today is Rainy, there's a 60% chance that tomorrow will also be Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "If it's Sunny today, what is the probability that it will be Rainy exactly 2 days from now? \n\n Solution: \n<think>\nAlright, so I need to figure out the probability that it will be Rainy exactly two days from today, given that today is Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Hmm, okay.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Let me think through this step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "First, the problem gives me transition probabilities between days.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "If today is Sunny, there's a 70% chance tomorrow will also be Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "That means the probability that tomorrow is Rainy, given today is Sunny, is 1 - 0.70, which is 0.30 or 30%.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "Similarly, if today is Rainy, there's a 60% chance tomorrow will also be Rainy, so the probability of Rainy tomorrow given today is Rainy is 0.60, and the probability of Sunny is 0.40.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Now, I need to find the probability that it will be Rainy exactly two days from now.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "So, starting from today, which is Sunny, I need to look two days ahead.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "That means I need to consider what the weather is tomorrow and then what it is the day after tomorrow.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Let me break it down:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Today is Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "2. Tomorrow's weather can be either Sunny or Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "3. Based on tomorrow's weather, the day after tomorrow's weather can be either Sunny or Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "So, to find the probability that two days from today is Rainy, I need to consider all possible paths that lead to Rainy two days from today.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Since today is Sunny, I have two cases to consider for tomorrow: Sunny or Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Case 1: Tomorrow is Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "- Probability that tomorrow is Sunny: 70% or 0.70.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "- Then, the day after tomorrow, given tomorrow is Sunny, the probability it's Rainy is 30% or 0.30.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "Case 2: Tomorrow is Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "- Probability that tomorrow is Rainy: 30% or 0.30.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "- Then, the day after tomorrow, given tomorrow is Rainy, the probability it's Rainy is 60% or 0.60.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Now, since these two cases are mutually exclusive (tomorrow can't be both Sunny and Rainy on the same day), I can add the probabilities of each case leading to Rainy two days from today.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "So, the total probability is:\n\nP(Today is Sunny) * [P(Tomorrow is Sunny) * P(Rainy the day after tomorrow | Tomorrow is Sunny) + P(Tomorrow is Rainy) * P(Rainy the day after tomorrow | Tomorrow is Rainy)]\n\nBut wait, today is given as Sunny, so P(Today is Sunny) is 1.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Therefore, it simplifies to:\n\n[0.70 * 0.30 + 0.30 * 0.60]\n\nLet me calculate that:\n\n0.70 * 0.30 = 0.21\n0.30 * 0.60 = 0.18\nAdding them together: 0.21 + 0.18 = 0.39\n\nSo, the probability that it will be Rainy exactly two days from now, given today is Sunny, is 39%.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Wait, let me double-check to make sure I didn't make a mistake.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Today is Sunny, so tomorrow has a 70% chance of being Sunny and 30% Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "If tomorrow is Sunny, then the day after has a 30% chance of Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "If tomorrow is Rainy, then the day after has a 60% chance of Rainy.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "So, the two paths are:\n\n- Sunny -> Sunny -> Rainy: 0.70 * 0.30 = 0.21\n- Sunny -> Rainy -> Rainy: 0.30 * 0.60 = 0.18\nTotal: 0.21 + 0.18 = 0.39 or 39%\n\nYes, that seems correct.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "So, the probability is 39%.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "</think>\n\nTo determine the probability that it will be Rainy exactly two days from today, given today is Sunny, we consider the transition probabilities between consecutive days.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "1. Today is Sunny.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "2. **Tomorrow's Weather:**\n   - Sunny: 70% (0.70)\n   - Rainy: 30% (0.30)\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "**Day After Tomorrow's Weather:**\n   - If tomorrow is Sunny, Rainy the day after is 30% (0.30).",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "- If tomorrow is Rainy, Rainy the day after is 60% (0.60).",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Calculating the total probability:\n- Sunny -> Sunny -> Rainy: 0.70 * 0.30 = 0.21\n- Sunny -> Rainy -> Rainy: 0.30 * 0.60 = 0.18\n- Total: 0.21 + 0.18 = 0.39 or 39%\n\nTherefore, the probability that it will be Rainy exactly two days from now is 39%.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  }
+]

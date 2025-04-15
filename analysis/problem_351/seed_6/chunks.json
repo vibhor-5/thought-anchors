@@ -1,0 +1,482 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small town has established a community garden to promote sustainable agriculture.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "Initially, the garden has 20 active participants.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Each month, existing participants invite friends at a rate where each current participant successfully recruits 0.1 new participants on average (i.e., 10 current participants bring in 1 new participant).",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "However, the garden also experiences a monthly dropout rate of 5% of current participants who lose interest.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "Assuming this system continues unchanged, approximately how many participants will the community garden have after 12 months? Identify whether this represents a positive feedback loop, a negative feedback loop, or both, and explain your reasoning.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Solution: \n<think>\nAlright, so I need to figure out how many participants will be in the community garden after 12 months.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "Let me start by understanding the problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "Initially, there are 20 active participants.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Each month, two things happen: existing participants invite friends, and some participants drop out.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "First, the recruitment rate: each current participant successfully recruits 0.1 new participants on average.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "That means if there are 'P' participants at the beginning of the month, they will recruit '0.1 * P' new participants.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "So, the number of new participants each month is 0.1 times the current number.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Second, there's a dropout rate of 5% each month.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "That means 5% of the current participants leave.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "So, if there are 'P' participants, 0.05 * P will drop out, leaving 0.95 * P participants remaining.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "So, to model this, each month, the number of participants changes based on recruitment and dropouts.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "Let me try to express this mathematically.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "Let P_n be the number of participants at the beginning of month n.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Then, at the end of month n, before considering dropouts, we have P_n + 0.1 * P_n = 1.1 * P_n new participants.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "But then, 5% drop out, so the number of participants at the end of the month would be 1.1 * P_n * 0.95 = 1.045 * P_n.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "Wait, is that correct? Let me double-check.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "If P_n is the number at the start of the month, then during the month, they recruit 0.1 * P_n.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "So total participants before dropouts are P_n + 0.1 * P_n = 1.1 * P_n.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Then, 5% drop out, so 95% remain.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "So, 1.1 * P_n * 0.95 = 1.045 * P_n.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "Yes, that seems right.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "So each month, the number of participants is multiplied by 1.045.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "Therefore, the population grows by a factor of 1.045 each month.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "To find the number after 12 months, I can compute P_12 = P_0 * (1.045)^12.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "Given that P_0 is 20, I need to calculate 20 * (1.045)^12.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "Let me compute this step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "First, I can approximate the growth using the formula:\n\nFinal amount = initial amount * (1 + growth rate)^number of periods.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Here, the growth rate is 1.045 per month, and the number of periods is 12 months.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "So, Final participants = 20 * (1.045)^12.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "I can compute (1.045)^12 using logarithms or a calculator.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Alternatively, I can approximate it.",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "Let me use the rule of 72 or remember that (1 + r)^n \u2248 e^(n*r) for small r.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "But 1.045 is not that small, so maybe a better approximation is needed.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "Alternatively, I can compute it step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "Compute 1.045^12:\n\nFirst, compute 1.045 squared:\n\n1.045^2 = 1.045 * 1.045 = 1.092025.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "Then, 1.092025 * 1.045 = approximately 1.092025 + (1.092025 * 0.045) = 1.092025 + 0.049141125 \u2248 1.141166.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "Wait, that's 1.045^3 \u2248 1.141166.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "Continuing:\n\n1.141166 * 1.045 \u2248 1.141166 + (1.141166 * 0.045) \u2248 1.141166 + 0.051428 \u2248 1.192594.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "That's 1.045^4 \u2248 1.192594.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "1.192594 * 1.045 \u2248 1.192594 + (1.192594 * 0.045) \u2248 1.192594 + 0.053893 \u2248 1.246487.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "1.246487 * 1.045 \u2248 1.246487 + (1.246487 * 0.045) \u2248 1.246487 + 0.056088 \u2248 1.302575.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "1.302575 * 1.045 \u2248 1.302575 + (1.302575 * 0.045) \u2248 1.302575 + 0.058615 \u2248 1.36119.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "1.36119 * 1.045 \u2248 1.36119 + (1.36119 * 0.045) \u2248 1.36119 + 0.061170 \u2248 1.42236.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "1.42236 * 1.045 \u2248 1.42236 + (1.42236 * 0.045) \u2248 1.42236 + 0.064012 \u2248 1.48637.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "1.48637 * 1.045 \u2248 1.48637 + (1.48637 * 0.045) \u2248 1.48637 + 0.067097 \u2248 1.55347.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "1.55347 * 1.045 \u2248 1.55347 + (1.55347 * 0.045) \u2248 1.55347 + 0.070019 \u2248 1.62349.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "1.62349 * 1.045 \u2248 1.62349 + (1.62349 * 0.045) \u2248 1.62349 + 0.073054 \u2248 1.69654.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "1.69654 * 1.045 \u2248 1.69654 + (1.69654 * 0.045) \u2248 1.69654 + 0.076270 \u2248 1.77281.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "1.77281 * 1.045 \u2248 1.77281 + (1.77281 * 0.045) \u2248 1.77281 + 0.079947 \u2248 1.85276.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "1.85276 * 1.045 \u2248 1.85276 + (1.85276 * 0.045) \u2248 1.85276 + 0.083168 \u2248 1.93593.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "Wait, that's after 12 months? Let me check: I did 12 multiplications, each representing a month, so yes, 1.045^12 \u2248 1.93593.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "So, Final participants \u2248 20 * 1.93593 \u2248 38.739 participants.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "Rounding to a reasonable number, approximately 39 participants.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "Now, regarding the feedback loops: each participant recruiting others creates a positive feedback loop because as more people join, the recruitment rate increases.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "However, the dropout rate is a negative feedback loop because as more people join, more might drop out as a percentage of the total.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "Wait, but the dropout is 5% of current participants, so as the total grows, the number dropping out also grows, but the question is whether it's a positive or negative feedback.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "Wait, actually, the dropout is a negative feedback because the more participants there are, the more dropouts occur, which would slow down growth.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "However, the recruitment is positive because more participants lead to more recruitment, further increasing the participant count.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "So, the system has both a positive and negative feedback loop.",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "Wait, but the problem says \"identify whether this represents a positive feedback loop, a negative feedback loop, or both, and explain your reasoning.\"\n\nSo, the recruitment is a positive feedback because more participants lead to more recruitment, which further increases participants.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "The dropout is a negative feedback because more participants lead to more dropouts, which could slow growth.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "However, in this case, since the recruitment rate is higher (0.1 per participant) than the dropout rate (5% of current), the positive effect dominates.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "So overall, the population grows.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "So, the system has both positive and negative feedback loops, but the positive loop is stronger.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "Wait, but in the calculation, we only considered the multiplicative factor of 1.045 per month, which already incorporates both effects.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "So, the overall effect is a positive growth despite the dropout because recruitment is more significant.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "Therefore, the answer is approximately 39 participants, with both positive and negative feedback loops present, but the positive loop being stronger.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "</think>\n\nAfter analyzing the problem, the community garden's participant count grows each month due to recruitment and experiences a dropout rate.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "The recruitment rate is a positive feedback loop, while the dropout rate is a negative feedback loop.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "However, the positive feedback dominates, leading to an overall increase in participants.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "Calculations show that after 12 months, the number of participants is approximately 39.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "**Answer:** After 12 months, the community garden will have approximately 39 participants.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "This situation involves both a positive feedback loop (recruitment) and a negative feedback loop (dropout), but the positive effect dominates, resulting in growth.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  }
+]

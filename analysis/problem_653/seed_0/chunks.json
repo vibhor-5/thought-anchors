@@ -1,0 +1,806 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small marketing team is brainstorming ideas for a new eco-friendly product launch using a mind map.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "They start with 'Eco-Product Launch' as the central node and create five main branches: 'Target Audience', 'Marketing Channels', 'Product Features', 'Budget', and 'Timeline'.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "Each team member is responsible for one branch and must create exactly three sub-branches with specific ideas.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "However, they realize that effective mind mapping requires connections between related ideas across different branches.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "If each sub-branch needs to connect to at least one sub-branch from a different main branch, what is the minimum total number of cross-connections needed across the entire mind map? \n\n Solution: \n<think>\nAlright, so I've got this problem about a marketing team brainstorming for a new eco-friendly product launch.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "They're using a mind map with a central node called 'Eco-Product Launch' and five main branches: Target Audience, Marketing Channels, Product Features, Budget, and Timeline.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "Each team member is responsible for one main branch and needs to create exactly three sub-branches with specific ideas on each.",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "But here's the catch: they need connections between related ideas across different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "Each sub-branch has to connect to at least one sub-branch from a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "The question is asking for the minimum total number of cross-connections needed across the entire mind map.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "Okay, let me break this down.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "First, there are five main branches, each with three sub-branches.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "So, in total, there are 5 main branches \u00d7 3 sub-branches = 15 sub-branches.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Now, the problem is about connecting these sub-branches across different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Each sub-branch must connect to at least one sub-branch from a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "So, we need to figure out the minimum number of connections required to satisfy this condition.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "Hmm, so each sub-branch must have at least one connection to another sub-branch in a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "That means for each sub-branch, we need to ensure it's linked to at least one sub-branch in another branch.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "Let me think about this in terms of graph theory.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "Each main branch is a node, and each sub-branch is an edge.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "But wait, actually, in this case, the main branches are like categories, and the sub-branches are the specific ideas.",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "So, perhaps it's better to model this as a bipartite graph where one set is the main branches and the other set is the sub-branches, and edges represent connections between a main branch and a sub-branch.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "But no, actually, we need connections between sub-branches from different main branches, so it's more like a hypergraph or a graph where edges can connect multiple nodes.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "Wait, maybe it's simpler than that.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "Let's consider each sub-branch as a node and create connections between these nodes if they are in different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "So, each sub-branch needs to be connected to at least one sub-branch in a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "Therefore, each sub-branch node must have at least one outgoing edge to a node in another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "But since we want the minimum number of connections, we need to find the smallest number of edges such that every node (sub-branch) has at least one outgoing edge to a node in a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "Alternatively, we can think about it as ensuring that for each sub-branch, there's at least one connection to a sub-branch in another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "So, the problem reduces to finding the minimum number of edges in a directed graph where each node (sub-branch) has at least one outgoing edge to a node in another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "But perhaps it's easier to model this as a bipartite graph where we have the main branches on one side and the sub-branches on the other, but I'm not sure if that's the right approach.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "Wait, maybe it's better to think about it as a bipartite graph between main branches and sub-branches, but the connections we need are between sub-branches across different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "Wait, no, the connections are between sub-branches, not between main branches and sub-branches.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "So, it's more like a graph where nodes are sub-branches, and edges connect sub-branches from different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  },
+  {
+    "index": 36,
+    "text": "So, each sub-branch must have at least one edge connecting it to a sub-branch from a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-36"
+  },
+  {
+    "index": 37,
+    "text": "Therefore, the problem is equivalent to finding the minimum number of edges in a graph with 15 nodes (sub-branches) such that each node has at least one outgoing edge to a node in another component (i.e., a different main branch).",
+    "category": "Unknown",
+    "abbreviation": "C-37"
+  },
+  {
+    "index": 38,
+    "text": "But wait, the main branches are like categories, so each sub-branch belongs to one main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-38"
+  },
+  {
+    "index": 39,
+    "text": "So, we need to ensure that for each sub-branch, it's connected to at least one sub-branch in a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-39"
+  },
+  {
+    "index": 40,
+    "text": "This is similar to ensuring that the graph is connected in the sense that there are no disconnected components.",
+    "category": "Unknown",
+    "abbreviation": "C-40"
+  },
+  {
+    "index": 41,
+    "text": "However, it's a bit different because we don't need the entire graph to be connected, just that each sub-branch is connected to at least one sub-branch in another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-41"
+  },
+  {
+    "index": 42,
+    "text": "Wait, but actually, the problem doesn't specify that the entire mind map needs to be connected.",
+    "category": "Unknown",
+    "abbreviation": "C-42"
+  },
+  {
+    "index": 43,
+    "text": "It just says that each sub-branch must connect to at least one sub-branch from a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-43"
+  },
+  {
+    "index": 44,
+    "text": "So, perhaps the graph can have multiple components, but within each component, all the sub-branches must be connected through cross-connections, meaning that within a component, they are connected via these cross-connections.",
+    "category": "Unknown",
+    "abbreviation": "C-44"
+  },
+  {
+    "index": 45,
+    "text": "But to minimize the total number of cross-connections, we need to maximize the size of the components, i.e., group as many sub-branches as possible into a single component, because then we only need a single connection to link them all.",
+    "category": "Unknown",
+    "abbreviation": "C-45"
+  },
+  {
+    "index": 46,
+    "text": "Wait, but each sub-branch needs to connect to at least one sub-branch from another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-46"
+  },
+  {
+    "index": 47,
+    "text": "So, if we can have each sub-branch connected to at least one sub-branch from another main branch, but we can minimize the total number of connections by maximizing the number of sub-branches connected through a single connection.",
+    "category": "Unknown",
+    "abbreviation": "C-47"
+  },
+  {
+    "index": 48,
+    "text": "Hmm, perhaps another way to think about it is that each sub-branch needs to have at least one connection to a sub-branch in a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-48"
+  },
+  {
+    "index": 49,
+    "text": "So, for each sub-branch, we need to assign at least one connection to another sub-branch in a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-49"
+  },
+  {
+    "index": 50,
+    "text": "But how do we model this? Maybe we can think of it as a bipartite graph between main branches and their sub-branches, but again, the connections are between sub-branches across different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-50"
+  },
+  {
+    "index": 51,
+    "text": "Wait, perhaps it's better to consider that for each main branch, each of its three sub-branches needs to connect to at least one sub-branch in another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-51"
+  },
+  {
+    "index": 52,
+    "text": "So, for each main branch, we need to ensure that each of its three sub-branches is connected to at least one sub-branch in another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-52"
+  },
+  {
+    "index": 53,
+    "text": "To minimize the total number of connections, we should maximize the number of sub-branches that can be connected through a single connection.",
+    "category": "Unknown",
+    "abbreviation": "C-53"
+  },
+  {
+    "index": 54,
+    "text": "So, if we can find a sub-branch in one main branch that can connect to multiple sub-branches in another main branch, that would minimize the total number of connections.",
+    "category": "Unknown",
+    "abbreviation": "C-54"
+  },
+  {
+    "index": 55,
+    "text": "But each connection is between two sub-branches, one from each main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-55"
+  },
+  {
+    "index": 56,
+    "text": "So, if we have a sub-branch A in main branch X connecting to multiple sub-branches in main branch Y, each of those connections would count as a separate cross-connection.",
+    "category": "Unknown",
+    "abbreviation": "C-56"
+  },
+  {
+    "index": 57,
+    "text": "Wait, but the problem doesn't specify that a sub-branch can't connect to multiple sub-branches in another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-57"
+  },
+  {
+    "index": 58,
+    "text": "So, in theory, a single sub-branch could connect to multiple sub-branches in another main branch, each connection being a separate cross-connection.",
+    "category": "Unknown",
+    "abbreviation": "C-58"
+  },
+  {
+    "index": 59,
+    "text": "But to minimize the total number, we need to maximize the number of sub-branches that can be connected through a single cross-connection.",
+    "category": "Unknown",
+    "abbreviation": "C-59"
+  },
+  {
+    "index": 60,
+    "text": "However, each cross-connection connects two sub-branches, one from each main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-60"
+  },
+  {
+    "index": 61,
+    "text": "Wait, no, each cross-connection is a connection between two sub-branches from different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-61"
+  },
+  {
+    "index": 62,
+    "text": "So, each cross-connection can potentially satisfy the connection requirement for both sub-branches involved.",
+    "category": "Unknown",
+    "abbreviation": "C-62"
+  },
+  {
+    "index": 63,
+    "text": "But the problem states that each sub-branch must connect to at least one sub-branch from a different main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-63"
+  },
+  {
+    "index": 64,
+    "text": "So, for each sub-branch, at least one connection to another main branch's sub-branch.",
+    "category": "Unknown",
+    "abbreviation": "C-64"
+  },
+  {
+    "index": 65,
+    "text": "Therefore, the minimal total number of cross-connections would be equal to the number of sub-branches divided by 2, because each cross-connection can satisfy two sub-branches (one from each main branch).",
+    "category": "Unknown",
+    "abbreviation": "C-65"
+  },
+  {
+    "index": 66,
+    "text": "However, since each cross-connection connects one sub-branch from one main branch to one sub-branch from another main branch, each cross-connection can satisfy one sub-branch from each main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-66"
+  },
+  {
+    "index": 67,
+    "text": "But wait, no.",
+    "category": "Unknown",
+    "abbreviation": "C-67"
+  },
+  {
+    "index": 68,
+    "text": "Each cross-connection connects two sub-branches, one from each main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-68"
+  },
+  {
+    "index": 69,
+    "text": "So, each cross-connection can satisfy the connection requirement for both sub-branches involved.",
+    "category": "Unknown",
+    "abbreviation": "C-69"
+  },
+  {
+    "index": 70,
+    "text": "But since each sub-branch needs at least one connection, and each connection involves two sub-branches, the minimal number of connections would be at least the number of sub-branches divided by 2.",
+    "category": "Unknown",
+    "abbreviation": "C-70"
+  },
+  {
+    "index": 71,
+    "text": "But we have 15 sub-branches, so 15/2 = 7.5, which rounds up to 8 connections.",
+    "category": "Unknown",
+    "abbreviation": "C-71"
+  },
+  {
+    "index": 72,
+    "text": "However, this is assuming that each connection can satisfy two sub-branches.",
+    "category": "Unknown",
+    "abbreviation": "C-72"
+  },
+  {
+    "index": 73,
+    "text": "But in reality, each connection connects two sub-branches, each from different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-73"
+  },
+  {
+    "index": 74,
+    "text": "So, if we have 8 connections, each connecting one sub-branch from one main branch to another, we can cover all 15 sub-branches.",
+    "category": "Unknown",
+    "abbreviation": "C-74"
+  },
+  {
+    "index": 75,
+    "text": "Wait, but 8 connections can only cover 16 sub-branches (since each connection covers two sub-branches), but we only have 15.",
+    "category": "Unknown",
+    "abbreviation": "C-75"
+  },
+  {
+    "index": 76,
+    "text": "So, 8 connections would cover all 15 sub-branches, each being part of at least one connection.",
+    "category": "Unknown",
+    "abbreviation": "C-76"
+  },
+  {
+    "index": 77,
+    "text": "But wait, no, because each connection is between two sub-branches, so 8 connections would involve 16 sub-branches, but we only have 15.",
+    "category": "Unknown",
+    "abbreviation": "C-77"
+  },
+  {
+    "index": 78,
+    "text": "So, one sub-branch would be left out, which is not possible.",
+    "category": "Unknown",
+    "abbreviation": "C-78"
+  },
+  {
+    "index": 79,
+    "text": "Therefore, the minimal number of connections would be 8, but since we can't have a half connection, we need to have 8 connections, but that would require 16 sub-branches, which we don't have.",
+    "category": "Unknown",
+    "abbreviation": "C-79"
+  },
+  {
+    "index": 80,
+    "text": "Therefore, we need to adjust.",
+    "category": "Unknown",
+    "abbreviation": "C-80"
+  },
+  {
+    "index": 81,
+    "text": "Alternatively, perhaps it's better to model this as a bipartite graph where we have the main branches on one side and the sub-branches on the other.",
+    "category": "Unknown",
+    "abbreviation": "C-81"
+  },
+  {
+    "index": 82,
+    "text": "Then, the connections are edges between main branches and sub-branches.",
+    "category": "Unknown",
+    "abbreviation": "C-82"
+  },
+  {
+    "index": 83,
+    "text": "But no, the problem is about connections between sub-branches across different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-83"
+  },
+  {
+    "index": 84,
+    "text": "Wait, perhaps another approach is to consider that each main branch has three sub-branches, and each sub-branch needs to connect to at least one sub-branch from another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-84"
+  },
+  {
+    "index": 85,
+    "text": "To minimize the total number of connections, we can try to maximize the number of sub-branches that are connected through a single connection.",
+    "category": "Unknown",
+    "abbreviation": "C-85"
+  },
+  {
+    "index": 86,
+    "text": "For example, if we can have a single connection that links multiple sub-branches, that would be ideal, but each connection only connects two sub-branches.",
+    "category": "Unknown",
+    "abbreviation": "C-86"
+  },
+  {
+    "index": 87,
+    "text": "So, perhaps the minimal number of connections is the number of sub-branches minus the number of main branches, because each main branch has three sub-branches, and we need to connect each sub-branch to at least one sub-branch from another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-87"
+  },
+  {
+    "index": 88,
+    "text": "Wait, but that might not be accurate.",
+    "category": "Unknown",
+    "abbreviation": "C-88"
+  },
+  {
+    "index": 89,
+    "text": "Let me think differently.",
+    "category": "Unknown",
+    "abbreviation": "C-89"
+  },
+  {
+    "index": 90,
+    "text": "Each main branch has three sub-branches.",
+    "category": "Unknown",
+    "abbreviation": "C-90"
+  },
+  {
+    "index": 91,
+    "text": "We need to connect each sub-branch to at least one sub-branch from another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-91"
+  },
+  {
+    "index": 92,
+    "text": "So, for each main branch, each of its three sub-branches needs to be connected to at least one sub-branch in another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-92"
+  },
+  {
+    "index": 93,
+    "text": "To minimize the total number of connections, we can try to have as many connections as possible connecting multiple sub-branches across different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-93"
+  },
+  {
+    "index": 94,
+    "text": "Wait, perhaps it's similar to the problem of connecting nodes in a graph with the minimum number of edges such that each node has a degree of at least one.",
+    "category": "Unknown",
+    "abbreviation": "C-94"
+  },
+  {
+    "index": 95,
+    "text": "In that case, the minimal number of edges is the number of nodes minus the number of components.",
+    "category": "Unknown",
+    "abbreviation": "C-95"
+  },
+  {
+    "index": 96,
+    "text": "But I'm not sure if that applies here.",
+    "category": "Unknown",
+    "abbreviation": "C-96"
+  },
+  {
+    "index": 97,
+    "text": "Alternatively, since each connection can satisfy two sub-branches (one from each main branch), the minimal number of connections would be the ceiling of (15 sub-branches)/2, which is 8.",
+    "category": "Unknown",
+    "abbreviation": "C-97"
+  },
+  {
+    "index": 98,
+    "text": "But as I thought earlier, that would require 16 sub-branches, which we don't have.",
+    "category": "Unknown",
+    "abbreviation": "C-98"
+  },
+  {
+    "index": 99,
+    "text": "So, perhaps it's 8 connections, but since we have only 15, we can have 8 connections, each connecting two sub-branches, but one sub-branch would be left out, which isn't allowed.",
+    "category": "Unknown",
+    "abbreviation": "C-99"
+  },
+  {
+    "index": 100,
+    "text": "Therefore, we need to have at least 8 connections, but since 8\u00d72=16, which is more than 15, we need to have 8 connections, but one sub-branch is connected twice.",
+    "category": "Unknown",
+    "abbreviation": "C-100"
+  },
+  {
+    "index": 101,
+    "text": "But the problem doesn't specify that a sub-branch can't be connected multiple times.",
+    "category": "Unknown",
+    "abbreviation": "C-101"
+  },
+  {
+    "index": 102,
+    "text": "Wait, but the problem says each sub-branch must connect to at least one sub-branch from another main branch.",
+    "category": "Unknown",
+    "abbreviation": "C-102"
+  },
+  {
+    "index": 103,
+    "text": "It doesn't say that they can't connect to more than one.",
+    "category": "Unknown",
+    "abbreviation": "C-103"
+  },
+  {
+    "index": 104,
+    "text": "So, perhaps we can have some sub-branches connected multiple times, but we need the minimal total number of connections.",
+    "category": "Unknown",
+    "abbreviation": "C-104"
+  },
+  {
+    "index": 105,
+    "text": "Therefore, the minimal number of connections would be the minimal number such that all 15 sub-branches have at least one connection, each connection connecting two sub-branches from different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-105"
+  },
+  {
+    "index": 106,
+    "text": "This is equivalent to finding a minimal edge cover in a bipartite graph where each node must have at least one edge.",
+    "category": "Unknown",
+    "abbreviation": "C-106"
+  },
+  {
+    "index": 107,
+    "text": "Wait, but perhaps it's better to model this as a bipartite graph with main branches on one side and sub-branches on the other, but I'm not sure.",
+    "category": "Unknown",
+    "abbreviation": "C-107"
+  },
+  {
+    "index": 108,
+    "text": "Alternatively, think of it as a graph where the nodes are the sub-branches, and edges represent connections between sub-branches from different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-108"
+  },
+  {
+    "index": 109,
+    "text": "We need to find the minimal number of edges such that every node has at least one edge.",
+    "category": "Unknown",
+    "abbreviation": "C-109"
+  },
+  {
+    "index": 110,
+    "text": "This is equivalent to finding the minimal edge cover in a graph where edges can only exist between nodes of different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-110"
+  },
+  {
+    "index": 111,
+    "text": "But the problem is that the graph is constrained: edges can only be between sub-branches from different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-111"
+  },
+  {
+    "index": 112,
+    "text": "So, to find the minimal number of edges such that every node has at least one edge.",
+    "category": "Unknown",
+    "abbreviation": "C-112"
+  },
+  {
+    "index": 113,
+    "text": "This is equivalent to finding the minimal number of edges in a graph where each node has degree at least one, but edges can only exist between certain nodes (sub-branches from different main branches).",
+    "category": "Unknown",
+    "abbreviation": "C-113"
+  },
+  {
+    "index": 114,
+    "text": "In this case, the minimal number of edges would be such that each node has at least one edge, and each edge connects two nodes from different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-114"
+  },
+  {
+    "index": 115,
+    "text": "To minimize the number of edges, we should maximize the number of nodes that can be covered by each edge.",
+    "category": "Unknown",
+    "abbreviation": "C-115"
+  },
+  {
+    "index": 116,
+    "text": "But since each edge connects two nodes, the minimal number of edges is the ceiling of (number of nodes)/2, which is 15/2=7.5, so 8 edges.",
+    "category": "Unknown",
+    "abbreviation": "C-116"
+  },
+  {
+    "index": 117,
+    "text": "But as before, 8 edges would require 16 nodes, but we have only 15.",
+    "category": "Unknown",
+    "abbreviation": "C-117"
+  },
+  {
+    "index": 118,
+    "text": "So, one node would have to be connected twice.",
+    "category": "Unknown",
+    "abbreviation": "C-118"
+  },
+  {
+    "index": 119,
+    "text": "But the problem doesn't specify that a sub-branch can't be connected to multiple sub-branches.",
+    "category": "Unknown",
+    "abbreviation": "C-119"
+  },
+  {
+    "index": 120,
+    "text": "So, perhaps it's acceptable.",
+    "category": "Unknown",
+    "abbreviation": "C-120"
+  },
+  {
+    "index": 121,
+    "text": "Therefore, the minimal number of cross-connections needed is 8.",
+    "category": "Unknown",
+    "abbreviation": "C-121"
+  },
+  {
+    "index": 122,
+    "text": "Wait, but let me think again.",
+    "category": "Unknown",
+    "abbreviation": "C-122"
+  },
+  {
+    "index": 123,
+    "text": "If we have 8 connections, each connecting two sub-branches from different main branches, that would cover 16 sub-branches, but we only have 15.",
+    "category": "Unknown",
+    "abbreviation": "C-123"
+  },
+  {
+    "index": 124,
+    "text": "So, one sub-branch would have to be connected twice, which is allowed since the problem doesn't restrict that.",
+    "category": "Unknown",
+    "abbreviation": "C-124"
+  },
+  {
+    "index": 125,
+    "text": "Therefore, the minimal total number of cross-connections needed is 8.",
+    "category": "Unknown",
+    "abbreviation": "C-125"
+  },
+  {
+    "index": 126,
+    "text": "But wait, let me verify this.",
+    "category": "Unknown",
+    "abbreviation": "C-126"
+  },
+  {
+    "index": 127,
+    "text": "Suppose we have 8 connections:\n\n- Each connection connects two sub-branches from different main branches.",
+    "category": "Unknown",
+    "abbreviation": "C-127"
+  },
+  {
+    "index": 128,
+    "text": "- Each sub-branch must be part of at least one connection.",
+    "category": "Unknown",
+    "abbreviation": "C-128"
+  },
+  {
+    "index": 129,
+    "text": "- With 15 sub-branches, we need to have 8 connections, which cover 16 sub-branches, so one sub-branch is connected twice.",
+    "category": "Unknown",
+    "abbreviation": "C-129"
+  },
+  {
+    "index": 130,
+    "text": "But is this the minimal?\n\nAlternatively, perhaps we can do it with fewer connections if some sub-branches are connected multiple times, but I don't think so because each connection can only cover two sub-branches.",
+    "category": "Unknown",
+    "abbreviation": "C-130"
+  },
+  {
+    "index": 131,
+    "text": "So, to cover all 15, we need at least 8 connections.",
+    "category": "Unknown",
+    "abbreviation": "C-131"
+  },
+  {
+    "index": 132,
+    "text": "Therefore, the minimal number of cross-connections needed is 8.",
+    "category": "Unknown",
+    "abbreviation": "C-132"
+  },
+  {
+    "index": 133,
+    "text": "</think>\n\nThe minimum total number of cross-connections needed across the entire mind map is 8.",
+    "category": "Unknown",
+    "abbreviation": "C-133"
+  }
+]

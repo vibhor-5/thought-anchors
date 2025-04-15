@@ -1,0 +1,218 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Unknown",
+    "abbreviation": "C-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Unknown",
+    "abbreviation": "C-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A small fishing village relies on a local lake for its fish supply.",
+    "category": "Unknown",
+    "abbreviation": "C-2"
+  },
+  {
+    "index": 3,
+    "text": "When the village had just 50 residents, each person could catch 10 fish per day without affecting the fish population.",
+    "category": "Unknown",
+    "abbreviation": "C-3"
+  },
+  {
+    "index": 4,
+    "text": "As the village grew to 100 residents, they noticed the average catch per person dropped to 8 fish per day.",
+    "category": "Unknown",
+    "abbreviation": "C-4"
+  },
+  {
+    "index": 5,
+    "text": "When the population reached 150 residents, the average catch fell further to 5 fish per day.",
+    "category": "Unknown",
+    "abbreviation": "C-5"
+  },
+  {
+    "index": 6,
+    "text": "If this trend continues in the same nonlinear pattern, how many fish per day would each person be able to catch if the village population reaches 200 residents? \n\n Solution: \n<think>\nFirst, I'll define the variables and establish the relationship between the number of residents and the average catch per person.",
+    "category": "Unknown",
+    "abbreviation": "C-6"
+  },
+  {
+    "index": 7,
+    "text": "Let \\( R \\) represent the number of residents and \\( C \\) represent the average catch per person.",
+    "category": "Unknown",
+    "abbreviation": "C-7"
+  },
+  {
+    "index": 8,
+    "text": "From the problem:\n- When \\( R = 50 \\), \\( C = 10 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-8"
+  },
+  {
+    "index": 9,
+    "text": "- When \\( R = 100 \\), \\( C = 8 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-9"
+  },
+  {
+    "index": 10,
+    "text": "- When \\( R = 150 \\), \\( C = 5 \\).",
+    "category": "Unknown",
+    "abbreviation": "C-10"
+  },
+  {
+    "index": 11,
+    "text": "I'll create a table to visualize the trend:\n\n| Residents (R) | Catch per Person (C) |\n|-----------------|------------------------|\n| 50              | 10                     |\n| 100             | 8                      |\n| 150             | 5                      |\n\nNext, I'll analyze the pattern of how the catch per person decreases as the population increases.",
+    "category": "Unknown",
+    "abbreviation": "C-11"
+  },
+  {
+    "index": 12,
+    "text": "It appears that the relationship is nonlinear and follows a decreasing trend.",
+    "category": "Unknown",
+    "abbreviation": "C-12"
+  },
+  {
+    "index": 13,
+    "text": "I'll consider a possible relationship such as \\( C = \\frac{a}{R} \\), where \\( a \\) is a constant.",
+    "category": "Unknown",
+    "abbreviation": "C-13"
+  },
+  {
+    "index": 14,
+    "text": "Using the data points:\n- For \\( R = 50 \\), \\( 10 = \\frac{a}{50} \\) \u2192 \\( a = 500 \\)\n- For \\( R = 100 \\), \\( 8 = \\frac{500}{100} \\) \u2192 \\( 8 = 5 \\) (This doesn't hold true.)\n\nThis indicates that the relationship isn't directly proportional.",
+    "category": "Unknown",
+    "abbreviation": "C-14"
+  },
+  {
+    "index": 15,
+    "text": "Instead, it might be inversely proportional with a different exponent.",
+    "category": "Unknown",
+    "abbreviation": "C-15"
+  },
+  {
+    "index": 16,
+    "text": "Assuming \\( C = \\frac{k}{R^n} \\), where \\( n \\) is an exponent.",
+    "category": "Unknown",
+    "abbreviation": "C-16"
+  },
+  {
+    "index": 17,
+    "text": "Using the data points to solve for \\( n \\) and \\( k \\):\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-17"
+  },
+  {
+    "index": 18,
+    "text": "\\( 10 = \\frac{k}{50^n} \\)\n2.",
+    "category": "Unknown",
+    "abbreviation": "C-18"
+  },
+  {
+    "index": 19,
+    "text": "\\( 8 = \\frac{k}{100^n} \\)\n3.",
+    "category": "Unknown",
+    "abbreviation": "C-19"
+  },
+  {
+    "index": 20,
+    "text": "\\( 5 = \\frac{k}{150^n} \\)\n\nBy dividing equation 2 by equation 1:\n\\( \\frac{8}{10} = \\frac{100^n}{50^n} \\)\n\\( 0.8 = 2^n \\)\n\\( n = \\log_{2}(0.8) \\approx 0.3219 \\)\n\nNow, using equation 1 to find \\( k \\):\n\\( 10 = \\frac{k}{50^{0.3219}} \\)\n\\( k = 10 \\times 50^{0.3219} \\approx 10 \\times 3.03 = 30.3 \\)\n\nFinally, using equation 3 to verify:\n\\( 5 = \\frac{30.3}{150^{0.3219}} \\)\n\\( 150^{0.3219} \\approx 5.11 \\)\n\\( \\frac{30.3}{5.11} \\approx 5.92 \\) (close to 5)\n\nThis suggests that the relationship \\( C = \\frac{30.3}{R^{0.3219}} \\) fits the given data points reasonably.",
+    "category": "Unknown",
+    "abbreviation": "C-20"
+  },
+  {
+    "index": 21,
+    "text": "To find the catch when \\( R = 200 \\):\n\\( C = \\frac{30.3}{200^{0.3219}} \\)\n\\( 200^{0.3219} \\approx 14.8 \\)\n\\( C \\approx \\frac{30.3}{14.8} \\approx 2.05 \\)\n\nTherefore, when the population reaches 200 residents, each person would be able to catch approximately 2 fish per day.",
+    "category": "Unknown",
+    "abbreviation": "C-21"
+  },
+  {
+    "index": 22,
+    "text": "</think>\n\nTo determine how many fish per day each person would catch when the village population reaches 200 residents, we'll analyze the relationship between the number of residents (R) and the average catch per person (C).",
+    "category": "Unknown",
+    "abbreviation": "C-22"
+  },
+  {
+    "index": 23,
+    "text": "### Step-by-Step Solution:\n\n1.",
+    "category": "Unknown",
+    "abbreviation": "C-23"
+  },
+  {
+    "index": 24,
+    "text": "**Define the Variables:**\n   - Let \\( R \\) represent the number of residents.",
+    "category": "Unknown",
+    "abbreviation": "C-24"
+  },
+  {
+    "index": 25,
+    "text": "- Let \\( C \\) represent the average catch per person per day.",
+    "category": "Unknown",
+    "abbreviation": "C-25"
+  },
+  {
+    "index": 26,
+    "text": "2. **Establish the Relationship:**\n   From the problem, we observe that as the population increases, the average catch per person decreases in a **nonlinear** fashion.",
+    "category": "Unknown",
+    "abbreviation": "C-26"
+  },
+  {
+    "index": 27,
+    "text": "This suggests that the relationship between \\( R \\) and \\( C \\) is not directly proportional but follows a different pattern.",
+    "category": "Unknown",
+    "abbreviation": "C-27"
+  },
+  {
+    "index": 28,
+    "text": "3. **Assume a Model:**\n   Let's assume that the relationship can be modeled by the equation:\n   \\[\n   C = \\frac{k}{R^n}\n   \\]\n   Where:\n   - \\( k \\) is a constant.",
+    "category": "Unknown",
+    "abbreviation": "C-28"
+  },
+  {
+    "index": 29,
+    "text": "- \\( n \\) is an exponent that describes the rate at which \\( C \\) decreases as \\( R \\) increases.",
+    "category": "Unknown",
+    "abbreviation": "C-29"
+  },
+  {
+    "index": 30,
+    "text": "4. **Use the Given Data Points to Find \\( n \\) and \\( k \\):**\n   \n   - **When \\( R = 50 \\), \\( C = 10 \\):**\n     \\[\n     10 = \\frac{k}{50^n} \\quad \\Rightarrow \\quad k = 10 \\times 50^n \\quad \\quad (1)\n     \\]\n   \n   - **When \\( R = 100 \\), \\( C = 8 \\):**\n     \\[\n     8 = \\frac{k}{100^n} \\quad \\Rightarrow \\quad k = 8 \\times 100^n \\quad \\quad (2)\n     \\]\n   \n   - **When \\( R = 150 \\), \\( C = 5 \\):**\n     \\[\n     5 = \\frac{k}{150^n} \\quad \\Rightarrow \\quad k = 5 \\times 150^n \\quad \\quad (3)\n     \\]\n\n5.",
+    "category": "Unknown",
+    "abbreviation": "C-30"
+  },
+  {
+    "index": 31,
+    "text": "**Find the Exponent \\( n \\):**\n   \n   Divide equation (2) by equation (1):\n   \\[\n   \\frac{8}{10} = \\frac{100^n}{50^n} \\quad \\Rightarrow \\quad 0.8 = 2^n\n   \\]\n   \\[\n   n = \\log_{2}(0.8) \\approx 0.3219\n   \\]\n\n6.",
+    "category": "Unknown",
+    "abbreviation": "C-31"
+  },
+  {
+    "index": 32,
+    "text": "**Find the Constant \\( k \\):**\n   \n   Substitute \\( n \\approx 0.3219 \\) into equation (1):\n   \\[\n   k = 10 \\times 50^{0.3219} \\approx 10 \\times 3.03 = 30.3\n   \\]\n\n7.",
+    "category": "Unknown",
+    "abbreviation": "C-32"
+  },
+  {
+    "index": 33,
+    "text": "**Verify with the Third Data Point:**\n   \n   Substitute \\( k = 30.3 \\) and \\( n = 0.3219 \\) into equation (3):\n   \\[\n   5 = \\frac{30.3}{150^{0.3219}} \\quad \\Rightarrow \\quad 150^{0.3219} \\approx 5.11\n   \\]\n   \\[\n   \\frac{30.3}{5.11} \\approx 5.92\n   \\]\n   This is close to 5, confirming our model's validity.",
+    "category": "Unknown",
+    "abbreviation": "C-33"
+  },
+  {
+    "index": 34,
+    "text": "8. **Calculate \\( C \\) for \\( R = 200 \\):**\n   \n   \\[\n   C = \\frac{30.3}{200^{0.3219}} \\approx \\frac{30.3}{14.8} \\approx 2.05\n   \\]\n\n### Final Answer:\n\nWhen the village population reaches 200 residents, each person would be able to catch approximately **2** fish per day.",
+    "category": "Unknown",
+    "abbreviation": "C-34"
+  },
+  {
+    "index": 35,
+    "text": "**DONE.**",
+    "category": "Unknown",
+    "abbreviation": "C-35"
+  }
+]

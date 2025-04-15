@@ -1,0 +1,950 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: A traveler arrives at a fork in the road.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "One path leads to a village of truth-tellers who always tell the truth, and the other path leads to a village of liars who always lie.",
+    "category": "Deduction",
+    "abbreviation": "D-3"
+  },
+  {
+    "index": 4,
+    "text": "At the fork stands a single villager, but the traveler doesn't know which village the person is from.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "What single question can the traveler ask to determine which path leads to the village of truth-tellers? \n\n Solution: \n<think>\nAlright, so I've come across this interesting puzzle about a traveler at a fork in the road.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "There are two villages: one with truth-tellers who always tell the truth and another with liars who always lie.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-6"
+  },
+  {
+    "index": 7,
+    "text": "The traveler doesn't know which village the person at the fork belongs to, and the goal is to figure out a single question that can determine which path leads to the truth-tellers.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "First, I need to understand the problem clearly.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "There are two possibilities: the villager is either a truth-teller or a liar.",
+    "category": "Deduction",
+    "abbreviation": "D-9"
+  },
+  {
+    "index": 10,
+    "text": "The traveler must ask a question that will reveal the correct path based on the answer, regardless of whether the villager is a truth-teller or a liar.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "I remember hearing about similar puzzles before, usually involving asking a question whose answer will differ depending on whether the person is a truth-teller or a liar.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-11"
+  },
+  {
+    "index": 12,
+    "text": "The classic example is asking about what someone from the other village would say.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-12"
+  },
+  {
+    "index": 13,
+    "text": "This approach flips the perspective and allows the traveler to get truthful information even from a liar.",
+    "category": "Deduction",
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "Let me think through this step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-14"
+  },
+  {
+    "index": 15,
+    "text": "Suppose the traveler asks the villager a direct question, like \"Are you from the village of truth-tellers?\" If the villager is a truth-teller, they would answer \"Yes.\" If they're a liar, they would lie and say \"No.\" So that's a straightforward approach, but it's a bit direct and relies on knowing the two options.",
+    "category": "Example Testing",
+    "abbreviation": "ET-15"
+  },
+  {
+    "index": 16,
+    "text": "However, the problem is that the traveler doesn't know which village the person is from, so the traveler needs a question that doesn't assume that knowledge.",
+    "category": "Backtracking",
+    "abbreviation": "B-16"
+  },
+  {
+    "index": 17,
+    "text": "The key is to ask a question that can be answered in a way that, when considering both possibilities, points to the correct path.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "I think the best approach is to ask the villager what someone from the other village would say about the path.",
+    "category": "Example Testing",
+    "abbreviation": "ET-18"
+  },
+  {
+    "index": 19,
+    "text": "For example, \"If I asked you whether the other path leads to the truth-tellers, what would you say?\" Let me break this down.",
+    "category": "Question Posing",
+    "abbreviation": "QP-19"
+  },
+  {
+    "index": 20,
+    "text": "If the villager is a truth-teller, they would honestly report what a liar would say.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "Since a liar would lie about the truth-tellers, the truth-teller would say that the other path does not lead to truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Conversely, if the villager is a liar, they would lie about what a truth-teller would say.",
+    "category": "Deduction",
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "A truth-teller would say the other path does lead to truth-tellers, so the liar would say it doesn't.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "Wait, that seems a bit confusing.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-24"
+  },
+  {
+    "index": 25,
+    "text": "Let me clarify.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-25"
+  },
+  {
+    "index": 26,
+    "text": "If the traveler asks a truth-teller, \"What would a liar say about the other path?\" The truth-teller would accurately report that the liar would lie about the other path.",
+    "category": "Deduction",
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "Since the truth-tellers are on one path and the liars on the other, the truth-teller would know that the other path is the liars', so the liar would say the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "Therefore, the truth-teller would truthfully report that the liar would say the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "On the other hand, if the traveler asks a liar, \"What would a truth-teller say about the other path?\" The liar would lie about what the truth-teller would say.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "The truth-teller would say the other path is liars, so the liar would lie and say the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "Wait, that seems conflicting.",
+    "category": "Backtracking",
+    "abbreviation": "B-31"
+  },
+  {
+    "index": 32,
+    "text": "Let me try to structure it more clearly.",
+    "category": "Backtracking",
+    "abbreviation": "B-32"
+  },
+  {
+    "index": 33,
+    "text": "Suppose the correct path is A (truth-tellers).",
+    "category": "Example Testing",
+    "abbreviation": "ET-33"
+  },
+  {
+    "index": 34,
+    "text": "The traveler doesn't know which is which.",
+    "category": "Question Posing",
+    "abbreviation": "QP-34"
+  },
+  {
+    "index": 35,
+    "text": "The villager is either from A or B.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-35"
+  },
+  {
+    "index": 36,
+    "text": "If the villager is from A (truth-teller):\n- The traveler asks, \"If I asked you whether the other path leads to truth-tellers, what would you say?\"\n- The truth-teller would know that the other path leads to liars, so a liar would lie about it.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "A liar, when asked if the other path is truth-tellers, would say \"Yes\" (since they lie).",
+    "category": "Deduction",
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "Therefore, the truth-teller would truthfully report that the liar would say \"Yes.\"\n\nIf the villager is from B (liar):\n- The traveler asks the same question.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "- The liar knows that the other path is truth-tellers, so when asked, a truth-teller would say \"Yes.\" But since the liar lies, they would report that the truth-teller said \"No.\"\n\nWait, that's not matching up.",
+    "category": "Backtracking",
+    "abbreviation": "B-39"
+  },
+  {
+    "index": 40,
+    "text": "Let me think again.",
+    "category": "Backtracking",
+    "abbreviation": "B-40"
+  },
+  {
+    "index": 41,
+    "text": "If the villager is a truth-teller and the other path is liars, when asked what a liar would say about the other path, the truth-teller would correctly state that the liar would lie about it.",
+    "category": "Deduction",
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "Since the other path is liars, a liar would say it's truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-42"
+  },
+  {
+    "index": 43,
+    "text": "So the truth-teller would say the liar would say \"Yes.\"\n\nIf the villager is a liar and the other path is truth-tellers, when asked what a truth-teller would say about the other path, the liar would lie.",
+    "category": "Deduction",
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "The truth-teller would say \"Yes\" (since the other path is truth-tellers), so the liar would say \"No.\"\n\nSo, in both cases, the answer would be \"Yes.\" But wait, that can't be right because if the traveler hears \"Yes,\" they wouldn't know which path to take.",
+    "category": "Deduction",
+    "abbreviation": "D-44"
+  },
+  {
+    "index": 45,
+    "text": "I must have messed up somewhere.",
+    "category": "Backtracking",
+    "abbreviation": "B-45"
+  },
+  {
+    "index": 46,
+    "text": "Let me try a different approach.",
+    "category": "Backtracking",
+    "abbreviation": "B-46"
+  },
+  {
+    "index": 47,
+    "text": "Perhaps the question should be phrased differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-47"
+  },
+  {
+    "index": 48,
+    "text": "Instead of asking about what the other type would say, maybe ask about what they would say about a specific path.",
+    "category": "Backtracking",
+    "abbreviation": "B-48"
+  },
+  {
+    "index": 49,
+    "text": "Wait, the classic solution is to ask, \"Does the other path lead to the village of truth-tellers?\" But that's similar to the initial thought.",
+    "category": "Backtracking",
+    "abbreviation": "B-49"
+  },
+  {
+    "index": 50,
+    "text": "Alternatively, the traveler can ask, \"If I asked you whether the other path leads to truth-tellers, would you say 'Yes'?\" Let's analyze that.",
+    "category": "Question Posing",
+    "abbreviation": "QP-50"
+  },
+  {
+    "index": 51,
+    "text": "If the villager is a truth-teller:\n- The other path is liars, so when asked, the truth-teller would answer truthfully that the other path is liars, meaning the answer would be \"No.\" So the truth-teller would say \"No.\"\n\nIf the villager is a liar:\n- The other path is truth-tellers, so when asked, the liar would lie and say \"No.\" So the liar would answer \"No.\"\n\nWait, that again gives the same answer, which is not helpful.",
+    "category": "Deduction",
+    "abbreviation": "D-51"
+  },
+  {
+    "index": 52,
+    "text": "Hmm, maybe I need to adjust the question to get differing answers.",
+    "category": "Backtracking",
+    "abbreviation": "B-52"
+  },
+  {
+    "index": 53,
+    "text": "The key is to ask a question whose truthful answer and lie answer point to different paths.",
+    "category": "Deduction",
+    "abbreviation": "D-53"
+  },
+  {
+    "index": 54,
+    "text": "So, if the traveler asks a question where the truthful answer points to the truth-tellers and the lie points to the liars, or vice versa.",
+    "category": "Deduction",
+    "abbreviation": "D-54"
+  },
+  {
+    "index": 55,
+    "text": "I think the correct question is to ask, \"What would a person from the other village say about the other path?\" Let's dissect this.",
+    "category": "Question Posing",
+    "abbreviation": "QP-55"
+  },
+  {
+    "index": 56,
+    "text": "If the traveler is at the fork with a truth-teller (path A), the other path is B, which has liars.",
+    "category": "Deduction",
+    "abbreviation": "D-56"
+  },
+  {
+    "index": 57,
+    "text": "So, the truth-teller would know that the other path is B, which is liars.",
+    "category": "Deduction",
+    "abbreviation": "D-57"
+  },
+  {
+    "index": 58,
+    "text": "If asked what a liar from B would say about the other path (which is A), the liar would lie about A.",
+    "category": "Deduction",
+    "abbreviation": "D-58"
+  },
+  {
+    "index": 59,
+    "text": "Since A is truth-tellers, the liar would say \"No,\" meaning the other path doesn't lead to truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-59"
+  },
+  {
+    "index": 60,
+    "text": "Therefore, the truth-teller would truthfully report that a liar would say \"No.\"\n\nAlternatively, if the traveler is at the fork with a liar (path B), the other path is A, which has truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-60"
+  },
+  {
+    "index": 61,
+    "text": "The liar would know that the other path is A, which is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-61"
+  },
+  {
+    "index": 62,
+    "text": "If asked what a truth-teller would say about the other path, the truth-teller would say \"Yes.\" But since the liar lies, they would report that the truth-teller said \"No.\"\n\nSo, in both cases, the answer would be \"No.\" But that can't be right because the traveler wouldn't know which path to take.",
+    "category": "Deduction",
+    "abbreviation": "D-62"
+  },
+  {
+    "index": 63,
+    "text": "Wait, I'm getting confused again.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-63"
+  },
+  {
+    "index": 64,
+    "text": "Let me try to clarify.",
+    "category": "Initializing",
+    "abbreviation": "I-64"
+  },
+  {
+    "index": 65,
+    "text": "If the traveler asks a truth-teller, \"What would a liar say about the other path?\" The truth-teller knows that the other path is liars.",
+    "category": "Deduction",
+    "abbreviation": "D-65"
+  },
+  {
+    "index": 66,
+    "text": "So when a liar is asked about the other path, which is truth-tellers, the liar would lie and say \"No.\" Therefore, the truth-teller would say \"No.\"\n\nIf the traveler asks a liar, \"What would a truth-teller say about the other path?\" The liar knows the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-66"
+  },
+  {
+    "index": 67,
+    "text": "So a truth-teller would say \"Yes.\" But the liar lies, so the liar would say \"No.\"\n\nSo in both cases, the answer is \"No.\" That doesn't help the traveler determine which path is correct.",
+    "category": "Deduction",
+    "abbreviation": "D-67"
+  },
+  {
+    "index": 68,
+    "text": "Wait, that's a problem.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-68"
+  },
+  {
+    "index": 69,
+    "text": "The traveler would always get \"No,\" which means the other path is truth-tellers, but that's not necessarily the case.",
+    "category": "Backtracking",
+    "abbreviation": "B-69"
+  },
+  {
+    "index": 70,
+    "text": "I must be making a mistake in the phrasing.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-70"
+  },
+  {
+    "index": 71,
+    "text": "Perhaps the question needs to be adjusted.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-71"
+  },
+  {
+    "index": 72,
+    "text": "Let me think differently.",
+    "category": "Backtracking",
+    "abbreviation": "B-72"
+  },
+  {
+    "index": 73,
+    "text": "What if the traveler asks, \"If I asked you whether this path leads to the village of truth-tellers, would you say 'Yes'?\" Let's analyze this.",
+    "category": "Question Posing",
+    "abbreviation": "QP-73"
+  },
+  {
+    "index": 74,
+    "text": "If the traveler is at the fork with a truth-teller (path A is truth-tellers):\n\n- The truth-teller knows that the current path is A, which is truth-tellers.",
+    "category": "Example Testing",
+    "abbreviation": "ET-74"
+  },
+  {
+    "index": 75,
+    "text": "So when asked, the truth-teller would say \"Yes.\" Therefore, the truth-teller would truthfully report that they would say \"Yes.\"\n\nIf the traveler is at the fork with a liar (path B is liars):\n\n- The liar knows that the current path is B, which is liars.",
+    "category": "Example Testing",
+    "abbreviation": "ET-75"
+  },
+  {
+    "index": 76,
+    "text": "So when asked, the liar would lie and say \"Yes.\" Therefore, the liar would lie and say \"No.\"\n\nWait, that gives a different answer depending on who the villager is.",
+    "category": "Backtracking",
+    "abbreviation": "B-76"
+  },
+  {
+    "index": 77,
+    "text": "If the villager is a truth-teller, they would say \"Yes\" (truthfully).",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-77"
+  },
+  {
+    "index": 78,
+    "text": "If the villager is a liar, they would lie and say \"No.\"\n\nSo, the traveler can interpret it as follows:\n\n- If the answer is \"Yes,\" the villager is a truth-teller, so the current path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-78"
+  },
+  {
+    "index": 79,
+    "text": "- If the answer is \"No,\" the villager is a liar, so the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-79"
+  },
+  {
+    "index": 80,
+    "text": "But the traveler doesn't know which path is which, so the question is about the current path.",
+    "category": "Question Posing",
+    "abbreviation": "QP-80"
+  },
+  {
+    "index": 81,
+    "text": "However, the traveler's goal is to determine which path leads to truth-tellers, regardless of the current path.",
+    "category": "Deduction",
+    "abbreviation": "D-81"
+  },
+  {
+    "index": 82,
+    "text": "Wait, no, the traveler is at the fork and needs to decide which of the two paths to take.",
+    "category": "Backtracking",
+    "abbreviation": "B-82"
+  },
+  {
+    "index": 83,
+    "text": "So, if the traveler can determine which of the two paths is the truth-tellers, that's the goal.",
+    "category": "Deduction",
+    "abbreviation": "D-83"
+  },
+  {
+    "index": 84,
+    "text": "But with the above question, the traveler can only determine the current path.",
+    "category": "Deduction",
+    "abbreviation": "D-84"
+  },
+  {
+    "index": 85,
+    "text": "If the answer is \"Yes,\" the current path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-85"
+  },
+  {
+    "index": 86,
+    "text": "If \"No,\" the current path is liars, so the other path must be truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-86"
+  },
+  {
+    "index": 87,
+    "text": "Therefore, the traveler can choose the other path if the answer is \"No.\" So, the question is effective.",
+    "category": "Deduction",
+    "abbreviation": "D-87"
+  },
+  {
+    "index": 88,
+    "text": "But I think the classic question is slightly different.",
+    "category": "Backtracking",
+    "abbreviation": "B-88"
+  },
+  {
+    "index": 89,
+    "text": "It's about asking what someone from the other village would say about the other path, not about the current path.",
+    "category": "Backtracking",
+    "abbreviation": "B-89"
+  },
+  {
+    "index": 90,
+    "text": "Let me try that again.",
+    "category": "Backtracking",
+    "abbreviation": "B-90"
+  },
+  {
+    "index": 91,
+    "text": "Question: \"If I asked you whether the other path leads to the village of truth-tellers, what would you say?\"\n\nIf the villager is a truth-teller (path A):\n\n- The other path is B, which is liars.",
+    "category": "Example Testing",
+    "abbreviation": "ET-91"
+  },
+  {
+    "index": 92,
+    "text": "So when asked, a liar (from B) would lie about the other path (which is A).",
+    "category": "Deduction",
+    "abbreviation": "D-92"
+  },
+  {
+    "index": 93,
+    "text": "The liar would say \"Yes\" (since A is truth-tellers, the liar would lie and say it's not).",
+    "category": "Deduction",
+    "abbreviation": "D-93"
+  },
+  {
+    "index": 94,
+    "text": "Therefore, the truth-teller would truthfully report that a liar would say \"Yes.\"\n\nIf the villager is a liar (path B):\n\n- The other path is A, which is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-94"
+  },
+  {
+    "index": 95,
+    "text": "When asked, a truth-teller (from A) would say \"Yes.\" But the liar would lie and say \"No.\"\n\nSo, in both cases, the answer would be \"Yes.\" That's not helpful because the traveler can't determine which path is correct.",
+    "category": "Deduction",
+    "abbreviation": "D-95"
+  },
+  {
+    "index": 96,
+    "text": "Wait, that's conflicting.",
+    "category": "Backtracking",
+    "abbreviation": "B-96"
+  },
+  {
+    "index": 97,
+    "text": "I must be making a mistake.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-97"
+  },
+  {
+    "index": 98,
+    "text": "Alternatively, perhaps the question should be about what the person would say about the current path.",
+    "category": "Backtracking",
+    "abbreviation": "B-98"
+  },
+  {
+    "index": 99,
+    "text": "Wait, no.",
+    "category": "Backtracking",
+    "abbreviation": "B-99"
+  },
+  {
+    "index": 100,
+    "text": "The key is to get a consistent answer that points to one path regardless of the villager's type.",
+    "category": "Deduction",
+    "abbreviation": "D-100"
+  },
+  {
+    "index": 101,
+    "text": "I think I need to revisit the classic solution.",
+    "category": "Backtracking",
+    "abbreviation": "B-101"
+  },
+  {
+    "index": 102,
+    "text": "The traveler can ask, \"What would a person from the other village say about the other path?\" Let's clarify:\n\nIf the traveler is at the fork and asks a truth-teller, \"What would a liar say about the other path?\" The truth-teller knows that the other path is liars, so when a liar is asked about the other path, the liar would lie.",
+    "category": "Question Posing",
+    "abbreviation": "QP-102"
+  },
+  {
+    "index": 103,
+    "text": "The other path is liars, so when asked, \"Does the other path lead to truth-tellers?\" the liar would say \"No\" (because they lie).",
+    "category": "Deduction",
+    "abbreviation": "D-103"
+  },
+  {
+    "index": 104,
+    "text": "Therefore, the truth-teller would say the liar would say \"No.\"\n\nIf the traveler is at the fork and asks a liar, \"What would a truth-teller say about the other path?\" The liar knows that the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-104"
+  },
+  {
+    "index": 105,
+    "text": "So when asked, the truth-teller would say \"Yes.\" But the liar lies, so the liar would say \"No.\"\n\nWait, so in both cases, the answer is \"No,\" which means the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-105"
+  },
+  {
+    "index": 106,
+    "text": "Therefore, the traveler should take the other path.",
+    "category": "Final Answer",
+    "abbreviation": "FA-106"
+  },
+  {
+    "index": 107,
+    "text": "But that can't be, because the traveler is at the fork and needs to determine which path leads to truth-tellers.",
+    "category": "Backtracking",
+    "abbreviation": "B-107"
+  },
+  {
+    "index": 108,
+    "text": "If the answer is \"No,\" the traveler knows the other path is truth-tellers, so they should take the other path.",
+    "category": "Deduction",
+    "abbreviation": "D-108"
+  },
+  {
+    "index": 109,
+    "text": "But in the classic puzzle, the answer is that the traveler should ask, \"What would a person from the other village say about the other path?\" and then take the opposite.",
+    "category": "Backtracking",
+    "abbreviation": "B-109"
+  },
+  {
+    "index": 110,
+    "text": "Wait, let me make it clearer.",
+    "category": "Backtracking",
+    "abbreviation": "B-110"
+  },
+  {
+    "index": 111,
+    "text": "If the traveler asks the villager, \"If I asked you whether the other path leads to the village of truth-tellers, what would you say?\" Then:\n\n- If the villager is a truth-teller, they know the other path is liars, so a liar would lie about it.",
+    "category": "Example Testing",
+    "abbreviation": "ET-111"
+  },
+  {
+    "index": 112,
+    "text": "The liar would say \"Yes\" (because the other path is liars, and they lie about it being truth-tellers).",
+    "category": "Deduction",
+    "abbreviation": "D-112"
+  },
+  {
+    "index": 113,
+    "text": "Therefore, the truth-teller would say the liar would say \"Yes.\"\n\n- If the villager is a liar, they know the other path is truth-tellers, so a truth-teller would say \"Yes.\" But the liar would lie and say \"No.\"\n\nSo, if the traveler hears \"Yes,\" the villager is a truth-teller, meaning the other path is liars.",
+    "category": "Deduction",
+    "abbreviation": "D-113"
+  },
+  {
+    "index": 114,
+    "text": "Therefore, the current path must be truth-tellers.",
+    "category": "Final Answer",
+    "abbreviation": "FA-114"
+  },
+  {
+    "index": 115,
+    "text": "If the traveler hears \"No,\" the villager is a liar, meaning the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-115"
+  },
+  {
+    "index": 116,
+    "text": "Therefore, the traveler should take the other path.",
+    "category": "Final Answer",
+    "abbreviation": "FA-116"
+  },
+  {
+    "index": 117,
+    "text": "Wait, but in both cases, the answer is either \"Yes\" or \"No,\" but the traveler needs to know which path to take.",
+    "category": "Backtracking",
+    "abbreviation": "B-117"
+  },
+  {
+    "index": 118,
+    "text": "So, if the answer is \"Yes,\" the current path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-118"
+  },
+  {
+    "index": 119,
+    "text": "If \"No,\" the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-119"
+  },
+  {
+    "index": 120,
+    "text": "But the traveler wants to know which path leads to truth-tellers, so they can choose accordingly.",
+    "category": "Question Posing",
+    "abbreviation": "QP-120"
+  },
+  {
+    "index": 121,
+    "text": "However, the classic solution is that the traveler should ask, \"What would a person from the other village say about the other path?\" and then choose the path that the villager says the other person would not take.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-121"
+  },
+  {
+    "index": 122,
+    "text": "Wait, perhaps I'm overcomplicating it.",
+    "category": "Backtracking",
+    "abbreviation": "B-122"
+  },
+  {
+    "index": 123,
+    "text": "The key is that the traveler can determine the correct path by asking a question whose answer is the same regardless of whether the villager is a truth-teller or a liar, but points to the correct path.",
+    "category": "Deduction",
+    "abbreviation": "D-123"
+  },
+  {
+    "index": 124,
+    "text": "I think the correct question is: \"If I asked you whether the other path leads to the village of truth-tellers, what would you say?\"\n\nThen, if the villager is a truth-teller, they would truthfully report what a liar would say.",
+    "category": "Example Testing",
+    "abbreviation": "ET-124"
+  },
+  {
+    "index": 125,
+    "text": "Since the other path is liars, the liar would lie about it, so the truth-teller would say the liar would say \"Yes.\"\n\nIf the villager is a liar, they would lie about what a truth-teller would say.",
+    "category": "Deduction",
+    "abbreviation": "D-125"
+  },
+  {
+    "index": 126,
+    "text": "The truth-teller would say \"Yes,\" so the liar would say \"No.\"\n\nTherefore, if the traveler hears \"Yes,\" the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-126"
+  },
+  {
+    "index": 127,
+    "text": "If \"No,\" the other path is liars.",
+    "category": "Deduction",
+    "abbreviation": "D-127"
+  },
+  {
+    "index": 128,
+    "text": "Wait, no, that's not correct.",
+    "category": "Backtracking",
+    "abbreviation": "B-128"
+  },
+  {
+    "index": 129,
+    "text": "If the traveler is at the fork and doesn't know which path is which, they need to determine which path is truth-tellers.",
+    "category": "Question Posing",
+    "abbreviation": "QP-129"
+  },
+  {
+    "index": 130,
+    "text": "If the villager is a truth-teller, they would say \"Yes\" (because the liar would lie and say \"Yes\" about the other path being truth-tellers).",
+    "category": "Deduction",
+    "abbreviation": "D-130"
+  },
+  {
+    "index": 131,
+    "text": "So, the truth-teller says \"Yes,\" meaning the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-131"
+  },
+  {
+    "index": 132,
+    "text": "If the villager is a liar, they would say \"No\" (because the truth-teller would say \"Yes,\" and the liar lies).",
+    "category": "Deduction",
+    "abbreviation": "D-132"
+  },
+  {
+    "index": 133,
+    "text": "So, the liar says \"No,\" meaning the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-133"
+  },
+  {
+    "index": 134,
+    "text": "Wait, that can't be.",
+    "category": "Backtracking",
+    "abbreviation": "B-134"
+  },
+  {
+    "index": 135,
+    "text": "If both cases result in the other path being truth-tellers, then the traveler can always take the other path.",
+    "category": "Deduction",
+    "abbreviation": "D-135"
+  },
+  {
+    "index": 136,
+    "text": "But the traveler is at the fork, and the two paths are the current path and the other path.",
+    "category": "Deduction",
+    "abbreviation": "D-136"
+  },
+  {
+    "index": 137,
+    "text": "The traveler needs to determine which path is truth-tellers, regardless of the current path.",
+    "category": "Deduction",
+    "abbreviation": "D-137"
+  },
+  {
+    "index": 138,
+    "text": "So, if the traveler asks the question and gets \"Yes,\" they know the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-138"
+  },
+  {
+    "index": 139,
+    "text": "If they get \"No,\" they also know the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-139"
+  },
+  {
+    "index": 140,
+    "text": "Wait, that can't be right because the traveler is at the fork, and the two paths are the current one and the other one.",
+    "category": "Backtracking",
+    "abbreviation": "B-140"
+  },
+  {
+    "index": 141,
+    "text": "The traveler needs to decide which one is truth-tellers.",
+    "category": "Example Testing",
+    "abbreviation": "ET-141"
+  },
+  {
+    "index": 142,
+    "text": "But according to this, regardless of the villager's type, the other path is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-142"
+  },
+  {
+    "index": 143,
+    "text": "That can't be because the truth-tellers and liars are on fixed paths.",
+    "category": "Deduction",
+    "abbreviation": "D-143"
+  },
+  {
+    "index": 144,
+    "text": "I must have made a mistake in interpreting the question.",
+    "category": "Backtracking",
+    "abbreviation": "B-144"
+  },
+  {
+    "index": 145,
+    "text": "Let me try again.",
+    "category": "Backtracking",
+    "abbreviation": "B-145"
+  },
+  {
+    "index": 146,
+    "text": "Suppose the traveler is at the fork, and the two paths are Path 1 and Path 2.",
+    "category": "Example Testing",
+    "abbreviation": "ET-146"
+  },
+  {
+    "index": 147,
+    "text": "The villager is either from Path 1 (truth-tellers) or Path 2 (liars).",
+    "category": "Deduction",
+    "abbreviation": "D-147"
+  },
+  {
+    "index": 148,
+    "text": "The traveler asks the villager, \"If I asked you whether Path 2 leads to the village of truth-tellers, what would you say?\"\n\nIf the villager is from Path 1 (truth-tellers):\n\n- They know Path 2 is liars.",
+    "category": "Example Testing",
+    "abbreviation": "ET-148"
+  },
+  {
+    "index": 149,
+    "text": "So, when asked, a liar would lie about Path 2.",
+    "category": "Deduction",
+    "abbreviation": "D-149"
+  },
+  {
+    "index": 150,
+    "text": "The truth is Path 2 is liars, so the liar would say \"Yes\" (they lie about it being truth-tellers).",
+    "category": "Deduction",
+    "abbreviation": "D-150"
+  },
+  {
+    "index": 151,
+    "text": "Therefore, the truth-teller would say the liar would say \"Yes.\"\n\nIf the villager is from Path 2 (liars):\n\n- They know Path 2 is truth-tellers.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-151"
+  },
+  {
+    "index": 152,
+    "text": "When asked, a truth-teller would say \"Yes.\" But the liar would lie and say \"No.\"\n\nSo, the traveler hears \"Yes\" if the villager is a truth-teller, meaning Path 2 is liars, so Path 1 is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-152"
+  },
+  {
+    "index": 153,
+    "text": "The traveler hears \"No\" if the villager is a liar, meaning Path 2 is truth-tellers.",
+    "category": "Deduction",
+    "abbreviation": "D-153"
+  },
+  {
+    "index": 154,
+    "text": "Therefore, the traveler can conclude:\n\n- If the answer is \"Yes,\" Path 1 is truth-tellers.",
+    "category": "Final Answer",
+    "abbreviation": "FA-154"
+  },
+  {
+    "index": 155,
+    "text": "- If the answer is \"No,\" Path 2 is truth-tellers.",
+    "category": "Final Answer",
+    "abbreviation": "FA-155"
+  },
+  {
+    "index": 156,
+    "text": "Thus, the traveler can choose the appropriate path based on the answer.",
+    "category": "Final Answer",
+    "abbreviation": "FA-156"
+  },
+  {
+    "index": 157,
+    "text": "So, the question is: \"If I asked you whether the other path leads to the village of",
+    "category": "Initializing",
+    "abbreviation": "I-157"
+  }
+]

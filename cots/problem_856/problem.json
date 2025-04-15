@@ -1,0 +1,7 @@
+{
+  "topic": "Mathematical Logic",
+  "subtopic": "Mathematical Induction",
+  "difficulty": "Easy",
+  "question": "Prove by mathematical induction that the sum of the first n positive odd integers is equal to n\u00b2. In other words, prove that 1 + 3 + 5 + ... + (2n-1) = n\u00b2 for all positive integers n.",
+  "answer": "To prove that 1 + 3 + 5 + ... + (2n-1) = n\u00b2 for all positive integers n, we will use mathematical induction.\n\nStep 1: Base case.\nWhen n = 1, we have the sum of the first 1 odd integer, which is 1.\nAnd 1\u00b2 = 1.\nSo the equation holds for n = 1.\n\nStep 2: Induction hypothesis.\nAssume that the statement is true for some positive integer k.\nThat is, assume 1 + 3 + 5 + ... + (2k-1) = k\u00b2.\n\nStep 3: Induction step.\nWe need to prove that the statement is true for n = k+1.\nThat is, we need to prove that 1 + 3 + 5 + ... + (2k-1) + (2(k+1)-1) = (k+1)\u00b2.\n\nStarting with the left side:\n1 + 3 + 5 + ... + (2k-1) + (2(k+1)-1)\n= 1 + 3 + 5 + ... + (2k-1) + (2k+1)\n= k\u00b2 + (2k+1)   (using our induction hypothesis)\n= k\u00b2 + 2k + 1\n= (k+1)\u00b2\n\nTherefore, by the principle of mathematical induction, 1 + 3 + 5 + ... + (2n-1) = n\u00b2 for all positive integers n."
+}

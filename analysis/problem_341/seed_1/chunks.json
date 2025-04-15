@@ -1,0 +1,572 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this problem step by step.",
+    "category": "Initializing",
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "End with 'DONE.' when you have a solution.",
+    "category": "Initializing",
+    "abbreviation": "I-1"
+  },
+  {
+    "index": 2,
+    "text": "Question: Consider the following statement: 'For any integer n, if n\u00b2 is even, then n is even.' Using mathematical logic, determine whether this statement is true or false.",
+    "category": "Initializing",
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "If false, provide a counterexample.",
+    "category": "Initializing",
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "Solution: \n<think>\nAlright, so I've got this problem here that says, \"For any integer n, if n\u00b2 is even, then n is even.\" I need to figure out if this statement is true or false.",
+    "category": "Initializing",
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "If it's false, I also have to provide a counterexample.",
+    "category": "Initializing",
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "Hmm, okay, let's break this down.",
+    "category": "Initializing",
+    "abbreviation": "I-6"
+  },
+  {
+    "index": 7,
+    "text": "First, let me understand what the statement is saying.",
+    "category": "Initializing",
+    "abbreviation": "I-7"
+  },
+  {
+    "index": 8,
+    "text": "It's talking about integers n.",
+    "category": "Initializing",
+    "abbreviation": "I-8"
+  },
+  {
+    "index": 9,
+    "text": "So n can be any whole number, positive, negative, or zero.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "The condition given is that n squared is even.",
+    "category": "Deduction",
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "Then, the conclusion is that n itself must be even.",
+    "category": "Deduction",
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "So, logically, it's saying that if n\u00b2 is even, then n is even.",
+    "category": "Deduction",
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "Now, I remember that in math, statements like this can often be tricky because they seem obvious, but sometimes they aren't.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-13"
+  },
+  {
+    "index": 14,
+    "text": "So, I should approach this carefully.",
+    "category": "Question Posing",
+    "abbreviation": "QP-14"
+  },
+  {
+    "index": 15,
+    "text": "Maybe I can start by recalling some basic properties of even and odd numbers.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-15"
+  },
+  {
+    "index": 16,
+    "text": "An even number is any integer that can be written as 2 times another integer.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-16"
+  },
+  {
+    "index": 17,
+    "text": "So, if n is even, then n = 2k for some integer k.",
+    "category": "Deduction",
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "Then, n squared would be (2k)\u00b2 = 4k\u00b2, which is definitely even because it's divisible by 2.",
+    "category": "Deduction",
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "But the statement is the other way around.",
+    "category": "Deduction",
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "It says that if n\u00b2 is even, then n must be even.",
+    "category": "Deduction",
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "So, I need to check if the converse is true.",
+    "category": "Question Posing",
+    "abbreviation": "QP-21"
+  },
+  {
+    "index": 22,
+    "text": "In other words, is it true that if a square of a number is even, the number itself has to be even?\n\nLet me think about what happens when you square an odd number.",
+    "category": "Question Posing",
+    "abbreviation": "QP-22"
+  },
+  {
+    "index": 23,
+    "text": "If n is odd, then n can be written as 2k + 1 for some integer k.",
+    "category": "Deduction",
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "Then, n squared would be (2k + 1)\u00b2 = 4k\u00b2 + 4k + 1, which simplifies to 4k(k + 1) + 1.",
+    "category": "Deduction",
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "Since either k or (k + 1) is even, 4k(k + 1) is divisible by 8, making n\u00b2 = 8m + 1, which is odd because it's 1 more than a multiple of 8.",
+    "category": "Deduction",
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "Wait, so if n is odd, n\u00b2 is odd, and if n is even, n\u00b2 is even.",
+    "category": "Backtracking",
+    "abbreviation": "B-26"
+  },
+  {
+    "index": 27,
+    "text": "So, the square of an even number is even, and the square of an odd number is odd.",
+    "category": "Deduction",
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "That means that if n\u00b2 is even, n must be even.",
+    "category": "Deduction",
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "So, the original statement seems to be true.",
+    "category": "Deduction",
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "But wait, the problem is asking me to determine if it's true or false, and if false, to provide a counterexample.",
+    "category": "Question Posing",
+    "abbreviation": "QP-30"
+  },
+  {
+    "index": 31,
+    "text": "So, am I missing something here?\n\nLet me think again.",
+    "category": "Question Posing",
+    "abbreviation": "QP-31"
+  },
+  {
+    "index": 32,
+    "text": "Maybe I should test some specific numbers to see if there's any case where n\u00b2 is even, but n is not even.",
+    "category": "Example Testing",
+    "abbreviation": "ET-32"
+  },
+  {
+    "index": 33,
+    "text": "Let's try n = 2.",
+    "category": "Example Testing",
+    "abbreviation": "ET-33"
+  },
+  {
+    "index": 34,
+    "text": "n\u00b2 = 4, which is even, and n is even.",
+    "category": "Deduction",
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "Good. What about n = 3? n\u00b2 = 9, which is odd, and n is odd.",
+    "category": "Example Testing",
+    "abbreviation": "ET-35"
+  },
+  {
+    "index": 36,
+    "text": "That fits.",
+    "category": "Deduction",
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "How about n = 0? n\u00b2 = 0, which is even, and n is even (since 0 is considered even).",
+    "category": "Example Testing",
+    "abbreviation": "ET-37"
+  },
+  {
+    "index": 38,
+    "text": "So, that works too.",
+    "category": "Deduction",
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "Wait, what about negative numbers? Let's try n = -2.",
+    "category": "Example Testing",
+    "abbreviation": "ET-39"
+  },
+  {
+    "index": 40,
+    "text": "n\u00b2 = 4, which is even, and n is even.",
+    "category": "Example Testing",
+    "abbreviation": "ET-40"
+  },
+  {
+    "index": 41,
+    "text": "Yep, that's consistent.",
+    "category": "Deduction",
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "n = -3? n\u00b2 = 9, odd, and n is odd.",
+    "category": "Example Testing",
+    "abbreviation": "ET-42"
+  },
+  {
+    "index": 43,
+    "text": "Still consistent.",
+    "category": "Deduction",
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "Hmm, I'm not seeing any counterexamples here.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-44"
+  },
+  {
+    "index": 45,
+    "text": "All the even numbers I've tried, their squares are even, and all the odd numbers I've tried, their squares are odd.",
+    "category": "Example Testing",
+    "abbreviation": "ET-45"
+  },
+  {
+    "index": 46,
+    "text": "So, it seems like the statement holds true.",
+    "category": "Deduction",
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "But the problem is phrased as if it might not be true, asking to determine if it's true or false.",
+    "category": "Backtracking",
+    "abbreviation": "B-47"
+  },
+  {
+    "index": 48,
+    "text": "Maybe I need to think about whether there are any integers where n\u00b2 is even but n is not even.",
+    "category": "Question Posing",
+    "abbreviation": "QP-48"
+  },
+  {
+    "index": 49,
+    "text": "But from my reasoning and examples, that doesn't seem to happen.",
+    "category": "Deduction",
+    "abbreviation": "D-49"
+  },
+  {
+    "index": 50,
+    "text": "Wait a minute, maybe I should consider non-integer numbers? No, the problem specifies integers, so that's not necessary.",
+    "category": "Backtracking",
+    "abbreviation": "B-50"
+  },
+  {
+    "index": 51,
+    "text": "Another thought: perhaps I'm misunderstanding the statement.",
+    "category": "Question Posing",
+    "abbreviation": "QP-51"
+  },
+  {
+    "index": 52,
+    "text": "It says \"for any integer n, if n\u00b2 is even, then n is even.\" So, it's a conditional statement.",
+    "category": "Deduction",
+    "abbreviation": "D-52"
+  },
+  {
+    "index": 53,
+    "text": "In logic, this is equivalent to saying that the set of integers where n\u00b2 is even is a subset of the integers where n is even.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-53"
+  },
+  {
+    "index": 54,
+    "text": "From what I know, squares of even numbers are even, and squares of odd numbers are odd.",
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-54"
+  },
+  {
+    "index": 55,
+    "text": "So, there are no integers where n\u00b2 is even and n is odd.",
+    "category": "Deduction",
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "Therefore, the statement is true.",
+    "category": "Final Answer",
+    "abbreviation": "FA-56"
+  },
+  {
+    "index": 57,
+    "text": "But wait, the problem is asking to determine if it's true or false, implying that it might be false.",
+    "category": "Backtracking",
+    "abbreviation": "B-57"
+  },
+  {
+    "index": 58,
+    "text": "Maybe I'm missing something.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-58"
+  },
+  {
+    "index": 59,
+    "text": "Let me double-check.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-59"
+  },
+  {
+    "index": 60,
+    "text": "Is there any integer n where n\u00b2 is even, but n is not even? Let me think about n = 1.",
+    "category": "Example Testing",
+    "abbreviation": "ET-60"
+  },
+  {
+    "index": 61,
+    "text": "n\u00b2 = 1, which is odd, and n is odd.",
+    "category": "Example Testing",
+    "abbreviation": "ET-61"
+  },
+  {
+    "index": 62,
+    "text": "That's fine.",
+    "category": "Deduction",
+    "abbreviation": "D-62"
+  },
+  {
+    "index": 63,
+    "text": "n = 2, even, square is 4, even.",
+    "category": "Example Testing",
+    "abbreviation": "ET-63"
+  },
+  {
+    "index": 64,
+    "text": "n = 4, same thing.",
+    "category": "Example Testing",
+    "abbreviation": "ET-64"
+  },
+  {
+    "index": 65,
+    "text": "n = -4, same as 4.",
+    "category": "Example Testing",
+    "abbreviation": "ET-65"
+  },
+  {
+    "index": 66,
+    "text": "What about larger numbers? n = 6, square is 36, even.",
+    "category": "Example Testing",
+    "abbreviation": "ET-66"
+  },
+  {
+    "index": 67,
+    "text": "n = 7, square is 49, odd.",
+    "category": "Example Testing",
+    "abbreviation": "ET-67"
+  },
+  {
+    "index": 68,
+    "text": "So, no, I don't see any exceptions.",
+    "category": "Deduction",
+    "abbreviation": "D-68"
+  },
+  {
+    "index": 69,
+    "text": "Wait, maybe I should consider the case where n is zero.",
+    "category": "Backtracking",
+    "abbreviation": "B-69"
+  },
+  {
+    "index": 70,
+    "text": "n = 0, which is even, and n\u00b2 = 0, which is even.",
+    "category": "Example Testing",
+    "abbreviation": "ET-70"
+  },
+  {
+    "index": 71,
+    "text": "So, that's consistent.",
+    "category": "Deduction",
+    "abbreviation": "D-71"
+  },
+  {
+    "index": 72,
+    "text": "Is there any number where n\u00b2 is even and n is odd? From my reasoning, no, because if n is odd, n = 2k + 1, then n\u00b2 = 4k\u00b2 + 4k + 1 = 4k(k + 1) + 1, which is 1 more than a multiple of 4, so it's odd.",
+    "category": "Example Testing",
+    "abbreviation": "ET-72"
+  },
+  {
+    "index": 73,
+    "text": "Therefore, the statement is true.",
+    "category": "Final Answer",
+    "abbreviation": "FA-73"
+  },
+  {
+    "index": 74,
+    "text": "There is no counterexample.",
+    "category": "Final Answer",
+    "abbreviation": "FA-74"
+  },
+  {
+    "index": 75,
+    "text": "Wait, but the problem says to determine if it's true or false.",
+    "category": "Backtracking",
+    "abbreviation": "B-75"
+  },
+  {
+    "index": 76,
+    "text": "If it's true, I don't need to provide a counterexample.",
+    "category": "Deduction",
+    "abbreviation": "D-76"
+  },
+  {
+    "index": 77,
+    "text": "But maybe I should still write that there is no counterexample.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-77"
+  },
+  {
+    "index": 78,
+    "text": "Alternatively, maybe I'm wrong, and there is a counterexample.",
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-78"
+  },
+  {
+    "index": 79,
+    "text": "Let me try to see.",
+    "category": "Initializing",
+    "abbreviation": "I-79"
+  },
+  {
+    "index": 80,
+    "text": "Suppose n is such that n\u00b2 is even, but n is not even.",
+    "category": "Question Posing",
+    "abbreviation": "QP-80"
+  },
+  {
+    "index": 81,
+    "text": "So, n must be odd.",
+    "category": "Deduction",
+    "abbreviation": "D-81"
+  },
+  {
+    "index": 82,
+    "text": "But from earlier, n\u00b2 is odd when n is odd.",
+    "category": "Deduction",
+    "abbreviation": "D-82"
+  },
+  {
+    "index": 83,
+    "text": "So, that's a contradiction.",
+    "category": "Deduction",
+    "abbreviation": "D-83"
+  },
+  {
+    "index": 84,
+    "text": "Therefore, no such n exists.",
+    "category": "Deduction",
+    "abbreviation": "D-84"
+  },
+  {
+    "index": 85,
+    "text": "So, the statement is true.",
+    "category": "Final Answer",
+    "abbreviation": "FA-85"
+  },
+  {
+    "index": 86,
+    "text": "There is no counterexample.",
+    "category": "Final Answer",
+    "abbreviation": "FA-86"
+  },
+  {
+    "index": 87,
+    "text": "Wait, but the problem is phrased as a question, so maybe I should just confirm.",
+    "category": "Backtracking",
+    "abbreviation": "B-87"
+  },
+  {
+    "index": 88,
+    "text": "Yes, the statement is true because if n\u00b2 is even, then n must be even.",
+    "category": "Final Answer",
+    "abbreviation": "FA-88"
+  },
+  {
+    "index": 89,
+    "text": "There are no integers where n\u00b2 is even and n is odd.",
+    "category": "Final Answer",
+    "abbreviation": "FA-89"
+  },
+  {
+    "index": 90,
+    "text": "Therefore, the answer is that the statement is true, and there is no counterexample.",
+    "category": "Final Answer",
+    "abbreviation": "FA-90"
+  },
+  {
+    "index": 91,
+    "text": "</think>\n\nThe statement \"For any integer n, if n\u00b2 is even, then n is even.\" is true.",
+    "category": "Final Answer",
+    "abbreviation": "FA-91"
+  },
+  {
+    "index": 92,
+    "text": "This is because the square of an even number is even, and the square of an odd number is odd.",
+    "category": "Deduction",
+    "abbreviation": "D-92"
+  },
+  {
+    "index": 93,
+    "text": "Therefore, there are no integers n for which n\u00b2 is even and n is odd.",
+    "category": "Deduction",
+    "abbreviation": "D-93"
+  },
+  {
+    "index": 94,
+    "text": "**Answer:** The statement is true.",
+    "category": "Final Answer",
+    "abbreviation": "FA-94"
+  }
+]
