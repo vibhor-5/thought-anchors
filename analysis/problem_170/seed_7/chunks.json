@@ -2,451 +2,451 @@
   {
     "index": 0,
     "text": "Solve this problem step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-0"
+    "category": "Initializing",
+    "abbreviation": "I-0"
   },
   {
     "index": 1,
     "text": "End with 'DONE.' when you have a solution.",
-    "category": "Unknown",
-    "abbreviation": "C-1"
+    "category": "Initializing",
+    "abbreviation": "I-1"
   },
   {
     "index": 2,
     "text": "Question: Prove the following identity using a combinatorial argument: \\[ \\sum_{k=0}^{n} \\binom{n}{k} = 2^n \\] Provide a clear explanation based on counting the subsets of a set with n elements.",
-    "category": "Unknown",
-    "abbreviation": "C-2"
+    "category": "Initializing",
+    "abbreviation": "I-2"
   },
   {
     "index": 3,
     "text": "Solution: \n<think>\nAlright, so I have this problem here that I need to prove the identity \\(\\sum_{k=0}^{n} \\binom{n}{k} = 2^n\\) using a combinatorial argument by counting the subsets of a set with \\(n\\) elements.",
-    "category": "Unknown",
-    "abbreviation": "C-3"
+    "category": "Initializing",
+    "abbreviation": "I-3"
   },
   {
     "index": 4,
     "text": "Hmm, okay, let's break this down step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-4"
+    "category": "Initializing",
+    "abbreviation": "I-4"
   },
   {
     "index": 5,
     "text": "I'm a bit new to combinatorics, so I need to take it slow and make sure I understand each part.",
-    "category": "Unknown",
-    "abbreviation": "C-5"
+    "category": "Initializing",
+    "abbreviation": "I-5"
   },
   {
     "index": 6,
     "text": "First off, I remember that \\(\\binom{n}{k}\\) represents the number of ways to choose \\(k\\) elements from a set of \\(n\\) elements.",
-    "category": "Unknown",
-    "abbreviation": "C-6"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-6"
   },
   {
     "index": 7,
     "text": "So, \\(\\binom{n}{k}\\) is the binomial coefficient, also known as \"n choose k.\" The sum \\(\\sum_{k=0}^{n} \\binom{n}{k}\\) is adding up all these combinations for every possible \\(k\\) from 0 to \\(n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-7"
+    "category": "Deduction",
+    "abbreviation": "D-7"
   },
   {
     "index": 8,
     "text": "On the other side of the equation, we have \\(2^n\\), which is the number of subsets of a set with \\(n\\) elements because each element has two choices: either being in a subset or not.",
-    "category": "Unknown",
-    "abbreviation": "C-8"
+    "category": "Deduction",
+    "abbreviation": "D-8"
   },
   {
     "index": 9,
     "text": "So, the problem is essentially asking me to show that if I add up all the ways to choose subsets of size 0, 1, 2, ..., up to \\(n\\), that total is equal to the number of all possible subsets.",
-    "category": "Unknown",
-    "abbreviation": "C-9"
+    "category": "Deduction",
+    "abbreviation": "D-9"
   },
   {
     "index": 10,
     "text": "That makes sense because each element can independently be included or excluded, leading to \\(2^n\\) subsets in total.",
-    "category": "Unknown",
-    "abbreviation": "C-10"
+    "category": "Deduction",
+    "abbreviation": "D-10"
   },
   {
     "index": 11,
     "text": "Let me think about how subsets are formed.",
-    "category": "Unknown",
-    "abbreviation": "C-11"
+    "category": "Initializing",
+    "abbreviation": "I-11"
   },
   {
     "index": 12,
     "text": "For each element in the set, there are two possibilities: it's either in a subset or not.",
-    "category": "Unknown",
-    "abbreviation": "C-12"
+    "category": "Deduction",
+    "abbreviation": "D-12"
   },
   {
     "index": 13,
     "text": "So, for each of the \\(n\\) elements, there are 2 choices.",
-    "category": "Unknown",
-    "abbreviation": "C-13"
+    "category": "Deduction",
+    "abbreviation": "D-13"
   },
   {
     "index": 14,
     "text": "That would mean the total number of subsets is \\(2 \\times 2 \\times \\dots \\times 2\\) (n times), which is \\(2^n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-14"
+    "category": "Deduction",
+    "abbreviation": "D-14"
   },
   {
     "index": 15,
     "text": "That seems straightforward, but I need to connect this to the sum of binomial coefficients.",
-    "category": "Unknown",
-    "abbreviation": "C-15"
+    "category": "Question Posing",
+    "abbreviation": "QP-15"
   },
   {
     "index": 16,
     "text": "Maybe I should consider each subset and categorize them based on their size.",
-    "category": "Unknown",
-    "abbreviation": "C-16"
+    "category": "Question Posing",
+    "abbreviation": "QP-16"
   },
   {
     "index": 17,
     "text": "So, subsets can be categorized by how many elements they contain: 0 elements, 1 element, 2 elements, and so on, up to \\(n\\) elements.",
-    "category": "Unknown",
-    "abbreviation": "C-17"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-17"
   },
   {
     "index": 18,
     "text": "The number of subsets with exactly \\(k\\) elements is \\(\\binom{n}{k}\\), so if I add all these up for every \\(k\\) from 0 to \\(n\\), I should get the total number of subsets, which is \\(2^n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-18"
+    "category": "Deduction",
+    "abbreviation": "D-18"
   },
   {
     "index": 19,
     "text": "Wait, so the left side of the equation is the total number of subsets when I consider all possible sizes, and the right side is the total number of subsets when considering each element's independent inclusion.",
-    "category": "Unknown",
-    "abbreviation": "C-19"
+    "category": "Question Posing",
+    "abbreviation": "QP-19"
   },
   {
     "index": 20,
     "text": "So, they should be equal because both represent the total number of subsets.",
-    "category": "Unknown",
-    "abbreviation": "C-20"
+    "category": "Deduction",
+    "abbreviation": "D-20"
   },
   {
     "index": 21,
     "text": "Let me try with a small example to see if this holds.",
-    "category": "Unknown",
-    "abbreviation": "C-21"
+    "category": "Example Testing",
+    "abbreviation": "ET-21"
   },
   {
     "index": 22,
     "text": "Let's take \\(n = 2\\).",
-    "category": "Unknown",
-    "abbreviation": "C-22"
+    "category": "Example Testing",
+    "abbreviation": "ET-22"
   },
   {
     "index": 23,
     "text": "Then, the subsets are:\n\n- Size 0: {} (1 subset)\n- Size 1: {a}, {b} (2 subsets)\n- Size 2: {a, b} (1 subset)\n\nSo, the total number of subsets is \\(1 + 2 + 1 = 4\\), which is \\(2^2 = 4\\).",
-    "category": "Unknown",
-    "abbreviation": "C-23"
+    "category": "Example Testing",
+    "abbreviation": "ET-23"
   },
   {
     "index": 24,
     "text": "Now, using the sum of binomial coefficients:\n\n\\(\\binom{2}{0} + \\binom{2}{1} + \\binom{2}{2} = 1 + 2 + 1 = 4\\), which matches.",
-    "category": "Unknown",
-    "abbreviation": "C-24"
+    "category": "Deduction",
+    "abbreviation": "D-24"
   },
   {
     "index": 25,
     "text": "Okay, that works for \\(n = 2\\).",
-    "category": "Unknown",
-    "abbreviation": "C-25"
+    "category": "Deduction",
+    "abbreviation": "D-25"
   },
   {
     "index": 26,
     "text": "Let me try \\(n = 3\\) to be sure.",
-    "category": "Unknown",
-    "abbreviation": "C-26"
+    "category": "Example Testing",
+    "abbreviation": "ET-26"
   },
   {
     "index": 27,
     "text": "Subsets:\n\n- Size 0: {} (1)\n- Size 1: {a}, {b}, {c} (3)\n- Size 2: {a, b}, {a, c}, {b, c} (3)\n- Size 3: {a, b, c} (1)\n\nTotal subsets: \\(1 + 3 + 3 + 1 = 8\\), which is \\(2^3 = 8\\).",
-    "category": "Unknown",
-    "abbreviation": "C-27"
+    "category": "Example Testing",
+    "abbreviation": "ET-27"
   },
   {
     "index": 28,
     "text": "Now, the sum of binomial coefficients:\n\n\\(\\binom{3}{0} + \\binom{3}{1} + \\binom{3}{2} + \\binom{3}{3} = 1 + 3 + 3 + 1 = 8\\).",
-    "category": "Unknown",
-    "abbreviation": "C-28"
+    "category": "Deduction",
+    "abbreviation": "D-28"
   },
   {
     "index": 29,
     "text": "Perfect, that matches too.",
-    "category": "Unknown",
-    "abbreviation": "C-29"
+    "category": "Summary",
+    "abbreviation": "S-29"
   },
   {
     "index": 30,
     "text": "So, it seems like this identity holds for small values of \\(n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-30"
+    "category": "Example Testing",
+    "abbreviation": "ET-30"
   },
   {
     "index": 31,
     "text": "But I need to generalize this into a proof.",
-    "category": "Unknown",
-    "abbreviation": "C-31"
+    "category": "Question Posing",
+    "abbreviation": "QP-31"
   },
   {
     "index": 32,
     "text": "I think the key here is to realize that each subset can be uniquely identified by the number of elements it contains, which is \\(k\\), and that the number of subsets with exactly \\(k\\) elements is \\(\\binom{n}{k}\\).",
-    "category": "Unknown",
-    "abbreviation": "C-32"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-32"
   },
   {
     "index": 33,
     "text": "Therefore, summing over all possible \\(k\\) from 0 to \\(n\\) gives the total number of subsets, which is \\(2^n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-33"
+    "category": "Deduction",
+    "abbreviation": "D-33"
   },
   {
     "index": 34,
     "text": "Another way to think about it is by considering the principle of inclusion-exclusion.",
-    "category": "Unknown",
-    "abbreviation": "C-34"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-34"
   },
   {
     "index": 35,
     "text": "For each element, we have two choices, so the total number of possible combinations is \\(2^n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-35"
+    "category": "Deduction",
+    "abbreviation": "D-35"
   },
   {
     "index": 36,
     "text": "Alternatively, since the subsets can be partitioned into those with \\(k\\) elements for each \\(k\\), and each partition has \\(\\binom{n}{k}\\) subsets, adding them up must give the total number of subsets.",
-    "category": "Unknown",
-    "abbreviation": "C-36"
+    "category": "Deduction",
+    "abbreviation": "D-36"
   },
   {
     "index": 37,
     "text": "Wait, maybe I can visualize this.",
-    "category": "Unknown",
-    "abbreviation": "C-37"
+    "category": "Example Testing",
+    "abbreviation": "ET-37"
   },
   {
     "index": 38,
     "text": "Imagine a set with \\(n\\) elements.",
-    "category": "Unknown",
-    "abbreviation": "C-38"
+    "category": "Example Testing",
+    "abbreviation": "ET-38"
   },
   {
     "index": 39,
     "text": "For each element, I can represent its inclusion in a subset as a binary choice: 1 if it's included, 0 if it's not.",
-    "category": "Unknown",
-    "abbreviation": "C-39"
+    "category": "Deduction",
+    "abbreviation": "D-39"
   },
   {
     "index": 40,
     "text": "Since each element has two choices independently, the total number of combinations is \\(2^n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-40"
+    "category": "Deduction",
+    "abbreviation": "D-40"
   },
   {
     "index": 41,
     "text": "But each subset corresponds uniquely to a binary string of length \\(n\\), where each position indicates the presence (1) or absence (0) of the corresponding element in the subset.",
-    "category": "Unknown",
-    "abbreviation": "C-41"
+    "category": "Deduction",
+    "abbreviation": "D-41"
   },
   {
     "index": 42,
     "text": "Now, if I count the number of subsets with exactly \\(k\\) elements, it's equivalent to counting the number of binary strings with exactly \\(k\\) ones.",
-    "category": "Unknown",
-    "abbreviation": "C-42"
+    "category": "Deduction",
+    "abbreviation": "D-42"
   },
   {
     "index": 43,
     "text": "The number of such strings is \\(\\binom{n}{k}\\), which is exactly the number of subsets of size \\(k\\).",
-    "category": "Unknown",
-    "abbreviation": "C-43"
+    "category": "Deduction",
+    "abbreviation": "D-43"
   },
   {
     "index": 44,
     "text": "Therefore, summing over all \\(k\\) from 0 to \\(n\\) gives the total number of subsets, which is \\(2^n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-44"
+    "category": "Deduction",
+    "abbreviation": "D-44"
   },
   {
     "index": 45,
     "text": "I think this makes sense.",
-    "category": "Unknown",
-    "abbreviation": "C-45"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-45"
   },
   {
     "index": 46,
     "text": "Each subset is uniquely determined by the number of elements it contains, and each count of subsets of a particular size is given by the binomial coefficient.",
-    "category": "Unknown",
-    "abbreviation": "C-46"
+    "category": "Deduction",
+    "abbreviation": "D-46"
   },
   {
     "index": 47,
     "text": "So, adding them all up should give the total number of subsets, which is \\(2^n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-47"
+    "category": "Deduction",
+    "abbreviation": "D-47"
   },
   {
     "index": 48,
     "text": "Let me see if I can formalize this a bit more.",
-    "category": "Unknown",
-    "abbreviation": "C-48"
+    "category": "Question Posing",
+    "abbreviation": "QP-48"
   },
   {
     "index": 49,
     "text": "Consider the set \\(S = \\{1, 2, 3, \\dots, n\\}\\).",
-    "category": "Unknown",
-    "abbreviation": "C-49"
+    "category": "Initializing",
+    "abbreviation": "I-49"
   },
   {
     "index": 50,
     "text": "A subset \\(A\\) of \\(S\\) can be represented by a characteristic function \\(f: S \\rightarrow \\{0, 1\\}\\), where \\(f(i) = 1\\) if \\(i \\in A\\) and \\(f(i) = 0\\) otherwise.",
-    "category": "Unknown",
-    "abbreviation": "C-50"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-50"
   },
   {
     "index": 51,
     "text": "The number of such functions is \\(2^n\\), which is the total number of subsets.",
-    "category": "Unknown",
-    "abbreviation": "C-51"
+    "category": "Deduction",
+    "abbreviation": "D-51"
   },
   {
     "index": 52,
     "text": "Now, let's fix a particular \\(k\\) between 0 and \\(n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-52"
+    "category": "Example Testing",
+    "abbreviation": "ET-52"
   },
   {
     "index": 53,
     "text": "The number of subsets where exactly \\(k\\) elements are included is equal to the number of ways to choose \\(k\\) elements out of \\(n\\), which is \\(\\binom{n}{k}\\).",
-    "category": "Unknown",
-    "abbreviation": "C-53"
+    "category": "Deduction",
+    "abbreviation": "D-53"
   },
   {
     "index": 54,
     "text": "Therefore, summing over all \\(k\\) gives the total number of subsets:\n\n\\[\n\\sum_{k=0}^{n} \\binom{n}{k} = 2^n\n\\]\n\nYes, that seems like a solid argument.",
-    "category": "Unknown",
-    "abbreviation": "C-54"
+    "category": "Deduction",
+    "abbreviation": "D-54"
   },
   {
     "index": 55,
     "text": "Each subset is counted exactly once in the sum, categorized by its size, and each term in the sum corresponds to the number of subsets of that size.",
-    "category": "Unknown",
-    "abbreviation": "C-55"
+    "category": "Deduction",
+    "abbreviation": "D-55"
   },
   {
     "index": 56,
     "text": "Therefore, the total must equal the overall number of subsets, which is \\(2^n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-56"
+    "category": "Deduction",
+    "abbreviation": "D-56"
   },
   {
     "index": 57,
     "text": "I think I've got it now.",
-    "category": "Unknown",
-    "abbreviation": "C-57"
+    "category": "Summary",
+    "abbreviation": "S-57"
   },
   {
     "index": 58,
     "text": "The combinatorial argument relies on understanding that each subset can be counted by its size, and the number of subsets of each size is given by the binomial coefficients.",
-    "category": "Unknown",
-    "abbreviation": "C-58"
+    "category": "Summary",
+    "abbreviation": "S-58"
   },
   {
     "index": 59,
     "text": "Summing these gives the total number of subsets, which is \\(2^n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-59"
+    "category": "Summary",
+    "abbreviation": "S-59"
   },
   {
     "index": 60,
     "text": "</think>\n\nThe identity \\(\\sum_{k=0}^{n} \\binom{n}{k} = 2^n\\) can be proven by considering the subsets of a set with \\(n\\) elements.",
-    "category": "Unknown",
-    "abbreviation": "C-60"
+    "category": "Final Answer",
+    "abbreviation": "FA-60"
   },
   {
     "index": 61,
     "text": "Each subset can be uniquely identified by the number of elements it contains, which ranges from 0 to \\(n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-61"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-61"
   },
   {
     "index": 62,
     "text": "The number of subsets with exactly \\(k\\) elements is \\(\\binom{n}{k}\\).",
-    "category": "Unknown",
-    "abbreviation": "C-62"
+    "category": "Deduction",
+    "abbreviation": "D-62"
   },
   {
     "index": 63,
     "text": "Summing these binomial coefficients for all possible \\(k\\) gives the total number of subsets, which is \\(2^n\\) because each element has two independent choices (inclusion or exclusion) in a subset.",
-    "category": "Unknown",
-    "abbreviation": "C-63"
+    "category": "Deduction",
+    "abbreviation": "D-63"
   },
   {
     "index": 64,
     "text": "**Step-by-Step Explanation and Proof:**\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-64"
+    "category": "Initializing",
+    "abbreviation": "I-64"
   },
   {
     "index": 65,
     "text": "**Understand the Binomial Coefficient:**\n   - \\(\\binom{n}{k}\\) represents the number of ways to choose \\(k\\) elements from a set of \\(n\\) elements.",
-    "category": "Unknown",
-    "abbreviation": "C-65"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-65"
   },
   {
     "index": 66,
     "text": "2. **Total Number of Subsets:**\n   - A set with \\(n\\) elements has \\(2^n\\) subsets because each element can either be included or excluded from a subset, leading to \\(2\\) choices per element.",
-    "category": "Unknown",
-    "abbreviation": "C-66"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-66"
   },
   {
     "index": 67,
     "text": "3. **Counting Subsets by Size:**\n   - Subsets can be categorized by their size \\(k\\), where \\(k\\) ranges from 0 to \\(n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-67"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-67"
   },
   {
     "index": 68,
     "text": "- The number of subsets of size \\(k\\) is \\(\\binom{n}{k}\\).",
-    "category": "Unknown",
-    "abbreviation": "C-68"
+    "category": "Deduction",
+    "abbreviation": "D-68"
   },
   {
     "index": 69,
     "text": "4. **Summing Over All Subset Sizes:**\n   - Summing the number of subsets of each size from 0 to \\(n\\) gives the total number of subsets:\n     \\[\n     \\sum_{k=0}^{n} \\binom{n}{k}\n     \\]\n\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-69"
+    "category": "Deduction",
+    "abbreviation": "D-69"
   },
   {
     "index": 70,
     "text": "**Equating to Total Subsets:**\n   - Since the total number of subsets is \\(2^n\\), we have:\n     \\[\n     \\sum_{k=0}^{n} \\binom{n}{k} = 2^n\n     \\]\n\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-70"
+    "category": "Deduction",
+    "abbreviation": "D-70"
   },
   {
     "index": 71,
     "text": "**Conclusion:**\n   - Therefore, the sum of binomial coefficients from \\(k=0\\) to \\(k=n\\) equals \\(2^n\\), as both represent the total number of subsets of a set with \\(n\\) elements.",
-    "category": "Unknown",
-    "abbreviation": "C-71"
+    "category": "Summary",
+    "abbreviation": "S-71"
   },
   {
     "index": 72,
     "text": "**Final Answer:**\n\n\\[\n\\sum_{k=0}^{n} \\binom{n}{k} = 2^n\n\\]\n\nThis identity holds because the sum of the number of subsets of all possible sizes (from 0 to \\(n\\)) in a set with \\(n\\) elements equals the total number of subsets, which is \\(2^n\\).",
-    "category": "Unknown",
-    "abbreviation": "C-72"
+    "category": "Final Answer",
+    "abbreviation": "FA-72"
   },
   {
     "index": 73,
     "text": "Each subset is uniquely identified by its size, and the number of subsets of each size is given by the binomial coefficient \\(\\binom{n}{k}\\).",
-    "category": "Unknown",
-    "abbreviation": "C-73"
+    "category": "Deduction",
+    "abbreviation": "D-73"
   },
   {
     "index": 74,
     "text": "Summing these coefficients for all \\(k\\) from 0 to \\(n\\) yields the total number of subsets, confirming the identity.",
-    "category": "Unknown",
-    "abbreviation": "C-74"
+    "category": "Deduction",
+    "abbreviation": "D-74"
   }
 ]

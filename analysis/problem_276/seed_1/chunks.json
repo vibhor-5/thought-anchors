@@ -2,1081 +2,1081 @@
   {
     "index": 0,
     "text": "Solve this problem step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-0"
+    "category": "Initializing",
+    "abbreviation": "I-0"
   },
   {
     "index": 1,
     "text": "End with 'DONE.' when you have a solution.",
-    "category": "Unknown",
-    "abbreviation": "C-1"
+    "category": "Initializing",
+    "abbreviation": "I-1"
   },
   {
     "index": 2,
     "text": "Question: A small town has three autonomous delivery robots (A, B, and C) that deliver packages to residents.",
-    "category": "Unknown",
-    "abbreviation": "C-2"
+    "category": "Initializing",
+    "abbreviation": "I-2"
   },
   {
     "index": 3,
     "text": "Each robot can carry up to 5 packages at once and operates independently.",
-    "category": "Unknown",
-    "abbreviation": "C-3"
+    "category": "Initializing",
+    "abbreviation": "I-3"
   },
   {
     "index": 4,
     "text": "The robots need to deliver a total of 12 packages to different locations around town, with each package having a specific destination.",
-    "category": "Unknown",
-    "abbreviation": "C-4"
+    "category": "Initializing",
+    "abbreviation": "I-4"
   },
   {
     "index": 5,
     "text": "The town council wants to minimize the total distance traveled by all robots.",
-    "category": "Unknown",
-    "abbreviation": "C-5"
+    "category": "Initializing",
+    "abbreviation": "I-5"
   },
   {
     "index": 6,
     "text": "If the town can be represented as a simple grid where:\n- Robot A starts at position (0,0)\n- Robot B starts at position (10,0)\n- Robot C starts at position (5,5)\n\nAnd the 12 packages need to be delivered to these coordinates:\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-6"
+    "category": "Initializing",
+    "abbreviation": "I-6"
   },
   {
     "index": 7,
     "text": "(1,2)\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-7"
+    "category": "Example Testing",
+    "abbreviation": "ET-7"
   },
   {
     "index": 8,
     "text": "(3,4)\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-8"
+    "category": "Example Testing",
+    "abbreviation": "ET-8"
   },
   {
     "index": 9,
     "text": "(8,2)\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-9"
+    "category": "Example Testing",
+    "abbreviation": "ET-9"
   },
   {
     "index": 10,
     "text": "(9,3)\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-10"
+    "category": "Example Testing",
+    "abbreviation": "ET-10"
   },
   {
     "index": 11,
     "text": "(2,7)\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-11"
+    "category": "Example Testing",
+    "abbreviation": "ET-11"
   },
   {
     "index": 12,
     "text": "(4,8)\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-12"
+    "category": "Example Testing",
+    "abbreviation": "ET-12"
   },
   {
     "index": 13,
     "text": "(7,6)\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-13"
+    "category": "Example Testing",
+    "abbreviation": "ET-13"
   },
   {
     "index": 14,
     "text": "(6,1)\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-14"
+    "category": "Example Testing",
+    "abbreviation": "ET-14"
   },
   {
     "index": 15,
     "text": "(2,3)\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-15"
+    "category": "Deduction",
+    "abbreviation": "D-15"
   },
   {
     "index": 16,
     "text": "(4,2)\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-16"
+    "category": "Deduction",
+    "abbreviation": "D-16"
   },
   {
     "index": 17,
     "text": "(8,7)\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-17"
+    "category": "Deduction",
+    "abbreviation": "D-17"
   },
   {
     "index": 18,
     "text": "(5,2)\n\nWhich robot should deliver which packages to minimize the total distance traveled? Assume that each robot returns to its starting position after completing all deliveries, and that the distance is calculated using Manhattan distance (|x\u2081-x\u2082| + |y\u2081-y\u2082|).",
-    "category": "Unknown",
-    "abbreviation": "C-18"
+    "category": "Initializing",
+    "abbreviation": "I-18"
   },
   {
     "index": 19,
     "text": "Solution: \n<think>\nAlright, so I've got this problem where there are three robots\u2014A, B, and C\u2014delivering packages in a town grid.",
-    "category": "Unknown",
-    "abbreviation": "C-19"
+    "category": "Initializing",
+    "abbreviation": "I-19"
   },
   {
     "index": 20,
     "text": "The goal is to assign the 12 packages to these robots such that the total distance each robot travels is minimized.",
-    "category": "Unknown",
-    "abbreviation": "C-20"
+    "category": "Initializing",
+    "abbreviation": "I-20"
   },
   {
     "index": 21,
     "text": "Each robot starts at specific points: A at (0,0), B at (10,0), and C at (5,5).",
-    "category": "Unknown",
-    "abbreviation": "C-21"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-21"
   },
   {
     "index": 22,
     "text": "After dropping off all packages, each robot needs to return to their starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-22"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-22"
   },
   {
     "index": 23,
     "text": "The distance is measured using Manhattan distance, which is the sum of the absolute differences of their coordinates.",
-    "category": "Unknown",
-    "abbreviation": "C-23"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-23"
   },
   {
     "index": 24,
     "text": "First, I need to figure out how to distribute the packages among the three robots.",
-    "category": "Unknown",
-    "abbreviation": "C-24"
+    "category": "Initializing",
+    "abbreviation": "I-24"
   },
   {
     "index": 25,
     "text": "Each robot can carry up to 5 packages at once, but since we have 12 packages in total, each robot can carry 4 packages, right? Wait, no, 12 divided by 3 is 4, so each robot can carry 4 packages.",
-    "category": "Unknown",
-    "abbreviation": "C-25"
+    "category": "Deduction",
+    "abbreviation": "D-25"
   },
   {
     "index": 26,
     "text": "Hmm, but actually, each robot can carry up to 5, so maybe one robot can carry 5 and the others 4 each? But 5 + 4 + 3 is 12, so that works too.",
-    "category": "Unknown",
-    "abbreviation": "C-26"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-26"
   },
   {
     "index": 27,
     "text": "But to minimize the total distance, it might be better to balance the packages equally since robots with fewer packages might have shorter overall distances.",
-    "category": "Unknown",
-    "abbreviation": "C-27"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-27"
   },
   {
     "index": 28,
     "text": "Not sure yet.",
-    "category": "Unknown",
-    "abbreviation": "C-28"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-28"
   },
   {
     "index": 29,
     "text": "Next, I should consider the starting positions of the robots.",
-    "category": "Unknown",
-    "abbreviation": "C-29"
+    "category": "Question Posing",
+    "abbreviation": "QP-29"
   },
   {
     "index": 30,
     "text": "Robot A is at (0,0), which is the southwest corner, B is at (10,0), the southeast, and C is at (5,5), the northeast.",
-    "category": "Unknown",
-    "abbreviation": "C-30"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-30"
   },
   {
     "index": 31,
     "text": "The destinations are spread across the grid, so I need to see which robot can cover which destinations more efficiently.",
-    "category": "Unknown",
-    "abbreviation": "C-31"
+    "category": "Deduction",
+    "abbreviation": "D-31"
   },
   {
     "index": 32,
     "text": "I think a good approach is to cluster the destinations based on their proximity to each robot's starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-32"
+    "category": "Question Posing",
+    "abbreviation": "QP-32"
   },
   {
     "index": 33,
     "text": "For Robot A, which is at (0,0), it's probably best to assign packages that are closer to the origin.",
-    "category": "Unknown",
-    "abbreviation": "C-33"
+    "category": "Deduction",
+    "abbreviation": "D-33"
   },
   {
     "index": 34,
     "text": "Similarly, Robot B, being at (10,0), should handle destinations closer to the east side, and Robot C, at (5,5), should handle destinations in the middle or further north.",
-    "category": "Unknown",
-    "abbreviation": "C-34"
+    "category": "Deduction",
+    "abbreviation": "D-34"
   },
   {
     "index": 35,
     "text": "Looking at the destinations:\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-35"
+    "category": "Initializing",
+    "abbreviation": "I-35"
   },
   {
     "index": 36,
     "text": "(1,2) \u2013 close to A\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-36"
+    "category": "Example Testing",
+    "abbreviation": "ET-36"
   },
   {
     "index": 37,
     "text": "(3,4) \u2013 moderate, maybe A or C\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-37"
+    "category": "Example Testing",
+    "abbreviation": "ET-37"
   },
   {
     "index": 38,
     "text": "(8,2) \u2013 closer to B\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-38"
+    "category": "Example Testing",
+    "abbreviation": "ET-38"
   },
   {
     "index": 39,
     "text": "(9,3) \u2013 closer to B\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-39"
+    "category": "Example Testing",
+    "abbreviation": "ET-39"
   },
   {
     "index": 40,
     "text": "(2,7) \u2013 more towards the north, maybe C\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-40"
+    "category": "Example Testing",
+    "abbreviation": "ET-40"
   },
   {
     "index": 41,
     "text": "(4,8) \u2013 further north, maybe C\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-41"
+    "category": "Example Testing",
+    "abbreviation": "ET-41"
   },
   {
     "index": 42,
     "text": "(7,6) \u2013 central, maybe C\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-42"
+    "category": "Example Testing",
+    "abbreviation": "ET-42"
   },
   {
     "index": 43,
     "text": "(6,1) \u2013 closer to A\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-43"
+    "category": "Example Testing",
+    "abbreviation": "ET-43"
   },
   {
     "index": 44,
     "text": "(2,3) \u2013 moderate, maybe A or C\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-44"
+    "category": "Example Testing",
+    "abbreviation": "ET-44"
   },
   {
     "index": 45,
     "text": "(4,2) \u2013 moderate, maybe A or C\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-45"
+    "category": "Example Testing",
+    "abbreviation": "ET-45"
   },
   {
     "index": 46,
     "text": "(8,7) \u2013 further east, maybe B or C\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-46"
+    "category": "Example Testing",
+    "abbreviation": "ET-46"
   },
   {
     "index": 47,
     "text": "(5,2) \u2013 central, maybe C\n\nI should calculate the Manhattan distances from each robot to each destination to see which robot can cover each package more efficiently.",
-    "category": "Unknown",
-    "abbreviation": "C-47"
+    "category": "Deduction",
+    "abbreviation": "D-47"
   },
   {
     "index": 48,
     "text": "Starting with Robot A:\n\n- (1,2): distance is |1-0| + |2-0| = 1 + 2 = 3\n- (8,2): |8-0| + |2-0| = 8 + 2 = 10\n- (6,1): |6-0| + |1-0| = 6 + 1 = 7\n- (2,3): |2-0| + |3-0| = 2 + 3 = 5\n- (4,2): |4-0| + |2-0| = 4 + 2 = 6\n- (5,2): |5-0| + |2-0| = 5 + 2 = 7\n\nSo Robot A can cover these with distances: 3, 10, 7, 5, 6, 7.",
-    "category": "Unknown",
-    "abbreviation": "C-48"
+    "category": "Deduction",
+    "abbreviation": "D-48"
   },
   {
     "index": 49,
     "text": "Summing these: 3+10=13, 13+7=20, 20+5=25, 25+6=31, 31+7=38.",
-    "category": "Unknown",
-    "abbreviation": "C-49"
+    "category": "Deduction",
+    "abbreviation": "D-49"
   },
   {
     "index": 50,
     "text": "But wait, Robot A can carry up to 5 packages, but we have 6 packages close to A.",
-    "category": "Unknown",
-    "abbreviation": "C-50"
+    "category": "Question Posing",
+    "abbreviation": "QP-50"
   },
   {
     "index": 51,
     "text": "Maybe it's better to assign 5 packages to A and the rest to others.",
-    "category": "Unknown",
-    "abbreviation": "C-51"
+    "category": "Deduction",
+    "abbreviation": "D-51"
   },
   {
     "index": 52,
     "text": "Alternatively, let's see Robot B:\n\n- (1,2): |1-10| + |2-0| = 9 + 2 = 11\n- (3,4): |3-10| + |4-0| = 7 + 4 = 11\n- (8,2): |8-10| + |2-0| = 2 + 2 = 4\n- (9,3): |9-10| + |3-0| = 1 + 3 = 4\n- (2,7): |2-10| + |7-0| = 8 + 7 = 15\n- (4,8): |4-10| + |8-0| = 6 + 8 = 14\n- (7,6): |7-10| + |6-0| = 3 + 6 = 9\n- (8,7): |8-10| + |7-0| = 2 + 7 = 9\n\nSo Robot B can cover these with distances: 11, 11, 4, 4, 15, 14, 9, 9.",
-    "category": "Unknown",
-    "abbreviation": "C-52"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-52"
   },
   {
     "index": 53,
     "text": "Sum: 11+11=22, +4=26, +4=30, +15=45, +14=59, +9=68, +9=77.",
-    "category": "Unknown",
-    "abbreviation": "C-53"
+    "category": "Deduction",
+    "abbreviation": "D-53"
   },
   {
     "index": 54,
     "text": "That's a lot.",
-    "category": "Unknown",
-    "abbreviation": "C-54"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-54"
   },
   {
     "index": 55,
     "text": "But Robot B is closer to some destinations on the east side, so maybe it's better to assign the ones closer to B to Robot B.",
-    "category": "Unknown",
-    "abbreviation": "C-55"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-55"
   },
   {
     "index": 56,
     "text": "Now Robot C:\n\n- (1,2): |1-5| + |2-5| = 4 + 3 = 7\n- (3,4): |3-5| + |4-5| = 2 + 1 = 3\n- (8,2): |8-5| + |2-5| = 3 + 3 = 6\n- (9,3): |9-5| + |3-5| = 4 + 2 = 6\n- (2,7): |2-5| + |7-5| = 3 + 2 = 5\n- (4,8): |4-5| + |8-5| = 1 + 3 = 4\n- (7,6): |7-5| + |6-5| = 2 + 1 = 3\n- (5,2): |5-5| + |2-5| = 0 + 3 = 3\n\nSo Robot C can cover these with distances: 7, 3, 6, 6, 5, 4, 3, 3.",
-    "category": "Unknown",
-    "abbreviation": "C-56"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-56"
   },
   {
     "index": 57,
     "text": "Sum: 7+3=10, +6=16, +6=22, +5=27, +4=31, +3=34, +3=37.",
-    "category": "Unknown",
-    "abbreviation": "C-57"
+    "category": "Deduction",
+    "abbreviation": "D-57"
   },
   {
     "index": 58,
     "text": "Now, let's see:\n\nIf we assign the closest packages to each robot:\n\nRobot A: (1,2), (8,2), (6,1), (2,3), (4,2), (5,2).",
-    "category": "Unknown",
-    "abbreviation": "C-58"
+    "category": "Example Testing",
+    "abbreviation": "ET-58"
   },
   {
     "index": 59,
     "text": "Wait, that's 6 packages, but each robot can carry 5.",
-    "category": "Unknown",
-    "abbreviation": "C-59"
+    "category": "Deduction",
+    "abbreviation": "D-59"
   },
   {
     "index": 60,
     "text": "So maybe Robot A can take 5, Robot B can take 5, and Robot C can take 2.",
-    "category": "Unknown",
-    "abbreviation": "C-60"
+    "category": "Example Testing",
+    "abbreviation": "ET-60"
   },
   {
     "index": 61,
     "text": "But let's calculate the total distance if we assign:\n\nRobot A: (1,2), (3,4), (8,2), (9,3), (2,7).",
-    "category": "Unknown",
-    "abbreviation": "C-61"
+    "category": "Example Testing",
+    "abbreviation": "ET-61"
   },
   {
     "index": 62,
     "text": "Wait, no, Robot A can't reach (2,7) that far.",
-    "category": "Unknown",
-    "abbreviation": "C-62"
+    "category": "Backtracking",
+    "abbreviation": "B-62"
   },
   {
     "index": 63,
     "text": "Let's think differently.",
-    "category": "Unknown",
-    "abbreviation": "C-63"
+    "category": "Backtracking",
+    "abbreviation": "B-63"
   },
   {
     "index": 64,
     "text": "Alternatively, let's try to assign packages based on who can reach them with the least distance.",
-    "category": "Unknown",
-    "abbreviation": "C-64"
+    "category": "Backtracking",
+    "abbreviation": "B-64"
   },
   {
     "index": 65,
     "text": "Let's make a table:\n\nPackage | A_dist | B_dist | C_dist\n---|---|---|---\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-65"
+    "category": "Example Testing",
+    "abbreviation": "ET-65"
   },
   {
     "index": 66,
     "text": "(1,2) | 3 | 11 | 7\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-66"
+    "category": "Example Testing",
+    "abbreviation": "ET-66"
   },
   {
     "index": 67,
     "text": "(3,4) | 7 | 11 | 3\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-67"
+    "category": "Example Testing",
+    "abbreviation": "ET-67"
   },
   {
     "index": 68,
     "text": "(8,2) | 10 | 4 | 6\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-68"
+    "category": "Example Testing",
+    "abbreviation": "ET-68"
   },
   {
     "index": 69,
     "text": "(9,3) | 12 | 4 | 6\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-69"
+    "category": "Example Testing",
+    "abbreviation": "ET-69"
   },
   {
     "index": 70,
     "text": "(2,7) | 11 | 15 | 5\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-70"
+    "category": "Example Testing",
+    "abbreviation": "ET-70"
   },
   {
     "index": 71,
     "text": "(4,8) | 12 | 14 | 4\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-71"
+    "category": "Example Testing",
+    "abbreviation": "ET-71"
   },
   {
     "index": 72,
     "text": "(7,6) | 14 | 9 | 3\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-72"
+    "category": "Example Testing",
+    "abbreviation": "ET-72"
   },
   {
     "index": 73,
     "text": "(6,1) | 7 | 14 | 5\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-73"
+    "category": "Example Testing",
+    "abbreviation": "ET-73"
   },
   {
     "index": 74,
     "text": "(2,3) | 5 | 8 | 3\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-74"
+    "category": "Example Testing",
+    "abbreviation": "ET-74"
   },
   {
     "index": 75,
     "text": "(4,2) | 6 | 8 | 4\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-75"
+    "category": "Example Testing",
+    "abbreviation": "ET-75"
   },
   {
     "index": 76,
     "text": "(8,7) | 16 | 9 | 3\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-76"
+    "category": "Example Testing",
+    "abbreviation": "ET-76"
   },
   {
     "index": 77,
     "text": "(5,2) | 7 | 10 | 3\n\nLooking at this, it seems Robot C can cover several packages with lower distances, especially (3,4) with 3, (7,6) with 3, (5,2) with 3, (2,3) with 3, (4,8) with 4, (9,3) with 6, (8,2) with 6, (2,7) with 5, (6,1) with 5, (8,7) with 3.",
-    "category": "Unknown",
-    "abbreviation": "C-77"
+    "category": "Example Testing",
+    "abbreviation": "ET-77"
   },
   {
     "index": 78,
     "text": "Robot A can handle (1,2) with 3, (2,3) with 5, (4,2) with 6, (6,1) with 7, (8,2) with 10, (5,2) with 7.",
-    "category": "Unknown",
-    "abbreviation": "C-78"
+    "category": "Example Testing",
+    "abbreviation": "ET-78"
   },
   {
     "index": 79,
     "text": "Robot B can handle (9,3) with 4, (8,2) with 4, (7,6) with 9, (8,7) with 9, (4,8) with 14, (2,7) with 15, (6,1) with 14, (1,2) with 11, (3,4) with 11.",
-    "category": "Unknown",
-    "abbreviation": "C-79"
+    "category": "Example Testing",
+    "abbreviation": "ET-79"
   },
   {
     "index": 80,
     "text": "But since each robot can carry up to 5, we need to assign 12 packages.",
-    "category": "Unknown",
-    "abbreviation": "C-80"
+    "category": "Deduction",
+    "abbreviation": "D-80"
   },
   {
     "index": 81,
     "text": "Let me try to assign:\n\nRobot C can handle the most efficient packages: (3,4), (7,6), (5,2), (2,3), (4,8).",
-    "category": "Unknown",
-    "abbreviation": "C-81"
+    "category": "Example Testing",
+    "abbreviation": "ET-81"
   },
   {
     "index": 82,
     "text": "That's 5 packages with total distance 3+3+3+3+4=16.",
-    "category": "Unknown",
-    "abbreviation": "C-82"
+    "category": "Deduction",
+    "abbreviation": "D-82"
   },
   {
     "index": 83,
     "text": "Robot A can handle (1,2), (2,3), (4,2), (6,1), (5,2).",
-    "category": "Unknown",
-    "abbreviation": "C-83"
+    "category": "Example Testing",
+    "abbreviation": "ET-83"
   },
   {
     "index": 84,
     "text": "Wait, but (2,3) and (5,2) are already assigned to C.",
-    "category": "Unknown",
-    "abbreviation": "C-84"
+    "category": "Backtracking",
+    "abbreviation": "B-84"
   },
   {
     "index": 85,
     "text": "Maybe Robot A takes (1,2), (8,2), (6,1), (2,3), (4,2).",
-    "category": "Unknown",
-    "abbreviation": "C-85"
+    "category": "Example Testing",
+    "abbreviation": "ET-85"
   },
   {
     "index": 86,
     "text": "That's 5 packages.",
-    "category": "Unknown",
-    "abbreviation": "C-86"
+    "category": "Deduction",
+    "abbreviation": "D-86"
   },
   {
     "index": 87,
     "text": "Distances: 3,10,7,5,6.",
-    "category": "Unknown",
-    "abbreviation": "C-87"
+    "category": "Deduction",
+    "abbreviation": "D-87"
   },
   {
     "index": 88,
     "text": "Total: 3+10+7+5+6=31.",
-    "category": "Unknown",
-    "abbreviation": "C-88"
+    "category": "Deduction",
+    "abbreviation": "D-88"
   },
   {
     "index": 89,
     "text": "Robot B needs to handle the remaining packages: (8,2), (9,3), (2,7), (4,8), (7,6), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-89"
+    "category": "Example Testing",
+    "abbreviation": "ET-89"
   },
   {
     "index": 90,
     "text": "Wait, no, (8,2) is assigned to A, (9,3) is assigned to B? Wait, let me check:\n\nWait, if Robot C is assigned 5 packages: (3,4), (7,6), (5,2), (2,3), (4,8).",
-    "category": "Unknown",
-    "abbreviation": "C-90"
+    "category": "Backtracking",
+    "abbreviation": "B-90"
   },
   {
     "index": 91,
     "text": "Then Robot A is assigned (1,2), (8,2), (6,1), (2,3), (4,2).",
-    "category": "Unknown",
-    "abbreviation": "C-91"
+    "category": "Deduction",
+    "abbreviation": "D-91"
   },
   {
     "index": 92,
     "text": "But (2,3) is already assigned to C, so maybe Robot A takes (1,2), (8,2), (6,1), (4,2), (5,2).",
-    "category": "Unknown",
-    "abbreviation": "C-92"
+    "category": "Backtracking",
+    "abbreviation": "B-92"
   },
   {
     "index": 93,
     "text": "Distances: 3,10,7,6,7.",
-    "category": "Unknown",
-    "abbreviation": "C-93"
+    "category": "Example Testing",
+    "abbreviation": "ET-93"
   },
   {
     "index": 94,
     "text": "Total: 3+10+7+6+7=33.",
-    "category": "Unknown",
-    "abbreviation": "C-94"
+    "category": "Deduction",
+    "abbreviation": "D-94"
   },
   {
     "index": 95,
     "text": "Then Robot B needs to handle the remaining packages: (9,3), (2,7), (4,8), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-95"
+    "category": "Deduction",
+    "abbreviation": "D-95"
   },
   {
     "index": 96,
     "text": "Wait, but (4,8) is assigned to C.",
-    "category": "Unknown",
-    "abbreviation": "C-96"
+    "category": "Backtracking",
+    "abbreviation": "B-96"
   },
   {
     "index": 97,
     "text": "So Robot B would have (9,3), (2,7), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-97"
+    "category": "Example Testing",
+    "abbreviation": "ET-97"
   },
   {
     "index": 98,
     "text": "That's 3 packages.",
-    "category": "Unknown",
-    "abbreviation": "C-98"
+    "category": "Final Answer",
+    "abbreviation": "FA-98"
   },
   {
     "index": 99,
     "text": "But Robot B can carry 5.",
-    "category": "Unknown",
-    "abbreviation": "C-99"
+    "category": "Backtracking",
+    "abbreviation": "B-99"
   },
   {
     "index": 100,
     "text": "Maybe also assign (8,2) to B, but A already has it.",
-    "category": "Unknown",
-    "abbreviation": "C-100"
+    "category": "Deduction",
+    "abbreviation": "D-100"
   },
   {
     "index": 101,
     "text": "Alternatively, see if any other packages can be assigned to B.",
-    "category": "Unknown",
-    "abbreviation": "C-101"
+    "category": "Backtracking",
+    "abbreviation": "B-101"
   },
   {
     "index": 102,
     "text": "Wait, let's recount:\n\nPackages assigned:\n\nC: (3,4), (7,6), (5,2), (2,3), (4,8).",
-    "category": "Unknown",
-    "abbreviation": "C-102"
+    "category": "Deduction",
+    "abbreviation": "D-102"
   },
   {
     "index": 103,
     "text": "5 packages.",
-    "category": "Unknown",
-    "abbreviation": "C-103"
+    "category": "Summary",
+    "abbreviation": "S-103"
   },
   {
     "index": 104,
     "text": "A: (1,2), (8,2), (6,1), (4,2), (5,2).",
-    "category": "Unknown",
-    "abbreviation": "C-104"
+    "category": "Final Answer",
+    "abbreviation": "FA-104"
   },
   {
     "index": 105,
     "text": "Wait, but (5,2) is assigned to C.",
-    "category": "Unknown",
-    "abbreviation": "C-105"
+    "category": "Backtracking",
+    "abbreviation": "B-105"
   },
   {
     "index": 106,
     "text": "So maybe A takes (1,2), (8,2), (6,1), (4,2), (2,3).",
-    "category": "Unknown",
-    "abbreviation": "C-106"
+    "category": "Example Testing",
+    "abbreviation": "ET-106"
   },
   {
     "index": 107,
     "text": "But (2,3) is assigned to C.",
-    "category": "Unknown",
-    "abbreviation": "C-107"
+    "category": "Backtracking",
+    "abbreviation": "B-107"
   },
   {
     "index": 108,
     "text": "Hmm, this is getting confusing.",
-    "category": "Unknown",
-    "abbreviation": "C-108"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-108"
   },
   {
     "index": 109,
     "text": "Maybe a better approach is to use the distances and assign each package to the robot with the smallest distance.",
-    "category": "Unknown",
-    "abbreviation": "C-109"
+    "category": "Backtracking",
+    "abbreviation": "B-109"
   },
   {
     "index": 110,
     "text": "But since each robot can carry up to 5, we need to make sure that each robot doesn't exceed 5 packages.",
-    "category": "Unknown",
-    "abbreviation": "C-110"
+    "category": "Deduction",
+    "abbreviation": "D-110"
   },
   {
     "index": 111,
     "text": "Let me try:\n\nRobot C: (3,4) - 3, (7,6) -3, (5,2)-3, (2,3)-3, (4,8)-4.",
-    "category": "Unknown",
-    "abbreviation": "C-111"
+    "category": "Example Testing",
+    "abbreviation": "ET-111"
   },
   {
     "index": 112,
     "text": "Total 16.",
-    "category": "Unknown",
-    "abbreviation": "C-112"
+    "category": "Deduction",
+    "abbreviation": "D-112"
   },
   {
     "index": 113,
     "text": "Robot B: (8,2)-4, (9,3)-4, (8,7)-9, (7,6)-9.",
-    "category": "Unknown",
-    "abbreviation": "C-113"
+    "category": "Example Testing",
+    "abbreviation": "ET-113"
   },
   {
     "index": 114,
     "text": "Wait, but (7,6) is assigned to C.",
-    "category": "Unknown",
-    "abbreviation": "C-114"
+    "category": "Backtracking",
+    "abbreviation": "B-114"
   },
   {
     "index": 115,
     "text": "So Robot B: (8,2), (9,3), (8,7), (7,6).",
-    "category": "Unknown",
-    "abbreviation": "C-115"
+    "category": "Example Testing",
+    "abbreviation": "ET-115"
   },
   {
     "index": 116,
     "text": "But (7,6) is already taken.",
-    "category": "Unknown",
-    "abbreviation": "C-116"
+    "category": "Backtracking",
+    "abbreviation": "B-116"
   },
   {
     "index": 117,
     "text": "Maybe Robot B takes (8,2), (9,3), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-117"
+    "category": "Example Testing",
+    "abbreviation": "ET-117"
   },
   {
     "index": 118,
     "text": "Distances: 4+4+9=17.",
-    "category": "Unknown",
-    "abbreviation": "C-118"
+    "category": "Deduction",
+    "abbreviation": "D-118"
   },
   {
     "index": 119,
     "text": "Robot A: (1,2)-3, (6,1)-7, (2,3)-5, (4,2)-6, (5,2)-7.",
-    "category": "Unknown",
-    "abbreviation": "C-119"
+    "category": "Example Testing",
+    "abbreviation": "ET-119"
   },
   {
     "index": 120,
     "text": "Wait, but (5,2) is assigned to C.",
-    "category": "Unknown",
-    "abbreviation": "C-120"
+    "category": "Backtracking",
+    "abbreviation": "B-120"
   },
   {
     "index": 121,
     "text": "So Robot A: (1,2), (6,1), (2,3), (4,2).",
-    "category": "Unknown",
-    "abbreviation": "C-121"
+    "category": "Example Testing",
+    "abbreviation": "ET-121"
   },
   {
     "index": 122,
     "text": "That's 4 packages.",
-    "category": "Unknown",
-    "abbreviation": "C-122"
+    "category": "Final Answer",
+    "abbreviation": "FA-122"
   },
   {
     "index": 123,
     "text": "Need one more.",
-    "category": "Unknown",
-    "abbreviation": "C-123"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-123"
   },
   {
     "index": 124,
     "text": "Maybe (8,2) is assigned to B.",
-    "category": "Unknown",
-    "abbreviation": "C-124"
+    "category": "Example Testing",
+    "abbreviation": "ET-124"
   },
   {
     "index": 125,
     "text": "So Robot A takes (1,2), (6,1), (2,3), (4,2).",
-    "category": "Unknown",
-    "abbreviation": "C-125"
+    "category": "Example Testing",
+    "abbreviation": "ET-125"
   },
   {
     "index": 126,
     "text": "Total distance: 3+7+5+6=21.",
-    "category": "Unknown",
-    "abbreviation": "C-126"
+    "category": "Deduction",
+    "abbreviation": "D-126"
   },
   {
     "index": 127,
     "text": "But Robot A can carry 5.",
-    "category": "Unknown",
-    "abbreviation": "C-127"
+    "category": "Example Testing",
+    "abbreviation": "ET-127"
   },
   {
     "index": 128,
     "text": "Maybe also assign (8,2) to A, but then Robot B can't take it.",
-    "category": "Unknown",
-    "abbreviation": "C-128"
+    "category": "Example Testing",
+    "abbreviation": "ET-128"
   },
   {
     "index": 129,
     "text": "Alternatively, assign (8,2) to B.",
-    "category": "Unknown",
-    "abbreviation": "C-129"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-129"
   },
   {
     "index": 130,
     "text": "Wait, let's make sure:\n\nRobot C: (3,4), (7,6), (5,2), (2,3), (4,8).",
-    "category": "Unknown",
-    "abbreviation": "C-130"
+    "category": "Question Posing",
+    "abbreviation": "QP-130"
   },
   {
     "index": 131,
     "text": "Total distance: 3+3+3+3+4=16.",
-    "category": "Unknown",
-    "abbreviation": "C-131"
+    "category": "Deduction",
+    "abbreviation": "D-131"
   },
   {
     "index": 132,
     "text": "Robot B: (8,2), (9,3), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-132"
+    "category": "Example Testing",
+    "abbreviation": "ET-132"
   },
   {
     "index": 133,
     "text": "Distances: 4+4+9=17.",
-    "category": "Unknown",
-    "abbreviation": "C-133"
+    "category": "Deduction",
+    "abbreviation": "D-133"
   },
   {
     "index": 134,
     "text": "Robot A: (1,2), (6,1), (2,3), (4,2).",
-    "category": "Unknown",
-    "abbreviation": "C-134"
+    "category": "Example Testing",
+    "abbreviation": "ET-134"
   },
   {
     "index": 135,
     "text": "Distances: 3+7+5+6=21.",
-    "category": "Unknown",
-    "abbreviation": "C-135"
+    "category": "Deduction",
+    "abbreviation": "D-135"
   },
   {
     "index": 136,
     "text": "But Robot A can carry 5.",
-    "category": "Unknown",
-    "abbreviation": "C-136"
+    "category": "Example Testing",
+    "abbreviation": "ET-136"
   },
   {
     "index": 137,
     "text": "So maybe assign (8,2) to A instead.",
-    "category": "Unknown",
-    "abbreviation": "C-137"
+    "category": "Backtracking",
+    "abbreviation": "B-137"
   },
   {
     "index": 138,
     "text": "Then Robot B would have (9,3), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-138"
+    "category": "Deduction",
+    "abbreviation": "D-138"
   },
   {
     "index": 139,
     "text": "Distances: 4+9=13.",
-    "category": "Unknown",
-    "abbreviation": "C-139"
+    "category": "Deduction",
+    "abbreviation": "D-139"
   },
   {
     "index": 140,
     "text": "Robot A: (1,2), (8,2), (6,1), (2,3), (4,2).",
-    "category": "Unknown",
-    "abbreviation": "C-140"
+    "category": "Example Testing",
+    "abbreviation": "ET-140"
   },
   {
     "index": 141,
     "text": "Distances: 3+10+7+5+6=31.",
-    "category": "Unknown",
-    "abbreviation": "C-141"
+    "category": "Deduction",
+    "abbreviation": "D-141"
   },
   {
     "index": 142,
     "text": "Robot B: (9,3), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-142"
+    "category": "Example Testing",
+    "abbreviation": "ET-142"
   },
   {
     "index": 143,
     "text": "Distances: 4+9=13.",
-    "category": "Unknown",
-    "abbreviation": "C-143"
+    "category": "Deduction",
+    "abbreviation": "D-143"
   },
   {
     "index": 144,
     "text": "Robot C: (3,4), (7,6), (5,2), (2,3), (4,8).",
-    "category": "Unknown",
-    "abbreviation": "C-144"
+    "category": "Example Testing",
+    "abbreviation": "ET-144"
   },
   {
     "index": 145,
     "text": "Distances: 3+3+3+3+4=16.",
-    "category": "Unknown",
-    "abbreviation": "C-145"
+    "category": "Deduction",
+    "abbreviation": "D-145"
   },
   {
     "index": 146,
     "text": "Total distance: 31 (A) +13 (B) +16 (C) = 60.",
-    "category": "Unknown",
-    "abbreviation": "C-146"
+    "category": "Deduction",
+    "abbreviation": "D-146"
   },
   {
     "index": 147,
     "text": "Alternatively, if Robot B takes (8,2), (9,3), (8,7), (something else).",
-    "category": "Unknown",
-    "abbreviation": "C-147"
+    "category": "Example Testing",
+    "abbreviation": "ET-147"
   },
   {
     "index": 148,
     "text": "Wait, let's see:\n\nRobot C: (3,4), (7,6), (5,2), (2,3), (4,8).",
-    "category": "Unknown",
-    "abbreviation": "C-148"
+    "category": "Question Posing",
+    "abbreviation": "QP-148"
   },
   {
     "index": 149,
     "text": "16. Robot B: (8,2), (9,3), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-149"
+    "category": "Example Testing",
+    "abbreviation": "ET-149"
   },
   {
     "index": 150,
     "text": "4+4+9=17. Robot A: (1,2), (6,1), (2,3), (4,2).",
-    "category": "Unknown",
-    "abbreviation": "C-150"
+    "category": "Example Testing",
+    "abbreviation": "ET-150"
   },
   {
     "index": 151,
     "text": "3+7+5+6=21. Total: 16+17+21=54.",
-    "category": "Unknown",
-    "abbreviation": "C-151"
+    "category": "Example Testing",
+    "abbreviation": "ET-151"
   },
   {
     "index": 152,
     "text": "Wait, that's better.",
-    "category": "Unknown",
-    "abbreviation": "C-152"
+    "category": "Backtracking",
+    "abbreviation": "B-152"
   },
   {
     "index": 153,
     "text": "But is that possible? Because Robot A is taking 4 packages, but can take 5.",
-    "category": "Unknown",
-    "abbreviation": "C-153"
+    "category": "Question Posing",
+    "abbreviation": "QP-153"
   },
   {
     "index": 154,
     "text": "Maybe assign another package to A.",
-    "category": "Unknown",
-    "abbreviation": "C-154"
+    "category": "Deduction",
+    "abbreviation": "D-154"
   },
   {
     "index": 155,
     "text": "Looking at the remaining packages: (2,7), (4,8), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-155"
+    "category": "Example Testing",
+    "abbreviation": "ET-155"
   },
   {
     "index": 156,
     "text": "(4,8) is assigned to C.",
-    "category": "Unknown",
-    "abbreviation": "C-156"
+    "category": "Deduction",
+    "abbreviation": "D-156"
   },
   {
     "index": 157,
     "text": "(8,7) is assigned to B.",
-    "category": "Unknown",
-    "abbreviation": "C-157"
+    "category": "Deduction",
+    "abbreviation": "D-157"
   },
   {
     "index": 158,
     "text": "(2,7) is left.",
-    "category": "Unknown",
-    "abbreviation": "C-158"
+    "category": "Deduction",
+    "abbreviation": "D-158"
   },
   {
     "index": 159,
     "text": "So Robot A can take (2,7).",
-    "category": "Unknown",
-    "abbreviation": "C-159"
+    "category": "Deduction",
+    "abbreviation": "D-159"
   },
   {
     "index": 160,
     "text": "Distance: |2-0| + |7-0| = 2+7=9.",
-    "category": "Unknown",
-    "abbreviation": "C-160"
+    "category": "Deduction",
+    "abbreviation": "D-160"
   },
   {
     "index": 161,
     "text": "So Robot A would have (1,2), (6,1), (2,3), (4,2), (2,7).",
-    "category": "Unknown",
-    "abbreviation": "C-161"
+    "category": "Example Testing",
+    "abbreviation": "ET-161"
   },
   {
     "index": 162,
     "text": "Total distance: 3+7+5+6+9=30.",
-    "category": "Unknown",
-    "abbreviation": "C-162"
+    "category": "Example Testing",
+    "abbreviation": "ET-162"
   },
   {
     "index": 163,
     "text": "Robot B: (8,2), (9,3), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-163"
+    "category": "Example Testing",
+    "abbreviation": "ET-163"
   },
   {
     "index": 164,
     "text": "4+4+9=17. Robot C: (3,4), (7,6), (5,2), (2,3), (4,8).",
-    "category": "Unknown",
-    "abbreviation": "C-164"
+    "category": "Example Testing",
+    "abbreviation": "ET-164"
   },
   {
     "index": 165,
     "text": "16. Total: 30+17+16=63.",
-    "category": "Unknown",
-    "abbreviation": "C-165"
+    "category": "Deduction",
+    "abbreviation": "D-165"
   },
   {
     "index": 166,
     "text": "That's worse than before.",
-    "category": "Unknown",
-    "abbreviation": "C-166"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-166"
   },
   {
     "index": 167,
     "text": "So maybe it's better to have Robot A with 4 packages at 21 and Robot B with 3 at 17, Robot C with 5 at 16, totaling 54.",
-    "category": "Unknown",
-    "abbreviation": "C-167"
+    "category": "Deduction",
+    "abbreviation": "D-167"
   },
   {
     "index": 168,
     "text": "Alternatively, maybe assign (2,7) to Robot B.",
-    "category": "Unknown",
-    "abbreviation": "C-168"
+    "category": "Backtracking",
+    "abbreviation": "B-168"
   },
   {
     "index": 169,
     "text": "Robot B would have (8,2), (9,3), (2,7).",
-    "category": "Unknown",
-    "abbreviation": "C-169"
+    "category": "Example Testing",
+    "abbreviation": "ET-169"
   },
   {
     "index": 170,
     "text": "Distances: 4+4+15=23.",
-    "category": "Unknown",
-    "abbreviation": "C-170"
+    "category": "Deduction",
+    "abbreviation": "D-170"
   },
   {
     "index": 171,
     "text": "Robot A: (1,2), (6,1), (2,3), (4,2).",
-    "category": "Unknown",
-    "abbreviation": "C-171"
+    "category": "Example Testing",
+    "abbreviation": "ET-171"
   },
   {
     "index": 172,
     "text": "21. Robot C: (3,4), (7,6), (5,2), (2,3), (4,8).",
-    "category": "Unknown",
-    "abbreviation": "C-172"
+    "category": "Example Testing",
+    "abbreviation": "ET-172"
   },
   {
     "index": 173,
     "text": "16. Total: 21+23+16=60.",
-    "category": "Unknown",
-    "abbreviation": "C-173"
+    "category": "Final Answer",
+    "abbreviation": "FA-173"
   },
   {
     "index": 174,
     "text": "Not better.",
-    "category": "Unknown",
-    "abbreviation": "C-174"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-174"
   },
   {
     "index": 175,
     "text": "Alternatively, assign (2,7) to Robot C.",
-    "category": "Unknown",
-    "abbreviation": "C-175"
+    "category": "Backtracking",
+    "abbreviation": "B-175"
   },
   {
     "index": 176,
     "text": "Robot C would have (3,4), (7,6), (5,2), (2,3), (2,7).",
-    "category": "Unknown",
-    "abbreviation": "C-176"
+    "category": "Example Testing",
+    "abbreviation": "ET-176"
   },
   {
     "index": 177,
     "text": "Distances: 3+3+3+3+5=17.",
-    "category": "Unknown",
-    "abbreviation": "C-177"
+    "category": "Deduction",
+    "abbreviation": "D-177"
   },
   {
     "index": 178,
     "text": "Robot A: (1,2), (6,1), (4,2).",
-    "category": "Unknown",
-    "abbreviation": "C-178"
+    "category": "Example Testing",
+    "abbreviation": "ET-178"
   },
   {
     "index": 179,
     "text": "3+7+6=16. Robot B: (8,2), (9,3), (8,7).",
-    "category": "Unknown",
-    "abbreviation": "C-179"
+    "category": "Example Testing",
+    "abbreviation": "ET-179"
   }
 ]

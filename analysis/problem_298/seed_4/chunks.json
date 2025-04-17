@@ -2,757 +2,757 @@
   {
     "index": 0,
     "text": "Solve this problem step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-0"
+    "category": "Initializing",
+    "abbreviation": "I-0"
   },
   {
     "index": 1,
     "text": "End with 'DONE.' when you have a solution.",
-    "category": "Unknown",
-    "abbreviation": "C-1"
+    "category": "Initializing",
+    "abbreviation": "I-1"
   },
   {
     "index": 2,
     "text": "Question: Consider the following logical statement: ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-2"
+    "category": "Initializing",
+    "abbreviation": "I-2"
   },
   {
     "index": 3,
     "text": "Show, using logical equivalences, that this statement is logically equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-3"
+    "category": "Initializing",
+    "abbreviation": "I-3"
   },
   {
     "index": 4,
     "text": "You may use the following logical equivalences: Material Implication: P \u2192 Q \u2261 ~P \u2228 Q; De Morgan's Laws: ~(P \u2227 Q) \u2261 ~P \u2228 ~Q and ~(P \u2228 Q) \u2261 ~P \u2227 ~Q; Double Negation: ~(~P) \u2261 P.",
-    "category": "Unknown",
-    "abbreviation": "C-4"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
   },
   {
     "index": 5,
     "text": "Solution: \n<think>\nAlright, so I have this logical statement: ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-5"
+    "category": "Initializing",
+    "abbreviation": "I-5"
   },
   {
     "index": 6,
     "text": "I need to show that it's logically equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-6"
+    "category": "Initializing",
+    "abbreviation": "I-6"
   },
   {
     "index": 7,
     "text": "Hmm, okay.",
-    "category": "Unknown",
-    "abbreviation": "C-7"
+    "category": "Initializing",
+    "abbreviation": "I-7"
   },
   {
     "index": 8,
     "text": "Let me think about how to approach this step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-8"
+    "category": "Initializing",
+    "abbreviation": "I-8"
   },
   {
     "index": 9,
     "text": "First, I remember that the material implication equivalence says that P \u2192 Q is the same as ~P \u2228 Q.",
-    "category": "Unknown",
-    "abbreviation": "C-9"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
   },
   {
     "index": 10,
     "text": "So maybe I can apply that here.",
-    "category": "Unknown",
-    "abbreviation": "C-10"
+    "category": "Deduction",
+    "abbreviation": "D-10"
   },
   {
     "index": 11,
     "text": "The original statement is ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-11"
+    "category": "Initializing",
+    "abbreviation": "I-11"
   },
   {
     "index": 12,
     "text": "Applying the material implication, that should be equivalent to ~(~P \u2227 ~Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-12"
+    "category": "Deduction",
+    "abbreviation": "D-12"
   },
   {
     "index": 13,
     "text": "Wait, but ~P \u2227 ~Q is the same as ~(P \u2227 Q) by De Morgan's Law.",
-    "category": "Unknown",
-    "abbreviation": "C-13"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-13"
   },
   {
     "index": 14,
     "text": "So substituting that in, it becomes ~(~P \u2227 ~Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-14"
+    "category": "Deduction",
+    "abbreviation": "D-14"
   },
   {
     "index": 15,
     "text": "But according to double negation, ~(~P \u2227 ~Q) is just P \u2227 Q.",
-    "category": "Unknown",
-    "abbreviation": "C-15"
+    "category": "Deduction",
+    "abbreviation": "D-15"
   },
   {
     "index": 16,
     "text": "So now the expression simplifies to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-16"
+    "category": "Deduction",
+    "abbreviation": "D-16"
   },
   {
     "index": 17,
     "text": "Wait, that's exactly what I'm supposed to show! So did I just go through the steps correctly? Let me double-check.",
-    "category": "Unknown",
-    "abbreviation": "C-17"
+    "category": "Backtracking",
+    "abbreviation": "B-17"
   },
   {
     "index": 18,
     "text": "Starting with ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-18"
+    "category": "Initializing",
+    "abbreviation": "I-18"
   },
   {
     "index": 19,
     "text": "Apply material implication: ~P \u2227 ~Q \u2192 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-19"
+    "category": "Deduction",
+    "abbreviation": "D-19"
   },
   {
     "index": 20,
     "text": "Wait, no, that's not right.",
-    "category": "Unknown",
-    "abbreviation": "C-20"
+    "category": "Backtracking",
+    "abbreviation": "B-20"
   },
   {
     "index": 21,
     "text": "Material implication is ~P \u2228 Q, so it should be ~P \u2228 ~Q \u2192 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-21"
+    "category": "Deduction",
+    "abbreviation": "D-21"
   },
   {
     "index": 22,
     "text": "Hmm, that's a bit different.",
-    "category": "Unknown",
-    "abbreviation": "C-22"
+    "category": "Backtracking",
+    "abbreviation": "B-22"
   },
   {
     "index": 23,
     "text": "Let me correct that.",
-    "category": "Unknown",
-    "abbreviation": "C-23"
+    "category": "Backtracking",
+    "abbreviation": "B-23"
   },
   {
     "index": 24,
     "text": "So, starting again: ~(P \u2227 Q) \u2192 (R \u2228 S) is equivalent to (~P \u2228 ~Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-24"
+    "category": "Backtracking",
+    "abbreviation": "B-24"
   },
   {
     "index": 25,
     "text": "Now, applying material implication again, that's ~P \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-25"
+    "category": "Deduction",
+    "abbreviation": "D-25"
   },
   {
     "index": 26,
     "text": "Wait, no.",
-    "category": "Unknown",
-    "abbreviation": "C-26"
+    "category": "Backtracking",
+    "abbreviation": "B-26"
   },
   {
     "index": 27,
     "text": "Material implication is ~P \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-27"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-27"
   },
   {
     "index": 28,
     "text": "But is that the same as (P \u2227 Q) \u2228 (R \u2228 S)?\n\nWait, I'm getting a bit confused.",
-    "category": "Unknown",
-    "abbreviation": "C-28"
+    "category": "Question Posing",
+    "abbreviation": "QP-28"
   },
   {
     "index": 29,
     "text": "Let me try a different approach.",
-    "category": "Unknown",
-    "abbreviation": "C-29"
+    "category": "Backtracking",
+    "abbreviation": "B-29"
   },
   {
     "index": 30,
     "text": "Let's use a truth table to verify.",
-    "category": "Unknown",
-    "abbreviation": "C-30"
+    "category": "Example Testing",
+    "abbreviation": "ET-30"
   },
   {
     "index": 31,
     "text": "Construct a truth table for both expressions: ~(P \u2227 Q) \u2192 (R \u2228 S) and (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-31"
+    "category": "Initializing",
+    "abbreviation": "I-31"
   },
   {
     "index": 32,
     "text": "If they have the same truth values in all possible scenarios, they are logically equivalent.",
-    "category": "Unknown",
-    "abbreviation": "C-32"
+    "category": "Initializing",
+    "abbreviation": "I-32"
   },
   {
     "index": 33,
     "text": "Let me list all possible combinations of P, Q, R, S:\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-33"
+    "category": "Example Testing",
+    "abbreviation": "ET-33"
   },
   {
     "index": 34,
     "text": "P = T, Q = T, R = T, S = T\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-34"
+    "category": "Example Testing",
+    "abbreviation": "ET-34"
   },
   {
     "index": 35,
     "text": "P = T, Q = T, R = T, S = F\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-35"
+    "category": "Example Testing",
+    "abbreviation": "ET-35"
   },
   {
     "index": 36,
     "text": "P = T, Q = T, R = F, S = T\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-36"
+    "category": "Example Testing",
+    "abbreviation": "ET-36"
   },
   {
     "index": 37,
     "text": "P = T, Q = T, R = F, S = F\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-37"
+    "category": "Example Testing",
+    "abbreviation": "ET-37"
   },
   {
     "index": 38,
     "text": "P = T, Q = F, R = T, S = T\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-38"
+    "category": "Example Testing",
+    "abbreviation": "ET-38"
   },
   {
     "index": 39,
     "text": "P = T, Q = F, R = T, S = F\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-39"
+    "category": "Example Testing",
+    "abbreviation": "ET-39"
   },
   {
     "index": 40,
     "text": "P = T, Q = F, R = F, S = T\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-40"
+    "category": "Example Testing",
+    "abbreviation": "ET-40"
   },
   {
     "index": 41,
     "text": "P = T, Q = F, R = F, S = F\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-41"
+    "category": "Example Testing",
+    "abbreviation": "ET-41"
   },
   {
     "index": 42,
     "text": "P = F, Q = T, R = T, S = T\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-42"
+    "category": "Example Testing",
+    "abbreviation": "ET-42"
   },
   {
     "index": 43,
     "text": "P = F, Q = T, R = T, S = F\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-43"
+    "category": "Example Testing",
+    "abbreviation": "ET-43"
   },
   {
     "index": 44,
     "text": "P = F, Q = T, R = F, S = T\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-44"
+    "category": "Example Testing",
+    "abbreviation": "ET-44"
   },
   {
     "index": 45,
     "text": "P = F, Q = T, R = F, S = F\n13.",
-    "category": "Unknown",
-    "abbreviation": "C-45"
+    "category": "Example Testing",
+    "abbreviation": "ET-45"
   },
   {
     "index": 46,
     "text": "P = F, Q = F, R = T, S = T\n14.",
-    "category": "Unknown",
-    "abbreviation": "C-46"
+    "category": "Example Testing",
+    "abbreviation": "ET-46"
   },
   {
     "index": 47,
     "text": "P = F, Q = F, R = T, S = F\n15.",
-    "category": "Unknown",
-    "abbreviation": "C-47"
+    "category": "Example Testing",
+    "abbreviation": "ET-47"
   },
   {
     "index": 48,
     "text": "P = F, Q = F, R = F, S = T\n16.",
-    "category": "Unknown",
-    "abbreviation": "C-48"
+    "category": "Example Testing",
+    "abbreviation": "ET-48"
   },
   {
     "index": 49,
     "text": "P = F, Q = F, R = F, S = F\n\nNow, let's compute the value of each expression for each case.",
-    "category": "Unknown",
-    "abbreviation": "C-49"
+    "category": "Example Testing",
+    "abbreviation": "ET-49"
   },
   {
     "index": 50,
     "text": "Starting with ~(P \u2227 Q) \u2192 (R \u2228 S):\n\nFor each case, compute ~(P \u2227 Q), then compute R \u2228 S, then apply implication.",
-    "category": "Unknown",
-    "abbreviation": "C-50"
+    "category": "Example Testing",
+    "abbreviation": "ET-50"
   },
   {
     "index": 51,
     "text": "1. P=T, Q=T: ~(T \u2227 T)=F; R=T, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-51"
+    "category": "Example Testing",
+    "abbreviation": "ET-51"
   },
   {
     "index": 52,
     "text": "So F \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-52"
+    "category": "Deduction",
+    "abbreviation": "D-52"
   },
   {
     "index": 53,
     "text": "2. P=T, Q=T: ~(T \u2227 T)=F; R=T, S=F: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-53"
+    "category": "Example Testing",
+    "abbreviation": "ET-53"
   },
   {
     "index": 54,
     "text": "F \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-54"
+    "category": "Deduction",
+    "abbreviation": "D-54"
   },
   {
     "index": 55,
     "text": "3. P=T, Q=T: ~(T \u2227 T)=F; R=F, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-55"
+    "category": "Example Testing",
+    "abbreviation": "ET-55"
   },
   {
     "index": 56,
     "text": "F \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-56"
+    "category": "Deduction",
+    "abbreviation": "D-56"
   },
   {
     "index": 57,
     "text": "4. P=T, Q=T: ~(T \u2227 T)=F; R=F, S=F: R\u2228S=F.",
-    "category": "Unknown",
-    "abbreviation": "C-57"
+    "category": "Example Testing",
+    "abbreviation": "ET-57"
   },
   {
     "index": 58,
     "text": "F \u2192 F is F.",
-    "category": "Unknown",
-    "abbreviation": "C-58"
+    "category": "Example Testing",
+    "abbreviation": "ET-58"
   },
   {
     "index": 59,
     "text": "5. P=T, Q=F: ~(T \u2227 F)=T; R=T, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-59"
+    "category": "Example Testing",
+    "abbreviation": "ET-59"
   },
   {
     "index": 60,
     "text": "T \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-60"
+    "category": "Example Testing",
+    "abbreviation": "ET-60"
   },
   {
     "index": 61,
     "text": "6. P=T, Q=F: ~(T \u2227 F)=T; R=T, S=F: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-61"
+    "category": "Example Testing",
+    "abbreviation": "ET-61"
   },
   {
     "index": 62,
     "text": "T \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-62"
+    "category": "Example Testing",
+    "abbreviation": "ET-62"
   },
   {
     "index": 63,
     "text": "7. P=T, Q=F: ~(T \u2227 F)=T; R=F, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-63"
+    "category": "Example Testing",
+    "abbreviation": "ET-63"
   },
   {
     "index": 64,
     "text": "T \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-64"
+    "category": "Deduction",
+    "abbreviation": "D-64"
   },
   {
     "index": 65,
     "text": "8. P=T, Q=F: ~(T \u2227 F)=T; R=F, S=F: R\u2228S=F.",
-    "category": "Unknown",
-    "abbreviation": "C-65"
+    "category": "Deduction",
+    "abbreviation": "D-65"
   },
   {
     "index": 66,
     "text": "T \u2192 F is F.",
-    "category": "Unknown",
-    "abbreviation": "C-66"
+    "category": "Deduction",
+    "abbreviation": "D-66"
   },
   {
     "index": 67,
     "text": "9. P=F, Q=T: ~(F \u2227 T)=T; R=T, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-67"
+    "category": "Example Testing",
+    "abbreviation": "ET-67"
   },
   {
     "index": 68,
     "text": "T \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-68"
+    "category": "Example Testing",
+    "abbreviation": "ET-68"
   },
   {
     "index": 69,
     "text": "10. P=F, Q=T: ~(F \u2227 T)=T; R=T, S=F: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-69"
+    "category": "Example Testing",
+    "abbreviation": "ET-69"
   },
   {
     "index": 70,
     "text": "T \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-70"
+    "category": "Example Testing",
+    "abbreviation": "ET-70"
   },
   {
     "index": 71,
     "text": "11. P=F, Q=T: ~(F \u2227 T)=T; R=F, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-71"
+    "category": "Example Testing",
+    "abbreviation": "ET-71"
   },
   {
     "index": 72,
     "text": "T \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-72"
+    "category": "Example Testing",
+    "abbreviation": "ET-72"
   },
   {
     "index": 73,
     "text": "12. P=F, Q=T: ~(F \u2227 T)=T; R=F, S=F: R\u2228S=F.",
-    "category": "Unknown",
-    "abbreviation": "C-73"
+    "category": "Example Testing",
+    "abbreviation": "ET-73"
   },
   {
     "index": 74,
     "text": "T \u2192 F is F.",
-    "category": "Unknown",
-    "abbreviation": "C-74"
+    "category": "Example Testing",
+    "abbreviation": "ET-74"
   },
   {
     "index": 75,
     "text": "13. P=F, Q=F: ~(F \u2227 F)=T; R=T, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-75"
+    "category": "Example Testing",
+    "abbreviation": "ET-75"
   },
   {
     "index": 76,
     "text": "T \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-76"
+    "category": "Example Testing",
+    "abbreviation": "ET-76"
   },
   {
     "index": 77,
     "text": "14. P=F, Q=F: ~(F \u2227 F)=T; R=T, S=F: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-77"
+    "category": "Example Testing",
+    "abbreviation": "ET-77"
   },
   {
     "index": 78,
     "text": "T \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-78"
+    "category": "Deduction",
+    "abbreviation": "D-78"
   },
   {
     "index": 79,
     "text": "15. P=F, Q=F: ~(F \u2227 F)=T; R=F, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-79"
+    "category": "Example Testing",
+    "abbreviation": "ET-79"
   },
   {
     "index": 80,
     "text": "T \u2192 T is T.",
-    "category": "Unknown",
-    "abbreviation": "C-80"
+    "category": "Example Testing",
+    "abbreviation": "ET-80"
   },
   {
     "index": 81,
     "text": "16. P=F, Q=F: ~(F \u2227 F)=T; R=F, S=F: R\u2228S=F.",
-    "category": "Unknown",
-    "abbreviation": "C-81"
+    "category": "Example Testing",
+    "abbreviation": "ET-81"
   },
   {
     "index": 82,
     "text": "T \u2192 F is F.",
-    "category": "Unknown",
-    "abbreviation": "C-82"
+    "category": "Deduction",
+    "abbreviation": "D-82"
   },
   {
     "index": 83,
     "text": "Now, let's compute (P \u2227 Q) \u2228 (R \u2228 S):\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-83"
+    "category": "Initializing",
+    "abbreviation": "I-83"
   },
   {
     "index": 84,
     "text": "P=T, Q=T: (T \u2227 T)=T; R=T, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-84"
+    "category": "Deduction",
+    "abbreviation": "D-84"
   },
   {
     "index": 85,
     "text": "T \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-85"
+    "category": "Deduction",
+    "abbreviation": "D-85"
   },
   {
     "index": 86,
     "text": "2. P=T, Q=T: (T \u2227 T)=T; R=T, S=F: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-86"
+    "category": "Example Testing",
+    "abbreviation": "ET-86"
   },
   {
     "index": 87,
     "text": "T \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-87"
+    "category": "Example Testing",
+    "abbreviation": "ET-87"
   },
   {
     "index": 88,
     "text": "3. P=T, Q=T: (T \u2227 T)=T; R=F, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-88"
+    "category": "Example Testing",
+    "abbreviation": "ET-88"
   },
   {
     "index": 89,
     "text": "T \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-89"
+    "category": "Example Testing",
+    "abbreviation": "ET-89"
   },
   {
     "index": 90,
     "text": "4. P=T, Q=T: (T \u2227 T)=T; R=F, S=F: R\u2228S=F.",
-    "category": "Unknown",
-    "abbreviation": "C-90"
+    "category": "Example Testing",
+    "abbreviation": "ET-90"
   },
   {
     "index": 91,
     "text": "T \u2228 F = T.",
-    "category": "Unknown",
-    "abbreviation": "C-91"
+    "category": "Example Testing",
+    "abbreviation": "ET-91"
   },
   {
     "index": 92,
     "text": "5. P=T, Q=F: (T \u2227 F)=F; R=T, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-92"
+    "category": "Example Testing",
+    "abbreviation": "ET-92"
   },
   {
     "index": 93,
     "text": "F \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-93"
+    "category": "Example Testing",
+    "abbreviation": "ET-93"
   },
   {
     "index": 94,
     "text": "6. P=T, Q=F: (T \u2227 F)=F; R=T, S=F: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-94"
+    "category": "Example Testing",
+    "abbreviation": "ET-94"
   },
   {
     "index": 95,
     "text": "F \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-95"
+    "category": "Example Testing",
+    "abbreviation": "ET-95"
   },
   {
     "index": 96,
     "text": "7. P=T, Q=F: (T \u2227 F)=F; R=F, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-96"
+    "category": "Example Testing",
+    "abbreviation": "ET-96"
   },
   {
     "index": 97,
     "text": "F \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-97"
+    "category": "Example Testing",
+    "abbreviation": "ET-97"
   },
   {
     "index": 98,
     "text": "8. P=T, Q=F: (T \u2227 F)=F; R=F, S=F: R\u2228S=F.",
-    "category": "Unknown",
-    "abbreviation": "C-98"
+    "category": "Example Testing",
+    "abbreviation": "ET-98"
   },
   {
     "index": 99,
     "text": "F \u2228 F = F.",
-    "category": "Unknown",
-    "abbreviation": "C-99"
+    "category": "Example Testing",
+    "abbreviation": "ET-99"
   },
   {
     "index": 100,
     "text": "9. P=F, Q=T: (F \u2227 T)=F; R=T, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-100"
+    "category": "Example Testing",
+    "abbreviation": "ET-100"
   },
   {
     "index": 101,
     "text": "F \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-101"
+    "category": "Deduction",
+    "abbreviation": "D-101"
   },
   {
     "index": 102,
     "text": "10. P=F, Q=T: (F \u2227 T)=F; R=T, S=F: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-102"
+    "category": "Example Testing",
+    "abbreviation": "ET-102"
   },
   {
     "index": 103,
     "text": "F \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-103"
+    "category": "Example Testing",
+    "abbreviation": "ET-103"
   },
   {
     "index": 104,
     "text": "11. P=F, Q=T: (F \u2227 T)=F; R=F, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-104"
+    "category": "Example Testing",
+    "abbreviation": "ET-104"
   },
   {
     "index": 105,
     "text": "F \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-105"
+    "category": "Example Testing",
+    "abbreviation": "ET-105"
   },
   {
     "index": 106,
     "text": "12. P=F, Q=T: (F \u2227 T)=F; R=F, S=F: R\u2228S=F.",
-    "category": "Unknown",
-    "abbreviation": "C-106"
+    "category": "Example Testing",
+    "abbreviation": "ET-106"
   },
   {
     "index": 107,
     "text": "F \u2228 F = F.",
-    "category": "Unknown",
-    "abbreviation": "C-107"
+    "category": "Example Testing",
+    "abbreviation": "ET-107"
   },
   {
     "index": 108,
     "text": "13. P=F, Q=F: (F \u2227 F)=F; R=T, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-108"
+    "category": "Example Testing",
+    "abbreviation": "ET-108"
   },
   {
     "index": 109,
     "text": "F \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-109"
+    "category": "Example Testing",
+    "abbreviation": "ET-109"
   },
   {
     "index": 110,
     "text": "14. P=F, Q=F: (F \u2227 F)=F; R=T, S=F: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-110"
+    "category": "Example Testing",
+    "abbreviation": "ET-110"
   },
   {
     "index": 111,
     "text": "F \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-111"
+    "category": "Example Testing",
+    "abbreviation": "ET-111"
   },
   {
     "index": 112,
     "text": "15. P=F, Q=F: (F \u2227 F)=F; R=F, S=T: R\u2228S=T.",
-    "category": "Unknown",
-    "abbreviation": "C-112"
+    "category": "Example Testing",
+    "abbreviation": "ET-112"
   },
   {
     "index": 113,
     "text": "F \u2228 T = T.",
-    "category": "Unknown",
-    "abbreviation": "C-113"
+    "category": "Example Testing",
+    "abbreviation": "ET-113"
   },
   {
     "index": 114,
     "text": "16. P=F, Q=F: (F \u2227 F)=F; R=F, S=F: R\u2228S=F.",
-    "category": "Unknown",
-    "abbreviation": "C-114"
+    "category": "Example Testing",
+    "abbreviation": "ET-114"
   },
   {
     "index": 115,
     "text": "F \u2228 F = F.",
-    "category": "Unknown",
-    "abbreviation": "C-115"
+    "category": "Deduction",
+    "abbreviation": "D-115"
   },
   {
     "index": 116,
     "text": "Comparing both expressions:\n\nFor all 16 cases, the truth values match.",
-    "category": "Unknown",
-    "abbreviation": "C-116"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-116"
   },
   {
     "index": 117,
     "text": "Therefore, ~(P \u2227 Q) \u2192 (R \u2228 S) is indeed logically equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-117"
+    "category": "Final Answer",
+    "abbreviation": "FA-117"
   },
   {
     "index": 118,
     "text": "So, to summarize, using material implication and De Morgan's laws, the original statement simplifies to the desired expression.",
-    "category": "Unknown",
-    "abbreviation": "C-118"
+    "category": "Summary",
+    "abbreviation": "S-118"
   },
   {
     "index": 119,
     "text": "The truth table also confirms their equivalence.",
-    "category": "Unknown",
-    "abbreviation": "C-119"
+    "category": "Example Testing",
+    "abbreviation": "ET-119"
   },
   {
     "index": 120,
     "text": "</think>\n\nThe original statement ~(P \u2227 Q) \u2192 (R \u2228 S) can be transformed using logical equivalences:\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-120"
+    "category": "Initializing",
+    "abbreviation": "I-120"
   },
   {
     "index": 121,
     "text": "Apply Material Implication: ~(P \u2227 Q) \u2192 (R \u2228 S) \u2261 ~P \u2228 ~Q \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-121"
+    "category": "Deduction",
+    "abbreviation": "D-121"
   },
   {
     "index": 122,
     "text": "2. Apply Material Implication again: ~P \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-122"
+    "category": "Deduction",
+    "abbreviation": "D-122"
   },
   {
     "index": 123,
     "text": "3. Using De Morgan's Law: ~(P \u2227 Q) \u2261 ~P \u2228 ~Q, and double negation applies.",
-    "category": "Unknown",
-    "abbreviation": "C-123"
+    "category": "Deduction",
+    "abbreviation": "D-123"
   },
   {
     "index": 124,
     "text": "4. The expression simplifies to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-124"
+    "category": "Deduction",
+    "abbreviation": "D-124"
   },
   {
     "index": 125,
     "text": "Thus, the statement is logically equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-125"
+    "category": "Final Answer",
+    "abbreviation": "FA-125"
   }
 ]

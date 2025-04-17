@@ -2,289 +2,289 @@
   {
     "index": 0,
     "text": "Solve this problem step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-0"
+    "category": "Initializing",
+    "abbreviation": "I-0"
   },
   {
     "index": 1,
     "text": "End with 'DONE.' when you have a solution.",
-    "category": "Unknown",
-    "abbreviation": "C-1"
+    "category": "Initializing",
+    "abbreviation": "I-1"
   },
   {
     "index": 2,
     "text": "Question: A man lives on the 10th floor of an apartment building.",
-    "category": "Unknown",
-    "abbreviation": "C-2"
+    "category": "Initializing",
+    "abbreviation": "I-2"
   },
   {
     "index": 3,
     "text": "Every morning, he takes the elevator down to the ground floor to go to work.",
-    "category": "Unknown",
-    "abbreviation": "C-3"
+    "category": "Deduction",
+    "abbreviation": "D-3"
   },
   {
     "index": 4,
     "text": "When he returns in the evening, he takes the elevator to the 7th floor and then walks up the stairs for the remaining floors to his apartment.",
-    "category": "Unknown",
-    "abbreviation": "C-4"
+    "category": "Deduction",
+    "abbreviation": "D-4"
   },
   {
     "index": 5,
     "text": "However, on rainy days or when there are other people in the elevator, he takes the elevator directly to the 10th floor.",
-    "category": "Unknown",
-    "abbreviation": "C-5"
+    "category": "Deduction",
+    "abbreviation": "D-5"
   },
   {
     "index": 6,
     "text": "Why does he do this? \n\n Solution: \n<think>\nOkay, so I need to figure out why the man on the 10th floor takes the elevator down every morning but then either takes the elevator directly up or walks up stairs in the evening, depending on the weather or elevator occupancy.",
-    "category": "Unknown",
-    "abbreviation": "C-6"
+    "category": "Question Posing",
+    "abbreviation": "QP-6"
   },
   {
     "index": 7,
     "text": "Let me break this down step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-7"
+    "category": "Initializing",
+    "abbreviation": "I-7"
   },
   {
     "index": 8,
     "text": "First, let's consider the scenario.",
-    "category": "Unknown",
-    "abbreviation": "C-8"
+    "category": "Initializing",
+    "abbreviation": "I-8"
   },
   {
     "index": 9,
     "text": "The man lives on the 10th floor of a building.",
-    "category": "Unknown",
-    "abbreviation": "C-9"
+    "category": "Deduction",
+    "abbreviation": "D-9"
   },
   {
     "index": 10,
     "text": "Every morning, he takes the elevator down to the ground floor (1st floor) to go to work.",
-    "category": "Unknown",
-    "abbreviation": "C-10"
+    "category": "Deduction",
+    "abbreviation": "D-10"
   },
   {
     "index": 11,
     "text": "So, he's going from 10th to 1st floor each morning.",
-    "category": "Unknown",
-    "abbreviation": "C-11"
+    "category": "Deduction",
+    "abbreviation": "D-11"
   },
   {
     "index": 12,
     "text": "In the evening, when he returns, he has two options: if it's rainy or if there are other people in the elevator, he takes the elevator directly to the 10th floor.",
-    "category": "Unknown",
-    "abbreviation": "C-12"
+    "category": "Deduction",
+    "abbreviation": "D-12"
   },
   {
     "index": 13,
     "text": "Otherwise, he takes the elevator to the 7th floor and then walks up the stairs for the remaining floors (from 7th to 10th) to reach his apartment.",
-    "category": "Unknown",
-    "abbreviation": "C-13"
+    "category": "Deduction",
+    "abbreviation": "D-13"
   },
   {
     "index": 14,
     "text": "I'm trying to understand the logic behind this behavior.",
-    "category": "Unknown",
-    "abbreviation": "C-14"
+    "category": "Question Posing",
+    "abbreviation": "QP-14"
   },
   {
     "index": 15,
     "text": "Why would he sometimes take the elevator to the 7th floor and walk up, and other times take the elevator all the way? Maybe it has something to do with the elevator's behavior or the building's layout.",
-    "category": "Unknown",
-    "abbreviation": "C-15"
+    "category": "Question Posing",
+    "abbreviation": "QP-15"
   },
   {
     "index": 16,
     "text": "Let me think about how elevators work.",
-    "category": "Unknown",
-    "abbreviation": "C-16"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-16"
   },
   {
     "index": 17,
     "text": "If the elevator is empty or he's the only one in it, maybe he can control where it stops.",
-    "category": "Unknown",
-    "abbreviation": "C-17"
+    "category": "Example Testing",
+    "abbreviation": "ET-17"
   },
   {
     "index": 18,
     "text": "But if there are other people in the elevator, perhaps the stops are limited, so he might not be able to go all the way up.",
-    "category": "Unknown",
-    "abbreviation": "C-18"
+    "category": "Example Testing",
+    "abbreviation": "ET-18"
   },
   {
     "index": 19,
     "text": "Alternatively, maybe the elevator doesn't go past the 7th floor unless it's empty.",
-    "category": "Unknown",
-    "abbreviation": "C-19"
+    "category": "Example Testing",
+    "abbreviation": "ET-19"
   },
   {
     "index": 20,
     "text": "Wait, that could be it.",
-    "category": "Unknown",
-    "abbreviation": "C-20"
+    "category": "Backtracking",
+    "abbreviation": "B-20"
   },
   {
     "index": 21,
     "text": "If the elevator is occupied (i.e., has other people), it might only go up to a certain floor, maybe the 7th, and then he has to walk up from there.",
-    "category": "Unknown",
-    "abbreviation": "C-21"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-21"
   },
   {
     "index": 22,
     "text": "But why 7th floor specifically? Is there a rule about the elevator's maximum stop when occupied?\n\nAlternatively, perhaps the elevator's programming stops at the 7th floor when it's carrying passengers, so he can't go further unless it's empty.",
-    "category": "Unknown",
-    "abbreviation": "C-22"
+    "category": "Question Posing",
+    "abbreviation": "QP-22"
   },
   {
     "index": 23,
     "text": "That would explain why on days when others are in the elevator, he takes it to the 7th floor and walks up.",
-    "category": "Unknown",
-    "abbreviation": "C-23"
+    "category": "Deduction",
+    "abbreviation": "D-23"
   },
   {
     "index": 24,
     "text": "But on rainy days or when the elevator is empty, he can go all the way up.",
-    "category": "Unknown",
-    "abbreviation": "C-24"
+    "category": "Deduction",
+    "abbreviation": "D-24"
   },
   {
     "index": 25,
     "text": "So, the key here is the elevator's behavior when occupied versus when it's not.",
-    "category": "Unknown",
-    "abbreviation": "C-25"
+    "category": "Question Posing",
+    "abbreviation": "QP-25"
   },
   {
     "index": 26,
     "text": "When there are other people in the elevator, it might have a limit on how high it goes, perhaps stopping at the 7th floor.",
-    "category": "Unknown",
-    "abbreviation": "C-26"
+    "category": "Deduction",
+    "abbreviation": "D-26"
   },
   {
     "index": 27,
     "text": "Therefore, the man takes the elevator to the 7th floor and walks up the stairs the rest of the way.",
-    "category": "Unknown",
-    "abbreviation": "C-27"
+    "category": "Deduction",
+    "abbreviation": "D-27"
   },
   {
     "index": 28,
     "text": "But if the elevator is empty (no one else is in it), he can go all the way up to the 10th floor without any issues.",
-    "category": "Unknown",
-    "abbreviation": "C-28"
+    "category": "Backtracking",
+    "abbreviation": "B-28"
   },
   {
     "index": 29,
     "text": "Another angle could be about the man's preference.",
-    "category": "Unknown",
-    "abbreviation": "C-29"
+    "category": "Question Posing",
+    "abbreviation": "QP-29"
   },
   {
     "index": 30,
     "text": "Maybe he prefers not to wait for the elevator when it's occupied, so he takes the stairs after the 7th floor.",
-    "category": "Unknown",
-    "abbreviation": "C-30"
+    "category": "Deduction",
+    "abbreviation": "D-30"
   },
   {
     "index": 31,
     "text": "But that doesn't fully explain why the elevator goes only to the 7th floor when occupied.",
-    "category": "Unknown",
-    "abbreviation": "C-31"
+    "category": "Question Posing",
+    "abbreviation": "QP-31"
   },
   {
     "index": 32,
     "text": "Wait, perhaps the building has an elevator that stops only at certain floors when occupied.",
-    "category": "Unknown",
-    "abbreviation": "C-32"
+    "category": "Deduction",
+    "abbreviation": "D-32"
   },
   {
     "index": 33,
     "text": "For example, if the elevator is carrying people, it might only go up to the 7th floor, so the man has to get out and walk up.",
-    "category": "Unknown",
-    "abbreviation": "C-33"
+    "category": "Example Testing",
+    "abbreviation": "ET-33"
   },
   {
     "index": 34,
     "text": "But if it's just him, the elevator can go all the way up without stopping at intermediate floors.",
-    "category": "Unknown",
-    "abbreviation": "C-34"
+    "category": "Example Testing",
+    "abbreviation": "ET-34"
   },
   {
     "index": 35,
     "text": "Alternatively, maybe the elevator's design is such that it can't go beyond the 7th floor when it's occupied, perhaps due to some safety mechanism or building code.",
-    "category": "Unknown",
-    "abbreviation": "C-35"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-35"
   },
   {
     "index": 36,
     "text": "So, when there are other people in the elevator, it stops at the 7th floor and the man has to walk up from there.",
-    "category": "Unknown",
-    "abbreviation": "C-36"
+    "category": "Deduction",
+    "abbreviation": "D-36"
   },
   {
     "index": 37,
     "text": "But if it's just him, he can go all the way up.",
-    "category": "Unknown",
-    "abbreviation": "C-37"
+    "category": "Deduction",
+    "abbreviation": "D-37"
   },
   {
     "index": 38,
     "text": "This makes sense because it's a common feature in some elevators where they stop at a certain floor when occupied, requiring passengers to get out and continue via stairs if needed.",
-    "category": "Unknown",
-    "abbreviation": "C-38"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-38"
   },
   {
     "index": 39,
     "text": "So, the man's behavior is influenced by whether the elevator is occupied or not, which affects where the elevator will take him.",
-    "category": "Unknown",
-    "abbreviation": "C-39"
+    "category": "Deduction",
+    "abbreviation": "D-39"
   },
   {
     "index": 40,
     "text": "So, putting it all together, the man takes the elevator down in the morning regardless of the elevator's state because he's going down.",
-    "category": "Unknown",
-    "abbreviation": "C-40"
+    "category": "Summary",
+    "abbreviation": "S-40"
   },
   {
     "index": 41,
     "text": "In the evening, if the elevator is occupied, it might stop at the 7th floor, so he gets out and walks up.",
-    "category": "Unknown",
-    "abbreviation": "C-41"
+    "category": "Deduction",
+    "abbreviation": "D-41"
   },
   {
     "index": 42,
     "text": "If the elevator is empty, he can go all the way up to the 10th floor.",
-    "category": "Unknown",
-    "abbreviation": "C-42"
+    "category": "Deduction",
+    "abbreviation": "D-42"
   },
   {
     "index": 43,
     "text": "I think that's the reason.",
-    "category": "Unknown",
-    "abbreviation": "C-43"
+    "category": "Summary",
+    "abbreviation": "S-43"
   },
   {
     "index": 44,
     "text": "The elevator's operation is limiting its upper stop based on occupancy, so the man's actions adapt to that.",
-    "category": "Unknown",
-    "abbreviation": "C-44"
+    "category": "Final Answer",
+    "abbreviation": "FA-44"
   },
   {
     "index": 45,
     "text": "</think>\n\nThe man takes the elevator to the 7th floor in the evening only when there are other people in the elevator because the elevator likely stops at the 7th floor when occupied.",
-    "category": "Unknown",
-    "abbreviation": "C-45"
+    "category": "Final Answer",
+    "abbreviation": "FA-45"
   },
   {
     "index": 46,
     "text": "On rainy days or when the elevator is empty, he can go directly to the 10th floor.",
-    "category": "Unknown",
-    "abbreviation": "C-46"
+    "category": "Final Answer",
+    "abbreviation": "FA-46"
   },
   {
     "index": 47,
     "text": "This behavior is due to the elevator's programming or design that restricts its upper stop when carrying passengers, requiring him to walk up the stairs from the 7th floor.",
-    "category": "Unknown",
-    "abbreviation": "C-47"
+    "category": "Final Answer",
+    "abbreviation": "FA-47"
   }
 ]

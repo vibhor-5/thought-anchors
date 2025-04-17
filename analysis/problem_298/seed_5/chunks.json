@@ -2,517 +2,517 @@
   {
     "index": 0,
     "text": "Solve this problem step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-0"
+    "category": "Initializing",
+    "abbreviation": "I-0"
   },
   {
     "index": 1,
     "text": "End with 'DONE.' when you have a solution.",
-    "category": "Unknown",
-    "abbreviation": "C-1"
+    "category": "Initializing",
+    "abbreviation": "I-1"
   },
   {
     "index": 2,
     "text": "Question: Consider the following logical statement: ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-2"
+    "category": "Initializing",
+    "abbreviation": "I-2"
   },
   {
     "index": 3,
     "text": "Show, using logical equivalences, that this statement is logically equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-3"
+    "category": "Initializing",
+    "abbreviation": "I-3"
   },
   {
     "index": 4,
     "text": "You may use the following logical equivalences: Material Implication: P \u2192 Q \u2261 ~P \u2228 Q; De Morgan's Laws: ~(P \u2227 Q) \u2261 ~P \u2228 ~Q and ~(P \u2228 Q) \u2261 ~P \u2227 ~Q; Double Negation: ~(~P) \u2261 P.",
-    "category": "Unknown",
-    "abbreviation": "C-4"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-4"
   },
   {
     "index": 5,
     "text": "Solution: \n<think>\nOkay, so I have this logical statement: ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-5"
+    "category": "Initializing",
+    "abbreviation": "I-5"
   },
   {
     "index": 6,
     "text": "I need to show that it's logically equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-6"
+    "category": "Initializing",
+    "abbreviation": "I-6"
   },
   {
     "index": 7,
     "text": "Hmm, let me try to break this down step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-7"
+    "category": "Initializing",
+    "abbreviation": "I-7"
   },
   {
     "index": 8,
     "text": "First, I remember that material implication is one of the tools I can use here.",
-    "category": "Unknown",
-    "abbreviation": "C-8"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-8"
   },
   {
     "index": 9,
     "text": "The material implication says that P \u2192 Q is equivalent to ~P \u2228 Q.",
-    "category": "Unknown",
-    "abbreviation": "C-9"
+    "category": "Deduction",
+    "abbreviation": "D-9"
   },
   {
     "index": 10,
     "text": "So maybe I can apply that to the original statement.",
-    "category": "Unknown",
-    "abbreviation": "C-10"
+    "category": "Question Posing",
+    "abbreviation": "QP-10"
   },
   {
     "index": 11,
     "text": "The original statement is ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-11"
+    "category": "Initializing",
+    "abbreviation": "I-11"
   },
   {
     "index": 12,
     "text": "Applying material implication, I can rewrite this as ~(~P \u2227 ~Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-12"
+    "category": "Deduction",
+    "abbreviation": "D-12"
   },
   {
     "index": 13,
     "text": "Wait, is that right? Let me double-check.",
-    "category": "Unknown",
-    "abbreviation": "C-13"
+    "category": "Question Posing",
+    "abbreviation": "QP-13"
   },
   {
     "index": 14,
     "text": "Yes, because the antecedent is ~P \u2227 ~Q, so the implication would be ~antecedent \u2228 consequent, which is ~ (~P \u2227 ~Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-14"
+    "category": "Deduction",
+    "abbreviation": "D-14"
   },
   {
     "index": 15,
     "text": "Now, using De Morgan's Law, ~ (~P \u2227 ~Q) is equivalent to P \u2228 Q.",
-    "category": "Unknown",
-    "abbreviation": "C-15"
+    "category": "Deduction",
+    "abbreviation": "D-15"
   },
   {
     "index": 16,
     "text": "So replacing that, the expression becomes (P \u2228 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-16"
+    "category": "Deduction",
+    "abbreviation": "D-16"
   },
   {
     "index": 17,
     "text": "But wait, I think I can simplify that further.",
-    "category": "Unknown",
-    "abbreviation": "C-17"
+    "category": "Backtracking",
+    "abbreviation": "B-17"
   },
   {
     "index": 18,
     "text": "When you have something like A \u2228 B \u2228 C \u2228 D, you can group them into pairs.",
-    "category": "Unknown",
-    "abbreviation": "C-18"
+    "category": "Deduction",
+    "abbreviation": "D-18"
   },
   {
     "index": 19,
     "text": "So (P \u2228 Q) \u2228 (R \u2228 S) is the same as P \u2228 Q \u2228 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-19"
+    "category": "Deduction",
+    "abbreviation": "D-19"
   },
   {
     "index": 20,
     "text": "Alternatively, since \u2228 is associative, it's also equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-20"
+    "category": "Deduction",
+    "abbreviation": "D-20"
   },
   {
     "index": 21,
     "text": "Wait, no, that doesn't seem right because \u2227 and \u2228 are different operations.",
-    "category": "Unknown",
-    "abbreviation": "C-21"
+    "category": "Backtracking",
+    "abbreviation": "B-21"
   },
   {
     "index": 22,
     "text": "Hold on, maybe I made a mistake in the grouping.",
-    "category": "Unknown",
-    "abbreviation": "C-22"
+    "category": "Backtracking",
+    "abbreviation": "B-22"
   },
   {
     "index": 23,
     "text": "Let me go back.",
-    "category": "Unknown",
-    "abbreviation": "C-23"
+    "category": "Backtracking",
+    "abbreviation": "B-23"
   },
   {
     "index": 24,
     "text": "The expression after applying De Morgan's Law is (P \u2228 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-24"
+    "category": "Deduction",
+    "abbreviation": "D-24"
   },
   {
     "index": 25,
     "text": "Since \u2228 is associative, I can write this as P \u2228 Q \u2228 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-25"
+    "category": "Deduction",
+    "abbreviation": "D-25"
   },
   {
     "index": 26,
     "text": "Now, I need to see if this is equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-26"
+    "category": "Question Posing",
+    "abbreviation": "QP-26"
   },
   {
     "index": 27,
     "text": "Hmm, that doesn't seem obvious.",
-    "category": "Unknown",
-    "abbreviation": "C-27"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-27"
   },
   {
     "index": 28,
     "text": "Let me think differently.",
-    "category": "Unknown",
-    "abbreviation": "C-28"
+    "category": "Backtracking",
+    "abbreviation": "B-28"
   },
   {
     "index": 29,
     "text": "Maybe I should start from the original statement and apply the contrapositive.",
-    "category": "Unknown",
-    "abbreviation": "C-29"
+    "category": "Backtracking",
+    "abbreviation": "B-29"
   },
   {
     "index": 30,
     "text": "The contrapositive of ~(P \u2227 Q) \u2192 (R \u2228 S) is (P \u2227 Q) \u2192 ~ (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-30"
+    "category": "Deduction",
+    "abbreviation": "D-30"
   },
   {
     "index": 31,
     "text": "But I'm not sure if that helps directly.",
-    "category": "Unknown",
-    "abbreviation": "C-31"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-31"
   },
   {
     "index": 32,
     "text": "Wait, perhaps I should try using the definition of implication again but in a different way.",
-    "category": "Unknown",
-    "abbreviation": "C-32"
+    "category": "Backtracking",
+    "abbreviation": "B-32"
   },
   {
     "index": 33,
     "text": "Let me write the original statement: ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-33"
+    "category": "Initializing",
+    "abbreviation": "I-33"
   },
   {
     "index": 34,
     "text": "Applying material implication, this is ~P \u2227 ~Q \u2192 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-34"
+    "category": "Deduction",
+    "abbreviation": "D-34"
   },
   {
     "index": 35,
     "text": "Wait, no, that's not right.",
-    "category": "Unknown",
-    "abbreviation": "C-35"
+    "category": "Backtracking",
+    "abbreviation": "B-35"
   },
   {
     "index": 36,
     "text": "Material implication is ~P \u2228 Q, so the antecedent is ~P \u2227 ~Q, so the implication becomes ~ (~P \u2227 ~Q) \u2228 (R \u2228 S), which is P \u2228 Q \u2228 R \u2228 S, as I had before.",
-    "category": "Unknown",
-    "abbreviation": "C-36"
+    "category": "Deduction",
+    "abbreviation": "D-36"
   },
   {
     "index": 37,
     "text": "But I'm supposed to show it's equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-37"
+    "category": "Question Posing",
+    "abbreviation": "QP-37"
   },
   {
     "index": 38,
     "text": "So how do I get from P \u2228 Q \u2228 R \u2228 S to (P \u2227 Q) \u2228 (R \u2228 S)?\n\nWait, maybe I need to use some other logical equivalences.",
-    "category": "Unknown",
-    "abbreviation": "C-38"
+    "category": "Question Posing",
+    "abbreviation": "QP-38"
   },
   {
     "index": 39,
     "text": "Let me think about the distributive laws.",
-    "category": "Unknown",
-    "abbreviation": "C-39"
+    "category": "Initializing",
+    "abbreviation": "I-39"
   },
   {
     "index": 40,
     "text": "I remember that there's a distributive law for \u2228 over \u2227.",
-    "category": "Unknown",
-    "abbreviation": "C-40"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-40"
   },
   {
     "index": 41,
     "text": "Specifically, A \u2228 (B \u2227 C) is equivalent to (A \u2227 B) \u2228 (A \u2227 C).",
-    "category": "Unknown",
-    "abbreviation": "C-41"
+    "category": "Deduction",
+    "abbreviation": "D-41"
   },
   {
     "index": 42,
     "text": "But in this case, I have (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-42"
+    "category": "Deduction",
+    "abbreviation": "D-42"
   },
   {
     "index": 43,
     "text": "Is that related?\n\nAlternatively, maybe I can consider that P \u2228 Q \u2228 R \u2228 S can be grouped differently.",
-    "category": "Unknown",
-    "abbreviation": "C-43"
+    "category": "Question Posing",
+    "abbreviation": "QP-43"
   },
   {
     "index": 44,
     "text": "If I group P \u2227 Q first, then I have (P \u2227 Q) \u2228 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-44"
+    "category": "Deduction",
+    "abbreviation": "D-44"
   },
   {
     "index": 45,
     "text": "But that's not quite (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-45"
+    "category": "Backtracking",
+    "abbreviation": "B-45"
   },
   {
     "index": 46,
     "text": "Wait, no, (R \u2228 S) is a single term, so grouping as (P \u2227 Q) \u2228 (R \u2228 S) is correct.",
-    "category": "Unknown",
-    "abbreviation": "C-46"
+    "category": "Backtracking",
+    "abbreviation": "B-46"
   },
   {
     "index": 47,
     "text": "But how do I show that P \u2228 Q \u2228 R \u2228 S is equivalent to (P \u2227 Q) \u2228 (R \u2228 S)? Let me think about this.",
-    "category": "Unknown",
-    "abbreviation": "C-47"
+    "category": "Question Posing",
+    "abbreviation": "QP-47"
   },
   {
     "index": 48,
     "text": "Suppose I have P \u2228 Q \u2228 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-48"
+    "category": "Example Testing",
+    "abbreviation": "ET-48"
   },
   {
     "index": 49,
     "text": "I can rewrite this as (P \u2227 Q) \u2228 (P \u2227 \u00acQ) \u2228 (\u00acP \u2227 Q) \u2228 (\u00acP \u2227 \u00acQ) \u2228 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-49"
+    "category": "Deduction",
+    "abbreviation": "D-49"
   },
   {
     "index": 50,
     "text": "But that seems complicated.",
-    "category": "Unknown",
-    "abbreviation": "C-50"
+    "category": "Backtracking",
+    "abbreviation": "B-50"
   },
   {
     "index": 51,
     "text": "Maybe there's a better way.",
-    "category": "Unknown",
-    "abbreviation": "C-51"
+    "category": "Backtracking",
+    "abbreviation": "B-51"
   },
   {
     "index": 52,
     "text": "Wait, perhaps I can use the fact that P \u2228 Q \u2228 R \u2228 S is equivalent to (P \u2228 R) \u2228 (Q \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-52"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-52"
   },
   {
     "index": 53,
     "text": "But that doesn't directly help.",
-    "category": "Unknown",
-    "abbreviation": "C-53"
+    "category": "Backtracking",
+    "abbreviation": "B-53"
   },
   {
     "index": 54,
     "text": "Alternatively, maybe I can think in terms of logical equivalences.",
-    "category": "Unknown",
-    "abbreviation": "C-54"
+    "category": "Backtracking",
+    "abbreviation": "B-54"
   },
   {
     "index": 55,
     "text": "Let me consider that (P \u2227 Q) \u2228 (R \u2228 S) is the same as (P \u2227 Q) \u2228 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-55"
+    "category": "Deduction",
+    "abbreviation": "D-55"
   },
   {
     "index": 56,
     "text": "So if I can show that P \u2228 Q \u2228 R \u2228 S is equivalent to (P \u2227 Q) \u2228 R \u2228 S, then I can see if that's the same as the target expression.",
-    "category": "Unknown",
-    "abbreviation": "C-56"
+    "category": "Question Posing",
+    "abbreviation": "QP-56"
   },
   {
     "index": 57,
     "text": "Wait, but P \u2228 Q \u2228 R \u2228 S can be written as (P \u2228 R) \u2228 (Q \u2228 S), which is the distributive law.",
-    "category": "Unknown",
-    "abbreviation": "C-57"
+    "category": "Backtracking",
+    "abbreviation": "B-57"
   },
   {
     "index": 58,
     "text": "But I'm not sure if that helps.",
-    "category": "Unknown",
-    "abbreviation": "C-58"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-58"
   },
   {
     "index": 59,
     "text": "Maybe I'm approaching this the wrong way.",
-    "category": "Unknown",
-    "abbreviation": "C-59"
+    "category": "Backtracking",
+    "abbreviation": "B-59"
   },
   {
     "index": 60,
     "text": "Let me go back to the original statement and see if I can manipulate it differently.",
-    "category": "Unknown",
-    "abbreviation": "C-60"
+    "category": "Backtracking",
+    "abbreviation": "B-60"
   },
   {
     "index": 61,
     "text": "Original statement: ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-61"
+    "category": "Initializing",
+    "abbreviation": "I-61"
   },
   {
     "index": 62,
     "text": "Using material implication, this is ~P \u2227 ~Q \u2192 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-62"
+    "category": "Deduction",
+    "abbreviation": "D-62"
   },
   {
     "index": 63,
     "text": "Wait, no, that's not correct because material implication is ~P \u2228 Q, not ~P \u2227 Q.",
-    "category": "Unknown",
-    "abbreviation": "C-63"
+    "category": "Backtracking",
+    "abbreviation": "B-63"
   },
   {
     "index": 64,
     "text": "So I think I made a mistake earlier.",
-    "category": "Unknown",
-    "abbreviation": "C-64"
+    "category": "Backtracking",
+    "abbreviation": "B-64"
   },
   {
     "index": 65,
     "text": "Let me correct that.",
-    "category": "Unknown",
-    "abbreviation": "C-65"
+    "category": "Backtracking",
+    "abbreviation": "B-65"
   },
   {
     "index": 66,
     "text": "The original statement is ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-66"
+    "category": "Initializing",
+    "abbreviation": "I-66"
   },
   {
     "index": 67,
     "text": "Applying material implication, it becomes ~P \u2228 Q \u2192 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-67"
+    "category": "Deduction",
+    "abbreviation": "D-67"
   },
   {
     "index": 68,
     "text": "Wait, no, that's not right either.",
-    "category": "Unknown",
-    "abbreviation": "C-68"
+    "category": "Backtracking",
+    "abbreviation": "B-68"
   },
   {
     "index": 69,
     "text": "Material implication is ~P \u2228 Q, so the statement is ~P \u2228 Q \u2192 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-69"
+    "category": "Deduction",
+    "abbreviation": "D-69"
   },
   {
     "index": 70,
     "text": "But that doesn't seem right because the antecedent is ~P \u2228 Q, so the implication would be ~ (~P \u2228 Q) \u2228 (R \u2228 S), which is (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-70"
+    "category": "Backtracking",
+    "abbreviation": "B-70"
   },
   {
     "index": 71,
     "text": "Oh! So that's the result we want.",
-    "category": "Unknown",
-    "abbreviation": "C-71"
+    "category": "Deduction",
+    "abbreviation": "D-71"
   },
   {
     "index": 72,
     "text": "Wait, let me make sure.",
-    "category": "Unknown",
-    "abbreviation": "C-72"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-72"
   },
   {
     "index": 73,
     "text": "Starting with ~(P \u2227 Q) \u2192 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-73"
+    "category": "Initializing",
+    "abbreviation": "I-73"
   },
   {
     "index": 74,
     "text": "Apply material implication: ~P \u2228 Q \u2192 R \u2228 S.",
-    "category": "Unknown",
-    "abbreviation": "C-74"
+    "category": "Deduction",
+    "abbreviation": "D-74"
   },
   {
     "index": 75,
     "text": "Then, apply material implication again to the entire statement? No, wait, no, that's not the right approach.",
-    "category": "Unknown",
-    "abbreviation": "C-75"
+    "category": "Backtracking",
+    "abbreviation": "B-75"
   },
   {
     "index": 76,
     "text": "Let me clarify.",
-    "category": "Unknown",
-    "abbreviation": "C-76"
+    "category": "Initializing",
+    "abbreviation": "I-76"
   },
   {
     "index": 77,
     "text": "The original statement is an implication: if not (P and Q), then R or S.",
-    "category": "Unknown",
-    "abbreviation": "C-77"
+    "category": "Deduction",
+    "abbreviation": "D-77"
   },
   {
     "index": 78,
     "text": "Using material implication, which is ~antecedent \u2228 consequent, so ~ (not (P and Q)) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-78"
+    "category": "Deduction",
+    "abbreviation": "D-78"
   },
   {
     "index": 79,
     "text": "But wait, ~ (not (P and Q)) is equivalent to P \u2227 Q by De Morgan's Law.",
-    "category": "Unknown",
-    "abbreviation": "C-79"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-79"
   },
   {
     "index": 80,
     "text": "So that gives us (P \u2227 Q) \u2228 (R \u2228 S), which is exactly the expression we need to show it's equivalent to.",
-    "category": "Unknown",
-    "abbreviation": "C-80"
+    "category": "Deduction",
+    "abbreviation": "D-80"
   },
   {
     "index": 81,
     "text": "So, in summary:\n\n~(P \u2227 Q) \u2192 (R \u2228 S)  \n\u2261 (P \u2227 Q) \u2228 (R \u2228 S) by material implication.",
-    "category": "Unknown",
-    "abbreviation": "C-81"
+    "category": "Summary",
+    "abbreviation": "S-81"
   },
   {
     "index": 82,
     "text": "Yes, that makes sense.",
-    "category": "Unknown",
-    "abbreviation": "C-82"
+    "category": "Final Answer",
+    "abbreviation": "FA-82"
   },
   {
     "index": 83,
     "text": "So the original statement is indeed equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-83"
+    "category": "Final Answer",
+    "abbreviation": "FA-83"
   },
   {
     "index": 84,
     "text": "</think>\n\nTo prove that ~(P \u2227 Q) \u2192 (R \u2228 S) is logically equivalent to (P \u2227 Q) \u2228 (R \u2228 S), we can use the material implication equivalence.",
-    "category": "Unknown",
-    "abbreviation": "C-84"
+    "category": "Initializing",
+    "abbreviation": "I-84"
   },
   {
     "index": 85,
     "text": "Starting with:\n~(P \u2227 Q) \u2192 (R \u2228 S)\n\nApply the material implication equivalence (P \u2192 Q \u2261 ~P \u2228 Q):\n~(~P \u2227 ~Q) \u2228 (R \u2228 S)\n\nApply De Morgan's Law to ~(~P \u2227 ~Q):\nP \u2228 Q \u2228 R \u2228 S\n\nHowever, to match the target expression, we recognize that:\n~(P \u2227 Q) \u2192 (R \u2228 S) \u2261 (P \u2227 Q) \u2228 (R \u2228 S)\n\nThus, the original statement is logically equivalent to (P \u2227 Q) \u2228 (R \u2228 S).",
-    "category": "Unknown",
-    "abbreviation": "C-85"
+    "category": "Deduction",
+    "abbreviation": "D-85"
   }
 ]

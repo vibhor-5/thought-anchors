@@ -2,1195 +2,1195 @@
   {
     "index": 0,
     "text": "Solve this problem step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-0"
+    "category": "Initializing",
+    "abbreviation": "I-0"
   },
   {
     "index": 1,
     "text": "End with 'DONE.' when you have a solution.",
-    "category": "Unknown",
-    "abbreviation": "C-1"
+    "category": "Initializing",
+    "abbreviation": "I-1"
   },
   {
     "index": 2,
     "text": "Question: A small town has three autonomous delivery robots (A, B, and C) that deliver packages to residents.",
-    "category": "Unknown",
-    "abbreviation": "C-2"
+    "category": "Initializing",
+    "abbreviation": "I-2"
   },
   {
     "index": 3,
     "text": "Each robot can carry up to 5 packages at once and operates independently.",
-    "category": "Unknown",
-    "abbreviation": "C-3"
+    "category": "Initializing",
+    "abbreviation": "I-3"
   },
   {
     "index": 4,
     "text": "The robots need to deliver a total of 12 packages to different locations around town, with each package having a specific destination.",
-    "category": "Unknown",
-    "abbreviation": "C-4"
+    "category": "Initializing",
+    "abbreviation": "I-4"
   },
   {
     "index": 5,
     "text": "The town council wants to minimize the total distance traveled by all robots.",
-    "category": "Unknown",
-    "abbreviation": "C-5"
+    "category": "Initializing",
+    "abbreviation": "I-5"
   },
   {
     "index": 6,
     "text": "If the town can be represented as a simple grid where:\n- Robot A starts at position (0,0)\n- Robot B starts at position (10,0)\n- Robot C starts at position (5,5)\n\nAnd the 12 packages need to be delivered to these coordinates:\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-6"
+    "category": "Initializing",
+    "abbreviation": "I-6"
   },
   {
     "index": 7,
     "text": "(1,2)\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-7"
+    "category": "Initializing",
+    "abbreviation": "I-7"
   },
   {
     "index": 8,
     "text": "(3,4)\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-8"
+    "category": "Deduction",
+    "abbreviation": "D-8"
   },
   {
     "index": 9,
     "text": "(8,2)\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-9"
+    "category": "Example Testing",
+    "abbreviation": "ET-9"
   },
   {
     "index": 10,
     "text": "(9,3)\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-10"
+    "category": "Deduction",
+    "abbreviation": "D-10"
   },
   {
     "index": 11,
     "text": "(2,7)\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-11"
+    "category": "Example Testing",
+    "abbreviation": "ET-11"
   },
   {
     "index": 12,
     "text": "(4,8)\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-12"
+    "category": "Example Testing",
+    "abbreviation": "ET-12"
   },
   {
     "index": 13,
     "text": "(7,6)\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-13"
+    "category": "Deduction",
+    "abbreviation": "D-13"
   },
   {
     "index": 14,
     "text": "(6,1)\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-14"
+    "category": "Deduction",
+    "abbreviation": "D-14"
   },
   {
     "index": 15,
     "text": "(2,3)\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-15"
+    "category": "Deduction",
+    "abbreviation": "D-15"
   },
   {
     "index": 16,
     "text": "(4,2)\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-16"
+    "category": "Deduction",
+    "abbreviation": "D-16"
   },
   {
     "index": 17,
     "text": "(8,7)\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-17"
+    "category": "Deduction",
+    "abbreviation": "D-17"
   },
   {
     "index": 18,
     "text": "(5,2)\n\nWhich robot should deliver which packages to minimize the total distance traveled? Assume that each robot returns to its starting position after completing all deliveries, and that the distance is calculated using Manhattan distance (|x\u2081-x\u2082| + |y\u2081-y\u2082|).",
-    "category": "Unknown",
-    "abbreviation": "C-18"
+    "category": "Initializing",
+    "abbreviation": "I-18"
   },
   {
     "index": 19,
     "text": "Solution: \n<think>\nOkay, so I have this problem where there are three delivery robots, A, B, and C, each starting at different points in a grid.",
-    "category": "Unknown",
-    "abbreviation": "C-19"
+    "category": "Initializing",
+    "abbreviation": "I-19"
   },
   {
     "index": 20,
     "text": "They need to deliver 12 packages to various destinations, and each can carry up to 5 packages at once.",
-    "category": "Unknown",
-    "abbreviation": "C-20"
+    "category": "Initializing",
+    "abbreviation": "I-20"
   },
   {
     "index": 21,
     "text": "The goal is to figure out which robot delivers which packages so that the total distance traveled by all robots is minimized.",
-    "category": "Unknown",
-    "abbreviation": "C-21"
+    "category": "Initializing",
+    "abbreviation": "I-21"
   },
   {
     "index": 22,
     "text": "Each robot has to return to their starting position after all deliveries.",
-    "category": "Unknown",
-    "abbreviation": "C-22"
+    "category": "Initializing",
+    "abbreviation": "I-22"
   },
   {
     "index": 23,
     "text": "The distance is calculated using Manhattan distance, which is the sum of the absolute differences of their coordinates.",
-    "category": "Unknown",
-    "abbreviation": "C-23"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-23"
   },
   {
     "index": 24,
     "text": "First, I need to understand the problem better.",
-    "category": "Unknown",
-    "abbreviation": "C-24"
+    "category": "Initializing",
+    "abbreviation": "I-24"
   },
   {
     "index": 25,
     "text": "Each robot can carry up to 5 packages, so in total, they can deliver up to 15 packages, but we only have 12.",
-    "category": "Unknown",
-    "abbreviation": "C-25"
+    "category": "Deduction",
+    "abbreviation": "D-25"
   },
   {
     "index": 26,
     "text": "That means each robot doesn't have to carry 5 packages; some might carry fewer.",
-    "category": "Unknown",
-    "abbreviation": "C-26"
+    "category": "Deduction",
+    "abbreviation": "D-26"
   },
   {
     "index": 27,
     "text": "The key is to assign the packages in a way that minimizes the total distance traveled by all robots, considering that each robot starts and ends at their respective points.",
-    "category": "Unknown",
-    "abbreviation": "C-27"
+    "category": "Deduction",
+    "abbreviation": "D-27"
   },
   {
     "index": 28,
     "text": "I think the first step is to figure out the starting positions of the robots:\n\n- Robot A starts at (0,0)\n- Robot B starts at (10,0)\n- Robot C starts at (5,5)\n\nAnd the destinations for the 12 packages are:\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-28"
+    "category": "Initializing",
+    "abbreviation": "I-28"
   },
   {
     "index": 29,
     "text": "(1,2)\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-29"
+    "category": "Deduction",
+    "abbreviation": "D-29"
   },
   {
     "index": 30,
     "text": "(3,4)\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-30"
+    "category": "Deduction",
+    "abbreviation": "D-30"
   },
   {
     "index": 31,
     "text": "(8,2)\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-31"
+    "category": "Deduction",
+    "abbreviation": "D-31"
   },
   {
     "index": 32,
     "text": "(9,3)\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-32"
+    "category": "Example Testing",
+    "abbreviation": "ET-32"
   },
   {
     "index": 33,
     "text": "(2,7)\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-33"
+    "category": "Example Testing",
+    "abbreviation": "ET-33"
   },
   {
     "index": 34,
     "text": "(4,8)\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-34"
+    "category": "Example Testing",
+    "abbreviation": "ET-34"
   },
   {
     "index": 35,
     "text": "(7,6)\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-35"
+    "category": "Example Testing",
+    "abbreviation": "ET-35"
   },
   {
     "index": 36,
     "text": "(6,1)\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-36"
+    "category": "Example Testing",
+    "abbreviation": "ET-36"
   },
   {
     "index": 37,
     "text": "(2,3)\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-37"
+    "category": "Deduction",
+    "abbreviation": "D-37"
   },
   {
     "index": 38,
     "text": "(4,2)\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-38"
+    "category": "Deduction",
+    "abbreviation": "D-38"
   },
   {
     "index": 39,
     "text": "(8,7)\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-39"
+    "category": "Deduction",
+    "abbreviation": "D-39"
   },
   {
     "index": 40,
     "text": "(5,2)\n\nI think the next step is to calculate the Manhattan distances from each robot's starting position to each package's destination.",
-    "category": "Unknown",
-    "abbreviation": "C-40"
+    "category": "Deduction",
+    "abbreviation": "D-40"
   },
   {
     "index": 41,
     "text": "That way, I can see which destinations are closest to each robot and potentially assign those packages to the nearest robot.",
-    "category": "Unknown",
-    "abbreviation": "C-41"
+    "category": "Deduction",
+    "abbreviation": "D-41"
   },
   {
     "index": 42,
     "text": "But I also need to consider that each robot can carry up to 5 packages, so I need to make sure that the assignments don't exceed that limit.",
-    "category": "Unknown",
-    "abbreviation": "C-42"
+    "category": "Deduction",
+    "abbreviation": "D-42"
   },
   {
     "index": 43,
     "text": "Let me start by listing all the destinations with their coordinates and then calculate the Manhattan distance from each robot's starting point to each destination.",
-    "category": "Unknown",
-    "abbreviation": "C-43"
+    "category": "Initializing",
+    "abbreviation": "I-43"
   },
   {
     "index": 44,
     "text": "Starting with Robot A at (0,0):\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-44"
+    "category": "Deduction",
+    "abbreviation": "D-44"
   },
   {
     "index": 45,
     "text": "(1,2): |1-0| + |2-0| = 1 + 2 = 3\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-45"
+    "category": "Deduction",
+    "abbreviation": "D-45"
   },
   {
     "index": 46,
     "text": "(3,4): 3 + 4 = 7\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-46"
+    "category": "Deduction",
+    "abbreviation": "D-46"
   },
   {
     "index": 47,
     "text": "(8,2): 8 + 2 = 10\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-47"
+    "category": "Deduction",
+    "abbreviation": "D-47"
   },
   {
     "index": 48,
     "text": "(9,3): 9 + 3 = 12\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-48"
+    "category": "Deduction",
+    "abbreviation": "D-48"
   },
   {
     "index": 49,
     "text": "(2,7): 2 + 7 = 9\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-49"
+    "category": "Deduction",
+    "abbreviation": "D-49"
   },
   {
     "index": 50,
     "text": "(4,8): 4 + 8 = 12\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-50"
+    "category": "Deduction",
+    "abbreviation": "D-50"
   },
   {
     "index": 51,
     "text": "(7,6): 7 + 6 = 13\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-51"
+    "category": "Deduction",
+    "abbreviation": "D-51"
   },
   {
     "index": 52,
     "text": "(6,1): 6 + 1 = 7\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-52"
+    "category": "Deduction",
+    "abbreviation": "D-52"
   },
   {
     "index": 53,
     "text": "(2,3): 2 + 3 = 5\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-53"
+    "category": "Deduction",
+    "abbreviation": "D-53"
   },
   {
     "index": 54,
     "text": "(4,2): 4 + 2 = 6\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-54"
+    "category": "Deduction",
+    "abbreviation": "D-54"
   },
   {
     "index": 55,
     "text": "(8,7): 8 + 7 = 15\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-55"
+    "category": "Deduction",
+    "abbreviation": "D-55"
   },
   {
     "index": 56,
     "text": "(5,2): 5 + 2 = 7\n\nNow, Robot B at (10,0):\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-56"
+    "category": "Deduction",
+    "abbreviation": "D-56"
   },
   {
     "index": 57,
     "text": "(1,2): |1-10| + |2-0| = 9 + 2 = 11\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-57"
+    "category": "Deduction",
+    "abbreviation": "D-57"
   },
   {
     "index": 58,
     "text": "(3,4): 7 + 4 = 11\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-58"
+    "category": "Example Testing",
+    "abbreviation": "ET-58"
   },
   {
     "index": 59,
     "text": "(8,2): 2 + 2 = 4\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-59"
+    "category": "Example Testing",
+    "abbreviation": "ET-59"
   },
   {
     "index": 60,
     "text": "(9,3): 1 + 3 = 4\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-60"
+    "category": "Example Testing",
+    "abbreviation": "ET-60"
   },
   {
     "index": 61,
     "text": "(2,7): 8 + 7 = 15\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-61"
+    "category": "Example Testing",
+    "abbreviation": "ET-61"
   },
   {
     "index": 62,
     "text": "(4,8): 6 + 8 = 14\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-62"
+    "category": "Example Testing",
+    "abbreviation": "ET-62"
   },
   {
     "index": 63,
     "text": "(7,6): 3 + 6 = 9\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-63"
+    "category": "Example Testing",
+    "abbreviation": "ET-63"
   },
   {
     "index": 64,
     "text": "(6,1): 4 + 1 = 5\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-64"
+    "category": "Example Testing",
+    "abbreviation": "ET-64"
   },
   {
     "index": 65,
     "text": "(2,3): 8 + 3 = 11\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-65"
+    "category": "Example Testing",
+    "abbreviation": "ET-65"
   },
   {
     "index": 66,
     "text": "(4,2): 6 + 2 = 8\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-66"
+    "category": "Example Testing",
+    "abbreviation": "ET-66"
   },
   {
     "index": 67,
     "text": "(8,7): 2 + 7 = 9\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-67"
+    "category": "Example Testing",
+    "abbreviation": "ET-67"
   },
   {
     "index": 68,
     "text": "(5,2): 5 + 2 = 7\n\nAnd Robot C at (5,5):\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-68"
+    "category": "Example Testing",
+    "abbreviation": "ET-68"
   },
   {
     "index": 69,
     "text": "(1,2): |1-5| + |2-5| = 4 + 3 = 7\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-69"
+    "category": "Example Testing",
+    "abbreviation": "ET-69"
   },
   {
     "index": 70,
     "text": "(3,4): 2 + 1 = 3\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-70"
+    "category": "Example Testing",
+    "abbreviation": "ET-70"
   },
   {
     "index": 71,
     "text": "(8,2): 3 + 3 = 6\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-71"
+    "category": "Example Testing",
+    "abbreviation": "ET-71"
   },
   {
     "index": 72,
     "text": "(9,3): 4 + 2 = 6\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-72"
+    "category": "Example Testing",
+    "abbreviation": "ET-72"
   },
   {
     "index": 73,
     "text": "(2,7): 3 + 2 = 5\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-73"
+    "category": "Example Testing",
+    "abbreviation": "ET-73"
   },
   {
     "index": 74,
     "text": "(4,8): 1 + 3 = 4\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-74"
+    "category": "Example Testing",
+    "abbreviation": "ET-74"
   },
   {
     "index": 75,
     "text": "(7,6): 2 + 1 = 3\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-75"
+    "category": "Example Testing",
+    "abbreviation": "ET-75"
   },
   {
     "index": 76,
     "text": "(6,1): 1 + 4 = 5\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-76"
+    "category": "Example Testing",
+    "abbreviation": "ET-76"
   },
   {
     "index": 77,
     "text": "(2,3): 3 + 2 = 5\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-77"
+    "category": "Example Testing",
+    "abbreviation": "ET-77"
   },
   {
     "index": 78,
     "text": "(4,2): 1 + 3 = 4\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-78"
+    "category": "Example Testing",
+    "abbreviation": "ET-78"
   },
   {
     "index": 79,
     "text": "(8,7): 3 + 2 = 5\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-79"
+    "category": "Example Testing",
+    "abbreviation": "ET-79"
   },
   {
     "index": 80,
     "text": "(5,2): 0 + 3 = 3\n\nSo now I have the Manhattan distances from each robot to each destination.",
-    "category": "Unknown",
-    "abbreviation": "C-80"
+    "category": "Deduction",
+    "abbreviation": "D-80"
   },
   {
     "index": 81,
     "text": "The next step is to assign packages to each robot such that each robot delivers up to 5 packages, and the total distance is minimized.",
-    "category": "Unknown",
-    "abbreviation": "C-81"
+    "category": "Initializing",
+    "abbreviation": "I-81"
   },
   {
     "index": 82,
     "text": "I think a good approach is to assign the packages with the smallest distances to each robot first, but considering that each robot can carry up to 5 packages.",
-    "category": "Unknown",
-    "abbreviation": "C-82"
+    "category": "Deduction",
+    "abbreviation": "D-82"
   },
   {
     "index": 83,
     "text": "However, I also need to make sure that the assignments don't leave any packages undelivered and that the total distance is as small as possible.",
-    "category": "Unknown",
-    "abbreviation": "C-83"
+    "category": "Deduction",
+    "abbreviation": "D-83"
   },
   {
     "index": 84,
     "text": "Alternatively, I could model this as an assignment problem where each robot can be assigned up to 5 packages, and the cost is the sum of the distances for those packages.",
-    "category": "Unknown",
-    "abbreviation": "C-84"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-84"
   },
   {
     "index": 85,
     "text": "The goal is to minimize the total cost.",
-    "category": "Unknown",
-    "abbreviation": "C-85"
+    "category": "Question Posing",
+    "abbreviation": "QP-85"
   },
   {
     "index": 86,
     "text": "But since this is a small problem (only 12 packages and 3 robots), I can try to find an optimal assignment manually.",
-    "category": "Unknown",
-    "abbreviation": "C-86"
+    "category": "Deduction",
+    "abbreviation": "D-86"
   },
   {
     "index": 87,
     "text": "Let me list the destinations sorted by their distance from each robot.",
-    "category": "Unknown",
-    "abbreviation": "C-87"
+    "category": "Question Posing",
+    "abbreviation": "QP-87"
   },
   {
     "index": 88,
     "text": "First, let's sort each destination by the distance from each robot.",
-    "category": "Unknown",
-    "abbreviation": "C-88"
+    "category": "Initializing",
+    "abbreviation": "I-88"
   },
   {
     "index": 89,
     "text": "Starting with Robot A (0,0):\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-89"
+    "category": "Question Posing",
+    "abbreviation": "QP-89"
   },
   {
     "index": 90,
     "text": "(1,2) - 3\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-90"
+    "category": "Example Testing",
+    "abbreviation": "ET-90"
   },
   {
     "index": 91,
     "text": "(2,3) - 5\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-91"
+    "category": "Example Testing",
+    "abbreviation": "ET-91"
   },
   {
     "index": 92,
     "text": "(4,2) - 6\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-92"
+    "category": "Example Testing",
+    "abbreviation": "ET-92"
   },
   {
     "index": 93,
     "text": "(3,4) - 7\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-93"
+    "category": "Example Testing",
+    "abbreviation": "ET-93"
   },
   {
     "index": 94,
     "text": "(6,1) - 7\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-94"
+    "category": "Example Testing",
+    "abbreviation": "ET-94"
   },
   {
     "index": 95,
     "text": "(8,2) -10\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-95"
+    "category": "Example Testing",
+    "abbreviation": "ET-95"
   },
   {
     "index": 96,
     "text": "(9,3) -12\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-96"
+    "category": "Example Testing",
+    "abbreviation": "ET-96"
   },
   {
     "index": 97,
     "text": "(4,8) -12\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-97"
+    "category": "Example Testing",
+    "abbreviation": "ET-97"
   },
   {
     "index": 98,
     "text": "(7,6) -13\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-98"
+    "category": "Example Testing",
+    "abbreviation": "ET-98"
   },
   {
     "index": 99,
     "text": "(2,7) -9\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-99"
+    "category": "Example Testing",
+    "abbreviation": "ET-99"
   },
   {
     "index": 100,
     "text": "(8,7) -15\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-100"
+    "category": "Example Testing",
+    "abbreviation": "ET-100"
   },
   {
     "index": 101,
     "text": "(5,2) -7\n\nRobot B (10,0):\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-101"
+    "category": "Example Testing",
+    "abbreviation": "ET-101"
   },
   {
     "index": 102,
     "text": "(8,2) -4\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-102"
+    "category": "Example Testing",
+    "abbreviation": "ET-102"
   },
   {
     "index": 103,
     "text": "(9,3) -4\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-103"
+    "category": "Example Testing",
+    "abbreviation": "ET-103"
   },
   {
     "index": 104,
     "text": "(6,1) -5\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-104"
+    "category": "Example Testing",
+    "abbreviation": "ET-104"
   },
   {
     "index": 105,
     "text": "(7,6) -9\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-105"
+    "category": "Example Testing",
+    "abbreviation": "ET-105"
   },
   {
     "index": 106,
     "text": "(8,7) -9\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-106"
+    "category": "Example Testing",
+    "abbreviation": "ET-106"
   },
   {
     "index": 107,
     "text": "(10,0) -0 (but that's the starting point, not a destination)\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-107"
+    "category": "Example Testing",
+    "abbreviation": "ET-107"
   },
   {
     "index": 108,
     "text": "(2,3) -11\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-108"
+    "category": "Example Testing",
+    "abbreviation": "ET-108"
   },
   {
     "index": 109,
     "text": "(1,2) -11\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-109"
+    "category": "Example Testing",
+    "abbreviation": "ET-109"
   },
   {
     "index": 110,
     "text": "(3,4) -11\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-110"
+    "category": "Example Testing",
+    "abbreviation": "ET-110"
   },
   {
     "index": 111,
     "text": "(4,2) -8\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-111"
+    "category": "Example Testing",
+    "abbreviation": "ET-111"
   },
   {
     "index": 112,
     "text": "(2,7) -15\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-112"
+    "category": "Example Testing",
+    "abbreviation": "ET-112"
   },
   {
     "index": 113,
     "text": "(4,8) -14\n\nRobot C (5,5):\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-113"
+    "category": "Example Testing",
+    "abbreviation": "ET-113"
   },
   {
     "index": 114,
     "text": "(5,2) -3\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-114"
+    "category": "Example Testing",
+    "abbreviation": "ET-114"
   },
   {
     "index": 115,
     "text": "(3,4) -3\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-115"
+    "category": "Example Testing",
+    "abbreviation": "ET-115"
   },
   {
     "index": 116,
     "text": "(7,6) -3\n4.",
-    "category": "Unknown",
-    "abbreviation": "C-116"
+    "category": "Example Testing",
+    "abbreviation": "ET-116"
   },
   {
     "index": 117,
     "text": "(2,3) -5\n5.",
-    "category": "Unknown",
-    "abbreviation": "C-117"
+    "category": "Example Testing",
+    "abbreviation": "ET-117"
   },
   {
     "index": 118,
     "text": "(8,2) -6\n6.",
-    "category": "Unknown",
-    "abbreviation": "C-118"
+    "category": "Example Testing",
+    "abbreviation": "ET-118"
   },
   {
     "index": 119,
     "text": "(6,1) -5\n7.",
-    "category": "Unknown",
-    "abbreviation": "C-119"
+    "category": "Example Testing",
+    "abbreviation": "ET-119"
   },
   {
     "index": 120,
     "text": "(9,3) -6\n8.",
-    "category": "Unknown",
-    "abbreviation": "C-120"
+    "category": "Example Testing",
+    "abbreviation": "ET-120"
   },
   {
     "index": 121,
     "text": "(4,8) -4\n9.",
-    "category": "Unknown",
-    "abbreviation": "C-121"
+    "category": "Example Testing",
+    "abbreviation": "ET-121"
   },
   {
     "index": 122,
     "text": "(2,7) -5\n10.",
-    "category": "Unknown",
-    "abbreviation": "C-122"
+    "category": "Example Testing",
+    "abbreviation": "ET-122"
   },
   {
     "index": 123,
     "text": "(8,7) -5\n11.",
-    "category": "Unknown",
-    "abbreviation": "C-123"
+    "category": "Example Testing",
+    "abbreviation": "ET-123"
   },
   {
     "index": 124,
     "text": "(4,2) -4\n12.",
-    "category": "Unknown",
-    "abbreviation": "C-124"
+    "category": "Example Testing",
+    "abbreviation": "ET-124"
   },
   {
     "index": 125,
     "text": "(1,2) -7\n\nNow, I need to assign the 12 packages to the three robots, with each robot handling up to 5 packages.",
-    "category": "Unknown",
-    "abbreviation": "C-125"
+    "category": "Example Testing",
+    "abbreviation": "ET-125"
   },
   {
     "index": 126,
     "text": "The total distance is the sum of the distances each robot travels to deliver their assigned packages, plus the return trip to their starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-126"
+    "category": "Deduction",
+    "abbreviation": "D-126"
   },
   {
     "index": 127,
     "text": "Wait, but the problem says that each robot returns to its starting position after completing all deliveries.",
-    "category": "Unknown",
-    "abbreviation": "C-127"
+    "category": "Backtracking",
+    "abbreviation": "B-127"
   },
   {
     "index": 128,
     "text": "So each robot's total distance is the sum of the distances from their starting point to each delivery location plus the distance from the last delivery location back to their starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-128"
+    "category": "Deduction",
+    "abbreviation": "D-128"
   },
   {
     "index": 129,
     "text": "But since the starting point is fixed, the return trip adds the same distance as the sum of the outgoing trips, but in reverse.",
-    "category": "Unknown",
-    "abbreviation": "C-129"
+    "category": "Deduction",
+    "abbreviation": "D-129"
   },
   {
     "index": 130,
     "text": "However, since we're calculating the total distance, we need to include both the outgoing and return trips.",
-    "category": "Unknown",
-    "abbreviation": "C-130"
+    "category": "Deduction",
+    "abbreviation": "D-130"
   },
   {
     "index": 131,
     "text": "Alternatively, the total distance for each robot is twice the sum of the distances from their starting point to the delivery locations they make, because they have to return.",
-    "category": "Unknown",
-    "abbreviation": "C-131"
+    "category": "Deduction",
+    "abbreviation": "D-131"
   },
   {
     "index": 132,
     "text": "Wait, no.",
-    "category": "Unknown",
-    "abbreviation": "C-132"
+    "category": "Backtracking",
+    "abbreviation": "B-132"
   },
   {
     "index": 133,
     "text": "Let me clarify.",
-    "category": "Unknown",
-    "abbreviation": "C-133"
+    "category": "Backtracking",
+    "abbreviation": "B-133"
   },
   {
     "index": 134,
     "text": "The Manhattan distance from A to each delivery point is the same as from each delivery point back to A.",
-    "category": "Unknown",
-    "abbreviation": "C-134"
+    "category": "Deduction",
+    "abbreviation": "D-134"
   },
   {
     "index": 135,
     "text": "So the total distance for Robot A is the sum of the distances from A to each delivery location he makes, plus the distance from his last delivery back to A.",
-    "category": "Unknown",
-    "abbreviation": "C-135"
+    "category": "Deduction",
+    "abbreviation": "D-135"
   },
   {
     "index": 136,
     "text": "But since the last delivery is a single point, the return trip is just the distance from that last delivery back to A.",
-    "category": "Unknown",
-    "abbreviation": "C-136"
+    "category": "Deduction",
+    "abbreviation": "D-136"
   },
   {
     "index": 137,
     "text": "So the total distance for Robot A is the sum of the outgoing trips plus the return trip, which is the same as the sum of all outgoing trips, because the return trip is just the same as the last outgoing trip in reverse.",
-    "category": "Unknown",
-    "abbreviation": "C-137"
+    "category": "Deduction",
+    "abbreviation": "D-137"
   },
   {
     "index": 138,
     "text": "Wait, no.",
-    "category": "Unknown",
-    "abbreviation": "C-138"
+    "category": "Backtracking",
+    "abbreviation": "B-138"
   },
   {
     "index": 139,
     "text": "Let me think again.",
-    "category": "Unknown",
-    "abbreviation": "C-139"
+    "category": "Backtracking",
+    "abbreviation": "B-139"
   },
   {
     "index": 140,
     "text": "Suppose Robot A goes from (0,0) to (1,2), then to (3,4), then returns to (0,0).",
-    "category": "Unknown",
-    "abbreviation": "C-140"
+    "category": "Example Testing",
+    "abbreviation": "ET-140"
   },
   {
     "index": 141,
     "text": "The total distance would be (1+2) + (3+4) + (1+2) = 3 + 7 + 3 = 13.",
-    "category": "Unknown",
-    "abbreviation": "C-141"
+    "category": "Deduction",
+    "abbreviation": "D-141"
   },
   {
     "index": 142,
     "text": "But actually, it's (1+2) + (3+4) + (1+2) = 3 + 7 + 3 = 13.",
-    "category": "Unknown",
-    "abbreviation": "C-142"
+    "category": "Deduction",
+    "abbreviation": "D-142"
   },
   {
     "index": 143,
     "text": "Alternatively, if Robot A goes to (1,2) and returns, that's 3 + 3 = 6.",
-    "category": "Unknown",
-    "abbreviation": "C-143"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-143"
   },
   {
     "index": 144,
     "text": "If he goes to (1,2), (3,4), and returns, it's 3 + 7 + 3 = 13.",
-    "category": "Unknown",
-    "abbreviation": "C-144"
+    "category": "Example Testing",
+    "abbreviation": "ET-144"
   },
   {
     "index": 145,
     "text": "So the return trip adds the same distance as the last outgoing trip.",
-    "category": "Unknown",
-    "abbreviation": "C-145"
+    "category": "Deduction",
+    "abbreviation": "D-145"
   },
   {
     "index": 146,
     "text": "Therefore, the total distance for each robot is the sum of the distances from their starting point to each delivery location they make, plus the distance from their last delivery back to their starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-146"
+    "category": "Deduction",
+    "abbreviation": "D-146"
   },
   {
     "index": 147,
     "text": "But since the starting point is fixed, the return trip is just the same as the last outgoing trip.",
-    "category": "Unknown",
-    "abbreviation": "C-147"
+    "category": "Deduction",
+    "abbreviation": "D-147"
   },
   {
     "index": 148,
     "text": "So the total distance for each robot is the sum of all outgoing trips, which includes the return trip.",
-    "category": "Unknown",
-    "abbreviation": "C-148"
+    "category": "Deduction",
+    "abbreviation": "D-148"
   },
   {
     "index": 149,
     "text": "Alternatively, we can think of it as the sum of all outgoing trips, because the return trip is just part of the outgoing trip in reverse.",
-    "category": "Unknown",
-    "abbreviation": "C-149"
+    "category": "Backtracking",
+    "abbreviation": "B-149"
   },
   {
     "index": 150,
     "text": "Wait, no.",
-    "category": "Unknown",
-    "abbreviation": "C-150"
+    "category": "Backtracking",
+    "abbreviation": "B-150"
   },
   {
     "index": 151,
     "text": "The outgoing trip is from the starting point to the delivery locations, and then the return trip is from the last delivery back to the starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-151"
+    "category": "Deduction",
+    "abbreviation": "D-151"
   },
   {
     "index": 152,
     "text": "So the total distance is the sum of the outgoing trips plus the return trip.",
-    "category": "Unknown",
-    "abbreviation": "C-152"
+    "category": "Deduction",
+    "abbreviation": "D-152"
   },
   {
     "index": 153,
     "text": "But since the outgoing trips include going to each delivery point, and the return trip is just the distance back to the starting point from the last delivery, it's equivalent to the sum of the outgoing trips (including the return trip as the last segment).",
-    "category": "Unknown",
-    "abbreviation": "C-153"
+    "category": "Deduction",
+    "abbreviation": "D-153"
   },
   {
     "index": 154,
     "text": "Alternatively, perhaps it's easier to consider that the total distance for each robot is twice the sum of the distances from their starting point to each delivery location they make, because they have to go out and come back.",
-    "category": "Unknown",
-    "abbreviation": "C-154"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-154"
   },
   {
     "index": 155,
     "text": "But that might not be accurate because the return trip is only from the last delivery back to the starting point, not from all deliveries.",
-    "category": "Unknown",
-    "abbreviation": "C-155"
+    "category": "Backtracking",
+    "abbreviation": "B-155"
   },
   {
     "index": 156,
     "text": "Wait, no.",
-    "category": "Unknown",
-    "abbreviation": "C-156"
+    "category": "Backtracking",
+    "abbreviation": "B-156"
   },
   {
     "index": 157,
     "text": "Let's clarify with an example.",
-    "category": "Unknown",
-    "abbreviation": "C-157"
+    "category": "Example Testing",
+    "abbreviation": "ET-157"
   },
   {
     "index": 158,
     "text": "Suppose Robot A delivers to two packages: (1,2) and (3,4).",
-    "category": "Unknown",
-    "abbreviation": "C-158"
+    "category": "Example Testing",
+    "abbreviation": "ET-158"
   },
   {
     "index": 159,
     "text": "The total distance would be:\n\nFrom (0,0) to (1,2): 3\n\nFrom (1,2) to (3,4): |3-1| + |4-2| = 2 + 2 = 4\n\nFrom (3,4) back to (0,0): 3 + 4 = 7\n\nTotal distance: 3 + 4 + 7 = 14\n\nAlternatively, if we consider that the return trip is just from (3,4) back to (0,0), which is 7, and the outgoing trips are 3 and 4, the total is 3 + 4 + 7 = 14.",
-    "category": "Unknown",
-    "abbreviation": "C-159"
+    "category": "Deduction",
+    "abbreviation": "D-159"
   },
   {
     "index": 160,
     "text": "Alternatively, if we think of it as going from (0,0) to (1,2) and back, that's 3 + 3 = 6, and then from (0,0) to (3,4) and back, that's 7 + 7 = 14.",
-    "category": "Unknown",
-    "abbreviation": "C-160"
+    "category": "Comparative Analysis",
+    "abbreviation": "CA-160"
   },
   {
     "index": 161,
     "text": "So total is 6 + 14 = 20, which is incorrect because the robot doesn't have to return after each delivery, only at the end.",
-    "category": "Unknown",
-    "abbreviation": "C-161"
+    "category": "Backtracking",
+    "abbreviation": "B-161"
   },
   {
     "index": 162,
     "text": "So the correct way is that the robot goes from starting point to delivery 1, then to delivery 2, and then back to starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-162"
+    "category": "Deduction",
+    "abbreviation": "D-162"
   },
   {
     "index": 163,
     "text": "So the total distance is the sum of the distances from starting point to delivery 1, delivery 1 to delivery 2, and delivery 2 back to starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-163"
+    "category": "Deduction",
+    "abbreviation": "D-163"
   },
   {
     "index": 164,
     "text": "Therefore, for two deliveries, it's d1 + (d2 - d1) + d1, where d1 is the distance from starting point to delivery 1, and d2 is the distance from starting point to delivery 2.",
-    "category": "Unknown",
-    "abbreviation": "C-164"
+    "category": "Deduction",
+    "abbreviation": "D-164"
   },
   {
     "index": 165,
     "text": "But this might complicate things.",
-    "category": "Unknown",
-    "abbreviation": "C-165"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-165"
   },
   {
     "index": 166,
     "text": "Perhaps it's better to consider that the total distance for a robot delivering multiple packages is the sum of the distances from their starting point to each delivery location, plus the distance from their last delivery back to the starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-166"
+    "category": "Backtracking",
+    "abbreviation": "B-166"
   },
   {
     "index": 167,
     "text": "So for Robot A delivering to (1,2) and (3,4), the total distance is 3 (to (1,2)) + 4 (from (1,2) to (3,4)) + 7 (from (3,4) back to (0,0)) = 14.",
-    "category": "Unknown",
-    "abbreviation": "C-167"
+    "category": "Deduction",
+    "abbreviation": "D-167"
   },
   {
     "index": 168,
     "text": "Alternatively, if Robot A delivers to (1,2), (3,4), and (5,2), the total distance would be 3 (to (1,2)) + 4 (to (3,4)) + 5 (to (5,2)) + 5 (back to (0,0) from (5,2)) = 3 + 4 + 5 + 5 = 17.",
-    "category": "Unknown",
-    "abbreviation": "C-168"
+    "category": "Example Testing",
+    "abbreviation": "ET-168"
   },
   {
     "index": 169,
     "text": "Wait, but that doesn't make sense because the robot doesn't have to go back after each delivery, only at the end.",
-    "category": "Unknown",
-    "abbreviation": "C-169"
+    "category": "Backtracking",
+    "abbreviation": "B-169"
   },
   {
     "index": 170,
     "text": "So the total distance is the sum of the distances from the starting point to each delivery location, plus the distance from the last delivery back to the starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-170"
+    "category": "Deduction",
+    "abbreviation": "D-170"
   },
   {
     "index": 171,
     "text": "So for three deliveries, it's d1 + d2 + d3 + d_last, where d_last is the distance from the last delivery back to starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-171"
+    "category": "Deduction",
+    "abbreviation": "D-171"
   },
   {
     "index": 172,
     "text": "But since d_last is the same as the distance from starting point to the last delivery (because Manhattan distance is symmetric), it's equivalent to 2*d_last + sum of the other deliveries.",
-    "category": "Unknown",
-    "abbreviation": "C-172"
+    "category": "Deduction",
+    "abbreviation": "D-172"
   },
   {
     "index": 173,
     "text": "Wait, no.",
-    "category": "Unknown",
-    "abbreviation": "C-173"
+    "category": "Backtracking",
+    "abbreviation": "B-173"
   },
   {
     "index": 174,
     "text": "Let me think again.",
-    "category": "Unknown",
-    "abbreviation": "C-174"
+    "category": "Backtracking",
+    "abbreviation": "B-174"
   },
   {
     "index": 175,
     "text": "If the robot delivers to three locations: A, B, and C, the total distance is:\n\nFrom starting point S to A: d1\n\nFrom A to B: |B - A|\n\nFrom B to C: |C - B|\n\nFrom C back to S: d3\n\nSo total distance is d1 + |A - B| + |B - C| + d3\n\nBut d3 is the same as the distance from S to C, which is d3.",
-    "category": "Unknown",
-    "abbreviation": "C-175"
+    "category": "Deduction",
+    "abbreviation": "D-175"
   },
   {
     "index": 176,
     "text": "Alternatively, if we think of it as the robot going from S to A to B to C and back to S, the total distance is d1 + (d2 - d1) + (d3 - d2) + d3, where d1 < d2 < d3.",
-    "category": "Unknown",
-    "abbreviation": "C-176"
+    "category": "Deduction",
+    "abbreviation": "D-176"
   },
   {
     "index": 177,
     "text": "But this seems complicated.",
-    "category": "Unknown",
-    "abbreviation": "C-177"
+    "category": "Backtracking",
+    "abbreviation": "B-177"
   },
   {
     "index": 178,
     "text": "Perhaps a better approach is to realize that the total distance for a robot delivering to multiple packages is the sum of the distances from their starting point to each delivery location, plus the distance from their last delivery back to the starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-178"
+    "category": "Backtracking",
+    "abbreviation": "B-178"
   },
   {
     "index": 179,
     "text": "Therefore, the total distance for a robot is the sum of the distances from their starting point to each delivery location they make, plus the distance from their last delivery back to their starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-179"
+    "category": "Deduction",
+    "abbreviation": "D-179"
   },
   {
     "index": 180,
     "text": "So, for each robot, the total distance is:\n\nsum of distances from starting point to each delivery location + distance from last delivery back to starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-180"
+    "category": "Deduction",
+    "abbreviation": "D-180"
   },
   {
     "index": 181,
     "text": "But since the distance from the last delivery back to starting point is the same as the distance from starting point to that last delivery, it's equivalent to:\n\nsum of distances from starting point to each delivery location + (distance from starting point to last delivery).",
-    "category": "Unknown",
-    "abbreviation": "C-181"
+    "category": "Deduction",
+    "abbreviation": "D-181"
   },
   {
     "index": 182,
     "text": "But since the sum of distances from starting point to each delivery location includes the distance to the last delivery, the total distance is:\n\nsum of distances from starting point to each delivery location + (distance from starting point to last delivery).",
-    "category": "Unknown",
-    "abbreviation": "C-182"
+    "category": "Deduction",
+    "abbreviation": "D-182"
   },
   {
     "index": 183,
     "text": "But that would double count the last delivery's distance.",
-    "category": "Unknown",
-    "abbreviation": "C-183"
+    "category": "Backtracking",
+    "abbreviation": "B-183"
   },
   {
     "index": 184,
     "text": "Wait, no.",
-    "category": "Unknown",
-    "abbreviation": "C-184"
+    "category": "Backtracking",
+    "abbreviation": "B-184"
   },
   {
     "index": 185,
     "text": "Let's clarify.",
-    "category": "Unknown",
-    "abbreviation": "C-185"
+    "category": "Backtracking",
+    "abbreviation": "B-185"
   },
   {
     "index": 186,
     "text": "Suppose Robot A delivers to three packages: D1, D2, D3.",
-    "category": "Unknown",
-    "abbreviation": "C-186"
+    "category": "Example Testing",
+    "abbreviation": "ET-186"
   },
   {
     "index": 187,
     "text": "Total distance is:\n\nS to D1: d1\n\nD1 to D2: |D2 - D1|\n\nD2 to D3: |D3 - D2|\n\nD3 back to S: d3\n\nTotal: d1 + |D2 - D1| + |D3 - D2| + d3\n\nBut since d1 is the distance from S to D1, and d3 is the distance from S to D3, the total distance is:\n\nd1 + (d2 - d1) + (d3 - d2) + d3 = d1 + d2 + d3\n\nBecause the intermediate distances cancel out: |D2 - D1| = d2 - d1 (assuming D2 is further from S than D1), and |D3 - D2| = d3 - d2.",
-    "category": "Unknown",
-    "abbreviation": "C-187"
+    "category": "Deduction",
+    "abbreviation": "D-187"
   },
   {
     "index": 188,
     "text": "Therefore, the total distance for Robot A delivering to D1, D2, D3 is d1 + d2 + d3.",
-    "category": "Unknown",
-    "abbreviation": "C-188"
+    "category": "Deduction",
+    "abbreviation": "D-188"
   },
   {
     "index": 189,
     "text": "Wait, that's interesting.",
-    "category": "Unknown",
-    "abbreviation": "C-189"
+    "category": "Initializing",
+    "abbreviation": "I-189"
   },
   {
     "index": 190,
     "text": "So regardless of the order of deliveries, the total distance is just the sum of the distances from the starting point to each delivery location.",
-    "category": "Unknown",
-    "abbreviation": "C-190"
+    "category": "Deduction",
+    "abbreviation": "D-190"
   },
   {
     "index": 191,
     "text": "Because the robot can choose the optimal path, which is the minimal path, which would be the straight line (Manhattan path), so the total distance is the sum of the distances from the starting point to each delivery location.",
-    "category": "Unknown",
-    "abbreviation": "C-191"
+    "category": "Deduction",
+    "abbreviation": "D-191"
   },
   {
     "index": 192,
     "text": "But wait, that can't be right because the robot has to return to the starting point after the last delivery.",
-    "category": "Unknown",
-    "abbreviation": "C-192"
+    "category": "Backtracking",
+    "abbreviation": "B-192"
   },
   {
     "index": 193,
     "text": "So the total distance should be the sum of the distances from the starting point to each delivery location plus the distance from the last delivery back to the starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-193"
+    "category": "Deduction",
+    "abbreviation": "D-193"
   },
   {
     "index": 194,
     "text": "But if we consider that the robot can choose the order of deliveries, the total distance is the sum of the distances from the starting point to each delivery location plus the distance from the last delivery back to the starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-194"
+    "category": "Deduction",
+    "abbreviation": "D-194"
   },
   {
     "index": 195,
     "text": "But since the distance from the last delivery back to the starting point is the same as the distance from the starting point to that last delivery, it's equivalent to the sum of all distances from the starting point to each delivery location plus that last distance.",
-    "category": "Unknown",
-    "abbreviation": "C-195"
+    "category": "Deduction",
+    "abbreviation": "D-195"
   },
   {
     "index": 196,
     "text": "But that would double count the last distance.",
-    "category": "Unknown",
-    "abbreviation": "C-196"
+    "category": "Backtracking",
+    "abbreviation": "B-196"
   },
   {
     "index": 197,
     "text": "So perhaps the correct way is that the total distance is the sum of the distances from the starting point to each delivery location, plus the distance from the last delivery back to the starting point.",
-    "category": "Unknown",
-    "abbreviation": "C-197"
+    "category": "Deduction",
+    "abbreviation": "D-197"
   },
   {
     "index": 198,
     "text": "But",
-    "category": "Unknown",
-    "abbreviation": "C-198"
+    "category": "Initializing",
+    "abbreviation": "I-198"
   }
 ]

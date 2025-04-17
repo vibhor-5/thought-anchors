@@ -2,1321 +2,1321 @@
   {
     "index": 0,
     "text": "Solve this problem step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-0"
+    "category": "Initializing",
+    "abbreviation": "I-0"
   },
   {
     "index": 1,
     "text": "End with 'DONE.' when you have a solution.",
-    "category": "Unknown",
-    "abbreviation": "C-1"
+    "category": "Initializing",
+    "abbreviation": "I-1"
   },
   {
     "index": 2,
     "text": "Question: You have three identical cubes.",
-    "category": "Unknown",
-    "abbreviation": "C-2"
+    "category": "Initializing",
+    "abbreviation": "I-2"
   },
   {
     "index": 3,
     "text": "Each face of each cube is painted either red, blue, or yellow, with exactly two faces of each color on each cube.",
-    "category": "Unknown",
-    "abbreviation": "C-3"
+    "category": "Initializing",
+    "abbreviation": "I-3"
   },
   {
     "index": 4,
     "text": "The cubes are placed in a row on a table.",
-    "category": "Unknown",
-    "abbreviation": "C-4"
+    "category": "Initializing",
+    "abbreviation": "I-4"
   },
   {
     "index": 5,
     "text": "Looking at the cubes from the front, you see the colors [red, blue, yellow] from left to right.",
-    "category": "Unknown",
-    "abbreviation": "C-5"
+    "category": "Deduction",
+    "abbreviation": "D-5"
   },
   {
     "index": 6,
     "text": "Looking at the cubes from the right side, you see the colors [yellow, red, blue] from front to back.",
-    "category": "Unknown",
-    "abbreviation": "C-6"
+    "category": "Deduction",
+    "abbreviation": "D-6"
   },
   {
     "index": 7,
     "text": "What colors would you see when looking at the cubes from the top, reading from left to right? \n\n Solution: \n<think>\nAlright, so I've got this problem with three identical cubes.",
-    "category": "Unknown",
-    "abbreviation": "C-7"
+    "category": "Initializing",
+    "abbreviation": "I-7"
   },
   {
     "index": 8,
     "text": "Each cube has six faces, and each face is painted either red, blue, or yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-8"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-8"
   },
   {
     "index": 9,
     "text": "The key detail is that each cube has exactly two faces of each color.",
-    "category": "Unknown",
-    "abbreviation": "C-9"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
   },
   {
     "index": 10,
     "text": "So, two red, two blue, and two yellow faces on each cube.",
-    "category": "Unknown",
-    "abbreviation": "C-10"
+    "category": "Deduction",
+    "abbreviation": "D-10"
   },
   {
     "index": 11,
     "text": "The cubes are placed in a row on a table.",
-    "category": "Unknown",
-    "abbreviation": "C-11"
+    "category": "Initializing",
+    "abbreviation": "I-11"
   },
   {
     "index": 12,
     "text": "When looking at them from the front, the sequence of colors we see is red, blue, yellow from left to right.",
-    "category": "Unknown",
-    "abbreviation": "C-12"
+    "category": "Deduction",
+    "abbreviation": "D-12"
   },
   {
     "index": 13,
     "text": "That means the front face of the first cube is red, the front face of the second is blue, and the front face of the third is yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-13"
+    "category": "Deduction",
+    "abbreviation": "D-13"
   },
   {
     "index": 14,
     "text": "From the right side, looking at the cubes from the right, we see yellow, red, blue from front to back.",
-    "category": "Unknown",
-    "abbreviation": "C-14"
+    "category": "Deduction",
+    "abbreviation": "D-14"
   },
   {
     "index": 15,
     "text": "Hmm, that's a bit tricky.",
-    "category": "Unknown",
-    "abbreviation": "C-15"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-15"
   },
   {
     "index": 16,
     "text": "Let me think about how that works.",
-    "category": "Unknown",
-    "abbreviation": "C-16"
+    "category": "Question Posing",
+    "abbreviation": "QP-16"
   },
   {
     "index": 17,
     "text": "So, if we're looking from the right, the rightmost cube's right face is yellow, the middle cube's right face is red, and the leftmost cube's right face is blue.",
-    "category": "Unknown",
-    "abbreviation": "C-17"
+    "category": "Deduction",
+    "abbreviation": "D-17"
   },
   {
     "index": 18,
     "text": "Wait, no, actually, when looking from the right, the first cube we see is the rightmost one, right? So the rightmost cube's right face is yellow, the middle cube's right face is red, and the leftmost cube's right face is blue.",
-    "category": "Unknown",
-    "abbreviation": "C-18"
+    "category": "Backtracking",
+    "abbreviation": "B-18"
   },
   {
     "index": 19,
     "text": "So, the right faces are yellow, red, blue for the three cubes respectively.",
-    "category": "Unknown",
-    "abbreviation": "C-19"
+    "category": "Deduction",
+    "abbreviation": "D-19"
   },
   {
     "index": 20,
     "text": "Our goal is to figure out what colors we would see when looking at the cubes from the top, reading from left to right.",
-    "category": "Unknown",
-    "abbreviation": "C-20"
+    "category": "Initializing",
+    "abbreviation": "I-20"
   },
   {
     "index": 21,
     "text": "So, we need to determine the top faces of each cube in the order from left to right.",
-    "category": "Unknown",
-    "abbreviation": "C-21"
+    "category": "Initializing",
+    "abbreviation": "I-21"
   },
   {
     "index": 22,
     "text": "First, let's visualize the setup.",
-    "category": "Unknown",
-    "abbreviation": "C-22"
+    "category": "Example Testing",
+    "abbreviation": "ET-22"
   },
   {
     "index": 23,
     "text": "We have three cubes in a row: let's call them Cube A (leftmost), Cube B (middle), and Cube C (rightmost).",
-    "category": "Unknown",
-    "abbreviation": "C-23"
+    "category": "Deduction",
+    "abbreviation": "D-23"
   },
   {
     "index": 24,
     "text": "From the front, Cube A shows red on its front face, Cube B shows blue, and Cube C shows yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-24"
+    "category": "Deduction",
+    "abbreviation": "D-24"
   },
   {
     "index": 25,
     "text": "From the right, Cube C's right face is yellow, Cube B's right face is red, and Cube A's right face is blue.",
-    "category": "Unknown",
-    "abbreviation": "C-25"
+    "category": "Deduction",
+    "abbreviation": "D-25"
   },
   {
     "index": 26,
     "text": "Each cube has two of each color, so we need to make sure that the faces we've identified so far don't conflict with that.",
-    "category": "Unknown",
-    "abbreviation": "C-26"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-26"
   },
   {
     "index": 27,
     "text": "Let's start by noting down the front and right faces:\n\n- Cube A:\n  - Front: Red\n  - Right: Blue\n\n- Cube B:\n  - Front: Blue\n  - Right: Red\n\n- Cube C:\n  - Front: Yellow\n  - Right: Yellow\n\nWait, hold on.",
-    "category": "Unknown",
-    "abbreviation": "C-27"
+    "category": "Example Testing",
+    "abbreviation": "ET-27"
   },
   {
     "index": 28,
     "text": "Cube C's front is yellow, and its right face is also yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-28"
+    "category": "Example Testing",
+    "abbreviation": "ET-28"
   },
   {
     "index": 29,
     "text": "But each cube has exactly two faces of each color.",
-    "category": "Unknown",
-    "abbreviation": "C-29"
+    "category": "Deduction",
+    "abbreviation": "D-29"
   },
   {
     "index": 30,
     "text": "So, if Cube C's front and right faces are both yellow, that accounts for two yellow faces.",
-    "category": "Unknown",
-    "abbreviation": "C-30"
+    "category": "Deduction",
+    "abbreviation": "D-30"
   },
   {
     "index": 31,
     "text": "That leaves the other four faces (top, bottom, left, back) to be split between red and blue, each having two faces.",
-    "category": "Unknown",
-    "abbreviation": "C-31"
+    "category": "Deduction",
+    "abbreviation": "D-31"
   },
   {
     "index": 32,
     "text": "But wait, Cube C's right face is yellow, which is its right face.",
-    "category": "Unknown",
-    "abbreviation": "C-32"
+    "category": "Deduction",
+    "abbreviation": "D-32"
   },
   {
     "index": 33,
     "text": "So, from the front, we see front face as yellow, and from the right, we see the right face as yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-33"
+    "category": "Deduction",
+    "abbreviation": "D-33"
   },
   {
     "index": 34,
     "text": "So, that uses up two yellow faces for Cube C.",
-    "category": "Unknown",
-    "abbreviation": "C-34"
+    "category": "Deduction",
+    "abbreviation": "D-34"
   },
   {
     "index": 35,
     "text": "Therefore, the top, bottom, left, and back faces must be red and blue, each with two faces.",
-    "category": "Unknown",
-    "abbreviation": "C-35"
+    "category": "Deduction",
+    "abbreviation": "D-35"
   },
   {
     "index": 36,
     "text": "Similarly, for Cube A:\n\n- Front: Red\n- Right: Blue\n\nSo, that's one red and one blue face.",
-    "category": "Unknown",
-    "abbreviation": "C-36"
+    "category": "Deduction",
+    "abbreviation": "D-36"
   },
   {
     "index": 37,
     "text": "Since each cube has two of each color, the remaining faces (top, bottom, back, left) must have one red and one blue each.",
-    "category": "Unknown",
-    "abbreviation": "C-37"
+    "category": "Deduction",
+    "abbreviation": "D-37"
   },
   {
     "index": 38,
     "text": "Same for Cube B:\n\n- Front: Blue\n- Right: Red\n\nSo, one blue and one red face.",
-    "category": "Unknown",
-    "abbreviation": "C-38"
+    "category": "Deduction",
+    "abbreviation": "D-38"
   },
   {
     "index": 39,
     "text": "The remaining faces (top, bottom, left, back) must have one red and one blue each.",
-    "category": "Unknown",
-    "abbreviation": "C-39"
+    "category": "Deduction",
+    "abbreviation": "D-39"
   },
   {
     "index": 40,
     "text": "Now, the challenge is to figure out the top faces.",
-    "category": "Unknown",
-    "abbreviation": "C-40"
+    "category": "Question Posing",
+    "abbreviation": "QP-40"
   },
   {
     "index": 41,
     "text": "Let's try to deduce the top faces by considering the possible orientations.",
-    "category": "Unknown",
-    "abbreviation": "C-41"
+    "category": "Initializing",
+    "abbreviation": "I-41"
   },
   {
     "index": 42,
     "text": "Let's start with Cube C, the rightmost cube.",
-    "category": "Unknown",
-    "abbreviation": "C-42"
+    "category": "Initializing",
+    "abbreviation": "I-42"
   },
   {
     "index": 43,
     "text": "Cube C:\n\n- Front: Yellow\n- Right: Yellow\n- So, the top, bottom, left, and back faces must be two red and two blue.",
-    "category": "Unknown",
-    "abbreviation": "C-43"
+    "category": "Deduction",
+    "abbreviation": "D-43"
   },
   {
     "index": 44,
     "text": "Looking at Cube C from the front, the front face is yellow, so the top face could be either red or blue.",
-    "category": "Unknown",
-    "abbreviation": "C-44"
+    "category": "Question Posing",
+    "abbreviation": "QP-44"
   },
   {
     "index": 45,
     "text": "Similarly, the left face could be red or blue.",
-    "category": "Unknown",
-    "abbreviation": "C-45"
+    "category": "Question Posing",
+    "abbreviation": "QP-45"
   },
   {
     "index": 46,
     "text": "But let's think about Cube B, the middle cube.",
-    "category": "Unknown",
-    "abbreviation": "C-46"
+    "category": "Question Posing",
+    "abbreviation": "QP-46"
   },
   {
     "index": 47,
     "text": "From the right, Cube B's right face is red.",
-    "category": "Unknown",
-    "abbreviation": "C-47"
+    "category": "Deduction",
+    "abbreviation": "D-47"
   },
   {
     "index": 48,
     "text": "So, the right face of Cube B is red.",
-    "category": "Unknown",
-    "abbreviation": "C-48"
+    "category": "Deduction",
+    "abbreviation": "D-48"
   },
   {
     "index": 49,
     "text": "But Cube B's front face is blue.",
-    "category": "Unknown",
-    "abbreviation": "C-49"
+    "category": "Deduction",
+    "abbreviation": "D-49"
   },
   {
     "index": 50,
     "text": "So, Cube B's front is blue, right is red.",
-    "category": "Unknown",
-    "abbreviation": "C-50"
+    "category": "Deduction",
+    "abbreviation": "D-50"
   },
   {
     "index": 51,
     "text": "Therefore, the top, bottom, left, and back faces must have one blue and one red each.",
-    "category": "Unknown",
-    "abbreviation": "C-51"
+    "category": "Deduction",
+    "abbreviation": "D-51"
   },
   {
     "index": 52,
     "text": "Similarly, for Cube A, front is red, right is blue.",
-    "category": "Unknown",
-    "abbreviation": "C-52"
+    "category": "Deduction",
+    "abbreviation": "D-52"
   },
   {
     "index": 53,
     "text": "So, the top, bottom, left, and back must have one red and one blue each.",
-    "category": "Unknown",
-    "abbreviation": "C-53"
+    "category": "Deduction",
+    "abbreviation": "D-53"
   },
   {
     "index": 54,
     "text": "Let me try to assign possible colors to the top faces.",
-    "category": "Unknown",
-    "abbreviation": "C-54"
+    "category": "Example Testing",
+    "abbreviation": "ET-54"
   },
   {
     "index": 55,
     "text": "Starting with Cube C:\n\nCube C's front is yellow, right is yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-55"
+    "category": "Example Testing",
+    "abbreviation": "ET-55"
   },
   {
     "index": 56,
     "text": "So, the remaining faces (top, bottom, left, back) are two red and two blue.",
-    "category": "Unknown",
-    "abbreviation": "C-56"
+    "category": "Deduction",
+    "abbreviation": "D-56"
   },
   {
     "index": 57,
     "text": "Let's consider the top face of Cube C.",
-    "category": "Unknown",
-    "abbreviation": "C-57"
+    "category": "Question Posing",
+    "abbreviation": "QP-57"
   },
   {
     "index": 58,
     "text": "If Cube C's top face is red, then the bottom must be blue, and the left and back would have to be split between the remaining colors.",
-    "category": "Unknown",
-    "abbreviation": "C-58"
+    "category": "Deduction",
+    "abbreviation": "D-58"
   },
   {
     "index": 59,
     "text": "But let's think about Cube B.",
-    "category": "Unknown",
-    "abbreviation": "C-59"
+    "category": "Question Posing",
+    "abbreviation": "QP-59"
   },
   {
     "index": 60,
     "text": "Cube B's right face is red.",
-    "category": "Unknown",
-    "abbreviation": "C-60"
+    "category": "Deduction",
+    "abbreviation": "D-60"
   },
   {
     "index": 61,
     "text": "So, the right face of Cube B is red.",
-    "category": "Unknown",
-    "abbreviation": "C-61"
+    "category": "Deduction",
+    "abbreviation": "D-61"
   },
   {
     "index": 62,
     "text": "That means when looking from the right, we see Cube C's right face (yellow), Cube B's right face (red), and Cube A's right face (blue).",
-    "category": "Unknown",
-    "abbreviation": "C-62"
+    "category": "Deduction",
+    "abbreviation": "D-62"
   },
   {
     "index": 63,
     "text": "Now, considering Cube B's orientation: front is blue, right is red.",
-    "category": "Unknown",
-    "abbreviation": "C-63"
+    "category": "Deduction",
+    "abbreviation": "D-63"
   },
   {
     "index": 64,
     "text": "So, from the front, it shows blue, and from the right, it shows red.",
-    "category": "Unknown",
-    "abbreviation": "C-64"
+    "category": "Deduction",
+    "abbreviation": "D-64"
   },
   {
     "index": 65,
     "text": "So, the top face of Cube B could be either red or blue, but let's see.",
-    "category": "Unknown",
-    "abbreviation": "C-65"
+    "category": "Question Posing",
+    "abbreviation": "QP-65"
   },
   {
     "index": 66,
     "text": "Wait, perhaps it's better to think about the relative positions.",
-    "category": "Unknown",
-    "abbreviation": "C-66"
+    "category": "Backtracking",
+    "abbreviation": "B-66"
   },
   {
     "index": 67,
     "text": "Let me try to sketch a mental image.",
-    "category": "Unknown",
-    "abbreviation": "C-67"
+    "category": "Metaphorical Thinking",
+    "abbreviation": "MT-67"
   },
   {
     "index": 68,
     "text": "From the front:\n\nCube A: Front=Red, Right=Blue\n\nCube B: Front=Blue, Right=Red\n\nCube C: Front=Yellow, Right=Yellow\n\nSo, let's think about Cube A.",
-    "category": "Unknown",
-    "abbreviation": "C-68"
+    "category": "Example Testing",
+    "abbreviation": "ET-68"
   },
   {
     "index": 69,
     "text": "Front=Red, Right=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-69"
+    "category": "Deduction",
+    "abbreviation": "D-69"
   },
   {
     "index": 70,
     "text": "So, from the front, it's red; from the right, it's blue.",
-    "category": "Unknown",
-    "abbreviation": "C-70"
+    "category": "Deduction",
+    "abbreviation": "D-70"
   },
   {
     "index": 71,
     "text": "Therefore, Cube A's top face can't be red because front is red.",
-    "category": "Unknown",
-    "abbreviation": "C-71"
+    "category": "Deduction",
+    "abbreviation": "D-71"
   },
   {
     "index": 72,
     "text": "Wait, no, the top face is separate from the front and right.",
-    "category": "Unknown",
-    "abbreviation": "C-72"
+    "category": "Backtracking",
+    "abbreviation": "B-72"
   },
   {
     "index": 73,
     "text": "So, the front is red, right is blue, but the top could be either.",
-    "category": "Unknown",
-    "abbreviation": "C-73"
+    "category": "Deduction",
+    "abbreviation": "D-73"
   },
   {
     "index": 74,
     "text": "Wait, no, the front, right, back, and left are the four vertical faces.",
-    "category": "Unknown",
-    "abbreviation": "C-74"
+    "category": "Backtracking",
+    "abbreviation": "B-74"
   },
   {
     "index": 75,
     "text": "The top and bottom are the two horizontal faces.",
-    "category": "Unknown",
-    "abbreviation": "C-75"
+    "category": "Deduction",
+    "abbreviation": "D-75"
   },
   {
     "index": 76,
     "text": "So, each cube has six faces: front, back, left, right, top, bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-76"
+    "category": "Deduction",
+    "abbreviation": "D-76"
   },
   {
     "index": 77,
     "text": "Each cube has two of each color: red, blue, yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-77"
+    "category": "Deduction",
+    "abbreviation": "D-77"
   },
   {
     "index": 78,
     "text": "So, for Cube A:\n\nFront=Red\n\nRight=Blue\n\nSo, that's one Red and one Blue face used.",
-    "category": "Unknown",
-    "abbreviation": "C-78"
+    "category": "Deduction",
+    "abbreviation": "D-78"
   },
   {
     "index": 79,
     "text": "Therefore, the remaining four faces (Back, Left, Top, Bottom) must be one Red and one Blue each.",
-    "category": "Unknown",
-    "abbreviation": "C-79"
+    "category": "Deduction",
+    "abbreviation": "D-79"
   },
   {
     "index": 80,
     "text": "Similarly, Cube B:\n\nFront=Blue\n\nRight=Red\n\nSo, one Blue and one Red used.",
-    "category": "Unknown",
-    "abbreviation": "C-80"
+    "category": "Deduction",
+    "abbreviation": "D-80"
   },
   {
     "index": 81,
     "text": "Remaining four faces (Back, Left, Top, Bottom) must be one Red and one Blue each.",
-    "category": "Unknown",
-    "abbreviation": "C-81"
+    "category": "Deduction",
+    "abbreviation": "D-81"
   },
   {
     "index": 82,
     "text": "Cube C:\n\nFront=Yellow\n\nRight=Yellow\n\nSo, two Yellow faces used.",
-    "category": "Unknown",
-    "abbreviation": "C-82"
+    "category": "Deduction",
+    "abbreviation": "D-82"
   },
   {
     "index": 83,
     "text": "Remaining four faces (Back, Left, Top, Bottom) must be two Red and two Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-83"
+    "category": "Deduction",
+    "abbreviation": "D-83"
   },
   {
     "index": 84,
     "text": "Now, the key is to figure out the orientations so that the colors from the top, when viewed left to right, give the correct sequence.",
-    "category": "Unknown",
-    "abbreviation": "C-84"
+    "category": "Question Posing",
+    "abbreviation": "QP-84"
   },
   {
     "index": 85,
     "text": "But how? Let's think about the possible orientations.",
-    "category": "Unknown",
-    "abbreviation": "C-85"
+    "category": "Question Posing",
+    "abbreviation": "QP-85"
   },
   {
     "index": 86,
     "text": "Let me try to assign the top faces.",
-    "category": "Unknown",
-    "abbreviation": "C-86"
+    "category": "Initializing",
+    "abbreviation": "I-86"
   },
   {
     "index": 87,
     "text": "Let's start with Cube A.",
-    "category": "Unknown",
-    "abbreviation": "C-87"
+    "category": "Initializing",
+    "abbreviation": "I-87"
   },
   {
     "index": 88,
     "text": "Cube A:\n\nFront=Red\n\nRight=Blue\n\nSo, Front is Red, Right is Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-88"
+    "category": "Deduction",
+    "abbreviation": "D-88"
   },
   {
     "index": 89,
     "text": "Therefore, the Top and Bottom must be one Red and one Blue each, and the Back and Left must also be one Red and one Blue each.",
-    "category": "Unknown",
-    "abbreviation": "C-89"
+    "category": "Deduction",
+    "abbreviation": "D-89"
   },
   {
     "index": 90,
     "text": "But how are they oriented?\n\nLet me think about the standard way cubes are oriented.",
-    "category": "Unknown",
-    "abbreviation": "C-90"
+    "category": "Question Posing",
+    "abbreviation": "QP-90"
   },
   {
     "index": 91,
     "text": "The front face is facing us, the right face is to the right, the left face is to the left, the back face is behind, the top face is up, and the bottom face is down.",
-    "category": "Unknown",
-    "abbreviation": "C-91"
+    "category": "Deduction",
+    "abbreviation": "D-91"
   },
   {
     "index": 92,
     "text": "So, if Cube A's Front is Red, Right is Blue, then the Back would be opposite to Front, so Back would be opposite color? Wait, no, the Back could be any color, but it has to comply with the two faces per color.",
-    "category": "Unknown",
-    "abbreviation": "C-92"
+    "category": "Backtracking",
+    "abbreviation": "B-92"
   },
   {
     "index": 93,
     "text": "Wait, no, the Back face is just another face; it doesn't have to be opposite in color.",
-    "category": "Unknown",
-    "abbreviation": "C-93"
+    "category": "Backtracking",
+    "abbreviation": "B-93"
   },
   {
     "index": 94,
     "text": "It's just that each color has exactly two faces.",
-    "category": "Unknown",
-    "abbreviation": "C-94"
+    "category": "Deduction",
+    "abbreviation": "D-94"
   },
   {
     "index": 95,
     "text": "So, for Cube A, Front=Red, Right=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-95"
+    "category": "Final Answer",
+    "abbreviation": "FA-95"
   },
   {
     "index": 96,
     "text": "Therefore, the Back, Left, Top, Bottom must include one Red and one Blue each.",
-    "category": "Unknown",
-    "abbreviation": "C-96"
+    "category": "Deduction",
+    "abbreviation": "D-96"
   },
   {
     "index": 97,
     "text": "Similarly for Cube B and Cube C.",
-    "category": "Unknown",
-    "abbreviation": "C-97"
+    "category": "Deduction",
+    "abbreviation": "D-97"
   },
   {
     "index": 98,
     "text": "Now, let's think about Cube C.",
-    "category": "Unknown",
-    "abbreviation": "C-98"
+    "category": "Question Posing",
+    "abbreviation": "QP-98"
   },
   {
     "index": 99,
     "text": "Cube C:\n\nFront=Yellow\n\nRight=Yellow\n\nSo, Front and Right are Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-99"
+    "category": "Deduction",
+    "abbreviation": "D-99"
   },
   {
     "index": 100,
     "text": "Therefore, the Back, Left, Top, Bottom must be two Red and two Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-100"
+    "category": "Deduction",
+    "abbreviation": "D-100"
   },
   {
     "index": 101,
     "text": "Now, let's consider the orientation of each cube.",
-    "category": "Unknown",
-    "abbreviation": "C-101"
+    "category": "Example Testing",
+    "abbreviation": "ET-101"
   },
   {
     "index": 102,
     "text": "From the front, Cube A is Red, so the Front is Red.",
-    "category": "Unknown",
-    "abbreviation": "C-102"
+    "category": "Deduction",
+    "abbreviation": "D-102"
   },
   {
     "index": 103,
     "text": "From the right, Cube A's Right is Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-103"
+    "category": "Deduction",
+    "abbreviation": "D-103"
   },
   {
     "index": 104,
     "text": "So, if we imagine looking at Cube A from the front, the Right face is Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-104"
+    "category": "Deduction",
+    "abbreviation": "D-104"
   },
   {
     "index": 105,
     "text": "Similarly, for Cube B: Front is Blue, Right is Red.",
-    "category": "Unknown",
-    "abbreviation": "C-105"
+    "category": "Deduction",
+    "abbreviation": "D-105"
   },
   {
     "index": 106,
     "text": "For Cube C: Front is Yellow, Right is Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-106"
+    "category": "Deduction",
+    "abbreviation": "D-106"
   },
   {
     "index": 107,
     "text": "Now, to figure out the top faces, let's think about how the cubes are arranged.",
-    "category": "Unknown",
-    "abbreviation": "C-107"
+    "category": "Question Posing",
+    "abbreviation": "QP-107"
   },
   {
     "index": 108,
     "text": "Since they are placed in a row, the orientation of each cube's top face depends on their placement.",
-    "category": "Unknown",
-    "abbreviation": "C-108"
+    "category": "Deduction",
+    "abbreviation": "D-108"
   },
   {
     "index": 109,
     "text": "But without knowing the exact arrangement in height, it's a bit tricky.",
-    "category": "Unknown",
-    "abbreviation": "C-109"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-109"
   },
   {
     "index": 110,
     "text": "However, we can deduce based on the constraints.",
-    "category": "Unknown",
-    "abbreviation": "C-110"
+    "category": "Deduction",
+    "abbreviation": "D-110"
   },
   {
     "index": 111,
     "text": "Let me try to think of the cubes as being placed on a table, each on top of the previous one? Or side by side on the table? The problem says \"placed in a row on a table,\" so probably side by side.",
-    "category": "Unknown",
-    "abbreviation": "C-111"
+    "category": "Question Posing",
+    "abbreviation": "QP-111"
   },
   {
     "index": 112,
     "text": "But when viewed from the top, the top face of each cube is visible.",
-    "category": "Unknown",
-    "abbreviation": "C-112"
+    "category": "Example Testing",
+    "abbreviation": "ET-112"
   },
   {
     "index": 113,
     "text": "So, from the top, we need to see the top faces of Cube A, Cube B, Cube C from left to right.",
-    "category": "Unknown",
-    "abbreviation": "C-113"
+    "category": "Deduction",
+    "abbreviation": "D-113"
   },
   {
     "index": 114,
     "text": "But to find that, we need to figure out what color is on top of each cube.",
-    "category": "Unknown",
-    "abbreviation": "C-114"
+    "category": "Question Posing",
+    "abbreviation": "QP-114"
   },
   {
     "index": 115,
     "text": "Let me try to assign possible top colors.",
-    "category": "Unknown",
-    "abbreviation": "C-115"
+    "category": "Initializing",
+    "abbreviation": "I-115"
   },
   {
     "index": 116,
     "text": "Starting with Cube A.",
-    "category": "Unknown",
-    "abbreviation": "C-116"
+    "category": "Initializing",
+    "abbreviation": "I-116"
   },
   {
     "index": 117,
     "text": "Cube A:\n\nFront=Red\n\nRight=Blue\n\nSo, Front=Red, Right=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-117"
+    "category": "Deduction",
+    "abbreviation": "D-117"
   },
   {
     "index": 118,
     "text": "Therefore, the Back, Left, Top, Bottom must be one Red and one Blue each.",
-    "category": "Unknown",
-    "abbreviation": "C-118"
+    "category": "Deduction",
+    "abbreviation": "D-118"
   },
   {
     "index": 119,
     "text": "Let's assume that the Back is opposite to the Front, but in terms of color, not necessarily.",
-    "category": "Unknown",
-    "abbreviation": "C-119"
+    "category": "Example Testing",
+    "abbreviation": "ET-119"
   },
   {
     "index": 120,
     "text": "So, Front=Red, Back could be any color, but we have to have two of each color.",
-    "category": "Unknown",
-    "abbreviation": "C-120"
+    "category": "Deduction",
+    "abbreviation": "D-120"
   },
   {
     "index": 121,
     "text": "So, for Cube A:\n\nFaces:\n\nFront=Red\n\nRight=Blue\n\nBack=?\n\nLeft=?\n\nTop=?\n\nBottom=?\n\nColors used so far: Red (Front), Blue (Right).",
-    "category": "Unknown",
-    "abbreviation": "C-121"
+    "category": "Example Testing",
+    "abbreviation": "ET-121"
   },
   {
     "index": 122,
     "text": "So, remaining colors for Back, Left, Top, Bottom: one Red and one Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-122"
+    "category": "Deduction",
+    "abbreviation": "D-122"
   },
   {
     "index": 123,
     "text": "Similarly for Cube B:\n\nFront=Blue\n\nRight=Red\n\nSo, remaining colors: one Red and one Blue for Back, Left, Top, Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-123"
+    "category": "Deduction",
+    "abbreviation": "D-123"
   },
   {
     "index": 124,
     "text": "Cube C:\n\nFront=Yellow\n\nRight=Yellow\n\nSo, remaining colors: two Red and two Blue for Back, Left, Top, Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-124"
+    "category": "Deduction",
+    "abbreviation": "D-124"
   },
   {
     "index": 125,
     "text": "Now, let's try to figure out the orientation of each cube.",
-    "category": "Unknown",
-    "abbreviation": "C-125"
+    "category": "Initializing",
+    "abbreviation": "I-125"
   },
   {
     "index": 126,
     "text": "Let me consider Cube A.",
-    "category": "Unknown",
-    "abbreviation": "C-126"
+    "category": "Question Posing",
+    "abbreviation": "QP-126"
   },
   {
     "index": 127,
     "text": "If Cube A's Front is Red and Right is Blue, then the Back could be opposite to Front, but not necessarily.",
-    "category": "Unknown",
-    "abbreviation": "C-127"
+    "category": "Deduction",
+    "abbreviation": "D-127"
   },
   {
     "index": 128,
     "text": "However, the Back face can't be Red because we only have two Reds, and Front is already Red.",
-    "category": "Unknown",
-    "abbreviation": "C-128"
+    "category": "Deduction",
+    "abbreviation": "D-128"
   },
   {
     "index": 129,
     "text": "So, Back can't be Red because Front is Red, and each color has exactly two faces.",
-    "category": "Unknown",
-    "abbreviation": "C-129"
+    "category": "Deduction",
+    "abbreviation": "D-129"
   },
   {
     "index": 130,
     "text": "Wait, no, each color has exactly two faces on the entire cube.",
-    "category": "Unknown",
-    "abbreviation": "C-130"
+    "category": "Backtracking",
+    "abbreviation": "B-130"
   },
   {
     "index": 131,
     "text": "So, for Cube A, since Front is Red, Back can't be Red because that would make three Reds.",
-    "category": "Unknown",
-    "abbreviation": "C-131"
+    "category": "Deduction",
+    "abbreviation": "D-131"
   },
   {
     "index": 132,
     "text": "Therefore, Back must be a different color.",
-    "category": "Unknown",
-    "abbreviation": "C-132"
+    "category": "Deduction",
+    "abbreviation": "D-132"
   },
   {
     "index": 133,
     "text": "Wait, that's an important point.",
-    "category": "Unknown",
-    "abbreviation": "C-133"
+    "category": "Backtracking",
+    "abbreviation": "B-133"
   },
   {
     "index": 134,
     "text": "Each cube has exactly two faces of each color.",
-    "category": "Unknown",
-    "abbreviation": "C-134"
+    "category": "Deduction",
+    "abbreviation": "D-134"
   },
   {
     "index": 135,
     "text": "So, if Cube A's Front is Red, then Back cannot be Red because that would make two Reds on the vertical faces, but the Front and Back would both be Red, making two Reds.",
-    "category": "Unknown",
-    "abbreviation": "C-135"
+    "category": "Deduction",
+    "abbreviation": "D-135"
   },
   {
     "index": 136,
     "text": "Wait, no, each color has exactly two faces on the entire cube.",
-    "category": "Unknown",
-    "abbreviation": "C-136"
+    "category": "Backtracking",
+    "abbreviation": "B-136"
   },
   {
     "index": 137,
     "text": "So, if Front is Red, Back can't be Red because that would make two Reds on the Back and Front, but each color has exactly two faces.",
-    "category": "Unknown",
-    "abbreviation": "C-137"
+    "category": "Deduction",
+    "abbreviation": "D-137"
   },
   {
     "index": 138,
     "text": "Wait, no, each color has exactly two faces on the entire cube.",
-    "category": "Unknown",
-    "abbreviation": "C-138"
+    "category": "Backtracking",
+    "abbreviation": "B-138"
   },
   {
     "index": 139,
     "text": "So, if Front is Red, Back can't be Red because that would make three Reds (Front, Back, and maybe another face).",
-    "category": "Unknown",
-    "abbreviation": "C-139"
+    "category": "Deduction",
+    "abbreviation": "D-139"
   },
   {
     "index": 140,
     "text": "Wait, no, the cube has six faces, with two of each color.",
-    "category": "Unknown",
-    "abbreviation": "C-140"
+    "category": "Backtracking",
+    "abbreviation": "B-140"
   },
   {
     "index": 141,
     "text": "So, if Front is Red, Back can't be Red because that would make two Reds on the vertical faces, but the cube has two Reds total.",
-    "category": "Unknown",
-    "abbreviation": "C-141"
+    "category": "Deduction",
+    "abbreviation": "D-141"
   },
   {
     "index": 142,
     "text": "Wait, no, the cube has six faces, two of each color.",
-    "category": "Unknown",
-    "abbreviation": "C-142"
+    "category": "Backtracking",
+    "abbreviation": "B-142"
   },
   {
     "index": 143,
     "text": "So, if Front is Red, Back can't be Red because that would make two Reds on the vertical faces, but the cube has two Reds in total.",
-    "category": "Unknown",
-    "abbreviation": "C-143"
+    "category": "Deduction",
+    "abbreviation": "D-143"
   },
   {
     "index": 144,
     "text": "So, Front=Red, Back\u2260Red.",
-    "category": "Unknown",
-    "abbreviation": "C-144"
+    "category": "Deduction",
+    "abbreviation": "D-144"
   },
   {
     "index": 145,
     "text": "Similarly, if Front is Red, then Back must be a different color, either Blue or Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-145"
+    "category": "Deduction",
+    "abbreviation": "D-145"
   },
   {
     "index": 146,
     "text": "But in this case, Cube A's Front is Red, Right is Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-146"
+    "category": "Deduction",
+    "abbreviation": "D-146"
   },
   {
     "index": 147,
     "text": "So, Front=Red, Right=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-147"
+    "category": "Deduction",
+    "abbreviation": "D-147"
   },
   {
     "index": 148,
     "text": "Therefore, the Back, Left, Top, Bottom must be one Red and one Blue each.",
-    "category": "Unknown",
-    "abbreviation": "C-148"
+    "category": "Deduction",
+    "abbreviation": "D-148"
   },
   {
     "index": 149,
     "text": "But since Front is Red, Back can't be Red.",
-    "category": "Unknown",
-    "abbreviation": "C-149"
+    "category": "Deduction",
+    "abbreviation": "D-149"
   },
   {
     "index": 150,
     "text": "Therefore, Back must be Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-150"
+    "category": "Deduction",
+    "abbreviation": "D-150"
   },
   {
     "index": 151,
     "text": "So, Back=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-151"
+    "category": "Deduction",
+    "abbreviation": "D-151"
   },
   {
     "index": 152,
     "text": "Then, the remaining faces: Left, Top, Bottom must have one Red and one Blue each.",
-    "category": "Unknown",
-    "abbreviation": "C-152"
+    "category": "Deduction",
+    "abbreviation": "D-152"
   },
   {
     "index": 153,
     "text": "Wait, but we have four faces left: Left, Top, Bottom, and Back.",
-    "category": "Unknown",
-    "abbreviation": "C-153"
+    "category": "Backtracking",
+    "abbreviation": "B-153"
   },
   {
     "index": 154,
     "text": "We've assigned Back=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-154"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-154"
   },
   {
     "index": 155,
     "text": "So, Front=Red, Right=Blue, Back=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-155"
+    "category": "Deduction",
+    "abbreviation": "D-155"
   },
   {
     "index": 156,
     "text": "Wait, that's two Blues on the vertical faces, but each cube can only have two of each color.",
-    "category": "Unknown",
-    "abbreviation": "C-156"
+    "category": "Backtracking",
+    "abbreviation": "B-156"
   },
   {
     "index": 157,
     "text": "So, Front=Red, Right=Blue, Back=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-157"
+    "category": "Deduction",
+    "abbreviation": "D-157"
   },
   {
     "index": 158,
     "text": "That would be two Blues on the vertical faces, which is allowed because each color has exactly two faces on the cube.",
-    "category": "Unknown",
-    "abbreviation": "C-158"
+    "category": "Deduction",
+    "abbreviation": "D-158"
   },
   {
     "index": 159,
     "text": "Therefore, Cube A:\n\nFront=Red\n\nRight=Blue\n\nBack=Blue\n\nLeft=?\n\nTop=?\n\nBottom=?\n\nNow, the remaining faces: Left, Top, Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-159"
+    "category": "Deduction",
+    "abbreviation": "D-159"
   },
   {
     "index": 160,
     "text": "We have used two Reds (Front and Back=Blue? Wait, no, Front=Red, Back=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-160"
+    "category": "Backtracking",
+    "abbreviation": "B-160"
   },
   {
     "index": 161,
     "text": "So, Reds used: Front=Red.",
-    "category": "Unknown",
-    "abbreviation": "C-161"
+    "category": "Example Testing",
+    "abbreviation": "ET-161"
   },
   {
     "index": 162,
     "text": "Blues used: Right=Blue, Back=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-162"
+    "category": "Example Testing",
+    "abbreviation": "ET-162"
   },
   {
     "index": 163,
     "text": "So, Reds remaining: one (Top or Bottom).",
-    "category": "Unknown",
-    "abbreviation": "C-163"
+    "category": "Deduction",
+    "abbreviation": "D-163"
   },
   {
     "index": 164,
     "text": "Blues remaining: none.",
-    "category": "Unknown",
-    "abbreviation": "C-164"
+    "category": "Deduction",
+    "abbreviation": "D-164"
   },
   {
     "index": 165,
     "text": "Wait, that can't be.",
-    "category": "Unknown",
-    "abbreviation": "C-165"
+    "category": "Backtracking",
+    "abbreviation": "B-165"
   },
   {
     "index": 166,
     "text": "Because each cube has two Reds and two Blues.",
-    "category": "Unknown",
-    "abbreviation": "C-166"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-166"
   },
   {
     "index": 167,
     "text": "Wait, Front=Red, Right=Blue, Back=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-167"
+    "category": "Example Testing",
+    "abbreviation": "ET-167"
   },
   {
     "index": 168,
     "text": "So, Reds: Front=Red, so one Red used.",
-    "category": "Unknown",
-    "abbreviation": "C-168"
+    "category": "Example Testing",
+    "abbreviation": "ET-168"
   },
   {
     "index": 169,
     "text": "Need one more Red on either Left, Top, or Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-169"
+    "category": "Deduction",
+    "abbreviation": "D-169"
   },
   {
     "index": 170,
     "text": "Blues: Right=Blue, Back=Blue, so two Blues used.",
-    "category": "Unknown",
-    "abbreviation": "C-170"
+    "category": "Deduction",
+    "abbreviation": "D-170"
   },
   {
     "index": 171,
     "text": "So, no more Blues can be used on Left, Top, or Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-171"
+    "category": "Deduction",
+    "abbreviation": "D-171"
   },
   {
     "index": 172,
     "text": "Therefore, Left, Top, Bottom must be:\n\nLeft=Red\n\nTop=Blue? No, can't because Blues are already used up.",
-    "category": "Unknown",
-    "abbreviation": "C-172"
+    "category": "Deduction",
+    "abbreviation": "D-172"
   },
   {
     "index": 173,
     "text": "Wait, that can't be.",
-    "category": "Unknown",
-    "abbreviation": "C-173"
+    "category": "Backtracking",
+    "abbreviation": "B-173"
   },
   {
     "index": 174,
     "text": "Let me re-express.",
-    "category": "Unknown",
-    "abbreviation": "C-174"
+    "category": "Backtracking",
+    "abbreviation": "B-174"
   },
   {
     "index": 175,
     "text": "Cube A:\n\nFaces:\n\nFront=Red\n\nRight=Blue\n\nBack=Blue\n\nLeft=?\n\nTop=?\n\nBottom=?\n\nColors used:\n\nRed: Front\n\nBlue: Right, Back\n\nYellow: None\n\nSo, remaining colors: Yellow must be on Left, Top, or Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-175"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-175"
   },
   {
     "index": 176,
     "text": "But each cube has two Yellow faces, but Cube A's Front, Right, Back are non-Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-176"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-176"
   },
   {
     "index": 177,
     "text": "So, Yellow must be on Left, Top, or Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-177"
+    "category": "Deduction",
+    "abbreviation": "D-177"
   },
   {
     "index": 178,
     "text": "But wait, each cube has two Yellow faces.",
-    "category": "Unknown",
-    "abbreviation": "C-178"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-178"
   },
   {
     "index": 179,
     "text": "So, if Cube A's Front, Right, Back are Red, Blue, Blue, then the Yellow faces must be on Left, Top, and Bottom? No, wait, each color has exactly two faces.",
-    "category": "Unknown",
-    "abbreviation": "C-179"
+    "category": "Deduction",
+    "abbreviation": "D-179"
   },
   {
     "index": 180,
     "text": "So, if Yellow is on Left, Top, and Bottom, that's three Yellow faces, which is more than allowed.",
-    "category": "Unknown",
-    "abbreviation": "C-180"
+    "category": "Deduction",
+    "abbreviation": "D-180"
   },
   {
     "index": 181,
     "text": "Therefore, my earlier assumption is wrong.",
-    "category": "Unknown",
-    "abbreviation": "C-181"
+    "category": "Backtracking",
+    "abbreviation": "B-181"
   },
   {
     "index": 182,
     "text": "Let's backtrack.",
-    "category": "Unknown",
-    "abbreviation": "C-182"
+    "category": "Backtracking",
+    "abbreviation": "B-182"
   },
   {
     "index": 183,
     "text": "Cube A:\n\nFront=Red\n\nRight=Blue\n\nSo, Front=Red, Right=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-183"
+    "category": "Deduction",
+    "abbreviation": "D-183"
   },
   {
     "index": 184,
     "text": "Since each color has two faces, and each cube has six faces, we have two Reds, two Blues, and two Yellows.",
-    "category": "Unknown",
-    "abbreviation": "C-184"
+    "category": "Deduction",
+    "abbreviation": "D-184"
   },
   {
     "index": 185,
     "text": "So, Front=Red, Right=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-185"
+    "category": "Deduction",
+    "abbreviation": "D-185"
   },
   {
     "index": 186,
     "text": "Therefore, the remaining faces (Back, Left, Top, Bottom) must be one Red and one Blue each, but also considering the Yellows.",
-    "category": "Unknown",
-    "abbreviation": "C-186"
+    "category": "Deduction",
+    "abbreviation": "D-186"
   },
   {
     "index": 187,
     "text": "Wait, no, the Yellows are separate.",
-    "category": "Unknown",
-    "abbreviation": "C-187"
+    "category": "Backtracking",
+    "abbreviation": "B-187"
   },
   {
     "index": 188,
     "text": "Each cube has two Yellows, so two of the remaining four faces must be Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-188"
+    "category": "Deduction",
+    "abbreviation": "D-188"
   },
   {
     "index": 189,
     "text": "So, for Cube A:\n\nFront=Red\n\nRight=Blue\n\nSo, remaining faces: Back, Left, Top, Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-189"
+    "category": "Deduction",
+    "abbreviation": "D-189"
   },
   {
     "index": 190,
     "text": "These must include:\n\n- One Red (since two Reds in total, one used on Front)\n\n- One Blue (since two Blues in total, one used on Right)\n\n- Two Yellows.",
-    "category": "Unknown",
-    "abbreviation": "C-190"
+    "category": "Deduction",
+    "abbreviation": "D-190"
   },
   {
     "index": 191,
     "text": "So, the remaining four faces must be one Red, one Blue, and two Yellows.",
-    "category": "Unknown",
-    "abbreviation": "C-191"
+    "category": "Deduction",
+    "abbreviation": "D-191"
   },
   {
     "index": 192,
     "text": "Therefore, Cube A:\n\nBack, Left, Top, Bottom: one Red, one Blue, two Yellows.",
-    "category": "Unknown",
-    "abbreviation": "C-192"
+    "category": "Deduction",
+    "abbreviation": "D-192"
   },
   {
     "index": 193,
     "text": "Similarly, for Cube B:\n\nFront=Blue\n\nRight=Red\n\nSo, remaining faces: Back, Left, Top, Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-193"
+    "category": "Deduction",
+    "abbreviation": "D-193"
   },
   {
     "index": 194,
     "text": "Must include one Red, one Blue, and two Yellows.",
-    "category": "Unknown",
-    "abbreviation": "C-194"
+    "category": "Deduction",
+    "abbreviation": "D-194"
   },
   {
     "index": 195,
     "text": "Cube C:\n\nFront=Yellow\n\nRight=Yellow\n\nSo, remaining faces: Back, Left, Top, Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-195"
+    "category": "Deduction",
+    "abbreviation": "D-195"
   },
   {
     "index": 196,
     "text": "Must include two Reds and two Blues.",
-    "category": "Unknown",
-    "abbreviation": "C-196"
+    "category": "Example Testing",
+    "abbreviation": "ET-196"
   },
   {
     "index": 197,
     "text": "Now, let's try to figure out Cube A's Back, Left, Top, Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-197"
+    "category": "Example Testing",
+    "abbreviation": "ET-197"
   },
   {
     "index": 198,
     "text": "We have:\n\nCube A:\n\nFront=Red\n\nRight=Blue\n\nBack, Left, Top, Bottom: one Red, one Blue, two Yellows.",
-    "category": "Unknown",
-    "abbreviation": "C-198"
+    "category": "Deduction",
+    "abbreviation": "D-198"
   },
   {
     "index": 199,
     "text": "Similarly for Cube B.",
-    "category": "Unknown",
-    "abbreviation": "C-199"
+    "category": "Initializing",
+    "abbreviation": "I-199"
   },
   {
     "index": 200,
     "text": "Let me try to assign the Back, Left, Top, Bottom for Cube A.",
-    "category": "Unknown",
-    "abbreviation": "C-200"
+    "category": "Example Testing",
+    "abbreviation": "ET-200"
   },
   {
     "index": 201,
     "text": "Let's assume that Cube A's Back is Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-201"
+    "category": "Deduction",
+    "abbreviation": "D-201"
   },
   {
     "index": 202,
     "text": "So, Back=Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-202"
+    "category": "Deduction",
+    "abbreviation": "D-202"
   },
   {
     "index": 203,
     "text": "Then, remaining faces: Left, Top, Bottom must be one Red, one Blue, and one Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-203"
+    "category": "Deduction",
+    "abbreviation": "D-203"
   },
   {
     "index": 204,
     "text": "But since each color has exactly two faces, and we've already used one Yellow on Back, we need one more Yellow on either Left, Top, or Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-204"
+    "category": "Deduction",
+    "abbreviation": "D-204"
   },
   {
     "index": 205,
     "text": "So, let's say Back=Yellow, Left=Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-205"
+    "category": "Example Testing",
+    "abbreviation": "ET-205"
   },
   {
     "index": 206,
     "text": "Then, Top and Bottom must be one Red and one Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-206"
+    "category": "Deduction",
+    "abbreviation": "D-206"
   },
   {
     "index": 207,
     "text": "But let's check:\n\nCube A:\n\nFront=Red\n\nRight=Blue\n\nBack=Yellow\n\nLeft=Yellow\n\nTop=?\n\nBottom=?\n\nSo, Top and Bottom must be Red and Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-207"
+    "category": "Example Testing",
+    "abbreviation": "ET-207"
   },
   {
     "index": 208,
     "text": "So, let's say Top=Red, Bottom=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-208"
+    "category": "Example Testing",
+    "abbreviation": "ET-208"
   },
   {
     "index": 209,
     "text": "Therefore, Cube A's faces:\n\nFront=Red\n\nRight=Blue\n\nBack=Yellow\n\nLeft=Yellow\n\nTop=Red\n\nBottom=Blue\n\nNow, let's check if this works.",
-    "category": "Unknown",
-    "abbreviation": "C-209"
+    "category": "Deduction",
+    "abbreviation": "D-209"
   },
   {
     "index": 210,
     "text": "Each color:\n\nRed: Front, Top (two)\n\nBlue: Right, Bottom (two)\n\nYellow: Back, Left (two)\n\nPerfect.",
-    "category": "Unknown",
-    "abbreviation": "C-210"
+    "category": "Deduction",
+    "abbreviation": "D-210"
   },
   {
     "index": 211,
     "text": "So, Cube A's orientation is:\n\nFront=Red\n\nRight=Blue\n\nBack=Yellow\n\nLeft=Yellow\n\nTop=Red\n\nBottom=Blue\n\nNow, let's move to Cube B.",
-    "category": "Unknown",
-    "abbreviation": "C-211"
+    "category": "Deduction",
+    "abbreviation": "D-211"
   },
   {
     "index": 212,
     "text": "Cube B:\n\nFront=Blue\n\nRight=Red\n\nSo, Front=Blue, Right=Red.",
-    "category": "Unknown",
-    "abbreviation": "C-212"
+    "category": "Deduction",
+    "abbreviation": "D-212"
   },
   {
     "index": 213,
     "text": "Remaining faces: Back, Left, Top, Bottom.",
-    "category": "Unknown",
-    "abbreviation": "C-213"
+    "category": "Deduction",
+    "abbreviation": "D-213"
   },
   {
     "index": 214,
     "text": "Must include one Red, one Blue, and two Yellows.",
-    "category": "Unknown",
-    "abbreviation": "C-214"
+    "category": "Deduction",
+    "abbreviation": "D-214"
   },
   {
     "index": 215,
     "text": "So, similar to Cube A, let's assign Back=Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-215"
+    "category": "Example Testing",
+    "abbreviation": "ET-215"
   },
   {
     "index": 216,
     "text": "Then, Left=Yellow.",
-    "category": "Unknown",
-    "abbreviation": "C-216"
+    "category": "Example Testing",
+    "abbreviation": "ET-216"
   },
   {
     "index": 217,
     "text": "Then, Top and Bottom must be Red and Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-217"
+    "category": "Deduction",
+    "abbreviation": "D-217"
   },
   {
     "index": 218,
     "text": "So, let's say Top=Red, Bottom=Blue.",
-    "category": "Unknown",
-    "abbreviation": "C-218"
+    "category": "Example Testing",
+    "abbreviation": "ET-218"
   },
   {
     "index": 219,
     "text": "Therefore, Cube B's faces:",
-    "category": "Unknown",
-    "abbreviation": "C-219"
+    "category": "Final Answer",
+    "abbreviation": "FA-219"
   }
 ]

@@ -2,517 +2,517 @@
   {
     "index": 0,
     "text": "Solve this problem step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-0"
+    "category": "Initializing",
+    "abbreviation": "I-0"
   },
   {
     "index": 1,
     "text": "End with 'DONE.' when you have a solution.",
-    "category": "Unknown",
-    "abbreviation": "C-1"
+    "category": "Initializing",
+    "abbreviation": "I-1"
   },
   {
     "index": 2,
     "text": "Question: A small bakery tracks the number of customers who enter per hour.",
-    "category": "Unknown",
-    "abbreviation": "C-2"
+    "category": "Initializing",
+    "abbreviation": "I-2"
   },
   {
     "index": 3,
     "text": "They've determined that the arrival of customers follows a Poisson process with an average rate of 6 customers per hour.",
-    "category": "Unknown",
-    "abbreviation": "C-3"
+    "category": "Initializing",
+    "abbreviation": "I-3"
   },
   {
     "index": 4,
     "text": "The owner wants to understand the probabilities to help with staffing decisions.",
-    "category": "Unknown",
-    "abbreviation": "C-4"
+    "category": "Initializing",
+    "abbreviation": "I-4"
   },
   {
     "index": 5,
     "text": "1. What is the probability of exactly 4 customers arriving during a randomly chosen hour?\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-5"
+    "category": "Initializing",
+    "abbreviation": "I-5"
   },
   {
     "index": 6,
     "text": "What is the probability of 8 or more customers arriving during a randomly chosen hour?\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-6"
+    "category": "Question Posing",
+    "abbreviation": "QP-6"
   },
   {
     "index": 7,
     "text": "If the bakery is open for 2 hours, what is the probability of exactly 10 customers arriving in total during this period? \n\n Solution: \n<think>\nAlright, so I have this problem about a bakery tracking customer arrivals using a Poisson process.",
-    "category": "Unknown",
-    "abbreviation": "C-7"
+    "category": "Initializing",
+    "abbreviation": "I-7"
   },
   {
     "index": 8,
     "text": "Let's break it down step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-8"
+    "category": "Initializing",
+    "abbreviation": "I-8"
   },
   {
     "index": 9,
     "text": "First, I need to recall what a Poisson process is.",
-    "category": "Unknown",
-    "abbreviation": "C-9"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-9"
   },
   {
     "index": 10,
     "text": "From what I remember, a Poisson process is a counting process that counts the number of events happening in a fixed interval of time.",
-    "category": "Unknown",
-    "abbreviation": "C-10"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-10"
   },
   {
     "index": 11,
     "text": "It's characterized by the rate parameter, which here is given as 6 customers per hour.",
-    "category": "Unknown",
-    "abbreviation": "C-11"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-11"
   },
   {
     "index": 12,
     "text": "That means on average, 6 customers arrive every hour.",
-    "category": "Unknown",
-    "abbreviation": "C-12"
+    "category": "Deduction",
+    "abbreviation": "D-12"
   },
   {
     "index": 13,
     "text": "The Poisson probability formula is P(k; \u03bb) = (e^(-\u03bb) * \u03bb^k) / k!, where \u03bb is the average rate (which is 6 in this case), and k is the number of occurrences we're interested in.",
-    "category": "Unknown",
-    "abbreviation": "C-13"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-13"
   },
   {
     "index": 14,
     "text": "So, for the first question: What is the probability of exactly 4 customers arriving during a randomly chosen hour?\n\nLet me plug in the numbers into the Poisson formula.",
-    "category": "Unknown",
-    "abbreviation": "C-14"
+    "category": "Example Testing",
+    "abbreviation": "ET-14"
   },
   {
     "index": 15,
     "text": "Here, k is 4 and \u03bb is 6.",
-    "category": "Unknown",
-    "abbreviation": "C-15"
+    "category": "Example Testing",
+    "abbreviation": "ET-15"
   },
   {
     "index": 16,
     "text": "So, P(4) = (e^(-6) * 6^4) / 4!.",
-    "category": "Unknown",
-    "abbreviation": "C-16"
+    "category": "Deduction",
+    "abbreviation": "D-16"
   },
   {
     "index": 17,
     "text": "I can calculate that step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-17"
+    "category": "Initializing",
+    "abbreviation": "I-17"
   },
   {
     "index": 18,
     "text": "First, calculate e^(-6).",
-    "category": "Unknown",
-    "abbreviation": "C-18"
+    "category": "Deduction",
+    "abbreviation": "D-18"
   },
   {
     "index": 19,
     "text": "I remember that e^(-6) is approximately 0.002478752.",
-    "category": "Unknown",
-    "abbreviation": "C-19"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-19"
   },
   {
     "index": 20,
     "text": "Then, 6^4 is 1296.",
-    "category": "Unknown",
-    "abbreviation": "C-20"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-20"
   },
   {
     "index": 21,
     "text": "And 4! is 24.",
-    "category": "Unknown",
-    "abbreviation": "C-21"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-21"
   },
   {
     "index": 22,
     "text": "So, P(4) = (0.002478752 * 1296) / 24.",
-    "category": "Unknown",
-    "abbreviation": "C-22"
+    "category": "Deduction",
+    "abbreviation": "D-22"
   },
   {
     "index": 23,
     "text": "Let me compute that: 0.002478752 * 1296 = 3.227.",
-    "category": "Unknown",
-    "abbreviation": "C-23"
+    "category": "Deduction",
+    "abbreviation": "D-23"
   },
   {
     "index": 24,
     "text": "Then divide by 24: 3.227 / 24 \u2248 0.1343, or about 13.43%.",
-    "category": "Unknown",
-    "abbreviation": "C-24"
+    "category": "Deduction",
+    "abbreviation": "D-24"
   },
   {
     "index": 25,
     "text": "Okay, that seems reasonable.",
-    "category": "Unknown",
-    "abbreviation": "C-25"
+    "category": "Deduction",
+    "abbreviation": "D-25"
   },
   {
     "index": 26,
     "text": "So, the probability is approximately 13.43%.",
-    "category": "Unknown",
-    "abbreviation": "C-26"
+    "category": "Final Answer",
+    "abbreviation": "FA-26"
   },
   {
     "index": 27,
     "text": "Moving on to the second question: What is the probability of 8 or more customers arriving during a randomly chosen hour?\n\nHmm, so that's the probability that k is 8, 9, 10, ..., up to whatever.",
-    "category": "Unknown",
-    "abbreviation": "C-27"
+    "category": "Initializing",
+    "abbreviation": "I-27"
   },
   {
     "index": 28,
     "text": "Since the Poisson distribution is discrete, we have to sum these probabilities from k=8 to infinity.",
-    "category": "Unknown",
-    "abbreviation": "C-28"
+    "category": "Deduction",
+    "abbreviation": "D-28"
   },
   {
     "index": 29,
     "text": "But since the rate is 6, and Poisson probabilities drop off exponentially, I can probably calculate the cumulative probability from 8 onwards by subtracting the probability of k < 8 from 1.",
-    "category": "Unknown",
-    "abbreviation": "C-29"
+    "category": "Deduction",
+    "abbreviation": "D-29"
   },
   {
     "index": 30,
     "text": "So, P(k >= 8) = 1 - P(k <= 7).",
-    "category": "Unknown",
-    "abbreviation": "C-30"
+    "category": "Deduction",
+    "abbreviation": "D-30"
   },
   {
     "index": 31,
     "text": "Let's compute P(k <=7) by summing from k=0 to 7.",
-    "category": "Unknown",
-    "abbreviation": "C-31"
+    "category": "Deduction",
+    "abbreviation": "D-31"
   },
   {
     "index": 32,
     "text": "But calculating each term individually might be tedious.",
-    "category": "Unknown",
-    "abbreviation": "C-32"
+    "category": "Question Posing",
+    "abbreviation": "QP-32"
   },
   {
     "index": 33,
     "text": "Alternatively, I can use the cumulative distribution function (CDF) for Poisson, which gives P(k <= m) = e^(-\u03bb) * sum_{i=0}^m (\u03bb^i)/i!\n\nSo, let me compute that.",
-    "category": "Unknown",
-    "abbreviation": "C-33"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-33"
   },
   {
     "index": 34,
     "text": "First, compute e^(-6) which is approximately 0.002478752.",
-    "category": "Unknown",
-    "abbreviation": "C-34"
+    "category": "Deduction",
+    "abbreviation": "D-34"
   },
   {
     "index": 35,
     "text": "Then, compute the sum from i=0 to 7 of (6^i)/i!.",
-    "category": "Unknown",
-    "abbreviation": "C-35"
+    "category": "Deduction",
+    "abbreviation": "D-35"
   },
   {
     "index": 36,
     "text": "Let's compute each term:\n\nFor i=0: (6^0)/0! = 1/1 = 1\n\ni=1: 6/1 = 6\n\ni=2: 36/2 = 18\n\ni=3: 216/6 = 36\n\ni=4: 1296/24 = 54\n\ni=5: 7776/120 = 64.8\n\ni=6: 46656/720 = 64.8\n\ni=7: 279936/5040 \u2248 55.36\n\nNow, sum all these up:\n\n1 + 6 = 7\n\n7 + 18 = 25\n\n25 + 36 = 61\n\n61 + 54 = 115\n\n115 + 64.8 = 179.8\n\n179.8 + 64.8 = 244.6\n\n244.6 + 55.36 \u2248 299.96\n\nSo, the sum is approximately 299.96.",
-    "category": "Unknown",
-    "abbreviation": "C-36"
+    "category": "Deduction",
+    "abbreviation": "D-36"
   },
   {
     "index": 37,
     "text": "Then, P(k <=7) = e^(-6) * 299.96 \u2248 0.002478752 * 299.96 \u2248 0.742.",
-    "category": "Unknown",
-    "abbreviation": "C-37"
+    "category": "Deduction",
+    "abbreviation": "D-37"
   },
   {
     "index": 38,
     "text": "Therefore, P(k >=8) = 1 - 0.742 \u2248 0.258, or about 25.8%.",
-    "category": "Unknown",
-    "abbreviation": "C-38"
+    "category": "Deduction",
+    "abbreviation": "D-38"
   },
   {
     "index": 39,
     "text": "Wait, that seems a bit low.",
-    "category": "Unknown",
-    "abbreviation": "C-39"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-39"
   },
   {
     "index": 40,
     "text": "Let me double-check the sum.",
-    "category": "Unknown",
-    "abbreviation": "C-40"
+    "category": "Question Posing",
+    "abbreviation": "QP-40"
   },
   {
     "index": 41,
     "text": "Maybe I made a calculation error.",
-    "category": "Unknown",
-    "abbreviation": "C-41"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-41"
   },
   {
     "index": 42,
     "text": "Wait, when i=5: 6^5 is 7776, and 7776 divided by 120 (which is 5!) is indeed 64.8.",
-    "category": "Unknown",
-    "abbreviation": "C-42"
+    "category": "Deduction",
+    "abbreviation": "D-42"
   },
   {
     "index": 43,
     "text": "i=6: 6^6 is 46656, divided by 720 (6!) is 64.8.",
-    "category": "Unknown",
-    "abbreviation": "C-43"
+    "category": "Deduction",
+    "abbreviation": "D-43"
   },
   {
     "index": 44,
     "text": "i=7: 6^7 is 279936, divided by 5040 (7!) is approximately 55.36.",
-    "category": "Unknown",
-    "abbreviation": "C-44"
+    "category": "Deduction",
+    "abbreviation": "D-44"
   },
   {
     "index": 45,
     "text": "Adding them up again:\n\n1 + 6 = 7\n\n7 + 18 = 25\n\n25 + 36 = 61\n\n61 + 54 = 115\n\n115 + 64.8 = 179.8\n\n179.8 + 64.8 = 244.6\n\n244.6 + 55.36 = 299.96\n\nYes, that seems correct.",
-    "category": "Unknown",
-    "abbreviation": "C-45"
+    "category": "Deduction",
+    "abbreviation": "D-45"
   },
   {
     "index": 46,
     "text": "So, the sum is about 299.96.",
-    "category": "Unknown",
-    "abbreviation": "C-46"
+    "category": "Final Answer",
+    "abbreviation": "FA-46"
   },
   {
     "index": 47,
     "text": "Multiply by e^(-6): 0.002478752 * 299.96 \u2248 0.742.",
-    "category": "Unknown",
-    "abbreviation": "C-47"
+    "category": "Final Answer",
+    "abbreviation": "FA-47"
   },
   {
     "index": 48,
     "text": "So, P(k >=8) \u2248 1 - 0.742 \u2248 0.258, or 25.8%.",
-    "category": "Unknown",
-    "abbreviation": "C-48"
+    "category": "Final Answer",
+    "abbreviation": "FA-48"
   },
   {
     "index": 49,
     "text": "That seems plausible.",
-    "category": "Unknown",
-    "abbreviation": "C-49"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-49"
   },
   {
     "index": 50,
     "text": "Now, the third question: If the bakery is open for 2 hours, what is the probability of exactly 10 customers arriving in total during this period?\n\nHmm, since it's a Poisson process, the number of customers arriving in 2 hours can be modeled as a Poisson process with \u03bb = 6 * 2 = 12.",
-    "category": "Unknown",
-    "abbreviation": "C-50"
+    "category": "Question Posing",
+    "abbreviation": "QP-50"
   },
   {
     "index": 51,
     "text": "So, we're looking for P(k=10) where \u03bb=12.",
-    "category": "Unknown",
-    "abbreviation": "C-51"
+    "category": "Deduction",
+    "abbreviation": "D-51"
   },
   {
     "index": 52,
     "text": "So, using the Poisson formula again: P(10) = (e^(-12) * 12^10) / 10!.",
-    "category": "Unknown",
-    "abbreviation": "C-52"
+    "category": "Deduction",
+    "abbreviation": "D-52"
   },
   {
     "index": 53,
     "text": "First, compute e^(-12).",
-    "category": "Unknown",
-    "abbreviation": "C-53"
+    "category": "Example Testing",
+    "abbreviation": "ET-53"
   },
   {
     "index": 54,
     "text": "I know e^(-6) is about 0.002478752, so e^(-12) is (e^(-6))^2 \u2248 0.002478752^2 \u2248 6.16 x 10^(-6).",
-    "category": "Unknown",
-    "abbreviation": "C-54"
+    "category": "Deduction",
+    "abbreviation": "D-54"
   },
   {
     "index": 55,
     "text": "Then, 12^10.",
-    "category": "Unknown",
-    "abbreviation": "C-55"
+    "category": "Deduction",
+    "abbreviation": "D-55"
   },
   {
     "index": 56,
     "text": "Let's compute that step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-56"
+    "category": "Initializing",
+    "abbreviation": "I-56"
   },
   {
     "index": 57,
     "text": "12^2 = 144\n\n12^3 = 1728\n\n12^4 = 20736\n\n12^5 = 248832\n\n12^6 = 2985984\n\n12^7 = 35831808\n\n12^8 = 429981696\n\n12^9 = 5159780352\n\n12^10 = 61917364224\n\nSo, 12^10 is 61,917,364,224.",
-    "category": "Unknown",
-    "abbreviation": "C-57"
+    "category": "Example Testing",
+    "abbreviation": "ET-57"
   },
   {
     "index": 58,
     "text": "Now, 10! is 3,628,800.",
-    "category": "Unknown",
-    "abbreviation": "C-58"
+    "category": "Deduction",
+    "abbreviation": "D-58"
   },
   {
     "index": 59,
     "text": "So, P(10) = (6.16e-6 * 61,917,364,224) / 3,628,800\n\nFirst, compute 6.16e-6 * 61,917,364,224:\n\n6.16e-6 * 61,917,364,224 \u2248 (6.16 * 61,917,364,224) * 10^(-6)\n\n6.16 * 61,917,364,224 \u2248 let's compute 61,917,364,224 * 6 = 371,504,185,344\n\n61,917,364,224 * 0.16 = approx 9,950,778,595.84\n\nSo total \u2248 371,504,185,344 + 9,950,778,595.84 \u2248 381,454,963,939.84\n\nNow multiply by 10^(-6): 381,454,963,939.84 * 1e-6 \u2248 0.381455\n\nThen, divide by 3,628,800: 0.381455 / 3,628,800 \u2248 0.0001048\n\nSo, approximately 0.0001048, or 0.01048%.",
-    "category": "Unknown",
-    "abbreviation": "C-59"
+    "category": "Deduction",
+    "abbreviation": "D-59"
   },
   {
     "index": 60,
     "text": "That's pretty low, which makes sense because with an average of 12 customers per hour, getting exactly 10 in 2 hours is rare.",
-    "category": "Unknown",
-    "abbreviation": "C-60"
+    "category": "Deduction",
+    "abbreviation": "D-60"
   },
   {
     "index": 61,
     "text": "Wait, let me double-check the calculations to make sure I didn't make a mistake.",
-    "category": "Unknown",
-    "abbreviation": "C-61"
+    "category": "Backtracking",
+    "abbreviation": "B-61"
   },
   {
     "index": 62,
     "text": "First, e^(-12) is indeed approximately 6.16e-6.",
-    "category": "Unknown",
-    "abbreviation": "C-62"
+    "category": "Deduction",
+    "abbreviation": "D-62"
   },
   {
     "index": 63,
     "text": "12^10: Let me verify:\n\n12^1 = 12\n\n12^2 = 144\n\n12^3 = 1728\n\n12^4 = 20736\n\n12^5 = 248832\n\n12^6 = 2,985,984\n\n12^7 = 35,831,808\n\n12^8 = 429,981,696\n\n12^9 = 5,159,780,352\n\n12^10 = 61,917,364,224\n\nYes, that's correct.",
-    "category": "Unknown",
-    "abbreviation": "C-63"
+    "category": "Example Testing",
+    "abbreviation": "ET-63"
   },
   {
     "index": 64,
     "text": "10! is 3,628,800.",
-    "category": "Unknown",
-    "abbreviation": "C-64"
+    "category": "Final Answer",
+    "abbreviation": "FA-64"
   },
   {
     "index": 65,
     "text": "Correct. So, 6.16e-6 * 61,917,364,224 = let's compute it more accurately:\n\n61,917,364,224 * 6.16e-6 = 61,917,364,224 * 6.16 / 1,000,000\n\nFirst, 61,917,364,224 * 6 = 371,504,185,344\n\n61,917,364,224 * 0.16 = let's compute 61,917,364,224 * 0.1 = 6,191,736,422.4\n\n61,917,364,224 * 0.06 = 3,715,041,853.44\n\nAdding those: 6,191,736,422.4 + 3,715,041,853.44 = 9,906,778,275.84\n\nSo total numerator: 371,504,185,344 + 9,906,778,275.84 \u2248 381,410,963,619.84\n\nDivide by 1,000,000: 381,410,963,619.84 / 1,000,000 \u2248 381,410.96361984\n\nWait, no, that's incorrect.",
-    "category": "Unknown",
-    "abbreviation": "C-65"
+    "category": "Deduction",
+    "abbreviation": "D-65"
   },
   {
     "index": 66,
     "text": "I think I messed up the decimal places.",
-    "category": "Unknown",
-    "abbreviation": "C-66"
+    "category": "Backtracking",
+    "abbreviation": "B-66"
   },
   {
     "index": 67,
     "text": "Wait, the correct calculation is:\n\n(61,917,364,224 * 6.16) / 1,000,000\n\nSo, 61,917,364,224 * 6.16 = ?\n\nLet me compute 61,917,364,224 * 6 = 371,504,185,344\n\n61,917,364,224 * 0.16 = 9,950,778,595.84\n\nAdding those gives 371,504,185,344 + 9,950,778,595.84 = 381,454,963,939.84\n\nNow, divide by 1,000,000: 381,454,963,939.84 / 1,000,000 = 381,454.96393984\n\nThen, divide by 3,628,800: 381,454.96393984 / 3,628,800 \u2248 0.1048\n\nSo, approximately 0.1048, which is 0.01048%.",
-    "category": "Unknown",
-    "abbreviation": "C-67"
+    "category": "Backtracking",
+    "abbreviation": "B-67"
   },
   {
     "index": 68,
     "text": "Yes, that seems correct.",
-    "category": "Unknown",
-    "abbreviation": "C-68"
+    "category": "Final Answer",
+    "abbreviation": "FA-68"
   },
   {
     "index": 69,
     "text": "So, to recap:\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-69"
+    "category": "Summary",
+    "abbreviation": "S-69"
   },
   {
     "index": 70,
     "text": "P(4) \u2248 0.1343 or 13.43%\n\n2.",
-    "category": "Unknown",
-    "abbreviation": "C-70"
+    "category": "Final Answer",
+    "abbreviation": "FA-70"
   },
   {
     "index": 71,
     "text": "P(k >=8) \u2248 0.258 or 25.8%\n\n3.",
-    "category": "Unknown",
-    "abbreviation": "C-71"
+    "category": "Final Answer",
+    "abbreviation": "FA-71"
   },
   {
     "index": 72,
     "text": "P(exactly 10 in 2 hours) \u2248 0.01048 or 0.0105%\n\nI think that's all.",
-    "category": "Unknown",
-    "abbreviation": "C-72"
+    "category": "Final Answer",
+    "abbreviation": "FA-72"
   },
   {
     "index": 73,
     "text": "Let me just make sure I didn't make any calculation errors, especially with the exponents and factorials.",
-    "category": "Unknown",
-    "abbreviation": "C-73"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-73"
   },
   {
     "index": 74,
     "text": "It's easy to mix up numbers when dealing with large exponents and factorials.",
-    "category": "Unknown",
-    "abbreviation": "C-74"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-74"
   },
   {
     "index": 75,
     "text": "Double-checking the first question again: P(4) = e^(-6) * 6^4 / 4! \u2248 0.002478752 * 1296 / 24 = 0.002478752 * 54 = approx 0.1343.",
-    "category": "Unknown",
-    "abbreviation": "C-75"
+    "category": "Deduction",
+    "abbreviation": "D-75"
   },
   {
     "index": 76,
     "text": "Correct. Second question: Sum from k=0 to 7 of (6^k)/k! \u2248 299.96.",
-    "category": "Unknown",
-    "abbreviation": "C-76"
+    "category": "Deduction",
+    "abbreviation": "D-76"
   },
   {
     "index": 77,
     "text": "Multiply by e^(-6) gives approx 0.742.",
-    "category": "Unknown",
-    "abbreviation": "C-77"
+    "category": "Deduction",
+    "abbreviation": "D-77"
   },
   {
     "index": 78,
     "text": "So, 1 - 0.742 \u2248 0.258.",
-    "category": "Unknown",
-    "abbreviation": "C-78"
+    "category": "Deduction",
+    "abbreviation": "D-78"
   },
   {
     "index": 79,
     "text": "Correct. Third question: For 2 hours, \u03bb=12.",
-    "category": "Unknown",
-    "abbreviation": "C-79"
+    "category": "Example Testing",
+    "abbreviation": "ET-79"
   },
   {
     "index": 80,
     "text": "P(10) = e^(-12) * 12^10 / 10! \u2248 6.16e-6 * 61,917,364,224 / 3,628,800 \u2248 0.0001048.",
-    "category": "Unknown",
-    "abbreviation": "C-80"
+    "category": "Deduction",
+    "abbreviation": "D-80"
   },
   {
     "index": 81,
     "text": "Correct. Alright, I think I'm confident with these answers.",
-    "category": "Unknown",
-    "abbreviation": "C-81"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-81"
   },
   {
     "index": 82,
     "text": "</think>\n\n1.",
-    "category": "Unknown",
-    "abbreviation": "C-82"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-82"
   },
   {
     "index": 83,
     "text": "The probability of exactly 4 customers arriving in an hour is approximately 13.43%.",
-    "category": "Unknown",
-    "abbreviation": "C-83"
+    "category": "Final Answer",
+    "abbreviation": "FA-83"
   },
   {
     "index": 84,
     "text": "2. The probability of 8 or more customers arriving in an hour is approximately 25.8%.",
-    "category": "Unknown",
-    "abbreviation": "C-84"
+    "category": "Final Answer",
+    "abbreviation": "FA-84"
   },
   {
     "index": 85,
     "text": "3. The probability of exactly 10 customers arriving in 2 hours is approximately 0.0105%.",
-    "category": "Unknown",
-    "abbreviation": "C-85"
+    "category": "Final Answer",
+    "abbreviation": "FA-85"
   }
 ]

@@ -1,0 +1,49 @@
+{
+  "target_chunk_indices": [
+    8,
+    9,
+    15,
+    16
+  ],
+  "target_chunk_texts": [
+    "That means there are 25 different numbers available.",
+    "Each number can be assigned to a student, but we have 30 students.",
+    "If there are more students (items) than numbers (containers), then at least one number must be assigned to more than one student.",
+    "That seems to fit here because we have 30 students and only 25 numbers."
+  ],
+  "target_chunk_categories": [
+    "Deduction",
+    "Deduction",
+    "Deduction",
+    "Deduction"
+  ],
+  "clean_answer": " By the pigeonhole principle, since there are 30 students and only 25 distinct numbers, at least one number must be assigned to at least two students. Hence, there must be at least two students with the same number.\n\nDONE.",
+  "corrupted_answer": "://\n\nDONE.",
+  "answers_differ": true,
+  "patched_answers": {
+    "0": "://\n\nDONE.",
+    "3": "://\n\nDONE.",
+    "6": "://\n\nDONE.",
+    "9": "://\n\nDONE.",
+    "12": "://\n\nDONE.",
+    "15": "://\n\nDONE.",
+    "18": "://\n\nBy the pigeonhole principle, since there are 30 students and only 25 distinct numbers, at least two students must share the same number. So, there must be at least two students assigned the same number.\n\nDONE.",
+    "21": "://\n\nDONE.",
+    "24": "://\n\nDONE.",
+    "27": "://\n\nBy the pigeonhole principle, since there are 30 students and only 25 distinct numbers, at least two students must share the same number. So, there must be at least two students assigned the same number.\n\nDONE.",
+    "30": "://\n\nDONE."
+  },
+  "answer_match": {
+    "0": false,
+    "3": false,
+    "6": false,
+    "9": false,
+    "12": false,
+    "15": false,
+    "18": true,
+    "21": false,
+    "24": false,
+    "27": true,
+    "30": false
+  }
+}

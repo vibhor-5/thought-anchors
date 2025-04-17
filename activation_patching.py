@@ -693,6 +693,10 @@ def run_batch_experiments(
         
         # Create output directory for this problem
         problem_output_dir = os.path.join(output_dir, f"problem_{problem_id}_seed_{seed}")
+        if os.path.exists(problem_output_dir):
+            print(f"Skipping existing problem: {problem_id}, seed {seed}")
+            continue
+        
         os.makedirs(problem_output_dir, exist_ok=True)
         
         # Load chunks data

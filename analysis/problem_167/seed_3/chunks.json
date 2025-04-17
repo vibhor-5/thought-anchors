@@ -2,703 +2,703 @@
   {
     "index": 0,
     "text": "Solve this problem step by step.",
-    "category": "Unknown",
-    "abbreviation": "C-0"
+    "category": "Initializing",
+    "abbreviation": "I-0"
   },
   {
     "index": 1,
     "text": "End with 'DONE.' when you have a solution.",
-    "category": "Unknown",
-    "abbreviation": "C-1"
+    "category": "Initializing",
+    "abbreviation": "I-1"
   },
   {
     "index": 2,
     "text": "Question: Prove that the sum of the first n positive integers is given by the formula: 1 + 2 + 3 + ...",
-    "category": "Unknown",
-    "abbreviation": "C-2"
+    "category": "Initializing",
+    "abbreviation": "I-2"
   },
   {
     "index": 3,
     "text": "+ n = n(n+1)/2 for all integers n \u2265 1.",
-    "category": "Unknown",
-    "abbreviation": "C-3"
+    "category": "Initializing",
+    "abbreviation": "I-3"
   },
   {
     "index": 4,
     "text": "Solution: \n<think>\nAlright, so I need to prove that the sum of the first n positive integers is equal to n(n+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-4"
+    "category": "Initializing",
+    "abbreviation": "I-4"
   },
   {
     "index": 5,
     "text": "Hmm, okay.",
-    "category": "Unknown",
-    "abbreviation": "C-5"
+    "category": "Initializing",
+    "abbreviation": "I-5"
   },
   {
     "index": 6,
     "text": "Let me think about how to approach this.",
-    "category": "Unknown",
-    "abbreviation": "C-6"
+    "category": "Initializing",
+    "abbreviation": "I-6"
   },
   {
     "index": 7,
     "text": "I remember that this formula is pretty famous, called Gauss's formula or something like that.",
-    "category": "Unknown",
-    "abbreviation": "C-7"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-7"
   },
   {
     "index": 8,
     "text": "But I'm not exactly sure how Gauss came up with it.",
-    "category": "Unknown",
-    "abbreviation": "C-8"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-8"
   },
   {
     "index": 9,
     "text": "Maybe I can figure it out myself.",
-    "category": "Unknown",
-    "abbreviation": "C-9"
+    "category": "Question Posing",
+    "abbreviation": "QP-9"
   },
   {
     "index": 10,
     "text": "First, let's write down the sum we're trying to find: 1 + 2 + 3 + ...",
-    "category": "Unknown",
-    "abbreviation": "C-10"
+    "category": "Initializing",
+    "abbreviation": "I-10"
   },
   {
     "index": 11,
     "text": "+ n.",
-    "category": "Unknown",
-    "abbreviation": "C-11"
+    "category": "Initializing",
+    "abbreviation": "I-11"
   },
   {
     "index": 12,
     "text": "I need to show that this is equal to n(n+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-12"
+    "category": "Initializing",
+    "abbreviation": "I-12"
   },
   {
     "index": 13,
     "text": "So, maybe I can start by writing the sum and see if I can manipulate it somehow.",
-    "category": "Unknown",
-    "abbreviation": "C-13"
+    "category": "Question Posing",
+    "abbreviation": "QP-13"
   },
   {
     "index": 14,
     "text": "Let me denote the sum as S, so S = 1 + 2 + 3 + ...",
-    "category": "Unknown",
-    "abbreviation": "C-14"
+    "category": "Initializing",
+    "abbreviation": "I-14"
   },
   {
     "index": 15,
     "text": "+ n.",
-    "category": "Unknown",
-    "abbreviation": "C-15"
+    "category": "Initializing",
+    "abbreviation": "I-15"
   },
   {
     "index": 16,
     "text": "Now, I wonder if there's a way to pair terms from the beginning and the end of the sequence.",
-    "category": "Unknown",
-    "abbreviation": "C-16"
+    "category": "Question Posing",
+    "abbreviation": "QP-16"
   },
   {
     "index": 17,
     "text": "Let's see, if I take the first term, which is 1, and the last term, which is n, their sum is 1 + n.",
-    "category": "Unknown",
-    "abbreviation": "C-17"
+    "category": "Example Testing",
+    "abbreviation": "ET-17"
   },
   {
     "index": 18,
     "text": "Similarly, the second term is 2, and the second last term is n-1, so 2 + (n-1) = n+1.",
-    "category": "Unknown",
-    "abbreviation": "C-18"
+    "category": "Example Testing",
+    "abbreviation": "ET-18"
   },
   {
     "index": 19,
     "text": "Wait, that's interesting.",
-    "category": "Unknown",
-    "abbreviation": "C-19"
+    "category": "Initializing",
+    "abbreviation": "I-19"
   },
   {
     "index": 20,
     "text": "Let me write that down:\n\n1 + n = n+1  \n2 + (n-1) = n+1  \n3 + (n-2) = n+1  \n...",
-    "category": "Unknown",
-    "abbreviation": "C-20"
+    "category": "Deduction",
+    "abbreviation": "D-20"
   },
   {
     "index": 21,
     "text": "Continuing this pattern, the k-th term from the start plus the k-th term from the end equals n+1.",
-    "category": "Unknown",
-    "abbreviation": "C-21"
+    "category": "Deduction",
+    "abbreviation": "D-21"
   },
   {
     "index": 22,
     "text": "Now, how many such pairs are there? Well, since there are n terms in total, there are n/2 pairs if n is even.",
-    "category": "Unknown",
-    "abbreviation": "C-22"
+    "category": "Deduction",
+    "abbreviation": "D-22"
   },
   {
     "index": 23,
     "text": "But what if n is odd? Then, there's a middle term that doesn't have a pair.",
-    "category": "Unknown",
-    "abbreviation": "C-23"
+    "category": "Question Posing",
+    "abbreviation": "QP-23"
   },
   {
     "index": 24,
     "text": "For example, if n=5, the middle term is 3.",
-    "category": "Unknown",
-    "abbreviation": "C-24"
+    "category": "Example Testing",
+    "abbreviation": "ET-24"
   },
   {
     "index": 25,
     "text": "So, in that case, the sum would be (1+5) + (2+4) + 3.",
-    "category": "Unknown",
-    "abbreviation": "C-25"
+    "category": "Deduction",
+    "abbreviation": "D-25"
   },
   {
     "index": 26,
     "text": "Each pair sums to 6, and there are 2 pairs, so 6*2 + 3 = 15, which is equal to 5*6/2 = 15.",
-    "category": "Unknown",
-    "abbreviation": "C-26"
+    "category": "Deduction",
+    "abbreviation": "D-26"
   },
   {
     "index": 27,
     "text": "So, even if n is odd, the formula still holds because the middle term is n/2, but wait, n is odd, so n/2 isn't an integer.",
-    "category": "Unknown",
-    "abbreviation": "C-27"
+    "category": "Backtracking",
+    "abbreviation": "B-27"
   },
   {
     "index": 28,
     "text": "Hmm, maybe I need to adjust my thinking.",
-    "category": "Unknown",
-    "abbreviation": "C-28"
+    "category": "Backtracking",
+    "abbreviation": "B-28"
   },
   {
     "index": 29,
     "text": "Wait, no.",
-    "category": "Unknown",
-    "abbreviation": "C-29"
+    "category": "Backtracking",
+    "abbreviation": "B-29"
   },
   {
     "index": 30,
     "text": "Let's take n=5.",
-    "category": "Unknown",
-    "abbreviation": "C-30"
+    "category": "Example Testing",
+    "abbreviation": "ET-30"
   },
   {
     "index": 31,
     "text": "The sum is 1+2+3+4+5=15.",
-    "category": "Unknown",
-    "abbreviation": "C-31"
+    "category": "Deduction",
+    "abbreviation": "D-31"
   },
   {
     "index": 32,
     "text": "According to the formula, it should be 5*6/2=15, which matches.",
-    "category": "Unknown",
-    "abbreviation": "C-32"
+    "category": "Deduction",
+    "abbreviation": "D-32"
   },
   {
     "index": 33,
     "text": "So, whether n is even or odd, the formula works.",
-    "category": "Unknown",
-    "abbreviation": "C-33"
+    "category": "Deduction",
+    "abbreviation": "D-33"
   },
   {
     "index": 34,
     "text": "So, going back to the pairing idea, if n is even, there are n/2 pairs, each summing to n+1.",
-    "category": "Unknown",
-    "abbreviation": "C-34"
+    "category": "Backtracking",
+    "abbreviation": "B-34"
   },
   {
     "index": 35,
     "text": "So, the total sum would be (n+1)*(n/2).",
-    "category": "Unknown",
-    "abbreviation": "C-35"
+    "category": "Deduction",
+    "abbreviation": "D-35"
   },
   {
     "index": 36,
     "text": "If n is odd, then there are (n-1)/2 pairs, each summing to n+1, and the middle term is (n+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-36"
+    "category": "Deduction",
+    "abbreviation": "D-36"
   },
   {
     "index": 37,
     "text": "So, the total sum would be (n+1)*( (n-1)/2 ) + (n+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-37"
+    "category": "Deduction",
+    "abbreviation": "D-37"
   },
   {
     "index": 38,
     "text": "Let's compute that:\n\n(n+1)*( (n-1)/2 ) + (n+1)/2 = (n+1)(n-1 + 1)/2 = (n+1)*n/2.",
-    "category": "Unknown",
-    "abbreviation": "C-38"
+    "category": "Deduction",
+    "abbreviation": "D-38"
   },
   {
     "index": 39,
     "text": "So, whether n is even or odd, the sum is n(n+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-39"
+    "category": "Deduction",
+    "abbreviation": "D-39"
   },
   {
     "index": 40,
     "text": "That seems to work.",
-    "category": "Unknown",
-    "abbreviation": "C-40"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-40"
   },
   {
     "index": 41,
     "text": "Alternatively, maybe there's another way to think about it.",
-    "category": "Unknown",
-    "abbreviation": "C-41"
+    "category": "Backtracking",
+    "abbreviation": "B-41"
   },
   {
     "index": 42,
     "text": "I remember something about arithmetic series.",
-    "category": "Unknown",
-    "abbreviation": "C-42"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-42"
   },
   {
     "index": 43,
     "text": "The sum of an arithmetic series is equal to the number of terms multiplied by the average of the first and last terms.",
-    "category": "Unknown",
-    "abbreviation": "C-43"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-43"
   },
   {
     "index": 44,
     "text": "In this case, the number of terms is n, the first term is 1, and the last term is n.",
-    "category": "Unknown",
-    "abbreviation": "C-44"
+    "category": "Deduction",
+    "abbreviation": "D-44"
   },
   {
     "index": 45,
     "text": "So, the sum should be n*(1 + n)/2, which is n(n+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-45"
+    "category": "Deduction",
+    "abbreviation": "D-45"
   },
   {
     "index": 46,
     "text": "That's another way to see it.",
-    "category": "Unknown",
-    "abbreviation": "C-46"
+    "category": "Deduction",
+    "abbreviation": "D-46"
   },
   {
     "index": 47,
     "text": "But let me try to derive it from scratch without relying on the formula for arithmetic series.",
-    "category": "Unknown",
-    "abbreviation": "C-47"
+    "category": "Backtracking",
+    "abbreviation": "B-47"
   },
   {
     "index": 48,
     "text": "Maybe using induction? Yeah, mathematical induction is a common method for proving statements like this.",
-    "category": "Unknown",
-    "abbreviation": "C-48"
+    "category": "Question Posing",
+    "abbreviation": "QP-48"
   },
   {
     "index": 49,
     "text": "Okay, let's try induction.",
-    "category": "Unknown",
-    "abbreviation": "C-49"
+    "category": "Initializing",
+    "abbreviation": "I-49"
   },
   {
     "index": 50,
     "text": "First, the base case: n=1.",
-    "category": "Unknown",
-    "abbreviation": "C-50"
+    "category": "Example Testing",
+    "abbreviation": "ET-50"
   },
   {
     "index": 51,
     "text": "The sum is just 1, and the formula gives 1*(1+1)/2=1*2/2=1.",
-    "category": "Unknown",
-    "abbreviation": "C-51"
+    "category": "Deduction",
+    "abbreviation": "D-51"
   },
   {
     "index": 52,
     "text": "So, it works for n=1.",
-    "category": "Unknown",
-    "abbreviation": "C-52"
+    "category": "Example Testing",
+    "abbreviation": "ET-52"
   },
   {
     "index": 53,
     "text": "Now, assume that the formula holds for some integer k, meaning that 1 + 2 + ...",
-    "category": "Unknown",
-    "abbreviation": "C-53"
+    "category": "Inductive Deduction",
+    "abbreviation": "ID-53"
   },
   {
     "index": 54,
     "text": "+ k = k(k+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-54"
+    "category": "Deduction",
+    "abbreviation": "D-54"
   },
   {
     "index": 55,
     "text": "Now, let's consider the case for k+1.",
-    "category": "Unknown",
-    "abbreviation": "C-55"
+    "category": "Deduction",
+    "abbreviation": "D-55"
   },
   {
     "index": 56,
     "text": "The sum would be 1 + 2 + ...",
-    "category": "Unknown",
-    "abbreviation": "C-56"
+    "category": "Deduction",
+    "abbreviation": "D-56"
   },
   {
     "index": 57,
     "text": "+ k + (k+1).",
-    "category": "Unknown",
-    "abbreviation": "C-57"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-57"
   },
   {
     "index": 58,
     "text": "According to the induction hypothesis, the sum up to k is k(k+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-58"
+    "category": "Deduction",
+    "abbreviation": "D-58"
   },
   {
     "index": 59,
     "text": "So, adding (k+1) gives k(k+1)/2 + (k+1).",
-    "category": "Unknown",
-    "abbreviation": "C-59"
+    "category": "Deduction",
+    "abbreviation": "D-59"
   },
   {
     "index": 60,
     "text": "Let's factor out (k+1):\n\n(k+1)*(k/2 + 1) = (k+1)*(k+2)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-60"
+    "category": "Deduction",
+    "abbreviation": "D-60"
   },
   {
     "index": 61,
     "text": "So, the formula holds for k+1 if it holds for k.",
-    "category": "Unknown",
-    "abbreviation": "C-61"
+    "category": "Deduction",
+    "abbreviation": "D-61"
   },
   {
     "index": 62,
     "text": "Therefore, by induction, the formula is valid for all positive integers n.",
-    "category": "Unknown",
-    "abbreviation": "C-62"
+    "category": "Deduction",
+    "abbreviation": "D-62"
   },
   {
     "index": 63,
     "text": "Wait, that seems straightforward.",
-    "category": "Unknown",
-    "abbreviation": "C-63"
+    "category": "Backtracking",
+    "abbreviation": "B-63"
   },
   {
     "index": 64,
     "text": "So, using mathematical induction, I've shown that the formula holds for all n\u22651.",
-    "category": "Unknown",
-    "abbreviation": "C-64"
+    "category": "Final Answer",
+    "abbreviation": "FA-64"
   },
   {
     "index": 65,
     "text": "Another way I thought about it earlier was pairing the terms.",
-    "category": "Unknown",
-    "abbreviation": "C-65"
+    "category": "Backtracking",
+    "abbreviation": "B-65"
   },
   {
     "index": 66,
     "text": "Let me write that down again to make sure I didn't miss anything.",
-    "category": "Unknown",
-    "abbreviation": "C-66"
+    "category": "Backtracking",
+    "abbreviation": "B-66"
   },
   {
     "index": 67,
     "text": "So, S = 1 + 2 + 3 + ...",
-    "category": "Unknown",
-    "abbreviation": "C-67"
+    "category": "Initializing",
+    "abbreviation": "I-67"
   },
   {
     "index": 68,
     "text": "+ n.",
-    "category": "Unknown",
-    "abbreviation": "C-68"
+    "category": "Initializing",
+    "abbreviation": "I-68"
   },
   {
     "index": 69,
     "text": "If I write S backwards below it:\n\nS = n + (n-1) + (n-2) + ...",
-    "category": "Unknown",
-    "abbreviation": "C-69"
+    "category": "Deduction",
+    "abbreviation": "D-69"
   },
   {
     "index": 70,
     "text": "+ 2 + 1.",
-    "category": "Unknown",
-    "abbreviation": "C-70"
+    "category": "Deduction",
+    "abbreviation": "D-70"
   },
   {
     "index": 71,
     "text": "Now, if I add these two equations together, term by term:\n\nS + S = (1 + n) + (2 + (n-1)) + (3 + (n-2)) + ...",
-    "category": "Unknown",
-    "abbreviation": "C-71"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-71"
   },
   {
     "index": 72,
     "text": "+ ((n/2) + (n/2)) + ...",
-    "category": "Unknown",
-    "abbreviation": "C-72"
+    "category": "Deduction",
+    "abbreviation": "D-72"
   },
   {
     "index": 73,
     "text": "+ (n + 1).",
-    "category": "Unknown",
-    "abbreviation": "C-73"
+    "category": "Deduction",
+    "abbreviation": "D-73"
   },
   {
     "index": 74,
     "text": "Each pair adds up to n+1, and there are n/2 such pairs if n is even.",
-    "category": "Unknown",
-    "abbreviation": "C-74"
+    "category": "Deduction",
+    "abbreviation": "D-74"
   },
   {
     "index": 75,
     "text": "If n is odd, the middle term is (n+1)/2, but as I saw earlier, the total sum still ends up being n(n+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-75"
+    "category": "Deduction",
+    "abbreviation": "D-75"
   },
   {
     "index": 76,
     "text": "So, whether n is even or odd, S = n(n+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-76"
+    "category": "Deduction",
+    "abbreviation": "D-76"
   },
   {
     "index": 77,
     "text": "I think that covers both methods: pairing and induction.",
-    "category": "Unknown",
-    "abbreviation": "C-77"
+    "category": "Summary",
+    "abbreviation": "S-77"
   },
   {
     "index": 78,
     "text": "Both lead to the same conclusion, so the formula holds for all integers n\u22651.",
-    "category": "Unknown",
-    "abbreviation": "C-78"
+    "category": "Summary",
+    "abbreviation": "S-78"
   },
   {
     "index": 79,
     "text": "Wait, let me just test it with a small value to make sure.",
-    "category": "Unknown",
-    "abbreviation": "C-79"
+    "category": "Example Testing",
+    "abbreviation": "ET-79"
   },
   {
     "index": 80,
     "text": "Let's take n=3.",
-    "category": "Unknown",
-    "abbreviation": "C-80"
+    "category": "Example Testing",
+    "abbreviation": "ET-80"
   },
   {
     "index": 81,
     "text": "The sum is 1+2+3=6.",
-    "category": "Unknown",
-    "abbreviation": "C-81"
+    "category": "Deduction",
+    "abbreviation": "D-81"
   },
   {
     "index": 82,
     "text": "According to the formula, 3*4/2=6.",
-    "category": "Unknown",
-    "abbreviation": "C-82"
+    "category": "Deduction",
+    "abbreviation": "D-82"
   },
   {
     "index": 83,
     "text": "Yep, that works.",
-    "category": "Unknown",
-    "abbreviation": "C-83"
+    "category": "Deduction",
+    "abbreviation": "D-83"
   },
   {
     "index": 84,
     "text": "Another test: n=4.",
-    "category": "Unknown",
-    "abbreviation": "C-84"
+    "category": "Example Testing",
+    "abbreviation": "ET-84"
   },
   {
     "index": 85,
     "text": "Sum is 1+2+3+4=10.",
-    "category": "Unknown",
-    "abbreviation": "C-85"
+    "category": "Deduction",
+    "abbreviation": "D-85"
   },
   {
     "index": 86,
     "text": "Formula: 4*5/2=10.",
-    "category": "Unknown",
-    "abbreviation": "C-86"
+    "category": "Deduction",
+    "abbreviation": "D-86"
   },
   {
     "index": 87,
     "text": "Perfect. So, I think I've covered the necessary steps to prove the formula using induction and pairing.",
-    "category": "Unknown",
-    "abbreviation": "C-87"
+    "category": "Summary",
+    "abbreviation": "S-87"
   },
   {
     "index": 88,
     "text": "Both methods reinforce the result, so I'm confident the proof is correct.",
-    "category": "Unknown",
-    "abbreviation": "C-88"
+    "category": "Uncertainty Estimation",
+    "abbreviation": "UE-88"
   },
   {
     "index": 89,
     "text": "</think>\n\nThe sum of the first n positive integers is given by the formula:  \n1 + 2 + 3 + ...",
-    "category": "Unknown",
-    "abbreviation": "C-89"
+    "category": "Final Answer",
+    "abbreviation": "FA-89"
   },
   {
     "index": 90,
     "text": "+ n = n(n+1)/2 for all integers n \u2265 1.",
-    "category": "Unknown",
-    "abbreviation": "C-90"
+    "category": "Final Answer",
+    "abbreviation": "FA-90"
   },
   {
     "index": 91,
     "text": "**Proof:**\n\nWe can prove this formula using mathematical induction.",
-    "category": "Unknown",
-    "abbreviation": "C-91"
+    "category": "Initializing",
+    "abbreviation": "I-91"
   },
   {
     "index": 92,
     "text": "**Base Case (n = 1):**  \nThe sum is 1.",
-    "category": "Unknown",
-    "abbreviation": "C-92"
+    "category": "Example Testing",
+    "abbreviation": "ET-92"
   },
   {
     "index": 93,
     "text": "According to the formula: 1(1+1)/2 = 1.",
-    "category": "Unknown",
-    "abbreviation": "C-93"
+    "category": "Deduction",
+    "abbreviation": "D-93"
   },
   {
     "index": 94,
     "text": "Thus, the base case holds.",
-    "category": "Unknown",
-    "abbreviation": "C-94"
+    "category": "Deduction",
+    "abbreviation": "D-94"
   },
   {
     "index": 95,
     "text": "**Inductive Step:**  \nAssume the formula holds for some integer k, i.e.,  \n1 + 2 + 3 + ...",
-    "category": "Unknown",
-    "abbreviation": "C-95"
+    "category": "Question Posing",
+    "abbreviation": "QP-95"
   },
   {
     "index": 96,
     "text": "+ k = k(k+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-96"
+    "category": "Deduction",
+    "abbreviation": "D-96"
   },
   {
     "index": 97,
     "text": "We need to show it holds for k + 1.",
-    "category": "Unknown",
-    "abbreviation": "C-97"
+    "category": "Deduction",
+    "abbreviation": "D-97"
   },
   {
     "index": 98,
     "text": "Consider the sum up to k + 1:  \n1 + 2 + 3 + ...",
-    "category": "Unknown",
-    "abbreviation": "C-98"
+    "category": "Example Testing",
+    "abbreviation": "ET-98"
   },
   {
     "index": 99,
     "text": "+ k + (k + 1).",
-    "category": "Unknown",
-    "abbreviation": "C-99"
+    "category": "Deduction",
+    "abbreviation": "D-99"
   },
   {
     "index": 100,
     "text": "Using the induction hypothesis:  \nSum up to k: k(k+1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-100"
+    "category": "Adding Knowledge",
+    "abbreviation": "AK-100"
   },
   {
     "index": 101,
     "text": "Adding (k + 1):  \nSum up to k + 1 = k(k+1)/2 + (k + 1).",
-    "category": "Unknown",
-    "abbreviation": "C-101"
+    "category": "Deduction",
+    "abbreviation": "D-101"
   },
   {
     "index": 102,
     "text": "Factor out (k + 1):  \n(k + 1)(k/2 + 1) = (k + 1)(k + 2)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-102"
+    "category": "Deduction",
+    "abbreviation": "D-102"
   },
   {
     "index": 103,
     "text": "Thus, the formula holds for k + 1.",
-    "category": "Unknown",
-    "abbreviation": "C-103"
+    "category": "Deduction",
+    "abbreviation": "D-103"
   },
   {
     "index": 104,
     "text": "By the principle of mathematical induction, the formula holds for all integers n \u2265 1.",
-    "category": "Unknown",
-    "abbreviation": "C-104"
+    "category": "Deduction",
+    "abbreviation": "D-104"
   },
   {
     "index": 105,
     "text": "**Alternative Proof Using Pairing:**\n\nWrite the sum forwards and backwards:  \nS = 1 + 2 + 3 + ...",
-    "category": "Unknown",
-    "abbreviation": "C-105"
+    "category": "Backtracking",
+    "abbreviation": "B-105"
   },
   {
     "index": 106,
     "text": "+ n.",
-    "category": "Unknown",
-    "abbreviation": "C-106"
+    "category": "Initializing",
+    "abbreviation": "I-106"
   },
   {
     "index": 107,
     "text": "S = n + (n-1) + (n-2) + ...",
-    "category": "Unknown",
-    "abbreviation": "C-107"
+    "category": "Deduction",
+    "abbreviation": "D-107"
   },
   {
     "index": 108,
     "text": "+ 2 + 1.",
-    "category": "Unknown",
-    "abbreviation": "C-108"
+    "category": "Deduction",
+    "abbreviation": "D-108"
   },
   {
     "index": 109,
     "text": "Adding both equations:  \n2S = (1 + n) + (2 + (n-1)) + (3 + (n-2)) + ...",
-    "category": "Unknown",
-    "abbreviation": "C-109"
+    "category": "Deduction",
+    "abbreviation": "D-109"
   },
   {
     "index": 110,
     "text": "+ (n/2 + n/2) + ...",
-    "category": "Unknown",
-    "abbreviation": "C-110"
+    "category": "Deduction",
+    "abbreviation": "D-110"
   },
   {
     "index": 111,
     "text": "+ (n + 1).",
-    "category": "Unknown",
-    "abbreviation": "C-111"
+    "category": "Deduction",
+    "abbreviation": "D-111"
   },
   {
     "index": 112,
     "text": "Each pair sums to (n + 1), and there are n/2 such pairs if n is even.",
-    "category": "Unknown",
-    "abbreviation": "C-112"
+    "category": "Deduction",
+    "abbreviation": "D-112"
   },
   {
     "index": 113,
     "text": "If n is odd, the middle term is (n + 1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-113"
+    "category": "Deduction",
+    "abbreviation": "D-113"
   },
   {
     "index": 114,
     "text": "Thus, 2S = n(n + 1).",
-    "category": "Unknown",
-    "abbreviation": "C-114"
+    "category": "Deduction",
+    "abbreviation": "D-114"
   },
   {
     "index": 115,
     "text": "Therefore, S = n(n + 1)/2.",
-    "category": "Unknown",
-    "abbreviation": "C-115"
+    "category": "Deduction",
+    "abbreviation": "D-115"
   },
   {
     "index": 116,
     "text": "**Conclusion:**  \nThe sum of the first n positive integers is n(n + 1)/2 for all integers n \u2265 1.",
-    "category": "Unknown",
-    "abbreviation": "C-116"
+    "category": "Summary",
+    "abbreviation": "S-116"
   }
 ]
