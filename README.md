@@ -12,11 +12,11 @@ Most of the experiments are:
 
 ## Taxonomy for Reasoning Steps in Chain-of-Thought (CoT)
 
-[./final_figures/distribution_of_reasoning_categories.png]
+![Distribution of Reasoning Categories](./final_figures/distribution_of_reasoning_categories.png)
 
 ## Transition Probabilities between Reasoning Categories
 
-[./final_figures/transition_probabilities.png]
+![Transition Probabilities](./final_figures/transition_probabilities.png)
 
 ## Distribution of Relative Category Positions
 
