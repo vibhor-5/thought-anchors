@@ -172,10 +172,10 @@ def calculate_token_uncertainty(
     for start_char, end_char in chunk_ranges:
         # Convert character positions to token indices
         start_tokens = tokenizer(text[:start_char], return_tensors="pt")
-        start_idx = len(start_tokens.input_ids[0])  # Adjust for special tokens
+        start_idx = len(start_tokens.input_ids[0]) - 2  # Adjust for special tokens
         
         end_tokens = tokenizer(text[:end_char], return_tensors="pt")
-        end_idx = len(end_tokens.input_ids[0])  # Adjust for special tokens
+        end_idx = len(end_tokens.input_ids[0]) + 3 # Adjust for special tokens
         
         token_ranges.append((max(0, start_idx), end_idx))
     
