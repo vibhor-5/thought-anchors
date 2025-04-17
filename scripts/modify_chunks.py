@@ -56,7 +56,7 @@ def find_and_delete_unknown_chunks_files(analysis_dir):
 
 def main():
     parser = argparse.ArgumentParser(description="Delete chunks.json files with only 'Unknown' categories")
-    parser.add_argument("--analysis_dir", type=str, default="analysis", help="Path to the analysis directory")
+    parser.add_argument("--analysis_dir", type=str, default="../analysis", help="Path to the analysis directory")
     parser.add_argument("--dry_run", action="store_true", help="Don't actually delete files, just report what would be deleted")
     
     args = parser.parse_args()
