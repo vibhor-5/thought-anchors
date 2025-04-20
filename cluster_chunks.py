@@ -1,12 +1,10 @@
-import os
 import json
 import torch
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 from tqdm import tqdm
 from pathlib import Path
-from typing import List, Dict, Tuple, Union, Optional
+from typing import List, Dict, Tuple, Optional
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import re
 from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering
@@ -18,8 +16,7 @@ from sklearn.metrics import silhouette_score
 import argparse
 import pandas as pd
 from collections import Counter, defaultdict
-from sklearn.metrics import davies_bouldin_score
-from sklearn.metrics import calinski_harabasz_score
+from utils import get_chunk_ranges
 
 # Set up paths
 cots_dir = Path("cots")
@@ -227,7 +224,10 @@ def extract_chunk_activations(
     model: AutoModelForCausalLM,
     tokenizer: AutoTokenizer,
     layer: int,
-    max_problems: int = 100
+    max_problems: int = 100,
+    pooling_method: str = "attention_pooling",
+    multi_layer: bool = False,
+    layer_weights: Optional[List[float]] = None
 ) -> Tuple[List[torch.Tensor], List[Dict]]:
     """
     Extract residual stream activations for chunks across multiple problems.
@@ -236,14 +236,37 @@ def extract_chunk_activations(
         problem_dirs: List of problem directory paths
         model: Hugging Face model
         tokenizer: Tokenizer
-        layer: Layer to extract activations from
+        layer: Layer to extract activations from (or base layer if multi_layer=True)
         max_problems: Maximum number of problems to process
+        pooling_method: Method to use for pooling ('attention_pooling', 'cls_pooling', 
+                        'first_last_pooling', 'max_pooling', 'svd_pooling', 'attention_weighted',
+                        'stats_pooling', or 'mean')
+        multi_layer: Whether to use multiple layers
+        layer_weights: Weights for each layer if multi_layer=True
         
     Returns:
         Tuple of (activations, chunk_metadata)
     """
     all_activations = []
     all_chunk_metadata = []
+    
+    # Determine which layers to extract
+    if multi_layer:
+        # Use multiple layers
+        num_layers = model.config.num_hidden_layers
+        if layer_weights is None:
+            # Default to using last 4 layers with equal weights
+            layers_to_extract = [num_layers - 4, num_layers - 3, num_layers - 2, num_layers - 1]
+            layer_weights = [0.25, 0.25, 0.25, 0.25]
+        else:
+            # Use specified weights, centered around the base layer
+            half_window = len(layer_weights) // 2
+            base_idx = min(layer, num_layers - 1)
+            layers_to_extract = [max(0, base_idx - half_window + i) for i in range(len(layer_weights))]
+    else:
+        # Use single layer
+        layers_to_extract = [layer]
+        layer_weights = [1.0]
     
     # Process a limited number of problems
     for problem_dir in tqdm(problem_dirs[:max_problems], desc="Processing problems"):
@@ -281,70 +304,286 @@ def extract_chunk_activations(
             # Extract chunks
             chunks = [item["text"] for item in chunks_data]
             
-            # Get token indices for each chunk in the full text
-            chunk_token_ranges = []
-            full_tokens = tokenizer(full_text, return_tensors="pt").to(model.device)
-            
-            # Find token ranges for each chunk
-            current_pos = 0
-            for chunk in chunks:
-                # Find the chunk in the full text starting from current position
-                chunk_start = full_text.find(chunk, current_pos)
-                if chunk_start == -1:
-                    # If exact match not found, try with some flexibility
-                    # This handles cases where whitespace might differ
-                    chunk_words = chunk.split()
-                    for i in range(current_pos, len(full_text) - len(chunk)):
-                        if full_text[i:i+len(chunk_words[0])] == chunk_words[0]:
-                            potential_match = full_text[i:i+len(chunk)]
-                            if potential_match.split() == chunk_words:
-                                chunk_start = i
-                                break
-                
-                if chunk_start == -1:
-                    print(f"Warning: Chunk not found in full text: {chunk[:50]}...")
-                    continue
+            # Special case for gradient projection pooling
+            if pooling_method == "gradient_projection":
+                try:
+                    # Get token indices for each chunk in the full text
+                    chunk_ranges = get_chunk_ranges(full_text, chunks)
+                    chunk_token_ranges = []
+
+                    for (chunk_start, chunk_end) in chunk_ranges:
+                        # Convert character positions to token indices
+                        chunk_tokens = tokenizer(full_text[:chunk_start], return_tensors="pt")
+                        start_idx = len(chunk_tokens.input_ids[0]) - 1
+                        
+                        chunk_tokens = tokenizer(full_text[:chunk_end], return_tensors="pt")
+                        end_idx = len(chunk_tokens.input_ids[0])
+                        
+                        chunk_token_ranges.append((max(0, start_idx), end_idx))
                     
-                chunk_end = chunk_start + len(chunk)
-                current_pos = chunk_end
+                    # Get gradient-based representations for all chunks
+                    chunk_reps = get_gradient_projection_pooling(model, tokenizer, full_text, layer, chunk_token_ranges)
+                    
+                    # Add activations and metadata
+                    for i, chunk_rep in enumerate(chunk_reps):
+                        if i >= len(chunks_data):
+                            continue
+                        
+                        all_activations.append(chunk_rep)
+                        
+                        # Store metadata about this chunk
+                        metadata = {
+                            "problem_id": problem_dir.name,
+                            "seed_id": seed_id,
+                            "chunk_idx": i,
+                            "chunk_text": chunks[i][:100] + "..." if len(chunks[i]) > 100 else chunks[i],
+                            "category": chunks_data[i].get("category", "Unknown"),
+                            "full_chunk": chunks_data[i]
+                        }
+                        all_chunk_metadata.append(metadata)
+                except Exception as e:
+                    print(f"Error processing chunk {i}: {e}")
+                    continue
                 
+                # Skip the regular processing for this seed
+                continue
+            
+            # Get token indices for each chunk in the full text
+            chunk_ranges = get_chunk_ranges(full_text, chunks)
+            chunk_token_ranges = []
+
+            for (chunk_start, chunk_end) in chunk_ranges:
                 # Convert character positions to token indices
                 chunk_tokens = tokenizer(full_text[:chunk_start], return_tensors="pt")
-                start_idx = len(chunk_tokens.input_ids[0]) - 2
+                start_idx = len(chunk_tokens.input_ids[0]) - 1
                 
                 chunk_tokens = tokenizer(full_text[:chunk_end], return_tensors="pt")
-                end_idx = len(chunk_tokens.input_ids[0]) + 3
+                end_idx = len(chunk_tokens.input_ids[0])
                 
                 chunk_token_ranges.append((max(0, start_idx), end_idx))
             
             # Get activations for the full text
             with torch.no_grad():
-                activations = get_residual_stream_activations(model, tokenizer, full_text, [layer])
+                activations = get_residual_stream_activations(model, tokenizer, full_text, layers_to_extract)
+                
+                # If using attention_weighted pooling, we also need attention matrices
+                if pooling_method == "attention_weighted":
+                    # Prepare inputs
+                    inputs = tokenizer(full_text, return_tensors="pt").to(model.device)
+                    
+                    # Forward pass with output_attentions=True to get attention matrices
+                    outputs = model(**inputs, output_attentions=True)
+                    
+                    # Get attention matrices for the specified layers
+                    # Shape: [batch_size, num_heads, seq_len, seq_len]
+                    attention_matrices = {}
+                    for layer_idx in layers_to_extract:
+                        attention_matrices[layer_idx] = outputs.attentions[layer_idx].detach().cpu()
             
-            if layer not in activations:
+            # Check if we have activations for all required layers
+            if not all(layer in activations for layer in layers_to_extract):
                 continue
                 
-            # Extract activations for each chunk
-            layer_activations = activations[layer]
-            
+            # Process each chunk
             for i, (start_idx, end_idx) in enumerate(chunk_token_ranges):
                 if i >= len(chunks_data):
                     continue
+                
+                if multi_layer:
+                    # Combine activations from multiple layers
+                    chunk_reps = []
+                    for layer_idx, weight in zip(layers_to_extract, layer_weights):
+                        layer_activations = activations[layer_idx]
+                        chunk_act = layer_activations[0, start_idx:end_idx, :]
+                        chunk_act = chunk_act.to(torch.float32)  # Convert to float32
+                        
+                        # Apply pooling method
+                        if pooling_method == "positional_aware":
+                            chunk_rep = get_positional_aware_pooling(
+                                chunk_act, 
+                                hidden_size=chunk_act.size(1),
+                                kernel_size=3, 
+                                fixed_kernel=True
+                            )
+                        elif pooling_method == "frequency_domain":
+                            chunk_rep = get_frequency_domain_pooling(chunk_act, k=10)
+                        elif pooling_method == "attention_pooling":
+                            weights = chunk_act.norm(dim=-1)
+                            if weights.sum() > 0:
+                                chunk_rep = (chunk_act * weights.unsqueeze(-1)).sum(dim=0) / weights.sum()
+                            else:
+                                chunk_rep = chunk_act.mean(dim=0)
+                        elif pooling_method == "cls_pooling":
+                            chunk_rep = chunk_act[0] if chunk_act.size(0) > 0 else torch.zeros_like(chunk_act[0])
+                        elif pooling_method == "first_last_pooling":
+                            if chunk_act.size(0) > 1:
+                                chunk_rep = torch.cat([chunk_act[0], chunk_act[-1]])
+                            else:
+                                chunk_rep = chunk_act[0] if chunk_act.size(0) > 0 else torch.zeros_like(chunk_act[0])
+                        elif pooling_method == "max_pooling":
+                            chunk_rep = torch.max(chunk_act, dim=0)[0] if chunk_act.size(0) > 0 else torch.zeros_like(chunk_act[0])
+                        elif pooling_method == "svd_pooling":
+                            if chunk_act.size(0) > 1:
+                                try:
+                                    U, S, V = torch.svd(chunk_act)
+                                    chunk_rep = V[:, 0]
+                                except:
+                                    # Fallback if SVD fails
+                                    chunk_rep = chunk_act.mean(dim=0)
+                            else:
+                                chunk_rep = chunk_act[0] if chunk_act.size(0) > 0 else torch.zeros_like(chunk_act[0])
+                        elif pooling_method == "attention_weighted":
+                            # Get attention matrix for this layer
+                            attn_matrix = attention_matrices[layer_idx]
+                            
+                            # Average across attention heads
+                            avg_attn = attn_matrix.mean(dim=1)[0]  # Shape: [seq_len, seq_len]
+                            
+                            # Get attention weights for tokens in this chunk
+                            # For each token in the chunk, look at what it attends to
+                            chunk_attn = avg_attn[start_idx:end_idx, :]  # Shape: [chunk_len, seq_len]
+                            
+                            # Normalize attention weights within the chunk
+                            chunk_attn_sum = chunk_attn.sum(dim=1, keepdim=True)
+                            chunk_attn_norm = chunk_attn / chunk_attn_sum.clamp(min=1e-10)
+                            
+                            # Get weighted average of all token representations based on attention
+                            all_token_reps = layer_activations[0]  # Shape: [seq_len, hidden_size]
+                            
+                            # For each token in the chunk, compute its representation as a weighted average
+                            # of all tokens it attends to
+                            weighted_reps = []
+                            for token_idx in range(chunk_attn.size(0)):
+                                token_attn = chunk_attn_norm[token_idx]  # Shape: [seq_len]
+                                weighted_rep = (all_token_reps * token_attn.unsqueeze(-1)).sum(dim=0)
+                                weighted_reps.append(weighted_rep)
+                            
+                            # Stack and average across tokens in the chunk
+                            if weighted_reps:
+                                chunk_rep = torch.stack(weighted_reps).mean(dim=0)
+                            else:
+                                chunk_rep = torch.zeros_like(layer_activations[0, 0])
+                        elif pooling_method == "stats_pooling":
+                            # Calculate multiple statistics and concatenate them
+                            mean_rep = chunk_act.mean(dim=0)
+                            min_rep = torch.min(chunk_act, dim=0)[0]
+                            max_rep = torch.max(chunk_act, dim=0)[0]
+                            
+                            # For median and std, handle the case where there's only one token
+                            if chunk_act.size(0) > 1:
+                                median_rep = torch.median(chunk_act, dim=0)[0]
+                                std_rep = torch.std(chunk_act, dim=0)
+                            else:
+                                median_rep = chunk_act[0]
+                                std_rep = torch.zeros_like(chunk_act[0])
+                            
+                            # Concatenate all statistics
+                            chunk_rep = torch.cat([mean_rep, min_rep, max_rep, median_rep, std_rep])
+                        else:  # Default to mean pooling
+                            chunk_rep = chunk_act.mean(dim=0)
+                        
+                        chunk_reps.append(weight * chunk_rep)
                     
-                # Extract activations for this chunk (average across tokens)
-                # chunk_act = layer_activations[0, start_idx:end_idx, :].mean(dim=0)
-                # Extract activations for this chunk using weighted average
-                chunk_act = layer_activations[0, start_idx:end_idx, :]
-                # Convert to float32 to avoid overflow issues with float16
-                chunk_act = chunk_act.to(torch.float32)
-                weights = chunk_act.norm(dim=-1)
-                # Handle case where weights sum to zero to avoid division by zero
-                if weights.sum() > 0:
-                    chunk_act = (chunk_act * weights.unsqueeze(-1)).sum(dim=0) / weights.sum()
+                    # Sum the weighted representations
+                    final_rep = sum(chunk_reps)
+                    all_activations.append(final_rep)
                 else:
-                    # Fallback to simple mean if weights are all zero
-                    chunk_act = chunk_act.mean(dim=0)
-                all_activations.append(chunk_act)
+                    # Use single layer
+                    layer_activations = activations[layers_to_extract[0]]
+                    chunk_act = layer_activations[0, start_idx:end_idx, :]
+                    chunk_act = chunk_act.to(torch.float32)  # Convert to float32
+                    
+                    try:
+                    
+                        # Apply pooling method
+                        if pooling_method == "positional_aware":
+                            chunk_rep = get_positional_aware_pooling(
+                                chunk_act, 
+                                hidden_size=chunk_act.size(1),
+                                kernel_size=3, 
+                                fixed_kernel=True
+                            )
+                        elif pooling_method == "frequency_domain":
+                            chunk_rep = get_frequency_domain_pooling(chunk_act, k=5)
+                        elif pooling_method == "attention_pooling":
+                            weights = chunk_act.norm(dim=-1)
+                            if weights.sum() > 0:
+                                chunk_rep = (chunk_act * weights.unsqueeze(-1)).sum(dim=0) / weights.sum()
+                            else:
+                                chunk_rep = chunk_act.mean(dim=0)
+                        elif pooling_method == "cls_pooling":
+                            chunk_rep = chunk_act[0] if chunk_act.size(0) > 0 else torch.zeros_like(chunk_act[0])
+                        elif pooling_method == "first_last_pooling":
+                            if chunk_act.size(0) > 1:
+                                chunk_rep = torch.cat([chunk_act[0], chunk_act[-1]])
+                            else:
+                                chunk_rep = chunk_act[0] if chunk_act.size(0) > 0 else torch.zeros_like(chunk_act[0])
+                        elif pooling_method == "max_pooling":
+                            chunk_rep = torch.max(chunk_act, dim=0)[0] if chunk_act.size(0) > 0 else torch.zeros_like(chunk_act[0])
+                        elif pooling_method == "svd_pooling":
+                            if chunk_act.size(0) > 1:
+                                try:
+                                    U, S, V = torch.svd(chunk_act)
+                                    chunk_rep = V[:, 0]
+                                except:
+                                    # Fallback if SVD fails
+                                    chunk_rep = chunk_act.mean(dim=0)
+                            else:
+                                chunk_rep = chunk_act[0] if chunk_act.size(0) > 0 else torch.zeros_like(chunk_act[0])
+                        elif pooling_method == "attention_weighted":
+                            # Get attention matrix for this layer
+                            attn_matrix = attention_matrices[layers_to_extract[0]]
+                            
+                            # Average across attention heads
+                            avg_attn = attn_matrix.mean(dim=1)[0]  # Shape: [seq_len, seq_len]
+                            
+                            # Get attention weights for tokens in this chunk
+                            # For each token in the chunk, look at what it attends to
+                            chunk_attn = avg_attn[start_idx:end_idx, :]  # Shape: [chunk_len, seq_len]
+                            
+                            # Normalize attention weights within the chunk
+                            chunk_attn_sum = chunk_attn.sum(dim=1, keepdim=True)
+                            chunk_attn_norm = chunk_attn / chunk_attn_sum.clamp(min=1e-10)
+                            
+                            # Get weighted average of all token representations based on attention
+                            all_token_reps = layer_activations[0]  # Shape: [seq_len, hidden_size]
+                            
+                            # For each token in the chunk, compute its representation as a weighted average
+                            # of all tokens it attends to
+                            weighted_reps = []
+                            for token_idx in range(chunk_attn.size(0)):
+                                token_attn = chunk_attn_norm[token_idx]  # Shape: [seq_len]
+                                weighted_rep = (all_token_reps * token_attn.unsqueeze(-1)).sum(dim=0)
+                                weighted_reps.append(weighted_rep)
+                            
+                            # Stack and average across tokens in the chunk
+                            if weighted_reps:
+                                chunk_rep = torch.stack(weighted_reps).mean(dim=0)
+                            else:
+                                chunk_rep = torch.zeros_like(layer_activations[0, 0])
+                        elif pooling_method == "stats_pooling":
+                            # Calculate multiple statistics and concatenate them
+                            mean_rep = chunk_act.mean(dim=0)
+                            min_rep = torch.min(chunk_act, dim=0)[0]
+                            max_rep = torch.max(chunk_act, dim=0)[0]
+                            
+                            # For median and std, handle the case where there's only one token
+                            if chunk_act.size(0) > 1:
+                                median_rep = torch.median(chunk_act, dim=0)[0]
+                                std_rep = torch.std(chunk_act, dim=0)
+                            else:
+                                median_rep = chunk_act[0]
+                                std_rep = torch.zeros_like(chunk_act[0])
+                            
+                            # Concatenate all statistics
+                            chunk_rep = torch.cat([mean_rep, min_rep, max_rep, median_rep, std_rep])
+                        else:  # Default to mean pooling
+                            chunk_rep = chunk_act.mean(dim=0)
+                        
+                        all_activations.append(chunk_rep)
+                    except Exception as e:
+                        print(f"Error processing chunk {i}: {e}")
+                        continue
                 
                 # Store metadata about this chunk
                 metadata = {
@@ -358,6 +597,74 @@ def extract_chunk_activations(
                 all_chunk_metadata.append(metadata)
     
     return all_activations, all_chunk_metadata
+
+def get_positional_aware_pooling(
+    chunk_act: torch.Tensor,
+    hidden_size: int = None,
+    kernel_size: int = 3,
+    fixed_kernel: bool = True
+) -> torch.Tensor:
+    """
+    Pool chunk activations using positional-aware projection with 1D convolution.
+    
+    Args:
+        chunk_act: Chunk activations tensor of shape [seq_len, hidden_dim]
+        hidden_size: Hidden dimension size (if None, inferred from chunk_act)
+        kernel_size: Size of the convolutional kernel
+        fixed_kernel: Whether to use a fixed kernel (Gaussian) or random initialization
+        
+    Returns:
+        Pooled representation
+    """
+    # Handle edge case of very short sequences
+    if chunk_act.size(0) <= 1:
+        return chunk_act.mean(dim=0)
+    
+    # Get hidden dimension if not provided
+    if hidden_size is None:
+        hidden_size = chunk_act.size(1)
+    
+    # Create convolutional layer
+    conv = torch.nn.Conv1d(
+        in_channels=hidden_size,
+        out_channels=hidden_size,
+        kernel_size=kernel_size,
+        padding=kernel_size // 2,  # Same padding
+        bias=False  # No bias for simplicity
+    )
+    
+    # If using fixed kernel, initialize with Gaussian weights
+    if fixed_kernel:
+        # Create Gaussian kernel
+        center = kernel_size // 2
+        sigma = kernel_size / 6.0  # Standard deviation
+        kernel = torch.zeros(kernel_size)
+        for i in range(kernel_size):
+            kernel[i] = torch.exp(torch.tensor(-0.5 * ((i - center) / sigma) ** 2))
+        kernel = kernel / kernel.sum()  # Normalize
+        
+        # Expand to full conv weights [out_channels, in_channels, kernel_size]
+        kernel = kernel.view(1, 1, kernel_size).repeat(hidden_size, 1, 1)
+        
+        # Set as conv weights
+        with torch.no_grad():
+            conv.weight.copy_(kernel)
+    
+    # Prepare input for convolution [batch, channels, seq_len]
+    x = chunk_act.transpose(0, 1).unsqueeze(0)  # [1, hidden_dim, seq_len]
+    
+    # Apply convolution
+    with torch.no_grad():
+        pooled = conv(x).squeeze(0)  # [hidden_dim, seq_len]
+    
+    # Pool across sequence dimension
+    # We can use different pooling strategies here
+    pooled_mean = pooled.mean(dim=1)  # Mean pooling [hidden_dim]
+    pooled_max, _ = pooled.max(dim=1)  # Max pooling [hidden_dim]
+    
+    # Concatenate different pooling results
+    # return torch.cat([pooled_mean, pooled_max])
+    return pooled_mean
 
 def prepare_activation_matrix(activations: List[torch.Tensor]) -> np.ndarray:
     """
@@ -642,9 +949,47 @@ def analyze_clusters(
     for cluster, info in sorted(analysis["dominant_categories"].items()):
         print(f"  Cluster {cluster}: {info['category']} ({info['percentage']:.1f}%)")
 
+def get_frequency_domain_pooling(
+    chunk_act: torch.Tensor, 
+    k: int = 5
+) -> torch.Tensor:
+    """
+    Pool chunk activations using frequency domain transform (FFT).
+    
+    Args:
+        chunk_act: Chunk activations tensor of shape [seq_len, hidden_dim]
+        k: Number of top frequency components to keep
+        
+    Returns:
+        Pooled representation
+    """
+    # Handle edge case of very short sequences
+    if chunk_act.size(0) <= 1:
+        return chunk_act.mean(dim=0)
+    
+    # Apply FFT along the token dimension
+    fft_rep = torch.fft.rfft(chunk_act, dim=0)  # shape: [seq_len//2+1, hidden_dim]
+    
+    # Get magnitude of complex FFT coefficients
+    fft_mag = torch.abs(fft_rep)
+    
+    # If we have fewer frequency components than k, pad with zeros
+    if fft_mag.size(0) < k:
+        # Pad with zeros to get k components
+        padding = torch.zeros((k - fft_mag.size(0), fft_mag.size(1)), device=fft_mag.device)
+        fft_mag = torch.cat([fft_mag, padding], dim=0)
+    
+    # Get top-k frequency components for each dimension
+    # This preserves the most important frequency patterns
+    top_k_values, _ = torch.topk(fft_mag, k=k, dim=0)
+    
+    # Flatten to get final representation
+    return top_k_values.flatten()
+
+
 def find_optimal_k(
     activation_matrix: np.ndarray,
-    max_k: int = 30
+    max_k: int = 30,
 ) -> int:
     """
     Find optimal number of clusters using silhouette score.
@@ -684,6 +1029,141 @@ def find_optimal_k(
     print(f"Optimal number of clusters: {optimal_k}")
     return optimal_k
 
+def get_gradient_projection_pooling(
+    model: AutoModelForCausalLM, 
+    tokenizer: AutoTokenizer,
+    text: str, 
+    layer_idx: int,
+    chunk_ranges: List[Tuple[int, int]]
+) -> List[torch.Tensor]:
+    """
+    Pool chunk activations using gradient-based attribution.
+    
+    Args:
+        model: The language model
+        tokenizer: Tokenizer
+        text: Full text input
+        layer_idx: Layer to extract activations from
+        chunk_ranges: List of (start_idx, end_idx) token ranges for each chunk
+        
+    Returns:
+        List of pooled representations for each chunk
+    """
+    # Tokenize input
+    inputs = tokenizer(text, return_tensors="pt").to(model.device)
+    input_ids = inputs.input_ids
+    
+    # Process each chunk
+    chunk_representations = []
+    
+    for chunk_start, chunk_end in chunk_ranges:
+        # We need to run a separate forward pass for each chunk to get proper gradients
+        model.zero_grad()
+        
+        # Set up hooks to capture and modify the activations
+        activations = {}
+        gradients = {}
+        
+        def save_activations_hook(name):
+            def hook(module, input, output):
+                # Store the output (activations)
+                if isinstance(output, tuple):
+                    activations[name] = output[0].detach().clone()
+                    # Make it require gradients
+                    activations[name].requires_grad_(True)
+                    return (activations[name],) + output[1:]
+                else:
+                    activations[name] = output.detach().clone()
+                    # Make it require gradients
+                    activations[name].requires_grad_(True)
+                    return activations[name]
+            return hook
+        
+        def save_gradients_hook(name):
+            def hook(grad):
+                gradients[name] = grad.clone()
+            return hook
+        
+        # Register hooks
+        layer_name = f"layer_{layer_idx}"
+        handle = model.model.layers[layer_idx].register_forward_hook(save_activations_hook(layer_name))
+        
+        # Forward pass
+        outputs = model(**inputs, output_hidden_states=True)
+        logits = outputs.logits
+        
+        # Get the activations
+        if layer_name not in activations:
+            print(f"Warning: Layer {layer_name} activations not captured. Available keys: {list(activations.keys())}")
+            # Try to find the correct layer name
+            available_layers = [k for k in activations.keys() if 'layer' in k.lower()]
+            if available_layers:
+                layer_name = available_layers[0]
+                print(f"Using {layer_name} instead")
+            else:
+                # Fallback to mean pooling
+                chunk_rep = torch.zeros(model.config.hidden_size * 2)
+                chunk_representations.append(chunk_rep)
+                handle.remove()
+                continue
+        
+        # Register backward hook to capture gradients
+        activations[layer_name].register_hook(save_gradients_hook(layer_name))
+        
+        # Create a target for this chunk (prediction logits for the last token in the chunk)
+        target_pos = min(chunk_end, input_ids.size(1) - 1)
+        target = logits[0, target_pos].sum()
+        
+        # Backward pass
+        target.backward(retain_graph=True)
+        
+        # Check if gradients were captured
+        if layer_name not in gradients:
+            print(f"Warning: No gradients captured for {layer_name}")
+            # Fallback to uniform weighting
+            chunk_act = activations[layer_name][0, chunk_start:chunk_end].detach()
+            chunk_rep = torch.cat([
+                chunk_act.mean(dim=0),
+                chunk_act[0] if chunk_act.size(0) > 0 else torch.zeros_like(chunk_act[0])
+            ])
+        else:
+            # Get activations and gradients for the chunk tokens
+            chunk_act = activations[layer_name][0, chunk_start:chunk_end].detach()
+            chunk_grad = gradients[layer_name][0, chunk_start:chunk_end].detach()
+            
+            # Compute importance weights based on gradient magnitudes
+            grad_norm = chunk_grad.norm(dim=1, keepdim=True)
+            
+            # Handle case where gradients are zero
+            if grad_norm.sum() > 0:
+                grad_weights = grad_norm / grad_norm.sum()
+            else:
+                # Fallback to uniform weights
+                grad_weights = torch.ones_like(grad_norm) / grad_norm.size(0)
+            
+            # Weight activations by gradient importance
+            weighted_act = chunk_act * grad_weights
+            
+            # Sum across tokens for gradient-weighted representation
+            pooled_sum = weighted_act.sum(dim=0)
+            
+            # Also include max-weighted activation as additional signal
+            if chunk_act.size(0) > 0:
+                max_idx = grad_weights.squeeze().argmax()
+                max_act = chunk_act[max_idx]
+            else:
+                max_act = torch.zeros_like(pooled_sum)
+            
+            # Concatenate for final representation
+            chunk_rep = torch.cat([pooled_sum, max_act])
+        
+        chunk_representations.append(chunk_rep.cpu())
+        
+        # Remove hook
+        handle.remove()
+    
+    return chunk_representations
+
 def main():
     parser = argparse.ArgumentParser(description="Cluster chunks based on residual stream activations")
     parser.add_argument("--model", type=str, default="deepseek-ai/DeepSeek-R1-Distill-Llama-8B", help="Model name")
@@ -691,7 +1171,19 @@ def main():
     parser.add_argument("--max_problems", type=int, default=100, help="Maximum number of problems to process")
     parser.add_argument("--n_clusters", type=int, default=0, help="Number of clusters (0 to find optimal)")
     parser.add_argument("--dim_reduction", type=str, default="tsne", choices=["tsne", "pca", "umap"], help="Dimensionality reduction method")
+    parser.add_argument("--pooling", type=str, default="attention_pooling", choices=["mean", "attention_pooling", "cls_pooling", "first_last_pooling", "max_pooling", "svd_pooling", "attention_weighted", "stats_pooling"], help="Method to pool token representations")
+    parser.add_argument("--multi_layer", action="store_true", help="Use multiple layers")
+    parser.add_argument("--layer_weights", type=str, default="0.1,0.2,0.3,0.4", help="Comma-separated weights for layers when using multi_layer")
     args = parser.parse_args()
+    
+    # Parse layer weights if using multi-layer
+    layer_weights = None
+    if args.multi_layer:
+        layer_weights = [float(w) for w in args.layer_weights.split(",")]
+        # Normalize weights to sum to 1
+        total = sum(layer_weights)
+        if total > 0:
+            layer_weights = [w / total for w in layer_weights]
     
     # Load model and tokenizer
     model, tokenizer = load_model_and_tokenizer(args.model)
@@ -701,7 +1193,10 @@ def main():
     
     # Extract chunk activations
     activations, chunk_metadata = extract_chunk_activations(
-        problem_dirs, model, tokenizer, args.layer, args.max_problems
+        problem_dirs, model, tokenizer, args.layer, args.max_problems,
+        pooling_method=args.pooling,
+        multi_layer=args.multi_layer,
+        layer_weights=layer_weights
     )
     
     if not activations:
@@ -730,17 +1225,18 @@ def main():
     reduced_matrix = run_dimensionality_reduction(scaled_matrix, method=args.dim_reduction)
     
     # Plot clusters
-    output_path = output_dir / f"clusters_layer{args.layer}_{args.dim_reduction}.png"
+    pooling_str = f"{args.pooling}_{'multi' if args.multi_layer else 'single'}"
+    output_path = output_dir / f"clusters_layer{args.layer}_{pooling_str}_{args.dim_reduction}.png"
     plot_clusters(reduced_matrix, labels, chunk_metadata, output_path, 
-                 title=f"Chunk Clusters (Layer {args.layer}, {n_clusters} clusters)")
+                 title=f"Chunk Clusters (Layer {args.layer}, {pooling_str}, {n_clusters} clusters)")
     
     # Plot by category
-    output_path = output_dir / f"categories_layer{args.layer}_{args.dim_reduction}.png"
+    output_path = output_dir / f"categories_layer{args.layer}_{pooling_str}_{args.dim_reduction}.png"
     plot_clusters(reduced_matrix, labels, chunk_metadata, output_path, 
-                 title=f"Chunk Categories (Layer {args.layer})", color_by="category")
+                 title=f"Chunk Categories (Layer {args.layer}, {pooling_str})", color_by="category")
     
     # Analyze clusters
-    analysis_path = output_dir / f"cluster_analysis_layer{args.layer}.json"
+    analysis_path = output_dir / f"cluster_analysis_layer{args.layer}_{pooling_str}.json"
     analyze_clusters(labels, chunk_metadata, analysis_path)
     
     print(f"Results saved to {output_dir}")
