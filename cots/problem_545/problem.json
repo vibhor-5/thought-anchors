@@ -1,7 +1,0 @@
-{
-  "topic": "Pattern Recognition",
-  "subtopic": "Matrix Patterns",
-  "difficulty": "Easy",
-  "question": "Consider the following sequence of 3\u00d73 matrices:\n\nMatrix 1:\n1 2 3\n4 5 6\n7 8 9\n\nMatrix 2:\n2 3 4\n5 6 7\n8 9 10\n\nMatrix 3:\n4 5 6\n7 8 9\n10 11 12\n\nWhat will be the elements in the 3\u00d73 Matrix 5 if this pattern continues?",
-  "answer": "To solve this problem, I need to recognize the pattern of how the matrices change from one to the next.\n\nMatrix 1:\n1 2 3\n4 5 6\n7 8 9\n\nMatrix 2:\n2 3 4\n5 6 7\n8 9 10\n\nMatrix 3:\n4 5 6\n7 8 9\n10 11 12\n\nLooking at the first elements of each matrix: 1, 2, 4, ...\nThe difference between the first two is +1, and between the second and third is +2.\n\nThis suggests the pattern is that each matrix starts with a number that increases by one more than the previous increment.\n\nFrom Matrix 1 to Matrix 2: +1\nFrom Matrix 2 to Matrix 3: +2\n\nSo from Matrix 3 to Matrix 4, the increment should be +3:\nMatrix 4 would start with 4+3 = 7\n\nThen from Matrix 4 to Matrix 5, the increment should be +4:\nMatrix 5 would start with 7+4 = 11\n\nOnce we know the first element of Matrix 5 is 11, we can generate the rest. Each matrix follows a simple pattern where each element is 1 greater than the previous element (reading left to right, top to bottom).\n\nTherefore, Matrix 5 would be:\n11 12 13\n14 15 16\n17 18 19"
-}

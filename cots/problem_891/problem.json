@@ -1,7 +1,0 @@
-{
-  "topic": "Pattern Recognition",
-  "subtopic": "Rule Induction",
-  "difficulty": "Easy",
-  "question": "Consider the following sequence of transformations:\n\n'ABC' \u2192 'BDF'\n'DEF' \u2192 'EHI'\n'GHI' \u2192 'HKL'\n'JKL' \u2192 '???'\n\nWhat is the result of the final transformation? Identify the rule that governs how one string transforms into another.",
-  "answer": "The result of the final transformation is 'KNO'.\n\nTo solve this problem, we need to identify the pattern that governs how each input string transforms into its output string.\n\nLet's analyze each transformation:\n\n1. 'ABC' \u2192 'BDF':\n   - A \u2192 B: shifted 1 letter forward\n   - B \u2192 D: shifted 2 letters forward\n   - C \u2192 F: shifted 3 letters forward\n\n2. 'DEF' \u2192 'EHI':\n   - D \u2192 E: shifted 1 letter forward\n   - E \u2192 H: shifted 3 letters forward\n   - F \u2192 I: shifted 3 letters forward\n\n3. 'GHI' \u2192 'HKL':\n   - G \u2192 H: shifted 1 letter forward\n   - H \u2192 K: shifted 3 letters forward\n   - I \u2192 L: shifted 3 letters forward\n\nThe pattern becomes clear: For each 3-letter input string, the transformation rule is:\n- First letter: shift forward by 1 position in the alphabet\n- Second letter: shift forward by 3 positions in the alphabet\n- Third letter: shift forward by 3 positions in the alphabet\n\nNow we can apply this rule to 'JKL':\n- J \u2192 K: shifted 1 letter forward\n- K \u2192 N: shifted 3 letters forward\n- L \u2192 O: shifted 3 letters forward\n\nTherefore, 'JKL' transforms to 'KNO'."
-}

@@ -1,0 +1,1100 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this math problem step by step.",
+    "category": "Prompt",
+    "categories": [
+      "Prompt"
+    ],
+    "abbreviation": "P-0"
+  },
+  {
+    "index": 1,
+    "text": "Put your final answer in \\boxed{}.",
+    "category": "Prompt",
+    "categories": [
+      "Prompt"
+    ],
+    "abbreviation": "P-1"
+  },
+  {
+    "index": 2,
+    "text": "Problem: If $p, q,$ and $r$ are three non-zero integers such that $p + q + r = 26$ and\\[\\frac{1}{p} + \\frac{1}{q} + \\frac{1}{r} + \\frac{360}{pqr} = 1,\\] compute $pqr$.",
+    "category": "Prompt",
+    "categories": [
+      "Prompt"
+    ],
+    "abbreviation": "P-2"
+  },
+  {
+    "index": 3,
+    "text": "Solution: \n<think>\nOkay, so I've got this math problem here, and I need to find the value of \\( pqr \\) where \\( p, q, \\) and \\( r \\) are three non-zero integers.",
+    "category": "Initialization",
+    "categories": [
+      "Initialization"
+    ],
+    "abbreviation": "I-3"
+  },
+  {
+    "index": 4,
+    "text": "The problem gives me two conditions: the sum of \\( p, q, \\) and \\( r \\) is 26, and another equation involving their reciprocals and a term with \\( \\frac{360}{pqr} \\) that equals 1.",
+    "category": "Initialization",
+    "categories": [
+      "Initialization"
+    ],
+    "abbreviation": "I-4"
+  },
+  {
+    "index": 5,
+    "text": "Let me write down the given information to get a clearer picture.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-5"
+  },
+  {
+    "index": 6,
+    "text": "First, the equations are:\n\n1.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-6"
+  },
+  {
+    "index": 7,
+    "text": "\\( p + q + r = 26 \\)\n2.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-7"
+  },
+  {
+    "index": 8,
+    "text": "\\( \\frac{1}{p} + \\frac{1}{q} + \\frac{1}{r} + \\frac{360}{pqr} = 1 \\)\n\nI need to find \\( pqr \\).",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-8"
+  },
+  {
+    "index": 9,
+    "text": "Hmm, okay.",
+    "category": "Unknown",
+    "categories": [
+      "Unknown"
+    ],
+    "abbreviation": "U-9"
+  },
+  {
+    "index": 10,
+    "text": "Let's see how I can approach this.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-10"
+  },
+  {
+    "index": 11,
+    "text": "I remember that when dealing with equations involving reciprocals, it's often helpful to combine the fractions.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-11"
+  },
+  {
+    "index": 12,
+    "text": "Maybe I can combine all the terms on the left side of the second equation to have a single fraction.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-12"
+  },
+  {
+    "index": 13,
+    "text": "Let me try that.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-13"
+  },
+  {
+    "index": 14,
+    "text": "So, the second equation is:\n\n\\( \\frac{1}{p} + \\frac{1}{q} + \\frac{1}{r} + \\frac{360}{pqr} = 1 \\)\n\nTo combine these, I can find a common denominator, which would be \\( pqr \\).",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-14"
+  },
+  {
+    "index": 15,
+    "text": "Let's rewrite each term with this denominator.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-15"
+  },
+  {
+    "index": 16,
+    "text": "- \\( \\frac{1}{p} = \\frac{qr}{pqr} \\)\n- \\( \\frac{1}{q} = \\frac{pr}{pqr} \\)\n- \\( \\frac{1}{r} = \\frac{pq}{pqr} \\)\n- \\( \\frac{360}{pqr} \\) is already with the denominator \\( pqr \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-16"
+  },
+  {
+    "index": 17,
+    "text": "So, combining all these, the equation becomes:\n\n\\( \\frac{qr + pr + pq + 360}{pqr} = 1 \\)\n\nNow, since the left side is a single fraction equal to 1, the numerator must be equal to the denominator.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-17"
+  },
+  {
+    "index": 18,
+    "text": "Therefore:\n\n\\( qr + pr + pq + 360 = pqr \\)\n\nHmm, that's interesting.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-18"
+  },
+  {
+    "index": 19,
+    "text": "So, \\( pqr - pq - pr - qr = 360 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-19"
+  },
+  {
+    "index": 20,
+    "text": "Let me write that as:\n\n\\( pqr - pq - pr - qr = 360 \\)\n\nI wonder if I can factor this equation somehow.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-20"
+  },
+  {
+    "index": 21,
+    "text": "Let me see.",
+    "category": "Unknown",
+    "categories": [
+      "Unknown"
+    ],
+    "abbreviation": "U-21"
+  },
+  {
+    "index": 22,
+    "text": "Maybe I can factor by grouping or look for a way to express this in terms of the sum \\( p + q + r \\).",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-22"
+  },
+  {
+    "index": 23,
+    "text": "Wait, I also know that \\( p + q + r = 26 \\).",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-23"
+  },
+  {
+    "index": 24,
+    "text": "Maybe I can use this somehow.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-24"
+  },
+  {
+    "index": 25,
+    "text": "Let me think about how these two equations can be connected.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-25"
+  },
+  {
+    "index": 26,
+    "text": "Let me try to express \\( pqr \\) in terms of \\( pq, pr, qr \\) and the sum \\( p + q + r \\).",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-26"
+  },
+  {
+    "index": 27,
+    "text": "Hmm, perhaps I can use the identity for expanding \\( (p - 1)(q - 1)(r - 1) \\) or something similar, but I'm not sure if that would help here.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-27"
+  },
+  {
+    "index": 28,
+    "text": "Alternatively, maybe I can consider the equation \\( pqr - pq - pr - qr = 360 \\) and try to factor it.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-28"
+  },
+  {
+    "index": 29,
+    "text": "Let me see:\n\n\\( pqr - pq - pr - qr = 360 \\)\n\nI can factor out terms:\n\n\\( pq(r - 1) - pr - qr = 360 \\)\n\nHmm, not sure if that helps.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-29"
+  },
+  {
+    "index": 30,
+    "text": "Let me try another approach.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-30"
+  },
+  {
+    "index": 31,
+    "text": "Let me consider that \\( p, q, r \\) are integers, and their product \\( pqr \\) is involved, so perhaps they are factors of 360 or something related.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-31"
+  },
+  {
+    "index": 32,
+    "text": "Let me see.",
+    "category": "Unknown",
+    "categories": [
+      "Unknown"
+    ],
+    "abbreviation": "U-32"
+  },
+  {
+    "index": 33,
+    "text": "Wait, the equation \\( pqr - pq - pr - qr = 360 \\) can be rewritten as:\n\n\\( pqr - pq - pr - qr + 1 = 361 \\)\n\nWait, why? Because I added 1 to both sides.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-33"
+  },
+  {
+    "index": 34,
+    "text": "Let me check:\n\n\\( pqr - pq - pr - qr + 1 = 360 + 1 = 361 \\)\n\nNow, I notice that the left side can be factored as:\n\n\\( (p - 1)(q - 1)(r - 1) \\)\n\nLet me verify that:\n\n\\( (p - 1)(q - 1)(r - 1) = pqr - pq - pr - qr + p + q + r - 1 \\)\n\nWait, that's not exactly the same as what I have.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-34"
+  },
+  {
+    "index": 35,
+    "text": "Let me compute it step by step.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-35"
+  },
+  {
+    "index": 36,
+    "text": "First, expand \\( (p - 1)(q - 1) \\):\n\n\\( (p - 1)(q - 1) = pq - p - q + 1 \\)\n\nNow, multiply this by \\( (r - 1) \\):\n\n\\( (pq - p - q + 1)(r - 1) = pq \\cdot r - pq \\cdot 1 - p \\cdot r + p \\cdot 1 - q \\cdot r + q \\cdot 1 + 1 \\cdot r - 1 \\cdot 1 \\)\n\nSimplify term by term:\n\n- \\( pq \\cdot r = pqr \\)\n- \\( -pq \\cdot 1 = -pq \\)\n- \\( -p \\cdot r = -pr \\)\n- \\( +p \\cdot 1 = +p \\)\n- \\( -q \\cdot r = -qr \\)\n- \\( +q \\cdot 1 = +q \\)\n- \\( +1 \\cdot r = +r \\)\n- \\( -1 \\cdot 1 = -1 \\)\n\nCombine all these terms:\n\n\\( pqr - pq - pr - qr + p + q + r - 1 \\)\n\nSo, \\( (p - 1)(q - 1)(r - 1) = pqr - pq - pr - qr + p + q + r - 1 \\)\n\nBut in my earlier equation, I have \\( pqr - pq - pr - qr + 1 = 361 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-36"
+  },
+  {
+    "index": 37,
+    "text": "Comparing this with the expanded form of \\( (p - 1)(q - 1)(r - 1) \\), which is \\( pqr - pq - pr - qr + p + q + r - 1 \\), I can see that:\n\n\\( (p - 1)(q - 1)(r - 1) = (pqr - pq - pr - qr) + (p + q + r) - 1 \\)\n\nFrom my equation, \\( pqr - pq - pr - qr = 360 \\), so substituting that in:\n\n\\( (p - 1)(q - 1)(r - 1) = 360 + (p + q + r) - 1 \\)\n\nBut I know \\( p + q + r = 26 \\), so:\n\n\\( (p - 1)(q - 1)(r - 1) = 360 + 26 - 1 = 385 \\)\n\nSo, \\( (p - 1)(q - 1)(r - 1) = 385 \\)\n\nHmm, that's a useful equation because 385 is a known number, and I can factor it to find possible integer values for \\( p - 1, q - 1, r - 1 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-37"
+  },
+  {
+    "index": 38,
+    "text": "Let me factor 385.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-38"
+  },
+  {
+    "index": 39,
+    "text": "385 divided by 5 is 77, because 5 times 77 is 385.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-39"
+  },
+  {
+    "index": 40,
+    "text": "Then, 77 can be factored into 7 and 11.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-40"
+  },
+  {
+    "index": 41,
+    "text": "So, 385 factors into 5 \u00d7 7 \u00d7 11.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-41"
+  },
+  {
+    "index": 42,
+    "text": "Therefore, 385 is the product of these three primes.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-42"
+  },
+  {
+    "index": 43,
+    "text": "So, \\( (p - 1)(q - 1)(r - 1) = 5 \\times 7 \\times 11 = 385 \\)\n\nNow, since \\( p, q, r \\) are integers, \\( p - 1, q - 1, r - 1 \\) must be positive integers because \\( p, q, r \\) are non-zero, and if they were 1, then \\( p - 1 \\) would be 0, but 0 can't be a factor here because 385 is positive.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-43"
+  },
+  {
+    "index": 44,
+    "text": "So, \\( p, q, r \\) must each be greater than 1, making \\( p - 1, q - 1, r - 1 \\) positive integers.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-44"
+  },
+  {
+    "index": 45,
+    "text": "So, the possible values for \\( p - 1, q - 1, r - 1 \\) are the factors of 385.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-45"
+  },
+  {
+    "index": 46,
+    "text": "Since 385 factors into 5, 7, and 11, which are all primes, the possible triplets (in any order) for \\( (p - 1, q - 1, r - 1) \\) are (5, 7, 11).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-46"
+  },
+  {
+    "index": 47,
+    "text": "There might be other factorizations if we consider 1 as a factor, but since 385 is 5\u00d77\u00d711, and all are primes, the only way to write it as a product of three positive integers is 1\u00d75\u00d777, 1\u00d77\u00d755, 1\u00d711\u00d735, 5\u00d77\u00d711, etc.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-47"
+  },
+  {
+    "index": 48,
+    "text": "But since we need three positive integers greater than zero, and \\( p, q, r \\) are non-zero, let's see.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-48"
+  },
+  {
+    "index": 49,
+    "text": "Wait, actually, \\( p - 1, q - 1, r - 1 \\) could be 1, 5, 77 or 1, 7, 55, etc.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-49"
+  },
+  {
+    "index": 50,
+    "text": "But since \\( p, q, r \\) are non-zero integers, \\( p - 1, q - 1, r - 1 \\) could be 1, but if any of them is 1, then \\( p, q, r \\) would be 2, which is allowed.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-50"
+  },
+  {
+    "index": 51,
+    "text": "But let's check which triplet of factors of 385 adds up correctly when 1 is added back to each to get \\( p, q, r \\) such that their sum is 26.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-51"
+  },
+  {
+    "index": 52,
+    "text": "Wait, let's first consider the triplet (5,7,11).",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-52"
+  },
+  {
+    "index": 53,
+    "text": "Then, \\( p, q, r \\) would be 6, 8, 12.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-53"
+  },
+  {
+    "index": 54,
+    "text": "Let's check the sum: 6 + 8 + 12 = 26.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-54"
+  },
+  {
+    "index": 55,
+    "text": "Perfect, that's exactly the sum we need.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-55"
+  },
+  {
+    "index": 56,
+    "text": "So that seems to fit.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-56"
+  },
+  {
+    "index": 57,
+    "text": "But let me make sure there aren't other possible triplets.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-57"
+  },
+  {
+    "index": 58,
+    "text": "Let's check other possible factorizations.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-58"
+  },
+  {
+    "index": 59,
+    "text": "Another possible triplet is (1,5,77).",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-59"
+  },
+  {
+    "index": 60,
+    "text": "Then, \\( p, q, r \\) would be 2, 6, 78.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-60"
+  },
+  {
+    "index": 61,
+    "text": "Their sum would be 2 + 6 + 78 = 86, which is way more than 26, so that's not possible.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-61"
+  },
+  {
+    "index": 62,
+    "text": "Another triplet: (1,7,55).",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-62"
+  },
+  {
+    "index": 63,
+    "text": "Then, \\( p, q, r \\) would be 2, 8, 56.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-63"
+  },
+  {
+    "index": 64,
+    "text": "Sum is 2 + 8 + 56 = 66, which is too big.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-64"
+  },
+  {
+    "index": 65,
+    "text": "Another triplet: (1,11,35).",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-65"
+  },
+  {
+    "index": 66,
+    "text": "Then, \\( p, q, r \\) would be 2, 12, 36.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-66"
+  },
+  {
+    "index": 67,
+    "text": "Sum is 2 + 12 + 36 = 50, still too big.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-67"
+  },
+  {
+    "index": 68,
+    "text": "Another triplet: (5,5,15.4).",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-68"
+  },
+  {
+    "index": 69,
+    "text": "Wait, no, 385 divided by 5 is 77, which is 7\u00d711.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-69"
+  },
+  {
+    "index": 70,
+    "text": "So, if I tried to have two 5s, then 5\u00d75\u00d715.4, but 15.4 isn't an integer, so that's not possible.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-70"
+  },
+  {
+    "index": 71,
+    "text": "So, the only triplet where all three are integers and their sum is 26 is (5,7,11), giving \\( p, q, r \\) as 6,8,12 in some order.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-71"
+  },
+  {
+    "index": 72,
+    "text": "Wait, but let me confirm that.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-72"
+  },
+  {
+    "index": 73,
+    "text": "Let me check the sum: 6 + 8 + 12 = 26, yes.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-73"
+  },
+  {
+    "index": 74,
+    "text": "So that works.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-74"
+  },
+  {
+    "index": 75,
+    "text": "Alternatively, maybe I can have negative factors? But since \\( p, q, r \\) are non-zero integers, \\( p - 1, q - 1, r - 1 \\) could be negative as well, but that would make \\( p, q, r \\) less than 1, which could be negative.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-75"
+  },
+  {
+    "index": 76,
+    "text": "But let's see if that's possible.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-76"
+  },
+  {
+    "index": 77,
+    "text": "Suppose one of \\( p - 1, q - 1, r - 1 \\) is negative.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-77"
+  },
+  {
+    "index": 78,
+    "text": "For example, if \\( p - 1 = -5 \\), then \\( p = -4 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-78"
+  },
+  {
+    "index": 79,
+    "text": "Then, the other two factors would have to multiply to \\( 385 / (-5) = -77 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-79"
+  },
+  {
+    "index": 80,
+    "text": "So, possible factors could be (-7,11) or (7,-11).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-80"
+  },
+  {
+    "index": 81,
+    "text": "Let's check if that could give a sum of 26 when 1 is added back.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-81"
+  },
+  {
+    "index": 82,
+    "text": "So, if \\( p - 1 = -5 \\), \\( q - 1 = -7 \\), and \\( r - 1 = 11 \\), then \\( p = -4 \\), \\( q = -6 \\), \\( r = 12 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-82"
+  },
+  {
+    "index": 83,
+    "text": "The sum is (-4) + (-6) + 12 = 2, which is not 26.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-83"
+  },
+  {
+    "index": 84,
+    "text": "Not good.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-84"
+  },
+  {
+    "index": 85,
+    "text": "Alternatively, if \\( p - 1 = -5 \\), \\( q - 1 = 7 \\), \\( r - 1 = -11 \\), then \\( p = -4 \\), \\( q = 8 \\), \\( r = -10 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-85"
+  },
+  {
+    "index": 86,
+    "text": "Sum is (-4) + 8 + (-10) = -6, not 26.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-86"
+  },
+  {
+    "index": 87,
+    "text": "Another possibility: \\( p - 1 = 5 \\), \\( q - 1 = -7 \\), \\( r - 1 = 11 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-87"
+  },
+  {
+    "index": 88,
+    "text": "Then, \\( p = 6 \\), \\( q = -6 \\), \\( r = 12 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-88"
+  },
+  {
+    "index": 89,
+    "text": "Sum is 6 + (-6) + 12 = 12, not 26.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-89"
+  },
+  {
+    "index": 90,
+    "text": "Alternatively, \\( p - 1 = 5 \\), \\( q - 1 = 7 \\), \\( r - 1 = -11 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-90"
+  },
+  {
+    "index": 91,
+    "text": "Then, \\( p = 6 \\), \\( q = 8 \\), \\( r = -10 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-91"
+  },
+  {
+    "index": 92,
+    "text": "Sum is 6 + 8 + (-10) = 4, not 26.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-92"
+  },
+  {
+    "index": 93,
+    "text": "Hmm, seems like negative factors aren't giving me the correct sum.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-93"
+  },
+  {
+    "index": 94,
+    "text": "So, maybe the only possible triplet is the positive one: (5,7,11), leading to \\( p, q, r \\) being 6,8,12.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-94"
+  },
+  {
+    "index": 95,
+    "text": "Let me check if these values satisfy the original equations.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-95"
+  },
+  {
+    "index": 96,
+    "text": "First, \\( p + q + r = 6 + 8 + 12 = 26 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-96"
+  },
+  {
+    "index": 97,
+    "text": "Good. Now, let's check the second equation:\n\n\\( \\frac{1}{6} + \\frac{1}{8} + \\frac{1}{12} + \\frac{360}{6 \\times 8 \\times 12} \\)\n\nCompute each term:\n\n- \\( \\frac{1}{6} \\approx 0.1667 \\)\n- \\( \\frac{1}{8} = 0.125 \\)\n- \\( \\frac{1}{12} \\approx 0.0833 \\)\n- \\( 6 \\times 8 \\times 12 = 576 \\)\n- \\( \\frac{360}{576} = \\frac{360 \u00f7 72}{576 \u00f7 72} = \\frac{5}{8} = 0.625 \\)\n\nNow, adding them up:\n\n0.1667 + 0.125 = 0.2917\n\n0.2917 + 0.0833 = 0.375\n\n0.375 + 0.625 = 1.0\n\nPerfect, that adds up to 1.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-97"
+  },
+  {
+    "index": 98,
+    "text": "So, the values 6,8,12 satisfy both equations.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-98"
+  },
+  {
+    "index": 99,
+    "text": "Therefore, \\( pqr = 6 \\times 8 \\times 12 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-99"
+  },
+  {
+    "index": 100,
+    "text": "Let me compute that.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-100"
+  },
+  {
+    "index": 101,
+    "text": "First, 6 \u00d7 8 = 48\n\nThen, 48 \u00d7 12 = 576\n\nSo, \\( pqr = 576 \\)\n\nWait, but let me make sure there aren't other possible triplets that could also satisfy the conditions.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-101"
+  },
+  {
+    "index": 102,
+    "text": "For example, maybe the triplet isn't (5,7,11) but some other combination where the factors are arranged differently, but still give the same product and sum.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-102"
+  },
+  {
+    "index": 103,
+    "text": "Wait, but 385 is 5\u00d77\u00d711, and those are the only prime factors, so the only possible triplet without including 1 is (5,7,11).",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-103"
+  },
+  {
+    "index": 104,
+    "text": "Any other triplet would involve 1 and larger numbers, which we saw earlier give sums way beyond 26 when 1 is added back.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-104"
+  },
+  {
+    "index": 105,
+    "text": "So, I think that's the only solution.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-105"
+  },
+  {
+    "index": 106,
+    "text": "Just to be thorough, let me check if there's another way to factor 385 into three integers, possibly including negative numbers, but as we saw earlier, that doesn't help because the sum doesn't match.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-106"
+  },
+  {
+    "index": 107,
+    "text": "So, I think the only possible values are \\( p = 6 \\), \\( q = 8 \\), \\( r = 12 \\) (or any permutation of these), giving \\( pqr = 576 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-107"
+  },
+  {
+    "index": 108,
+    "text": "**Final Answer**\nThe value of \\( pqr \\) is \\boxed{576}.",
+    "category": "Final Answer",
+    "categories": [
+      "Final Answer"
+    ],
+    "abbreviation": "FA-108"
+  },
+  {
+    "index": 109,
+    "text": "</think>\n\nGiven the problem where \\( p, q, \\) and \\( r \\) are three non-zero integers such that \\( p + q + r = 26 \\) and \n\n\\[\n\\frac{1}{p} + \\frac{1}{q} + \\frac{1}{r} + \\frac{360}{pqr} = 1,\n\\]\n\nwe need to find the value of \\( pqr \\).",
+    "category": "Unknown",
+    "categories": [
+      "Unknown"
+    ],
+    "abbreviation": "U-109"
+  },
+  {
+    "index": 110,
+    "text": "First, we rewrite the second equation with a common denominator \\( pqr \\):\n\n\\[\n\\frac{qr + pr + pq + 360}{pqr} = 1.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-110"
+  },
+  {
+    "index": 111,
+    "text": "\\]\n\nThis simplifies to:\n\n\\[\nqr + pr + pq + 360 = pqr.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-111"
+  },
+  {
+    "index": 112,
+    "text": "\\]\n\nRearranging, we get:\n\n\\[\npqr - pq - pr - qr = 360.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-112"
+  },
+  {
+    "index": 113,
+    "text": "\\]\n\nWe also know that \\( p + q + r = 26 \\).",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-113"
+  },
+  {
+    "index": 114,
+    "text": "To factor the equation, we consider the identity for expanding \\( (p - 1)(q - 1)(r - 1) \\):\n\n\\[\n(p - 1)(q - 1)(r - 1) = pqr - pq - pr - qr + p + q + r - 1.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-114"
+  },
+  {
+    "index": 115,
+    "text": "\\]\n\nSubstituting \\( pqr - pq - pr - qr = 360 \\) and \\( p + q + r = 26 \\), we get:\n\n\\[\n(p - 1)(q - 1)(r - 1) = 360 + 26 - 1 = 385.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-115"
+  },
+  {
+    "index": 116,
+    "text": "\\]\n\nThe prime factorization of 385 is \\( 5 \\times 7 \\times 11 \\).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-116"
+  },
+  {
+    "index": 117,
+    "text": "Thus, the possible values for \\( p - 1, q - 1, r - 1 \\) are 5, 7, and 11.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-117"
+  },
+  {
+    "index": 118,
+    "text": "Adding 1 to each, we get \\( p, q, r \\) as 6, 8, and 12.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-118"
+  },
+  {
+    "index": 119,
+    "text": "Verifying the sum:\n\n\\[\n6 + 8 + 12 = 26,\n\\]\n\nand checking the second equation confirms it holds true.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-119"
+  },
+  {
+    "index": 120,
+    "text": "Therefore, the product \\( pqr \\) is:\n\n\\[\n6 \\times 8 \\times 12 = 576.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-120"
+  },
+  {
+    "index": 121,
+    "text": "\\]\n\nThe value of \\( pqr \\) is \\boxed{576}.",
+    "category": "Final Answer",
+    "categories": [
+      "Final Answer"
+    ],
+    "abbreviation": "FA-121"
+  }
+]

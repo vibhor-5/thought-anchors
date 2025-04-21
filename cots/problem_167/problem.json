@@ -1,7 +1,0 @@
-{
-  "topic": "Mathematical Logic",
-  "subtopic": "Proof by Induction",
-  "difficulty": "Easy",
-  "question": "Prove that the sum of the first n positive integers is given by the formula: 1 + 2 + 3 + ... + n = n(n+1)/2 for all integers n \u2265 1.",
-  "answer": "I will prove this formula using mathematical induction.\n\nStep 1: Verify the base case (n = 1).\nWhen n = 1, the left side of the equation is simply 1.\nThe right side is 1(1+1)/2 = 1(2)/2 = 1.\nSince both sides equal 1, the formula holds for n = 1.\n\nStep 2: Inductive hypothesis.\nAssume the formula holds for some positive integer k. That is:\n1 + 2 + 3 + ... + k = k(k+1)/2\n\nStep 3: Prove the formula holds for n = k+1.\nWe need to show that: 1 + 2 + 3 + ... + k + (k+1) = (k+1)(k+2)/2\n\nStarting with the left side:\n1 + 2 + 3 + ... + k + (k+1)\n= [1 + 2 + 3 + ... + k] + (k+1)    (grouping the first k terms)\n= k(k+1)/2 + (k+1)                 (using our inductive hypothesis)\n= k(k+1)/2 + 2(k+1)/2              (converting to common denominator)\n= (k(k+1) + 2(k+1))/2\n= (k+1)(k+2)/2                     (factoring out k+1)\n\nThis equals the right side of our target equation for n = k+1.\n\nSince we've verified the base case and proved that the formula holds for n = k+1 whenever it holds for n = k, by the principle of mathematical induction, the formula 1 + 2 + 3 + ... + n = n(n+1)/2 holds for all integers n \u2265 1."
-}

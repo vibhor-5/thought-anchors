@@ -1,7 +1,0 @@
-{
-  "topic": "Pattern Recognition",
-  "subtopic": "Rule Induction",
-  "difficulty": "Easy",
-  "question": "Consider the following sequence of transformations:\n\n- 'abc' \u2192 'bdf'\n- 'fgh' \u2192 'gik'\n- 'xyz' \u2192 '?'\n\nWhat is the pattern rule that transforms the first string into the second string in each case, and what would be the transformation of 'xyz' according to this rule?",
-  "answer": "To solve this problem, I need to identify the pattern that transforms the first string into the second string.\n\nLet's analyze the transformations we're given:\n\n1. 'abc' \u2192 'bdf'\n   - 'a' becomes 'b': +1 letter in the alphabet\n   - 'b' becomes 'd': +2 letters in the alphabet\n   - 'c' becomes 'f': +3 letters in the alphabet\n\n2. 'fgh' \u2192 'gik'\n   - 'f' becomes 'g': +1 letter in the alphabet\n   - 'g' becomes 'i': +2 letters in the alphabet\n   - 'h' becomes 'k': +3 letters in the alphabet\n\nI see that the pattern involves incrementing each letter's position in the alphabet by its position in the original string:\n- First letter: +1 position\n- Second letter: +2 positions\n- Third letter: +3 positions\n\nApplying this rule to 'xyz':\n- 'x' (+1) \u2192 'y'\n- 'y' (+2) \u2192 'a' (wrapping around the alphabet)\n- 'z' (+3) \u2192 'c' (wrapping around the alphabet)\n\nTherefore, the transformation of 'xyz' would be 'yac'."
-}
