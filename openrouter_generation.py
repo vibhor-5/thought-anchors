@@ -31,14 +31,14 @@ parser.add_argument('-i', '--input_file', type=str, default=None, help='Input JS
 parser.add_argument('-o', '--output_dir', type=str, default='math_rollouts', help='Directory to save results')
 parser.add_argument('-np', '--num_problems', type=int, default=10, help='Number of problems to sample')
 parser.add_argument('-nr', '--num_rollouts', type=int, default=100, help='Number of rollouts per chunk')
-parser.add_argument('-t', '--temperature', type=float, default=0.7, help='Temperature for rollout generation')
+parser.add_argument('-t', '--temperature', type=float, default=0.6, help='Temperature for rollout generation')
 parser.add_argument('-tp', '--top_p', type=float, default=0.92, help='Top-p sampling parameter')
 parser.add_argument('-mt', '--max_tokens', type=int, default=8192, help='Maximum number of tokens for generation')
 parser.add_argument('-s', '--seed', type=int, default=42, help='Random seed for reproducibility')
 parser.add_argument('-f', '--force', action='store_true', help='Force regeneration even if solutions exist')
 parser.add_argument('-c', '--concurrency', type=int, default=5, help='Number of concurrent API requests')
 parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
-parser.add_argument('-l', '--level', type=str, default=None, help='Problem level filter')
+parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
 parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
 args = parser.parse_args()
 
@@ -134,23 +134,40 @@ def split_solution_into_chunks(solution_text: str) -> List[str]:
     if "</think>" in solution_text:
         solution_text = solution_text.split("</think>")[0].strip()
     
-    # Split by sentences or logical breaks
+    # Define patterns for chunk boundaries
+    sentence_ending_tokens = [".", "?", "!"]
+    paragraph_ending_patterns = ["\n\n", "\r\n\r\n"]
+    
+    # Split the text into chunks
     chunks = []
     current_chunk = ""
     
-    # Split by sentences, keeping some context
-    sentences = re.split(r'(?<=[.!?])\s+', solution_text)
-    
-    for i, sentence in enumerate(sentences):
-        if not sentence.strip():
-            continue
-            
-        # Start a new chunk every few sentences
-        if i % 3 == 0 and current_chunk:
-            chunks.append(current_chunk.strip())
-            current_chunk = sentence
-        else:
-            current_chunk += " " + sentence
+    # Process the text character by character
+    i = 0
+    while i < len(solution_text):
+        current_chunk += solution_text[i]
+        
+        # Check for paragraph endings
+        is_paragraph_end = False
+        for pattern in paragraph_ending_patterns:
+            if i + len(pattern) <= len(solution_text) and solution_text[i:i+len(pattern)] == pattern:
+                is_paragraph_end = True
+                break
+        
+        # Check for sentence endings followed by space or newline
+        is_sentence_end = False
+        if i < len(solution_text) - 1 and solution_text[i] in sentence_ending_tokens:
+            next_char = solution_text[i+1]
+            if next_char == " " or next_char == "\n":
+                is_sentence_end = True
+        
+        # If we found a boundary, add the chunk and reset
+        if is_paragraph_end or is_sentence_end:
+            if current_chunk.strip():
+                chunks.append(current_chunk.strip())
+                current_chunk = ""
+        
+        i += 1
     
     # Add the last chunk if not empty
     if current_chunk.strip():
@@ -197,16 +214,15 @@ async def generate_base_solution(client: OpenAI, problem: Dict, temperature: flo
                 print("Reasoning tokens not available in response")
             
             # Create full CoT with prompt, reasoning, and solution
-            full_cot = f"{prompt}{solution_text}\n</think>"
+            full_cot = f"{prompt}{solution_text}"
             
             # Create a version with reasoning if available
-            full_cot_with_reasoning = None
+            full_cot = None
             if reasoning:
-                full_cot_with_reasoning = f"Problem: {problem['problem']}\nSolution: \n<think>\n{reasoning}\n</think>\n{solution_text}"
+                full_cot = f"{prompt}{reasoning}\n</think>\n{solution_text}"
             
-            # Extract answer and check correctness from the full CoT with reasoning if available
-            # Otherwise, use the regular solution text
-            source_text = full_cot_with_reasoning if full_cot_with_reasoning else solution_text
+            # Extract answer and check correctness from the full CoT with reasoning if available - otherwise, use the regular solution text
+            source_text = full_cot if full_cot else solution_text
             extracted_answers = extract_boxed_answers(source_text)
             answer = extracted_answers[0] if extracted_answers else ""
             is_correct = False
@@ -219,7 +235,6 @@ async def generate_base_solution(client: OpenAI, problem: Dict, temperature: flo
                 "solution": solution_text,
                 "reasoning": reasoning,
                 "full_cot": full_cot,
-                "full_cot_with_reasoning": full_cot_with_reasoning,
                 "temperature": temperature,
                 "top_p": args.top_p,
                 "answer": answer,
@@ -279,18 +294,15 @@ async def generate_rollout(client: OpenAI, problem: Dict, chunk_text: str, full_
                 reasoning = completion.choices[0].message.reasoning
             except AttributeError:
                 print("Reasoning tokens not available in response")
-            
-            # Create full CoT with prompt and rollout
-            full_cot = f"{prompt}{rollout_text}\n</think>"
-            
+
             # Create a version with reasoning if available
-            full_cot_with_reasoning = None
+            full_cot = None
             if reasoning:
-                full_cot_with_reasoning = f"Problem: {problem['problem']}\nSolution: \n<think>\n{full_cot_prefix}{reasoning}\n</think>\n{rollout_text}"
+                full_cot = f"{prompt}{reasoning}\n</think>\n{rollout_text}"
             
             # Extract answer and check correctness from the full CoT with reasoning if available
             # Otherwise, use the combined prefix + rollout text
-            source_text = full_cot_with_reasoning if full_cot_with_reasoning else (full_cot_prefix + rollout_text)
+            source_text = full_cot if full_cot else (full_cot_prefix + rollout_text)
             extracted_answers = extract_boxed_answers(source_text)
             answer = extracted_answers[0] if extracted_answers else ""
             is_correct = False
@@ -305,7 +317,6 @@ async def generate_rollout(client: OpenAI, problem: Dict, chunk_text: str, full_
                 "reasoning": reasoning,
                 "full_solution": full_cot_prefix + rollout_text,
                 "full_cot": full_cot,
-                "full_cot_with_reasoning": full_cot_with_reasoning,
                 "temperature": temperature,
                 "top_p": args.top_p,
                 "answer": answer,
@@ -354,22 +365,26 @@ async def process_problem(problem_idx: int, problem: Dict, client: OpenAI, semap
     
     # Check if base solution already exists
     base_solution_file = problem_dir / "base_solution.json"
+    base_solution = None
     if base_solution_file.exists() and not args.force:
         with open(base_solution_file, 'r', encoding='utf-8') as f:
             base_solution = json.load(f)
-    else:
-        # Generate base solution
-        async with semaphore:
-            base_solution = await generate_base_solution(client, problem, args.temperature)
-            
-            # Save base solution
-            with open(base_solution_file, 'w', encoding='utf-8') as f:
-                json.dump(base_solution, f, indent=2)
+            print(f"Problem {problem_idx}: Loaded existing base solution")
+    
+    # Generate base solution if needed
+    if base_solution is None:
+        print(f"Problem {problem_idx}: Generating base solution")
+        base_solution_task = asyncio.create_task(generate_base_solution(client, problem, args.temperature))
+        base_solution = await base_solution_task
+        
+        # Save base solution
+        with open(base_solution_file, 'w', encoding='utf-8') as f:
+            json.dump(base_solution, f, indent=2)
     
     # Get the source text for chunking
-    if base_solution.get("full_cot_with_reasoning"):
-        source_text = base_solution["full_cot_with_reasoning"]
-        print(f"Problem {problem_idx}: Using full CoT with reasoning for chunking")
+    if base_solution.get("full_cot"):
+        source_text = base_solution["full_cot"]
+        print(f"Problem {problem_idx}: Using full CoT for chunking")
     else:
         source_text = base_solution["solution"]
         print(f"Problem {problem_idx}: Using solution text for chunking")
@@ -386,6 +401,16 @@ async def process_problem(problem_idx: int, problem: Dict, client: OpenAI, semap
     chunks = split_solution_into_chunks(solution_text)
     print(f"Problem {problem_idx}: Split into {len(chunks)} chunks")
     
+    # Save chunks to a separate file
+    chunks_file = problem_dir / "chunks.json"
+    with open(chunks_file, 'w', encoding='utf-8') as f:
+        json.dump({
+            "source_text": source_text,
+            "solution_text": solution_text,
+            "chunks": chunks
+        }, f, indent=2)
+    print(f"Problem {problem_idx}: Saved chunks to {chunks_file}")
+    
     # Build cumulative chunks for proper continuation
     cumulative_chunks = []
     current_cumulative = ""
@@ -393,14 +418,17 @@ async def process_problem(problem_idx: int, problem: Dict, client: OpenAI, semap
         current_cumulative += chunk + " "
         cumulative_chunks.append(current_cumulative.strip())
     
-    # Process each chunk with its own progress bar
-    chunk_tasks = []
+    # Create all rollout tasks at once for maximum parallelism
+    all_rollout_tasks = []
+    chunk_info = []  # Store info about each chunk's rollouts
+    
     for chunk_idx, (chunk, full_prefix) in enumerate(zip(chunks, cumulative_chunks)):
         chunk_dir = problem_dir / f"chunk_{chunk_idx}"
         chunk_dir.mkdir(exist_ok=True, parents=True)
         
         # Check if solutions already exist
         solutions_file = chunk_dir / "solutions.json"
+        existing_solutions = []
         if solutions_file.exists() and not args.force:
             with open(solutions_file, 'r', encoding='utf-8') as f:
                 existing_solutions = json.load(f)
@@ -411,64 +439,56 @@ async def process_problem(problem_idx: int, problem: Dict, client: OpenAI, semap
                 rollouts_to_generate = args.num_rollouts - num_existing
                 print(f"Problem {problem_idx}, Chunk {chunk_idx}: Generating {rollouts_to_generate} additional rollouts")
         else:
-            existing_solutions = []
             rollouts_to_generate = args.num_rollouts
             print(f"Problem {problem_idx}, Chunk {chunk_idx}: Generating {rollouts_to_generate} rollouts")
         
-        # Create a task for processing this chunk
-        chunk_task = asyncio.create_task(
-            process_chunk(problem_idx, chunk_idx, problem, chunk, full_prefix, client, semaphore, 
-                         existing_solutions, rollouts_to_generate)
-        )
-        chunk_tasks.append(chunk_task)
+        # Create rollout tasks for this chunk
+        chunk_rollout_tasks = []
+        for i in range(rollouts_to_generate):
+            task = asyncio.create_task(
+                generate_rollout(client, problem, chunk, full_prefix, args.temperature)
+            )
+            chunk_rollout_tasks.append(task)
+            all_rollout_tasks.append(task)
+        
+        # Store info about this chunk's rollouts
+        chunk_info.append({
+            "chunk_idx": chunk_idx,
+            "tasks": chunk_rollout_tasks,
+            "existing_solutions": existing_solutions,
+            "solutions_file": solutions_file
+        })
     
-    # Wait for all chunk tasks to complete
-    for f in tqdm(asyncio.as_completed(chunk_tasks), total=len(chunk_tasks), 
-                 desc=f"Problem {problem_idx} chunks"):
-        await f
-
-async def process_chunk(problem_idx: int, chunk_idx: int, problem: Dict, chunk: str, full_prefix: str, 
-                       client: OpenAI, semaphore: asyncio.Semaphore, 
-                       existing_solutions: List[Dict], rollouts_to_generate: int) -> None:
-    """
-    Process a single chunk: generate rollouts.
-    
-    Args:
-        problem_idx: Index of the problem
-        chunk_idx: Index of the chunk
-        problem: Problem dictionary
-        chunk: Current chunk text
-        full_prefix: Full text up to and including current chunk
-        client: OpenAI client
-        semaphore: Semaphore for limiting concurrent requests
-        existing_solutions: Existing solutions for this chunk
-        rollouts_to_generate: Number of rollouts to generate
-    """
-    chunk_dir = output_dir / f"problem_{problem_idx}" / f"chunk_{chunk_idx}"
-    solutions_file = chunk_dir / "solutions.json"
-    
-    # Generate rollouts with parallelization at the rollout level
-    rollout_tasks = []
-    for i in range(rollouts_to_generate):
-        rollout_task = asyncio.create_task(
-            generate_rollout_with_semaphore(client, problem, chunk, full_prefix, args.temperature, semaphore)
-        )
-        rollout_tasks.append(rollout_task)
-    
-    # Wait for all rollouts to complete with progress bar
-    rollouts = []
-    for f in tqdm(asyncio.as_completed(rollout_tasks), 
-                 total=len(rollout_tasks), 
-                 desc=f"Problem {problem_idx}, Chunk {chunk_idx} rollouts"):
+    # Wait for all rollout tasks to complete with a single progress bar
+    print(f"Problem {problem_idx}: Waiting for {len(all_rollout_tasks)} rollouts across {len(chunk_info)} chunks")
+    completed_tasks = []
+    for f in tqdm(asyncio.as_completed(all_rollout_tasks), 
+                 total=len(all_rollout_tasks), 
+                 desc=f"Problem {problem_idx} rollouts"):
         result = await f
-        rollouts.append(result)
+        completed_tasks.append(result)
     
-    # Combine with existing solutions
-    all_solutions = existing_solutions + rollouts
-    
-    # Save solutions
-    with open(solutions_file, 'w', encoding='utf-8') as f:
-        json.dump(all_solutions, f, indent=2)
+    # Process results for each chunk
+    for info in chunk_info:
+        chunk_idx = info["chunk_idx"]
+        chunk_tasks = info["tasks"]
+        existing_solutions = info["existing_solutions"]
+        solutions_file = info["solutions_file"]
+        
+        # Get results for this chunk
+        chunk_results = []
+        for task in chunk_tasks:
+            if task.done():
+                chunk_results.append(task.result())
+        
+        # Combine with existing solutions
+        all_solutions = existing_solutions + chunk_results
+        
+        # Save solutions
+        with open(solutions_file, 'w', encoding='utf-8') as f:
+            json.dump(all_solutions, f, indent=2)
+        
+        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Saved {len(chunk_results)} new rollouts")
 
 async def main():
     """Main function to run the script."""
@@ -487,19 +507,20 @@ async def main():
 
     print(f"Loaded {len(problems)} problems.")
     
-    # Create semaphore to limit concurrent requests
-    semaphore = asyncio.Semaphore(args.concurrency)
+    # Create semaphore to limit concurrent requests - but with a much higher limit
+    # OpenRouter allows up to 300 concurrent requests
+    semaphore = asyncio.Semaphore(min(300, args.concurrency))
     
     # Create OpenAI client for OpenRouter
     client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=OPENROUTER_API_KEY)
     
-    # Process problems
+    # Process all problems in parallel
     tasks = []
     for problem_idx, problem in problems:
-        task = process_problem(problem_idx, problem, client, semaphore)
+        task = asyncio.create_task(process_problem(problem_idx, problem, client, semaphore))
         tasks.append(task)
     
-    # Use tqdm to show progress
+    # Wait for all problem tasks to complete
     for f in tqdm(asyncio.as_completed(tasks), total=len(tasks), desc="Processing problems"):
         await f
 
