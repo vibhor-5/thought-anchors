@@ -134,3 +134,145 @@ CATEGORIES = {
     "sm": sm_categories,
     "ss": ss_categories
 }
+
+DAG_PROMPT = """
+You are an expert in interpreting how language models solve math problems using multi-step reasoning. Your task is to analyze a Chain-of-Thought (CoT) reasoning trace, broken into discrete text chunks, and label each chunk with:
+
+1. **function_tags**: One or more labels that describe what this chunk is *doing* functionally in the reasoning process.
+
+2. **depends_on**: A list of earlier chunk indices that this chunk directly depends on — meaning it uses information, results, or logic introduced in those earlier chunks.
+
+This annotation will be used to build a dependency graph and perform causal analysis, so please be precise and conservative: only mark a chunk as dependent on another if its reasoning clearly uses a previous step's result or idea.
+
+---
+
+### Function Tags (you may assign multiple per chunk if appropriate):
+
+1. `initialization`: 
+    Chunk rephrases the problem, unpacks definitions, or states general intentions at the start of reasoning. 
+    Often the first few chunks.
+
+2. `planning_step`: 
+    Chunk describes a plan or strategy for how to approach the problem. 
+    Can include conditionals (“I’ll try X first...”) or descriptions of potential steps.
+
+3. `recall_fact`: 
+    Chunk recalls a known fact, rule, formula, or math identity from memory. 
+    Includes explicit retrieval from memory, not derivation.
+
+4. `recall_problem`: 
+    Chunk recalls the problem statement or key details. 
+    Includes explicit retrieval from memory, not derivation. 
+    
+6. `substitution`: 
+    Rewriting or representing an expression in a more useful form (e.g., “243 = 3^5” or “Let x = ...”).
+    Includes algebraic rearrangement, defining variables, or transforming the expression’s structure.
+
+7. `intermediate_step`: 
+    Chunk performs a computation, transformation, or derivation that is later used in another step.
+
+8. `self_check`: 
+    Chunk verifies a previous result or plugs it back into the problem to confirm correctness.
+    Reviewing or re-computing a previous result to confirm correctness.
+    Often introduced with phrases like “let me double check” or “just to be sure…”
+    
+9. `example_testing`: 
+    Generating examples or scenarios to test hypotheses.
+    E.g., “Let's try this with a simpler example...” or “I'll test this with a specific value...”
+
+10. `backtracking`: 
+    Chunk proposes an alternative approach, a reframing of the problem, or backtracks from an earlier direction.
+    Includes backtracking, starting over, or switching methods (“Alternatively, I could...”)
+
+11. `uncertainty_estimation`: 
+    Chunk expresses uncertainty or confidence in the reasoning or result.
+    Explicitly expressing confidence or uncertainty in the reasoning or result.
+    E.g., “I’m not sure if this is right...” or “I feel confident in this answer.”
+
+12. `summary`: 
+    Chunk gives a recap or clean version of previously derived steps or restates the final answer.
+
+13. `final_answer_first_occurrence`: 
+    First chunk where the final answer is fully derived or explicitly stated.
+
+14. `final_answer`: 
+    Chunk that contains the final answer.
+
+15. `unknown`: 
+    Use only if the chunk does not fit any of the above tags or is purely stylistic or semantic.
+
+NOTE: Try to spot `first_answer_first_occurrence` as early as possible. Sometimes the final result is derived in a step that looks like an intermediate step, 
+but only later it is officially stated that this is the final answer.
+
+NOTE: Make sure to distinguish meaningfully between `initialization` and `planning_step` and between `recall_fact` and `recall_problem`.
+
+---
+
+### depends_on Instructions:
+
+For each chunk, include a list of earlier chunk indices that the reasoning in this chunk *uses*. For example:
+- If Chunk 9 performs a computation based on a plan in Chunk 4 and a recalled rule in Chunk 5, then `depends_on: [4, 5]`
+- If Chunk 24 plugs in a final answer to verify correctness from Chunk 23, then `depends_on: [23]`
+- If there's no clear dependency (e.g. a general plan or recall), use an empty list: `[]`
+- If Chunk 13 performs a computation based on information in Chunk 11, which in turn uses information from Chunk 7, then `depends_on: [11, 7]`
+
+Important Notes:
+- Make sure to include all dependencies for each chunk. 
+- Include both long-range and short-range dependencies.
+- Do NOT forget about long-range dependencies. 
+- Try to be as comprehensive as possible.
+- Make sure there is always a path from the prompt to the final answer.
+
+---
+
+### Output Format:
+
+Return a single dictionary with one entry per chunk, where each entry has:
+- the chunk index (as the key, converted to a string),
+- a dictionary with:
+    - `"function_tags"`: list of tag strings
+    - `"depends_on"`: list of chunk indices, converted to strings
+
+Here's the expected format:
+
+```language=json
+{{
+    "4": {{
+    "function_tags": ["planning_step"],
+    "depends_on": ["3"]
+    }},
+    "5": {{
+    "function_tags": ["recall_fact"],
+    "depends_on": []
+    }},
+    "9": {{
+    "function_tags": ["intermediate_result"],
+    "depends_on": ["4", "5"]
+    }},
+    "23": {{
+    "function_tags": ["final_answer_first_occurrence"],
+    "depends_on": ["22"]
+    }},
+    "24": {{
+    "function_tags": ["self_check"],
+    "depends_on": ["23"]
+    }},
+    "25": {{
+    "function_tags": ["final_answer"],
+    "depends_on": ["23"]
+    }}
+}}
+```
+
+Here is the math problem:
+
+[PROBLEM]
+{problem_text}
+
+Here is the full Chain of Thought, broken into chunks:
+
+[CHUNKS]
+{full_chunked_text}
+
+Now label each chunk with function tags and dependencies.
+"""

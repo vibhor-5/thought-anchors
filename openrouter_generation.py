@@ -43,7 +43,7 @@ parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['No
 args = parser.parse_args()
 
 # Create output directory
-output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}"
+output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}_top_p_{str(args.top_p)}"
 output_dir.mkdir(exist_ok=True, parents=True)
 
 # Set random seed for reproducibility
