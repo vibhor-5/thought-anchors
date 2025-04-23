@@ -34,11 +34,12 @@ parser.add_argument('-mt', '--max_tokens', type=int, default=16384, help='Maximu
 parser.add_argument('-mc', '--max_chunks', type=int, default=150, help='Maximum number of chunks to process')
 parser.add_argument('-s', '--seed', type=int, default=42, help='Random seed for reproducibility')
 parser.add_argument('-f', '--force', action='store_true', help='Force regeneration even if solutions exist')
-parser.add_argument('-c', '--concurrency', type=int, default=100, help='Number of concurrent API requests')
-parser.add_argument('-e', '--exclude_problems', type=str, default=None, help='Comma-separated list of problem IDs to exclude')
+parser.add_argument('-ep', '--exclude_problems', type=str, default=None, help='Comma-separated list of problem IDs to exclude')
+parser.add_argument('-ip', '--include_problems', type=str, default=None, help='Comma-separated list of problem IDs to include')
 parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
 parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
 parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
+parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together'], help='Provider to use')
 args = parser.parse_args()
 
 # Create output directory
@@ -181,8 +182,8 @@ async def make_openrouter_request(prompt: str, temperature: float, top_p: float,
         "max_tokens": max_tokens,
         "include_reasoning": True,
         "provider": {
-            "order": ["Novita"],
-            "ignore": ["Together"],
+            "order": [args.provider],
+            "ignore": ["Together" if args.provider == "Novita" else "Novita"],
             "allow_fallbacks": False
         }
     }
@@ -373,6 +374,7 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
         base_solution = await generate_base_solution(problem, args.temperature)
             
         if "is_correct" not in base_solution or not base_solution["is_correct"]:
+            print(base_solution["solution"])
             print(f"Problem {problem_idx}: Base solution is incorrect or has error. Will not generate rollouts.")
             return
         
@@ -425,14 +427,26 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
         # Check if solutions already exist
         solutions_file = chunk_dir / "solutions.json"
         existing_solutions = []
+        valid_existing_solutions = []
+        
         if solutions_file.exists() and not args.force:
             with open(solutions_file, 'r', encoding='utf-8') as f:
                 existing_solutions = json.load(f)
+                # Filter for valid solutions (has answer and no error)
+                valid_existing_solutions = [
+                    sol for sol in existing_solutions 
+                    if sol.get("answer") and len(sol.get("answer", "")) > 0 and "error" not in sol
+                ]
+                
                 num_existing = len(existing_solutions)
-                if num_existing >= args.num_rollouts:
-                    print(f"Problem {problem_idx}, Chunk {chunk_idx}: All {num_existing} rollouts already exist")
+                num_valid = len(valid_existing_solutions)
+                
+                if num_valid >= args.num_rollouts:
+                    print(f"Problem {problem_idx}, Chunk {chunk_idx}: All {num_valid} valid rollouts already exist")
                     continue
-                rollouts_to_generate = args.num_rollouts - num_existing
+                    
+                rollouts_to_generate = args.num_rollouts - num_valid
+                print(f"Problem {problem_idx}, Chunk {chunk_idx}: Found {num_existing} existing rollouts, but only {num_valid} are valid")
                 print(f"Problem {problem_idx}, Chunk {chunk_idx}: Generating {rollouts_to_generate} additional rollouts")
         else:
             rollouts_to_generate = args.num_rollouts
@@ -443,16 +457,23 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
         
         # Execute all tasks concurrently
         print(f"Problem {problem_idx}, Chunk {chunk_idx}: Executing {len(tasks)} rollout tasks concurrently")
-        rollouts = await asyncio.gather(*tasks)
+        new_rollouts = await asyncio.gather(*tasks)
         
-        # Combine with existing solutions
-        all_solutions = existing_solutions + rollouts
+        # Filter for valid new rollouts
+        valid_new_rollouts = [
+            rollout for rollout in new_rollouts 
+            if rollout.get("answer") and len(rollout.get("answer", "")) > 0 and "error" not in rollout
+        ]
         
-        # Save solutions
+        # Combine valid existing solutions with valid new rollouts
+        all_valid_solutions = valid_existing_solutions + valid_new_rollouts
+        
+        # Save only the valid solutions
         with open(solutions_file, 'w', encoding='utf-8') as f:
-            json.dump(all_solutions, f, indent=2)
+            json.dump(all_valid_solutions, f, indent=2)
         
-        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Saved {len(rollouts)} new rollouts")
+        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Saved {len(valid_new_rollouts)} new valid rollouts")
+        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Total valid rollouts: {len(all_valid_solutions)}")
 
 async def main():
     """Main function to run the script."""
@@ -462,6 +483,10 @@ async def main():
     if args.exclude_problems:
         exclude_problems = [int(id) for id in args.exclude_problems.split(",")]
         problems = [problem for problem in problems if problem[0] not in exclude_problems]
+        
+    if args.include_problems:
+        include_problems = [int(id) for id in args.include_problems.split(",")]
+        problems = [problem for problem in problems if problem[0] in include_problems]
     
     if not problems:
         print(f"No problems loaded. Exiting.")
