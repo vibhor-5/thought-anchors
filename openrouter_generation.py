@@ -4,12 +4,11 @@ import random
 import numpy as np
 import torch
 import asyncio
-import re
+import httpx
 from tqdm import tqdm
 from pathlib import Path
-from typing import List, Dict, Tuple, Any, Optional
+from typing import List, Dict, Tuple, Optional
 from dotenv import load_dotenv
-from openai import OpenAI
 from datasets import load_dataset
 from utils import extract_boxed_answers, check_answer
 
@@ -17,33 +16,33 @@ from utils import extract_boxed_answers, check_answer
 load_dotenv()
 
 # Get OpenRouter API key
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 if not OPENROUTER_API_KEY:
     raise ValueError("OPENROUTER_API_KEY not found in .env file")
 
-# Constants
-MODEL_NAME = "deepseek/deepseek-r1-distill-qwen-14b"
-
 # Set up argument parser
 import argparse
 parser = argparse.ArgumentParser(description='Generate chain-of-thought solutions with rollouts')
-parser.add_argument('-i', '--input_file', type=str, default=None, help='Input JSON file with reasoning problems (optional)')
+parser.add_argument('-m', '--model', type=str, default="deepseek/deepseek-r1-distill-qwen-14b", help='Model to use')
 parser.add_argument('-o', '--output_dir', type=str, default='math_rollouts', help='Directory to save results')
-parser.add_argument('-np', '--num_problems', type=int, default=10, help='Number of problems to sample')
+parser.add_argument('-np', '--num_problems', type=int, default=100, help='Number of problems to sample')
 parser.add_argument('-nr', '--num_rollouts', type=int, default=100, help='Number of rollouts per chunk')
 parser.add_argument('-t', '--temperature', type=float, default=0.6, help='Temperature for rollout generation')
 parser.add_argument('-tp', '--top_p', type=float, default=0.92, help='Top-p sampling parameter')
-parser.add_argument('-mt', '--max_tokens', type=int, default=8192, help='Maximum number of tokens for generation')
+parser.add_argument('-mt', '--max_tokens', type=int, default=16384, help='Maximum number of tokens for generation')
+parser.add_argument('-mc', '--max_chunks', type=int, default=150, help='Maximum number of chunks to process')
 parser.add_argument('-s', '--seed', type=int, default=42, help='Random seed for reproducibility')
 parser.add_argument('-f', '--force', action='store_true', help='Force regeneration even if solutions exist')
-parser.add_argument('-c', '--concurrency', type=int, default=5, help='Number of concurrent API requests')
+parser.add_argument('-c', '--concurrency', type=int, default=100, help='Number of concurrent API requests')
+parser.add_argument('-e', '--exclude_problems', type=str, default=None, help='Comma-separated list of problem IDs to exclude')
 parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
 parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
 parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
 args = parser.parse_args()
 
 # Create output directory
-output_dir = Path(args.output_dir)
+output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}"
 output_dir.mkdir(exist_ok=True, parents=True)
 
 # Set random seed for reproducibility
@@ -53,12 +52,11 @@ torch.manual_seed(args.seed)
 if torch.cuda.is_available():
     torch.cuda.manual_seed_all(args.seed)
 
-def load_math_problems(file_path: Optional[str] = None, problem_type: Optional[str] = None, level: Optional[str] = None, num_problems: Optional[int] = None, split: str = 'train') -> List[Tuple[int, Dict]]:
+def load_math_problems(problem_type: Optional[str] = None, level: Optional[str] = None, num_problems: Optional[int] = None, split: str = 'train') -> List[Tuple[int, Dict]]:
     """
     Load problems from the MATH dataset with optional filtering.
     
     Args:
-        file_path: Path to the JSON file containing problems (if None, load from HF dataset)
         problem_type: Type of problems to filter by (if None, use all types)
         level: Level of problems to filter by (if None, use all levels)
         num_problems: Number of problems to sample (if None, use all problems)
@@ -68,31 +66,23 @@ def load_math_problems(file_path: Optional[str] = None, problem_type: Optional[s
         List of problems with their original indices
     """
     try:
-        if file_path:
-            # Load from JSON file
-            with open(file_path, 'r', encoding='utf-8') as f:
-                all_problems = json.load(f)
-            
-            # Add original indices to problems
-            indexed_problems = [(i, problem) for i, problem in enumerate(all_problems)]
-        else:
-            # Load from Hugging Face dataset
-            math_dataset = load_dataset("fdyrd/math")
-            dataset_split = math_dataset[split]
-            
-            # Add original indices to problems
-            indexed_problems = [(i, {
-                'problem': item['problem'],
-                'level': item['level'],
-                'type': item['type'],
-                'gt_solution': item['solution']
-            }) for i, item in enumerate(dataset_split)]
-            
-            # Extract ground truth answers
-            for i, problem in indexed_problems:
-                gt_boxed_answers = extract_boxed_answers(problem['gt_solution'])
-                gt_answer = gt_boxed_answers[0] if gt_boxed_answers else ""
-                problem['gt_answer'] = gt_answer
+        # Load from Hugging Face dataset
+        math_dataset = load_dataset("fdyrd/math")
+        dataset_split = math_dataset[split]
+        
+        # Add original indices to problems
+        indexed_problems = [(i, {
+            'problem': item['problem'],
+            'level': item['level'],
+            'type': item['type'],
+            'gt_solution': item['solution']
+        }) for i, item in enumerate(dataset_split)]
+        
+        # Extract ground truth answers
+        for i, problem in indexed_problems:
+            gt_boxed_answers = extract_boxed_answers(problem['gt_solution'])
+            gt_answer = gt_boxed_answers[0] if gt_boxed_answers else ""
+            problem['gt_answer'] = gt_answer
         
         # Filter by type if specified
         if problem_type is not None:
@@ -175,12 +165,37 @@ def split_solution_into_chunks(solution_text: str) -> List[str]:
     
     return chunks
 
-async def generate_base_solution(client: OpenAI, problem: Dict, temperature: float = 0.0) -> Dict:
+async def make_openrouter_request(prompt: str, temperature: float, top_p: float, max_tokens: int) -> Dict:
+    """Make a direct HTTP request to OpenRouter API."""
+    headers = {
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://localhost:3000"
+    }
+    
+    payload = {
+        "model": args.model,
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": temperature,
+        "top_p": top_p,
+        "max_tokens": max_tokens,
+        "include_reasoning": True,
+        "provider": {
+            "order": ["Novita"],
+            "ignore": ["Together"],
+            "allow_fallbacks": False
+        }
+    }
+    
+    async with httpx.AsyncClient(timeout=60.0) as client:
+        response = await client.post(OPENROUTER_API_URL, headers=headers, json=payload)
+        return response.json()
+
+async def generate_base_solution(problem: Dict, temperature: float = 0.0) -> Dict:
     """
     Generate a base solution for a problem using OpenRouter API.
     
     Args:
-        client: OpenAI client
         problem: Problem dictionary
         temperature: Temperature for generation
         
@@ -188,42 +203,32 @@ async def generate_base_solution(client: OpenAI, problem: Dict, temperature: flo
         Dictionary with the generated solution
     """
     # Create prompt similar to generate_cots_math.py
-    prompt = f"Solve this math problem step by step. Put your final answer in \\boxed{{}}. Problem: {problem['problem']} Solution: \n<think>\n"
+    prompt = f"Solve this math problem step by step. You MUST put your final answer in \\boxed{{}}. Problem: {problem['problem']} Solution: \n<think>\n"
     
     max_retries = 3
     retry_delay = 2
     
     for attempt in range(max_retries):
         try:
-            completion = client.chat.completions.create(
-                model=MODEL_NAME,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=temperature,
-                top_p=args.top_p,
-                max_tokens=args.max_tokens,
-                extra_body={"include_reasoning": True}
-            )
+            response = await make_openrouter_request(prompt, temperature, args.top_p, args.max_tokens)
             
-            solution_text = completion.choices[0].message.content
+            solution_text = response['choices'][0]['message']['content']
             
             # Try to get reasoning tokens if available
             reasoning = None
             try:
-                reasoning = completion.choices[0].message.reasoning
-            except AttributeError:
+                reasoning = response['choices'][0]['message']['reasoning']
+            except (KeyError, TypeError):
                 print("Reasoning tokens not available in response")
             
             # Create full CoT with prompt, reasoning, and solution
             full_cot = f"{prompt}{solution_text}"
             
-            # Create a version with reasoning if available
-            full_cot = None
             if reasoning:
                 full_cot = f"{prompt}{reasoning}\n</think>\n{solution_text}"
             
-            # Extract answer and check correctness from the full CoT with reasoning if available - otherwise, use the regular solution text
-            source_text = full_cot if full_cot else solution_text
-            extracted_answers = extract_boxed_answers(source_text)
+            # Extract answer and check correctness
+            extracted_answers = extract_boxed_answers(solution_text)
             answer = extracted_answers[0] if extracted_answers else ""
             is_correct = False
             
@@ -255,54 +260,52 @@ async def generate_base_solution(client: OpenAI, problem: Dict, temperature: flo
                     "error": str(e)
                 }
 
-async def generate_rollout(client: OpenAI, problem: Dict, chunk_text: str, full_cot_prefix: str, temperature: float = 0.7) -> Dict:
+async def generate_rollout(problem: Dict, chunk_text: str, full_cot_prefix: str, temperature: float = 0.7) -> Dict:
     """
-    Generate a rollout from a specific chunk.
+    Generate a rollout by removing a specific chunk and regenerating from that point.
     
     Args:
-        client: OpenAI client
         problem: Problem dictionary
-        chunk_text: Text of the current chunk
+        chunk_text: Text of the current chunk to remove
         full_cot_prefix: Full CoT text up to and including the current chunk
         temperature: Temperature for generation
         
     Returns:
         Dictionary with the rollout result
     """
-    # Create prompt with the full CoT prefix
-    prompt = f"Solve this math problem step by step. Put your final answer in \\boxed{{}}. Problem: {problem['problem']} Solution: \n<think>\n{full_cot_prefix}"
+    # Remove the current chunk from the prefix to see how it gets regenerated
+    prefix_without_chunk = full_cot_prefix.replace(chunk_text, "").strip()
+    
+    # Create prompt with the prefix without the current chunk
+    prompt = f"Solve this math problem step by step. You MUST put your final answer in \\boxed{{}}. Problem: {problem['problem']} Solution: \n<think>\n{prefix_without_chunk}"
+    
+    separator = ""
+    if len(prefix_without_chunk) > 0:
+        separator = " "
     
     max_retries = 3
     retry_delay = 2
     
     for attempt in range(max_retries):
         try:
-            completion = client.chat.completions.create(
-                model=MODEL_NAME,
-                messages=[{"role": "user", "content": prompt}],
-                temperature=temperature,
-                top_p=args.top_p,
-                max_tokens=args.max_tokens,
-                extra_body={"include_reasoning": True}
-            )
-            
-            rollout_text = completion.choices[0].message.content
+            response = await make_openrouter_request(prompt, temperature, args.top_p, args.max_tokens)
+            rollout_text = response['choices'][0]['message']['content']
             
             # Try to get reasoning tokens if available
             reasoning = None
             try:
-                reasoning = completion.choices[0].message.reasoning
-            except AttributeError:
-                print("Reasoning tokens not available in response")
-
-            # Create a version with reasoning if available
-            full_cot = None
-            if reasoning:
-                full_cot = f"{prompt}{reasoning}\n</think>\n{rollout_text}"
+                reasoning = response['choices'][0]['message']['reasoning']
+            except (KeyError, TypeError):
+                pass  # Silently continue if reasoning not available
             
-            # Extract answer and check correctness from the full CoT with reasoning if available
-            # Otherwise, use the combined prefix + rollout text
-            source_text = full_cot if full_cot else (full_cot_prefix + rollout_text)
+            # Create full CoT with prompt and rollout
+            full_cot = f"{prompt}{separator}{rollout_text}\n</think>"
+            
+            if reasoning:
+                full_cot = f"{prompt}{separator}{reasoning}\n</think>\n{rollout_text}"
+            
+            # Extract answer and check correctness
+            source_text = prefix_without_chunk + rollout_text
             extracted_answers = extract_boxed_answers(source_text)
             answer = extracted_answers[0] if extracted_answers else ""
             is_correct = False
@@ -311,11 +314,11 @@ async def generate_rollout(client: OpenAI, problem: Dict, chunk_text: str, full_
                 is_correct = check_answer(answer, problem['gt_answer'])
             
             return {
-                "chunk": chunk_text,
-                "full_cot_prefix": full_cot_prefix,
+                "chunk_removed": chunk_text,
+                "prefix_without_chunk": prefix_without_chunk,
                 "rollout": rollout_text,
                 "reasoning": reasoning,
-                "full_solution": full_cot_prefix + rollout_text,
+                "full_solution": prefix_without_chunk + separator + rollout_text,
                 "full_cot": full_cot,
                 "temperature": temperature,
                 "top_p": args.top_p,
@@ -330,8 +333,8 @@ async def generate_rollout(client: OpenAI, problem: Dict, chunk_text: str, full_
                 await asyncio.sleep(wait_time)
             else:
                 return {
-                    "chunk": chunk_text,
-                    "full_cot_prefix": full_cot_prefix,
+                    "chunk_removed": chunk_text,
+                    "prefix_without_chunk": prefix_without_chunk,
                     "rollout": f"Error: {str(e)}",
                     "temperature": temperature,
                     "top_p": args.top_p,
@@ -339,20 +342,13 @@ async def generate_rollout(client: OpenAI, problem: Dict, chunk_text: str, full_
                     "is_correct": False
                 }
 
-async def generate_rollout_with_semaphore(client: OpenAI, problem: Dict, chunk: str, full_cot_prefix: str, temperature: float, semaphore: asyncio.Semaphore) -> Dict:
-    """Helper function to apply semaphore to rollout generation"""
-    async with semaphore:
-        return await generate_rollout(client, problem, chunk, full_cot_prefix, temperature)
-
-async def process_problem(problem_idx: int, problem: Dict, client: OpenAI, semaphore: asyncio.Semaphore) -> None:
+async def process_problem(problem_idx: int, problem: Dict) -> None:
     """
     Process a single problem: generate base solution and rollouts.
     
     Args:
         problem_idx: Index of the problem
         problem: Problem dictionary
-        client: OpenAI client
-        semaphore: Semaphore for limiting concurrent requests
     """
     problem_dir = output_dir / f"problem_{problem_idx}"
     problem_dir.mkdir(exist_ok=True, parents=True)
@@ -374,20 +370,19 @@ async def process_problem(problem_idx: int, problem: Dict, client: OpenAI, semap
     # Generate base solution if needed
     if base_solution is None:
         print(f"Problem {problem_idx}: Generating base solution")
-        base_solution_task = asyncio.create_task(generate_base_solution(client, problem, args.temperature))
-        base_solution = await base_solution_task
+        base_solution = await generate_base_solution(problem, args.temperature)
+            
+        if "is_correct" not in base_solution or not base_solution["is_correct"]:
+            print(f"Problem {problem_idx}: Base solution is incorrect or has error. Will not generate rollouts.")
+            return
         
         # Save base solution
         with open(base_solution_file, 'w', encoding='utf-8') as f:
             json.dump(base_solution, f, indent=2)
     
     # Get the source text for chunking
-    if base_solution.get("full_cot"):
-        source_text = base_solution["full_cot"]
-        print(f"Problem {problem_idx}: Using full CoT for chunking")
-    else:
-        source_text = base_solution["solution"]
-        print(f"Problem {problem_idx}: Using solution text for chunking")
+    source_text = base_solution["full_cot"]
+    print(f"Problem {problem_idx}: Using solution text for chunking")
     
     # Extract the solution part for chunking
     if "<think>" in source_text:
@@ -400,6 +395,10 @@ async def process_problem(problem_idx: int, problem: Dict, client: OpenAI, semap
     # Split into chunks
     chunks = split_solution_into_chunks(solution_text)
     print(f"Problem {problem_idx}: Split into {len(chunks)} chunks")
+    
+    if len(chunks) > args.max_chunks:
+        print(f"Problem {problem_idx}: Too many chunks. Will not generate rollouts.")
+        return
     
     # Save chunks to a separate file
     chunks_file = problem_dir / "chunks.json"
@@ -418,10 +417,7 @@ async def process_problem(problem_idx: int, problem: Dict, client: OpenAI, semap
         current_cumulative += chunk + " "
         cumulative_chunks.append(current_cumulative.strip())
     
-    # Create all rollout tasks at once for maximum parallelism
-    all_rollout_tasks = []
-    chunk_info = []  # Store info about each chunk's rollouts
-    
+    # Process each chunk
     for chunk_idx, (chunk, full_prefix) in enumerate(zip(chunks, cumulative_chunks)):
         chunk_dir = problem_dir / f"chunk_{chunk_idx}"
         chunk_dir.mkdir(exist_ok=True, parents=True)
@@ -442,64 +438,30 @@ async def process_problem(problem_idx: int, problem: Dict, client: OpenAI, semap
             rollouts_to_generate = args.num_rollouts
             print(f"Problem {problem_idx}, Chunk {chunk_idx}: Generating {rollouts_to_generate} rollouts")
         
-        # Create rollout tasks for this chunk
-        chunk_rollout_tasks = []
-        for i in range(rollouts_to_generate):
-            task = asyncio.create_task(
-                generate_rollout(client, problem, chunk, full_prefix, args.temperature)
-            )
-            chunk_rollout_tasks.append(task)
-            all_rollout_tasks.append(task)
+        # Create all rollout tasks at once
+        tasks = [generate_rollout(problem, chunk, full_prefix, args.temperature) for _ in range(rollouts_to_generate)]
         
-        # Store info about this chunk's rollouts
-        chunk_info.append({
-            "chunk_idx": chunk_idx,
-            "tasks": chunk_rollout_tasks,
-            "existing_solutions": existing_solutions,
-            "solutions_file": solutions_file
-        })
-    
-    # Wait for all rollout tasks to complete with a single progress bar
-    print(f"Problem {problem_idx}: Waiting for {len(all_rollout_tasks)} rollouts across {len(chunk_info)} chunks")
-    completed_tasks = []
-    for f in tqdm(asyncio.as_completed(all_rollout_tasks), 
-                 total=len(all_rollout_tasks), 
-                 desc=f"Problem {problem_idx} rollouts"):
-        result = await f
-        completed_tasks.append(result)
-    
-    # Process results for each chunk
-    for info in chunk_info:
-        chunk_idx = info["chunk_idx"]
-        chunk_tasks = info["tasks"]
-        existing_solutions = info["existing_solutions"]
-        solutions_file = info["solutions_file"]
-        
-        # Get results for this chunk
-        chunk_results = []
-        for task in chunk_tasks:
-            if task.done():
-                chunk_results.append(task.result())
+        # Execute all tasks concurrently
+        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Executing {len(tasks)} rollout tasks concurrently")
+        rollouts = await asyncio.gather(*tasks)
         
         # Combine with existing solutions
-        all_solutions = existing_solutions + chunk_results
+        all_solutions = existing_solutions + rollouts
         
         # Save solutions
         with open(solutions_file, 'w', encoding='utf-8') as f:
             json.dump(all_solutions, f, indent=2)
         
-        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Saved {len(chunk_results)} new rollouts")
+        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Saved {len(rollouts)} new rollouts")
 
 async def main():
     """Main function to run the script."""
     # Load problems
-    problems = load_math_problems(
-        file_path=args.input_file, 
-        problem_type=args.type, 
-        level=args.level, 
-        num_problems=args.num_problems,
-        split=args.split
-    )
+    problems = load_math_problems(problem_type=args.type, level=args.level, num_problems=args.num_problems, split=args.split)
+    
+    if args.exclude_problems:
+        exclude_problems = [int(id) for id in args.exclude_problems.split(",")]
+        problems = [problem for problem in problems if problem[0] not in exclude_problems]
     
     if not problems:
         print(f"No problems loaded. Exiting.")
@@ -507,22 +469,9 @@ async def main():
 
     print(f"Loaded {len(problems)} problems.")
     
-    # Create semaphore to limit concurrent requests - but with a much higher limit
-    # OpenRouter allows up to 300 concurrent requests
-    semaphore = asyncio.Semaphore(min(300, args.concurrency))
-    
-    # Create OpenAI client for OpenRouter
-    client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key=OPENROUTER_API_KEY)
-    
-    # Process all problems in parallel
-    tasks = []
-    for problem_idx, problem in problems:
-        task = asyncio.create_task(process_problem(problem_idx, problem, client, semaphore))
-        tasks.append(task)
-    
-    # Wait for all problem tasks to complete
-    for f in tqdm(asyncio.as_completed(tasks), total=len(tasks), desc="Processing problems"):
-        await f
+    # Process problems one by one
+    for problem_idx, problem in tqdm(problems, desc="Processing problems"):
+        await process_problem(problem_idx, problem)
 
 if __name__ == "__main__":
     # Run the async main function
