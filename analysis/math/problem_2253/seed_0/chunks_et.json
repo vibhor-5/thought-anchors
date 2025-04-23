@@ -1,0 +1,2873 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this math problem step by step.",
+    "category": "Initializing",
+    "categories": [
+      "Initializing"
+    ],
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "Put your final answer in \\boxed{}.",
+    "category": "Final Answer",
+    "categories": [
+      "Final Answer"
+    ],
+    "abbreviation": "FA-1"
+  },
+  {
+    "index": 2,
+    "text": "Problem: A 5x5x5 cube is formed by assembling 125 unit cubes.",
+    "category": "Initializing",
+    "categories": [
+      "Initializing"
+    ],
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Nine unit squares are painted on each of the six faces of the cube according to the pattern shown.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-3"
+  },
+  {
+    "index": 4,
+    "text": "How many of the 125 unit cubes have no paint on them? [asy]\nfill((2,0)--(3,0)--(3,5)--(2,5)--cycle,gray(.7));\nfill((0,2)--(0,3)--(5,3)--(5,2)--cycle,gray(.7));\npath p=(0,0)--(5,0);\n\ndraw(p,linewidth(1));\ndraw(shift(0,1)*p,linewidth(1));\ndraw(shift(0,2)*p,linewidth(1));\ndraw(shift(0,3)*p,linewidth(1));\ndraw(shift(0,4)*p,linewidth(1));\ndraw(shift(0,5)*p,linewidth(1));\n\ndraw((0,0)--(0,5),linewidth(1));\ndraw((1,0)--(1,5),linewidth(1));\ndraw((2,0)--(2,5),linewidth(1));\ndraw((3,0)--(3,5),linewidth(1));\ndraw((4,0)--(4,5),linewidth(1));\ndraw((5,0)--(5,5),linewidth(1));\n\n[/asy] Solution: \n<think>\nOkay, so I've got this math problem here about a 5x5x5 cube made up of 125 smaller unit cubes.",
+    "category": "Question Posing",
+    "categories": [
+      "Question Posing"
+    ],
+    "abbreviation": "QP-4"
+  },
+  {
+    "index": 5,
+    "text": "The question is asking how many of these tiny cubes have no paint on them after some squares are painted on each face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-5"
+  },
+  {
+    "index": 6,
+    "text": "Let me try to figure this out step by step.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-6"
+  },
+  {
+    "index": 7,
+    "text": "First, I need to visualize the cube.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-7"
+  },
+  {
+    "index": 8,
+    "text": "It's a 5x5x5 cube, so each face is a 5x5 grid of unit squares.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-8"
+  },
+  {
+    "index": 9,
+    "text": "The problem mentions that nine unit squares are painted on each of the six faces following a certain pattern shown in the Asymptote figure.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "Hmm, I don't have the image, but maybe I can infer the pattern from the description.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-10"
+  },
+  {
+    "index": 11,
+    "text": "Since nine squares are painted on each face, that's 9x6 = 54 painted squares in total, but each painted square is on a different face, so they don't overlap in 3D space.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "Wait, actually, each face is 5x5, so there are 25 unit squares per face, and 9 are painted.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "So on each face, 9 squares are painted, leaving 16 unpainted.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "But the question is about the unit cubes inside the big cube, so some of these unit cubes will be on the surface and might have paint, while others are inside and have no paint.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-14"
+  },
+  {
+    "index": 15,
+    "text": "But the problem is specifically about how many unit cubes have no paint on them.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-15"
+  },
+  {
+    "index": 16,
+    "text": "So, I need to find the number of unit cubes that are entirely inside the big cube, not touching any of the outer faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-16"
+  },
+  {
+    "index": 17,
+    "text": "But wait, the outer faces have some squares painted, so not all the outer unit cubes are painted.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "So, some outer unit cubes have paint, and others don't.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "Therefore, the number of unit cubes with no paint would be the total number of unit cubes minus those that have at least one face painted.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "But wait, no, that's not quite right because some unit cubes might have multiple faces painted if they're on edges or corners, but the problem is about unit cubes with no paint at all.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-20"
+  },
+  {
+    "index": 21,
+    "text": "So, I need to find the number of unit cubes that are completely inside, not touching any painted squares on the outer faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-21"
+  },
+  {
+    "index": 22,
+    "text": "Wait, but the painted squares are only on the outer faces, so any unit cube that's on the surface but not on a painted square might still have paint if it's on a face where a square was painted.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "Wait, no, the unit cubes on the surface where the squares are painted will have paint, but the ones where the squares are unpainted on the outer faces might not have any paint.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "But I'm getting confused.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-24"
+  },
+  {
+    "index": 25,
+    "text": "Wait, perhaps I should think about this differently.",
+    "category": "Backtracking",
+    "categories": [
+      "Backtracking"
+    ],
+    "abbreviation": "B-25"
+  },
+  {
+    "index": 26,
+    "text": "The cube is 5x5x5, so the unit cubes can be categorized based on their positions: corner cubes, edge cubes, face cubes, and internal cubes.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-26"
+  },
+  {
+    "index": 27,
+    "text": "But in this case, since only certain squares on each face are painted, not all, the number of painted unit cubes is less than the total surface cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-27"
+  },
+  {
+    "index": 28,
+    "text": "Wait, but each face has 9 painted squares, so each face contributes 9 painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-28"
+  },
+  {
+    "index": 29,
+    "text": "Since there are 6 faces, that's 9x6=54 painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "But wait, that can't be right because some unit cubes might be painted on multiple faces if they're on edges or corners where two or three faces meet.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-30"
+  },
+  {
+    "index": 31,
+    "text": "So, we might be overcounting if we just multiply 9 by 6.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "Wait, but in the problem, each face has 9 painted squares, but they're arranged in a pattern.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "The Asymptote code shows that on each face, two rectangles are painted: one is a vertical strip from (2,0) to (3,5), which is a 1x5 strip, and another is a horizontal strip from (0,2) to (5,3), which is a 5x1 strip.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-33"
+  },
+  {
+    "index": 34,
+    "text": "Wait, but that would mean each face has 5 + 5 = 10 painted squares, but the problem says nine.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-34"
+  },
+  {
+    "index": 35,
+    "text": "Hmm, maybe the intersection is counted once, so 5 + 5 -1 = 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-35"
+  },
+  {
+    "index": 36,
+    "text": "So, each face has 9 painted squares arranged as a vertical strip and a horizontal strip intersecting in the middle.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-36"
+  },
+  {
+    "index": 37,
+    "text": "So, on each face, the painted squares form a cross: one vertical line and one horizontal line, each of length 5, but they intersect at the center, so total painted squares per face are 5 + 5 -1 = 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-37"
+  },
+  {
+    "index": 38,
+    "text": "So, each face has 9 painted unit squares, arranged in a cross shape.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-38"
+  },
+  {
+    "index": 39,
+    "text": "Now, considering the 5x5x5 cube, each face has 9 painted squares, so each face contributes 9 painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-39"
+  },
+  {
+    "index": 40,
+    "text": "But some unit cubes are shared between multiple faces, specifically those along the edges and corners where multiple faces meet.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-40"
+  },
+  {
+    "index": 41,
+    "text": "So, if we just multiply 9 by 6, we'd get 54, but this counts some unit cubes multiple times because they're on the intersection of two or three faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-41"
+  },
+  {
+    "index": 42,
+    "text": "Wait, but in this case, the painted squares on each face are arranged as a cross, so the intersection point is the center of the face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-42"
+  },
+  {
+    "index": 43,
+    "text": "So, the unit cube at the center of each face is painted, and the four unit cubes along the vertical and horizontal lines from the center are also painted on that face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-43"
+  },
+  {
+    "index": 44,
+    "text": "But when considering adjacent faces, the edges where two painted crosses meet would have overlapping painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-44"
+  },
+  {
+    "index": 45,
+    "text": "Wait, maybe it's better to model this as each face having a cross of painted squares, so each face's cross has 9 painted squares.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-45"
+  },
+  {
+    "index": 46,
+    "text": "Now, for the cube, the crosses on adjacent faces will intersect along the edges where two faces meet.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-46"
+  },
+  {
+    "index": 47,
+    "text": "Specifically, the center of each face is part of the cross, and the edges of the crosses on adjacent faces will overlap along the cube's edges.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-47"
+  },
+  {
+    "index": 48,
+    "text": "Wait, perhaps it's better to calculate the total number of painted unit cubes by considering how many are unique and not overlapping.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-48"
+  },
+  {
+    "index": 49,
+    "text": "Let me try to visualize this.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-49"
+  },
+  {
+    "index": 50,
+    "text": "Each face has a cross of 9 painted squares.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-50"
+  },
+  {
+    "index": 51,
+    "text": "Now, the center of each face is painted, and the four adjacent squares along the cross are also painted.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-51"
+  },
+  {
+    "index": 52,
+    "text": "Now, when considering two adjacent faces, their crosses will overlap along the edge where they meet.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-52"
+  },
+  {
+    "index": 53,
+    "text": "For example, the front face's cross and the right face's cross will both paint the edge where front and right meet.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-53"
+  },
+  {
+    "index": 54,
+    "text": "So, the unit cubes along that edge where both crosses are painted will be painted on both faces, but they are still just one unit cube each.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-54"
+  },
+  {
+    "index": 55,
+    "text": "So, when we count the total painted unit cubes, we have to be careful not to double-count these edge overlaps.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-55"
+  },
+  {
+    "index": 56,
+    "text": "Wait, but perhaps the number of painted unit cubes is more than just 9 per face because the edges where two crosses meet would have their own painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-56"
+  },
+  {
+    "index": 57,
+    "text": "Alternatively, maybe each edge of the cube has some painted unit cubes from the adjacent faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-57"
+  },
+  {
+    "index": 58,
+    "text": "Wait, maybe it's better to model the cube and count the painted unit cubes systematically.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-58"
+  },
+  {
+    "index": 59,
+    "text": "Let me consider the cube as having coordinates (x, y, z) where each can be 1, 2, 3, 4, 5.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-59"
+  },
+  {
+    "index": 60,
+    "text": "The center of each face is at position 3 along one axis.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-60"
+  },
+  {
+    "index": 61,
+    "text": "For example, the front face (z=1) has its center at (3,3,1).",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-61"
+  },
+  {
+    "index": 62,
+    "text": "The cross on this face would include all unit cubes where either x=3 or y=3 on z=1.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-62"
+  },
+  {
+    "index": 63,
+    "text": "Similarly, the right face (x=5) has a cross where either y=3 or z=3 on x=5, and so on for each face.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-63"
+  },
+  {
+    "index": 64,
+    "text": "Wait, but in a 5x5x5 cube, the coordinates go from 1 to 5 in each direction.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-64"
+  },
+  {
+    "index": 65,
+    "text": "So, the front face is z=1, and the cross on this face would be all unit cubes where x=3 or y=3 on z=1.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-65"
+  },
+  {
+    "index": 66,
+    "text": "Similarly, the back face (z=5) would have x=3 or y=3 on z=5.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-66"
+  },
+  {
+    "index": 67,
+    "text": "The same applies to the other faces: left face (x=1) has y=3 or z=3 on x=1, right face (x=5) has y=3 or z=3 on x=5, top face (y=5) has x=3 or z=3 on y=5, and bottom face (y=1) has x=3 or z=3 on y=1.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-67"
+  },
+  {
+    "index": 68,
+    "text": "Now, let's try to count all the painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-68"
+  },
+  {
+    "index": 69,
+    "text": "Each face's cross has 9 unit cubes, so 6 faces would have 6x9=54, but this counts some unit cubes multiple times because they're on edges where two faces meet.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-69"
+  },
+  {
+    "index": 70,
+    "text": "Wait, for example, the unit cube at (3,3,1) is on the front face's cross and also on the top face's cross if we consider y=3 on top face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-70"
+  },
+  {
+    "index": 71,
+    "text": "Wait, no, the top face is y=5, so its cross is x=3 or z=3 on y=5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-71"
+  },
+  {
+    "index": 72,
+    "text": "So, the unit cube at (3,3,5) is on the top face's cross and the back face's cross.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-72"
+  },
+  {
+    "index": 73,
+    "text": "Similarly, the unit cube at (3,3,3) is the very center of the cube and would be painted on three faces: front/back, left/right, top/bottom? Wait, no, because each face's cross is on its own plane.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-73"
+  },
+  {
+    "index": 74,
+    "text": "Wait, actually, the center of the cube is (3,3,3), but the front face's cross is on z=1, so (3,3,1) is on front face, not the center of the cube.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-74"
+  },
+  {
+    "index": 75,
+    "text": "The center of the cube is (3,3,3), which is on the back face's cross as well, since z=5 is the back face, but wait, no, the back face is z=5, so the cross on the back face is x=3 or y=3 on z=5, so (3,3,5) is on the back face's cross.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-75"
+  },
+  {
+    "index": 76,
+    "text": "Similarly, (3,3,3) is on the y=3 cross on the top and bottom faces? Wait, no, because top face is y=5, so its cross is x=3 or z=3 on y=5, so (3,3,5) is on top face's cross.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-76"
+  },
+  {
+    "index": 77,
+    "text": "Wait, I'm getting confused.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-77"
+  },
+  {
+    "index": 78,
+    "text": "Wait, maybe I should think of each face's cross as being in their own plane, so the front face (z=1) has x=3 and y=3 lines, the back face (z=5) has x=3 and y=3 lines, the left face (x=1) has y=3 and z=3 lines, the right face (x=5) has y=3 and z=3 lines, the top face (y=5) has x=3 and z=3 lines, and the bottom face (y=1) has x=3 and z=3 lines.",
+    "category": "Backtracking",
+    "categories": [
+      "Backtracking"
+    ],
+    "abbreviation": "B-78"
+  },
+  {
+    "index": 79,
+    "text": "So, each face's cross includes the central line along two axes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-79"
+  },
+  {
+    "index": 80,
+    "text": "Now, let's see where these crosses intersect in the cube.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-80"
+  },
+  {
+    "index": 81,
+    "text": "First, let's count the number of unique unit cubes painted on each axis.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-81"
+  },
+  {
+    "index": 82,
+    "text": "Looking along the x=3 plane: This is a central plane that cuts through the cube.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-82"
+  },
+  {
+    "index": 83,
+    "text": "On this plane, every face that includes x=3 will have a cross.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-83"
+  },
+  {
+    "index": 84,
+    "text": "Specifically, the front, back, left, and right faces all have x=3 as part of their crosses.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-84"
+  },
+  {
+    "index": 85,
+    "text": "Wait, no: front and back faces are along z=1 and z=5, and their crosses include x=3 and y=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-85"
+  },
+  {
+    "index": 86,
+    "text": "Similarly, left and right faces are along x=1 and x=5, and their crosses include y=3 and z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-86"
+  },
+  {
+    "index": 87,
+    "text": "The top and bottom faces are along y=5 and y=1, and their crosses include x=3 and z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-87"
+  },
+  {
+    "index": 88,
+    "text": "Wait, so the x=3 plane is part of the front, back, left, and right faces' crosses.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-88"
+  },
+  {
+    "index": 89,
+    "text": "Similarly, the y=3 plane is part of the front, back, left, and right faces' crosses.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-89"
+  },
+  {
+    "index": 90,
+    "text": "The z=3 plane is part of the top, bottom, left, and right faces' crosses.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-90"
+  },
+  {
+    "index": 91,
+    "text": "Wait, perhaps it's better to model this as each axis having a central line of painted cubes.",
+    "category": "Backtracking",
+    "categories": [
+      "Backtracking"
+    ],
+    "abbreviation": "B-91"
+  },
+  {
+    "index": 92,
+    "text": "Wait, maybe I should think in terms of lines along each axis that are painted.",
+    "category": "Backtracking",
+    "categories": [
+      "Backtracking"
+    ],
+    "abbreviation": "B-92"
+  },
+  {
+    "index": 93,
+    "text": "For example, on the front face (z=1), the cross includes the line x=3, y varies, and y=3, x varies.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-93"
+  },
+  {
+    "index": 94,
+    "text": "Similarly, on the back face (z=5), the cross includes x=3, y varies, and y=3, x varies.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-94"
+  },
+  {
+    "index": 95,
+    "text": "So, the lines x=3 on z=1 and z=5, and y=3 on z=1 and z=5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-95"
+  },
+  {
+    "index": 96,
+    "text": "Similarly, on the left face (x=1), the cross includes y=3, z varies, and z=3, y varies.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-96"
+  },
+  {
+    "index": 97,
+    "text": "On the right face (x=5), it's the same: y=3 and z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-97"
+  },
+  {
+    "index": 98,
+    "text": "On the top face (y=5), the cross includes x=3, z varies, and z=3, x varies.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-98"
+  },
+  {
+    "index": 99,
+    "text": "On the bottom face (y=1), it's the same: x=3 and z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-99"
+  },
+  {
+    "index": 100,
+    "text": "Wait, so each face contributes two lines of painted cubes: one along one axis and one along another.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-100"
+  },
+  {
+    "index": 101,
+    "text": "Wait, perhaps the total number of painted unit cubes can be calculated by considering all these lines, but being careful not to double-count where they intersect.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-101"
+  },
+  {
+    "index": 102,
+    "text": "Alternatively, maybe the cube's painted structure is similar to a 3D cross, where along each axis, there's a line of painted cubes through the center.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-102"
+  },
+  {
+    "index": 103,
+    "text": "Wait, but in this case, each face's cross is only on that face, not extending through the cube.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-103"
+  },
+  {
+    "index": 104,
+    "text": "So, the front face's cross is only on z=1, not extending into the cube.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-104"
+  },
+  {
+    "index": 105,
+    "text": "Similarly, the back face's cross is on z=5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-105"
+  },
+  {
+    "index": 106,
+    "text": "So, the lines on each face are only on that face, not through the cube.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-106"
+  },
+  {
+    "index": 107,
+    "text": "Wait, that makes more sense.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-107"
+  },
+  {
+    "index": 108,
+    "text": "So, each face has its own cross, but these crosses don't extend into the cube beyond the face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-108"
+  },
+  {
+    "index": 109,
+    "text": "Therefore, the painted unit cubes are only on the surfaces, not inside.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-109"
+  },
+  {
+    "index": 110,
+    "text": "Wait, but if that's the case, then the number of painted unit cubes is 9 per face times 6 faces, but we have to subtract the overlaps where two faces' crosses meet along an edge.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-110"
+  },
+  {
+    "index": 111,
+    "text": "Wait, for example, the front face's cross includes the line x=3, y varies on z=1, and y=3, x varies on z=1.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-111"
+  },
+  {
+    "index": 112,
+    "text": "The right face's cross includes y=3, z varies on x=5, and z=3, y varies on x=5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-112"
+  },
+  {
+    "index": 113,
+    "text": "So, where these two crosses meet is along the line where x=5, y=3, z=1.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-113"
+  },
+  {
+    "index": 114,
+    "text": "So, the unit cube at (5,3,1) is painted on both the front face and the right face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-114"
+  },
+  {
+    "index": 115,
+    "text": "Similarly, other edge intersections would have overlapping painted cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-115"
+  },
+  {
+    "index": 116,
+    "text": "So, to count the total number of unique painted unit cubes, we can calculate the total from all faces and then subtract the overlaps along the edges.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-116"
+  },
+  {
+    "index": 117,
+    "text": "Each face has 9 painted unit cubes, so 6 faces give 6x9=54.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-117"
+  },
+  {
+    "index": 118,
+    "text": "Now, how many overlaps are there along the edges?\n\nEach edge of the cube is shared by two faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-118"
+  },
+  {
+    "index": 119,
+    "text": "Each edge has a certain number of painted unit cubes where the two faces' crosses intersect.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-119"
+  },
+  {
+    "index": 120,
+    "text": "Let me consider one edge, say the front-top edge, which runs from (3,5,1) to (5,5,1).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-120"
+  },
+  {
+    "index": 121,
+    "text": "Wait, no, the front face's cross on z=1 includes y=3, so on the front face, the cross includes (3,3,1), (3,4,1), etc.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-121"
+  },
+  {
+    "index": 122,
+    "text": "Similarly, the top face's cross on y=5 includes x=3 and z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-122"
+  },
+  {
+    "index": 123,
+    "text": "So, where do these two crosses intersect? At (3,5,3), but that's not on the front-top edge.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-123"
+  },
+  {
+    "index": 124,
+    "text": "Wait, maybe I'm confusing edges.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-124"
+  },
+  {
+    "index": 125,
+    "text": "Wait, perhaps each edge where two faces meet will have some painted unit cubes from both faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-125"
+  },
+  {
+    "index": 126,
+    "text": "Let me think of the edges as lines where two faces meet, each face contributing a line of painted cubes along their cross.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-126"
+  },
+  {
+    "index": 127,
+    "text": "Wait, for example, take the edge where the front face (z=1) and the right face (x=5) meet.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-127"
+  },
+  {
+    "index": 128,
+    "text": "This edge runs from (5,1,1) to (5,5,1).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-128"
+  },
+  {
+    "index": 129,
+    "text": "On the front face, the cross includes y=3, so at (5,3,1), which is on this edge.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-129"
+  },
+  {
+    "index": 130,
+    "text": "On the right face, the cross includes z=3, so at (5,5,3), which is not on this edge.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-130"
+  },
+  {
+    "index": 131,
+    "text": "Wait, so maybe only one unit cube on this edge is painted from the front face, and none from the right face on this edge.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-131"
+  },
+  {
+    "index": 132,
+    "text": "Wait, that might not be correct.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-132"
+  },
+  {
+    "index": 133,
+    "text": "Let me check again.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-133"
+  },
+  {
+    "index": 134,
+    "text": "On the front face (z=1), the cross includes x=3 and y=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-134"
+  },
+  {
+    "index": 135,
+    "text": "So, on the edge where front and right faces meet, which is at x=5, z=1, y varies from 1 to 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-135"
+  },
+  {
+    "index": 136,
+    "text": "So, the cross on the front face includes y=3, so at (5,3,1), which is on this edge.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-136"
+  },
+  {
+    "index": 137,
+    "text": "The right face's cross on x=5 includes y=3 and z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-137"
+  },
+  {
+    "index": 138,
+    "text": "So, on the edge x=5, z=1, the right face's cross would include y=3, so (5,3,1) is painted by both the front and right face's crosses.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-138"
+  },
+  {
+    "index": 139,
+    "text": "Similarly, on the edge where front and left faces meet, which is at x=1, z=1, the front face's cross includes y=3, so (1,3,1) is painted by both front and left faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-139"
+  },
+  {
+    "index": 140,
+    "text": "Similarly, on the top face (y=5), the cross includes x=3 and z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-140"
+  },
+  {
+    "index": 141,
+    "text": "So, on the edge where top and right faces meet, which is at y=5, x=5, z varies, the top face's cross includes z=3, so (5,5,3) is painted by both top and right faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-141"
+  },
+  {
+    "index": 142,
+    "text": "Wait, so each edge where two faces meet will have one painted unit cube where their crosses intersect.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-142"
+  },
+  {
+    "index": 143,
+    "text": "Since there are 12 edges on a cube, each edge will have one such overlapping painted cube.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-143"
+  },
+  {
+    "index": 144,
+    "text": "Wait, but let's confirm this.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-144"
+  },
+  {
+    "index": 145,
+    "text": "Each edge is where two faces meet, and each face's cross includes a line that might intersect at one point on the edge.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-145"
+  },
+  {
+    "index": 146,
+    "text": "For example, take the edge from (5,1,1) to (5,5,1) where front (z=1) and right (x=5) meet.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-146"
+  },
+  {
+    "index": 147,
+    "text": "The front face's cross on z=1 includes y=3, so (5,3,1) is on this edge and painted.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-147"
+  },
+  {
+    "index": 148,
+    "text": "The right face's cross on x=5 includes y=3 and z=3, so at (5,3,3), which is not on this edge.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-148"
+  },
+  {
+    "index": 149,
+    "text": "So, only (5,3,1) is painted on this edge, and it's painted by both front and right faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-149"
+  },
+  {
+    "index": 150,
+    "text": "Similarly, on the edge from (5,5,1) to (5,5,5) where front (z=1) and right (x=5) meet, the front face's cross includes x=3, which is not on this edge, while the right face's cross includes z=3, so (5,5,3) is painted on this edge by both right and top faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-150"
+  },
+  {
+    "index": 151,
+    "text": "Wait, but in this case, the edge from (5,5,1) to (5,5,5) is where front (z=1) and top (y=5) meet.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-151"
+  },
+  {
+    "index": 152,
+    "text": "The front face's cross includes y=3, which is not on this edge, while the top face's cross includes z=3, so (5,5,3) is painted by both top and right faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-152"
+  },
+  {
+    "index": 153,
+    "text": "Wait, no, the top face's cross includes x=3 and z=3 on y=5, so on the edge where y=5 and x=5, the cross includes z=3, so (5,5,3) is painted by both top and right faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-153"
+  },
+  {
+    "index": 154,
+    "text": "Wait, so each edge where two faces meet will have exactly one painted unit cube where their crosses intersect.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-154"
+  },
+  {
+    "index": 155,
+    "text": "Since there are 12 edges on a cube, each contributing one overlapping painted cube, that's 12 overlaps.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-155"
+  },
+  {
+    "index": 156,
+    "text": "But wait, each overlap is a unit cube that's painted by two faces, so when we initially counted 54 painted cubes, we counted each of these 12 overlaps twice.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-156"
+  },
+  {
+    "index": 157,
+    "text": "So, to get the correct total, we need to subtract the duplicates.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-157"
+  },
+  {
+    "index": 158,
+    "text": "So, total painted unit cubes would be 54 (from 6 faces x 9) minus 12 overlaps, giving 42 painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-158"
+  },
+  {
+    "index": 159,
+    "text": "Wait, but let me check this again because I might be making a mistake here.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-159"
+  },
+  {
+    "index": 160,
+    "text": "Each edge has one overlapping cube, and there are 12 edges, so 12 overlaps.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-160"
+  },
+  {
+    "index": 161,
+    "text": "Each overlap was counted twice in the initial 54, so we subtract 12 to get 42 unique painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-161"
+  },
+  {
+    "index": 162,
+    "text": "Wait, but let's take a specific example to verify.",
+    "category": "Example Testing",
+    "categories": [
+      "Example Testing"
+    ],
+    "abbreviation": "ET-162"
+  },
+  {
+    "index": 163,
+    "text": "Let's look at the front face: it has 9 painted cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-163"
+  },
+  {
+    "index": 164,
+    "text": "The right face also has 9 painted cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-164"
+  },
+  {
+    "index": 165,
+    "text": "Where they overlap is at (5,3,1).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-165"
+  },
+  {
+    "index": 166,
+    "text": "So, the front face's count includes (5,3,1), and the right face's count also includes (5,3,1).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-166"
+  },
+  {
+    "index": 167,
+    "text": "So, in the initial 54, (5,3,1) was counted twice.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-167"
+  },
+  {
+    "index": 168,
+    "text": "Similarly, each of the 12 overlaps is counted twice, so we need to subtract 12 to get the correct count.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-168"
+  },
+  {
+    "index": 169,
+    "text": "So, total painted unit cubes: 54 - 12 = 42.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-169"
+  },
+  {
+    "index": 170,
+    "text": "Wait, but let me think again: each overlap is a unit cube that's painted by two faces, so each of these 12 overlaps was counted twice in the 6x9=54 count, so we subtract 12 to get 42 unique painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-170"
+  },
+  {
+    "index": 171,
+    "text": "Now, the total number of unit cubes in the 5x5x5 cube is 125.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-171"
+  },
+  {
+    "index": 172,
+    "text": "So, the number of unit cubes with no paint would be 125 - 42 = 83.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-172"
+  },
+  {
+    "index": 173,
+    "text": "Wait, but I'm not sure if that's correct.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-173"
+  },
+  {
+    "index": 174,
+    "text": "Let me check another way.",
+    "category": "Backtracking",
+    "categories": [
+      "Backtracking"
+    ],
+    "abbreviation": "B-174"
+  },
+  {
+    "index": 175,
+    "text": "Alternatively, perhaps I can model the cube and count the number of painted unit cubes more carefully.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-175"
+  },
+  {
+    "index": 176,
+    "text": "Each face has a cross of 9 unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-176"
+  },
+  {
+    "index": 177,
+    "text": "Let's consider each face's cross as two lines: one horizontal and one vertical, each of length 5, intersecting at the center.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-177"
+  },
+  {
+    "index": 178,
+    "text": "So, for each face, the cross includes:\n\n- The central row: 5 unit cubes\n- The central column: 5 unit cubes\nBut since they intersect at the center, the total is 5 + 5 -1 = 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-178"
+  },
+  {
+    "index": 179,
+    "text": "Now, for each face, these are the painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-179"
+  },
+  {
+    "index": 180,
+    "text": "Now, considering the entire cube, each face's cross is on its own plane, so the painted unit cubes are only on the surfaces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-180"
+  },
+  {
+    "index": 181,
+    "text": "Wait, but when two faces meet at an edge, their crosses might intersect at a unit cube on that edge.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-181"
+  },
+  {
+    "index": 182,
+    "text": "So, for example, on the front face (z=1), the cross includes the line x=3, y varies, and y=3, x varies.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-182"
+  },
+  {
+    "index": 183,
+    "text": "On the right face (x=5), the cross includes y=3, z varies, and z=3, y varies.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-183"
+  },
+  {
+    "index": 184,
+    "text": "So, where these two crosses intersect is at (5,3,1), which is on both the front face and the right face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-184"
+  },
+  {
+    "index": 185,
+    "text": "Similarly, on the top face (y=5), the cross includes x=3, z varies, and z=3, x varies.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-185"
+  },
+  {
+    "index": 186,
+    "text": "On the right face (x=5), the cross includes y=3, z varies, and z=3, y varies.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-186"
+  },
+  {
+    "index": 187,
+    "text": "So, where these two crosses intersect is at (5,5,3), which is on both the top and right faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-187"
+  },
+  {
+    "index": 188,
+    "text": "So, each edge where two faces meet will have exactly one unit cube that's painted by both faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-188"
+  },
+  {
+    "index": 189,
+    "text": "Since there are 12 edges, each contributing one such unit cube, that's 12 overlapping painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-189"
+  },
+  {
+    "index": 190,
+    "text": "Therefore, the total number of unique painted unit cubes is 6 faces x 9 = 54, minus 12 overlaps, giving 42.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-190"
+  },
+  {
+    "index": 191,
+    "text": "Thus, the number of unit cubes with no paint is 125 total - 42 painted = 83.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-191"
+  },
+  {
+    "index": 192,
+    "text": "Wait, but I'm not sure if this is correct because I might be missing some overlaps or miscounting.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-192"
+  },
+  {
+    "index": 193,
+    "text": "Alternatively, perhaps I can model the cube and count the painted unit cubes more systematically.",
+    "category": "Backtracking",
+    "categories": [
+      "Backtracking"
+    ],
+    "abbreviation": "B-193"
+  },
+  {
+    "index": 194,
+    "text": "Let me consider the cube's structure:\n\n- The cube has 6 faces, each with a cross of 9 painted unit cubes.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-194"
+  },
+  {
+    "index": 195,
+    "text": "- Each cross consists of a vertical line and a horizontal line on the face, each of length 5, intersecting at the center.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-195"
+  },
+  {
+    "index": 196,
+    "text": "- Each face's cross is on its own plane, so the painted unit cubes are only on the surfaces, not inside.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-196"
+  },
+  {
+    "index": 197,
+    "text": "- When two faces meet at an edge, their crosses may intersect at one unit cube on that edge.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-197"
+  },
+  {
+    "index": 198,
+    "text": "Now, let's count the painted unit cubes per face, considering overlaps.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-198"
+  },
+  {
+    "index": 199,
+    "text": "Each face has 9 painted unit cubes, but some of these are shared with adjacent faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-199"
+  },
+  {
+    "index": 200,
+    "text": "Each face has 4 edges, each edge shared with another face.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-200"
+  },
+  {
+    "index": 201,
+    "text": "On each edge, the two adjacent faces' crosses may intersect at one unit cube.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-201"
+  },
+  {
+    "index": 202,
+    "text": "So, for each face, the 9 painted unit cubes include:\n\n- 4 edge cubes where the face's cross meets the adjacent faces' crosses.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-202"
+  },
+  {
+    "index": 203,
+    "text": "- The remaining 5 cubes are on the face's cross but not on any edge (they're on the face's central lines but not where the edges are).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-203"
+  },
+  {
+    "index": 204,
+    "text": "Wait, but in reality, the cross on each face includes the central row and central column, which intersect at the center.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-204"
+  },
+  {
+    "index": 205,
+    "text": "So, the 9 painted unit cubes on a face include:\n\n- The 5 along the central row,\n\n- The 5 along the central column,\n\n- Minus the 1 overlapping at the center, so 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-205"
+  },
+  {
+    "index": 206,
+    "text": "Now, when considering adjacent faces, the central column on one face may align with the central row on another face, leading to overlaps along the edges.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-206"
+  },
+  {
+    "index": 207,
+    "text": "Wait, perhaps each face's cross contributes 4 edge unit cubes that are shared with adjacent faces, and 5 non-edge unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-207"
+  },
+  {
+    "index": 208,
+    "text": "Wait, but let me think again.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-208"
+  },
+  {
+    "index": 209,
+    "text": "On a face, the cross includes 5 along the central row and 5 along the central column, overlapping at the center.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-209"
+  },
+  {
+    "index": 210,
+    "text": "So, the 9 painted unit cubes on a face include:\n\n- The 4 edge unit cubes where the central row and column meet the edges of the face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-210"
+  },
+  {
+    "index": 211,
+    "text": "Wait, no, the central row and column on a face run from edge to edge, so the central row on the front face (z=1) runs from (1,3,1) to (5,3,1), which are the edges along y=3, x from 1 to 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-211"
+  },
+  {
+    "index": 212,
+    "text": "Similarly, the central column runs from (3,1,1) to (3,5,1), which are the edges along x=3, y from 1 to 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-212"
+  },
+  {
+    "index": 213,
+    "text": "So, the central row and column on a face each include the face's edges at their ends.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-213"
+  },
+  {
+    "index": 214,
+    "text": "So, the 9 painted unit cubes on a face include the four corner edges where the central row and column meet the face's edges.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-214"
+  },
+  {
+    "index": 215,
+    "text": "Wait, but in reality, each face's cross includes the entire central row and column, so the four corners of the cross on the face are at the midpoints of the face's edges.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-215"
+  },
+  {
+    "index": 216,
+    "text": "So, for example, on the front face, the central row is x=3, y varies, and the central column is y=3, x varies.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-216"
+  },
+  {
+    "index": 217,
+    "text": "So, the four corners of the cross on the front face are at (3,1,1), (3,5,1), (1,3,1), and (5,3,1), which are the midpoints of the front face's edges.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-217"
+  },
+  {
+    "index": 218,
+    "text": "So, each face's cross includes 4 unit cubes at the midpoints of its edges, plus the center unit cube, making 5 along each line, but since they overlap at the center, total is 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-218"
+  },
+  {
+    "index": 219,
+    "text": "Now, when considering adjacent faces, the midpoint of an edge is shared by two faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-219"
+  },
+  {
+    "index": 220,
+    "text": "For example, the midpoint of the front-right edge is at (5,3,1), which is part of the front face's cross and the right face's cross.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-220"
+  },
+  {
+    "index": 221,
+    "text": "So, each edge's midpoint is painted by two faces, so each edge has one painted unit cube at its midpoint.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-221"
+  },
+  {
+    "index": 222,
+    "text": "Since there are 12 edges on a cube, each contributing one painted unit cube at its midpoint, that's 12 painted unit cubes that are shared between two faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-222"
+  },
+  {
+    "index": 223,
+    "text": "Now, each face has 4 mid-edge painted unit cubes, each shared with an adjacent face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-223"
+  },
+  {
+    "index": 224,
+    "text": "So, each face's 9 painted unit cubes include 4 shared with adjacent faces and 5 that are unique to the face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-224"
+  },
+  {
+    "index": 225,
+    "text": "Wait, but 4 shared and 5 unique would be 9, but that can't be because 4 are shared, so they're already counted in adjacent faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-225"
+  },
+  {
+    "index": 226,
+    "text": "Wait, perhaps each face's 9 painted unit cubes consist of:\n\n- 4 mid-edge unit cubes that are shared with adjacent faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-226"
+  },
+  {
+    "index": 227,
+    "text": "- 5 unit cubes that are only on that face's cross and not on any edge.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-227"
+  },
+  {
+    "index": 228,
+    "text": "Wait, but that would mean each face has 5 unique painted unit cubes, plus 4 shared with other faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-228"
+  },
+  {
+    "index": 229,
+    "text": "So, total painted unit cubes would be 6 faces x 5 unique = 30, plus 12 shared (since each shared cube is counted by two faces, so 12 total).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-229"
+  },
+  {
+    "index": 230,
+    "text": "So, 30 + 12 = 42 painted unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-230"
+  },
+  {
+    "index": 231,
+    "text": "Yes, that matches the earlier count.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-231"
+  },
+  {
+    "index": 232,
+    "text": "So, 42 painted unit cubes in total.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-232"
+  },
+  {
+    "index": 233,
+    "text": "Therefore, the number of unit cubes with no paint is 125 total - 42 painted = 83.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-233"
+  },
+  {
+    "index": 234,
+    "text": "Wait, but let me check this again because I'm not entirely confident.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-234"
+  },
+  {
+    "index": 235,
+    "text": "Alternatively, perhaps I can think about the cube's structure and count the painted unit cubes more carefully.",
+    "category": "Backtracking",
+    "categories": [
+      "Backtracking"
+    ],
+    "abbreviation": "B-235"
+  },
+  {
+    "index": 236,
+    "text": "Each face has a cross of 9 unit cubes, which includes:\n\n- The central row: 5 unit cubes.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-236"
+  },
+  {
+    "index": 237,
+    "text": "- The central column: 5 unit cubes.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-237"
+  },
+  {
+    "index": 238,
+    "text": "- Minus the center unit cube where they overlap, so 9.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-238"
+  },
+  {
+    "index": 239,
+    "text": "Now, each face's cross includes the midpoints of its four edges, which are shared with adjacent faces.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-239"
+  },
+  {
+    "index": 240,
+    "text": "So, each face contributes 4 edge midpoints that are painted, each shared with another face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-240"
+  },
+  {
+    "index": 241,
+    "text": "So, for 6 faces, that's 6x4=24 edge midpoints, but each edge is shared by two faces, so the total number of unique edge midpoints is 12, each painted by two faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-241"
+  },
+  {
+    "index": 242,
+    "text": "So, the total number of painted unit cubes on edges is 12.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-242"
+  },
+  {
+    "index": 243,
+    "text": "Now, each face's cross also includes the center of the face, which is unique to that face and not shared with any other face.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-243"
+  },
+  {
+    "index": 244,
+    "text": "So, each face has one center unit cube that's only on that face's cross.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-244"
+  },
+  {
+    "index": 245,
+    "text": "So, 6 faces x 1 center cube = 6 center cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-245"
+  },
+  {
+    "index": 246,
+    "text": "Additionally, each face's cross includes 4 other unit cubes that are not on the edges.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-246"
+  },
+  {
+    "index": 247,
+    "text": "Wait, no, because the cross includes the entire central row and column, which run from edge to edge, so the only unique unit cubes on each face's cross are the center and the midpoints of the edges, which are already counted.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-247"
+  },
+  {
+    "index": 248,
+    "text": "Wait, no, perhaps not.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-248"
+  },
+  {
+    "index": 249,
+    "text": "Let me think: on each face, the cross includes 5 along the central row and 5 along the central column, overlapping at the center.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-249"
+  },
+  {
+    "index": 250,
+    "text": "So, excluding the center, that's 8 unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-250"
+  },
+  {
+    "index": 251,
+    "text": "Of these, 4 are at the midpoints of the face's edges, and 4 are along the central row and column but not at the edges.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-251"
+  },
+  {
+    "index": 252,
+    "text": "Wait, for example, on the front face (z=1), the central row is x=3, y from 1 to 5, and the central column is y=3, x from 1 to 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-252"
+  },
+  {
+    "index": 253,
+    "text": "So, excluding the center (3,3,1), the other unit cubes on the central row are (3,1,1), (3,2,1), (3,4,1), (3,5,1), and on the central column are (1,3,1), (2,3,1), (4,3,1), (5,3,1).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-253"
+  },
+  {
+    "index": 254,
+    "text": "So, excluding the center and the midpoints of the edges, we have (3,2,1), (3,4,1), (2,3,1), and (4,3,1).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-254"
+  },
+  {
+    "index": 255,
+    "text": "So, 4 unit cubes that are on the cross but not on the edges.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-255"
+  },
+  {
+    "index": 256,
+    "text": "Wait, so each face's cross includes:\n\n- 4 edge midpoints (shared with adjacent faces).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-256"
+  },
+  {
+    "index": 257,
+    "text": "- 4 non-edge unit cubes (unique to the face).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-257"
+  },
+  {
+    "index": 258,
+    "text": "- 1 center unit cube (unique to the face).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-258"
+  },
+  {
+    "index": 259,
+    "text": "So, total per face: 9, as expected.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-259"
+  },
+  {
+    "index": 260,
+    "text": "Therefore, the total number of painted unit cubes is:\n\n- Edge midpoints: 12 (each shared by two faces).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-260"
+  },
+  {
+    "index": 261,
+    "text": "- Non-edge unit cubes on cross: 6 faces x 4 = 24.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-261"
+  },
+  {
+    "index": 262,
+    "text": "- Center unit cubes: 6 faces x 1 = 6.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-262"
+  },
+  {
+    "index": 263,
+    "text": "Wait, but that would give 12 + 24 + 6 = 42, which matches our earlier count.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-263"
+  },
+  {
+    "index": 264,
+    "text": "Wait, but the non-edge unit cubes on the cross are 4 per face, so 6x4=24, but these are unique to each face, so no overlaps.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-264"
+  },
+  {
+    "index": 265,
+    "text": "The center unit cubes are 1 per face, 6 in total, each unique.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-265"
+  },
+  {
+    "index": 266,
+    "text": "The edge midpoints are 12, each shared by two faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-266"
+  },
+  {
+    "index": 267,
+    "text": "So, total painted unit cubes: 24 + 6 + 12 = 42.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-267"
+  },
+  {
+    "index": 268,
+    "text": "Yes, that adds up correctly.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-268"
+  },
+  {
+    "index": 269,
+    "text": "So, total painted unit cubes: 42.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-269"
+  },
+  {
+    "index": 270,
+    "text": "Therefore, the number of unit cubes with no paint is 125 - 42 = 83.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-270"
+  },
+  {
+    "index": 271,
+    "text": "Wait, but I'm a bit unsure because sometimes in these problems, the internal structure might have more constraints, but in this case, since the painting is only on the surfaces, the internal unit cubes are completely unpainted.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-271"
+  },
+  {
+    "index": 272,
+    "text": "Wait, but let me think again: the problem says \"nine unit squares are painted on each of the six faces,\" so the painting is only on the surfaces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-272"
+  },
+  {
+    "index": 273,
+    "text": "Therefore, any unit cube that's not on any painted square on the surfaces will have no paint.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-273"
+  },
+  {
+    "index": 274,
+    "text": "So, the total number of unit cubes with no paint is the total number of unit cubes minus those that are on any painted square on the surfaces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-274"
+  },
+  {
+    "index": 275,
+    "text": "Since the total is 125, and the painted unit cubes on the surfaces are 42, then 125 - 42 = 83.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-275"
+  },
+  {
+    "index": 276,
+    "text": "Wait, but I'm going to verify this with another approach.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-276"
+  },
+  {
+    "index": 277,
+    "text": "Another way to think about it is to consider the cube's layers.",
+    "category": "Backtracking",
+    "categories": [
+      "Backtracking"
+    ],
+    "abbreviation": "B-277"
+  },
+  {
+    "index": 278,
+    "text": "The 5x5x5 cube can be thought of as having layers along each axis.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-278"
+  },
+  {
+    "index": 279,
+    "text": "Since the painting is only on the surfaces, the unit cubes with no paint must be strictly inside, not touching any painted squares on the surfaces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-279"
+  },
+  {
+    "index": 280,
+    "text": "But in this case, the painted squares are arranged in crosses on each face, so the unit cubes that are not on any of these crosses on the surfaces will have no paint.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-280"
+  },
+  {
+    "index": 281,
+    "text": "But perhaps it's easier to model the cube and subtract the painted unit cubes from the total.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-281"
+  },
+  {
+    "index": 282,
+    "text": "Wait, but let me consider how the painted unit cubes are arranged.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-282"
+  },
+  {
+    "index": 283,
+    "text": "Each face's cross is a central cross, so the painted unit cubes on each face are arranged such that they form a plus sign.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-283"
+  },
+  {
+    "index": 284,
+    "text": "So, on each face, the painted unit cubes are the ones where x=3 or y=3 (for front and back faces), y=3 or z=3 (for left and right faces), and x=3 or z=3 (for top and bottom faces).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-284"
+  },
+  {
+    "index": 285,
+    "text": "Wait, but considering the entire cube, the painted unit cubes are those that lie on any of these crosses on the surfaces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-285"
+  },
+  {
+    "index": 286,
+    "text": "So, the painted unit cubes are those that are on:\n\n- Front face (z=1): x=3 or y=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-286"
+  },
+  {
+    "index": 287,
+    "text": "- Back face (z=5): x=3 or y=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-287"
+  },
+  {
+    "index": 288,
+    "text": "- Left face (x=1): y=3 or z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-288"
+  },
+  {
+    "index": 289,
+    "text": "- Right face (x=5): y=3 or z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-289"
+  },
+  {
+    "index": 290,
+    "text": "- Top face (y=5): x=3 or z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-290"
+  },
+  {
+    "index": 291,
+    "text": "- Bottom face (y=1): x=3 or z=3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-291"
+  },
+  {
+    "index": 292,
+    "text": "Now, let's model the cube with coordinates (x, y, z), each from 1 to 5.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-292"
+  },
+  {
+    "index": 293,
+    "text": "A unit cube is painted if it lies on any of the above conditions.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-293"
+  },
+  {
+    "index": 294,
+    "text": "So, to find the total number of painted unit cubes, we can count all such (x, y, z) where:\n\n- z=1 and (x=3 or y=3),\n\n- z=5 and (x=3 or y=3),\n\n- x=1 and (y=3 or z=3),\n\n- x=5 and (y=3 or z=3),\n\n- y=5 and (x=3 or z=3),\n\n- y=1 and (x=3 or z=3).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-294"
+  },
+  {
+    "index": 295,
+    "text": "Now, let's count these systematically.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-295"
+  },
+  {
+    "index": 296,
+    "text": "First, consider the front face (z=1):\n\n- x=3, y varies from 1 to 5: 5 unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-296"
+  },
+  {
+    "index": 297,
+    "text": "- y=3, x varies from 1 to 5: 5 unit cubes.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-297"
+  },
+  {
+    "index": 298,
+    "text": "But the center (3,3,1) is counted twice, so total on front face: 5 + 5 -1 = 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-298"
+  },
+  {
+    "index": 299,
+    "text": "Similarly, back face (z=5):\n\n- x=3, y varies: 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-299"
+  },
+  {
+    "index": 300,
+    "text": "- y=3, x varies: 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-300"
+  },
+  {
+    "index": 301,
+    "text": "Total: 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-301"
+  },
+  {
+    "index": 302,
+    "text": "Left face (x=1):\n\n- y=3, z varies: 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-302"
+  },
+  {
+    "index": 303,
+    "text": "- z=3, y varies: 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-303"
+  },
+  {
+    "index": 304,
+    "text": "Total: 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-304"
+  },
+  {
+    "index": 305,
+    "text": "Right face (x=5):\n\n- y=3, z varies: 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-305"
+  },
+  {
+    "index": 306,
+    "text": "- z=3, y varies: 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-306"
+  },
+  {
+    "index": 307,
+    "text": "Total: 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-307"
+  },
+  {
+    "index": 308,
+    "text": "Top face (y=5):\n\n- x=3, z varies: 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-308"
+  },
+  {
+    "index": 309,
+    "text": "- z=3, x varies: 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-309"
+  },
+  {
+    "index": 310,
+    "text": "Total: 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-310"
+  },
+  {
+    "index": 311,
+    "text": "Bottom face (y=1):\n\n- x=3, z varies: 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-311"
+  },
+  {
+    "index": 312,
+    "text": "- z=3, x varies: 5.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-312"
+  },
+  {
+    "index": 313,
+    "text": "Total: 9.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-313"
+  },
+  {
+    "index": 314,
+    "text": "So, 6 faces x 9 = 54, but this counts overlaps where unit cubes are on multiple faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-314"
+  },
+  {
+    "index": 315,
+    "text": "Now, let's find the overlaps.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-315"
+  },
+  {
+    "index": 316,
+    "text": "A unit cube is counted multiple times if it lies on multiple faces' crosses.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-316"
+  },
+  {
+    "index": 317,
+    "text": "For example, (3,3,1) is on front and bottom faces.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-317"
+  },
+  {
+    "index": 318,
+    "text": "Similarly, (5,3,3) is on right and top",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-318"
+  }
+]

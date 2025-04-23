@@ -1,0 +1,1037 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this math problem step by step.",
+    "category": "Prompt",
+    "categories": [
+      "Prompt"
+    ],
+    "abbreviation": "P-0"
+  },
+  {
+    "index": 1,
+    "text": "Put your final answer in \\boxed{}.",
+    "category": "Prompt",
+    "categories": [
+      "Prompt"
+    ],
+    "abbreviation": "P-1"
+  },
+  {
+    "index": 2,
+    "text": "Problem: A bag contains 10 red marbles and 6 blue marbles.",
+    "category": "Prompt",
+    "categories": [
+      "Prompt"
+    ],
+    "abbreviation": "P-2"
+  },
+  {
+    "index": 3,
+    "text": "Three marbles are selected at random and without replacement.",
+    "category": "Prompt",
+    "categories": [
+      "Prompt"
+    ],
+    "abbreviation": "P-3"
+  },
+  {
+    "index": 4,
+    "text": "What is the probability that one marble is red and two are blue? Express your answer as a common fraction.",
+    "category": "Prompt",
+    "categories": [
+      "Prompt"
+    ],
+    "abbreviation": "P-4"
+  },
+  {
+    "index": 5,
+    "text": "Solution: \n<think>\nOkay, so I've got this problem here about marbles in a bag.",
+    "category": "Initialization",
+    "categories": [
+      "Initialization"
+    ],
+    "abbreviation": "I-5"
+  },
+  {
+    "index": 6,
+    "text": "Let me try to figure it out step by step.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-6"
+  },
+  {
+    "index": 7,
+    "text": "The problem says there's a bag with 10 red marbles and 6 blue marbles.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-7"
+  },
+  {
+    "index": 8,
+    "text": "So first off, I should probably figure out the total number of marbles in the bag.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-8"
+  },
+  {
+    "index": 9,
+    "text": "That would be 10 red plus 6 blue, right? So 10 + 6 is 16 marbles in total.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-9"
+  },
+  {
+    "index": 10,
+    "text": "Now, the problem asks for the probability that when we select three marbles at random without replacement, one is red and two are blue.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-10"
+  },
+  {
+    "index": 11,
+    "text": "Hmm, okay.",
+    "category": "Unknown",
+    "categories": [
+      "Unknown"
+    ],
+    "abbreviation": "U-11"
+  },
+  {
+    "index": 12,
+    "text": "So I think this is a combinatorics problem because we're dealing with combinations of marbles.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-12"
+  },
+  {
+    "index": 13,
+    "text": "Let me recall, probability is generally the number of favorable outcomes over the total number of possible outcomes.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-13"
+  },
+  {
+    "index": 14,
+    "text": "So, I need to find how many ways there are to pick one red and two blue marbles, and then divide that by the total number of ways to pick any three marbles from the bag.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-14"
+  },
+  {
+    "index": 15,
+    "text": "Alright, so first, let's find the total number of ways to pick three marbles from 16.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-15"
+  },
+  {
+    "index": 16,
+    "text": "I think that's calculated using combinations, right? The formula for combinations is C(n, k) = n! / (k! * (n - k)!), where n is the total number of items, and k is the number we're choosing.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-16"
+  },
+  {
+    "index": 17,
+    "text": "So, the total number of ways is C(16, 3).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-17"
+  },
+  {
+    "index": 18,
+    "text": "Let me compute that.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-18"
+  },
+  {
+    "index": 19,
+    "text": "16! divided by (3! * (16 - 3)!).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-19"
+  },
+  {
+    "index": 20,
+    "text": "That simplifies to 16! / (3! * 13!).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-20"
+  },
+  {
+    "index": 21,
+    "text": "I can simplify this because 16! is 16 \u00d7 15 \u00d7 14 \u00d7 13!, so the 13! cancels out with the denominator.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-21"
+  },
+  {
+    "index": 22,
+    "text": "So, it's (16 \u00d7 15 \u00d7 14) / (3 \u00d7 2 \u00d7 1).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-22"
+  },
+  {
+    "index": 23,
+    "text": "Let me compute that: 16 \u00d7 15 is 240, times 14 is 3360.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-23"
+  },
+  {
+    "index": 24,
+    "text": "Then, 3 \u00d7 2 \u00d7 1 is 6.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-24"
+  },
+  {
+    "index": 25,
+    "text": "So 3360 divided by 6 is 560.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-25"
+  },
+  {
+    "index": 26,
+    "text": "So, the total number of ways is 560.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-26"
+  },
+  {
+    "index": 27,
+    "text": "Okay, now for the favorable outcomes: selecting one red and two blue marbles.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-27"
+  },
+  {
+    "index": 28,
+    "text": "Let me break this down.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-28"
+  },
+  {
+    "index": 29,
+    "text": "There are 10 red marbles, so the number of ways to choose one red marble is C(10, 1).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-29"
+  },
+  {
+    "index": 30,
+    "text": "Similarly, the number of ways to choose two blue marbles from 6 is C(6, 2).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-30"
+  },
+  {
+    "index": 31,
+    "text": "So, C(10, 1) is straightforward.",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-31"
+  },
+  {
+    "index": 32,
+    "text": "That's just 10, since there are 10 red marbles, and choosing one is simply 10 ways.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-32"
+  },
+  {
+    "index": 33,
+    "text": "Now, C(6, 2) is a bit more involved.",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-33"
+  },
+  {
+    "index": 34,
+    "text": "Using the combination formula again: 6! / (2! * (6 - 2)!).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-34"
+  },
+  {
+    "index": 35,
+    "text": "That's (6 \u00d7 5 \u00d7 4!) / (2 \u00d7 1 \u00d7 4!).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-35"
+  },
+  {
+    "index": 36,
+    "text": "The 4! cancels out, so we have (6 \u00d7 5) / 2.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-36"
+  },
+  {
+    "index": 37,
+    "text": "6 \u00d7 5 is 30, divided by 2 is 15.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-37"
+  },
+  {
+    "index": 38,
+    "text": "So, there are 15 ways to choose two blue marbles.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-38"
+  },
+  {
+    "index": 39,
+    "text": "Now, to find the total number of favorable outcomes, we multiply the number of ways to choose one red by the number of ways to choose two blue.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-39"
+  },
+  {
+    "index": 40,
+    "text": "So, that's 10 \u00d7 15.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-40"
+  },
+  {
+    "index": 41,
+    "text": "Let me compute that: 10 \u00d7 15 is 150.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-41"
+  },
+  {
+    "index": 42,
+    "text": "So, there are 150 favorable ways to pick one red and two blue marbles.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-42"
+  },
+  {
+    "index": 43,
+    "text": "Wait, hold on, is that right? Let me double-check.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-43"
+  },
+  {
+    "index": 44,
+    "text": "So, 10 red marbles, choosing 1, which is 10.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-44"
+  },
+  {
+    "index": 45,
+    "text": "6 blue marbles, choosing 2, which is 15.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-45"
+  },
+  {
+    "index": 46,
+    "text": "Multiplying them together gives 150.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-46"
+  },
+  {
+    "index": 47,
+    "text": "Yeah, that seems correct.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-47"
+  },
+  {
+    "index": 48,
+    "text": "So, the probability is the number of favorable outcomes divided by the total number of possible outcomes, which is 150 / 560.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-48"
+  },
+  {
+    "index": 49,
+    "text": "Now, I should simplify that fraction.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-49"
+  },
+  {
+    "index": 50,
+    "text": "Let's see if both numerator and denominator can be divided by the same number.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-50"
+  },
+  {
+    "index": 51,
+    "text": "First, let's see if both are divisible by 10.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-51"
+  },
+  {
+    "index": 52,
+    "text": "150 \u00f7 10 is 15, and 560 \u00f7 10 is 56.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-52"
+  },
+  {
+    "index": 53,
+    "text": "So, that reduces the fraction to 15/56.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-53"
+  },
+  {
+    "index": 54,
+    "text": "Now, let's check if 15 and 56 have any common divisors.",
+    "category": "Planning and Strategy",
+    "categories": [
+      "Planning and Strategy"
+    ],
+    "abbreviation": "PS-54"
+  },
+  {
+    "index": 55,
+    "text": "15 factors are 1, 3, 5, 15.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-55"
+  },
+  {
+    "index": 56,
+    "text": "56 factors are 1, 2, 4, 7, 8, 14, 28, 56.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-56"
+  },
+  {
+    "index": 57,
+    "text": "The only common factor is 1, so 15/56 is the simplified form.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-57"
+  },
+  {
+    "index": 58,
+    "text": "Wait a minute, but let me think again.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-58"
+  },
+  {
+    "index": 59,
+    "text": "Did I do that right? Because sometimes when you multiply combinations, you have to make sure you're not missing anything.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-59"
+  },
+  {
+    "index": 60,
+    "text": "Let me go through it once more.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-60"
+  },
+  {
+    "index": 61,
+    "text": "Total marbles: 16.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-61"
+  },
+  {
+    "index": 62,
+    "text": "Choosing 3: C(16, 3) = 560.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-62"
+  },
+  {
+    "index": 63,
+    "text": "That seems right.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-63"
+  },
+  {
+    "index": 64,
+    "text": "Choosing 1 red from 10: C(10, 1) = 10.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-64"
+  },
+  {
+    "index": 65,
+    "text": "Choosing 2 blue from 6: C(6, 2) = 15.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-65"
+  },
+  {
+    "index": 66,
+    "text": "Multiplying them: 10 \u00d7 15 = 150.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-66"
+  },
+  {
+    "index": 67,
+    "text": "So, probability is 150/560, which simplifies to 15/56.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-67"
+  },
+  {
+    "index": 68,
+    "text": "Yeah, that seems correct.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-68"
+  },
+  {
+    "index": 69,
+    "text": "Alternatively, I could think about the probability step by step using probabilities instead of combinations, but I think the combination method is more straightforward here because it's about selection without order.",
+    "category": "Alternative Strategy and Backtracking",
+    "categories": [
+      "Alternative Strategy and Backtracking"
+    ],
+    "abbreviation": "ASB-69"
+  },
+  {
+    "index": 70,
+    "text": "Wait, another way to approach this: the probability of selecting one red and two blue marbles can be calculated by considering the different orders in which the marbles could be drawn.",
+    "category": "Alternative Strategy and Backtracking",
+    "categories": [
+      "Alternative Strategy and Backtracking"
+    ],
+    "abbreviation": "ASB-70"
+  },
+  {
+    "index": 71,
+    "text": "For example, red first, then blue, then blue; or blue, red, blue; or blue, blue, red.",
+    "category": "Alternative Strategy and Backtracking",
+    "categories": [
+      "Alternative Strategy and Backtracking"
+    ],
+    "abbreviation": "ASB-71"
+  },
+  {
+    "index": 72,
+    "text": "Each of these sequences would have the same probability, so I could compute the probability for one sequence and then multiply by the number of such sequences.",
+    "category": "Alternative Strategy and Backtracking",
+    "categories": [
+      "Alternative Strategy and Backtracking"
+    ],
+    "abbreviation": "ASB-72"
+  },
+  {
+    "index": 73,
+    "text": "So, let's try that approach to cross-verify.",
+    "category": "Alternative Strategy and Backtracking",
+    "categories": [
+      "Alternative Strategy and Backtracking"
+    ],
+    "abbreviation": "ASB-73"
+  },
+  {
+    "index": 74,
+    "text": "The probability of drawing a red marble first is 10/16.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-74"
+  },
+  {
+    "index": 75,
+    "text": "Then, after drawing one red, there are 9 red and 6 blue left, so 15 marbles.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-75"
+  },
+  {
+    "index": 76,
+    "text": "The probability of drawing a blue next is 6/15.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-76"
+  },
+  {
+    "index": 77,
+    "text": "Then, after drawing one blue, there are 5 blue left, so 5/14 for the third draw.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-77"
+  },
+  {
+    "index": 78,
+    "text": "So, the probability for red, blue, blue is (10/16) * (6/15) * (5/14).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-78"
+  },
+  {
+    "index": 79,
+    "text": "Similarly, for blue, red, blue: first draw blue is 6/16, then red is 10/15, then blue is 5/14.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-79"
+  },
+  {
+    "index": 80,
+    "text": "So, (6/16) * (10/15) * (5/14).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-80"
+  },
+  {
+    "index": 81,
+    "text": "And for blue, blue, red: first draw blue is 6/16, second blue is 5/15, then red is 10/14.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-81"
+  },
+  {
+    "index": 82,
+    "text": "So, (6/16) * (5/15) * (10/14).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-82"
+  },
+  {
+    "index": 83,
+    "text": "Each of these three scenarios should have the same probability because multiplication is commutative, so I can compute one and multiply by 3.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-83"
+  },
+  {
+    "index": 84,
+    "text": "Let me compute the first one: (10/16) * (6/15) * (5/14).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-84"
+  },
+  {
+    "index": 85,
+    "text": "Let's compute each fraction step by step.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-85"
+  },
+  {
+    "index": 86,
+    "text": "10/16 simplifies to 5/8.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-86"
+  },
+  {
+    "index": 87,
+    "text": "6/15 simplifies to 2/5.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-87"
+  },
+  {
+    "index": 88,
+    "text": "5/14 stays as it is.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-88"
+  },
+  {
+    "index": 89,
+    "text": "So, 5/8 * 2/5 * 5/14.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-89"
+  },
+  {
+    "index": 90,
+    "text": "Let's multiply them together:\n\nFirst, 5/8 * 2/5.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-90"
+  },
+  {
+    "index": 91,
+    "text": "The 5s cancel out, so we have (1/8) * 2 = 2/8 = 1/4.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-91"
+  },
+  {
+    "index": 92,
+    "text": "Then, 1/4 * 5/14 = 5/56.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-92"
+  },
+  {
+    "index": 93,
+    "text": "So, the probability for one specific order (red, blue, blue) is 5/56.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-93"
+  },
+  {
+    "index": 94,
+    "text": "Since there are three such orders, the total probability is 3 * (5/56) = 15/56.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-94"
+  },
+  {
+    "index": 95,
+    "text": "That matches the result I got earlier using combinations.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-95"
+  },
+  {
+    "index": 96,
+    "text": "So, that's reassuring.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-96"
+  },
+  {
+    "index": 97,
+    "text": "Wait, but just to make sure I didn't make a mistake in the combination approach, let me think again.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-97"
+  },
+  {
+    "index": 98,
+    "text": "The number of ways to choose 1 red from 10 is 10, and 2 blue from 6 is 15.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-98"
+  },
+  {
+    "index": 99,
+    "text": "So, 10 * 15 is 150.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-99"
+  },
+  {
+    "index": 100,
+    "text": "The total number of ways to choose any 3 marbles is 560.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-100"
+  },
+  {
+    "index": 101,
+    "text": "So, 150/560 reduces to 15/56.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-101"
+  },
+  {
+    "index": 102,
+    "text": "Yep, that's correct.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-102"
+  },
+  {
+    "index": 103,
+    "text": "Alternatively, another way to think about it is using permutations, but I think combinations are more appropriate here because the order doesn't matter when selecting the marbles.",
+    "category": "Alternative Strategy and Backtracking",
+    "categories": [
+      "Alternative Strategy and Backtracking"
+    ],
+    "abbreviation": "ASB-103"
+  },
+  {
+    "index": 104,
+    "text": "So, using combinations is the right approach.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-104"
+  },
+  {
+    "index": 105,
+    "text": "I think I've double-checked it enough.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-105"
+  },
+  {
+    "index": 106,
+    "text": "So, the probability is 15/56.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-106"
+  },
+  {
+    "index": 107,
+    "text": "</think>\n\nThe probability of selecting one red and two blue marbles when choosing three marbles from the bag is 15/56.",
+    "category": "Final Answer",
+    "categories": [
+      "Final Answer"
+    ],
+    "abbreviation": "FA-107"
+  },
+  {
+    "index": 108,
+    "text": "Step-by-Step Explanation:\n\n1.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-108"
+  },
+  {
+    "index": 109,
+    "text": "**Determine the total number of marbles:**\n   - Red marbles: 10\n   - Blue marbles: 6\n   - Total marbles: 10 + 6 = 16\n\n2.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-109"
+  },
+  {
+    "index": 110,
+    "text": "**Calculate the total number of ways to choose 3 marbles from 16:**\n   - Use combinations: C(16, 3) = 16! / (3! * (16 - 3)!) = (16 \u00d7 15 \u00d7 14) / (3 \u00d7 2 \u00d7 1) = 560\n\n3.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-110"
+  },
+  {
+    "index": 111,
+    "text": "**Calculate the number of favorable outcomes (1 red and 2 blue):**\n   - Ways to choose 1 red from 10: C(10, 1) = 10\n   - Ways to choose 2 blue from 6: C(6, 2) = (6 \u00d7 5) / (2 \u00d7 1) = 15\n   - Multiply these: 10 \u00d7 15 = 150\n\n4.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-111"
+  },
+  {
+    "index": 112,
+    "text": "**Compute the probability:**\n   - Probability = Favorable outcomes / Total outcomes = 150 / 560\n   - Simplify the fraction: Divide numerator and denominator by 10 to get 15/56\n\n5.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-112"
+  },
+  {
+    "index": 113,
+    "text": "**Verification using probability step-by-step:**\n   - Consider all possible sequences (red, blue, blue; blue, red, blue; blue, blue, red)\n   - Each sequence has a probability of (10/16)*(6/15)*(5/14) = 5/56\n   - Multiply by 3 sequences: 3*(5/56) = 15/56\n\n**Answer:** The probability is 15/56.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-113"
+  },
+  {
+    "index": 114,
+    "text": "\\boxed{\\dfrac{15}{56}}",
+    "category": "Final Answer",
+    "categories": [
+      "Final Answer"
+    ],
+    "abbreviation": "FA-114"
+  }
+]

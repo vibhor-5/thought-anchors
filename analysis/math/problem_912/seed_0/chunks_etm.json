@@ -1,0 +1,551 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this math problem step by step.",
+    "category": "Prompt",
+    "categories": [
+      "Prompt"
+    ],
+    "abbreviation": "P-0"
+  },
+  {
+    "index": 1,
+    "text": "Put your final answer in \\boxed{}.",
+    "category": "Prompt",
+    "categories": [
+      "Prompt"
+    ],
+    "abbreviation": "P-1"
+  },
+  {
+    "index": 2,
+    "text": "Problem: What is the slope of the line passing through $(-3,5)$ and $(2,-5)$? Solution: \n<think>\nOkay, so I need to find the slope of the line that passes through the points (-3, 5) and (2, -5).",
+    "category": "Initialization",
+    "categories": [
+      "Initialization"
+    ],
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Hmm, I remember that slope is a measure of steepness, right? It's like how much the line goes up or down as you move from one point to another.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-3"
+  },
+  {
+    "index": 4,
+    "text": "I think the formula for slope involves the change in y over the change in x between the two points.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-4"
+  },
+  {
+    "index": 5,
+    "text": "Let me try to recall the exact formula.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-5"
+  },
+  {
+    "index": 6,
+    "text": "I believe the formula is m = (y2 - y1) / (x2 - x1), where (x1, y1) and (x2, y2) are the two points.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-6"
+  },
+  {
+    "index": 7,
+    "text": "So, I should label one point as (x1, y1) and the other as (x2, y2).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-7"
+  },
+  {
+    "index": 8,
+    "text": "Let me choose (-3, 5) as (x1, y1) and (2, -5) as (x2, y2).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-8"
+  },
+  {
+    "index": 9,
+    "text": "That way, I can plug the values into the formula.",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-9"
+  },
+  {
+    "index": 10,
+    "text": "Wait, actually, does it matter which point I choose as (x1, y1) or (x2, y2)? I think it doesn't, because as long as I subtract them in the same order, the slope will be correct.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-10"
+  },
+  {
+    "index": 11,
+    "text": "But maybe I should double-check that thought.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-11"
+  },
+  {
+    "index": 12,
+    "text": "If I switch the points, would the slope change? Let me see: if I take (2, -5) as (x1, y1) and (-3, 5) as (x2, y2), then the numerator becomes 5 - (-5) = 10, and the denominator becomes -3 - 2 = -5.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-12"
+  },
+  {
+    "index": 13,
+    "text": "So, 10 / (-5) = -2.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-13"
+  },
+  {
+    "index": 14,
+    "text": "But if I take the original order, the numerator is -5 - 5 = -10, and the denominator is 2 - (-3) = 5.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-14"
+  },
+  {
+    "index": 15,
+    "text": "So, -10 / 5 = -2.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-15"
+  },
+  {
+    "index": 16,
+    "text": "Oh, okay, so it doesn't matter which point I choose first; the slope is the same.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-16"
+  },
+  {
+    "index": 17,
+    "text": "That's good to know.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-17"
+  },
+  {
+    "index": 18,
+    "text": "So, going back, let me stick with the first choice: (x1, y1) = (-3, 5) and (x2, y2) = (2, -5).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-18"
+  },
+  {
+    "index": 19,
+    "text": "Now, plugging into the formula: m = (y2 - y1) / (x2 - x1).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-19"
+  },
+  {
+    "index": 20,
+    "text": "So, substituting the values, that becomes m = (-5 - 5) / (2 - (-3)).",
+    "category": "Substitution",
+    "categories": [
+      "Substitution"
+    ],
+    "abbreviation": "S-20"
+  },
+  {
+    "index": 21,
+    "text": "Let me compute the numerator first: -5 - 5.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-21"
+  },
+  {
+    "index": 22,
+    "text": "That's like subtracting 5 from -5, which gives me -10.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-22"
+  },
+  {
+    "index": 23,
+    "text": "So, the numerator is -10.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-23"
+  },
+  {
+    "index": 24,
+    "text": "Now, the denominator: 2 - (-3).",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-24"
+  },
+  {
+    "index": 25,
+    "text": "Subtracting a negative is the same as adding the positive, so 2 + 3 = 5.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-25"
+  },
+  {
+    "index": 26,
+    "text": "So, the denominator is 5.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-26"
+  },
+  {
+    "index": 27,
+    "text": "Putting it all together, m = (-10) / 5.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-27"
+  },
+  {
+    "index": 28,
+    "text": "Dividing -10 by 5 gives me -2.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-28"
+  },
+  {
+    "index": 29,
+    "text": "So, the slope is -2.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-29"
+  },
+  {
+    "index": 30,
+    "text": "Wait, let me just visualize this to make sure it makes sense.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-30"
+  },
+  {
+    "index": 31,
+    "text": "If I plot the points (-3,5) and (2,-5), I can imagine a line going from the left side of the graph at y=5 to the right side at y=-5.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-31"
+  },
+  {
+    "index": 32,
+    "text": "Since it's going downwards from left to right, the slope should be negative, which matches my result of -2.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-32"
+  },
+  {
+    "index": 33,
+    "text": "That seems reasonable.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-33"
+  },
+  {
+    "index": 34,
+    "text": "Another way to think about slope is rise over run.",
+    "category": "Recall",
+    "categories": [
+      "Recall"
+    ],
+    "abbreviation": "R-34"
+  },
+  {
+    "index": 35,
+    "text": "So, if I start at (-3,5) and move to (2,-5), how much do I rise or fall, and how much do I run horizontally?\n\nThe horizontal change, or run, is from x = -3 to x = 2.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-35"
+  },
+  {
+    "index": 36,
+    "text": "So, that's 2 - (-3) = 5 units to the right.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-36"
+  },
+  {
+    "index": 37,
+    "text": "The vertical change, or rise, is from y = 5 to y = -5, which is a drop of 10 units, so that's -10.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-37"
+  },
+  {
+    "index": 38,
+    "text": "So, rise over run is -10/5 = -2.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-38"
+  },
+  {
+    "index": 39,
+    "text": "Yep, that's consistent with what I calculated earlier.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-39"
+  },
+  {
+    "index": 40,
+    "text": "I think I'm confident that the slope is -2.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-40"
+  },
+  {
+    "index": 41,
+    "text": "Let me just recap the steps to make sure I didn't skip anything.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-41"
+  },
+  {
+    "index": 42,
+    "text": "I identified the two points, chose one as (x1, y1) and the other as (x2, y2), substituted into the slope formula, computed numerator and denominator, and simplified.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-42"
+  },
+  {
+    "index": 43,
+    "text": "Then, I double-checked by visualizing the line and considering rise over run, which gave me the same answer.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-43"
+  },
+  {
+    "index": 44,
+    "text": "So, I don't see any mistakes in my reasoning.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-44"
+  },
+  {
+    "index": 45,
+    "text": "Just to be thorough, let me try another approach.",
+    "category": "Alternative Strategy and Backtracking",
+    "categories": [
+      "Alternative Strategy and Backtracking"
+    ],
+    "abbreviation": "ASB-45"
+  },
+  {
+    "index": 46,
+    "text": "Maybe using the concept of similar triangles or something.",
+    "category": "Alternative Strategy and Backtracking",
+    "categories": [
+      "Alternative Strategy and Backtracking"
+    ],
+    "abbreviation": "ASB-46"
+  },
+  {
+    "index": 47,
+    "text": "If I draw a right triangle where the two points are vertices, the base would be the horizontal distance between them, and the height would be the vertical distance.",
+    "category": "Alternative Strategy and Backtracking",
+    "categories": [
+      "Alternative Strategy and Backtracking"
+    ],
+    "abbreviation": "ASB-47"
+  },
+  {
+    "index": 48,
+    "text": "The slope is the ratio of the height to the base.",
+    "category": "Alternative Strategy and Backtracking",
+    "categories": [
+      "Alternative Strategy and Backtracking"
+    ],
+    "abbreviation": "ASB-48"
+  },
+  {
+    "index": 49,
+    "text": "So, the base is from x = -3 to x = 2, which is 5 units.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-49"
+  },
+  {
+    "index": 50,
+    "text": "The height is from y = 5 to y = -5, which is -10 units.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-50"
+  },
+  {
+    "index": 51,
+    "text": "So, height/base is -10/5 = -2.",
+    "category": "Intermediate Step",
+    "categories": [
+      "Intermediate Step"
+    ],
+    "abbreviation": "IS-51"
+  },
+  {
+    "index": 52,
+    "text": "Same result again.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-52"
+  },
+  {
+    "index": 53,
+    "text": "That reinforces that the slope is indeed -2.",
+    "category": "Verification",
+    "categories": [
+      "Verification"
+    ],
+    "abbreviation": "V-53"
+  },
+  {
+    "index": 54,
+    "text": "I think I've covered all the bases here.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-54"
+  },
+  {
+    "index": 55,
+    "text": "I've calculated it using the formula, visualized it, and checked with another method.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-55"
+  },
+  {
+    "index": 56,
+    "text": "All methods lead to the same conclusion.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-56"
+  },
+  {
+    "index": 57,
+    "text": "So, I'm pretty sure the slope is -2.",
+    "category": "Summary and Preparation",
+    "categories": [
+      "Summary and Preparation"
+    ],
+    "abbreviation": "SP-57"
+  },
+  {
+    "index": 58,
+    "text": "</think>\n\nThe slope of the line passing through the points (-3, 5) and (2, -5) is calculated using the formula \\( m = \\frac{y_2 - y_1}{x_2 - x_1} \\).",
+    "category": "Final Answer",
+    "categories": [
+      "Final Answer"
+    ],
+    "abbreviation": "FA-58"
+  },
+  {
+    "index": 59,
+    "text": "Substituting the given points:\n\n\\( m = \\frac{-5 - 5}{2 - (-3)} = \\frac{-10}{5} = -2 \\).",
+    "category": "Final Answer",
+    "categories": [
+      "Final Answer"
+    ],
+    "abbreviation": "FA-59"
+  },
+  {
+    "index": 60,
+    "text": "**Answer:** The slope is \\boxed{-2}.",
+    "category": "Final Answer",
+    "categories": [
+      "Final Answer"
+    ],
+    "abbreviation": "FA-60"
+  }
+]

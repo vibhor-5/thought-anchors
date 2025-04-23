@@ -1,0 +1,43 @@
+{
+  "target_chunk_indices": [
+    7,
+    8
+  ],
+  "target_chunk_texts": [
+    "The key part here is that every professor (P(x)) teaches at least one student (S(y)) who is not a professor (not P(y)).",
+    "So, for each professor x, there exists at least one student y such that x teaches y and y is not a professor."
+  ],
+  "target_chunk_categories": [
+    "Deduction",
+    "Deduction"
+  ],
+  "clean_answer": " For all x, if P(x) then there exists y such that T(x,y) and not P(y).\n\nDONE.",
+  "corrupted_answer": "://forall x (P(x) -> exists y (T(x,y) \u2227 \u00acP(y)))\n\nDONE.",
+  "answers_differ": true,
+  "patched_answers": {
+    "0": ":// For all x, P(x) \u2192 \u2203y (T(x,y) \u2227 \u00acP(y)).\n\nDONE.",
+    "3": ":// For all x, P(x) \u2192 \u2203y (T(x,y) \u2227 \u00acP(y)).\n\nDONE.",
+    "6": ":// For every professor x, there exists a student y such that x teaches y and y is not a professor.\n\nDONE.",
+    "9": ":// For every professor x, there exists a student y such that x teaches y and y is not a professor.\n\nDONE.",
+    "12": ":// For every professor x, there exists a student y such that x teaches y and y is not a professor.\n\nDONE.",
+    "15": ":// For every professor x, there exists a student y such that x teaches y and y is not a professor.\n\nDONE.",
+    "18": "://forall x (P(x) -> exists y (T(x,y) \u2227 \u00acP(y)))\n\nDONE.",
+    "21": "://forall x (P(x) -> exists y (T(x,y) \u2227 \u00acP(y)))\n\nDONE.",
+    "24": "://forall x (P(x) -> exists y (T(x,y) \u2227 \u00acP(y)))\n\nDONE.",
+    "27": "://forall x (P(x) -> exists y (T(x,y) \u2227 \u00acP(y)))\n\nDONE.",
+    "30": "://forall x (P(x) -> exists y (T(x,y) \u2227 \u00acP(y)))\n\nDONE."
+  },
+  "answer_match": {
+    "0": true,
+    "3": true,
+    "6": false,
+    "9": false,
+    "12": false,
+    "15": false,
+    "18": false,
+    "21": false,
+    "24": false,
+    "27": false,
+    "30": false
+  }
+}

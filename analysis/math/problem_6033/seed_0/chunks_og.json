@@ -1,0 +1,317 @@
+[
+  {
+    "index": 0,
+    "text": "Solve this math problem step by step.",
+    "category": "Initializing",
+    "categories": [
+      "Initializing"
+    ],
+    "abbreviation": "I-0"
+  },
+  {
+    "index": 1,
+    "text": "Put your final answer in \\boxed{}.",
+    "category": "Unknown",
+    "categories": [
+      "Unknown"
+    ],
+    "abbreviation": "U-1"
+  },
+  {
+    "index": 2,
+    "text": "Problem: What is the greatest integer value of $x$ for which $5-4x>17$? Solution: \n<think>\nOkay, so I need to solve this inequality: 5 minus 4x is greater than 17.",
+    "category": "Initializing",
+    "categories": [
+      "Initializing"
+    ],
+    "abbreviation": "I-2"
+  },
+  {
+    "index": 3,
+    "text": "Hmm, let's see.",
+    "category": "Unknown",
+    "categories": [
+      "Unknown"
+    ],
+    "abbreviation": "U-3"
+  },
+  {
+    "index": 4,
+    "text": "I think I should start by trying to isolate x.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-4"
+  },
+  {
+    "index": 5,
+    "text": "So, first, I can subtract 5 from both sides to get rid of that constant term on the left.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-5"
+  },
+  {
+    "index": 6,
+    "text": "Let me write that down.",
+    "category": "Unknown",
+    "categories": [
+      "Unknown"
+    ],
+    "abbreviation": "U-6"
+  },
+  {
+    "index": 7,
+    "text": "5 - 4x > 17\n\nSubtracting 5 from both sides gives me:\n\n-4x > 17 - 5\n\nWhich simplifies to:\n\n-4x > 12\n\nNow, I need to solve for x, so I have to get rid of that -4 coefficient.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-7"
+  },
+  {
+    "index": 8,
+    "text": "To do that, I'll divide both sides by -4.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-8"
+  },
+  {
+    "index": 9,
+    "text": "Wait, but I remember that when you divide or multiply both sides of an inequality by a negative number, the direction of the inequality sign flips.",
+    "category": "Adding Knowledge",
+    "categories": [
+      "Adding Knowledge"
+    ],
+    "abbreviation": "AK-9"
+  },
+  {
+    "index": 10,
+    "text": "So, I need to make sure I reverse the greater than sign to a less than sign.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-10"
+  },
+  {
+    "index": 11,
+    "text": "Dividing both sides by -4:\n\nx < 12 / (-4)\n\nWhich simplifies to:\n\nx < -3\n\nOkay, so x has to be less than -3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-11"
+  },
+  {
+    "index": 12,
+    "text": "But the problem is asking for the greatest integer value of x that satisfies this inequality.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-12"
+  },
+  {
+    "index": 13,
+    "text": "So, since x is less than -3, the largest integer that is still less than -3 would be -4, because -3 is not included.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-13"
+  },
+  {
+    "index": 14,
+    "text": "Let me check that.",
+    "category": "Example Testing",
+    "categories": [
+      "Example Testing"
+    ],
+    "abbreviation": "ET-14"
+  },
+  {
+    "index": 15,
+    "text": "If I plug x = -4 into the original inequality:\n\n5 - 4*(-4) = 5 + 16 = 21\n\nIs 21 > 17? Yes, that's true.",
+    "category": "Example Testing",
+    "categories": [
+      "Example Testing"
+    ],
+    "abbreviation": "ET-15"
+  },
+  {
+    "index": 16,
+    "text": "What if I try x = -3:\n\n5 - 4*(-3) = 5 + 12 = 17\n\nBut the inequality is 5 - 4x > 17, so 17 is not greater than 17.",
+    "category": "Example Testing",
+    "categories": [
+      "Example Testing"
+    ],
+    "abbreviation": "ET-16"
+  },
+  {
+    "index": 17,
+    "text": "It's equal, which doesn't satisfy the inequality.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-17"
+  },
+  {
+    "index": 18,
+    "text": "So, -3 doesn't work, but -4 does.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-18"
+  },
+  {
+    "index": 19,
+    "text": "Therefore, the greatest integer value is -4.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-19"
+  },
+  {
+    "index": 20,
+    "text": "Wait, just to make sure I didn't make any mistakes in my steps.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-20"
+  },
+  {
+    "index": 21,
+    "text": "Let me go through it again.",
+    "category": "Backtracking",
+    "categories": [
+      "Backtracking"
+    ],
+    "abbreviation": "B-21"
+  },
+  {
+    "index": 22,
+    "text": "Starting with 5 - 4x > 17.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-22"
+  },
+  {
+    "index": 23,
+    "text": "Subtract 5: -4x > 12.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-23"
+  },
+  {
+    "index": 24,
+    "text": "Divide by -4 and flip the inequality: x < -3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-24"
+  },
+  {
+    "index": 25,
+    "text": "Yes, that seems correct.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-25"
+  },
+  {
+    "index": 26,
+    "text": "So, the integers less than -3 are -4, -5, -6, etc., but the greatest one is -4.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-26"
+  },
+  {
+    "index": 27,
+    "text": "I think that's solid.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-27"
+  },
+  {
+    "index": 28,
+    "text": "I don't see any mistakes here.",
+    "category": "Uncertainty Estimation",
+    "categories": [
+      "Uncertainty Estimation"
+    ],
+    "abbreviation": "UE-28"
+  },
+  {
+    "index": 29,
+    "text": "So, the answer should be -4.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-29"
+  },
+  {
+    "index": 30,
+    "text": "</think>\n\nTo solve the inequality \\(5 - 4x > 17\\), follow these steps:\n\n1.",
+    "category": "Unknown",
+    "categories": [
+      "Unknown"
+    ],
+    "abbreviation": "U-30"
+  },
+  {
+    "index": 31,
+    "text": "**Subtract 5 from both sides**:\n   \\[\n   5 - 4x - 5 > 17 - 5 \\implies -4x > 12\n   \\]\n\n2.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-31"
+  },
+  {
+    "index": 32,
+    "text": "**Divide both sides by -4** and reverse the inequality sign:\n   \\[\n   x < \\frac{12}{-4} \\implies x < -3\n   \\]\n\n3.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-32"
+  },
+  {
+    "index": 33,
+    "text": "**Determine the greatest integer less than -3**, which is -4.",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-33"
+  },
+  {
+    "index": 34,
+    "text": "**Answer:** The greatest integer value of \\(x\\) is \\(\\boxed{-4}\\).",
+    "category": "Deduction",
+    "categories": [
+      "Deduction"
+    ],
+    "abbreviation": "D-34"
+  }
+]
