@@ -113,6 +113,9 @@ results = count_token_occurrences(file_path, "remember")
 
 # In[95]:
 
+incorrect_problems = ["1222", "5484", "5344", "4940", "3132", "2182"]
+include_problems = ["2137", "2984", "3338", "2188", "2189", "2205"]
+
 file_path = Path("math_cots/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92/hardest_problems.json")
 hardest_problems = json.load(open(file_path, 'r', encoding='utf-8'))
 selected_problems = []
@@ -122,7 +125,10 @@ for problem_idx, metrics in tqdm(hardest_problems.items(), desc="Processing prob
     incorrect = metrics['incorrect'] if 'incorrect' in metrics and metrics['incorrect'] > 0 else 1
     accuracy = correct / (correct + incorrect)
     
-    if accuracy >= 0.25 and accuracy <= 0.75 and 'gt_answer' in metrics and metrics['gt_answer'] != '':
+    if str(problem_idx) in include_problems or (accuracy >= 0.25 and accuracy <= 0.75 and 'gt_answer' in metrics and metrics['gt_answer'] != ''):
+        if str(problem_idx) in incorrect_problems:
+            continue
+        
         solutions = metrics['solutions']
         approximate_mean_tokens = sum([len(solution['full_cot']) / 4 for solution in solutions]) / len(solutions)
         approximate_mean_chunks = sum([len(split_solution_into_chunks(solution['full_cot'])) for solution in solutions]) / len(solutions)
