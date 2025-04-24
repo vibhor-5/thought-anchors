@@ -179,6 +179,9 @@ def normalize_latex(latex_str: str) -> str:
     # Normalize spaces
     normalized = re.sub(r'\s+', '', normalized)
     
+    # Normalize percentages
+    normalized = normalized.replace("\\%", "")
+    
     # Normalize funny commas
     normalized = normalized.replace("{,}", "")
     
