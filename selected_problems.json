@@ -241,23 +241,6 @@
     ]
   },
   {
-    "problem_idx": "problem_4475",
-    "level": "Level 5",
-    "type": "Intermediate Algebra",
-    "problem": "Find all $x$ such that $\\lfloor \\lfloor 2x \\rfloor - 1/2 \\rfloor = \\lfloor x + 2 \\rfloor.$",
-    "gt_answer": "\\left[ \\frac{5}{2}, \\frac{7}{2} \\right)",
-    "accuracy": 0.7,
-    "approximate_mean_tokens": 3344.925,
-    "approximate_mean_chunks": 276.9,
-    "incorrect_answers": [
-      "[2.5, 3.5)"
-    ],
-    "correct_answers": [
-      "\\left[ \\dfrac{5}{2}, \\dfrac{7}{2} \\right)",
-      "\\left[\\dfrac{5}{2}, \\dfrac{7}{2}\\right)"
-    ]
-  },
-  {
     "problem_idx": "problem_6708",
     "level": "Level 5",
     "type": "Prealgebra",
@@ -837,20 +820,6 @@
     ]
   },
   {
-    "problem_idx": "problem_3022",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "A square piece of paper has sides of length $100$. From each corner a wedge is cut in the following manner: at each corner, the two cuts for the wedge each start at a distance $\\sqrt{17}$ from the corner, and they meet on the diagonal at an angle of $60^{\\circ}$ (see the figure below). The paper is then folded up along the lines joining the vertices of adjacent cuts. When the two edges of a cut meet, they are taped together. The result is a paper tray whose sides are not at right angles to the base. The height of the tray, that is, the perpendicular distance between the plane of the base and the plane formed by the upped edges, can be written in the form $\\sqrt[n]{m}$, where $m$ and $n$ are positive integers, $m<1000$, and $m$ is not divisible by the $n$th power of any prime. Find $m+n$.\n[asy]import cse5; size(200); pathpen=black; real s=sqrt(17); real r=(sqrt(51)+s)/sqrt(2); D((0,2*s)--(0,0)--(2*s,0)); D((0,s)--r*dir(45)--(s,0)); D((0,0)--r*dir(45)); D((r*dir(45).x,2*s)--r*dir(45)--(2*s,r*dir(45).y)); MP(\"30^\\circ\",r*dir(45)-(0.25,1),SW); MP(\"30^\\circ\",r*dir(45)-(1,0.5),SW); MP(\"\\sqrt{17}\",(0,s/2),W); MP(\"\\sqrt{17}\",(s/2,0),S); MP(\"\\mathrm{cut}\",((0,s)+r*dir(45))/2,N); MP(\"\\mathrm{cut}\",((s,0)+r*dir(45))/2,E); MP(\"\\mathrm{fold}\",(r*dir(45).x,s+r/2*dir(45).y),E); MP(\"\\mathrm{fold}\",(s+r/2*dir(45).x,r*dir(45).y));[/asy]\n",
-    "gt_answer": "871",
-    "accuracy": 0.3333333333333333,
-    "approximate_mean_tokens": 10351.25,
-    "approximate_mean_chunks": 537.0,
-    "incorrect_answers": [
-      "53"
-    ],
-    "correct_answers": []
-  },
-  {
     "problem_idx": "problem_3212",
     "level": "Level 5",
     "type": "Geometry",
@@ -867,21 +836,6 @@
     "correct_answers": [
       "12 + 6\\sqrt{3}"
     ]
-  },
-  {
-    "problem_idx": "problem_2950",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "In a circle of radius $42$, two chords of length $78$ intersect at a point whose distance from the center is $18$. The two chords divide the interior of the circle into four regions. Two of these regions are bordered by segments of unequal lengths, and the area of either of them can be expressed uniquely in the form $m\\pi-n\\sqrt{d},$ where $m, n,$ and $d$ are positive integers and $d$ is not divisible by the square of any prime number. Find $m+n+d.$\n",
-    "gt_answer": "378",
-    "accuracy": 0.3333333333333333,
-    "approximate_mean_tokens": 10427.625,
-    "approximate_mean_chunks": 548.0,
-    "incorrect_answers": [
-      "112",
-      "88"
-    ],
-    "correct_answers": []
   },
   {
     "problem_idx": "problem_2093",
@@ -938,38 +892,6 @@
       "\\sqrt{5}(3 + 2\\sqrt{2})",
       "3\\sqrt{5} + 2\\sqrt{10}"
     ]
-  },
-  {
-    "problem_idx": "problem_3028",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "In right $\\triangle ABC$ with hypotenuse $\\overline{AB}$, $AC = 12$, $BC = 35$, and $\\overline{CD}$ is the altitude to $\\overline{AB}$. Let $\\omega$ be the circle having $\\overline{CD}$ as a diameter. Let $I$ be a point outside $\\triangle ABC$ such that $\\overline{AI}$ and $\\overline{BI}$ are both tangent to circle $\\omega$. The ratio of the perimeter of $\\triangle ABI$ to the length $AB$ can be expressed in the form $\\frac {m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m + n$.\n",
-    "gt_answer": "11",
-    "accuracy": 0.25,
-    "approximate_mean_tokens": 9599.833333333334,
-    "approximate_mean_chunks": 566.3333333333334,
-    "incorrect_answers": [
-      "10",
-      "84",
-      "37"
-    ],
-    "correct_answers": []
-  },
-  {
-    "problem_idx": "problem_3066",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "Triangle $ABC$ has side lengths $AB=4$, $BC=5$, and $CA=6$. Points $D$ and $E$ are on ray $AB$ with $AB<AD<AE$. The point $F \\neq C$ is a point of intersection of the circumcircles of $\\triangle ACD$ and $\\triangle EBC$ satisfying $DF=2$ and $EF=7$. Then $BE$ can be expressed as $\\tfrac{a+b\\sqrt{c}}{d}$, where $a$, $b$, $c$, and $d$ are positive integers such that $a$ and $d$ are relatively prime, and $c$ is not divisible by the square of any prime. Find $a+b+c+d$.\n",
-    "gt_answer": "32",
-    "accuracy": 0.25,
-    "approximate_mean_tokens": 7507.5,
-    "approximate_mean_chunks": 579.0,
-    "incorrect_answers": [
-      "141",
-      "25",
-      "42"
-    ],
-    "correct_answers": []
   },
   {
     "problem_idx": "problem_2131",
@@ -1062,20 +984,5 @@
     "correct_answers": [
       "51"
     ]
-  },
-  {
-    "problem_idx": "problem_4238",
-    "level": "Level 5",
-    "type": "Intermediate Algebra",
-    "problem": "Find the number of integers $n$ such that \\[1+\\left\\lfloor\\dfrac{100n}{101}\\right\\rfloor=\\left\\lceil\\dfrac{99n}{100}\\right\\rceil.\\]",
-    "gt_answer": "10100",
-    "accuracy": 0.3333333333333333,
-    "approximate_mean_tokens": 8966.125,
-    "approximate_mean_chunks": 753.5,
-    "incorrect_answers": [
-      "200",
-      "101"
-    ],
-    "correct_answers": []
   }
 ]
