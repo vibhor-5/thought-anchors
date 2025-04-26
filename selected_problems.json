@@ -1,5 +1,37 @@
 [
   {
+    "problem_idx": "problem_5882",
+    "level": "Level 5",
+    "type": "Prealgebra",
+    "problem": "Carolyn and Paul are playing a game starting with a list of the integers $1$ to $n.$ The rules of the game are:\n\n$\\bullet$  Carolyn always has the first turn.\n\n$\\bullet$  Carolyn and Paul alternate turns.\n\n$\\bullet$  On each of her turns, Carolyn must remove one number from the list such that this number has at least one positive divisor other than itself remaining in the list.\n\n$\\bullet$  On each of his turns, Paul must remove from the list all of the positive divisors of the number that Carolyn has just removed.\n\n$\\bullet$  If Carolyn cannot remove any more numbers, then Paul removes the rest of the numbers.\n\nFor example, if $n=6,$ a possible sequence of moves is shown in this chart:\n\n\\begin{tabular}{|c|c|c|}\n\\hline\nPlayer & Removed \\# & \\# remaining \\\\\n\\hline\nCarolyn & 4 & 1, 2, 3, 5, 6 \\\\\n\\hline\nPaul & 1, 2 & 3, 5, 6 \\\\\n\\hline\nCarolyn & 6 & 3, 5 \\\\\n\\hline\nPaul & 3 & 5 \\\\\n\\hline\nCarolyn & None & 5 \\\\\n\\hline\nPaul & 5 & None \\\\\n\\hline\n\\end{tabular}\n\nNote that Carolyn can't remove $3$ or $5$ on her second turn, and can't remove any number on her third turn.\n\nIn this example, the sum of the numbers removed by Carolyn is $4+6=10$ and the sum of the numbers removed by Paul is $1+2+3+5=11.$\n\nSuppose that $n=6$ and Carolyn removes the integer $2$ on her first turn. Determine the sum of the numbers that Carolyn removes.",
+    "gt_answer": "8",
+    "accuracy": 0.4,
+    "approximate_mean_tokens": 834.8,
+    "approximate_mean_chunks": 16.2,
+    "incorrect_answers": [
+      "12"
+    ],
+    "correct_answers": [
+      "8"
+    ]
+  },
+  {
+    "problem_idx": "problem_3129",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "In a triangle, the area is numerically equal to the perimeter. What is the radius of the inscribed circle?\n$\\text{(A) } 2\\quad \\text{(B) } 3\\quad \\text{(C) } 4\\quad \\text{(D) } 5\\quad \\text{(E) } 6$\n",
+    "gt_answer": "2",
+    "accuracy": 0.6,
+    "approximate_mean_tokens": 879.875,
+    "approximate_mean_chunks": 50.8,
+    "incorrect_answers": [
+      "A"
+    ],
+    "correct_answers": [
+      "2"
+    ]
+  },
+  {
     "problem_idx": "problem_2238",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -13,6 +45,57 @@
     ],
     "correct_answers": [
       "120"
+    ]
+  },
+  {
+    "problem_idx": "problem_2179",
+    "level": "Level 5",
+    "type": "Counting & Probability",
+    "problem": "What is the value of the sum $S=\\sum_{k=0}^{49}(-1)^k\\binom{99}{2k}=\\binom{99}{0}-\\binom{99}{2}+\\binom{99}{4}-\\cdots -\\binom{99}{98}?$\n(A) $-2^{50}$ (B) $-2^{49}$ (C) 0 (D) $2^{49}$ (E) $2^{50}$\n",
+    "gt_answer": "-2^{49}",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 1888.7,
+    "approximate_mean_chunks": 90.2,
+    "incorrect_answers": [
+      "B"
+    ],
+    "correct_answers": [
+      "-2^{49}"
+    ]
+  },
+  {
+    "problem_idx": "problem_2236",
+    "level": "Level 5",
+    "type": "Counting & Probability",
+    "problem": "Each page number of a 488-page book is printed one time in the book.  The first page is page 1 and the last page is page 488. When printing all of the page numbers, how many more 4's are printed than 8's?",
+    "gt_answer": "90",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 2338.975,
+    "approximate_mean_chunks": 123.4,
+    "incorrect_answers": [
+      "100",
+      "89",
+      "91"
+    ],
+    "correct_answers": [
+      "90"
+    ]
+  },
+  {
+    "problem_idx": "problem_330",
+    "level": "Level 5",
+    "type": "Algebra",
+    "problem": "Compute\n\n$3(1+3(1+3(1+3(1+3(1+3(1+3(1+3(1+3(1+3)))))))))$",
+    "gt_answer": "88572",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 1663.7,
+    "approximate_mean_chunks": 126.9,
+    "incorrect_answers": [
+      "36084",
+      "188329404"
+    ],
+    "correct_answers": [
+      "88572"
     ]
   },
   {
@@ -89,6 +172,38 @@
     ]
   },
   {
+    "problem_idx": "problem_2189",
+    "level": "Level 5",
+    "type": "Counting & Probability",
+    "problem": "A mother purchases 5 blue plates, 2 red plates, 2 green plates, and 1 orange plate. How many ways are there for her to arrange these plates for dinner around her circular table if she doesn't want the 2 green plates to be adjacent?\n",
+    "gt_answer": "588",
+    "accuracy": 0.9,
+    "approximate_mean_tokens": 4044.075,
+    "approximate_mean_chunks": 204.4,
+    "incorrect_answers": [
+      "420"
+    ],
+    "correct_answers": [
+      "588"
+    ]
+  },
+  {
+    "problem_idx": "problem_3123",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "A park is in the shape of a regular hexagon $2$ km on a side. Starting at a corner, Alice walks along the perimeter of the park for a distance of $5$ km. How many kilometers is she from her starting point?\n$\\textbf{(A)}\\ \\sqrt{13}\\qquad \\textbf{(B)}\\ \\sqrt{14}\\qquad \\textbf{(C)}\\ \\sqrt{15}\\qquad \\textbf{(D)}\\ \\sqrt{16}\\qquad \\textbf{(E)}\\ \\sqrt{17}$\n",
+    "gt_answer": "\\sqrt{13}",
+    "accuracy": 0.3,
+    "approximate_mean_tokens": 4210.65,
+    "approximate_mean_chunks": 210.8,
+    "incorrect_answers": [
+      "A"
+    ],
+    "correct_answers": [
+      "\\sqrt{13}"
+    ]
+  },
+  {
     "problem_idx": "problem_2870",
     "level": "Level 5",
     "type": "Geometry",
@@ -156,6 +271,38 @@
     ]
   },
   {
+    "problem_idx": "problem_6481",
+    "level": "Level 5",
+    "type": "Prealgebra",
+    "problem": "Two points are drawn on each side of a square with an area of 81 square units, dividing the side into 3 congruent parts.  Quarter-circle arcs connect the points on adjacent sides to create the figure shown.  What is the length of the boundary of the bolded figure?  Express your answer as a decimal to the nearest tenth. [asy]\nsize(80);\nimport graph;\ndraw((0,0)--(3,0)--(3,3)--(0,3)--cycle, linetype(\"2 4\"));\ndraw(Arc((0,0),1,0,90),linewidth(.8));\ndraw(Arc((0,3),1,0,-90),linewidth(.8));\ndraw(Arc((3,0),1,90,180),linewidth(.8));\ndraw(Arc((3,3),1,180,270),linewidth(.8));\ndraw((1,0)--(2,0),linewidth(.8));draw((3,1)--(3,2),linewidth(.8));\ndraw((1,3)--(2,3),linewidth(.8));draw((0,1)--(0,2),linewidth(.8));\n[/asy]",
+    "gt_answer": "30.8",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 5649.25,
+    "approximate_mean_chunks": 226.9,
+    "incorrect_answers": [
+      "18.8"
+    ],
+    "correct_answers": [
+      "30.8"
+    ]
+  },
+  {
+    "problem_idx": "problem_3916",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "A nonzero polynomial with rational coefficients has all of the numbers \\[1+\\sqrt{2}, \\; 2+\\sqrt{3}, \\;3+\\sqrt{4},\\; \\dots, \\;1000+\\sqrt{1001}\\]as roots. What is the smallest possible degree of such a polynomial?",
+    "gt_answer": "1970",
+    "accuracy": 0.75,
+    "approximate_mean_tokens": 4857.0625,
+    "approximate_mean_chunks": 228.5,
+    "incorrect_answers": [
+      "1000"
+    ],
+    "correct_answers": [
+      "1970"
+    ]
+  },
+  {
     "problem_idx": "problem_5723",
     "level": "Level 5",
     "type": "Prealgebra",
@@ -191,6 +338,25 @@
     ]
   },
   {
+    "problem_idx": "problem_3062",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Equilateral $\\triangle ABC$ has side length $600$. Points $P$ and $Q$ lie outside the plane of $\\triangle ABC$ and are on opposite sides of the plane. Furthermore, $PA=PB=PC$, and $QA=QB=QC$, and the planes of $\\triangle PAB$ and $\\triangle QAB$ form a $120^{\\circ}$ dihedral angle (the angle between the two planes). There is a point $O$ whose distance from each of $A,B,C,P,$ and $Q$ is $d$. Find $d$.\n",
+    "gt_answer": "450",
+    "accuracy": 0.3333333333333333,
+    "approximate_mean_tokens": 4484.708333333333,
+    "approximate_mean_chunks": 247.0,
+    "incorrect_answers": [
+      "50\\sqrt{273}",
+      "50\\sqrt{93}",
+      "264.5751",
+      "275"
+    ],
+    "correct_answers": [
+      "450"
+    ]
+  },
+  {
     "problem_idx": "problem_2945",
     "level": "Level 5",
     "type": "Geometry",
@@ -204,6 +370,23 @@
     ],
     "correct_answers": [
       "702"
+    ]
+  },
+  {
+    "problem_idx": "problem_665",
+    "level": "Level 5",
+    "type": "Algebra",
+    "problem": "How many zeros are in the expansion of $999,\\!999,\\!999,\\!998^2$?",
+    "gt_answer": "11",
+    "accuracy": 0.5555555555555556,
+    "approximate_mean_tokens": 4475.55,
+    "approximate_mean_chunks": 259.1,
+    "incorrect_answers": [
+      "10",
+      "12"
+    ],
+    "correct_answers": [
+      "11"
     ]
   },
   {
@@ -258,6 +441,23 @@
     ]
   },
   {
+    "problem_idx": "problem_5316",
+    "level": "Level 5",
+    "type": "Number Theory",
+    "problem": "Consider the integer\\[N = 9 + 99 + 999 + 9999 + \\cdots + \\underbrace{99\\ldots 99}_\\text{321 digits}.\\]Find the sum of the digits of $N$.\n",
+    "gt_answer": "342",
+    "accuracy": 0.7142857142857143,
+    "approximate_mean_tokens": 4419.0,
+    "approximate_mean_chunks": 279.14285714285717,
+    "incorrect_answers": [
+      "9",
+      "344"
+    ],
+    "correct_answers": [
+      "342"
+    ]
+  },
+  {
     "problem_idx": "problem_6708",
     "level": "Level 5",
     "type": "Prealgebra",
@@ -308,6 +508,23 @@
     ]
   },
   {
+    "problem_idx": "problem_3007",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "In quadrilateral $ABCD,\\ BC=8,\\ CD=12,\\ AD=10,$ and $m\\angle A= m\\angle B = 60^\\circ.$ Given that $AB = p + \\sqrt{q},$ where $p$ and $q$ are positive integers, find $p+q.$\n",
+    "gt_answer": "150",
+    "accuracy": 0.6666666666666666,
+    "approximate_mean_tokens": 4566.875,
+    "approximate_mean_chunks": 296.2,
+    "incorrect_answers": [
+      "80",
+      "42"
+    ],
+    "correct_answers": [
+      "150"
+    ]
+  },
+  {
     "problem_idx": "problem_3289",
     "level": "Level 5",
     "type": "Geometry",
@@ -341,6 +558,24 @@
     ],
     "correct_answers": [
       "126"
+    ]
+  },
+  {
+    "problem_idx": "problem_2874",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Two of the altitudes of an acute triangle divide the sides into segments of lengths $5,3,2$ and $x$ units, as shown. What is the value of $x$? [asy]\ndefaultpen(linewidth(0.7)); size(75);\npair A = (0,0);\npair B = (1,0);\npair C = (74/136,119/136);\npair D = foot(B, A, C);\npair E = /*foot(A,B,C)*/ (52*B+(119-52)*C)/(119);\ndraw(A--B--C--cycle);\ndraw(B--D);\ndraw(A--E);\ndraw(rightanglemark(A,D,B,1.2));\ndraw(rightanglemark(A,E,B,1.2));\nlabel(\"$3$\",(C+D)/2,WNW+(0,0.3));\nlabel(\"$5$\",(A+D)/2,NW);\nlabel(\"$2$\",(C+E)/2,E);\nlabel(\"$x$\",(B+E)/2,NE);\n[/asy]",
+    "gt_answer": "10",
+    "accuracy": 0.5555555555555556,
+    "approximate_mean_tokens": 4912.525,
+    "approximate_mean_chunks": 320.9,
+    "incorrect_answers": [
+      "4",
+      "2",
+      "2\\sqrt{6} - 2"
+    ],
+    "correct_answers": [
+      "10"
     ]
   },
   {
@@ -395,6 +630,23 @@
     "correct_answers": [
       "Monday",
       "\\text{Monday}"
+    ]
+  },
+  {
+    "problem_idx": "problem_3442",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "Compute the number of intersection points of the graphs of\n\\[(x - \\lfloor x \\rfloor)^2 + y^2 = x - \\lfloor x \\rfloor\\]and $y = \\frac{1}{5} x.$",
+    "gt_answer": "11",
+    "accuracy": 0.6,
+    "approximate_mean_tokens": 5368.3,
+    "approximate_mean_chunks": 331.6,
+    "incorrect_answers": [
+      "6",
+      "10"
+    ],
+    "correct_answers": [
+      "11"
     ]
   },
   {
@@ -483,6 +735,22 @@
     ]
   },
   {
+    "problem_idx": "problem_3893",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "Find the number of ordered 17-tuples $(a_1, a_2, a_3, \\dots, a_{17})$ of integers, such that the square of any number in the 17-tuple is equal to the sum of the other 16 numbers.",
+    "gt_answer": "12378",
+    "accuracy": 0.3,
+    "approximate_mean_tokens": 5526.175,
+    "approximate_mean_chunks": 364.7,
+    "incorrect_answers": [
+      "24754"
+    ],
+    "correct_answers": [
+      "12378"
+    ]
+  },
+  {
     "problem_idx": "problem_4498",
     "level": "Level 5",
     "type": "Intermediate Algebra",
@@ -556,6 +824,24 @@
     ]
   },
   {
+    "problem_idx": "problem_7198",
+    "level": "Level 5",
+    "type": "Precalculus",
+    "problem": "Let $\\mathcal{C}$ be the hyperbola $y^2 - x^2 = 1$.  Given a point $P_0$ on the $x$-axis, we construct a sequence of points $(P_n)$ on the $x$-axis in the following manner: let $\\ell_n$ be the line with slope 1 passing passing through $P_n$, then $P_{n+1}$ is the orthogonal projection of the point of intersection of $\\ell_n$ and $\\mathcal C$ onto the $x$-axis. (If $P_n = 0$, then the sequence simply terminates.)\n\nFind the number of starting positions $P_0$ on the $x$-axis such that $P_0 = P_{2008}$.  Your answer should use exponential notation, in simplest form.",
+    "gt_answer": "2^{2008} -2",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 7676.675,
+    "approximate_mean_chunks": 395.0,
+    "incorrect_answers": [
+      "2^{2008} - 1",
+      "2^{2008}",
+      "2^{2007}"
+    ],
+    "correct_answers": [
+      "2^{2008} - 2"
+    ]
+  },
+  {
     "problem_idx": "problem_5127",
     "level": "Level 5",
     "type": "Number Theory",
@@ -571,6 +857,23 @@
     ],
     "correct_answers": [
       "16"
+    ]
+  },
+  {
+    "problem_idx": "problem_6940",
+    "level": "Level 5",
+    "type": "Precalculus",
+    "problem": "The sphere with radius 1 and center $(0,0,1)$ rests on the $xy$-plane.  A light source is at $P = (0,-1,2).$  Then the boundary of the shadow of the sphere can be expressed in the form $y = f(x),$ for some function $f(x).$  Find the function $f(x).$",
+    "gt_answer": "\\frac{x^2}{4} - 1",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 6255.9,
+    "approximate_mean_chunks": 401.1,
+    "incorrect_answers": [
+      "y = \\dfrac{x^2}{4} - 1"
+    ],
+    "correct_answers": [
+      "\\dfrac{x^2}{4} - 1",
+      "\\frac{x^2}{4} - 1"
     ]
   },
   {
@@ -590,6 +893,24 @@
     ],
     "correct_answers": [
       "310"
+    ]
+  },
+  {
+    "problem_idx": "problem_4611",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "The cubic polynomial $p(x)$ satisfies $p(2) = 1,$ $p(7) = 19,$ $p(15) = 11,$ and $p(20) = 29.$  Find\n\\[p(1) + p(2) + p(3) + \\dots + p(21).\\]",
+    "gt_answer": "315",
+    "accuracy": 0.6666666666666666,
+    "approximate_mean_tokens": 5353.825,
+    "approximate_mean_chunks": 410.5,
+    "incorrect_answers": [
+      "681",
+      "4286",
+      "1215"
+    ],
+    "correct_answers": [
+      "315"
     ]
   },
   {
@@ -625,6 +946,39 @@
     ],
     "correct_answers": [
       "8"
+    ]
+  },
+  {
+    "problem_idx": "problem_4167",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "Find the $\\emph{positive}$ real number(s) $x$ such that $\\frac{1}{2}\\left( 3x^2-1\\right) = \\left( x^2-50x-10\\right)\\left( x^2+25x+5\\right)$.",
+    "gt_answer": "25 + 2\\sqrt{159}",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 4829.75,
+    "approximate_mean_chunks": 418.5,
+    "incorrect_answers": [
+      "25 \\pm 2\\sqrt{159}",
+      "50.22"
+    ],
+    "correct_answers": [
+      "25 + 2\\sqrt{159}"
+    ]
+  },
+  {
+    "problem_idx": "problem_3973",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "Let $a,$ $b,$ and $c$ be nonnegative real numbers such that $a + b + c = 1.$  Find the maximum value of\n\\[a + \\sqrt{ab} + \\sqrt[3]{abc}.\\]",
+    "gt_answer": "\\frac{4}{3}",
+    "accuracy": 0.625,
+    "approximate_mean_tokens": 8035.5625,
+    "approximate_mean_chunks": 418.625,
+    "incorrect_answers": [
+      "\\dfrac{1 + \\sqrt{2}}{2}"
+    ],
+    "correct_answers": [
+      "\\dfrac{4}{3}"
     ]
   },
   {
@@ -669,13 +1023,14 @@
     "type": "Intermediate Algebra",
     "problem": "Let $f_0(x)=x+|x-100|-|x+100|$, and for $n\\geq 1$, let $f_n(x)=|f_{n-1}(x)|-1$. For how many values of $x$ is $f_{100}(x)=0$?",
     "gt_answer": "301",
-    "accuracy": 0.3333333333333333,
-    "approximate_mean_tokens": 6789.638888888889,
-    "approximate_mean_chunks": 428.1111111111111,
+    "accuracy": 0.3,
+    "approximate_mean_tokens": 6901.1,
+    "approximate_mean_chunks": 428.0,
     "incorrect_answers": [
       "303",
       "204",
-      "4"
+      "4",
+      "203"
     ],
     "correct_answers": [
       "301"
@@ -716,6 +1071,23 @@
     ]
   },
   {
+    "problem_idx": "problem_3971",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "We can write\n\\[\\sum_{k = 1}^{100} (-1)^k \\cdot \\frac{k^2 + k + 1}{k!} = \\frac{a}{b!} - c,\\]where $a,$ $b,$ and $c$ are positive integers.  Find the smallest possible value of $a + b + c.$",
+    "gt_answer": "202",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 5607.3125,
+    "approximate_mean_chunks": 440.25,
+    "incorrect_answers": [
+      "200",
+      "203"
+    ],
+    "correct_answers": [
+      "202"
+    ]
+  },
+  {
     "problem_idx": "problem_2920",
     "level": "Level 5",
     "type": "Geometry",
@@ -732,6 +1104,28 @@
     ],
     "correct_answers": [
       "175"
+    ]
+  },
+  {
+    "problem_idx": "problem_2253",
+    "level": "Level 5",
+    "type": "Counting & Probability",
+    "problem": "A 5x5x5 cube is formed by assembling 125 unit cubes. Nine unit squares are painted on each of the six faces of the cube according to the pattern shown. How many of the 125 unit cubes have no paint on them? [asy]\nfill((2,0)--(3,0)--(3,5)--(2,5)--cycle,gray(.7));\nfill((0,2)--(0,3)--(5,3)--(5,2)--cycle,gray(.7));\npath p=(0,0)--(5,0);\n\ndraw(p,linewidth(1));\ndraw(shift(0,1)*p,linewidth(1));\ndraw(shift(0,2)*p,linewidth(1));\ndraw(shift(0,3)*p,linewidth(1));\ndraw(shift(0,4)*p,linewidth(1));\ndraw(shift(0,5)*p,linewidth(1));\n\ndraw((0,0)--(0,5),linewidth(1));\ndraw((1,0)--(1,5),linewidth(1));\ndraw((2,0)--(2,5),linewidth(1));\ndraw((3,0)--(3,5),linewidth(1));\ndraw((4,0)--(4,5),linewidth(1));\ndraw((5,0)--(5,5),linewidth(1));\n\n[/asy]",
+    "gt_answer": "83",
+    "accuracy": 0.3,
+    "approximate_mean_tokens": 9080.225,
+    "approximate_mean_chunks": 446.9,
+    "incorrect_answers": [
+      "64",
+      "27",
+      "82",
+      "88",
+      "71",
+      "75",
+      "94"
+    ],
+    "correct_answers": [
+      "83"
     ]
   },
   {
@@ -753,20 +1147,58 @@
     ]
   },
   {
-    "problem_idx": "problem_3940",
+    "problem_idx": "problem_2081",
     "level": "Level 5",
-    "type": "Intermediate Algebra",
-    "problem": "The function $f(n)$ is defined on the positive integers such that $f(f(n)) = 2n$ and $f(4n + 1) = 4n + 3$ for all positive integers $n.$  Find $f(1000).$",
-    "gt_answer": "1016",
-    "accuracy": 0.75,
-    "approximate_mean_tokens": 5907.3125,
-    "approximate_mean_chunks": 457.75,
+    "type": "Counting & Probability",
+    "problem": "In a sequence of coin tosses, one can keep a record of instances in which a tail is immediately followed by a head, a head is immediately followed by a head, and etc. We denote these by TH, HH, and etc. For example, in the sequence TTTHHTHTTTHHTTH of 15 coin tosses we observe that there are two HH, three HT, four TH, and five TT subsequences. How many different sequences of 15 coin tosses will contain exactly two HH, three HT, four TH, and five TT subsequences?\n",
+    "gt_answer": "560",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 7653.925,
+    "approximate_mean_chunks": 458.4,
     "incorrect_answers": [
-      "500",
-      "3000"
+      "875",
+      "336",
+      "896",
+      "140",
+      "700"
     ],
     "correct_answers": [
-      "1016"
+      "560"
+    ]
+  },
+  {
+    "problem_idx": "problem_5230",
+    "level": "Level 5",
+    "type": "Number Theory",
+    "problem": "Mary told John her score on the American High School Mathematics Examination (AHSME), which was over $80$. From this, John was able to determine the number of problems Mary solved correctly. If Mary's score had been any lower, but still over $80$, John could not have determined this. What was Mary's score? (Recall that the AHSME consists of $30$ multiple choice problems and that one's score, $s$, is computed by the formula $s=30+4c-w$, where $c$ is the number of correct answers and $w$ is the number of wrong answers. (Students are not penalized for problems left unanswered.)\n",
+    "gt_answer": "119",
+    "accuracy": 0.6,
+    "approximate_mean_tokens": 5427.125,
+    "approximate_mean_chunks": 458.8,
+    "incorrect_answers": [
+      "85",
+      "139",
+      "145",
+      "114"
+    ],
+    "correct_answers": [
+      "119"
+    ]
+  },
+  {
+    "problem_idx": "problem_191",
+    "level": "Level 5",
+    "type": "Algebra",
+    "problem": "The graph of $y=f(x)$ is shown below, with $1$ unit between grid lines. Assume $f(x)$ is defined only on the domain shown.\n\nWhat is the sum of all integers $c$ for which the equation $f(x)=c$ has exactly $6$ solutions?\n\n[asy]\nsize(150);\nreal ticklen=3;\nreal tickspace=2;\n\nreal ticklength=0.1cm;\nreal axisarrowsize=0.14cm;\npen axispen=black+1.3bp;\nreal vectorarrowsize=0.2cm;\nreal tickdown=-0.5;\nreal tickdownlength=-0.15inch;\nreal tickdownbase=0.3;\nreal wholetickdown=tickdown;\nvoid rr_cartesian_axes(real xleft, real xright, real ybottom, real ytop, real xstep=1, real ystep=1, bool useticks=false, bool complexplane=false, bool usegrid=true) {\n\nimport graph;\n\nreal i;\n\nif(complexplane) {\n\nlabel(\"$\\textnormal{Re}$\",(xright,0),SE);\n\nlabel(\"$\\textnormal{Im}$\",(0,ytop),NW);\n\n} else {\n\nlabel(\"$x$\",(xright+0.4,-0.5));\n\nlabel(\"$y$\",(-0.5,ytop+0.2));\n\n}\n\nylimits(ybottom,ytop);\n\nxlimits( xleft, xright);\n\nreal[] TicksArrx,TicksArry;\n\nfor(i=xleft+xstep; i<xright; i+=xstep) {\n\nif(abs(i) >0.1) {\n\nTicksArrx.push(i);\n\n}\n\n}\n\nfor(i=ybottom+ystep; i<ytop; i+=ystep) {\n\nif(abs(i) >0.1) {\n\nTicksArry.push(i);\n\n}\n\n}\n\nif(usegrid) {\n\nxaxis(BottomTop(extend=false), Ticks(\"%\", TicksArrx ,pTick=gray(0.22),extend=true),p=invisible);//,above=true);\n\nyaxis(LeftRight(extend=false),Ticks(\"%\", TicksArry ,pTick=gray(0.22),extend=true), p=invisible);//,Arrows);\n\n}\n\nif(useticks) {\n\nxequals(0, ymin=ybottom, ymax=ytop, p=axispen, Ticks(\"%\",TicksArry , pTick=black+0.8bp,Size=ticklength), above=true, Arrows(size=axisarrowsize));\n\nyequals(0, xmin=xleft, xmax=xright, p=axispen, Ticks(\"%\",TicksArrx , pTick=black+0.8bp,Size=ticklength), above=true, Arrows(size=axisarrowsize));\n\n} else {\n\nxequals(0, ymin=ybottom, ymax=ytop, p=axispen, above=true, Arrows(size=axisarrowsize));\n\nyequals(0, xmin=xleft, xmax=xright, p=axispen, above=true, Arrows(size=axisarrowsize));\n\n}\n};\nrr_cartesian_axes(-6,6,-7,7);\nreal f(real x) {return (x-5)*(x-3)*(x-1)*(x+1)*(x+3)*(x+5)/315-3.4;}\ndraw(graph(f,-5.5,5.5,operator ..), red);\n[/asy]",
+    "gt_answer": "-7",
+    "accuracy": 0.3333333333333333,
+    "approximate_mean_tokens": 10153.833333333334,
+    "approximate_mean_chunks": 464.0,
+    "incorrect_answers": [
+      "-18"
+    ],
+    "correct_answers": [
+      "-7"
     ]
   },
   {
@@ -801,6 +1233,41 @@
     ],
     "correct_answers": [
       "2016532"
+    ]
+  },
+  {
+    "problem_idx": "problem_3940",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "The function $f(n)$ is defined on the positive integers such that $f(f(n)) = 2n$ and $f(4n + 1) = 4n + 3$ for all positive integers $n.$  Find $f(1000).$",
+    "gt_answer": "1016",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 5942.125,
+    "approximate_mean_chunks": 472.1,
+    "incorrect_answers": [
+      "500",
+      "3000"
+    ],
+    "correct_answers": [
+      "1016"
+    ]
+  },
+  {
+    "problem_idx": "problem_6814",
+    "level": "Level 5",
+    "type": "Precalculus",
+    "problem": "Rational Man and Irrational Man both buy new cars, and they decide to drive around two racetracks from time $t = 0$ to $t = \\infty.$  Rational Man drives along the path parameterized by\n\\begin{align*}\nx &= \\cos t, \\\\\ny &= \\sin t,\n\\end{align*}and Irrational Man drives along the path parameterized by\n\\begin{align*}\nx &= 1 + 4 \\cos \\frac{t}{\\sqrt{2}}, \\\\\ny &= 2 \\sin \\frac{t}{\\sqrt{2}}.\n\\end{align*}If $A$ is a point on Rational Man's racetrack, and $B$ is a point on Irrational Man's racetrack, then find the smallest possible distance $AB.$",
+    "gt_answer": "\\frac{\\sqrt{33} - 3}{3}",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 8074.1875,
+    "approximate_mean_chunks": 477.375,
+    "incorrect_answers": [
+      "2",
+      "\\sqrt{5} - 1",
+      "\\dfrac{\\sqrt{15} - 2}{2}"
+    ],
+    "correct_answers": [
+      "\\dfrac{\\sqrt{33} - 3}{3}"
     ]
   },
   {
@@ -852,24 +1319,6 @@
     ],
     "correct_answers": [
       "12 + 6\\sqrt{3}"
-    ]
-  },
-  {
-    "problem_idx": "problem_2931",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "The rectangle $ABCD$ below has dimensions $AB = 12 \\sqrt{3}$ and $BC = 13 \\sqrt{3}$. Diagonals $\\overline{AC}$ and $\\overline{BD}$ intersect at $P$. If triangle $ABP$ is cut out and removed, edges $\\overline{AP}$ and $\\overline{BP}$ are joined, and the figure is then creased along segments $\\overline{CP}$ and $\\overline{DP}$, we obtain a triangular pyramid, all four of whose faces are isosceles triangles. Find the volume of this pyramid.\n[asy] pair D=origin, A=(13,0), B=(13,12), C=(0,12), P=(6.5, 6); draw(B--C--P--D--C^^D--A); filldraw(A--P--B--cycle, gray, black); label(\"$A$\", A, SE); label(\"$B$\", B, NE); label(\"$C$\", C, NW); label(\"$D$\", D, SW); label(\"$P$\", P, N); label(\"$13\\sqrt{3}$\", A--D, S); label(\"$12\\sqrt{3}$\", A--B, E);[/asy]\n",
-    "gt_answer": "594",
-    "accuracy": 0.5,
-    "approximate_mean_tokens": 8313.25,
-    "approximate_mean_chunks": 532.8333333333334,
-    "incorrect_answers": [
-      "234\\sqrt{3}",
-      "\\dfrac{1287}{2}",
-      "117"
-    ],
-    "correct_answers": [
-      "594"
     ]
   },
   {
@@ -927,6 +1376,47 @@
     "correct_answers": [
       "\\sqrt{5}(3 + 2\\sqrt{2})",
       "3\\sqrt{5} + 2\\sqrt{10}"
+    ]
+  },
+  {
+    "problem_idx": "problem_2931",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "The rectangle $ABCD$ below has dimensions $AB = 12 \\sqrt{3}$ and $BC = 13 \\sqrt{3}$. Diagonals $\\overline{AC}$ and $\\overline{BD}$ intersect at $P$. If triangle $ABP$ is cut out and removed, edges $\\overline{AP}$ and $\\overline{BP}$ are joined, and the figure is then creased along segments $\\overline{CP}$ and $\\overline{DP}$, we obtain a triangular pyramid, all four of whose faces are isosceles triangles. Find the volume of this pyramid.\n[asy] pair D=origin, A=(13,0), B=(13,12), C=(0,12), P=(6.5, 6); draw(B--C--P--D--C^^D--A); filldraw(A--P--B--cycle, gray, black); label(\"$A$\", A, SE); label(\"$B$\", B, NE); label(\"$C$\", C, NW); label(\"$D$\", D, SW); label(\"$P$\", P, N); label(\"$13\\sqrt{3}$\", A--D, S); label(\"$12\\sqrt{3}$\", A--B, E);[/asy]\n",
+    "gt_answer": "594",
+    "accuracy": 0.375,
+    "approximate_mean_tokens": 8498.75,
+    "approximate_mean_chunks": 545.75,
+    "incorrect_answers": [
+      "234\\sqrt{3}",
+      "\\dfrac{1287}{2}",
+      "117",
+      "78\\sqrt{58}",
+      "216"
+    ],
+    "correct_answers": [
+      "594"
+    ]
+  },
+  {
+    "problem_idx": "problem_2142",
+    "level": "Level 5",
+    "type": "Counting & Probability",
+    "problem": "A game show offers a contestant three prizes A, B and C, each of which is worth a whole number of dollars from $$ 1$ to $$ 9999$ inclusive. The contestant wins the prizes by correctly guessing the price of each prize in the order A, B, C. As a hint, the digits of the three prices are given. On a particular day, the digits given were $1, 1, 1, 1, 3, 3, 3$. Find the total number of possible guesses for all three prizes consistent with the hint.\n",
+    "gt_answer": "420",
+    "accuracy": 0.3333333333333333,
+    "approximate_mean_tokens": 8293.416666666666,
+    "approximate_mean_chunks": 559.4444444444445,
+    "incorrect_answers": [
+      "105",
+      "122",
+      "1386",
+      "99",
+      "81",
+      "525"
+    ],
+    "correct_answers": [
+      "420"
     ]
   },
   {
