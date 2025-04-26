@@ -164,41 +164,41 @@ This annotation will be used to build a dependency graph and perform causal anal
     Chunk recalls the problem statement or key details. 
     Includes explicit retrieval from memory, not derivation. 
     
-6. `substitution`: 
+5. `substitution`: 
     Rewriting or representing an expression in a more useful form (e.g., “243 = 3^5” or “Let x = ...”).
     Includes algebraic rearrangement, defining variables, or transforming the expression’s structure.
 
-7. `intermediate_step`: 
+6. `intermediate_step`: 
     Chunk performs a computation, transformation, or derivation that is later used in another step.
 
-8. `self_check`: 
+7. `self_check`: 
     Chunk verifies a previous result or plugs it back into the problem to confirm correctness.
     Reviewing or re-computing a previous result to confirm correctness.
     Often introduced with phrases like “let me double check” or “just to be sure…”
     
-9. `example_testing`: 
+8. `example_testing`: 
     Generating examples or scenarios to test hypotheses.
     E.g., “Let's try this with a simpler example...” or “I'll test this with a specific value...”
 
-10. `backtracking`: 
+9. `backtracking`: 
     Chunk proposes an alternative approach, a reframing of the problem, or backtracks from an earlier direction.
     Includes backtracking, starting over, or switching methods (“Alternatively, I could...”)
 
-11. `uncertainty_estimation`: 
+10. `uncertainty_estimation`: 
     Chunk expresses uncertainty or confidence in the reasoning or result.
     Explicitly expressing confidence or uncertainty in the reasoning or result.
     E.g., “I’m not sure if this is right...” or “I feel confident in this answer.”
 
-12. `summary`: 
+11. `summary`: 
     Chunk gives a recap or clean version of previously derived steps or restates the final answer.
 
-13. `final_answer_first_occurrence`: 
+12. `final_answer_first_occurrence`: 
     First chunk where the final answer is fully derived or explicitly stated.
 
-14. `final_answer`: 
+13. `final_answer`: 
     Chunk that contains the final answer.
 
-15. `unknown`: 
+14. `unknown`: 
     Use only if the chunk does not fit any of the above tags or is purely stylistic or semantic.
 
 NOTE: Try to spot `first_answer_first_occurrence` as early as possible. Sometimes the final result is derived in a step that looks like an intermediate step, 

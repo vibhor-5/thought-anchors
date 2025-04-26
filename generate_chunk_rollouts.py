@@ -7,10 +7,9 @@ import asyncio
 import httpx
 from tqdm import tqdm
 from pathlib import Path
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Tuple
 from dotenv import load_dotenv
-from datasets import load_dataset
-from utils import extract_boxed_answers, check_answer
+from utils import extract_boxed_answers, check_answer, split_solution_into_chunks, load_math_problems
 
 # Load environment variables
 load_dotenv()
@@ -47,6 +46,7 @@ parser.add_argument('-pp', '--presence_penalty', type=float, default=None, help=
 parser.add_argument('-rp', '--repetition_penalty', type=float, default=None, help='Repetition penalty parameter')
 parser.add_argument('-tk', '--top_k', type=int, default=None, help='Top-k parameter')
 parser.add_argument('-mp', '--min_p', type=float, default=None, help='Min-p parameter')
+parser.add_argument('-sr', '--skip_recalculate', default=False, action='store_true', help='Skip recalculating accuracy for existing rollouts')
 args = parser.parse_args()
 
 # Create output directory
@@ -59,119 +59,6 @@ np.random.seed(args.seed)
 torch.manual_seed(args.seed)
 if torch.cuda.is_available():
     torch.cuda.manual_seed_all(args.seed)
-
-def load_math_problems(problem_type: Optional[str] = None, level: Optional[str] = None, num_problems: Optional[int] = None, split: str = 'train') -> List[Tuple[int, Dict]]:
-    """
-    Load problems from the MATH dataset with optional filtering.
-    
-    Args:
-        problem_type: Type of problems to filter by (if None, use all types)
-        level: Level of problems to filter by (if None, use all levels)
-        num_problems: Number of problems to sample (if None, use all problems)
-        split: Dataset split to use ('train' or 'test')
-        
-    Returns:
-        List of problems with their original indices
-    """
-    try:
-        # Load from Hugging Face dataset
-        math_dataset = load_dataset("fdyrd/math")
-        dataset_split = math_dataset[split]
-        
-        # Add original indices to problems
-        indexed_problems = [(i, {
-            'problem': item['problem'],
-            'level': item['level'],
-            'type': item['type'],
-            'gt_solution': item['solution']
-        }) for i, item in enumerate(dataset_split)]
-        
-        # Extract ground truth answers
-        for i, problem in indexed_problems:
-            gt_boxed_answers = extract_boxed_answers(problem['gt_solution'])
-            gt_answer = gt_boxed_answers[0] if gt_boxed_answers else ""
-            problem['gt_answer'] = gt_answer
-        
-        # Filter by type if specified
-        if problem_type is not None:
-            indexed_problems = [(i, problem) for i, problem in indexed_problems if problem.get('type') == problem_type]
-        
-        # Filter by level if specified
-        if level is not None:
-            indexed_problems = [(i, problem) for i, problem in indexed_problems if problem.get('level') == level]
-            
-        # Sample if needed
-        if num_problems is not None and args.include_problems is None and num_problems < len(indexed_problems):
-            indexed_problems = random.sample(indexed_problems, num_problems)
-            
-        if level:
-            print(f"Filtered to level: {level}")
-        if problem_type:
-            print(f"Filtered to type: {problem_type}")
-            
-        return indexed_problems
-    except Exception as e:
-        print(f"Error loading problems: {e}")
-        return []
-
-def split_solution_into_chunks(solution_text: str) -> List[str]:
-    """
-    Split a solution into chunks for rollout generation.
-    
-    Args:
-        solution_text: The full solution text
-        
-    Returns:
-        List of chunks
-    """
-    # First, remove the prompt part if present
-    if "<think>" in solution_text:
-        solution_text = solution_text.split("<think>")[1].strip()
-    
-    # Remove the closing tag if present
-    if "</think>" in solution_text:
-        solution_text = solution_text.split("</think>")[0].strip()
-    
-    # Define patterns for chunk boundaries
-    sentence_ending_tokens = [".", "?", "!"]
-    paragraph_ending_patterns = ["\n\n", "\r\n\r\n"]
-    
-    # Split the text into chunks
-    chunks = []
-    current_chunk = ""
-    
-    # Process the text character by character
-    i = 0
-    while i < len(solution_text):
-        current_chunk += solution_text[i]
-        
-        # Check for paragraph endings
-        is_paragraph_end = False
-        for pattern in paragraph_ending_patterns:
-            if i + len(pattern) <= len(solution_text) and solution_text[i:i+len(pattern)] == pattern:
-                is_paragraph_end = True
-                break
-        
-        # Check for sentence endings followed by space or newline
-        is_sentence_end = False
-        if i < len(solution_text) - 1 and solution_text[i] in sentence_ending_tokens:
-            next_char = solution_text[i+1]
-            if next_char == " " or next_char == "\n":
-                is_sentence_end = True
-        
-        # If we found a boundary, add the chunk and reset
-        if is_paragraph_end or is_sentence_end:
-            if current_chunk.strip():
-                chunks.append(current_chunk.strip())
-                current_chunk = ""
-        
-        i += 1
-    
-    # Add the last chunk if not empty
-    if current_chunk.strip():
-        chunks.append(current_chunk.strip())
-    
-    return chunks
 
 async def make_api_request(prompt: str, temperature: float, top_p: float, max_tokens: int) -> Dict:
     """Make an API request to either Novita, Together, or Fireworks based on provider setting."""
@@ -438,6 +325,25 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
         with open(base_solution_file, 'r', encoding='utf-8') as f:
             base_solution = json.load(f)
             print(f"Problem {problem_idx}: Loaded existing base solution")
+            
+            # Recalculate accuracy for base solution if needed
+            if not args.skip_recalculate and 'solution' in base_solution:
+                extracted_answers = extract_boxed_answers(base_solution['solution'])
+                answer = extracted_answers[0] if extracted_answers else ""
+                is_correct = False
+                
+                if problem.get('gt_answer') and answer:
+                    is_correct = check_answer(answer, problem['gt_answer'])
+                
+                # Update if different
+                if base_solution.get('answer') != answer or base_solution.get('is_correct') != is_correct:
+                    print(f"Problem {problem_idx}: Updating base solution accuracy")
+                    base_solution['answer'] = answer
+                    base_solution['is_correct'] = is_correct
+                    
+                    # Save updated base solution
+                    with open(base_solution_file, 'w', encoding='utf-8') as f:
+                        json.dump(base_solution, f, indent=2)
     
     # Generate base solution if needed
     if base_solution is None:
@@ -503,6 +409,31 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
         if solutions_file.exists() and not args.force:
             with open(solutions_file, 'r', encoding='utf-8') as f:
                 existing_solutions = json.load(f)
+                
+                # Recalculate accuracy for existing rollouts if needed
+                if not args.skip_recalculate:
+                    updated_count = 0
+                    for rollout in existing_solutions:
+                        if 'rollout' in rollout and 'error' not in rollout:
+                            extracted_answers = extract_boxed_answers(rollout['rollout'])
+                            answer = extracted_answers[0] if extracted_answers else ""
+                            is_correct = False
+                            
+                            if problem.get('gt_answer') and answer:
+                                is_correct = check_answer(answer, problem['gt_answer'])
+                            
+                            # Update if different
+                            if rollout.get('answer') != answer or rollout.get('is_correct') != is_correct:
+                                updated_count += 1
+                                rollout['answer'] = answer
+                                rollout['is_correct'] = is_correct
+                    
+                    if updated_count > 0:
+                        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Updated accuracy for {updated_count} rollouts")
+                        # Save updated rollouts
+                        with open(solutions_file, 'w', encoding='utf-8') as f:
+                            json.dump(existing_solutions, f, indent=2)
+                
                 # Filter for valid solutions (has answer and no error)
                 valid_existing_solutions = [
                     sol for sol in existing_solutions 
@@ -549,7 +480,7 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
 async def main():
     """Main function to run the script."""
     # Load problems
-    problems = load_math_problems(problem_type=args.type, level=args.level, num_problems=args.num_problems, split=args.split)
+    problems = load_math_problems(problem_type=args.type, level=args.level, num_problems=args.num_problems, split=args.split, include_problems=args.include_problems)
     
     if args.exclude_problems:
         exclude_problems = [int(id) for id in args.exclude_problems.split(",")]

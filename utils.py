@@ -1,6 +1,8 @@
 import re
-from typing import List, Tuple
+from typing import List, Tuple, Optional, Dict
 from transformers import AutoTokenizer
+import random
+from datasets import load_dataset
 
 def get_chunk_ranges(full_text: str, chunks: List[str]) -> List[Tuple[int, int]]:    
     # Get character ranges for each chunk in the full text
@@ -158,7 +160,79 @@ def check_answer(answer: str, gt_answer: str) -> bool:
     normalized_answer = normalize_latex(answer)
     normalized_gt_answer = normalize_latex(gt_answer)
     
-    return normalized_answer == normalized_gt_answer
+    # First check if normalized strings match
+    if normalized_answer == normalized_gt_answer:
+        return True
+    
+    # If string comparison fails, try mathematical equivalence
+    try:
+        return get_latex_equivalent(answer, gt_answer)
+    except Exception as e:
+        # If SymPy parsing fails, fall back to string comparison result
+        return False
+
+def get_latex_equivalent(answer0, answer1):
+    """
+    Check if two LaTeX expressions are mathematically equivalent using SymPy.
+    
+    Args:
+        answer0: First LaTeX expression
+        answer1: Second LaTeX expression
+        
+    Returns:
+        True if expressions are mathematically equivalent, False otherwise
+    """
+    try:
+        from sympy.parsing.latex import parse_latex
+        import sympy
+        
+        # Clean up the LaTeX expressions for parsing
+        answer0 = prepare_latex_for_sympy(answer0)
+        answer1 = prepare_latex_for_sympy(answer1)
+        
+        # Parse the LaTeX expressions
+        expr1 = parse_latex(answer0)
+        expr2 = parse_latex(answer1)
+        
+        # Check if they are mathematically identical
+        equals = expr1.equals(expr2)
+        # print(f"First: {answer0}, Second: {answer1}: equals={equals}")
+        return equals
+    except Exception as e:
+        # print(f"Error comparing expressions: {e}")
+        return False
+
+def prepare_latex_for_sympy(latex_str):
+    """
+    Prepare a LaTeX string for SymPy parsing by removing unsupported commands
+    and simplifying the expression.
+    """
+    if not isinstance(latex_str, str):
+        return str(latex_str)
+        
+    # Remove \boxed{} command
+    latex_str = re.sub(r'\\boxed\{(.*?)\}', r'\1', latex_str)
+    
+    # Replace common LaTeX commands that SymPy doesn't support
+    replacements = {
+        r'\\dfrac': r'\\frac',
+        r'\\tfrac': r'\\frac',
+        r'\\cdot': r'*',
+        r'\\times': r'*',
+        r'\\div': r'/',
+        r'\\left': r'',
+        r'\\right': r'',
+        r'\\textbf': r'',
+        r'\\text': r'',
+        r'\\mathrm': r'',
+        r'\\!': r'',
+        r',': r'',
+    }
+    
+    for old, new in replacements.items():
+        latex_str = re.sub(old, new, latex_str)
+    
+    return latex_str
 
 def normalize_latex(latex_str: str) -> str:
     """
@@ -198,4 +272,131 @@ def normalize_latex(latex_str: str) -> str:
     # Normalize common constants
     normalized = normalized.replace("\\pi", "pi")
     
+    # Remove LaTeX text commands
+    normalized = re.sub(r'\\text\{([^{}]+)\}', r'\1', normalized)
+    normalized = re.sub(r'\\mathrm\{([^{}]+)\}', r'\1', normalized)
+    
+    # Normalize date formats (e.g., "October 30" vs "October\\ 30")
+    normalized = re.sub(r'([a-z]+)\\+\s*(\d+)', r'\1\2', normalized)
+    normalized = normalized.replace("\\text", "")
+    
     return normalized
+
+def split_solution_into_chunks(solution_text: str) -> List[str]:
+    """
+    Split a solution into chunks for rollout generation.
+    
+    Args:
+        solution_text: The full solution text
+        
+    Returns:
+        List of chunks
+    """
+    # First, remove the prompt part if present
+    if "<think>" in solution_text:
+        solution_text = solution_text.split("<think>")[1].strip()
+    
+    # Remove the closing tag if present
+    if "</think>" in solution_text:
+        solution_text = solution_text.split("</think>")[0].strip()
+    
+    # Define patterns for chunk boundaries
+    sentence_ending_tokens = [".", "?", "!"]
+    paragraph_ending_patterns = ["\n\n", "\r\n\r\n"]
+    
+    # Split the text into chunks
+    chunks = []
+    current_chunk = ""
+    
+    # Process the text character by character
+    i = 0
+    while i < len(solution_text):
+        current_chunk += solution_text[i]
+        
+        # Check for paragraph endings
+        is_paragraph_end = False
+        for pattern in paragraph_ending_patterns:
+            if i + len(pattern) <= len(solution_text) and solution_text[i:i+len(pattern)] == pattern:
+                is_paragraph_end = True
+                break
+        
+        # Check for sentence endings followed by space or newline
+        is_sentence_end = False
+        if i < len(solution_text) - 1 and solution_text[i] in sentence_ending_tokens:
+            next_char = solution_text[i+1]
+            if next_char == " " or next_char == "\n":
+                is_sentence_end = True
+        
+        # If we found a boundary, add the chunk and reset
+        if is_paragraph_end or is_sentence_end:
+            if current_chunk.strip():
+                chunks.append(current_chunk.strip())
+                current_chunk = ""
+        
+        i += 1
+    
+    # Add the last chunk if not empty
+    if current_chunk.strip():
+        chunks.append(current_chunk.strip())
+    
+    return chunks
+
+def load_math_problems(
+    problem_type: Optional[str] = None, 
+    level: Optional[str] = None, 
+    num_problems: Optional[int] = None, 
+    split: str = 'train', 
+    include_problems: Optional[List[int]] = None
+) -> List[Tuple[int, Dict]]:
+    """
+    Load problems from the MATH dataset with optional filtering.
+    
+    Args:
+        problem_type: Type of problems to filter by (if None, use all types)
+        level: Level of problems to filter by (if None, use all levels)
+        num_problems: Number of problems to sample (if None, use all problems)
+        split: Dataset split to use ('train' or 'test')
+        
+    Returns:
+        List of problems with their original indices
+    """
+    try:
+        # Load from Hugging Face dataset
+        math_dataset = load_dataset("fdyrd/math")
+        dataset_split = math_dataset[split]
+        
+        # Add original indices to problems
+        indexed_problems = [(i, {
+            'problem': item['problem'],
+            'level': item['level'],
+            'type': item['type'],
+            'gt_solution': item['solution']
+        }) for i, item in enumerate(dataset_split)]
+        
+        # Extract ground truth answers
+        for i, problem in indexed_problems:
+            gt_boxed_answers = extract_boxed_answers(problem['gt_solution'])
+            gt_answer = gt_boxed_answers[0] if gt_boxed_answers else ""
+            problem['gt_answer'] = gt_answer
+        
+        # Filter by type if specified
+        if problem_type is not None:
+            indexed_problems = [(i, problem) for i, problem in indexed_problems if problem.get('type') == problem_type]
+        
+        # Filter by level if specified
+        if level is not None:
+            indexed_problems = [(i, problem) for i, problem in indexed_problems if problem.get('level') == level]
+            
+        # Sample if needed
+        if num_problems is not None and include_problems is None and num_problems < len(indexed_problems):
+            indexed_problems = random.sample(indexed_problems, num_problems)
+            
+        if level:
+            print(f"Filtered to level: {level}")
+        if problem_type:
+            print(f"Filtered to type: {problem_type}")
+            
+        return indexed_problems
+    except Exception as e:
+        print(f"Error loading problems: {e}")
+        return []

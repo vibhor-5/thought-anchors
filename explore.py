@@ -9,6 +9,7 @@ from tqdm import tqdm
 import re
 from transformers import AutoTokenizer
 from generate_chunk_rollouts import split_solution_into_chunks
+import shutil
 
 
 # In[46]:
@@ -113,8 +114,8 @@ results = count_token_occurrences(file_path, "remember")
 
 # In[95]:
 
-incorrect_problems = ["1222", "5484", "5344", "4940", "3132", "2182"]
-include_problems = ["2137", "2984", "3338", "2188", "2189", "2205"]
+incorrect_problems = ["1222", "5484", "5344", "4940", "3132", "2182", "2177", "3101", "7425", "6", "5340", "2175", "3128", "3118", "3106", "4475"]
+include_problems = ["2137", "2984", "3338", "2188", "2189", "2205", "2889", "4357", "3064", "3262", "2920"]
 
 file_path = Path("math_cots/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92/hardest_problems.json")
 hardest_problems = json.load(open(file_path, 'r', encoding='utf-8'))
@@ -133,6 +134,22 @@ for problem_idx, metrics in tqdm(hardest_problems.items(), desc="Processing prob
         approximate_mean_tokens = sum([len(solution['full_cot']) / 4 for solution in solutions]) / len(solutions)
         approximate_mean_chunks = sum([len(split_solution_into_chunks(solution['full_cot'])) for solution in solutions]) / len(solutions)
         
+        # Collect incorrect answers from solutions
+        incorrect_answers = []
+        for solution in solutions:
+            if not solution.get('is_correct', False) and 'answer' in solution and solution['answer']:
+                if solution['answer'] not in incorrect_answers:
+                    incorrect_answers.append(solution['answer'])
+                    
+        correct_answers = []
+        for solution in solutions:
+            if solution.get('is_correct', False) and 'answer' in solution and solution['answer']:
+                if solution['answer'] not in correct_answers:
+                    correct_answers.append(solution['answer'])
+                    
+        if len(incorrect_answers) == 0 or len(correct_answers) == 0:
+            continue
+        
         selected_problems.append({
             'problem_idx': f"problem_{problem_idx}", 
             'level': metrics['level'],
@@ -141,11 +158,46 @@ for problem_idx, metrics in tqdm(hardest_problems.items(), desc="Processing prob
             'gt_answer': metrics['gt_answer'],
             'accuracy': accuracy,
             'approximate_mean_tokens': approximate_mean_tokens,
-            'approximate_mean_chunks': approximate_mean_chunks
+            'approximate_mean_chunks': approximate_mean_chunks,
+            'incorrect_answers': incorrect_answers,
+            'correct_answers': correct_answers
         })
 
 selected_problems = sorted(selected_problems, key=lambda x: x['approximate_mean_chunks'], reverse=False)
 print('Number of selected problems:', len(selected_problems))
 
 json.dump(selected_problems, open('selected_problems.json', 'w', encoding='utf-8'), indent=2)
+
+"""
+if Path('selected_problems.json').exists():
+    # Read existing selected problems
+    with open('selected_problems.json', 'r', encoding='utf-8') as f:
+        existing_problems = json.load(f)
+    
+    # Get problem IDs from existing problems
+    existing_problem_ids = [p['problem_idx'] for p in existing_problems]
+    
+    # Find new problems not in the existing list
+    new_problems = [p for p in selected_problems if p['problem_idx'] not in existing_problem_ids]
+    
+    if new_problems:
+        # Add new problems to existing ones and save
+        updated_problems = existing_problems + new_problems
+        json.dump(updated_problems, open('selected_problems.json', 'w', encoding='utf-8'), indent=2)
+        print(f'Added {len(new_problems)} new problems to selected_problems.json')
+        selected_problems = updated_problems
+    else:
+        print('No new problems to add, skipping')
+        selected_problems = existing_problems
+else:
+    json.dump(selected_problems, open('selected_problems.json', 'w', encoding='utf-8'), indent=2)
+    print(f'Created selected_problems.json with {len(selected_problems)} problems')
+"""
+    
+
+# In[96]:
+
+
+
+# In[97]:
 

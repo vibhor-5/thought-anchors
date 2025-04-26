@@ -257,28 +257,67 @@ async def generate_solutions_parallel(problems: List[Tuple[int, Dict]], args) ->
     existing_solutions_dict = {}
     solutions_to_retry = []
     
-    for sol in existing_solutions:
-        problem_idx = sol.get('problem_idx', -1)
-        run_id = sol.get('run_id', 0)
+    # Recalculate accuracy for existing solutions
+    if existing_solutions and not args.skip_recalculate:
+        print(f"Recalculating accuracy for {len(existing_solutions)} existing solutions...")
+        updated_count = 0
         
-        # Check if this solution had an error or empty answer
-        has_error = 'error' in sol
-        has_empty_answer = not sol.get('answer', '')
-        
-        if has_error or has_empty_answer:
-            # Mark this solution for retry
-            solutions_to_retry.append((problem_idx, run_id))
-            # Don't add it to the existing solutions dictionary
-            continue
+        for sol in existing_solutions:
+            # Skip solutions with errors
+            if 'error' in sol:
+                solutions_to_retry.append((sol.get('problem_idx', -1), sol.get('run_id', 0)))
+                continue
+                
+            # Extract answer and check correctness with updated check_answer function
+            extracted_answers = extract_boxed_answers(sol['solution'])
+            answer = extracted_answers[0] if extracted_answers else ""
             
-        # Only keep successful solutions
-        if problem_idx not in existing_solutions_dict:
-            existing_solutions_dict[problem_idx] = {}
-        existing_solutions_dict[problem_idx][run_id] = sol
-    
-    # Filter out solutions that will be retried
-    existing_solutions = [sol for sol in existing_solutions 
-                         if not ('error' in sol or not sol.get('answer', ''))]
+            # Check if answer is empty
+            if not answer:
+                solutions_to_retry.append((sol.get('problem_idx', -1), sol.get('run_id', 0)))
+                continue
+                
+            # Recalculate correctness
+            is_correct = False
+            if sol.get('gt_answer') and answer:
+                is_correct = check_answer(answer, sol['gt_answer'])
+            
+            # Check if accuracy changed
+            if sol.get('answer') != answer or sol.get('is_correct') != is_correct:
+                updated_count += 1
+            
+            # Update the accuracy fields directly in the solution
+            sol['answer'] = answer
+            sol['is_correct'] = is_correct
+            
+            # Add to dictionary of valid solutions
+            problem_idx = sol.get('problem_idx', -1)
+            run_id = sol.get('run_id', 0)
+            
+            if problem_idx not in existing_solutions_dict:
+                existing_solutions_dict[problem_idx] = {}
+            existing_solutions_dict[problem_idx][run_id] = sol
+        
+        print(f"Updated accuracy for {updated_count} solutions")
+    else:
+        # If not recalculating, just organize solutions and identify retries
+        for sol in existing_solutions:
+            problem_idx = sol.get('problem_idx', -1)
+            run_id = sol.get('run_id', 0)
+            
+            # Check if this solution had an error or empty answer
+            has_error = 'error' in sol
+            has_empty_answer = not sol.get('answer', '')
+            
+            if has_error or has_empty_answer:
+                # Mark this solution for retry
+                solutions_to_retry.append((problem_idx, run_id))
+                continue
+                
+            # Add to dictionary of valid solutions
+            if problem_idx not in existing_solutions_dict:
+                existing_solutions_dict[problem_idx] = {}
+            existing_solutions_dict[problem_idx][run_id] = sol
     
     if solutions_to_retry:
         print(f"Found {len(solutions_to_retry)} solutions with errors or empty answers to retry")
@@ -319,7 +358,11 @@ async def generate_solutions_parallel(problems: List[Tuple[int, Dict]], args) ->
     # If no new tasks, return existing solutions
     if not tasks:
         print("All solutions already exist and are valid. No new computations needed.")
-        return existing_solutions
+        # Rebuild the list of solutions from the dictionary to ensure we have the updated versions
+        updated_solutions = []
+        for problem_dict in existing_solutions_dict.values():
+            updated_solutions.extend(problem_dict.values())
+        return updated_solutions
     
     # Execute tasks with limited concurrency
     print(f"Generating {len(tasks)} new solutions with max concurrency of {args.concurrency}...")
@@ -333,7 +376,12 @@ async def generate_solutions_parallel(problems: List[Tuple[int, Dict]], args) ->
             new_solutions.append(solution)
     
     # Combine existing and new solutions
-    all_solutions = existing_solutions + new_solutions
+    # First rebuild the list of existing solutions from the dictionary to ensure we have the updated versions
+    updated_existing_solutions = []
+    for problem_dict in existing_solutions_dict.values():
+        updated_existing_solutions.extend(problem_dict.values())
+    
+    all_solutions = updated_existing_solutions + new_solutions
     
     return all_solutions
 
@@ -483,7 +531,7 @@ async def main():
     parser = argparse.ArgumentParser(description='Generate solutions for math problems')
     parser.add_argument('-m', '--model', type=str, default="deepseek/deepseek-r1-distill-qwen-14b", help='Model to use')
     parser.add_argument('-o', '--output_dir', type=str, default='math_cots', help='Directory to save results')
-    parser.add_argument('-np', '--num_problems', type=int, default=100, help='Number of problems to sample')
+    parser.add_argument('-np', '--num_problems', type=int, default=1000, help='Number of problems to sample')
     parser.add_argument('-r', '--runs_per_problem', type=int, default=10, help='Number of runs per problem')
     parser.add_argument('-t', '--temperature', type=float, default=0.6, help='Temperature for generation')
     parser.add_argument('-tp', '--top_p', type=float, default=0.92, help='Top-p sampling parameter')
@@ -496,6 +544,7 @@ async def main():
     parser.add_argument('-lbt', '--logit_bias_tokens', type=str, default=None, help='Comma-separated tokens to apply logit bias to')
     parser.add_argument('-lbs', '--logit_bias_strength', type=int, default=None, help='Strength of logit bias (-100 to 100)')
     parser.add_argument('-c', '--concurrency', type=int, default=200, help='Maximum number of concurrent requests')
+    parser.add_argument('-sr', '--skip_recalculate', default=False, action='store_true', help='Skip recalculating accuracy for existing solutions')
     args = parser.parse_args()
     
     # Create output directory
@@ -538,10 +587,7 @@ async def main():
     
     # Add logit bias information to results
     if args.logit_bias_tokens and args.logit_bias_strength is not None:
-        results['logit_bias'] = {
-            'tokens': args.logit_bias_tokens,
-            'strength': args.logit_bias_strength
-        }
+        results['logit_bias'] = {'tokens': args.logit_bias_tokens, 'strength': args.logit_bias_strength}
     
     # Save detailed results
     results_file = output_dir / f"results.json"

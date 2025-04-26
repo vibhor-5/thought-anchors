@@ -11,8 +11,21 @@ from tqdm import tqdm
 from transformers import AutoTokenizer
 from openai import OpenAI
 from dotenv import load_dotenv
-from concurrent.futures import ThreadPoolExecutor
-from prompts import ss_categories, DAG_PROMPT
+from prompts import DAG_PROMPT
+
+# Global font size for plots
+FONT_SIZE = 15
+
+# Set font size for all plots
+plt.rcParams.update({
+    'font.size': FONT_SIZE,
+    'axes.titlesize': FONT_SIZE + 2,
+    'axes.labelsize': FONT_SIZE,
+    'xtick.labelsize': FONT_SIZE - 2,
+    'ytick.labelsize': FONT_SIZE - 2,
+    'legend.fontsize': FONT_SIZE - 2,
+    'figure.titlesize': FONT_SIZE + 4
+})
 
 # Load environment variables
 load_dotenv()
@@ -23,11 +36,14 @@ if not client.api_key:
     raise ValueError("OPENAI_API_KEY not found in .env file")
 
 # Initialize the r1-distill-qwen-14b tokenizer
-tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/DeepSeek-R1-Distill-Qwen-14B")
+tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/deepseek-r1-distill-qwen-14b")
 
-def count_tokens(text: str) -> int:
+def count_tokens(text: str, approximate: bool = True) -> int:
     """Count the number of tokens in a text string using the r1-distill-qwen-14b tokenizer."""
-    return len(tokenizer.encode(text))
+    if approximate:
+        return len(text) // 4
+    else:
+        return len(tokenizer.encode(text))
 
 def label_chunk(problem_text: str, chunks: List[str], chunk_idx: int) -> Dict:
     """
@@ -73,52 +89,6 @@ def label_chunk(problem_text: str, chunks: List[str], chunk_idx: int) -> Dict:
             "chunk_idx": chunk_idx
         }
 
-def calculate_chunk_importance(chunk_dir: Path, next_chunk_dir: Path, use_absolute: bool = False) -> float:
-    """
-    Calculate the importance of a chunk by comparing accuracies.
-    
-    Args:
-        chunk_dir: Directory for the current chunk
-        next_chunk_dir: Directory for the next chunk
-        use_absolute: Whether to use absolute value of accuracy difference
-        
-    Returns:
-        Importance score (difference in accuracy)
-    """
-    # Load solutions for current chunk
-    current_solutions_file = chunk_dir / "solutions.json"
-    if not current_solutions_file.exists():
-        return 0.0
-    
-    with open(current_solutions_file, 'r', encoding='utf-8') as f:
-        current_solutions = json.load(f)
-    
-    # Load solutions for next chunk
-    next_solutions_file = next_chunk_dir / "solutions.json"
-    if not next_solutions_file.exists():
-        return 0.0
-    
-    with open(next_solutions_file, 'r', encoding='utf-8') as f:
-        next_solutions = json.load(f)
-    
-    # Calculate accuracy for current chunk
-    current_correct = sum(1 for sol in current_solutions if sol.get("is_correct", False))
-    current_accuracy = current_correct / len(current_solutions) if current_solutions else 0
-    
-    # Calculate accuracy for next chunk
-    next_correct = sum(1 for sol in next_solutions if sol.get("is_correct", False))
-    next_accuracy = next_correct / len(next_solutions) if next_solutions else 0
-    
-    # The importance is the difference in accuracy
-    # NOTE: If removing the current chunk decreases accuracy more than removing the next chunk, then the current chunk is more important
-    diff = next_accuracy - current_accuracy
-    
-    # Use absolute value if requested
-    if use_absolute:
-        return abs(diff)
-    else:
-        return diff
-
 def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = False, force_relabel: bool = False) -> Dict:
     """
     Analyze a single problem.
@@ -127,6 +97,7 @@ def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = Fa
         problem_dir: Directory containing the problem data
         problem_idx: Index of the problem
         use_absolute: Whether to use absolute value for importance calculation
+        force_relabel: Whether to force relabeling of chunks
         
     Returns:
         Dictionary with analysis results
@@ -154,17 +125,34 @@ def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = Fa
     
     chunks = chunks_data["chunks"]
     
-    # Check if at least 50% of chunks have corresponding chunk folders
-    chunk_folders = [problem_dir / f"chunk_{i}" for i in range(len(chunks))]
+    # Filter out chunks shorter than 4 characters
+    valid_chunks = []
+    valid_chunk_indices = []
+    for i, chunk in enumerate(chunks):
+        if len(chunk) >= 4:
+            valid_chunks.append(chunk)
+            valid_chunk_indices.append(i)
+    
+    if len(valid_chunks) < len(chunks):
+        print(f"Problem {problem_idx}: Filtered out {len(chunks) - len(valid_chunks)} chunks shorter than 3 characters")
+        chunks = valid_chunks
+    
+    # Check if at least 25% of chunks have corresponding chunk folders
+    chunk_folders = [problem_dir / f"chunk_{i}" for i in valid_chunk_indices]
     existing_chunk_folders = [folder for folder in chunk_folders if folder.exists()]
     
-    if len(existing_chunk_folders) < len(chunks) * 0.5:
-        print(f"Problem {problem_idx}: Only {len(existing_chunk_folders)}/{len(chunks)} chunk folders exist (less than 50%)")
+    if len(existing_chunk_folders) < len(chunks):
+        print(f"Problem {problem_idx}: Only {len(existing_chunk_folders)}/{len(chunks)} chunk folders exist")
         return None
     
     # Calculate token counts for each chunk's full_cot
     token_counts = []
-    for chunk_idx in range(len(chunks)):
+    
+    # Pre-calculate accuracies for all chunks - do this once instead of repeatedly
+    print(f"Problem {problem_idx}: Pre-calculating chunk accuracies")
+    chunk_accuracies = {}
+    
+    for chunk_idx in valid_chunk_indices:
         chunk_dir = problem_dir / f"chunk_{chunk_idx}"
         solutions_file = chunk_dir / "solutions.json"
         
@@ -172,72 +160,105 @@ def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = Fa
             with open(solutions_file, 'r', encoding='utf-8') as f:
                 solutions = json.load(f)
                 
+            # Calculate accuracy
+            correct = sum(1 for sol in solutions if sol.get("is_correct", False) is True)
+            total = sum(1 for sol in solutions if sol.get("is_correct", False) is not None)
+            
+            if total > 0:
+                chunk_accuracies[chunk_idx] = correct / total
+            else:
+                chunk_accuracies[chunk_idx] = 0.0
+                
             # Calculate average token count
             if solutions:
                 avg_tokens = np.mean([count_tokens(sol.get("full_cot", "")) for sol in solutions])
                 token_counts.append((chunk_idx, avg_tokens))
     
+    # Function to calculate importance using pre-calculated accuracies
+    def calculate_importance(chunk_idx, use_absolute=False):
+        if chunk_idx not in chunk_accuracies:
+            return 0.0
+        
+        # Get accuracies of all other chunks
+        current_accuracy = chunk_accuracies[chunk_idx]
+        prev_accuracies = [acc for idx, acc in chunk_accuracies.items() if idx <= chunk_idx]
+        next_accuracies = [acc for idx, acc in chunk_accuracies.items() if idx == chunk_idx + 1]
+        
+        if not prev_accuracies or not next_accuracies:
+            return 0.0
+        
+        prev_avg_accuracy = sum(prev_accuracies) / len(prev_accuracies)
+        next_avg_accuracy = sum(next_accuracies) / len(next_accuracies)
+        
+        # The importance is how much this chunk's accuracy differs from others
+        # NOTE: We can also take next_avg_accuracy as idx > chunk_idx
+        diff = next_avg_accuracy - current_accuracy
+        # diff = 1 - current_accuracy
+        
+        return abs(diff) if use_absolute else diff
+    
     labeled_chunks_file = problem_dir / "chunks_labeled.json"
+    
+    # If labeled chunks exist and we're not forcing relabeling, load them
     if labeled_chunks_file.exists() and not force_relabel:
         with open(labeled_chunks_file, 'r', encoding='utf-8') as f:
             labeled_chunks = json.load(f)
         
-        return {
-            "problem_idx": problem_idx,
-            "problem_type": problem.get("type"),
-            "problem_level": problem.get("level"),
-            "base_accuracy": base_solution.get("is_correct", False),
-            "num_chunks": len(chunks),
-            "labeled_chunks": labeled_chunks,
-            "token_counts": token_counts
-        }
-    
-    # Label each chunk
-    print(f"Problem {problem_idx}: Labeling {len(chunks)} chunks")
-    
-    # Use the DAG prompt to label all chunks at once
-    try:
-        labeled_chunks_result = label_chunk(problem["problem"], chunks, 0)
+        # Filter out chunks shorter than 3 characters
+        labeled_chunks = [chunk for chunk in labeled_chunks if chunk.get("chunk_idx") in valid_chunk_indices]
         
-        # Process the result into the expected format
-        labeled_chunks = []
-        for i, chunk in enumerate(chunks):
-            chunk_data = { "chunk": chunk, "chunk_idx": i }
-            
-            # Extract function tags and dependencies for this chunk
-            chunk_key = str(i)
-            if chunk_key in labeled_chunks_result:
-                chunk_mapping = labeled_chunks_result[chunk_key]
-                chunk_data["function_tags"] = chunk_mapping.get("function_tags", ["unknown"])
-                chunk_data["depends_on"] = chunk_mapping.get("depends_on", [])
-            else:
-                chunk_data["function_tags"] = ["unknown"]
-                chunk_data["depends_on"] = []
-            
-            labeled_chunks.append(chunk_data)
-    except Exception as e:
-        print(f"Error using DAG prompt for problem {problem_idx}: {e}")
-        return None
-    
-    # Calculate importance for each chunk
-    print(f"Problem {problem_idx}: Calculating chunk importance")
-    for i in range(len(chunks) - 1):
-        chunk_dir = problem_dir / f"chunk_{i}"
-        next_chunk_dir = problem_dir / f"chunk_{i+1}"
+        # Recalculate importance for each chunk using pre-calculated accuracies
+        print(f"Problem {problem_idx}: Recalculating chunk importance")
+        for chunk in labeled_chunks:
+            chunk_idx = chunk.get("chunk_idx")
+            chunk["importance"] = calculate_importance(chunk_idx, use_absolute)
+            chunk["accuracy"] = chunk_accuracies[chunk_idx] if chunk_idx in chunk_accuracies else 0.0
         
-        if chunk_dir.exists() and next_chunk_dir.exists():
-            importance = calculate_chunk_importance(chunk_dir, next_chunk_dir, use_absolute)
-            labeled_chunks[i]["importance"] = importance
-    
-    # The last chunk doesn't have a next chunk for comparison
-    if labeled_chunks:
-        labeled_chunks[-1]["importance"] = 0.0
-    
-    # Save labeled chunks
-    with open(labeled_chunks_file, 'w', encoding='utf-8') as f:
-        json.dump(labeled_chunks, f, indent=2)
-    
-    print(f"Problem {problem_idx}: Saved labeled chunks to {labeled_chunks_file}")
+        # Save updated labeled chunks
+        with open(labeled_chunks_file, 'w', encoding='utf-8') as f:
+            json.dump(labeled_chunks, f, indent=2)
+            
+        print(f"Problem {problem_idx}: Updated importance scores in {labeled_chunks_file}")
+    else:
+        # Label each chunk
+        print(f"Problem {problem_idx}: Labeling {len(chunks)} chunks")
+        
+        # Use the DAG prompt to label all chunks at once
+        try:
+            labeled_chunks_result = label_chunk(problem["problem"], chunks, 0)
+            
+            # Process the result into the expected format
+            labeled_chunks = []
+            for i, chunk_idx in enumerate(valid_chunk_indices):
+                chunk = chunks[i]  # Use the filtered chunks list
+                chunk_data = {
+                    "chunk": chunk,
+                    "chunk_idx": chunk_idx
+                }
+                
+                # Extract function tags and dependencies for this chunk
+                chunk_key = str(i)
+                if chunk_key in labeled_chunks_result:
+                    chunk_mapping = labeled_chunks_result[chunk_key]
+                    chunk_data["function_tags"] = chunk_mapping.get("function_tags", ["unknown"])
+                    chunk_data["depends_on"] = chunk_mapping.get("depends_on", [])
+                else:
+                    chunk_data["function_tags"] = ["unknown"]
+                    chunk_data["depends_on"] = []
+                
+                # Calculate importance using pre-calculated accuracies
+                chunk_data["importance"] = calculate_importance(chunk_idx, use_absolute)
+                
+                labeled_chunks.append(chunk_data)
+        except Exception as e:
+            print(f"Error using DAG prompt for problem {problem_idx}: {e}")
+            return None
+        
+        # Save labeled chunks
+        with open(labeled_chunks_file, 'w', encoding='utf-8') as f:
+            json.dump(labeled_chunks, f, indent=2)
+        
+        print(f"Problem {problem_idx}: Saved labeled chunks to {labeled_chunks_file}")
     
     # Return analysis results
     return {
@@ -275,12 +296,28 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
         problem_level = result.get("problem_level", "Unknown")
         
         for chunk in result.get("labeled_chunks", []):
+            # Format function tags for better display
+            raw_tags = chunk.get("function_tags", [])
+            formatted_tags = []
+            
+            for tag in raw_tags:
+                if tag.lower() == "unknown":
+                    continue  # Skip unknown tags
+                
+                # Format tag for better display (e.g., "planning_step" -> "Planning Step")
+                formatted_tag = " ".join(word.capitalize() for word in tag.split("_"))
+                formatted_tags.append(formatted_tag)
+            
+            # If no valid tags after filtering, skip this chunk
+            if not formatted_tags:
+                continue
+                
             chunk_data = {
                 "problem_idx": problem_idx,
                 "problem_type": problem_type,
                 "problem_level": problem_level,
                 "chunk_idx": chunk.get("chunk_idx"),
-                "function_tags": chunk.get("function_tags", ["unknown"]),
+                "function_tags": formatted_tags,
                 "importance": chunk.get("importance", 0.0),
                 "chunk_length": len(chunk.get("chunk", ""))
             }
@@ -292,12 +329,35 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
     # Explode function_tags to have one row per tag
     df_exploded = df_chunks.explode("function_tags")
     
-    # 1. Plot importance by function tag (category)
+    # 1. Plot importance by function tag (category) using violin plot with means
     plt.figure(figsize=(12, 8))
-    sns.boxplot(x="function_tags", y="importance", data=df_exploded)
+    # Calculate mean importance for each category to sort by
+    # Convert to percentage for display
+    df_exploded['importance_pct'] = df_exploded['importance'] * 100
+    category_means = df_exploded.groupby("function_tags")["importance_pct"].mean().sort_values(ascending=False)
+    # Reorder the data based on sorted categories
+    df_exploded_sorted = df_exploded.copy()
+    df_exploded_sorted["function_tags"] = pd.Categorical(
+        df_exploded_sorted["function_tags"], 
+        categories=category_means.index, 
+        ordered=True
+    )
+    # Create the sorted violin plot
+    ax = sns.violinplot(x="function_tags", y="importance_pct", data=df_exploded_sorted, inner="quartile", cut=0)
+
+    # Add mean markers
+    means = df_exploded_sorted.groupby("function_tags")["importance_pct"].mean()
+    for i, mean_val in enumerate(means[means.index]):
+        ax.plot([i], [mean_val], 'o', color='red', markersize=8)
+
+    # Add a legend for the mean marker
+    from matplotlib.lines import Line2D
+    legend_elements = [Line2D([0], [0], marker='o', color='w', markerfacecolor='red', markersize=8, label='Mean')]
+    ax.legend(handles=legend_elements, loc='upper right')
+
     plt.title("Chunk Importance by Category")
-    plt.xlabel("Category")
     plt.ylabel("Importance (Accuracy Difference %)")
+    plt.xlabel(None)
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
     plt.savefig(plots_dir / "importance_by_category.png")
@@ -308,7 +368,7 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
     level_importance = df_chunks.groupby("problem_level")["importance"].mean().reset_index()
     sns.barplot(x="problem_level", y="importance", data=level_importance)
     plt.title("Average Chunk Importance by Problem Level")
-    plt.xlabel("Problem Level")
+    plt.xlabel(None)
     plt.ylabel("Average Importance (Accuracy Difference %)")
     plt.tight_layout()
     plt.savefig(plots_dir / "importance_by_level.png")
@@ -320,7 +380,7 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
     type_importance = type_importance.sort_values("importance", ascending=False)
     sns.barplot(x="problem_type", y="importance", data=type_importance)
     plt.title("Average Chunk Importance by Problem Type")
-    plt.xlabel("Problem Type")
+    plt.xlabel(None)
     plt.ylabel("Average Importance (Accuracy Difference %)")
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
@@ -352,35 +412,45 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
         problem_idx = result["problem_idx"]
         for chunk in result.get("labeled_chunks", []):
             chunk_idx = chunk.get("chunk_idx")
-            tags = chunk.get("function_tags", ["unknown"])
-            if tags:
-                chunk_tags[(problem_idx, chunk_idx)] = tags[0]
-            else:
-                chunk_tags[(problem_idx, chunk_idx)] = "unknown"
+            raw_tags = chunk.get("function_tags", [])
+            
+            # Format and filter tags
+            formatted_tags = []
+            for tag in raw_tags:
+                if tag.lower() == "unknown":
+                    continue
+                formatted_tag = " ".join(word.capitalize() for word in tag.split("_"))
+                formatted_tags.append(formatted_tag)
+            
+            if formatted_tags:
+                chunk_tags[(problem_idx, chunk_idx)] = formatted_tags[0]
     
     # Add function tag to token data
     df_tokens["function_tag"] = df_tokens.apply(
-        lambda row: chunk_tags.get((row["problem_idx"], row["chunk_idx"]), "unknown"), 
+        lambda row: chunk_tags.get((row["problem_idx"], row["chunk_idx"]), "Other"), 
         axis=1
     )
     
-    # Plot token counts by function tag (category)
-    plt.figure(figsize=(12, 8))
-    sns.boxplot(x="function_tag", y="token_count", data=df_tokens)
-    plt.title("Token Count by Category")
-    plt.xlabel("Category")
-    plt.ylabel("Token Count")
-    plt.xticks(rotation=45, ha="right")
-    plt.tight_layout()
-    plt.savefig(plots_dir / "token_count_by_category.png")
-    plt.close()
+    # Remove rows with no valid function tag
+    df_tokens = df_tokens[df_tokens["function_tag"] != "Other"]
+    
+    if not df_tokens.empty:
+        # Plot token counts by function tag (category)
+        plt.figure(figsize=(12, 8))
+        sns.boxplot(x="function_tag", y="token_count", data=df_tokens)
+        plt.title("Token Count by Category")
+        plt.ylabel("Token Count")
+        plt.xlabel(None)
+        plt.xticks(rotation=45, ha="right")
+        plt.tight_layout()
+        plt.savefig(plots_dir / "token_count_by_category.png")
+        plt.close()
     
     # 5. Plot distribution of function tags (categories)
     plt.figure(figsize=(12, 8))
     tag_counts = df_exploded["function_tags"].value_counts()
     sns.barplot(x=tag_counts.index, y=tag_counts.values)
     plt.title("Distribution of Categories")
-    plt.xlabel("Category")
     plt.ylabel("Count")
     plt.xticks(rotation=45, ha="right")
     plt.tight_layout()
@@ -398,9 +468,7 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
     plt.close()
     
     # 7. Calculate and plot average importance by function tag (category) with error bars
-    tag_importance = df_exploded.groupby("function_tags").agg({
-        "importance": ["mean", "std", "count"]
-    }).reset_index()
+    tag_importance = df_exploded.groupby("function_tags").agg({"importance": ["mean", "std", "count"]}).reset_index()
     tag_importance.columns = ["categories", "mean", "std", "count"]
     tag_importance = tag_importance.sort_values("mean", ascending=False)
     
@@ -408,17 +476,20 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
     tag_importance["mean_pct"] = tag_importance["mean"] * 100
     tag_importance["std_pct"] = tag_importance["std"] * 100
     
+    # Calculate standard error (std/sqrt(n)) instead of using raw standard deviation
+    tag_importance["se_pct"] = tag_importance["std_pct"] / np.sqrt(tag_importance["count"])
+    
     plt.figure(figsize=(12, 8))
     plt.errorbar(
         x=range(len(tag_importance)), 
         y=tag_importance["mean_pct"], 
-        yerr=tag_importance["std_pct"], 
+        yerr=tag_importance["se_pct"],
         fmt="o", 
         capsize=5
     )
     plt.xticks(range(len(tag_importance)), tag_importance["categories"], rotation=45, ha="right")
     plt.title("Average Importance by Category")
-    plt.xlabel("Category")
+    plt.xlabel(None)
     plt.ylabel("Average Importance (Accuracy Difference %)")
     plt.tight_layout()
     plt.savefig(plots_dir / "avg_importance_by_category.png")
@@ -429,10 +500,609 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
     # Return the category importance ranking
     return tag_importance
 
+def analyze_chunk_variance(results: List[Dict], output_dir: Path) -> None:
+    """
+    Analyze variance in chunk importance within individual problems to identify
+    potential "fork reasoning steps" where the model's behavior diverges significantly.
+    
+    Args:
+        results: List of problem analysis results
+        output_dir: Directory to save analysis results
+    """
+    print("Analyzing chunk variance within problems to identify potential reasoning forks...")
+    
+    variance_dir = output_dir / "variance_analysis"
+    variance_dir.mkdir(exist_ok=True, parents=True)
+    
+    # Collect all chunks across problems
+    all_chunks = []
+    problem_chunks = {}
+    
+    for result in results:
+        if not result:
+            continue
+            
+        problem_idx = result["problem_idx"]
+        problem_chunks[problem_idx] = []
+        
+        for chunk in result.get("labeled_chunks", []):
+            chunk_data = {
+                "problem_idx": problem_idx,
+                "chunk_idx": chunk.get("chunk_idx"),
+                "chunk_text": chunk.get("chunk", ""),
+                "function_tags": chunk.get("function_tags", []),
+                "importance": chunk.get("importance", 0.0)
+            }
+            all_chunks.append(chunk_data)
+            problem_chunks[problem_idx].append(chunk_data)
+    
+    # Calculate variance in importance within each problem
+    problem_variances = {}
+    high_variance_problems = []
+    
+    for problem_idx, chunks in problem_chunks.items():
+        if len(chunks) < 3:  # Need at least 3 chunks for meaningful variance
+            continue
+            
+        # Calculate importance variance
+        importance_values = [chunk["importance"] for chunk in chunks]
+        variance = np.var(importance_values)
+        
+        problem_variances[problem_idx] = {
+            "variance": variance,
+            "chunks": chunks,
+            "importance_values": importance_values
+        }
+        
+        # Track problems with high variance
+        high_variance_problems.append((problem_idx, variance))
+    
+    # Sort problems by variance
+    high_variance_problems.sort(key=lambda x: x[1], reverse=True)
+    
+    # Save results
+    with open(variance_dir / "chunk_variance.txt", 'w', encoding='utf-8') as f:
+        f.write("Problems with highest variance in chunk importance (potential reasoning forks):\n\n")
+        
+        for problem_idx, variance in high_variance_problems[:20]:  # Top 20 problems
+            f.write(f"Problem {problem_idx}: Variance = {variance:.6f}\n")
+            
+            # Get chunks for this problem
+            chunks = problem_chunks[problem_idx]
+            
+            # Sort chunks by importance
+            sorted_chunks = sorted(chunks, key=lambda x: x["importance"], reverse=True)
+            
+            # Write chunk information
+            f.write("  Chunks by importance:\n")
+            for i, chunk in enumerate(sorted_chunks):
+                chunk_idx = chunk["chunk_idx"]
+                importance = chunk["importance"]
+                tags = ", ".join(chunk["function_tags"])
+                
+                # Truncate chunk text for display
+                chunk_text = chunk["chunk_text"]
+                if len(chunk_text) > 50:
+                    chunk_text = chunk_text[:47] + "..."
+                
+                f.write(f"    {i+1}. Chunk {chunk_idx}: {importance:.4f} - {tags} - '{chunk_text}'\n")
+            
+            # Identify potential reasoning forks (clusters of important chunks)
+            f.write("  Potential reasoning forks:\n")
+            
+            # Sort chunks by index to maintain sequence
+            sequence_chunks = sorted(chunks, key=lambda x: x["chunk_idx"])
+            
+            # Find clusters of important chunks
+            clusters = []
+            current_cluster = []
+            avg_importance = np.mean([c["importance"] for c in chunks])
+            
+            for chunk in sequence_chunks:
+                if chunk["importance"] > avg_importance:
+                    if not current_cluster or chunk["chunk_idx"] - current_cluster[-1]["chunk_idx"] <= 2:
+                        current_cluster.append(chunk)
+                    else:
+                        if len(current_cluster) >= 2:  # At least 2 chunks in a cluster
+                            clusters.append(current_cluster)
+                        current_cluster = [chunk]
+            
+            if len(current_cluster) >= 2:
+                clusters.append(current_cluster)
+            
+            # Write clusters
+            for i, cluster in enumerate(clusters):
+                start_idx = cluster[0]["chunk_idx"]
+                end_idx = cluster[-1]["chunk_idx"]
+                f.write(f"    Fork {i+1}: Chunks {start_idx}-{end_idx}\n")
+                
+                # Combine chunk text
+                combined_text = " ".join([c["chunk_text"] for c in cluster])
+                if len(combined_text) > 100:
+                    combined_text = combined_text[:97] + "..."
+                
+                f.write(f"      Text: '{combined_text}'\n")
+                
+                # List tags
+                all_tags = set()
+                for chunk in cluster:
+                    all_tags.update(chunk["function_tags"])
+                f.write(f"      Tags: {', '.join(all_tags)}\n")
+            
+            f.write("\n")
+    
+    # Create visualization of variance distribution
+    plt.figure(figsize=(12, 8))
+    variances = [v for _, v in high_variance_problems]
+    plt.hist(variances, bins=20)
+    plt.xlabel("Variance in Chunk Importance")
+    plt.ylabel("Number of Problems")
+    plt.title("Distribution of Variance in Chunk Importance Across Problems")
+    plt.tight_layout()
+    plt.savefig(variance_dir / "chunk_variance_distribution.png")
+    plt.close()
+    
+    # Create visualization of top high-variance problems
+    plt.figure(figsize=(15, 10))
+    top_problems = high_variance_problems[:20]
+    problem_ids = [str(p[0]) for p in top_problems]
+    problem_variances = [p[1] for p in top_problems]
+    
+    plt.bar(range(len(problem_ids)), problem_variances)
+    plt.xticks(range(len(problem_ids)), problem_ids, rotation=45)
+    plt.xlabel("Problem ID")
+    plt.ylabel("Variance in Chunk Importance")
+    plt.title("Top 20 Problems with Highest Variance in Chunk Importance")
+    plt.tight_layout()
+    plt.savefig(variance_dir / "top_variance_problems.png")
+    plt.close()
+    
+    print(f"Chunk variance analysis saved to {variance_dir}")
+
+def analyze_function_tag_variance(results: List[Dict], output_dir: Path) -> None:
+    """
+    Analyze variance in importance across different function tags to identify
+    which types of reasoning steps show the most variability.
+    
+    Args:
+        results: List of problem analysis results
+        output_dir: Directory to save analysis results
+    """
+    print("Analyzing variance in importance across function tags...")
+    
+    variance_dir = output_dir / "variance_analysis"
+    variance_dir.mkdir(exist_ok=True, parents=True)
+    
+    # Collect chunks by function tag
+    tag_chunks = {}
+    
+    for result in results:
+        if not result:
+            continue
+            
+        for chunk in result.get("labeled_chunks", []):
+            for tag in chunk.get("function_tags", []):
+                if tag.lower() == "unknown":
+                    continue
+                    
+                # Format tag for better display
+                formatted_tag = " ".join(word.capitalize() for word in tag.split("_"))
+                
+                if formatted_tag not in tag_chunks:
+                    tag_chunks[formatted_tag] = []
+                
+                tag_chunks[formatted_tag].append({
+                    "problem_idx": result["problem_idx"],
+                    "chunk_idx": chunk.get("chunk_idx"),
+                    "importance": chunk.get("importance", 0.0)
+                })
+    
+    # Calculate variance for each tag
+    tag_variances = {}
+    
+    for tag, chunks in tag_chunks.items():
+        if len(chunks) < 5:  # Need at least 5 chunks for meaningful variance
+            continue
+            
+        importance_values = [chunk["importance"] for chunk in chunks]
+        variance = np.var(importance_values)
+        mean = np.mean(importance_values)
+        count = len(chunks)
+        
+        tag_variances[tag] = {
+            "variance": variance,
+            "mean": mean,
+            "count": count,
+            "coefficient_of_variation": variance / mean if mean != 0 else 0
+        }
+    
+    # Sort tags by variance
+    sorted_tags = sorted(tag_variances.items(), key=lambda x: x[1]["variance"], reverse=True)
+    
+    # Save results
+    with open(variance_dir / "function_tag_variance.txt", 'w', encoding='utf-8') as f:
+        f.write("Function tags with highest variance in importance:\n\n")
+        
+        for tag, stats in sorted_tags:
+            variance = stats["variance"]
+            mean = stats["mean"]
+            count = stats["count"]
+            cv = stats["coefficient_of_variation"]
+            
+            f.write(f"{tag}:\n")
+            f.write(f"  Variance: {variance:.6f}\n")
+            f.write(f"  Mean: {mean:.6f}\n")
+            f.write(f"  Count: {count}\n")
+            f.write(f"  Coefficient of Variation: {cv:.6f}\n")
+            f.write("\n")
+    
+    # Create visualization
+    plt.figure(figsize=(15, 10))
+    
+    # Plot top 15 tags by variance
+    top_tags = sorted_tags[:15]
+    tags = [t[0] for t in top_tags]
+    variances = [t[1]["variance"] for t in top_tags]
+    
+    plt.bar(range(len(tags)), variances)
+    plt.xticks(range(len(tags)), tags, rotation=45, ha="right")
+    plt.xlabel("Function Tag")
+    plt.ylabel("Variance in Importance")
+    plt.title("Top 15 Function Tags by Variance in Importance")
+    plt.tight_layout()
+    plt.savefig(variance_dir / "function_tag_variance.png")
+    plt.close()
+    
+    # Plot coefficient of variation (normalized variance)
+    plt.figure(figsize=(15, 10))
+    
+    # Sort by coefficient of variation
+    sorted_by_cv = sorted(tag_variances.items(), key=lambda x: x[1]["coefficient_of_variation"], reverse=True)
+    top_cv_tags = sorted_by_cv[:15]
+    
+    cv_tags = [t[0] for t in top_cv_tags]
+    cvs = [t[1]["coefficient_of_variation"] for t in top_cv_tags]
+    
+    plt.bar(range(len(cv_tags)), cvs)
+    plt.xticks(range(len(cv_tags)), cv_tags, rotation=45, ha="right")
+    plt.xlabel("Function Tag")
+    plt.ylabel("Coefficient of Variation (σ/μ)")
+    plt.title("Top 15 Function Tags by Coefficient of Variation in Importance")
+    plt.tight_layout()
+    plt.savefig(variance_dir / "function_tag_cv.png")
+    plt.close()
+    
+    print(f"Function tag variance analysis saved to {variance_dir}")
+
+def analyze_within_problem_variance(results: List[Dict], output_dir: Path) -> None:
+    """
+    Analyze variance in chunk importance within individual problems to identify
+    potential "fork reasoning steps" where the model's behavior diverges significantly.
+    
+    Args:
+        results: List of problem analysis results
+        output_dir: Directory to save analysis results
+    """
+    print("Analyzing within-problem variance to identify potential reasoning forks...")
+    
+    variance_dir = output_dir / "variance_analysis"
+    variance_dir.mkdir(exist_ok=True, parents=True)
+    
+    # Analyze each problem for high-variance chunks (potential reasoning forks)
+    high_variance_problems = []
+    
+    for result in results:
+        if not result:
+            continue
+            
+        problem_idx = result["problem_idx"]
+        chunks = result.get("labeled_chunks", [])
+        
+        if len(chunks) < 3:  # Need at least 3 chunks for meaningful analysis
+            continue
+        
+        # Calculate importance values and their variance
+        importance_values = [chunk.get("importance", 0.0) for chunk in chunks]
+        mean_importance = np.mean(importance_values)
+        variance = np.var(importance_values)
+        
+        # Identify chunks with significantly higher or lower importance than average
+        # These could represent "fork reasoning steps"
+        potential_forks = []
+        
+        for i, chunk in enumerate(chunks):
+            importance = chunk.get("importance", 0.0)
+            z_score = (importance - mean_importance) / (np.std(importance_values) if np.std(importance_values) > 0 else 1)
+            
+            # Consider chunks with importance significantly different from mean as potential forks
+            if abs(z_score) > 1.5:  # Threshold can be adjusted
+                potential_forks.append({
+                    "chunk_idx": chunk.get("chunk_idx"),
+                    "chunk_text": chunk.get("chunk", ""),
+                    "importance": importance,
+                    "z_score": z_score,
+                    "function_tags": chunk.get("function_tags", [])
+                })
+        
+        if potential_forks:
+            high_variance_problems.append({
+                "problem_idx": problem_idx,
+                "variance": variance,
+                "mean_importance": mean_importance,
+                "potential_forks": potential_forks
+            })
+    
+    # Sort problems by variance
+    high_variance_problems.sort(key=lambda x: x["variance"], reverse=True)
+    
+    # Save results
+    with open(variance_dir / "within_problem_variance.txt", 'w', encoding='utf-8') as f:
+        f.write("Problems with high variance in chunk importance (potential reasoning forks):\n\n")
+        
+        for problem in high_variance_problems:
+            problem_idx = problem["problem_idx"]
+            variance = problem["variance"]
+            mean_importance = problem["mean_importance"]
+            
+            f.write(f"Problem {problem_idx}:\n")
+            f.write(f"  Overall variance: {variance:.6f}\n")
+            f.write(f"  Mean importance: {mean_importance:.6f}\n")
+            f.write("  Potential fork reasoning steps:\n")
+            
+            # Sort potential forks by absolute z-score
+            sorted_forks = sorted(problem["potential_forks"], key=lambda x: abs(x["z_score"]), reverse=True)
+            
+            for fork in sorted_forks:
+                chunk_idx = fork["chunk_idx"]
+                importance = fork["importance"]
+                z_score = fork["z_score"]
+                tags = ", ".join(fork["function_tags"]) if fork["function_tags"] else "No tags"
+                
+                f.write(f"    Chunk {chunk_idx}:\n")
+                f.write(f"      Importance: {importance:.6f} (z-score: {z_score:.2f})\n")
+                f.write(f"      Function tags: {tags}\n")
+                f.write(f"      Text: {fork['chunk_text'][:100]}{'...' if len(fork['chunk_text']) > 100 else ''}\n\n")
+    
+    # Create visualization of fork distribution
+    if high_variance_problems:
+        plt.figure(figsize=(12, 8))
+        
+        # Collect data for visualization
+        problem_indices = [p["problem_idx"] for p in high_variance_problems[:15]]  # Top 15 problems
+        variances = [p["variance"] for p in high_variance_problems[:15]]
+        fork_counts = [len(p["potential_forks"]) for p in high_variance_problems[:15]]
+        
+        # Create bar chart
+        plt.bar(range(len(problem_indices)), variances)
+        
+        # Add fork count as text on bars
+        for i, count in enumerate(fork_counts):
+            plt.text(i, variances[i] * 0.5, f"{count} forks", ha='center', color='white', fontweight='bold')
+        
+        plt.xticks(range(len(problem_indices)), [f"Problem {idx}" for idx in problem_indices], rotation=45, ha="right")
+        plt.xlabel("Problem")
+        plt.ylabel("Variance in Chunk Importance")
+        plt.title("Problems with Highest Variance in Chunk Importance (Potential Reasoning Forks)")
+        plt.tight_layout()
+        plt.savefig(variance_dir / "within_problem_variance.png")
+        plt.close()
+    
+    print(f"Within-problem variance analysis saved to {variance_dir}")
+
+def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path) -> None:
+    """
+    Plot chunk accuracy by position for all processed problems with focus on early chunks.
+    
+    Args:
+        results: List of problem analysis results
+        output_dir: Directory to save the plot
+    """
+    print("Plotting chunk accuracy by position...")
+    
+    # Create explore directory
+    explore_dir = output_dir / "explore"
+    explore_dir.mkdir(exist_ok=True, parents=True)
+    
+    # Create problems directory for individual plots
+    problems_dir = explore_dir / "problems"
+    problems_dir.mkdir(exist_ok=True, parents=True)
+    
+    # Collect data for all chunks across problems
+    chunk_data = []
+    
+    for result in results:
+        if not result:
+            continue
+            
+        problem_idx = result["problem_idx"]
+        
+        # Get the solutions for each chunk
+        for chunk in result.get("labeled_chunks", []):
+            chunk_idx = chunk.get("chunk_idx")
+            
+            # Only include the first 100 chunks
+            if chunk_idx > 100:
+                continue
+                
+            # Get the solutions for this chunk
+            accuracy = chunk.get("accuracy", 0.0)
+            
+            # Get the first function tag if available
+            function_tags = chunk.get("function_tags", [])
+            first_tag = ""
+            if function_tags and isinstance(function_tags, list) and len(function_tags) > 0:
+                # Get first tag and convert to initials
+                tag = function_tags[0]
+                if isinstance(tag, str):
+                    # Convert tag like "planning_step" to "PS"
+                    words = tag.split('_')
+                    first_tag = ''.join(word[0].upper() for word in words if word)
+            
+            chunk_data.append({
+                "problem_idx": problem_idx,
+                "chunk_idx": chunk_idx,
+                "accuracy": accuracy,
+                "tag": first_tag
+            })
+    
+    if not chunk_data:
+        print("No chunk data available for plotting.")
+        return
+    
+    # Convert to DataFrame
+    df_chunks = pd.DataFrame(chunk_data)
+    
+    # Get unique problem indices
+    problem_indices = df_chunks["problem_idx"].unique()
+    
+    # Create a colormap for the problems
+    import matplotlib.cm as cm
+    colors = cm.rainbow(np.linspace(0, 1, len(problem_indices)))
+    color_map = dict(zip(sorted(problem_indices), colors))
+    
+    # Create a single plot focusing on first 100 chunks
+    plt.figure(figsize=(15, 10))
+    
+    # Plot each problem with a unique color
+    for problem_idx in problem_indices:
+        problem_data = df_chunks[df_chunks["problem_idx"] == problem_idx]
+        
+        # Sort by chunk index
+        problem_data = problem_data.sort_values("chunk_idx")
+        
+        # Plot with clear label
+        line = plt.plot(
+            problem_data["chunk_idx"],
+            problem_data["accuracy"],
+            marker='o',
+            linestyle='-',
+            color=color_map[problem_idx],
+            alpha=0.7,
+            label=f"Problem {problem_idx}"
+        )[0]
+        
+        # Add function tag labels to each point
+        for _, row in problem_data.iterrows():
+            if row["tag"]:
+                plt.annotate(
+                    row["tag"],
+                    (row["chunk_idx"], row["accuracy"]),
+                    textcoords="offset points",
+                    xytext=(0, 5),
+                    ha='center',
+                    fontsize=7,
+                    color=line.get_color(),
+                    alpha=0.9,
+                    weight='bold'
+                )
+    
+    # Calculate and plot the average across all problems (less noticeable)
+    avg_by_chunk = df_chunks.groupby("chunk_idx")["accuracy"].agg(['mean']).reset_index()
+    
+    # Plot average without error bars, in gray and thinner
+    plt.plot(
+        avg_by_chunk["chunk_idx"],
+        avg_by_chunk["mean"],
+        marker='.',
+        markersize=4,
+        linestyle='-',
+        linewidth=1,
+        color='gray',
+        alpha=0.5,
+        label="Average"
+    )
+    
+    # Add labels and title
+    plt.xlabel("Chunk Index")
+    plt.ylabel("Accuracy")
+    plt.title("Chunk Accuracy by Position (First 100 Chunks)")
+    
+    # Set x-axis limits to focus on first 100 chunks
+    plt.xlim(-3, 100)
+    
+    # Set y-axis limits
+    plt.ylim(0, 1.05)
+    
+    # Add grid
+    plt.grid(True, alpha=0.3)
+    
+    # If not too many problems, include all in the main legend
+    plt.legend(loc='lower right', ncol=2)
+    
+    # Save the main plot
+    plt.tight_layout()
+    plt.savefig(explore_dir / "chunk_accuracy_by_position.png")
+    plt.close()
+    
+    # Create individual plots for each problem
+    print("Creating individual problem plots...")
+    for problem_idx in problem_indices:
+        problem_data = df_chunks[df_chunks["problem_idx"] == problem_idx]
+        
+        # Sort by chunk index
+        problem_data = problem_data.sort_values("chunk_idx")
+        
+        if len(problem_data) == 0:
+            continue
+        
+        # Create a new figure for this problem
+        plt.figure(figsize=(10, 6))
+        
+        # Get the color for this problem
+        color = color_map[problem_idx]
+        
+        # Plot the problem data
+        line = plt.plot(
+            problem_data["chunk_idx"],
+            problem_data["accuracy"],
+            marker='o',
+            linestyle='-',
+            color=color,
+            label=f"Problem {problem_idx}"
+        )[0]
+        
+        # Add function tag labels to each point
+        for _, row in problem_data.iterrows():
+            if row["tag"]:
+                plt.annotate(
+                    row["tag"],
+                    (row["chunk_idx"], row["accuracy"]),
+                    textcoords="offset points",
+                    xytext=(0, 5),
+                    ha='center',
+                    fontsize=8,
+                    color=color,
+                    weight='bold'
+                )
+        
+        # Add labels and title
+        plt.xlabel("Chunk Index")
+        plt.ylabel("Accuracy")
+        plt.title(f"Problem {problem_idx}: Chunk Accuracy by Position")
+        
+        # Set x-axis limits to focus on first 100 chunks
+        plt.xlim(-3, 100)
+        
+        # Set y-axis limits
+        plt.ylim(0, 1.05)
+        
+        # Add grid
+        plt.grid(True, alpha=0.3)
+        
+        # Add legend
+        plt.legend(loc='lower right')
+        
+        # Save the plot
+        plt.tight_layout()
+        plt.savefig(problems_dir / f"problem_{problem_idx}_accuracy.png")
+        plt.close()
+    
+    print(f"Chunk accuracy plots saved to {explore_dir}")
+
 def main():
     parser = argparse.ArgumentParser(description='Analyze rollout data and label chunks')
-    parser.add_argument('-i', '--rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6", help='Directory containing rollout data')
-    parser.add_argument('-o', '--output_dir', type=str, default="math_rollouts_analysis", help='Directory to save analysis results (defaults to rollouts_dir)')
+    parser.add_argument('-i', '--rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92", help='Directory containing rollout data')
+    parser.add_argument('-o', '--output_dir', type=str, default="analysis/basic", help='Directory to save analysis results (defaults to rollouts_dir)')
     parser.add_argument('-p', '--problems', type=str, default=None, help='Comma-separated list of problem indices to analyze (default: all)')
     parser.add_argument('-m', '--max_problems', type=int, default=None, help='Maximum number of problems to analyze')
     parser.add_argument('-a', '--absolute', default=False, action='store_true', help='Use absolute value for importance calculation')
@@ -469,10 +1139,13 @@ def main():
     # Generate plots
     category_importance = generate_plots(results, output_dir)
     
+    # Plot chunk accuracy by position
+    plot_chunk_accuracy_by_position(results, output_dir)
+    
     # Print category importance ranking with percentages
     print("\nCategory Importance Ranking:")
     for idx, row in category_importance.iterrows():
-        print(f"{idx+1}. {row['categories']}: {row['mean_pct']:.2f}% ± {row['std_pct']:.2f}% (n={int(row['count'])})")
+        print(f"{idx+1}. {row['categories']}: {row['mean_pct']:.2f}% ± {row['se_pct']:.2f}% (n={int(row['count'])})")
     
     # Save overall results
     results_file = output_dir / "analysis_results.json"
@@ -496,6 +1169,11 @@ def main():
             serializable_results.append(serializable_result)
             
         json.dump(serializable_results, f, indent=2)
+    
+    # Analyze variance to identify potential reasoning forks
+    analyze_chunk_variance(results, output_dir)
+    analyze_function_tag_variance(results, output_dir)
+    analyze_within_problem_variance(results, output_dir)
     
     print(f"Analysis complete. Results saved to {results_file}")
 
