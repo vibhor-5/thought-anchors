@@ -1,35 +1,5 @@
 [
   {
-    "problem_idx": "problem_3338",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "The water tank in the diagram below is in the shape of an inverted right circular cone. The radius of its base is 16 feet, and its height is 96 feet. The water in the tank is $25\\%$ of the tank's capacity.  The height of the water in the tank can be written in the form $a\\sqrt[3]{b}$, where $a$ and $b$ are positive integers and $b$ is not divisible by a perfect cube greater than 1.  What is $a+b$?\n\n[asy]\nsize(150);\ndefaultpen(linewidth(.8pt)+fontsize(8pt));\n\ndraw(shift(0,96)*yscale(0.5)*Circle((0,0),16));\ndraw((-16,96)--(0,0)--(16,96)--(0,96));\n\ndraw(scale(0.75)*shift(0,96)*yscale(0.5)*Circle((0,0),16));\n\ndraw((-18,72)--(-20,72)--(-20,0)--(-18,0));\nlabel(\"water's height\",(-20,36),W);\n\ndraw((20,96)--(22,96)--(22,0)--(20,0));\nlabel(\"96'\",(22,48),E);\n\nlabel(\"16'\",(8,96),S);\n[/asy]",
-    "gt_answer": "50",
-    "accuracy": "Unknown: picked manually",
-    "approximate_mean_tokens": "Unknown: picked manually",
-    "approximate_mean_chunks": "Unknown: picked manually"
-  },
-  {
-    "problem_idx": "problem_2189",
-    "level": "Level 5",
-    "type": "Counting & Probability",
-    "problem": "A mother purchases 5 blue plates, 2 red plates, 2 green plates, and 1 orange plate. How many ways are there for her to arrange these plates for dinner around her circular table if she doesn't want the 2 green plates to be adjacent?\n",
-    "gt_answer": "588",
-    "accuracy": "Unknown: picked manually",
-    "approximate_mean_tokens": "Unknown: picked manually",
-    "approximate_mean_chunks": "Unknown: picked manually"
-  },
-  {
-    "problem_idx": "problem_2205",
-    "level": "Level 5",
-    "type": "Counting & Probability",
-    "problem": "Call a set of integers \"spacy\" if it contains no more than one out of any three consecutive integers.  How many subsets of $\\{1, 2,\n3, \\dots, 12\\}$, including the empty set, are spacy?",
-    "gt_answer": "129",
-    "accuracy": "Unknown: picked manually",
-    "approximate_mean_tokens": "Unknown: picked manually",
-    "approximate_mean_chunks": "Unknown: picked manually"
-  },
-  {
     "problem_idx": "problem_2238",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -40,12 +10,22 @@
     "approximate_mean_chunks": 77.0
   },
   {
+    "problem_idx": "problem_4878",
+    "level": "Level 5",
+    "type": "Number Theory",
+    "problem": "In any month with five Mondays, a school declares the fifth Monday a Marvelous Monday. School begins on Monday, September 4. What is the date of the first Marvelous Monday after school starts? (If you abbreviate, do not use a dot in the abbreviation.)",
+    "gt_answer": "\\text{October 30}",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 1462.925,
+    "approximate_mean_chunks": 81.1
+  },
+  {
     "problem_idx": "problem_1591",
     "level": "Level 5",
     "type": "Algebra",
     "problem": "Dr. Fu Manchu has a bank account that has an annual interest rate of 6 percent, but it compounds monthly.  If this is equivalent to a bank account that compounds annually at a rate of $r$ percent, then what is $r$?  (Give your answer to the nearest hundredth.)",
     "gt_answer": "6.17",
-    "accuracy": 0.3,
+    "accuracy": 0.4,
     "approximate_mean_tokens": 2030.325,
     "approximate_mean_chunks": 129.9
   },
@@ -58,26 +38,6 @@
     "accuracy": 0.7,
     "approximate_mean_tokens": 2510.975,
     "approximate_mean_chunks": 130.7
-  },
-  {
-    "problem_idx": "problem_2889",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "Triangle $\\triangle ABC$ has a right angle at $C$, $\\angle A = 60^\\circ$, and $AC=10$.  Find the radius of the incircle of $\\triangle ABC$.",
-    "gt_answer": "5(\\sqrt{3}-1)",
-    "accuracy": 0.3,
-    "approximate_mean_tokens": 2478.575,
-    "approximate_mean_chunks": 135.3
-  },
-  {
-    "problem_idx": "problem_4357",
-    "level": "Level 5",
-    "type": "Intermediate Algebra",
-    "problem": "Let $a_1,$ $a_2,$ $a_3,$ $\\dots$ be a sequence of real numbers satisfying\n\\[a_n = a_{n - 1} a_{n + 1}\\]for all $n \\ge 2.$  If $a_1 = 1 + \\sqrt{7}$ and $a_{1776} = 13 + \\sqrt{7},$ then determine $a_{2009}.$",
-    "gt_answer": "-1 + 2 \\sqrt{7}",
-    "accuracy": 0.7,
-    "approximate_mean_tokens": 3013.825,
-    "approximate_mean_chunks": 160.6
   },
   {
     "problem_idx": "problem_6596",
@@ -195,7 +155,7 @@
     "type": "Prealgebra",
     "problem": "The double-bar graph shows the number of home runs hit by McGwire and Sosa during each month of the 1998 baseball season. At the end of which month were McGwire and Sosa tied in total number of home runs?\n\n[asy]\ndraw((0,0)--(28,0)--(28,21)--(0,21)--(0,0)--cycle,linewidth(1));\n\nfor(int i = 1; i < 21; ++i)\n{\n\ndraw((0,i)--(28,i));\n}\n\nfor(int i = 0; i < 8; ++i)\n{\n\ndraw((-1,3i)--(0,3i));\n}\n\nlabel(\"0\",(-1,0),W);\nlabel(\"3\",(-1,3),W);\nlabel(\"6\",(-1,6),W);\nlabel(\"9\",(-1,9),W);\nlabel(\"12\",(-1,12),W);\nlabel(\"15\",(-1,15),W);\nlabel(\"18\",(-1,18),W);\nlabel(\"21\",(-1,21),W);\n\nfor(int i = 0; i < 8; ++i)\n{\n\ndraw((4i,0)--(4i,-1));\n}\n\nfilldraw((1,0)--(2,0)--(2,1)--(1,1)--(1,0)--cycle,gray,linewidth(1));\nfilldraw((5,0)--(6,0)--(6,10)--(5,10)--(5,0)--cycle,gray,linewidth(1));\nfilldraw((9,0)--(10,0)--(10,16)--(9,16)--(9,0)--cycle,gray,linewidth(1));\nfilldraw((13,0)--(14,0)--(14,10)--(13,10)--(13,0)--cycle,gray,linewidth(1));\nfilldraw((17,0)--(18,0)--(18,8)--(17,8)--(17,0)--cycle,gray,linewidth(1));\nfilldraw((21,0)--(22,0)--(22,10)--(21,10)--(21,0)--cycle,gray,linewidth(1));\nfilldraw((25,0)--(26,0)--(26,15)--(25,15)--(25,0)--cycle,gray,linewidth(1));\n\nfilldraw((6,0)--(7,0)--(7,6)--(6,6)--(6,0)--cycle,black,linewidth(1));\nfilldraw((10,0)--(11,0)--(11,7)--(10,7)--(10,0)--cycle,black,linewidth(1));\nfilldraw((14,0)--(15,0)--(15,20)--(14,20)--(14,0)--cycle,black,linewidth(1));\nfilldraw((18,0)--(19,0)--(19,9)--(18,9)--(18,0)--cycle,black,linewidth(1));\nfilldraw((22,0)--(23,0)--(23,13)--(22,13)--(22,0)--cycle,black,linewidth(1));\nfilldraw((26,0)--(27,0)--(27,11)--(26,11)--(26,0)--cycle,black,linewidth(1));\n\nlabel(\"Mar\",(2,0),S);\nlabel(\"Apr\",(6,0),S);\nlabel(\"May\",(10,0),S);\nlabel(\"Jun\",(14,0),S);\nlabel(\"Jul\",(18,0),S);\nlabel(\"Aug\",(22,0),S);\nlabel(\"Sep\",(26,0),S);\n[/asy] [asy]\ndraw((30,6)--(40,6)--(40,15)--(30,15)--(30,6)--cycle,linewidth(1));\nfilldraw((31,7)--(34,7)--(34,10)--(31,10)--(31,7)--cycle,black,linewidth(1));\nfilldraw((31,11)--(34,11)--(34,14)--(31,14)--(31,11)--cycle,gray,linewidth(1));\n\nlabel(\"McGwire\",(36,12.5));\nlabel(\"Sosa\",(36,8.5));\n[/asy]",
     "gt_answer": "\\text{August}",
-    "accuracy": 0.6,
+    "accuracy": 0.7,
     "approximate_mean_tokens": 4242.2,
     "approximate_mean_chunks": 259.8
   },
@@ -310,6 +270,16 @@
     "approximate_mean_chunks": 306.2
   },
   {
+    "problem_idx": "problem_3064",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Let $\\triangle ABC$ have side lengths $AB=30$, $BC=32$, and $AC=34$. Point $X$ lies in the interior of $\\overline{BC}$, and points $I_1$ and $I_2$ are the incenters of $\\triangle ABX$ and $\\triangle ACX$, respectively. Find the minimum possible area of $\\triangle AI_1I_2$ as $X$ varies along $\\overline{BC}$.\n",
+    "gt_answer": "126",
+    "accuracy": 0.6666666666666666,
+    "approximate_mean_tokens": 5084.916666666667,
+    "approximate_mean_chunks": 312.3333333333333
+  },
+  {
     "problem_idx": "problem_2175",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -320,6 +290,16 @@
     "approximate_mean_chunks": 319.3
   },
   {
+    "problem_idx": "problem_4698",
+    "level": "Level 5",
+    "type": "Number Theory",
+    "problem": "Lucy was born on Wednesday, December 1st, 2004. That Wednesday was the first day of her life. Her parents held a party for her on the $1000$th day of her life. On which day of the week was the party?",
+    "gt_answer": "\\text{Monday}",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 4868.5,
+    "approximate_mean_chunks": 337.0
+  },
+  {
     "problem_idx": "problem_4617",
     "level": "Level 5",
     "type": "Intermediate Algebra",
@@ -328,16 +308,6 @@
     "accuracy": 0.7,
     "approximate_mean_tokens": 5213.45,
     "approximate_mean_chunks": 344.9
-  },
-  {
-    "problem_idx": "problem_3064",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "Let $\\triangle ABC$ have side lengths $AB=30$, $BC=32$, and $AC=34$. Point $X$ lies in the interior of $\\overline{BC}$, and points $I_1$ and $I_2$ are the incenters of $\\triangle ABX$ and $\\triangle ACX$, respectively. Find the minimum possible area of $\\triangle AI_1I_2$ as $X$ varies along $\\overline{BC}$.\n",
-    "gt_answer": "126",
-    "accuracy": 0.6666666666666666,
-    "approximate_mean_tokens": 5583.65,
-    "approximate_mean_chunks": 349.7
   },
   {
     "problem_idx": "problem_3003",
@@ -400,16 +370,6 @@
     "approximate_mean_chunks": 390.6
   },
   {
-    "problem_idx": "problem_3262",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "Points $K$, $L$, $M$, and $N$ lie in the plane of the square $ABCD$ so that $AKB$, $BLC$, $CMD$, and $DNA$ are equilateral triangles. If $ABCD$ has an area of 16, find the area of $KLMN$. Express your answer in simplest radical form.\n\n[asy]\npair K,L,M,I,A,B,C,D;\nD=(0,0);\nC=(10,0);\nB=(10,10);\nA=(0,10);\nI=(-8.7,5);\nL=(18.7,5);\nM=(5,-8.7);\nK=(5,18.7);\ndraw(A--B--C--D--cycle,linewidth(0.7));\ndraw(A--D--I--cycle,linewidth(0.7));\ndraw(B--L--C--cycle,linewidth(0.7));\ndraw(A--B--K--cycle,linewidth(0.7));\ndraw(D--C--M--cycle,linewidth(0.7));\ndraw(K--L--M--I--cycle,linewidth(0.7));\nlabel(\"$A$\",A,SE);\nlabel(\"$B$\",B,SW);\nlabel(\"$C$\",C,NW);\nlabel(\"$D$\",D,NE);\nlabel(\"$K$\",K,N);\nlabel(\"$L$\",L,E);\nlabel(\"$M$\",M,S);\nlabel(\"$N$\",I,W);\n\n[/asy]",
-    "gt_answer": "32 + 16\\sqrt{3}",
-    "accuracy": 0.7,
-    "approximate_mean_tokens": 6064.925,
-    "approximate_mean_chunks": 393.0
-  },
-  {
     "problem_idx": "problem_3767",
     "level": "Level 5",
     "type": "Intermediate Algebra",
@@ -438,6 +398,16 @@
     "accuracy": 0.7,
     "approximate_mean_tokens": 8428.25,
     "approximate_mean_chunks": 400.6
+  },
+  {
+    "problem_idx": "problem_2785",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "In convex quadrilateral $ABCD$, $AB=BC=13$, $CD=DA=24$, and $\\angle D=60^\\circ$.  Points $X$ and $Y$ are the midpoints of $\\overline{BC}$ and $\\overline{DA}$ respectively.  Compute $XY^2$ (the square of the length of $XY$).",
+    "gt_answer": "\\frac{1033}{4}+30\\sqrt{3}",
+    "accuracy": 0.4,
+    "approximate_mean_tokens": 6361.7,
+    "approximate_mean_chunks": 402.2
   },
   {
     "problem_idx": "problem_7159",
@@ -480,6 +450,16 @@
     "approximate_mean_chunks": 445.4
   },
   {
+    "problem_idx": "problem_3071",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
+    "gt_answer": "574",
+    "accuracy": 0.75,
+    "approximate_mean_tokens": 5710.416666666667,
+    "approximate_mean_chunks": 447.6666666666667
+  },
+  {
     "problem_idx": "problem_1783",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -488,6 +468,16 @@
     "accuracy": 0.7,
     "approximate_mean_tokens": 7292.525,
     "approximate_mean_chunks": 457.0
+  },
+  {
+    "problem_idx": "problem_2920",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "The adjoining figure shows two intersecting chords in a circle, with $B$ on minor arc $AD$. Suppose that the radius of the circle is $5$, that $BC=6$, and that $AD$ is bisected by $BC$. Suppose further that $AD$ is the only chord starting at $A$ which is bisected by $BC$. It follows that the sine of the central angle of minor arc $AB$ is a rational number. If this number is expressed as a fraction $\\frac{m}{n}$ in lowest terms, what is the product $mn$?\n[asy]size(100); defaultpen(linewidth(.8pt)+fontsize(11pt)); dotfactor=1; pair O1=(0,0); pair A=(-0.91,-0.41); pair B=(-0.99,0.13); pair C=(0.688,0.728); pair D=(-0.25,0.97); path C1=Circle(O1,1); draw(C1); label(\"$A$\",A,W); label(\"$B$\",B,W); label(\"$C$\",C,NE); label(\"$D$\",D,N); draw(A--D); draw(B--C); pair F=intersectionpoint(A--D,B--C); add(pathticks(A--F,1,0.5,0,3.5)); add(pathticks(F--D,1,0.5,0,3.5)); [/asy]\n",
+    "gt_answer": "175",
+    "accuracy": 0.5555555555555556,
+    "approximate_mean_tokens": 7475.055555555556,
+    "approximate_mean_chunks": 458.3333333333333
   },
   {
     "problem_idx": "problem_7067",
@@ -520,6 +510,16 @@
     "approximate_mean_chunks": 461.0
   },
   {
+    "problem_idx": "problem_4214",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "Let $f_0(x)=x+|x-100|-|x+100|$, and for $n\\geq 1$, let $f_n(x)=|f_{n-1}(x)|-1$. For how many values of $x$ is $f_{100}(x)=0$?",
+    "gt_answer": "301",
+    "accuracy": 0.3333333333333333,
+    "approximate_mean_tokens": 6789.638888888889,
+    "approximate_mean_chunks": 464.0
+  },
+  {
     "problem_idx": "problem_3128",
     "level": "Level 5",
     "type": "Geometry",
@@ -530,24 +530,24 @@
     "approximate_mean_chunks": 471.0
   },
   {
-    "problem_idx": "problem_2920",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "The adjoining figure shows two intersecting chords in a circle, with $B$ on minor arc $AD$. Suppose that the radius of the circle is $5$, that $BC=6$, and that $AD$ is bisected by $BC$. Suppose further that $AD$ is the only chord starting at $A$ which is bisected by $BC$. It follows that the sine of the central angle of minor arc $AB$ is a rational number. If this number is expressed as a fraction $\\frac{m}{n}$ in lowest terms, what is the product $mn$?\n[asy]size(100); defaultpen(linewidth(.8pt)+fontsize(11pt)); dotfactor=1; pair O1=(0,0); pair A=(-0.91,-0.41); pair B=(-0.99,0.13); pair C=(0.688,0.728); pair D=(-0.25,0.97); path C1=Circle(O1,1); draw(C1); label(\"$A$\",A,W); label(\"$B$\",B,W); label(\"$C$\",C,NE); label(\"$D$\",D,N); draw(A--D); draw(B--C); pair F=intersectionpoint(A--D,B--C); add(pathticks(A--F,1,0.5,0,3.5)); add(pathticks(F--D,1,0.5,0,3.5)); [/asy]\n",
-    "gt_answer": "175",
-    "accuracy": 0.5555555555555556,
-    "approximate_mean_tokens": 8009.85,
-    "approximate_mean_chunks": 477.9
-  },
-  {
-    "problem_idx": "problem_4214",
+    "problem_idx": "problem_3500",
     "level": "Level 5",
     "type": "Intermediate Algebra",
-    "problem": "Let $f_0(x)=x+|x-100|-|x+100|$, and for $n\\geq 1$, let $f_n(x)=|f_{n-1}(x)|-1$. For how many values of $x$ is $f_{100}(x)=0$?",
-    "gt_answer": "301",
-    "accuracy": 0.3333333333333333,
-    "approximate_mean_tokens": 7204.075,
-    "approximate_mean_chunks": 486.5
+    "problem": "Find all real numbers $a$ such that the equation\n\\[x^3 - ax^2 - 2ax + a^2 - 1 = 0\\]has exactly one real solution in $x.$",
+    "gt_answer": "\\left( -\\infty, \\frac{3}{4} \\right)",
+    "accuracy": 0.6,
+    "approximate_mean_tokens": 8294.175,
+    "approximate_mean_chunks": 472.9
+  },
+  {
+    "problem_idx": "problem_3940",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "The function $f(n)$ is defined on the positive integers such that $f(f(n)) = 2n$ and $f(4n + 1) = 4n + 3$ for all positive integers $n.$  Find $f(1000).$",
+    "gt_answer": "1016",
+    "accuracy": 0.75,
+    "approximate_mean_tokens": 5907.3125,
+    "approximate_mean_chunks": 480.625
   },
   {
     "problem_idx": "problem_7467",
@@ -570,6 +570,16 @@
     "approximate_mean_chunks": 489.6
   },
   {
+    "problem_idx": "problem_5320",
+    "level": "Level 5",
+    "type": "Number Theory",
+    "problem": "Find the sum of all positive integers $n$ such that, given an unlimited supply of stamps of denominations $5,n,$ and $n+1$ cents, $91$ cents is the greatest postage that cannot be formed.\n",
+    "gt_answer": "71",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 8640.25,
+    "approximate_mean_chunks": 508.0
+  },
+  {
     "problem_idx": "problem_2252",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -580,14 +590,14 @@
     "approximate_mean_chunks": 532.4
   },
   {
-    "problem_idx": "problem_3940",
+    "problem_idx": "problem_3022",
     "level": "Level 5",
-    "type": "Intermediate Algebra",
-    "problem": "The function $f(n)$ is defined on the positive integers such that $f(f(n)) = 2n$ and $f(4n + 1) = 4n + 3$ for all positive integers $n.$  Find $f(1000).$",
-    "gt_answer": "1016",
-    "accuracy": 0.75,
-    "approximate_mean_tokens": 6614.175,
-    "approximate_mean_chunks": 532.5
+    "type": "Geometry",
+    "problem": "A square piece of paper has sides of length $100$. From each corner a wedge is cut in the following manner: at each corner, the two cuts for the wedge each start at a distance $\\sqrt{17}$ from the corner, and they meet on the diagonal at an angle of $60^{\\circ}$ (see the figure below). The paper is then folded up along the lines joining the vertices of adjacent cuts. When the two edges of a cut meet, they are taped together. The result is a paper tray whose sides are not at right angles to the base. The height of the tray, that is, the perpendicular distance between the plane of the base and the plane formed by the upped edges, can be written in the form $\\sqrt[n]{m}$, where $m$ and $n$ are positive integers, $m<1000$, and $m$ is not divisible by the $n$th power of any prime. Find $m+n$.\n[asy]import cse5; size(200); pathpen=black; real s=sqrt(17); real r=(sqrt(51)+s)/sqrt(2); D((0,2*s)--(0,0)--(2*s,0)); D((0,s)--r*dir(45)--(s,0)); D((0,0)--r*dir(45)); D((r*dir(45).x,2*s)--r*dir(45)--(2*s,r*dir(45).y)); MP(\"30^\\circ\",r*dir(45)-(0.25,1),SW); MP(\"30^\\circ\",r*dir(45)-(1,0.5),SW); MP(\"\\sqrt{17}\",(0,s/2),W); MP(\"\\sqrt{17}\",(s/2,0),S); MP(\"\\mathrm{cut}\",((0,s)+r*dir(45))/2,N); MP(\"\\mathrm{cut}\",((s,0)+r*dir(45))/2,E); MP(\"\\mathrm{fold}\",(r*dir(45).x,s+r/2*dir(45).y),E); MP(\"\\mathrm{fold}\",(s+r/2*dir(45).x,r*dir(45).y));[/asy]\n",
+    "gt_answer": "871",
+    "accuracy": 0.3333333333333333,
+    "approximate_mean_tokens": 10351.25,
+    "approximate_mean_chunks": 537.0
   },
   {
     "problem_idx": "problem_3212",
@@ -598,6 +608,16 @@
     "accuracy": 0.7,
     "approximate_mean_tokens": 9164.2,
     "approximate_mean_chunks": 539.5
+  },
+  {
+    "problem_idx": "problem_2950",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "In a circle of radius $42$, two chords of length $78$ intersect at a point whose distance from the center is $18$. The two chords divide the interior of the circle into four regions. Two of these regions are bordered by segments of unequal lengths, and the area of either of them can be expressed uniquely in the form $m\\pi-n\\sqrt{d},$ where $m, n,$ and $d$ are positive integers and $d$ is not divisible by the square of any prime number. Find $m+n+d.$\n",
+    "gt_answer": "378",
+    "accuracy": 0.3333333333333333,
+    "approximate_mean_tokens": 10427.625,
+    "approximate_mean_chunks": 548.0
   },
   {
     "problem_idx": "problem_2093",
@@ -620,14 +640,54 @@
     "approximate_mean_chunks": 555.7
   },
   {
+    "problem_idx": "problem_3106",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "A quadrilateral that has consecutive sides of lengths $70,90,130$ and $110$ is inscribed in a circle and also has a circle inscribed in it. The point of tangency of the inscribed circle to the side of length 130 divides that side into segments of length $x$ and $y$. Find $|x-y|$.\n$\\text{(A) } 12\\quad \\text{(B) } 13\\quad \\text{(C) } 14\\quad \\text{(D) } 15\\quad \\text{(E) } 16$\n",
+    "gt_answer": "13",
+    "accuracy": 0.25,
+    "approximate_mean_tokens": 8971.9375,
+    "approximate_mean_chunks": 558.375
+  },
+  {
+    "problem_idx": "problem_2931",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "The rectangle $ABCD$ below has dimensions $AB = 12 \\sqrt{3}$ and $BC = 13 \\sqrt{3}$. Diagonals $\\overline{AC}$ and $\\overline{BD}$ intersect at $P$. If triangle $ABP$ is cut out and removed, edges $\\overline{AP}$ and $\\overline{BP}$ are joined, and the figure is then creased along segments $\\overline{CP}$ and $\\overline{DP}$, we obtain a triangular pyramid, all four of whose faces are isosceles triangles. Find the volume of this pyramid.\n[asy] pair D=origin, A=(13,0), B=(13,12), C=(0,12), P=(6.5, 6); draw(B--C--P--D--C^^D--A); filldraw(A--P--B--cycle, gray, black); label(\"$A$\", A, SE); label(\"$B$\", B, NE); label(\"$C$\", C, NW); label(\"$D$\", D, SW); label(\"$P$\", P, N); label(\"$13\\sqrt{3}$\", A--D, S); label(\"$12\\sqrt{3}$\", A--B, E);[/asy]\n",
+    "gt_answer": "594",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 8313.25,
+    "approximate_mean_chunks": 558.8333333333334
+  },
+  {
     "problem_idx": "problem_6871",
     "level": "Level 5",
     "type": "Precalculus",
     "problem": "A triangle has side lengths 7, 8, and 9.  There are exactly two lines that simultaneously bisect the perimeter and area of the triangle.  Let $\\theta$ be the acute angle between these two lines.  Find $\\tan \\theta.$\n\n[asy]\nunitsize(0.5 cm);\n\npair A, B, C, P, Q, R, S, X;\n\nB = (0,0);\nC = (8,0);\nA = intersectionpoint(arc(B,7,0,180),arc(C,9,0,180));\nP = interp(A,B,(12 - 3*sqrt(2))/2/7);\nQ = interp(A,C,(12 + 3*sqrt(2))/2/9);\nR = interp(C,A,6/9);\nS = interp(C,B,6/8);\nX = extension(P,Q,R,S);\n\ndraw(A--B--C--cycle);\ndraw(interp(P,Q,-0.2)--interp(P,Q,1.2),red);\ndraw(interp(R,S,-0.2)--interp(R,S,1.2),blue);\n\nlabel(\"$\\theta$\", X + (0.8,0.4));\n[/asy]",
     "gt_answer": "3 \\sqrt{5} + 2 \\sqrt{10}",
-    "accuracy": 0.5,
+    "accuracy": 0.6666666666666666,
     "approximate_mean_tokens": 8677.541666666666,
     "approximate_mean_chunks": 562.6666666666666
+  },
+  {
+    "problem_idx": "problem_3028",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "In right $\\triangle ABC$ with hypotenuse $\\overline{AB}$, $AC = 12$, $BC = 35$, and $\\overline{CD}$ is the altitude to $\\overline{AB}$. Let $\\omega$ be the circle having $\\overline{CD}$ as a diameter. Let $I$ be a point outside $\\triangle ABC$ such that $\\overline{AI}$ and $\\overline{BI}$ are both tangent to circle $\\omega$. The ratio of the perimeter of $\\triangle ABI$ to the length $AB$ can be expressed in the form $\\frac {m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m + n$.\n",
+    "gt_answer": "11",
+    "accuracy": 0.25,
+    "approximate_mean_tokens": 9599.833333333334,
+    "approximate_mean_chunks": 566.3333333333334
+  },
+  {
+    "problem_idx": "problem_3066",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Triangle $ABC$ has side lengths $AB=4$, $BC=5$, and $CA=6$. Points $D$ and $E$ are on ray $AB$ with $AB<AD<AE$. The point $F \\neq C$ is a point of intersection of the circumcircles of $\\triangle ACD$ and $\\triangle EBC$ satisfying $DF=2$ and $EF=7$. Then $BE$ can be expressed as $\\tfrac{a+b\\sqrt{c}}{d}$, where $a$, $b$, $c$, and $d$ are positive integers such that $a$ and $d$ are relatively prime, and $c$ is not divisible by the square of any prime. Find $a+b+c+d$.\n",
+    "gt_answer": "32",
+    "accuracy": 0.25,
+    "approximate_mean_tokens": 7507.5,
+    "approximate_mean_chunks": 579.0
   },
   {
     "problem_idx": "problem_2131",
@@ -640,14 +700,14 @@
     "approximate_mean_chunks": 579.9
   },
   {
-    "problem_idx": "problem_3106",
+    "problem_idx": "problem_3052",
     "level": "Level 5",
     "type": "Geometry",
-    "problem": "A quadrilateral that has consecutive sides of lengths $70,90,130$ and $110$ is inscribed in a circle and also has a circle inscribed in it. The point of tangency of the inscribed circle to the side of length 130 divides that side into segments of length $x$ and $y$. Find $|x-y|$.\n$\\text{(A) } 12\\quad \\text{(B) } 13\\quad \\text{(C) } 14\\quad \\text{(D) } 15\\quad \\text{(E) } 16$\n",
-    "gt_answer": "13",
-    "accuracy": 0.25,
-    "approximate_mean_tokens": 9658.675,
-    "approximate_mean_chunks": 606.7
+    "problem": "In $\\triangle RED$, $\\measuredangle DRE=75^{\\circ}$ and $\\measuredangle RED=45^{\\circ}$. $RD=1$. Let $M$ be the midpoint of segment $\\overline{RD}$. Point $C$ lies on side $\\overline{ED}$ such that $\\overline{RC}\\perp\\overline{EM}$. Extend segment $\\overline{DE}$ through $E$ to point $A$ such that $CA=AR$. Then $AE=\\frac{a-\\sqrt{b}}{c}$, where $a$ and $c$ are relatively prime positive integers, and $b$ is a positive integer. Find $a+b+c$.\n",
+    "gt_answer": "56",
+    "accuracy": 0.7142857142857143,
+    "approximate_mean_tokens": 7468.821428571428,
+    "approximate_mean_chunks": 605.2857142857143
   },
   {
     "problem_idx": "problem_7022",
@@ -660,114 +720,14 @@
     "approximate_mean_chunks": 619.6
   },
   {
-    "problem_idx": "problem_2931",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "The rectangle $ABCD$ below has dimensions $AB = 12 \\sqrt{3}$ and $BC = 13 \\sqrt{3}$. Diagonals $\\overline{AC}$ and $\\overline{BD}$ intersect at $P$. If triangle $ABP$ is cut out and removed, edges $\\overline{AP}$ and $\\overline{BP}$ are joined, and the figure is then creased along segments $\\overline{CP}$ and $\\overline{DP}$, we obtain a triangular pyramid, all four of whose faces are isosceles triangles. Find the volume of this pyramid.\n[asy] pair D=origin, A=(13,0), B=(13,12), C=(0,12), P=(6.5, 6); draw(B--C--P--D--C^^D--A); filldraw(A--P--B--cycle, gray, black); label(\"$A$\", A, SE); label(\"$B$\", B, NE); label(\"$C$\", C, NW); label(\"$D$\", D, SW); label(\"$P$\", P, N); label(\"$13\\sqrt{3}$\", A--D, S); label(\"$12\\sqrt{3}$\", A--B, E);[/asy]\n",
-    "gt_answer": "594",
-    "accuracy": 0.5,
-    "approximate_mean_tokens": 9094.025,
-    "approximate_mean_chunks": 633.9
-  },
-  {
-    "problem_idx": "problem_5320",
-    "level": "Level 5",
-    "type": "Number Theory",
-    "problem": "Find the sum of all positive integers $n$ such that, given an unlimited supply of stamps of denominations $5,n,$ and $n+1$ cents, $91$ cents is the greatest postage that cannot be formed.\n",
-    "gt_answer": "71",
-    "accuracy": 0.5,
-    "approximate_mean_tokens": 10102.475,
-    "approximate_mean_chunks": 648.7
-  },
-  {
-    "problem_idx": "problem_4238",
-    "level": "Level 5",
-    "type": "Intermediate Algebra",
-    "problem": "Find the number of integers $n$ such that \\[1+\\left\\lfloor\\dfrac{100n}{101}\\right\\rfloor=\\left\\lceil\\dfrac{99n}{100}\\right\\rceil.\\]",
-    "gt_answer": "10100",
-    "accuracy": 0.3333333333333333,
-    "approximate_mean_tokens": 9386.55,
-    "approximate_mean_chunks": 649.2
-  },
-  {
-    "problem_idx": "problem_2950",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "In a circle of radius $42$, two chords of length $78$ intersect at a point whose distance from the center is $18$. The two chords divide the interior of the circle into four regions. Two of these regions are bordered by segments of unequal lengths, and the area of either of them can be expressed uniquely in the form $m\\pi-n\\sqrt{d},$ where $m, n,$ and $d$ are positive integers and $d$ is not divisible by the square of any prime number. Find $m+n+d.$\n",
-    "gt_answer": "378",
-    "accuracy": 0.3333333333333333,
-    "approximate_mean_tokens": 12014.4,
-    "approximate_mean_chunks": 650.6
-  },
-  {
-    "problem_idx": "problem_3028",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "In right $\\triangle ABC$ with hypotenuse $\\overline{AB}$, $AC = 12$, $BC = 35$, and $\\overline{CD}$ is the altitude to $\\overline{AB}$. Let $\\omega$ be the circle having $\\overline{CD}$ as a diameter. Let $I$ be a point outside $\\triangle ABC$ such that $\\overline{AI}$ and $\\overline{BI}$ are both tangent to circle $\\omega$. The ratio of the perimeter of $\\triangle ABI$ to the length $AB$ can be expressed in the form $\\frac {m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $m + n$.\n",
-    "gt_answer": "11",
-    "accuracy": 0.25,
-    "approximate_mean_tokens": 9147.675,
-    "approximate_mean_chunks": 652.3
-  },
-  {
-    "problem_idx": "problem_3022",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "A square piece of paper has sides of length $100$. From each corner a wedge is cut in the following manner: at each corner, the two cuts for the wedge each start at a distance $\\sqrt{17}$ from the corner, and they meet on the diagonal at an angle of $60^{\\circ}$ (see the figure below). The paper is then folded up along the lines joining the vertices of adjacent cuts. When the two edges of a cut meet, they are taped together. The result is a paper tray whose sides are not at right angles to the base. The height of the tray, that is, the perpendicular distance between the plane of the base and the plane formed by the upped edges, can be written in the form $\\sqrt[n]{m}$, where $m$ and $n$ are positive integers, $m<1000$, and $m$ is not divisible by the $n$th power of any prime. Find $m+n$.\n[asy]import cse5; size(200); pathpen=black; real s=sqrt(17); real r=(sqrt(51)+s)/sqrt(2); D((0,2*s)--(0,0)--(2*s,0)); D((0,s)--r*dir(45)--(s,0)); D((0,0)--r*dir(45)); D((r*dir(45).x,2*s)--r*dir(45)--(2*s,r*dir(45).y)); MP(\"30^\\circ\",r*dir(45)-(0.25,1),SW); MP(\"30^\\circ\",r*dir(45)-(1,0.5),SW); MP(\"\\sqrt{17}\",(0,s/2),W); MP(\"\\sqrt{17}\",(s/2,0),S); MP(\"\\mathrm{cut}\",((0,s)+r*dir(45))/2,N); MP(\"\\mathrm{cut}\",((s,0)+r*dir(45))/2,E); MP(\"\\mathrm{fold}\",(r*dir(45).x,s+r/2*dir(45).y),E); MP(\"\\mathrm{fold}\",(s+r/2*dir(45).x,r*dir(45).y));[/asy]\n",
-    "gt_answer": "871",
-    "accuracy": 0.3333333333333333,
-    "approximate_mean_tokens": 12358.175,
-    "approximate_mean_chunks": 670.6
-  },
-  {
-    "problem_idx": "problem_3052",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "In $\\triangle RED$, $\\measuredangle DRE=75^{\\circ}$ and $\\measuredangle RED=45^{\\circ}$. $RD=1$. Let $M$ be the midpoint of segment $\\overline{RD}$. Point $C$ lies on side $\\overline{ED}$ such that $\\overline{RC}\\perp\\overline{EM}$. Extend segment $\\overline{DE}$ through $E$ to point $A$ such that $CA=AR$. Then $AE=\\frac{a-\\sqrt{b}}{c}$, where $a$ and $c$ are relatively prime positive integers, and $b$ is a positive integer. Find $a+b+c$.\n",
-    "gt_answer": "56",
-    "accuracy": 0.7142857142857143,
-    "approximate_mean_tokens": 7955.65,
-    "approximate_mean_chunks": 672.4
-  },
-  {
     "problem_idx": "problem_2138",
     "level": "Level 5",
     "type": "Counting & Probability",
     "problem": "Consider sequences that consist entirely of $A$'s and $B$'s and that have the property that every run of consecutive $A$'s has even length, and every run of consecutive $B$'s has odd length. Examples of such sequences are $AA$, $B$, and $AABAA$, while $BBAB$ is not such a sequence. How many such sequences have length 14?\n",
     "gt_answer": "172",
     "accuracy": 0.3333333333333333,
-    "approximate_mean_tokens": 9546.925,
-    "approximate_mean_chunks": 673.2
-  },
-  {
-    "problem_idx": "problem_3071",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
-    "gt_answer": "574",
-    "accuracy": 0.75,
-    "approximate_mean_tokens": 8971.675,
-    "approximate_mean_chunks": 702.8
-  },
-  {
-    "problem_idx": "problem_2960",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "The two squares shown share the same center $O$ and have sides of length 1. The length of $\\overline{AB}$ is $43/99$ and the area of octagon $ABCDEFGH$ is $m/n,$ where $m$ and $n$ are relatively prime positive integers. Find $m+n.$\n[asy] //code taken from thread for problem real alpha = 25; pair W=dir(225), X=dir(315), Y=dir(45), Z=dir(135), O=origin; pair w=dir(alpha)*W, x=dir(alpha)*X, y=dir(alpha)*Y, z=dir(alpha)*Z; draw(W--X--Y--Z--cycle^^w--x--y--z--cycle); pair A=intersectionpoint(Y--Z, y--z),  C=intersectionpoint(Y--X, y--x),  E=intersectionpoint(W--X, w--x),  G=intersectionpoint(W--Z, w--z),  B=intersectionpoint(Y--Z, y--x),  D=intersectionpoint(Y--X, w--x),  F=intersectionpoint(W--X, w--z),  H=intersectionpoint(W--Z, y--z); dot(O); label(\"$O$\", O, SE); label(\"$A$\", A, dir(O--A)); label(\"$B$\", B, dir(O--B)); label(\"$C$\", C, dir(O--C)); label(\"$D$\", D, dir(O--D)); label(\"$E$\", E, dir(O--E)); label(\"$F$\", F, dir(O--F)); label(\"$G$\", G, dir(O--G)); label(\"$H$\", H, dir(O--H));[/asy]\n",
-    "gt_answer": "185",
-    "accuracy": 0.5,
-    "approximate_mean_tokens": 11577.3,
-    "approximate_mean_chunks": 720.7
-  },
-  {
-    "problem_idx": "problem_3066",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "Triangle $ABC$ has side lengths $AB=4$, $BC=5$, and $CA=6$. Points $D$ and $E$ are on ray $AB$ with $AB<AD<AE$. The point $F \\neq C$ is a point of intersection of the circumcircles of $\\triangle ACD$ and $\\triangle EBC$ satisfying $DF=2$ and $EF=7$. Then $BE$ can be expressed as $\\tfrac{a+b\\sqrt{c}}{d}$, where $a$, $b$, $c$, and $d$ are positive integers such that $a$ and $d$ are relatively prime, and $c$ is not divisible by the square of any prime. Find $a+b+c+d$.\n",
-    "gt_answer": "32",
-    "accuracy": 0.25,
-    "approximate_mean_tokens": 9200.725,
-    "approximate_mean_chunks": 752.5
+    "approximate_mean_tokens": 9262.583333333334,
+    "approximate_mean_chunks": 643.8888888888889
   },
   {
     "problem_idx": "problem_2991",
@@ -776,7 +736,17 @@
     "problem": "Let $A = (0,0)$ and $B = (b,2)$ be points on the coordinate plane. Let $ABCDEF$ be a convex equilateral hexagon such that $\\angle FAB = 120^\\circ,$ $\\overline{AB}\\parallel \\overline{DE},$ $\\overline{BC}\\parallel \\overline{EF,}$ $\\overline{CD}\\parallel \\overline{FA},$ and the y-coordinates of its vertices are distinct elements of the set $\\{0,2,4,6,8,10\\}.$ The area of the hexagon can be written in the form $m\\sqrt {n},$ where $m$ and $n$ are positive integers and n is not divisible by the square of any prime. Find $m + n.$\n",
     "gt_answer": "51",
     "accuracy": 0.6,
-    "approximate_mean_tokens": 9685.475,
-    "approximate_mean_chunks": 803.1
+    "approximate_mean_tokens": 8111.2,
+    "approximate_mean_chunks": 747.8
+  },
+  {
+    "problem_idx": "problem_4238",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "Find the number of integers $n$ such that \\[1+\\left\\lfloor\\dfrac{100n}{101}\\right\\rfloor=\\left\\lceil\\dfrac{99n}{100}\\right\\rceil.\\]",
+    "gt_answer": "10100",
+    "accuracy": 0.3333333333333333,
+    "approximate_mean_tokens": 8966.125,
+    "approximate_mean_chunks": 753.5
   }
 ]
