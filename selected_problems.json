@@ -7,17 +7,10 @@
     "gt_answer": "120",
     "accuracy": 0.5,
     "approximate_mean_tokens": 2311.425,
-    "approximate_mean_chunks": 77.0
-  },
-  {
-    "problem_idx": "problem_4878",
-    "level": "Level 5",
-    "type": "Number Theory",
-    "problem": "In any month with five Mondays, a school declares the fifth Monday a Marvelous Monday. School begins on Monday, September 4. What is the date of the first Marvelous Monday after school starts? (If you abbreviate, do not use a dot in the abbreviation.)",
-    "gt_answer": "\\text{October 30}",
-    "accuracy": 0.5,
-    "approximate_mean_tokens": 1462.925,
-    "approximate_mean_chunks": 81.1
+    "approximate_mean_chunks": 77.0,
+    "incorrect_answers": [
+      "384"
+    ]
   },
   {
     "problem_idx": "problem_1591",
@@ -27,7 +20,13 @@
     "gt_answer": "6.17",
     "accuracy": 0.4,
     "approximate_mean_tokens": 2030.325,
-    "approximate_mean_chunks": 129.9
+    "approximate_mean_chunks": 129.9,
+    "incorrect_answers": [
+      "6.14",
+      "6.16",
+      "6.18",
+      "6.29"
+    ]
   },
   {
     "problem_idx": "problem_4682",
@@ -37,7 +36,10 @@
     "gt_answer": "19",
     "accuracy": 0.7,
     "approximate_mean_tokens": 2510.975,
-    "approximate_mean_chunks": 130.7
+    "approximate_mean_chunks": 130.7,
+    "incorrect_answers": [
+      "20"
+    ]
   },
   {
     "problem_idx": "problem_6596",
@@ -47,7 +49,12 @@
     "gt_answer": "5.8",
     "accuracy": 0.3,
     "approximate_mean_tokens": 5130.5,
-    "approximate_mean_chunks": 188.1
+    "approximate_mean_chunks": 188.1,
+    "incorrect_answers": [
+      "7.2",
+      "6.4",
+      "5.0"
+    ]
   },
   {
     "problem_idx": "problem_3448",
@@ -57,7 +64,13 @@
     "gt_answer": "-\\frac{1} { 4027}",
     "accuracy": 0.5,
     "approximate_mean_tokens": 3523.55,
-    "approximate_mean_chunks": 219.4
+    "approximate_mean_chunks": 219.4,
+    "incorrect_answers": [
+      "-\\frac{2^{2014}}{\\dbinom{4028}{2014}}",
+      "-1",
+      "\\frac{2^{2014}}{4028 \\times 4027}",
+      "-\\dfrac{1}{4048589}"
+    ]
   },
   {
     "problem_idx": "problem_2870",
@@ -67,17 +80,11 @@
     "gt_answer": "16\\sqrt{3}",
     "accuracy": 0.5,
     "approximate_mean_tokens": 5337.8,
-    "approximate_mean_chunks": 222.2
-  },
-  {
-    "problem_idx": "problem_6898",
-    "level": "Level 5",
-    "type": "Precalculus",
-    "problem": "In the diagram below, triangle $ABC$ has been reflected over its median $\\overline{AM}$ to produce triangle $AB'C'$.  If $AE = 6$, $EC =12$, and $BD = 10$, then find $AB$.\n\n[asy]\nsize(250);\npair A,B,C,D,M,BB,CC,EE;\nB = (0,0);\nD = (10,0);\nM = (15,0);\nC=2*M;\nA = D + (scale(1.2)*rotate(aCos((225-144-25)/120))*(M-D));\nCC = D + D + D - A - A;\nBB = reflect(A,M)*B;\nEE = reflect(A,M)*D;\ndraw(M--A--BB--CC--A--B--C--A);\nlabel(\"$M$\",M,SE);\nlabel(\"$A$\",A,N);\nlabel(\"$B$\",B,SW);\nlabel(\"$C$\",C,SE);\nlabel(\"$C'$\",CC,S);\nlabel(\"$B'$\",BB,E);\nlabel(\"$D$\",D,NW);\nlabel(\"$E$\",EE,N);\nlabel(\"$12$\",(EE+C)/2,N);\nlabel(\"$6$\",(A+EE)/2,S);\nlabel(\"$10$\",D/2,S);\n[/asy]",
-    "gt_answer": "8\\sqrt{3}",
-    "accuracy": 0.75,
-    "approximate_mean_tokens": 3076.1666666666665,
-    "approximate_mean_chunks": 225.66666666666666
+    "approximate_mean_chunks": 222.2,
+    "incorrect_answers": [
+      "12\\sqrt{3}",
+      "6\\sqrt{3}"
+    ]
   },
   {
     "problem_idx": "problem_2177",
@@ -87,7 +94,10 @@
     "gt_answer": "516",
     "accuracy": 0.4,
     "approximate_mean_tokens": 3825.6,
-    "approximate_mean_chunks": 227.0
+    "approximate_mean_chunks": 227.0,
+    "incorrect_answers": [
+      "D"
+    ]
   },
   {
     "problem_idx": "problem_4019",
@@ -97,7 +107,11 @@
     "gt_answer": "4",
     "accuracy": 0.5,
     "approximate_mean_tokens": 5219.425,
-    "approximate_mean_chunks": 228.7
+    "approximate_mean_chunks": 228.7,
+    "incorrect_answers": [
+      "2",
+      "3"
+    ]
   },
   {
     "problem_idx": "problem_2137",
@@ -107,7 +121,10 @@
     "gt_answer": "640",
     "accuracy": 0.7,
     "approximate_mean_tokens": 4296.6,
-    "approximate_mean_chunks": 231.8
+    "approximate_mean_chunks": 231.8,
+    "incorrect_answers": [
+      "1280"
+    ]
   },
   {
     "problem_idx": "problem_3101",
@@ -117,7 +134,10 @@
     "gt_answer": "73",
     "accuracy": 0.5,
     "approximate_mean_tokens": 3977.8,
-    "approximate_mean_chunks": 237.9
+    "approximate_mean_chunks": 237.9,
+    "incorrect_answers": [
+      "D"
+    ]
   },
   {
     "problem_idx": "problem_2050",
@@ -127,17 +147,11 @@
     "gt_answer": "336",
     "accuracy": 0.7,
     "approximate_mean_tokens": 4881.575,
-    "approximate_mean_chunks": 240.5
-  },
-  {
-    "problem_idx": "problem_2984",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "Circles $\\mathcal{C}_{1}$ and $\\mathcal{C}_{2}$ intersect at two points, one of which is $(9,6)$, and the product of the radii is $68$. The x-axis and the line $y = mx$, where $m > 0$, are tangent to both circles. It is given that $m$ can be written in the form $a\\sqrt {b}/c$, where $a$, $b$, and $c$ are positive integers, $b$ is not divisible by the square of any prime, and $a$ and $c$ are relatively prime. Find $a + b + c$.\n",
-    "gt_answer": "282",
-    "accuracy": 0.9090909090909091,
-    "approximate_mean_tokens": 3040.6,
-    "approximate_mean_chunks": 243.8
+    "approximate_mean_chunks": 240.5,
+    "incorrect_answers": [
+      "326",
+      "276"
+    ]
   },
   {
     "problem_idx": "problem_2188",
@@ -147,7 +161,12 @@
     "gt_answer": "351",
     "accuracy": 0.4,
     "approximate_mean_tokens": 4579.325,
-    "approximate_mean_chunks": 249.3
+    "approximate_mean_chunks": 249.3,
+    "incorrect_answers": [
+      "521",
+      "336",
+      "401"
+    ]
   },
   {
     "problem_idx": "problem_5723",
@@ -157,7 +176,10 @@
     "gt_answer": "\\text{August}",
     "accuracy": 0.7,
     "approximate_mean_tokens": 4242.2,
-    "approximate_mean_chunks": 259.8
+    "approximate_mean_chunks": 259.8,
+    "incorrect_answers": [
+      "\\text{March}"
+    ]
   },
   {
     "problem_idx": "problem_2945",
@@ -167,7 +189,10 @@
     "gt_answer": "702",
     "accuracy": 0.4,
     "approximate_mean_tokens": 4930.85,
-    "approximate_mean_chunks": 263.3
+    "approximate_mean_chunks": 263.3,
+    "incorrect_answers": [
+      "312"
+    ]
   },
   {
     "problem_idx": "problem_4435",
@@ -177,7 +202,12 @@
     "gt_answer": "[2 \\sqrt{2},4]",
     "accuracy": 0.5,
     "approximate_mean_tokens": 5049.6,
-    "approximate_mean_chunks": 270.9
+    "approximate_mean_chunks": 270.9,
+    "incorrect_answers": [
+      "[2\\sqrt{2}, 2\\sqrt{2} + 2]",
+      "2\\sqrt{2}",
+      "[2\\sqrt{2}, 4\\sqrt{2}]"
+    ]
   },
   {
     "problem_idx": "problem_5662",
@@ -187,7 +217,10 @@
     "gt_answer": "129\\frac{1}{3}",
     "accuracy": 0.4,
     "approximate_mean_tokens": 5218.275,
-    "approximate_mean_chunks": 271.3
+    "approximate_mean_chunks": 271.3,
+    "incorrect_answers": [
+      "128"
+    ]
   },
   {
     "problem_idx": "problem_4475",
@@ -197,7 +230,10 @@
     "gt_answer": "\\left[ \\frac{5}{2}, \\frac{7}{2} \\right)",
     "accuracy": 0.7,
     "approximate_mean_tokens": 3344.925,
-    "approximate_mean_chunks": 276.9
+    "approximate_mean_chunks": 276.9,
+    "incorrect_answers": [
+      "[2.5, 3.5)"
+    ]
   },
   {
     "problem_idx": "problem_6708",
@@ -207,7 +243,11 @@
     "gt_answer": "\\frac{9}{2}",
     "accuracy": 0.6,
     "approximate_mean_tokens": 6032.275,
-    "approximate_mean_chunks": 284.1
+    "approximate_mean_chunks": 284.1,
+    "incorrect_answers": [
+      "\\dfrac{9\\sqrt{3}}{4}",
+      "\\dfrac{32}{3}"
+    ]
   },
   {
     "problem_idx": "problem_2819",
@@ -217,7 +257,10 @@
     "gt_answer": "60",
     "accuracy": 0.7,
     "approximate_mean_tokens": 5391.95,
-    "approximate_mean_chunks": 288.2
+    "approximate_mean_chunks": 288.2,
+    "incorrect_answers": [
+      "120"
+    ]
   },
   {
     "problem_idx": "problem_5266",
@@ -227,7 +270,11 @@
     "gt_answer": "98",
     "accuracy": 0.7,
     "approximate_mean_tokens": 6058.45,
-    "approximate_mean_chunks": 291.1
+    "approximate_mean_chunks": 291.1,
+    "incorrect_answers": [
+      "50",
+      "198"
+    ]
   },
   {
     "problem_idx": "problem_7425",
@@ -237,7 +284,12 @@
     "gt_answer": "(-5 \\sqrt{2}, 5 + 5 \\sqrt{2})",
     "accuracy": 0.4,
     "approximate_mean_tokens": 4537.55,
-    "approximate_mean_chunks": 292.7
+    "approximate_mean_chunks": 292.7,
+    "incorrect_answers": [
+      "(-5\\sqrt{2}, 5\\sqrt{2} + 5)",
+      "(-5\\sqrt{2}, 5(1 + \\sqrt{2}))",
+      "(-5\\sqrt{2}, 5(\\sqrt{2} + 1))"
+    ]
   },
   {
     "problem_idx": "problem_6",
@@ -247,7 +299,11 @@
     "gt_answer": "[0,3)",
     "accuracy": 0.5,
     "approximate_mean_tokens": 4890.425,
-    "approximate_mean_chunks": 297.2
+    "approximate_mean_chunks": 297.2,
+    "incorrect_answers": [
+      "[0.0, 3.0)",
+      "(0, 3)"
+    ]
   },
   {
     "problem_idx": "problem_5340",
@@ -257,7 +313,10 @@
     "gt_answer": "76",
     "accuracy": 0.3,
     "approximate_mean_tokens": 5131.1,
-    "approximate_mean_chunks": 297.4
+    "approximate_mean_chunks": 297.4,
+    "incorrect_answers": [
+      "D"
+    ]
   },
   {
     "problem_idx": "problem_3289",
@@ -267,7 +326,12 @@
     "gt_answer": "24 \\pi",
     "accuracy": 0.7,
     "approximate_mean_tokens": 6711.4,
-    "approximate_mean_chunks": 306.2
+    "approximate_mean_chunks": 306.2,
+    "incorrect_answers": [
+      "8\\pi",
+      "16\\pi + 64 - 24\\sqrt{2}",
+      "16\\pi + 32"
+    ]
   },
   {
     "problem_idx": "problem_3064",
@@ -277,7 +341,12 @@
     "gt_answer": "126",
     "accuracy": 0.6666666666666666,
     "approximate_mean_tokens": 5084.916666666667,
-    "approximate_mean_chunks": 312.3333333333333
+    "approximate_mean_chunks": 312.3333333333333,
+    "incorrect_answers": [
+      "\\dfrac{640\\sqrt{2}}{141}",
+      "12\\sqrt{21}",
+      "\\dfrac{63}{2}"
+    ]
   },
   {
     "problem_idx": "problem_2175",
@@ -287,7 +356,10 @@
     "gt_answer": "405",
     "accuracy": 0.3,
     "approximate_mean_tokens": 5282.275,
-    "approximate_mean_chunks": 319.3
+    "approximate_mean_chunks": 319.3,
+    "incorrect_answers": [
+      "E"
+    ]
   },
   {
     "problem_idx": "problem_4698",
@@ -297,7 +369,12 @@
     "gt_answer": "\\text{Monday}",
     "accuracy": 0.5,
     "approximate_mean_tokens": 4868.5,
-    "approximate_mean_chunks": 337.0
+    "approximate_mean_chunks": 337.0,
+    "incorrect_answers": [
+      "\\text{Tuesday}",
+      "Tuesday",
+      "\\text{Sunday}"
+    ]
   },
   {
     "problem_idx": "problem_4617",
@@ -307,7 +384,11 @@
     "gt_answer": "1921",
     "accuracy": 0.7,
     "approximate_mean_tokens": 5213.45,
-    "approximate_mean_chunks": 344.9
+    "approximate_mean_chunks": 344.9,
+    "incorrect_answers": [
+      "391",
+      "24"
+    ]
   },
   {
     "problem_idx": "problem_3003",
@@ -317,7 +398,12 @@
     "gt_answer": "484",
     "accuracy": 0.4,
     "approximate_mean_tokens": 4896.875,
-    "approximate_mean_chunks": 352.0
+    "approximate_mean_chunks": 352.0,
+    "incorrect_answers": [
+      "3",
+      "64",
+      "37"
+    ]
   },
   {
     "problem_idx": "problem_3406",
@@ -327,7 +413,11 @@
     "gt_answer": "\\frac{3 \\sqrt{3}}{2}",
     "accuracy": 0.5,
     "approximate_mean_tokens": 6998.125,
-    "approximate_mean_chunks": 356.2
+    "approximate_mean_chunks": 356.2,
+    "incorrect_answers": [
+      "2\\sqrt{2}",
+      "2\\sqrt{2}\\pi"
+    ]
   },
   {
     "problem_idx": "problem_2127",
@@ -337,7 +427,12 @@
     "gt_answer": "83",
     "accuracy": 0.6,
     "approximate_mean_tokens": 5617.575,
-    "approximate_mean_chunks": 358.5
+    "approximate_mean_chunks": 358.5,
+    "incorrect_answers": [
+      "64",
+      "57",
+      "105"
+    ]
   },
   {
     "problem_idx": "problem_3753",
@@ -347,7 +442,10 @@
     "gt_answer": "\\frac{8045}{2012}",
     "accuracy": 0.7,
     "approximate_mean_tokens": 5152.3,
-    "approximate_mean_chunks": 372.7
+    "approximate_mean_chunks": 372.7,
+    "incorrect_answers": [
+      "4"
+    ]
   },
   {
     "problem_idx": "problem_3867",
@@ -357,7 +455,10 @@
     "gt_answer": "80",
     "accuracy": 0.7,
     "approximate_mean_tokens": 5877.7,
-    "approximate_mean_chunks": 376.7
+    "approximate_mean_chunks": 376.7,
+    "incorrect_answers": [
+      "\\dfrac{256}{5}"
+    ]
   },
   {
     "problem_idx": "problem_2107",
@@ -367,7 +468,12 @@
     "gt_answer": "376",
     "accuracy": 0.7,
     "approximate_mean_tokens": 6964.55,
-    "approximate_mean_chunks": 390.6
+    "approximate_mean_chunks": 390.6,
+    "incorrect_answers": [
+      "672",
+      "688",
+      "122"
+    ]
   },
   {
     "problem_idx": "problem_3767",
@@ -377,7 +483,11 @@
     "gt_answer": "324",
     "accuracy": 0.3,
     "approximate_mean_tokens": 7109.425,
-    "approximate_mean_chunks": 398.2
+    "approximate_mean_chunks": 398.2,
+    "incorrect_answers": [
+      "432",
+      "648"
+    ]
   },
   {
     "problem_idx": "problem_4498",
@@ -387,7 +497,16 @@
     "gt_answer": "233",
     "accuracy": 0.3,
     "approximate_mean_tokens": 6834.6,
-    "approximate_mean_chunks": 400.2
+    "approximate_mean_chunks": 400.2,
+    "incorrect_answers": [
+      "157",
+      "5",
+      "453",
+      "19",
+      "1039",
+      "44301",
+      "110"
+    ]
   },
   {
     "problem_idx": "problem_2994",
@@ -397,7 +516,11 @@
     "gt_answer": "216",
     "accuracy": 0.7,
     "approximate_mean_tokens": 8428.25,
-    "approximate_mean_chunks": 400.6
+    "approximate_mean_chunks": 400.6,
+    "incorrect_answers": [
+      "108",
+      "27"
+    ]
   },
   {
     "problem_idx": "problem_2785",
@@ -407,7 +530,11 @@
     "gt_answer": "\\frac{1033}{4}+30\\sqrt{3}",
     "accuracy": 0.4,
     "approximate_mean_tokens": 6361.7,
-    "approximate_mean_chunks": 402.2
+    "approximate_mean_chunks": 402.2,
+    "incorrect_answers": [
+      "\\dfrac{1033 - 120\\sqrt{3}}{4}",
+      "\\dfrac{1033}{4} - 30\\sqrt{3}"
+    ]
   },
   {
     "problem_idx": "problem_7159",
@@ -417,7 +544,12 @@
     "gt_answer": "2",
     "accuracy": 0.7,
     "approximate_mean_tokens": 7305.225,
-    "approximate_mean_chunks": 426.8
+    "approximate_mean_chunks": 426.8,
+    "incorrect_answers": [
+      "\\dfrac{2}{3}",
+      "\\dfrac{8}{3}",
+      "\\dfrac{17}{6}"
+    ]
   },
   {
     "problem_idx": "problem_1822",
@@ -427,7 +559,11 @@
     "gt_answer": "8",
     "accuracy": 0.6,
     "approximate_mean_tokens": 5826.975,
-    "approximate_mean_chunks": 439.9
+    "approximate_mean_chunks": 439.9,
+    "incorrect_answers": [
+      "9",
+      "1"
+    ]
   },
   {
     "problem_idx": "problem_2140",
@@ -437,7 +573,13 @@
     "gt_answer": "310",
     "accuracy": 0.5,
     "approximate_mean_tokens": 7769.95,
-    "approximate_mean_chunks": 444.5
+    "approximate_mean_chunks": 444.5,
+    "incorrect_answers": [
+      "420",
+      "320",
+      "980",
+      "170"
+    ]
   },
   {
     "problem_idx": "problem_2936",
@@ -447,17 +589,12 @@
     "gt_answer": "384",
     "accuracy": 0.7,
     "approximate_mean_tokens": 6086.525,
-    "approximate_mean_chunks": 445.4
-  },
-  {
-    "problem_idx": "problem_3071",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "In acute triangle $ABC$ points $P$ and $Q$ are the feet of the perpendiculars from $C$ to $\\overline{AB}$ and from $B$ to $\\overline{AC}$, respectively. Line $PQ$ intersects the circumcircle of $\\triangle ABC$ in two distinct points, $X$ and $Y$. Suppose $XP=10$, $PQ=25$, and $QY=15$. The value of $AB\\cdot AC$ can be written in the form $m\\sqrt n$ where $m$ and $n$ are positive integers, and $n$ is not divisible by the square of any prime. Find $m+n$.\n",
-    "gt_answer": "574",
-    "accuracy": 0.75,
-    "approximate_mean_tokens": 5710.416666666667,
-    "approximate_mean_chunks": 447.6666666666667
+    "approximate_mean_chunks": 445.4,
+    "incorrect_answers": [
+      "243",
+      "360",
+      "351"
+    ]
   },
   {
     "problem_idx": "problem_1783",
@@ -467,7 +604,11 @@
     "gt_answer": "8",
     "accuracy": 0.7,
     "approximate_mean_tokens": 7292.525,
-    "approximate_mean_chunks": 457.0
+    "approximate_mean_chunks": 457.0,
+    "incorrect_answers": [
+      "9",
+      "34"
+    ]
   },
   {
     "problem_idx": "problem_2920",
@@ -477,7 +618,13 @@
     "gt_answer": "175",
     "accuracy": 0.5555555555555556,
     "approximate_mean_tokens": 7475.055555555556,
-    "approximate_mean_chunks": 458.3333333333333
+    "approximate_mean_chunks": 458.3333333333333,
+    "incorrect_answers": [
+      "20",
+      "300",
+      "15",
+      "1"
+    ]
   },
   {
     "problem_idx": "problem_7067",
@@ -487,7 +634,11 @@
     "gt_answer": "5",
     "accuracy": 0.4,
     "approximate_mean_tokens": 6040.275,
-    "approximate_mean_chunks": 459.8
+    "approximate_mean_chunks": 459.8,
+    "incorrect_answers": [
+      "1",
+      "2"
+    ]
   },
   {
     "problem_idx": "problem_5127",
@@ -497,7 +648,12 @@
     "gt_answer": "16",
     "accuracy": 0.6,
     "approximate_mean_tokens": 4347.2,
-    "approximate_mean_chunks": 460.2
+    "approximate_mean_chunks": 460.2,
+    "incorrect_answers": [
+      "19",
+      "21",
+      "27"
+    ]
   },
   {
     "problem_idx": "problem_2271",
@@ -507,7 +663,12 @@
     "gt_answer": "14",
     "accuracy": 0.4,
     "approximate_mean_tokens": 8251.425,
-    "approximate_mean_chunks": 461.0
+    "approximate_mean_chunks": 461.0,
+    "incorrect_answers": [
+      "12",
+      "11",
+      "8"
+    ]
   },
   {
     "problem_idx": "problem_4214",
@@ -517,7 +678,12 @@
     "gt_answer": "301",
     "accuracy": 0.3333333333333333,
     "approximate_mean_tokens": 6789.638888888889,
-    "approximate_mean_chunks": 464.0
+    "approximate_mean_chunks": 464.0,
+    "incorrect_answers": [
+      "303",
+      "204",
+      "4"
+    ]
   },
   {
     "problem_idx": "problem_3128",
@@ -527,7 +693,10 @@
     "gt_answer": "a+b",
     "accuracy": 0.5,
     "approximate_mean_tokens": 7341.075,
-    "approximate_mean_chunks": 471.0
+    "approximate_mean_chunks": 471.0,
+    "incorrect_answers": [
+      "E"
+    ]
   },
   {
     "problem_idx": "problem_3500",
@@ -537,7 +706,11 @@
     "gt_answer": "\\left( -\\infty, \\frac{3}{4} \\right)",
     "accuracy": 0.6,
     "approximate_mean_tokens": 8294.175,
-    "approximate_mean_chunks": 472.9
+    "approximate_mean_chunks": 472.9,
+    "incorrect_answers": [
+      "(-\\infty, 0]",
+      "(-\\infty, -6] \\cup [0, \\infty)"
+    ]
   },
   {
     "problem_idx": "problem_3940",
@@ -547,7 +720,11 @@
     "gt_answer": "1016",
     "accuracy": 0.75,
     "approximate_mean_tokens": 5907.3125,
-    "approximate_mean_chunks": 480.625
+    "approximate_mean_chunks": 480.625,
+    "incorrect_answers": [
+      "500",
+      "3000"
+    ]
   },
   {
     "problem_idx": "problem_7467",
@@ -557,7 +734,11 @@
     "gt_answer": "2{,}016{,}532",
     "accuracy": 0.6,
     "approximate_mean_tokens": 6128.925,
-    "approximate_mean_chunks": 487.2
+    "approximate_mean_chunks": 487.2,
+    "incorrect_answers": [
+      "2017033",
+      "2016030"
+    ]
   },
   {
     "problem_idx": "problem_2918",
@@ -567,7 +748,11 @@
     "gt_answer": "288",
     "accuracy": 0.4,
     "approximate_mean_tokens": 8279.575,
-    "approximate_mean_chunks": 489.6
+    "approximate_mean_chunks": 489.6,
+    "incorrect_answers": [
+      "216",
+      "144"
+    ]
   },
   {
     "problem_idx": "problem_5320",
@@ -577,7 +762,10 @@
     "gt_answer": "71",
     "accuracy": 0.5,
     "approximate_mean_tokens": 8640.25,
-    "approximate_mean_chunks": 508.0
+    "approximate_mean_chunks": 508.0,
+    "incorrect_answers": [
+      "24"
+    ]
   },
   {
     "problem_idx": "problem_2252",
@@ -587,7 +775,11 @@
     "gt_answer": "3",
     "accuracy": 0.6,
     "approximate_mean_tokens": 9606.575,
-    "approximate_mean_chunks": 532.4
+    "approximate_mean_chunks": 532.4,
+    "incorrect_answers": [
+      "2",
+      "6"
+    ]
   },
   {
     "problem_idx": "problem_3022",
@@ -597,7 +789,10 @@
     "gt_answer": "871",
     "accuracy": 0.3333333333333333,
     "approximate_mean_tokens": 10351.25,
-    "approximate_mean_chunks": 537.0
+    "approximate_mean_chunks": 537.0,
+    "incorrect_answers": [
+      "53"
+    ]
   },
   {
     "problem_idx": "problem_3212",
@@ -607,7 +802,12 @@
     "gt_answer": "12+6\\sqrt{3}",
     "accuracy": 0.7,
     "approximate_mean_tokens": 9164.2,
-    "approximate_mean_chunks": 539.5
+    "approximate_mean_chunks": 539.5,
+    "incorrect_answers": [
+      "12\\sqrt{3}",
+      "6 + 4\\sqrt{2}",
+      "24"
+    ]
   },
   {
     "problem_idx": "problem_2950",
@@ -617,7 +817,11 @@
     "gt_answer": "378",
     "accuracy": 0.3333333333333333,
     "approximate_mean_tokens": 10427.625,
-    "approximate_mean_chunks": 548.0
+    "approximate_mean_chunks": 548.0,
+    "incorrect_answers": [
+      "112",
+      "88"
+    ]
   },
   {
     "problem_idx": "problem_2093",
@@ -627,7 +831,14 @@
     "gt_answer": "465",
     "accuracy": 0.4,
     "approximate_mean_tokens": 7755.425,
-    "approximate_mean_chunks": 549.6
+    "approximate_mean_chunks": 549.6,
+    "incorrect_answers": [
+      "469",
+      "471",
+      "468",
+      "467",
+      "466"
+    ]
   },
   {
     "problem_idx": "problem_3118",
@@ -637,7 +848,10 @@
     "gt_answer": "392",
     "accuracy": 0.6,
     "approximate_mean_tokens": 10300.0,
-    "approximate_mean_chunks": 555.7
+    "approximate_mean_chunks": 555.7,
+    "incorrect_answers": [
+      "B"
+    ]
   },
   {
     "problem_idx": "problem_3106",
@@ -647,7 +861,12 @@
     "gt_answer": "13",
     "accuracy": 0.25,
     "approximate_mean_tokens": 8971.9375,
-    "approximate_mean_chunks": 558.375
+    "approximate_mean_chunks": 558.375,
+    "incorrect_answers": [
+      "B",
+      "14",
+      "C"
+    ]
   },
   {
     "problem_idx": "problem_2931",
@@ -657,7 +876,12 @@
     "gt_answer": "594",
     "accuracy": 0.5,
     "approximate_mean_tokens": 8313.25,
-    "approximate_mean_chunks": 558.8333333333334
+    "approximate_mean_chunks": 558.8333333333334,
+    "incorrect_answers": [
+      "234\\sqrt{3}",
+      "\\dfrac{1287}{2}",
+      "117"
+    ]
   },
   {
     "problem_idx": "problem_6871",
@@ -667,7 +891,11 @@
     "gt_answer": "3 \\sqrt{5} + 2 \\sqrt{10}",
     "accuracy": 0.6666666666666666,
     "approximate_mean_tokens": 8677.541666666666,
-    "approximate_mean_chunks": 562.6666666666666
+    "approximate_mean_chunks": 562.6666666666666,
+    "incorrect_answers": [
+      "\\dfrac{125\\sqrt{5}}{227}",
+      "\\dfrac{6\\sqrt{5} + 7\\sqrt{10}}{31}"
+    ]
   },
   {
     "problem_idx": "problem_3028",
@@ -677,7 +905,12 @@
     "gt_answer": "11",
     "accuracy": 0.25,
     "approximate_mean_tokens": 9599.833333333334,
-    "approximate_mean_chunks": 566.3333333333334
+    "approximate_mean_chunks": 566.3333333333334,
+    "incorrect_answers": [
+      "10",
+      "84",
+      "37"
+    ]
   },
   {
     "problem_idx": "problem_3066",
@@ -687,7 +920,12 @@
     "gt_answer": "32",
     "accuracy": 0.25,
     "approximate_mean_tokens": 7507.5,
-    "approximate_mean_chunks": 579.0
+    "approximate_mean_chunks": 579.0,
+    "incorrect_answers": [
+      "141",
+      "25",
+      "42"
+    ]
   },
   {
     "problem_idx": "problem_2131",
@@ -697,7 +935,13 @@
     "gt_answer": "458",
     "accuracy": 0.6,
     "approximate_mean_tokens": 8660.975,
-    "approximate_mean_chunks": 579.9
+    "approximate_mean_chunks": 579.9,
+    "incorrect_answers": [
+      "408",
+      "128",
+      "306",
+      "231"
+    ]
   },
   {
     "problem_idx": "problem_3052",
@@ -707,7 +951,11 @@
     "gt_answer": "56",
     "accuracy": 0.7142857142857143,
     "approximate_mean_tokens": 7468.821428571428,
-    "approximate_mean_chunks": 605.2857142857143
+    "approximate_mean_chunks": 605.2857142857143,
+    "incorrect_answers": [
+      "266",
+      "122"
+    ]
   },
   {
     "problem_idx": "problem_7022",
@@ -717,7 +965,12 @@
     "gt_answer": "\\frac{1}{64}",
     "accuracy": 0.7,
     "approximate_mean_tokens": 8277.025,
-    "approximate_mean_chunks": 619.6
+    "approximate_mean_chunks": 619.6,
+    "incorrect_answers": [
+      "\\dfrac{1}{16}",
+      "\\dfrac{1}{72}",
+      "\\dfrac{1}{8}"
+    ]
   },
   {
     "problem_idx": "problem_2138",
@@ -727,7 +980,15 @@
     "gt_answer": "172",
     "accuracy": 0.3333333333333333,
     "approximate_mean_tokens": 9262.583333333334,
-    "approximate_mean_chunks": 643.8888888888889
+    "approximate_mean_chunks": 643.8888888888889,
+    "incorrect_answers": [
+      "1440",
+      "49",
+      "8192",
+      "377",
+      "37",
+      "264"
+    ]
   },
   {
     "problem_idx": "problem_2991",
@@ -737,7 +998,11 @@
     "gt_answer": "51",
     "accuracy": 0.6,
     "approximate_mean_tokens": 8111.2,
-    "approximate_mean_chunks": 747.8
+    "approximate_mean_chunks": 747.8,
+    "incorrect_answers": [
+      "19",
+      "103"
+    ]
   },
   {
     "problem_idx": "problem_4238",
@@ -747,6 +1012,10 @@
     "gt_answer": "10100",
     "accuracy": 0.3333333333333333,
     "approximate_mean_tokens": 8966.125,
-    "approximate_mean_chunks": 753.5
+    "approximate_mean_chunks": 753.5,
+    "incorrect_answers": [
+      "200",
+      "101"
+    ]
   }
 ]
