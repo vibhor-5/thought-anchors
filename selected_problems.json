@@ -87,6 +87,22 @@
     ]
   },
   {
+    "problem_idx": "problem_3105",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "[asy] draw((0,0)--(0,3)--(4,0)--cycle,dot); draw((4,0)--(7,0)--(7,10)--cycle,dot); draw((0,3)--(7,10),dot); MP(\"C\",(0,0),SW);MP(\"A\",(0,3),NW);MP(\"B\",(4,0),S);MP(\"E\",(7,0),SE);MP(\"D\",(7,10),NE); [/asy]\nTriangle $ABC$ has a right angle at $C, AC=3$ and $BC=4$. Triangle $ABD$ has a right angle at $A$ and $AD=12$. Points $C$ and $D$ are on opposite sides of $\\overline{AB}$. The line through $D$ parallel to $\\overline{AC}$ meets $\\overline{CB}$ extended at $E$. If\\[\\frac{DE}{DB}=\\frac{m}{n},\\]where $m$ and $n$ are relatively prime positive integers, then $m+n=$\n$\\text{(A) } 25\\quad \\text{(B) } 128\\quad \\text{(C) } 153\\quad \\text{(D) } 243\\quad \\text{(E) } 256$\n",
+    "gt_answer": "128",
+    "accuracy": 0.3,
+    "approximate_mean_tokens": 2827.075,
+    "approximate_mean_chunks": 151.0,
+    "incorrect_answers": [
+      "B"
+    ],
+    "correct_answers": [
+      "128"
+    ]
+  },
+  {
     "problem_idx": "problem_3550",
     "level": "Level 5",
     "type": "Intermediate Algebra",
@@ -174,6 +190,22 @@
     ]
   },
   {
+    "problem_idx": "problem_4605",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "If $f(x) = \\frac{1 + x}{1 - 3x}, f_1(x) = f(f(x)), f_2(x) = f(f_1(x)),$ and in general $f_n(x) = f(f_{n-1}(x)),$ then $f_{1993}(3)=$\n",
+    "gt_answer": "\\frac{1}{5}",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 3402.225,
+    "approximate_mean_chunks": 219.3,
+    "incorrect_answers": [
+      "-\\dfrac{1}{2}"
+    ],
+    "correct_answers": [
+      "\\dfrac{1}{5}"
+    ]
+  },
+  {
     "problem_idx": "problem_2870",
     "level": "Level 5",
     "type": "Geometry",
@@ -224,6 +256,22 @@
     ]
   },
   {
+    "problem_idx": "problem_3360",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "A right cylindrical oil tank is $15$ feet tall and its circular bases have diameters of $4$ feet each. When the tank is lying flat on its side (not on one of the circular ends), the oil inside is $3$ feet deep. How deep, in feet, would the oil have been if the tank had been standing upright on one of its bases? Express your answer as a decimal to the nearest tenth.",
+    "gt_answer": "12.1",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 4732.6,
+    "approximate_mean_chunks": 223.8,
+    "incorrect_answers": [
+      "2.9"
+    ],
+    "correct_answers": [
+      "12.1"
+    ]
+  },
+  {
     "problem_idx": "problem_2050",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -270,6 +318,24 @@
     ],
     "correct_answers": [
       "1970"
+    ]
+  },
+  {
+    "problem_idx": "problem_3935",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "A certain function $f$ has the properties that $f(3x) = 3f(x)$ for all positive real values of $x$, and that $f(x) = 1 - |x - 2|$ for $1\\leq x \\leq 3$. Find the smallest $x$ for which $f(x) = f(2001)$.",
+    "gt_answer": "429",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 4308.475,
+    "approximate_mean_chunks": 241.2,
+    "incorrect_answers": [
+      "\\dfrac{143}{177147}",
+      "\\dfrac{143}{19683}",
+      "\\dfrac{10726}{25}"
+    ],
+    "correct_answers": [
+      "429"
     ]
   },
   {
@@ -327,24 +393,6 @@
     ]
   },
   {
-    "problem_idx": "problem_2903",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "Two identical rectangular crates are packed with cylindrical pipes, using different methods. Each pipe has diameter 10 cm.  A side view of the first four rows of each of the two different methods of packing is shown below.\n\n[asy]\ndraw(circle((1,1),1),black+linewidth(1));\ndraw(circle((3,1),1),black+linewidth(1));\ndraw(circle((5,1),1),black+linewidth(1));\ndraw(circle((7,1),1),black+linewidth(1));\ndraw(circle((9,1),1),black+linewidth(1));\ndraw(circle((11,1),1),black+linewidth(1));\ndraw(circle((13,1),1),black+linewidth(1));\ndraw(circle((15,1),1),black+linewidth(1));\ndraw(circle((17,1),1),black+linewidth(1));\ndraw(circle((19,1),1),black+linewidth(1));\ndraw(circle((1,3),1),black+linewidth(1));\ndraw(circle((3,3),1),black+linewidth(1));\ndraw(circle((5,3),1),black+linewidth(1));\ndraw(circle((7,3),1),black+linewidth(1));\ndraw(circle((9,3),1),black+linewidth(1));\ndraw(circle((11,3),1),black+linewidth(1));\ndraw(circle((13,3),1),black+linewidth(1));\ndraw(circle((15,3),1),black+linewidth(1));\ndraw(circle((17,3),1),black+linewidth(1));\ndraw(circle((19,3),1),black+linewidth(1));\ndraw(circle((1,5),1),black+linewidth(1));\ndraw(circle((3,5),1),black+linewidth(1));\ndraw(circle((5,5),1),black+linewidth(1));\ndraw(circle((7,5),1),black+linewidth(1));\ndraw(circle((9,5),1),black+linewidth(1));\ndraw(circle((11,5),1),black+linewidth(1));\ndraw(circle((13,5),1),black+linewidth(1));\ndraw(circle((15,5),1),black+linewidth(1));\ndraw(circle((17,5),1),black+linewidth(1));\ndraw(circle((19,5),1),black+linewidth(1));\ndraw(circle((1,7),1),black+linewidth(1));\ndraw(circle((3,7),1),black+linewidth(1));\ndraw(circle((5,7),1),black+linewidth(1));\ndraw(circle((7,7),1),black+linewidth(1));\ndraw(circle((9,7),1),black+linewidth(1));\ndraw(circle((11,7),1),black+linewidth(1));\ndraw(circle((13,7),1),black+linewidth(1));\ndraw(circle((15,7),1),black+linewidth(1));\ndraw(circle((17,7),1),black+linewidth(1));\ndraw(circle((19,7),1),black+linewidth(1));\ndraw((0,15)--(0,0)--(20,0)--(20,15),black+linewidth(1));\ndot((10,9));\ndot((10,11));\ndot((10,13));\nlabel(\"Crate A\",(10,0),S);\n[/asy]\n\n[asy]\ndraw(circle((1,1),1),black+linewidth(1));\ndraw(circle((3,1),1),black+linewidth(1));\ndraw(circle((5,1),1),black+linewidth(1));\ndraw(circle((7,1),1),black+linewidth(1));\ndraw(circle((9,1),1),black+linewidth(1));\ndraw(circle((11,1),1),black+linewidth(1));\ndraw(circle((13,1),1),black+linewidth(1));\ndraw(circle((15,1),1),black+linewidth(1));\ndraw(circle((17,1),1),black+linewidth(1));\ndraw(circle((19,1),1),black+linewidth(1));\ndraw(circle((2,2.75),1),black+linewidth(1));\ndraw(circle((4,2.75),1),black+linewidth(1));\ndraw(circle((6,2.75),1),black+linewidth(1));\ndraw(circle((8,2.75),1),black+linewidth(1));\ndraw(circle((10,2.75),1),black+linewidth(1));\ndraw(circle((12,2.75),1),black+linewidth(1));\ndraw(circle((14,2.75),1),black+linewidth(1));\ndraw(circle((16,2.75),1),black+linewidth(1));\ndraw(circle((18,2.75),1),black+linewidth(1));\ndraw(circle((1,4.5),1),black+linewidth(1));\ndraw(circle((3,4.5),1),black+linewidth(1));\ndraw(circle((5,4.5),1),black+linewidth(1));\ndraw(circle((7,4.5),1),black+linewidth(1));\ndraw(circle((9,4.5),1),black+linewidth(1));\ndraw(circle((11,4.5),1),black+linewidth(1));\ndraw(circle((13,4.5),1),black+linewidth(1));\ndraw(circle((15,4.5),1),black+linewidth(1));\ndraw(circle((17,4.5),1),black+linewidth(1));\ndraw(circle((19,4.5),1),black+linewidth(1));\ndraw(circle((2,6.25),1),black+linewidth(1));\ndraw(circle((4,6.25),1),black+linewidth(1));\ndraw(circle((6,6.25),1),black+linewidth(1));\ndraw(circle((8,6.25),1),black+linewidth(1));\ndraw(circle((10,6.25),1),black+linewidth(1));\ndraw(circle((12,6.25),1),black+linewidth(1));\ndraw(circle((14,6.25),1),black+linewidth(1));\ndraw(circle((16,6.25),1),black+linewidth(1));\ndraw(circle((18,6.25),1),black+linewidth(1));\ndraw((0,15)--(0,0)--(20,0)--(20,15),black+linewidth(1));\ndot((10,9));\ndot((10,11));\ndot((10,13));\nlabel(\"Crate B\",(10,0),S);\n[/asy]\n\nAfter the crates have been packed with 200 pipes each, what is the positive difference in the total heights (in cm) of the two packings?",
-    "gt_answer": "190-100\\sqrt{3}",
-    "accuracy": 0.25,
-    "approximate_mean_tokens": 6404.65625,
-    "approximate_mean_chunks": 250.0,
-    "incorrect_answers": [
-      "16.8",
-      "23.75",
-      "190 - 100\\sqrt{3}\\ \\text{cm}"
-    ],
-    "correct_answers": [
-      "190 - 100\\sqrt{3}"
-    ]
-  },
-  {
     "problem_idx": "problem_2945",
     "level": "Level 5",
     "type": "Geometry",
@@ -366,9 +414,9 @@
     "type": "Algebra",
     "problem": "How many zeros are in the expansion of $999,\\!999,\\!999,\\!998^2$?",
     "gt_answer": "11",
-    "accuracy": 0.5555555555555556,
-    "approximate_mean_tokens": 4197.888888888889,
-    "approximate_mean_chunks": 262.44444444444446,
+    "accuracy": 0.6,
+    "approximate_mean_tokens": 4209.0,
+    "approximate_mean_chunks": 262.7,
     "incorrect_answers": [
       "10",
       "12"
@@ -393,6 +441,24 @@
     ],
     "correct_answers": [
       "[2\\sqrt{2}, 4]"
+    ]
+  },
+  {
+    "problem_idx": "problem_3722",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "Consider all polynomials of the form\n\\[x^9 + a_8 x^8 + a_7 x^7 + \\dots + a_2 x^2 + a_1 x + a_0,\\]where $a_i \\in \\{0,1\\}$ for all $0 \\le i \\le 8.$  Find the number of such polynomials that have exactly two different integer roots.",
+    "gt_answer": "56",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 5186.4,
+    "approximate_mean_chunks": 268.8,
+    "incorrect_answers": [
+      "126",
+      "12",
+      "21"
+    ],
+    "correct_answers": [
+      "56"
     ]
   },
   {
@@ -426,24 +492,6 @@
     ],
     "correct_answers": [
       "3"
-    ]
-  },
-  {
-    "problem_idx": "problem_3935",
-    "level": "Level 5",
-    "type": "Intermediate Algebra",
-    "problem": "A certain function $f$ has the properties that $f(3x) = 3f(x)$ for all positive real values of $x$, and that $f(x) = 1 - |x - 2|$ for $1\\leq x \\leq 3$. Find the smallest $x$ for which $f(x) = f(2001)$.",
-    "gt_answer": "429",
-    "accuracy": 0.6666666666666666,
-    "approximate_mean_tokens": 4760.8,
-    "approximate_mean_chunks": 272.6,
-    "incorrect_answers": [
-      "\\dfrac{143}{177147}",
-      "\\dfrac{143}{19683}",
-      "\\dfrac{10726}{25}"
-    ],
-    "correct_answers": [
-      "429"
     ]
   },
   {
@@ -637,6 +685,24 @@
     ]
   },
   {
+    "problem_idx": "problem_5252",
+    "level": "Level 5",
+    "type": "Number Theory",
+    "problem": "For how many pairs of consecutive integers in $\\{1000,1001,1002,\\ldots,2000\\}$ is no carrying required when the two integers are added?\n",
+    "gt_answer": "156",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 5399.15,
+    "approximate_mean_chunks": 332.9,
+    "incorrect_answers": [
+      "150",
+      "216",
+      "256"
+    ],
+    "correct_answers": [
+      "156"
+    ]
+  },
+  {
     "problem_idx": "problem_3003",
     "level": "Level 5",
     "type": "Geometry",
@@ -652,6 +718,24 @@
     ],
     "correct_answers": [
       "484"
+    ]
+  },
+  {
+    "problem_idx": "problem_7379",
+    "level": "Level 5",
+    "type": "Precalculus",
+    "problem": "Find the sum of the values of $x$ such that $\\cos^3 3x+ \\cos^3 5x = 8 \\cos^3 4x \\cos^3 x$, where $x$ is measured in degrees and $100< x< 200.$\n",
+    "gt_answer": "906",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 4749.425,
+    "approximate_mean_chunks": 340.9,
+    "incorrect_answers": [
+      "636",
+      "780",
+      "420"
+    ],
+    "correct_answers": [
+      "906"
     ]
   },
   {
@@ -687,6 +771,42 @@
     ],
     "correct_answers": [
       "\\dfrac{3\\sqrt{3}}{2}"
+    ]
+  },
+  {
+    "problem_idx": "problem_5301",
+    "level": "Level 5",
+    "type": "Number Theory",
+    "problem": "Let $S_i$ be the set of all integers $n$ such that $100i\\leq n < 100(i + 1)$. For example, $S_4$ is the set ${400,401,402,\\ldots,499}$. How many of the sets $S_0, S_1, S_2, \\ldots, S_{999}$ do not contain a perfect square?\n",
+    "gt_answer": "708",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 7084.425,
+    "approximate_mean_chunks": 352.7,
+    "incorrect_answers": [
+      "32",
+      "707",
+      "852"
+    ],
+    "correct_answers": [
+      "708"
+    ]
+  },
+  {
+    "problem_idx": "problem_3915",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "Find all values of the real number $a$ so that the four complex roots of\n\\[z^4 - 6z^3 + 11az^2 - 3(2a^2 + 3a - 3) z + 1 = 0\\]form the vertices of a parallelogram in the complex plane.  Enter all the values, separated by commas.",
+    "gt_answer": "3",
+    "accuracy": 0.6,
+    "approximate_mean_tokens": 6379.85,
+    "approximate_mean_chunks": 353.2,
+    "incorrect_answers": [
+      "1",
+      "2 + \\dfrac{\\sqrt{34}}{4}",
+      "2 + \\dfrac{\\sqrt{34}}{4}, 2 - \\dfrac{\\sqrt{34}}{4}"
+    ],
+    "correct_answers": [
+      "3"
     ]
   },
   {
@@ -735,24 +855,6 @@
     ],
     "correct_answers": [
       "12378"
-    ]
-  },
-  {
-    "problem_idx": "problem_5301",
-    "level": "Level 5",
-    "type": "Number Theory",
-    "problem": "Let $S_i$ be the set of all integers $n$ such that $100i\\leq n < 100(i + 1)$. For example, $S_4$ is the set ${400,401,402,\\ldots,499}$. How many of the sets $S_0, S_1, S_2, \\ldots, S_{999}$ do not contain a perfect square?\n",
-    "gt_answer": "708",
-    "accuracy": 0.6666666666666666,
-    "approximate_mean_tokens": 7312.305555555556,
-    "approximate_mean_chunks": 373.3333333333333,
-    "incorrect_answers": [
-      "32",
-      "707",
-      "852"
-    ],
-    "correct_answers": [
-      "708"
     ]
   },
   {
@@ -812,24 +914,6 @@
     ]
   },
   {
-    "problem_idx": "problem_4611",
-    "level": "Level 5",
-    "type": "Intermediate Algebra",
-    "problem": "The cubic polynomial $p(x)$ satisfies $p(2) = 1,$ $p(7) = 19,$ $p(15) = 11,$ and $p(20) = 29.$  Find\n\\[p(1) + p(2) + p(3) + \\dots + p(21).\\]",
-    "gt_answer": "315",
-    "accuracy": 0.6666666666666666,
-    "approximate_mean_tokens": 5136.25,
-    "approximate_mean_chunks": 385.1111111111111,
-    "incorrect_answers": [
-      "681",
-      "4286",
-      "1215"
-    ],
-    "correct_answers": [
-      "315"
-    ]
-  },
-  {
     "problem_idx": "problem_3627",
     "level": "Level 5",
     "type": "Intermediate Algebra",
@@ -848,21 +932,20 @@
     ]
   },
   {
-    "problem_idx": "problem_3061",
+    "problem_idx": "problem_3040",
     "level": "Level 5",
     "type": "Geometry",
-    "problem": "Centered at each lattice point in the coordinate plane are a circle radius $\\frac{1}{10}$ and a square with sides of length $\\frac{1}{5}$ whose sides are parallel to the coordinate axes. The line segment from $(0,0)$ to $(1001, 429)$ intersects $m$ of the squares and $n$ of the circles. Find $m + n$.\n",
-    "gt_answer": "574",
-    "accuracy": 0.375,
-    "approximate_mean_tokens": 8279.53125,
-    "approximate_mean_chunks": 392.375,
+    "problem": "Triangle $ABC$ with right angle at $C$, $\\angle BAC < 45^\\circ$ and $AB = 4$. Point $P$ on $\\overline{AB}$ is chosen such that $\\angle APC = 2\\angle ACP$ and $CP = 1$. The ratio $\\frac{AP}{BP}$ can be represented in the form $p + q\\sqrt{r}$, where $p$, $q$, $r$ are positive integers and $r$ is not divisible by the square of any prime. Find $p+q+r$.\n",
+    "gt_answer": "7",
+    "accuracy": 0.7142857142857143,
+    "approximate_mean_tokens": 5570.785714285715,
+    "approximate_mean_chunks": 390.42857142857144,
     "incorrect_answers": [
-      "1431",
-      "6579",
-      "2004"
+      "14",
+      "13"
     ],
     "correct_answers": [
-      "574"
+      "7"
     ]
   },
   {
@@ -969,21 +1052,37 @@
     ]
   },
   {
-    "problem_idx": "problem_7373",
+    "problem_idx": "problem_2158",
     "level": "Level 5",
-    "type": "Precalculus",
-    "problem": "Equilateral triangle $ABC$ has side length $\\sqrt{111}$. There are four distinct triangles $AD_1E_1$, $AD_1E_2$, $AD_2E_3$, and $AD_2E_4$, each congruent to triangle $ABC$, with $BD_1 = BD_2 = \\sqrt{11}$. Find $\\sum_{k=1}^4(CE_k)^2$.",
-    "gt_answer": "677",
-    "accuracy": 0.625,
-    "approximate_mean_tokens": 5664.375,
-    "approximate_mean_chunks": 401.25,
+    "type": "Counting & Probability",
+    "problem": "Let $A = \\{1, 2, 3, 4, 5, 6, 7\\}$, and let $N$ be the number of functions $f$ from set $A$ to set $A$ such that $f(f(x))$ is a constant function. Find the remainder when $N$ is divided by $1000$.\n",
+    "gt_answer": "399",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 7659.916666666667,
+    "approximate_mean_chunks": 404.8333333333333,
     "incorrect_answers": [
-      "666",
-      "466",
-      "1099"
+      "700"
     ],
     "correct_answers": [
-      "677"
+      "399"
+    ]
+  },
+  {
+    "problem_idx": "problem_4611",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "The cubic polynomial $p(x)$ satisfies $p(2) = 1,$ $p(7) = 19,$ $p(15) = 11,$ and $p(20) = 29.$  Find\n\\[p(1) + p(2) + p(3) + \\dots + p(21).\\]",
+    "gt_answer": "315",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 5425.0,
+    "approximate_mean_chunks": 407.7,
+    "incorrect_answers": [
+      "681",
+      "4286",
+      "1215"
+    ],
+    "correct_answers": [
+      "315"
     ]
   },
   {
@@ -1041,6 +1140,25 @@
     ]
   },
   {
+    "problem_idx": "problem_3061",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Centered at each lattice point in the coordinate plane are a circle radius $\\frac{1}{10}$ and a square with sides of length $\\frac{1}{5}$ whose sides are parallel to the coordinate axes. The line segment from $(0,0)$ to $(1001, 429)$ intersects $m$ of the squares and $n$ of the circles. Find $m + n$.\n",
+    "gt_answer": "574",
+    "accuracy": 0.4,
+    "approximate_mean_tokens": 8483.25,
+    "approximate_mean_chunks": 416.9,
+    "incorrect_answers": [
+      "1431",
+      "6579",
+      "2004",
+      "430"
+    ],
+    "correct_answers": [
+      "574"
+    ]
+  },
+  {
     "problem_idx": "problem_4167",
     "level": "Level 5",
     "type": "Intermediate Algebra",
@@ -1071,6 +1189,27 @@
     ],
     "correct_answers": [
       "\\dfrac{4}{3}"
+    ]
+  },
+  {
+    "problem_idx": "problem_2798",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "A semicircle of diameter 1 sits at the top of a semicircle of diameter 2, as shown. The shaded area inside the smaller semicircle and outside the larger semicircle is called a $\\textit{lune}$. Determine the area of this lune. Express your answer in terms of $\\pi$ and in simplest radical form.\n\n[asy]\nfill((0,2.73)..(1,1.73)--(-1,1.73)..cycle,gray(0.7));\ndraw((0,2.73)..(1,1.73)--(-1,1.73)..cycle,linewidth(0.7));\nfill((0,2)..(2,0)--(-2,0)..cycle,white);\ndraw((0,2)..(2,0)--(-2,0)..cycle,linewidth(0.7));\ndraw((-1,1.73)--(1,1.73),dashed);\nlabel(\"2\",(0,0),S);\nlabel(\"1\",(0,1.73),S);\n[/asy]",
+    "gt_answer": "\\frac{\\sqrt{3}}{4} - \\frac{1}{24}\\pi",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 9074.1,
+    "approximate_mean_chunks": 421.3,
+    "incorrect_answers": [
+      "\\dfrac{\\pi + 3}{48}",
+      "\\dfrac{4 - \\pi}{8}",
+      "\\dfrac{\\pi}{8}",
+      "\\dfrac{\\pi}{12}",
+      "\\dfrac{\\sqrt{3}}{4} - \\dfrac{\\pi}{8}"
+    ],
+    "correct_answers": [
+      "\\dfrac{\\sqrt{3}}{4} - \\dfrac{\\pi}{24}",
+      "\\dfrac{6\\sqrt{3} - \\pi}{24}"
     ]
   },
   {
@@ -1221,19 +1360,21 @@
     ]
   },
   {
-    "problem_idx": "problem_2158",
+    "problem_idx": "problem_4202",
     "level": "Level 5",
-    "type": "Counting & Probability",
-    "problem": "Let $A = \\{1, 2, 3, 4, 5, 6, 7\\}$, and let $N$ be the number of functions $f$ from set $A$ to set $A$ such that $f(f(x))$ is a constant function. Find the remainder when $N$ is divided by $1000$.\n",
-    "gt_answer": "399",
-    "accuracy": 0.5,
-    "approximate_mean_tokens": 9135.4,
-    "approximate_mean_chunks": 455.5,
+    "type": "Intermediate Algebra",
+    "problem": "Let $x,$ $y,$ $z$ be positive real numbers such that\n\\[\\left( \\frac{x}{y} + \\frac{y}{z} + \\frac{z}{x} \\right) + \\left( \\frac{y}{x} + \\frac{z}{y} + \\frac{x}{z} \\right) = 8.\\]Find the minimum value of\n\\[\\left( \\frac{x}{y} + \\frac{y}{z} + \\frac{z}{x} \\right) \\left( \\frac{y}{x} + \\frac{z}{y} + \\frac{x}{z} \\right).\\]",
+    "gt_answer": "22 \\sqrt{11} - 57",
+    "accuracy": 0.4,
+    "approximate_mean_tokens": 7990.125,
+    "approximate_mean_chunks": 452.6,
     "incorrect_answers": [
-      "700"
+      "\\dfrac{11\\sqrt{105} - 81}{2}",
+      "9",
+      "16"
     ],
     "correct_answers": [
-      "399"
+      "22\\sqrt{11} - 57"
     ]
   },
   {
@@ -1294,23 +1435,21 @@
     ]
   },
   {
-    "problem_idx": "problem_2798",
+    "problem_idx": "problem_4297",
     "level": "Level 5",
-    "type": "Geometry",
-    "problem": "A semicircle of diameter 1 sits at the top of a semicircle of diameter 2, as shown. The shaded area inside the smaller semicircle and outside the larger semicircle is called a $\\textit{lune}$. Determine the area of this lune. Express your answer in terms of $\\pi$ and in simplest radical form.\n\n[asy]\nfill((0,2.73)..(1,1.73)--(-1,1.73)..cycle,gray(0.7));\ndraw((0,2.73)..(1,1.73)--(-1,1.73)..cycle,linewidth(0.7));\nfill((0,2)..(2,0)--(-2,0)..cycle,white);\ndraw((0,2)..(2,0)--(-2,0)..cycle,linewidth(0.7));\ndraw((-1,1.73)--(1,1.73),dashed);\nlabel(\"2\",(0,0),S);\nlabel(\"1\",(0,1.73),S);\n[/asy]",
-    "gt_answer": "\\frac{\\sqrt{3}}{4} - \\frac{1}{24}\\pi",
-    "accuracy": 0.375,
-    "approximate_mean_tokens": 9752.6875,
-    "approximate_mean_chunks": 459.375,
+    "type": "Intermediate Algebra",
+    "problem": "Consider the set of 30 parabolas defined as follows: all parabolas have as focus the point $(0,0)$ and the directrix lines have the form $y=ax+b$ with $a$ and $b$ integers such that $a\\in \\{-2,-1,0,1,2\\}$ and $b\\in \\{-3,-2,-1,1,2,3\\}$. No three of these parabolas have a common point. How many points in the plane are on two of these parabolas?",
+    "gt_answer": "810",
+    "accuracy": 0.3,
+    "approximate_mean_tokens": 7693.0,
+    "approximate_mean_chunks": 459.4,
     "incorrect_answers": [
-      "\\dfrac{\\pi + 3}{48}",
-      "\\dfrac{4 - \\pi}{8}",
-      "\\dfrac{\\pi}{8}",
-      "\\dfrac{\\pi}{12}",
-      "\\dfrac{\\sqrt{3}}{4} - \\dfrac{\\pi}{8}"
+      "870",
+      "1590",
+      "720"
     ],
     "correct_answers": [
-      "\\dfrac{\\sqrt{3}}{4} - \\dfrac{\\pi}{24}"
+      "810"
     ]
   },
   {
@@ -1327,6 +1466,24 @@
     ],
     "correct_answers": [
       "-7"
+    ]
+  },
+  {
+    "problem_idx": "problem_7373",
+    "level": "Level 5",
+    "type": "Precalculus",
+    "problem": "Equilateral triangle $ABC$ has side length $\\sqrt{111}$. There are four distinct triangles $AD_1E_1$, $AD_1E_2$, $AD_2E_3$, and $AD_2E_4$, each congruent to triangle $ABC$, with $BD_1 = BD_2 = \\sqrt{11}$. Find $\\sum_{k=1}^4(CE_k)^2$.",
+    "gt_answer": "677",
+    "accuracy": 0.625,
+    "approximate_mean_tokens": 6328.95,
+    "approximate_mean_chunks": 464.1,
+    "incorrect_answers": [
+      "666",
+      "466",
+      "1099"
+    ],
+    "correct_answers": [
+      "677"
     ]
   },
   {
@@ -1584,6 +1741,38 @@
     ],
     "correct_answers": [
       "\\dfrac{1}{64}"
+    ]
+  },
+  {
+    "problem_idx": "problem_2942",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Jenny and Kenny are walking in the same direction, Kenny at 3 feet per second and Jenny at 1 foot per second, on parallel paths that are 200 feet apart. A tall circular building 100 feet in diameter is centered midway between the paths. At the instant when the building first blocks the line of sight between Jenny and Kenny, they are 200 feet apart. Let $t\\,$ be the amount of time, in seconds, before Jenny and Kenny can see each other again. If $t\\,$ is written as a fraction in lowest terms, what is the sum of the numerator and denominator?\n",
+    "gt_answer": "163",
+    "accuracy": 0.6666666666666666,
+    "approximate_mean_tokens": 12245.7,
+    "approximate_mean_chunks": 636.5,
+    "incorrect_answers": [
+      "103"
+    ],
+    "correct_answers": [
+      "163"
+    ]
+  },
+  {
+    "problem_idx": "problem_2934",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Twelve congruent disks are placed on a circle $C$ of radius 1 in such a way that the twelve disks cover $C$, no two of the disks overlap, and so that each of the twelve disks is tangent to its two neighbors. The resulting arrangement of disks is shown in the figure below. The sum of the areas of the twelve disks can be written in the from $\\pi(a-b\\sqrt{c})$, where $a,b,c$ are positive integers and $c$ is not divisible by the square of any prime. Find $a+b+c$.\n[asy] unitsize(100); draw(Circle((0,0),1)); dot((0,0)); draw((0,0)--(1,0)); label(\"$1$\", (0.5,0), S);  for (int i=0; i<12; ++i) { dot((cos(i*pi/6), sin(i*pi/6))); }  for (int a=1; a<24; a+=2) { dot(((1/cos(pi/12))*cos(a*pi/12), (1/cos(pi/12))*sin(a*pi/12))); draw(((1/cos(pi/12))*cos(a*pi/12), (1/cos(pi/12))*sin(a*pi/12))--((1/cos(pi/12))*cos((a+2)*pi/12), (1/cos(pi/12))*sin((a+2)*pi/12))); draw(Circle(((1/cos(pi/12))*cos(a*pi/12), (1/cos(pi/12))*sin(a*pi/12)), tan(pi/12))); }[/asy]\n",
+    "gt_answer": "135",
+    "accuracy": 0.75,
+    "approximate_mean_tokens": 8937.525,
+    "approximate_mean_chunks": 645.6,
+    "incorrect_answers": [
+      "12"
+    ],
+    "correct_answers": [
+      "135"
     ]
   },
   {
