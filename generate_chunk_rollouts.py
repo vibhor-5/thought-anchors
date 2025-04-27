@@ -27,11 +27,11 @@ parser = argparse.ArgumentParser(description='Generate chain-of-thought solution
 parser.add_argument('-m', '--model', type=str, default="deepseek/deepseek-r1-distill-qwen-14b", help='Model to use')
 parser.add_argument('-o', '--output_dir', type=str, default='math_rollouts', help='Directory to save results')
 parser.add_argument('-np', '--num_problems', type=int, default=100, help='Number of problems to sample')
-parser.add_argument('-nr', '--num_rollouts', type=int, default=100, help='Number of rollouts per chunk')
+parser.add_argument('-nr', '--num_rollouts', type=int, default=10, help='Number of rollouts per chunk')
 parser.add_argument('-t', '--temperature', type=float, default=0.6, help='Temperature for rollout generation')
 parser.add_argument('-tp', '--top_p', type=float, default=0.92, help='Top-p sampling parameter')
 parser.add_argument('-mt', '--max_tokens', type=int, default=16384, help='Maximum number of tokens for generation')
-parser.add_argument('-mc', '--max_chunks', type=int, default=250, help='Maximum number of chunks to process')
+parser.add_argument('-mc', '--max_chunks', type=int, default=320, help='Maximum number of chunks to process')
 parser.add_argument('-s', '--seed', type=int, default=42, help='Random seed for reproducibility')
 parser.add_argument('-f', '--force', action='store_true', help='Force regeneration even if solutions exist')
 parser.add_argument('-ep', '--exclude_problems', type=str, default=None, help='Comma-separated list of problem IDs to exclude')
@@ -131,7 +131,7 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
     if args.min_p is not None and args.provider != "Fireworks":  # Fireworks doesn't support min_p
         payload["min_p"] = args.min_p
     if args.seed is not None:
-        payload["seed"] = args.seed
+        payload["seed"] = None # args.seed
     
     # Implement exponential backoff for retries
     max_retries = 3
@@ -140,7 +140,7 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
     for attempt in range(max_retries):
         try:
             async with httpx.AsyncClient() as client:
-                response = await client.post(api_url, headers=headers, json=payload, timeout=360)
+                response = await client.post(api_url, headers=headers, json=payload, timeout=240)
                 
                 # Handle different error codes
                 if response.status_code == 500:
@@ -371,23 +371,25 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
     else:
         solution_text = source_text
     
-    # Split into chunks
-    chunks = split_solution_into_chunks(solution_text)
-    print(f"Problem {problem_idx}: Split into {len(chunks)} chunks")
+    # Save chunks to a separate file
+    chunks_file = problem_dir / "chunks.json"
     
+    if not chunks_file.exists() or args.force:
+        chunks = split_solution_into_chunks(solution_text)
+        print(f"Problem {problem_idx}: Split into {len(chunks)} chunks")
+        
+        with open(chunks_file, 'w', encoding='utf-8') as f:
+            json.dump({"source_text": source_text, "solution_text": solution_text, "chunks": chunks}, f, indent=2)
+        
+        print(f"Problem {problem_idx}: Saved chunks to {chunks_file}")
+    else:
+        with open(chunks_file, 'r', encoding='utf-8') as f:
+            chunks = json.load(f)['chunks']
+        print(f"Problem {problem_idx}: Loaded {len(chunks)} existing chunks")
+        
     if len(chunks) > args.max_chunks:
         print(f"Problem {problem_idx}: Too many chunks. Will not generate rollouts.")
         return
-    
-    # Save chunks to a separate file
-    chunks_file = problem_dir / "chunks.json"
-    with open(chunks_file, 'w', encoding='utf-8') as f:
-        json.dump({
-            "source_text": source_text,
-            "solution_text": solution_text,
-            "chunks": chunks
-        }, f, indent=2)
-    print(f"Problem {problem_idx}: Saved chunks to {chunks_file}")
     
     # Build cumulative chunks for proper continuation
     cumulative_chunks = []
@@ -435,10 +437,7 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
                             json.dump(existing_solutions, f, indent=2)
                 
                 # Filter for valid solutions (has answer and no error)
-                valid_existing_solutions = [
-                    sol for sol in existing_solutions 
-                    if sol.get("answer") and len(sol.get("answer", "")) > 0 and "error" not in sol
-                ]
+                valid_existing_solutions = [sol for sol in existing_solutions if sol.get("answer") and len(sol.get("answer", "")) > 0 and "error" not in sol]
                 
                 num_existing = len(existing_solutions)
                 num_valid = len(valid_existing_solutions)

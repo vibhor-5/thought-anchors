@@ -136,7 +136,7 @@ async def make_openrouter_request(prompt: str, model: str, temperature: float, t
     if logit_bias:
         payload["logit_bias"] = logit_bias
     
-    async with httpx.AsyncClient(timeout=60.0) as client:
+    async with httpx.AsyncClient(timeout=240) as client:
         response = await client.post(OPENROUTER_API_URL, headers=headers, json=payload)
         return response.json()
 
@@ -165,9 +165,7 @@ async def generate_solution(problem: Dict, model: str, temperature: float, top_p
     
     for attempt in range(max_retries):
         try:
-            response = await make_openrouter_request(
-                prompt, model, temperature, top_p, max_tokens, provider, logit_bias
-            )
+            response = await make_openrouter_request(prompt, model, temperature, top_p, max_tokens, provider, logit_bias)
             
             solution_text = response['choices'][0]['message']['content']
             
@@ -563,12 +561,7 @@ async def main():
         torch.cuda.manual_seed_all(args.seed)
     
     # Load problems
-    problems = load_math_problems(
-        problem_type=args.type,
-        level=args.level,
-        num_problems=args.num_problems,
-        split=args.split
-    )
+    problems = load_math_problems(problem_type=args.type, level=args.level, num_problems=args.num_problems, split=args.split)
     
     if not problems:
         print("No problems found with the specified criteria.")
