@@ -148,63 +148,32 @@ This annotation will be used to build a dependency graph and perform causal anal
 
 ### Function Tags (you may assign multiple per chunk if appropriate):
 
-1. `initialization`: 
-    Chunk rephrases the problem, unpacks definitions, or states general intentions at the start of reasoning. 
-    Often the first few chunks.
-
-2. `planning_step`: 
-    Chunk describes a plan or strategy for how to approach the problem. 
-    Can include conditionals (“I’ll try X first...”) or descriptions of potential steps.
-
-3. `recall_fact`: 
-    Chunk recalls a known fact, rule, formula, or math identity from memory. 
-    Includes explicit retrieval from memory, not derivation.
-
-4. `recall_problem`: 
-    Chunk recalls the problem statement or key details. 
-    Includes explicit retrieval from memory, not derivation. 
+1. `problem_setup`: 
+    Parsing or rephrasing the problem (initial reading or comprehension).
     
-5. `substitution`: 
-    Rewriting or representing an expression in a more useful form (e.g., “243 = 3^5” or “Let x = ...”).
-    Includes algebraic rearrangement, defining variables, or transforming the expression’s structure.
-
-6. `intermediate_step`: 
-    Chunk performs a computation, transformation, or derivation that is later used in another step.
-
-7. `self_check`: 
-    Chunk verifies a previous result or plugs it back into the problem to confirm correctness.
-    Reviewing or re-computing a previous result to confirm correctness.
-    Often introduced with phrases like “let me double check” or “just to be sure…”
+2. `plan_generation`: 
+    Stating or deciding on a plan of action (often meta-reasoning).
     
-8. `example_testing`: 
-    Generating examples or scenarios to test hypotheses.
-    E.g., “Let's try this with a simpler example...” or “I'll test this with a specific value...”
+3. `fact_retrieval`: 
+    Recalling facts, formulas, problem details (without immediate computation).
+    
+4. `active_computation`: 
+    Performing algebra, calculations, manipulations toward the answer.
+    
+5. `result_consolidation`: 
+    Aggregating intermediate results, summarizing, or preparing final answer.
+    
+6. `uncertainty_management`: 
+    Expressing confusion, re-evaluating, proposing alternative plans (includes backtracking).
+    
+7. `final_answer_emission`: 
+    Explicit statement of the final boxed answer or earlier chunks that contain the final answer.
+    
+8. `self_checking`: 
+    Verifying previous steps, Pythagorean checking, re-confirmations.
 
-9. `backtracking`: 
-    Chunk proposes an alternative approach, a reframing of the problem, or backtracks from an earlier direction.
-    Includes backtracking, starting over, or switching methods (“Alternatively, I could...”)
-
-10. `uncertainty_estimation`: 
-    Chunk expresses uncertainty or confidence in the reasoning or result.
-    Explicitly expressing confidence or uncertainty in the reasoning or result.
-    E.g., “I’m not sure if this is right...” or “I feel confident in this answer.”
-
-11. `summary`: 
-    Chunk gives a recap or clean version of previously derived steps or restates the final answer.
-
-12. `final_answer_first_occurrence`: 
-    First chunk where the final answer is fully derived or explicitly stated.
-
-13. `final_answer`: 
-    Chunk that contains the final answer.
-
-14. `unknown`: 
+9. `unknown`: 
     Use only if the chunk does not fit any of the above tags or is purely stylistic or semantic.
-
-NOTE: Try to spot `first_answer_first_occurrence` as early as possible. Sometimes the final result is derived in a step that looks like an intermediate step, 
-but only later it is officially stated that this is the final answer.
-
-NOTE: Make sure to distinguish meaningfully between `initialization` and `planning_step` and between `recall_fact` and `recall_problem`.
 
 ---
 
@@ -221,7 +190,7 @@ Important Notes:
 - Include both long-range and short-range dependencies.
 - Do NOT forget about long-range dependencies. 
 - Try to be as comprehensive as possible.
-- Make sure there is always a path from the prompt to the final answer.
+- Make sure there is always a path from earlier chunks (e.g. problem_setup and/or active_computation) to the final answer.
 
 ---
 
@@ -238,27 +207,23 @@ Here's the expected format:
 ```language=json
 {{
     "4": {{
-    "function_tags": ["planning_step"],
+    "function_tags": ["plan_generation"],
     "depends_on": ["3"]
     }},
     "5": {{
-    "function_tags": ["recall_fact"],
+    "function_tags": ["fact_retrieval"],
     "depends_on": []
     }},
     "9": {{
-    "function_tags": ["intermediate_result"],
+    "function_tags": ["active_computation"],
     "depends_on": ["4", "5"]
     }},
-    "23": {{
-    "function_tags": ["final_answer_first_occurrence"],
-    "depends_on": ["22"]
-    }},
     "24": {{
-    "function_tags": ["self_check"],
+    "function_tags": ["self_checking"],
     "depends_on": ["23"]
     }},
     "25": {{
-    "function_tags": ["final_answer"],
+    "function_tags": ["final_answer_emission"],
     "depends_on": ["23"]
     }}
 }}
