@@ -1,21 +1,5 @@
 [
   {
-    "problem_idx": "problem_5882",
-    "level": "Level 5",
-    "type": "Prealgebra",
-    "problem": "Carolyn and Paul are playing a game starting with a list of the integers $1$ to $n.$ The rules of the game are:\n\n$\\bullet$  Carolyn always has the first turn.\n\n$\\bullet$  Carolyn and Paul alternate turns.\n\n$\\bullet$  On each of her turns, Carolyn must remove one number from the list such that this number has at least one positive divisor other than itself remaining in the list.\n\n$\\bullet$  On each of his turns, Paul must remove from the list all of the positive divisors of the number that Carolyn has just removed.\n\n$\\bullet$  If Carolyn cannot remove any more numbers, then Paul removes the rest of the numbers.\n\nFor example, if $n=6,$ a possible sequence of moves is shown in this chart:\n\n\\begin{tabular}{|c|c|c|}\n\\hline\nPlayer & Removed \\# & \\# remaining \\\\\n\\hline\nCarolyn & 4 & 1, 2, 3, 5, 6 \\\\\n\\hline\nPaul & 1, 2 & 3, 5, 6 \\\\\n\\hline\nCarolyn & 6 & 3, 5 \\\\\n\\hline\nPaul & 3 & 5 \\\\\n\\hline\nCarolyn & None & 5 \\\\\n\\hline\nPaul & 5 & None \\\\\n\\hline\n\\end{tabular}\n\nNote that Carolyn can't remove $3$ or $5$ on her second turn, and can't remove any number on her third turn.\n\nIn this example, the sum of the numbers removed by Carolyn is $4+6=10$ and the sum of the numbers removed by Paul is $1+2+3+5=11.$\n\nSuppose that $n=6$ and Carolyn removes the integer $2$ on her first turn. Determine the sum of the numbers that Carolyn removes.",
-    "gt_answer": "8",
-    "accuracy": 0.4,
-    "approximate_mean_tokens": 834.8,
-    "approximate_mean_chunks": 16.2,
-    "incorrect_answers": [
-      "12"
-    ],
-    "correct_answers": [
-      "8"
-    ]
-  },
-  {
     "problem_idx": "problem_2238",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -510,24 +494,6 @@
     ],
     "correct_answers": [
       "24\\pi"
-    ]
-  },
-  {
-    "problem_idx": "problem_3064",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "Let $\\triangle ABC$ have side lengths $AB=30$, $BC=32$, and $AC=34$. Point $X$ lies in the interior of $\\overline{BC}$, and points $I_1$ and $I_2$ are the incenters of $\\triangle ABX$ and $\\triangle ACX$, respectively. Find the minimum possible area of $\\triangle AI_1I_2$ as $X$ varies along $\\overline{BC}$.\n",
-    "gt_answer": "126",
-    "accuracy": 0.6666666666666666,
-    "approximate_mean_tokens": 5084.916666666667,
-    "approximate_mean_chunks": 304.6666666666667,
-    "incorrect_answers": [
-      "\\dfrac{640\\sqrt{2}}{141}",
-      "12\\sqrt{21}",
-      "\\dfrac{63}{2}"
-    ],
-    "correct_answers": [
-      "126"
     ]
   },
   {
