@@ -339,6 +339,26 @@ def split_solution_into_chunks(solution_text: str) -> List[str]:
     if current_chunk.strip():
         chunks.append(current_chunk.strip())
     
+    # Merge small chunks (less than 10 characters)
+    i = 0
+    while i < len(chunks):
+        if len(chunks[i]) < 10:
+            # If this is the last chunk, merge with previous chunk if possible
+            if i == len(chunks) - 1:
+                if i > 0:
+                    chunks[i-1] = chunks[i-1] + " " + chunks[i]
+                    chunks.pop(i)
+            # Otherwise merge with the next chunk
+            else:
+                chunks[i+1] = chunks[i] + " " + chunks[i+1]
+                chunks.pop(i)
+                # Don't increment i since we need to check the new merged chunk
+            # If we're at the beginning and there's only one chunk, just keep it
+            if i == 0 and len(chunks) == 1:
+                break
+        else:
+            i += 1
+    
     return chunks
 
 def load_math_problems(
