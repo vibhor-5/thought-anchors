@@ -327,6 +327,24 @@
     ]
   },
   {
+    "problem_idx": "problem_2903",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Two identical rectangular crates are packed with cylindrical pipes, using different methods. Each pipe has diameter 10 cm.  A side view of the first four rows of each of the two different methods of packing is shown below.\n\n[asy]\ndraw(circle((1,1),1),black+linewidth(1));\ndraw(circle((3,1),1),black+linewidth(1));\ndraw(circle((5,1),1),black+linewidth(1));\ndraw(circle((7,1),1),black+linewidth(1));\ndraw(circle((9,1),1),black+linewidth(1));\ndraw(circle((11,1),1),black+linewidth(1));\ndraw(circle((13,1),1),black+linewidth(1));\ndraw(circle((15,1),1),black+linewidth(1));\ndraw(circle((17,1),1),black+linewidth(1));\ndraw(circle((19,1),1),black+linewidth(1));\ndraw(circle((1,3),1),black+linewidth(1));\ndraw(circle((3,3),1),black+linewidth(1));\ndraw(circle((5,3),1),black+linewidth(1));\ndraw(circle((7,3),1),black+linewidth(1));\ndraw(circle((9,3),1),black+linewidth(1));\ndraw(circle((11,3),1),black+linewidth(1));\ndraw(circle((13,3),1),black+linewidth(1));\ndraw(circle((15,3),1),black+linewidth(1));\ndraw(circle((17,3),1),black+linewidth(1));\ndraw(circle((19,3),1),black+linewidth(1));\ndraw(circle((1,5),1),black+linewidth(1));\ndraw(circle((3,5),1),black+linewidth(1));\ndraw(circle((5,5),1),black+linewidth(1));\ndraw(circle((7,5),1),black+linewidth(1));\ndraw(circle((9,5),1),black+linewidth(1));\ndraw(circle((11,5),1),black+linewidth(1));\ndraw(circle((13,5),1),black+linewidth(1));\ndraw(circle((15,5),1),black+linewidth(1));\ndraw(circle((17,5),1),black+linewidth(1));\ndraw(circle((19,5),1),black+linewidth(1));\ndraw(circle((1,7),1),black+linewidth(1));\ndraw(circle((3,7),1),black+linewidth(1));\ndraw(circle((5,7),1),black+linewidth(1));\ndraw(circle((7,7),1),black+linewidth(1));\ndraw(circle((9,7),1),black+linewidth(1));\ndraw(circle((11,7),1),black+linewidth(1));\ndraw(circle((13,7),1),black+linewidth(1));\ndraw(circle((15,7),1),black+linewidth(1));\ndraw(circle((17,7),1),black+linewidth(1));\ndraw(circle((19,7),1),black+linewidth(1));\ndraw((0,15)--(0,0)--(20,0)--(20,15),black+linewidth(1));\ndot((10,9));\ndot((10,11));\ndot((10,13));\nlabel(\"Crate A\",(10,0),S);\n[/asy]\n\n[asy]\ndraw(circle((1,1),1),black+linewidth(1));\ndraw(circle((3,1),1),black+linewidth(1));\ndraw(circle((5,1),1),black+linewidth(1));\ndraw(circle((7,1),1),black+linewidth(1));\ndraw(circle((9,1),1),black+linewidth(1));\ndraw(circle((11,1),1),black+linewidth(1));\ndraw(circle((13,1),1),black+linewidth(1));\ndraw(circle((15,1),1),black+linewidth(1));\ndraw(circle((17,1),1),black+linewidth(1));\ndraw(circle((19,1),1),black+linewidth(1));\ndraw(circle((2,2.75),1),black+linewidth(1));\ndraw(circle((4,2.75),1),black+linewidth(1));\ndraw(circle((6,2.75),1),black+linewidth(1));\ndraw(circle((8,2.75),1),black+linewidth(1));\ndraw(circle((10,2.75),1),black+linewidth(1));\ndraw(circle((12,2.75),1),black+linewidth(1));\ndraw(circle((14,2.75),1),black+linewidth(1));\ndraw(circle((16,2.75),1),black+linewidth(1));\ndraw(circle((18,2.75),1),black+linewidth(1));\ndraw(circle((1,4.5),1),black+linewidth(1));\ndraw(circle((3,4.5),1),black+linewidth(1));\ndraw(circle((5,4.5),1),black+linewidth(1));\ndraw(circle((7,4.5),1),black+linewidth(1));\ndraw(circle((9,4.5),1),black+linewidth(1));\ndraw(circle((11,4.5),1),black+linewidth(1));\ndraw(circle((13,4.5),1),black+linewidth(1));\ndraw(circle((15,4.5),1),black+linewidth(1));\ndraw(circle((17,4.5),1),black+linewidth(1));\ndraw(circle((19,4.5),1),black+linewidth(1));\ndraw(circle((2,6.25),1),black+linewidth(1));\ndraw(circle((4,6.25),1),black+linewidth(1));\ndraw(circle((6,6.25),1),black+linewidth(1));\ndraw(circle((8,6.25),1),black+linewidth(1));\ndraw(circle((10,6.25),1),black+linewidth(1));\ndraw(circle((12,6.25),1),black+linewidth(1));\ndraw(circle((14,6.25),1),black+linewidth(1));\ndraw(circle((16,6.25),1),black+linewidth(1));\ndraw(circle((18,6.25),1),black+linewidth(1));\ndraw((0,15)--(0,0)--(20,0)--(20,15),black+linewidth(1));\ndot((10,9));\ndot((10,11));\ndot((10,13));\nlabel(\"Crate B\",(10,0),S);\n[/asy]\n\nAfter the crates have been packed with 200 pipes each, what is the positive difference in the total heights (in cm) of the two packings?",
+    "gt_answer": "190-100\\sqrt{3}",
+    "accuracy": 0.25,
+    "approximate_mean_tokens": 6404.65625,
+    "approximate_mean_chunks": 250.0,
+    "incorrect_answers": [
+      "16.8",
+      "23.75",
+      "190 - 100\\sqrt{3}\\ \\text{cm}"
+    ],
+    "correct_answers": [
+      "190 - 100\\sqrt{3}"
+    ]
+  },
+  {
     "problem_idx": "problem_2945",
     "level": "Level 5",
     "type": "Geometry",
@@ -411,6 +429,24 @@
     ]
   },
   {
+    "problem_idx": "problem_3935",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "A certain function $f$ has the properties that $f(3x) = 3f(x)$ for all positive real values of $x$, and that $f(x) = 1 - |x - 2|$ for $1\\leq x \\leq 3$. Find the smallest $x$ for which $f(x) = f(2001)$.",
+    "gt_answer": "429",
+    "accuracy": 0.6666666666666666,
+    "approximate_mean_tokens": 4760.8,
+    "approximate_mean_chunks": 272.6,
+    "incorrect_answers": [
+      "\\dfrac{143}{177147}",
+      "\\dfrac{143}{19683}",
+      "\\dfrac{10726}{25}"
+    ],
+    "correct_answers": [
+      "429"
+    ]
+  },
+  {
     "problem_idx": "problem_6708",
     "level": "Level 5",
     "type": "Prealgebra",
@@ -476,6 +512,22 @@
     ],
     "correct_answers": [
       "10"
+    ]
+  },
+  {
+    "problem_idx": "problem_1843",
+    "level": "Level 5",
+    "type": "Counting & Probability",
+    "problem": "In how many different ways can 3 men and 4 women be placed into two groups of two people and one group of three people if there must be at least one man and one woman in each group?  Note that identically sized groups are indistinguishable.",
+    "gt_answer": "36",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 5946.825,
+    "approximate_mean_chunks": 288.9,
+    "incorrect_answers": [
+      "18"
+    ],
+    "correct_answers": [
+      "36"
     ]
   },
   {
@@ -1166,6 +1218,22 @@
     ],
     "correct_answers": [
       "83"
+    ]
+  },
+  {
+    "problem_idx": "problem_2158",
+    "level": "Level 5",
+    "type": "Counting & Probability",
+    "problem": "Let $A = \\{1, 2, 3, 4, 5, 6, 7\\}$, and let $N$ be the number of functions $f$ from set $A$ to set $A$ such that $f(f(x))$ is a constant function. Find the remainder when $N$ is divided by $1000$.\n",
+    "gt_answer": "399",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 9135.4,
+    "approximate_mean_chunks": 455.5,
+    "incorrect_answers": [
+      "700"
+    ],
+    "correct_answers": [
+      "399"
     ]
   },
   {
