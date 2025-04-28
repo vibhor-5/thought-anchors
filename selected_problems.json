@@ -16,6 +16,22 @@
     ]
   },
   {
+    "problem_idx": "problem_6998",
+    "level": "Level 5",
+    "type": "Precalculus",
+    "problem": "Find the number of $x$-intercepts on the graph of $y = \\sin \\frac{1}{x}$ (evaluated in terms of radians) in the interval $(0.0001, 0.001).$",
+    "gt_answer": "2865",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 1883.65,
+    "approximate_mean_chunks": 103.6,
+    "incorrect_answers": [
+      "2864"
+    ],
+    "correct_answers": [
+      "2865"
+    ]
+  },
+  {
     "problem_idx": "problem_2236",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -87,19 +103,20 @@
     ]
   },
   {
-    "problem_idx": "problem_3550",
+    "problem_idx": "problem_3433",
     "level": "Level 5",
     "type": "Intermediate Algebra",
-    "problem": "The polynomial $f(x)=x^{2007}+17x^{2006}+1$ has distinct zeroes $r_1,\\ldots,r_{2007}$.  A polynomial $P$ of degree $2007$ has the property that\n\\[P\\left(r_j+\\dfrac{1}{r_j}\\right)=0\\]for $j=1,\\ldots,2007$.  Determine the value of $\\frac{P(1)}{P(-1)}$.",
-    "gt_answer": "\\frac{289}{259}",
-    "accuracy": 0.4444444444444444,
-    "approximate_mean_tokens": 4342.138888888889,
-    "approximate_mean_chunks": 183.44444444444446,
+    "problem": "Find all the solutions to\n\\[\\sqrt[3]{15x - 1} + \\sqrt[3]{13x + 1} = 4 \\sqrt[3]{x}.\\]Enter all the solutions, separated by commas.",
+    "gt_answer": "0, \\frac{1}{14}, -\\frac{1}{12}",
+    "accuracy": 0.3,
+    "approximate_mean_tokens": 2591.7,
+    "approximate_mean_chunks": 137.7,
     "incorrect_answers": [
-      "1"
+      "\\frac{1}{14}",
+      "0"
     ],
     "correct_answers": [
-      "\\dfrac{289}{259}"
+      "-\\dfrac{1}{12}"
     ]
   },
   {
@@ -171,6 +188,23 @@
     ],
     "correct_answers": [
       "-\\dfrac{5}{12}"
+    ]
+  },
+  {
+    "problem_idx": "problem_3550",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "The polynomial $f(x)=x^{2007}+17x^{2006}+1$ has distinct zeroes $r_1,\\ldots,r_{2007}$.  A polynomial $P$ of degree $2007$ has the property that\n\\[P\\left(r_j+\\dfrac{1}{r_j}\\right)=0\\]for $j=1,\\ldots,2007$.  Determine the value of $\\frac{P(1)}{P(-1)}$.",
+    "gt_answer": "\\frac{289}{259}",
+    "accuracy": 0.4,
+    "approximate_mean_tokens": 4809.4,
+    "approximate_mean_chunks": 207.4,
+    "incorrect_answers": [
+      "1",
+      "-\\dfrac{289}{259}"
+    ],
+    "correct_answers": [
+      "\\dfrac{289}{259}"
     ]
   },
   {
@@ -374,6 +408,24 @@
     ],
     "correct_answers": [
       "450"
+    ]
+  },
+  {
+    "problem_idx": "problem_3492",
+    "level": "Level 5",
+    "type": "Intermediate Algebra",
+    "problem": "Let $p(x)$ be a polynomial of degree 6 such that\n\\[p(2^n) = \\frac{1}{2^n}\\]for $n = 0,$ 1, 2, $\\dots,$ 6.  Find $p(0).$",
+    "gt_answer": "\\frac{127}{64}",
+    "accuracy": 0.5,
+    "approximate_mean_tokens": 4201.3,
+    "approximate_mean_chunks": 253.2,
+    "incorrect_answers": [
+      "2",
+      "\\dfrac{127}{2097152}",
+      "\\dfrac{4063}{2048}"
+    ],
+    "correct_answers": [
+      "\\dfrac{127}{64}"
     ]
   },
   {
@@ -1036,6 +1088,24 @@
     ]
   },
   {
+    "problem_idx": "problem_7373",
+    "level": "Level 5",
+    "type": "Precalculus",
+    "problem": "Equilateral triangle $ABC$ has side length $\\sqrt{111}$. There are four distinct triangles $AD_1E_1$, $AD_1E_2$, $AD_2E_3$, and $AD_2E_4$, each congruent to triangle $ABC$, with $BD_1 = BD_2 = \\sqrt{11}$. Find $\\sum_{k=1}^4(CE_k)^2$.",
+    "gt_answer": "677",
+    "accuracy": 0.625,
+    "approximate_mean_tokens": 5664.375,
+    "approximate_mean_chunks": 401.25,
+    "incorrect_answers": [
+      "666",
+      "466",
+      "1099"
+    ],
+    "correct_answers": [
+      "677"
+    ]
+  },
+  {
     "problem_idx": "problem_2158",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -1049,6 +1119,22 @@
     ],
     "correct_answers": [
       "399"
+    ]
+  },
+  {
+    "problem_idx": "problem_2934",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Twelve congruent disks are placed on a circle $C$ of radius 1 in such a way that the twelve disks cover $C$, no two of the disks overlap, and so that each of the twelve disks is tangent to its two neighbors. The resulting arrangement of disks is shown in the figure below. The sum of the areas of the twelve disks can be written in the from $\\pi(a-b\\sqrt{c})$, where $a,b,c$ are positive integers and $c$ is not divisible by the square of any prime. Find $a+b+c$.\n[asy] unitsize(100); draw(Circle((0,0),1)); dot((0,0)); draw((0,0)--(1,0)); label(\"$1$\", (0.5,0), S);  for (int i=0; i<12; ++i) { dot((cos(i*pi/6), sin(i*pi/6))); }  for (int a=1; a<24; a+=2) { dot(((1/cos(pi/12))*cos(a*pi/12), (1/cos(pi/12))*sin(a*pi/12))); draw(((1/cos(pi/12))*cos(a*pi/12), (1/cos(pi/12))*sin(a*pi/12))--((1/cos(pi/12))*cos((a+2)*pi/12), (1/cos(pi/12))*sin((a+2)*pi/12))); draw(Circle(((1/cos(pi/12))*cos(a*pi/12), (1/cos(pi/12))*sin(a*pi/12)), tan(pi/12))); }[/asy]\n",
+    "gt_answer": "135",
+    "accuracy": 0.75,
+    "approximate_mean_tokens": 7238.375,
+    "approximate_mean_chunks": 405.0,
+    "incorrect_answers": [
+      "12"
+    ],
+    "correct_answers": [
+      "135"
     ]
   },
   {
@@ -1269,6 +1355,23 @@
     ]
   },
   {
+    "problem_idx": "problem_3050",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Triangle $ABC$ is inscribed in circle $\\omega$ with $AB=5$, $BC=7$, and $AC=3$. The bisector of angle $A$ meets side $\\overline{BC}$ at $D$ and circle $\\omega$ at a second point $E$. Let $\\gamma$ be the circle with diameter $\\overline{DE}$. Circles $\\omega$ and $\\gamma$ meet at $E$ and a second point $F$. Then $AF^2 = \\frac mn$, where $m$ and $n$ are relatively prime positive integers. Find $m+n$.\n",
+    "gt_answer": "919",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 5744.4,
+    "approximate_mean_chunks": 431.3,
+    "incorrect_answers": [
+      "289",
+      "2123"
+    ],
+    "correct_answers": [
+      "919"
+    ]
+  },
+  {
     "problem_idx": "problem_7067",
     "level": "Level 5",
     "type": "Precalculus",
@@ -1453,24 +1556,6 @@
     ]
   },
   {
-    "problem_idx": "problem_7373",
-    "level": "Level 5",
-    "type": "Precalculus",
-    "problem": "Equilateral triangle $ABC$ has side length $\\sqrt{111}$. There are four distinct triangles $AD_1E_1$, $AD_1E_2$, $AD_2E_3$, and $AD_2E_4$, each congruent to triangle $ABC$, with $BD_1 = BD_2 = \\sqrt{11}$. Find $\\sum_{k=1}^4(CE_k)^2$.",
-    "gt_answer": "677",
-    "accuracy": 0.625,
-    "approximate_mean_tokens": 6328.95,
-    "approximate_mean_chunks": 464.1,
-    "incorrect_answers": [
-      "666",
-      "466",
-      "1099"
-    ],
-    "correct_answers": [
-      "677"
-    ]
-  },
-  {
     "problem_idx": "problem_2918",
     "level": "Level 5",
     "type": "Geometry",
@@ -1591,6 +1676,25 @@
     ]
   },
   {
+    "problem_idx": "problem_6871",
+    "level": "Level 5",
+    "type": "Precalculus",
+    "problem": "A triangle has side lengths 7, 8, and 9.  There are exactly two lines that simultaneously bisect the perimeter and area of the triangle.  Let $\\theta$ be the acute angle between these two lines.  Find $\\tan \\theta.$\n\n[asy]\nunitsize(0.5 cm);\n\npair A, B, C, P, Q, R, S, X;\n\nB = (0,0);\nC = (8,0);\nA = intersectionpoint(arc(B,7,0,180),arc(C,9,0,180));\nP = interp(A,B,(12 - 3*sqrt(2))/2/7);\nQ = interp(A,C,(12 + 3*sqrt(2))/2/9);\nR = interp(C,A,6/9);\nS = interp(C,B,6/8);\nX = extension(P,Q,R,S);\n\ndraw(A--B--C--cycle);\ndraw(interp(P,Q,-0.2)--interp(P,Q,1.2),red);\ndraw(interp(R,S,-0.2)--interp(R,S,1.2),blue);\n\nlabel(\"$\\theta$\", X + (0.8,0.4));\n[/asy]",
+    "gt_answer": "3 \\sqrt{5} + 2 \\sqrt{10}",
+    "accuracy": 0.7,
+    "approximate_mean_tokens": 8521.725,
+    "approximate_mean_chunks": 531.7,
+    "incorrect_answers": [
+      "\\dfrac{125\\sqrt{5}}{227}",
+      "\\dfrac{6\\sqrt{5} + 7\\sqrt{10}}{31}",
+      "2 + \\sqrt{3}"
+    ],
+    "correct_answers": [
+      "\\sqrt{5}(3 + 2\\sqrt{2})",
+      "3\\sqrt{5} + 2\\sqrt{10}"
+    ]
+  },
+  {
     "problem_idx": "problem_2093",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -1630,44 +1734,6 @@
     ]
   },
   {
-    "problem_idx": "problem_6871",
-    "level": "Level 5",
-    "type": "Precalculus",
-    "problem": "A triangle has side lengths 7, 8, and 9.  There are exactly two lines that simultaneously bisect the perimeter and area of the triangle.  Let $\\theta$ be the acute angle between these two lines.  Find $\\tan \\theta.$\n\n[asy]\nunitsize(0.5 cm);\n\npair A, B, C, P, Q, R, S, X;\n\nB = (0,0);\nC = (8,0);\nA = intersectionpoint(arc(B,7,0,180),arc(C,9,0,180));\nP = interp(A,B,(12 - 3*sqrt(2))/2/7);\nQ = interp(A,C,(12 + 3*sqrt(2))/2/9);\nR = interp(C,A,6/9);\nS = interp(C,B,6/8);\nX = extension(P,Q,R,S);\n\ndraw(A--B--C--cycle);\ndraw(interp(P,Q,-0.2)--interp(P,Q,1.2),red);\ndraw(interp(R,S,-0.2)--interp(R,S,1.2),blue);\n\nlabel(\"$\\theta$\", X + (0.8,0.4));\n[/asy]",
-    "gt_answer": "3 \\sqrt{5} + 2 \\sqrt{10}",
-    "accuracy": 0.6666666666666666,
-    "approximate_mean_tokens": 8677.541666666666,
-    "approximate_mean_chunks": 545.5,
-    "incorrect_answers": [
-      "\\dfrac{125\\sqrt{5}}{227}",
-      "\\dfrac{6\\sqrt{5} + 7\\sqrt{10}}{31}"
-    ],
-    "correct_answers": [
-      "\\sqrt{5}(3 + 2\\sqrt{2})",
-      "3\\sqrt{5} + 2\\sqrt{10}"
-    ]
-  },
-  {
-    "problem_idx": "problem_2931",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "The rectangle $ABCD$ below has dimensions $AB = 12 \\sqrt{3}$ and $BC = 13 \\sqrt{3}$. Diagonals $\\overline{AC}$ and $\\overline{BD}$ intersect at $P$. If triangle $ABP$ is cut out and removed, edges $\\overline{AP}$ and $\\overline{BP}$ are joined, and the figure is then creased along segments $\\overline{CP}$ and $\\overline{DP}$, we obtain a triangular pyramid, all four of whose faces are isosceles triangles. Find the volume of this pyramid.\n[asy] pair D=origin, A=(13,0), B=(13,12), C=(0,12), P=(6.5, 6); draw(B--C--P--D--C^^D--A); filldraw(A--P--B--cycle, gray, black); label(\"$A$\", A, SE); label(\"$B$\", B, NE); label(\"$C$\", C, NW); label(\"$D$\", D, SW); label(\"$P$\", P, N); label(\"$13\\sqrt{3}$\", A--D, S); label(\"$12\\sqrt{3}$\", A--B, E);[/asy]\n",
-    "gt_answer": "594",
-    "accuracy": 0.375,
-    "approximate_mean_tokens": 8498.75,
-    "approximate_mean_chunks": 545.75,
-    "incorrect_answers": [
-      "234\\sqrt{3}",
-      "\\dfrac{1287}{2}",
-      "117",
-      "78\\sqrt{58}",
-      "216"
-    ],
-    "correct_answers": [
-      "594"
-    ]
-  },
-  {
     "problem_idx": "problem_2142",
     "level": "Level 5",
     "type": "Counting & Probability",
@@ -1686,6 +1752,62 @@
     ],
     "correct_answers": [
       "420"
+    ]
+  },
+  {
+    "problem_idx": "problem_2931",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "The rectangle $ABCD$ below has dimensions $AB = 12 \\sqrt{3}$ and $BC = 13 \\sqrt{3}$. Diagonals $\\overline{AC}$ and $\\overline{BD}$ intersect at $P$. If triangle $ABP$ is cut out and removed, edges $\\overline{AP}$ and $\\overline{BP}$ are joined, and the figure is then creased along segments $\\overline{CP}$ and $\\overline{DP}$, we obtain a triangular pyramid, all four of whose faces are isosceles triangles. Find the volume of this pyramid.\n[asy] pair D=origin, A=(13,0), B=(13,12), C=(0,12), P=(6.5, 6); draw(B--C--P--D--C^^D--A); filldraw(A--P--B--cycle, gray, black); label(\"$A$\", A, SE); label(\"$B$\", B, NE); label(\"$C$\", C, NW); label(\"$D$\", D, SW); label(\"$P$\", P, N); label(\"$13\\sqrt{3}$\", A--D, S); label(\"$12\\sqrt{3}$\", A--B, E);[/asy]\n",
+    "gt_answer": "594",
+    "accuracy": 0.4,
+    "approximate_mean_tokens": 8755.25,
+    "approximate_mean_chunks": 561.9,
+    "incorrect_answers": [
+      "234\\sqrt{3}",
+      "\\dfrac{1287}{2}",
+      "117",
+      "78\\sqrt{58}",
+      "216",
+      "39\\sqrt{831}"
+    ],
+    "correct_answers": [
+      "594"
+    ]
+  },
+  {
+    "problem_idx": "problem_6822",
+    "level": "Level 5",
+    "type": "Precalculus",
+    "problem": "Find the volume of the region given by the inequality\n\\[|x + y + z| + |x + y - z| + |x - y + z| + |-x + y + z| \\le 4.\\]",
+    "gt_answer": "\\frac{20}{3}",
+    "accuracy": 0.3333333333333333,
+    "approximate_mean_tokens": 9382.075,
+    "approximate_mean_chunks": 572.5,
+    "incorrect_answers": [
+      "\\dfrac{32}{3}",
+      "\\dfrac{28}{3}",
+      "4",
+      "8"
+    ],
+    "correct_answers": [
+      "\\dfrac{20}{3}"
+    ]
+  },
+  {
+    "problem_idx": "problem_2942",
+    "level": "Level 5",
+    "type": "Geometry",
+    "problem": "Jenny and Kenny are walking in the same direction, Kenny at 3 feet per second and Jenny at 1 foot per second, on parallel paths that are 200 feet apart. A tall circular building 100 feet in diameter is centered midway between the paths. At the instant when the building first blocks the line of sight between Jenny and Kenny, they are 200 feet apart. Let $t\\,$ be the amount of time, in seconds, before Jenny and Kenny can see each other again. If $t\\,$ is written as a fraction in lowest terms, what is the sum of the numerator and denominator?\n",
+    "gt_answer": "163",
+    "accuracy": 0.6666666666666666,
+    "approximate_mean_tokens": 10804.333333333334,
+    "approximate_mean_chunks": 573.3333333333334,
+    "incorrect_answers": [
+      "103"
+    ],
+    "correct_answers": [
+      "163"
     ]
   },
   {
@@ -1728,35 +1850,19 @@
     ]
   },
   {
-    "problem_idx": "problem_2942",
+    "problem_idx": "problem_5253",
     "level": "Level 5",
-    "type": "Geometry",
-    "problem": "Jenny and Kenny are walking in the same direction, Kenny at 3 feet per second and Jenny at 1 foot per second, on parallel paths that are 200 feet apart. A tall circular building 100 feet in diameter is centered midway between the paths. At the instant when the building first blocks the line of sight between Jenny and Kenny, they are 200 feet apart. Let $t\\,$ be the amount of time, in seconds, before Jenny and Kenny can see each other again. If $t\\,$ is written as a fraction in lowest terms, what is the sum of the numerator and denominator?\n",
-    "gt_answer": "163",
-    "accuracy": 0.6666666666666666,
-    "approximate_mean_tokens": 12245.7,
-    "approximate_mean_chunks": 636.5,
+    "type": "Number Theory",
+    "problem": "What is the largest positive integer that is not the sum of a positive integral multiple of $42$ and a positive composite integer?\n",
+    "gt_answer": "215",
+    "accuracy": 0.5714285714285714,
+    "approximate_mean_tokens": 7223.725,
+    "approximate_mean_chunks": 678.9,
     "incorrect_answers": [
-      "103"
+      "173"
     ],
     "correct_answers": [
-      "163"
-    ]
-  },
-  {
-    "problem_idx": "problem_2934",
-    "level": "Level 5",
-    "type": "Geometry",
-    "problem": "Twelve congruent disks are placed on a circle $C$ of radius 1 in such a way that the twelve disks cover $C$, no two of the disks overlap, and so that each of the twelve disks is tangent to its two neighbors. The resulting arrangement of disks is shown in the figure below. The sum of the areas of the twelve disks can be written in the from $\\pi(a-b\\sqrt{c})$, where $a,b,c$ are positive integers and $c$ is not divisible by the square of any prime. Find $a+b+c$.\n[asy] unitsize(100); draw(Circle((0,0),1)); dot((0,0)); draw((0,0)--(1,0)); label(\"$1$\", (0.5,0), S);  for (int i=0; i<12; ++i) { dot((cos(i*pi/6), sin(i*pi/6))); }  for (int a=1; a<24; a+=2) { dot(((1/cos(pi/12))*cos(a*pi/12), (1/cos(pi/12))*sin(a*pi/12))); draw(((1/cos(pi/12))*cos(a*pi/12), (1/cos(pi/12))*sin(a*pi/12))--((1/cos(pi/12))*cos((a+2)*pi/12), (1/cos(pi/12))*sin((a+2)*pi/12))); draw(Circle(((1/cos(pi/12))*cos(a*pi/12), (1/cos(pi/12))*sin(a*pi/12)), tan(pi/12))); }[/asy]\n",
-    "gt_answer": "135",
-    "accuracy": 0.75,
-    "approximate_mean_tokens": 8937.525,
-    "approximate_mean_chunks": 645.6,
-    "incorrect_answers": [
-      "12"
-    ],
-    "correct_answers": [
-      "135"
+      "215"
     ]
   },
   {
@@ -1766,8 +1872,8 @@
     "problem": "Let $A = (0,0)$ and $B = (b,2)$ be points on the coordinate plane. Let $ABCDEF$ be a convex equilateral hexagon such that $\\angle FAB = 120^\\circ,$ $\\overline{AB}\\parallel \\overline{DE},$ $\\overline{BC}\\parallel \\overline{EF,}$ $\\overline{CD}\\parallel \\overline{FA},$ and the y-coordinates of its vertices are distinct elements of the set $\\{0,2,4,6,8,10\\}.$ The area of the hexagon can be written in the form $m\\sqrt {n},$ where $m$ and $n$ are positive integers and n is not divisible by the square of any prime. Find $m + n.$\n",
     "gt_answer": "51",
     "accuracy": 0.6,
-    "approximate_mean_tokens": 8111.2,
-    "approximate_mean_chunks": 657.0,
+    "approximate_mean_tokens": 9662.25,
+    "approximate_mean_chunks": 741.4,
     "incorrect_answers": [
       "19",
       "103"
