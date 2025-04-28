@@ -5,13 +5,15 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Optional
 import pandas as pd
 from tqdm import tqdm
 from transformers import AutoTokenizer
 from openai import OpenAI
 from dotenv import load_dotenv
 from prompts import DAG_PROMPT
+import re
+from collections import Counter
 
 # Global font size for plots
 FONT_SIZE = 15
@@ -37,6 +39,17 @@ if not client.api_key:
 
 # Initialize the r1-distill-qwen-14b tokenizer
 tokenizer = AutoTokenizer.from_pretrained("deepseek-ai/deepseek-r1-distill-qwen-14b")
+
+# Define stopwords to filter out
+stopwords = {
+    "the", "a", "an", "and", "or", "at", "from", "for", "with", "about", "into", "through", "above", "ve",
+    "below", "under", "again", "further", "here", "there", "all", "most", "other", "some", "such", "to", "on",
+    "only", "own", "too", "very", "will", "wasn", "weren", "wouldn", "this", "that", "these", "those", "of",
+    "am", "is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "having", "do", "got",
+    "does", "did", "doing", "we", "our", "ours", "ourselves", "you", "your", "yours", "yourself", "get", "in",
+    "yourselves", "he", "him", "his", "himself", "she", "her", "hers", "herself", "it", "its", "itself", "so",
+    "they", "them", "their", "theirs", "themselves", "what", "which", "who", "whom", "whose", "as", "us",  
+}
 
 def count_tokens(text: str, approximate: bool = True) -> int:
     """Count the number of tokens in a text string using the r1-distill-qwen-14b tokenizer."""
@@ -1099,40 +1112,106 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path) -> No
     
     print(f"Chunk accuracy plots saved to {explore_dir}")
 
-def main():
-    parser = argparse.ArgumentParser(description='Analyze rollout data and label chunks')
-    parser.add_argument('-i', '--rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92", help='Directory containing rollout data')
-    parser.add_argument('-o', '--output_dir', type=str, default="analysis/basic", help='Directory to save analysis results (defaults to rollouts_dir)')
-    parser.add_argument('-p', '--problems', type=str, default=None, help='Comma-separated list of problem indices to analyze (default: all)')
-    parser.add_argument('-m', '--max_problems', type=int, default=None, help='Maximum number of problems to analyze')
-    parser.add_argument('-a', '--absolute', default=False, action='store_true', help='Use absolute value for importance calculation')
-    parser.add_argument('-f', '--force_relabel', default=False, action='store_true', help='Force relabeling of chunks')
-    args = parser.parse_args()
+def process_rollouts(
+    rollouts_dir: Path, 
+    output_dir: Path, 
+    problems: str = None, 
+    max_problems: int = None, 
+    absolute: bool = False, 
+    force_relabel: bool = False,
+    rollout_type: str = "correct",
+    dag_dir: Optional[str] = None
+) -> None:
+    """
+    Process rollouts from a specific directory and save analysis results.
     
-    # Set up directories
-    rollouts_dir = Path(args.rollouts_dir)
-    output_dir = Path(args.output_dir) if args.output_dir else rollouts_dir
-    output_dir.mkdir(exist_ok=True, parents=True)
-    
+    Args:
+        rollouts_dir: Directory containing rollout data
+        output_dir: Directory to save analysis results
+        problems: Comma-separated list of problem indices to analyze
+        max_problems: Maximum number of problems to analyze
+        absolute: Use absolute value for importance calculation
+        force_relabel: Force relabeling of chunks
+        rollout_type: Type of rollouts ("correct" or "incorrect")
+        dag_dir: Directory containing DAG-improved chunks for token frequency analysis
+    """
     # Get problem directories
     problem_dirs = sorted([d for d in rollouts_dir.iterdir() if d.is_dir() and d.name.startswith("problem_")])
     
     # Filter problems if specified
-    if args.problems:
-        problem_indices = [int(idx) for idx in args.problems.split(",")]
+    if problems:
+        problem_indices = [int(idx) for idx in problems.split(",")]
         problem_dirs = [d for d in problem_dirs if int(d.name.split("_")[1]) in problem_indices]
     
     # Limit number of problems if specified
-    if args.max_problems:
-        problem_dirs = problem_dirs[:args.max_problems]
+    if max_problems:
+        problem_dirs = problem_dirs[:max_problems]
     
-    print(f"Found {len(problem_dirs)} problems to analyze")
+    # Count problems with complete chunk folders
+    total_problems = len(problem_dirs)
+    problems_with_complete_chunks = 0
+    problems_with_partial_chunks = 0
+    problems_with_no_chunks = 0
+    
+    for problem_dir in problem_dirs:
+        chunks_file = problem_dir / "chunks.json"
+        if not chunks_file.exists():
+            problems_with_no_chunks += 1
+            continue
+            
+        with open(chunks_file, 'r', encoding='utf-8') as f:
+            chunks_data = json.load(f)
+            
+        chunks = chunks_data.get("chunks", [])
+        if not chunks:
+            problems_with_no_chunks += 1
+            continue
+            
+        # Check if all chunk folders exist
+        chunk_folders = [problem_dir / f"chunk_{i}" for i in range(len(chunks))]
+        existing_chunk_folders = [folder for folder in chunk_folders if folder.exists()]
+        
+        if len(existing_chunk_folders) == len(chunks):
+            problems_with_complete_chunks += 1
+        elif len(existing_chunk_folders) > 0:
+            problems_with_partial_chunks += 1
+        else:
+            problems_with_no_chunks += 1
+    
+    print(f"\n=== {rollout_type.capitalize()} Rollouts Summary ===")
+    print(f"Total problems found: {total_problems}")
+    print(f"Problems with complete chunk folders: {problems_with_complete_chunks} ({problems_with_complete_chunks/total_problems*100:.1f}%)")
+    print(f"Problems with partial chunk folders: {problems_with_partial_chunks} ({problems_with_partial_chunks/total_problems*100:.1f}%)")
+    print(f"Problems with no chunk folders: {problems_with_no_chunks} ({problems_with_no_chunks/total_problems*100:.1f}%)")
+    
+    # Only analyze problems with at least some chunk folders
+    analyzable_problem_dirs = []
+    for problem_dir in problem_dirs:
+        chunks_file = problem_dir / "chunks.json"
+        if not chunks_file.exists():
+            continue
+            
+        with open(chunks_file, 'r', encoding='utf-8') as f:
+            chunks_data = json.load(f)
+            
+        chunks = chunks_data.get("chunks", [])
+        if not chunks:
+            continue
+            
+        # Check if at least one chunk folder exists
+        chunk_folders = [problem_dir / f"chunk_{i}" for i in range(len(chunks))]
+        existing_chunk_folders = [folder for folder in chunk_folders if folder.exists()]
+        
+        if existing_chunk_folders:
+            analyzable_problem_dirs.append(problem_dir)
+    
+    print(f"Analyzing {len(analyzable_problem_dirs)} problems with at least some chunk folders")
     
     # Analyze each problem
     results = []
-    for problem_dir in tqdm(problem_dirs, desc="Analyzing problems"):
+    for problem_dir in tqdm(analyzable_problem_dirs, desc=f"Analyzing {rollout_type} problems"):
         problem_idx = int(problem_dir.name.split("_")[1])
-        result = analyze_problem(problem_dir, problem_idx, args.absolute, args.force_relabel)
+        result = analyze_problem(problem_dir, problem_idx, absolute, force_relabel)
         if result:
             results.append(result)
     
@@ -1143,9 +1222,17 @@ def main():
     plot_chunk_accuracy_by_position(results, output_dir)
     
     # Print category importance ranking with percentages
-    print("\nCategory Importance Ranking:")
+    print(f"\n{rollout_type.capitalize()} Category Importance Ranking:")
     for idx, row in category_importance.iterrows():
         print(f"{idx+1}. {row['categories']}: {row['mean_pct']:.2f}% ± {row['se_pct']:.2f}% (n={int(row['count'])})")
+    
+    # Analyze token frequencies
+    if dag_dir:
+        print(f"\nAnalyzing token frequencies from DAG-improved chunks in {dag_dir}")
+        analyze_dag_token_frequencies(Path(dag_dir), output_dir)
+    else:
+        print("\nAnalyzing token frequencies from rollout results")
+        analyze_token_frequencies(results, output_dir)
     
     # Save overall results
     results_file = output_dir / "analysis_results.json"
@@ -1175,7 +1262,387 @@ def main():
     analyze_function_tag_variance(results, output_dir)
     analyze_within_problem_variance(results, output_dir)
     
-    print(f"Analysis complete. Results saved to {results_file}")
+    print(f"{rollout_type.capitalize()} analysis complete. Results saved to {output_dir}")
+
+def analyze_dag_token_frequencies(dag_dir: Path, output_dir: Path) -> None:
+    """
+    Analyze token frequencies from DAG-improved chunks.
+    
+    Args:
+        dag_dir: Directory containing DAG-improved chunks
+        output_dir: Directory to save analysis results
+    """
+    print("Analyzing token frequencies from DAG-improved chunks...")
+    
+    # Create plots directory
+    plots_dir = output_dir / "plots"
+    plots_dir.mkdir(exist_ok=True, parents=True)
+    
+    # Collect all chunks by category
+    category_chunks = {}
+    
+    # Find all problem directories
+    problem_dirs = sorted([d for d in dag_dir.iterdir() if d.is_dir() and d.name.startswith("problem_")])
+    
+    for problem_dir in problem_dirs:
+        # Find seed directories
+        seed_dirs = sorted([d for d in problem_dir.iterdir() if d.is_dir() and d.name.startswith("seed_")])
+        
+        for seed_dir in seed_dirs:
+            # Look for chunks_dag_improved.json
+            chunks_file = seed_dir / "chunks_dag_improved.json"
+            
+            if not chunks_file.exists():
+                continue
+                
+            # Load chunks
+            with open(chunks_file, 'r', encoding='utf-8') as f:
+                chunks_data = json.load(f)
+                
+            # Process each chunk
+            for chunk in chunks_data:
+                # Get function tags (categories)
+                function_tags = chunk.get("function_tags", [])
+                
+                # Skip chunks with no tags
+                if not function_tags:
+                    function_tags = chunk.get("categories", [])
+                    if not function_tags:
+                        continue
+                
+                # Get chunk text
+                chunk_text = chunk.get("chunk", "")
+                
+                # Skip empty chunks
+                if not chunk_text:
+                    chunk_text = chunk.get("text", "")
+                    if not chunk_text:
+                        continue
+                    
+                # Add chunk to each of its categories
+                for tag in function_tags:
+                    # Format tag for better display
+                    if isinstance(tag, str):
+                        formatted_tag = " ".join(word.capitalize() for word in tag.split("_"))
+                    else:
+                        continue  # Skip non-string tags
+                        
+                    # Skip unknown category
+                    if formatted_tag.lower() == "unknown":
+                        continue
+                        
+                    if formatted_tag not in category_chunks:
+                        category_chunks[formatted_tag] = []
+                        
+                    category_chunks[formatted_tag].append(chunk_text)
+    
+    # Skip if no categories found
+    if not category_chunks:
+        print("No categories found for token frequency analysis")
+        return
+    
+    print(f"Found {len(category_chunks)} categories with {sum(len(chunks) for chunks in category_chunks.values())} total chunks")
+    
+    # Generate plots for unigrams, bigrams, and trigrams
+    for n in [1, 2, 3]:
+        print(f"Analyzing {n}-gram frequencies...")
+        
+        # Tokenize chunks and count frequencies
+        category_ngram_frequencies = {}
+        
+        for category, chunks in category_chunks.items():
+            # Tokenize all chunks
+            all_tokens = []
+            for chunk in chunks:
+                # Simple tokenization by splitting on whitespace and punctuation
+                tokens = re.findall(r'\b\w+\b', chunk.lower())
+                
+                # Filter out stopwords and numbers
+                filtered_tokens = [token for token in tokens if token not in stopwords and not token.isdigit() and len(token) > 1]
+                
+                # Generate n-grams
+                ngrams = []
+                for i in range(len(filtered_tokens) - (n-1)):
+                    ngram = " ".join(filtered_tokens[i:i+n])
+                    ngrams.append(ngram)
+                
+                all_tokens.extend(ngrams)
+                
+            # Count token frequencies
+            token_counts = Counter(all_tokens)
+            
+            # Calculate percentages
+            total_chunks = len(chunks)
+            token_percentages = {}
+            
+            for token, count in token_counts.items():
+                # Count in how many chunks this n-gram appears
+                chunks_with_token = sum(1 for chunk in chunks if re.search(r'\b' + re.escape(token) + r'\b', chunk.lower()))
+                percentage = (chunks_with_token / total_chunks) * 100
+                token_percentages[token] = percentage
+                
+            # Store results
+            category_ngram_frequencies[category] = token_percentages
+        
+        # Create a master plot with subplots for each category
+        num_categories = len(category_ngram_frequencies)
+        
+        # Calculate grid dimensions
+        cols = min(3, num_categories)
+        rows = (num_categories + cols - 1) // cols  # Ceiling division
+        
+        # Create figure
+        fig = plt.figure(figsize=(20, 5 * rows))
+        
+        # Create subplots
+        for i, (category, token_percentages) in enumerate(category_ngram_frequencies.items()):
+            # Sort tokens by percentage (descending)
+            sorted_tokens = sorted(token_percentages.items(), key=lambda x: x[1], reverse=True)
+            
+            # Take top 10 tokens
+            top_tokens = sorted_tokens[:10]
+            
+            # Create subplot
+            ax = fig.add_subplot(rows, cols, i + 1)
+            
+            # Extract token names and percentages
+            token_names = [token for token, _ in top_tokens]
+            percentages = [percentage for _, percentage in top_tokens]
+            
+            # Create horizontal bar plot
+            y_pos = range(len(token_names))
+            ax.barh(y_pos, percentages, align='center')
+            ax.set_yticks(y_pos)
+            ax.set_yticklabels(token_names)
+            ax.invert_yaxis()  # Labels read top-to-bottom
+            ax.set_xlabel('Percentage of Chunks (%)')
+            ax.set_title(f'Top 10 {n}-grams in {category} Chunks')
+            
+            # Add percentage labels
+            for j, percentage in enumerate(percentages):
+                ax.text(percentage + 1, j, f'{percentage:.1f}%', va='center')
+        
+        # Adjust layout
+        plt.tight_layout()
+        
+        # Save plot
+        ngram_name = "unigrams" if n == 1 else f"{n}-grams"
+        plt.savefig(plots_dir / f"dag_token_{ngram_name}_by_category.png", dpi=300)
+        plt.close()
+        
+        print(f"{n}-gram frequency analysis complete. Plot saved to {plots_dir / f'dag_token_{ngram_name}_by_category.png'}")
+        
+        # Save token frequencies to JSON
+        token_frequencies_file = output_dir / f"dag_token_{ngram_name}_by_category.json"
+        with open(token_frequencies_file, 'w', encoding='utf-8') as f:
+            json.dump(category_ngram_frequencies, f, indent=2)
+
+def analyze_token_frequencies(results: List[Dict], output_dir: Path) -> None:
+    """
+    Analyze token frequencies by category and generate plots.
+    
+    Args:
+        results: List of problem analysis results
+        output_dir: Directory to save plots
+    """
+    print("Analyzing token frequencies by category...")
+    
+    # Create plots directory
+    plots_dir = output_dir / "plots"
+    plots_dir.mkdir(exist_ok=True, parents=True)
+    
+    # Collect all chunks by category
+    category_chunks = {}
+    
+    for result in results:
+        if not result or "labeled_chunks" not in result:
+            continue
+            
+        for chunk in result.get("labeled_chunks", []):
+            # Get function tags (categories)
+            function_tags = chunk.get("function_tags", [])
+            
+            # Skip chunks with no tags
+            if not function_tags:
+                continue
+                
+            # Get chunk text
+            chunk_text = chunk.get("chunk", "")
+            
+            # Skip empty chunks
+            if not chunk_text:
+                continue
+                
+            # Add chunk to each of its categories
+            for tag in function_tags:
+                # Format tag for better display
+                if isinstance(tag, str):
+                    formatted_tag = " ".join(word.capitalize() for word in tag.split("_"))
+                else:
+                    continue  # Skip non-string tags
+                    
+                # Skip unknown category
+                if formatted_tag.lower() == "unknown":
+                    continue
+                    
+                if formatted_tag not in category_chunks:
+                    category_chunks[formatted_tag] = []
+                    
+                category_chunks[formatted_tag].append(chunk_text)
+    
+    # Skip if no categories found
+    if not category_chunks:
+        print("No categories found for token frequency analysis")
+        return
+    
+    # Generate plots for unigrams, bigrams, and trigrams
+    for n in [1, 2, 3]:
+        print(f"Analyzing {n}-gram frequencies...")
+        
+        # Tokenize chunks and count frequencies
+        category_ngram_frequencies = {}
+        
+        for category, chunks in category_chunks.items():
+            # Tokenize all chunks
+            all_tokens = []
+            for chunk in chunks:
+                # Simple tokenization by splitting on whitespace and punctuation
+                tokens = re.findall(r'\b\w+\b', chunk.lower())
+                
+                # Filter out stopwords and numbers
+                filtered_tokens = [token for token in tokens if token not in stopwords and not token.isdigit() and len(token) > 1]
+                
+                # Generate n-grams
+                ngrams = []
+                for i in range(len(filtered_tokens) - (n-1)):
+                    ngram = " ".join(filtered_tokens[i:i+n])
+                    ngrams.append(ngram)
+                
+                all_tokens.extend(ngrams)
+                
+            # Count token frequencies
+            token_counts = Counter(all_tokens)
+            
+            # Calculate percentages
+            total_chunks = len(chunks)
+            token_percentages = {}
+            
+            for token, count in token_counts.items():
+                # Count in how many chunks this n-gram appears
+                chunks_with_token = sum(1 for chunk in chunks if re.search(r'\b' + re.escape(token) + r'\b', chunk.lower()))
+                percentage = (chunks_with_token / total_chunks) * 100
+                token_percentages[token] = percentage
+                
+            # Store results
+            category_ngram_frequencies[category] = token_percentages
+        
+        # Create a master plot with subplots for each category
+        num_categories = len(category_ngram_frequencies)
+        
+        # Calculate grid dimensions
+        cols = min(3, num_categories)
+        rows = (num_categories + cols - 1) // cols  # Ceiling division
+        
+        # Create figure
+        fig = plt.figure(figsize=(20, 5 * rows))
+        
+        # Create subplots
+        for i, (category, token_percentages) in enumerate(category_ngram_frequencies.items()):
+            # Sort tokens by percentage (descending)
+            sorted_tokens = sorted(token_percentages.items(), key=lambda x: x[1], reverse=True)
+            
+            # Take top 10 tokens
+            top_tokens = sorted_tokens[:10]
+            
+            # Create subplot
+            ax = fig.add_subplot(rows, cols, i + 1)
+            
+            # Extract token names and percentages
+            token_names = [token for token, _ in top_tokens]
+            percentages = [percentage for _, percentage in top_tokens]
+            
+            # Create horizontal bar plot
+            y_pos = range(len(token_names))
+            ax.barh(y_pos, percentages, align='center')
+            ax.set_yticks(y_pos)
+            ax.set_yticklabels(token_names)
+            ax.invert_yaxis()  # Labels read top-to-bottom
+            ax.set_xlabel('Percentage of Chunks (%)')
+            ax.set_title(f'Top 10 {n}-grams in {category} Chunks')
+            
+            # Add percentage labels
+            for j, percentage in enumerate(percentages):
+                ax.text(percentage + 1, j, f'{percentage:.1f}%', va='center')
+        
+        # Adjust layout
+        plt.tight_layout()
+        
+        # Save plot
+        ngram_name = "unigrams" if n == 1 else f"{n}-grams"
+        plt.savefig(plots_dir / f"token_{ngram_name}_by_category.png", dpi=300)
+        plt.close()
+        
+        print(f"{n}-gram frequency analysis complete. Plot saved to {plots_dir / f'token_{ngram_name}_by_category.png'}")
+        
+        # Save token frequencies to JSON
+        token_frequencies_file = output_dir / f"token_{ngram_name}_by_category.json"
+        with open(token_frequencies_file, 'w', encoding='utf-8') as f:
+            json.dump(category_ngram_frequencies, f, indent=2)
+
+def main():
+    parser = argparse.ArgumentParser(description='Analyze rollout data and label chunks')
+    parser.add_argument('-ic', '--correct_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92/correct_base_solution", help='Directory containing correct rollout data')
+    parser.add_argument('-ii', '--incorrect_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92/incorrect_base_solution", help='Directory containing incorrect rollout data')
+    parser.add_argument('-o', '--output_dir', type=str, default="analysis/basic", help='Directory to save analysis results (defaults to rollouts_dir)')
+    parser.add_argument('-p', '--problems', type=str, default=None, help='Comma-separated list of problem indices to analyze (default: all)')
+    parser.add_argument('-m', '--max_problems', type=int, default=None, help='Maximum number of problems to analyze')
+    parser.add_argument('-a', '--absolute', default=False, action='store_true', help='Use absolute value for importance calculation')
+    parser.add_argument('-f', '--force_relabel', default=False, action='store_true', help='Force relabeling of chunks')
+    parser.add_argument('-d', '--dag_dir', type=str, default="archive/analysis/math", help='Directory containing DAG-improved chunks for token frequency analysis')
+    parser.add_argument('-t', '--token_analysis_source', type=str, default="dag", choices=["dag", "rollouts"], help='Source for token frequency analysis: "dag" for DAG-improved chunks or "rollouts" for rollout data')
+    args = parser.parse_args()
+    
+    # Set up directories
+    correct_rollouts_dir = Path(args.correct_rollouts_dir) if args.correct_rollouts_dir and len(args.correct_rollouts_dir) > 0 else None
+    incorrect_rollouts_dir = Path(args.incorrect_rollouts_dir) if args.incorrect_rollouts_dir and len(args.incorrect_rollouts_dir) > 0 else None
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(exist_ok=True, parents=True)
+    
+    # Check if at least one rollouts directory is provided
+    if not correct_rollouts_dir and not incorrect_rollouts_dir:
+        print("Error: At least one of --correct_rollouts_dir or --incorrect_rollouts_dir must be provided")
+        return
+    
+    # Process each rollout type if provided
+    if correct_rollouts_dir:
+        print(f"\n=== Processing CORRECT rollouts from {correct_rollouts_dir} ===\n")
+        correct_output_dir = output_dir / "correct_base_solution"
+        correct_output_dir.mkdir(exist_ok=True, parents=True)
+        process_rollouts(
+            rollouts_dir=correct_rollouts_dir,
+            output_dir=correct_output_dir,
+            problems=args.problems,
+            max_problems=args.max_problems,
+            absolute=args.absolute,
+            force_relabel=args.force_relabel,
+            rollout_type="correct",
+            dag_dir=args.dag_dir if args.token_analysis_source == "dag" else None
+        )
+    
+    if incorrect_rollouts_dir:
+        print(f"\n=== Processing INCORRECT rollouts from {incorrect_rollouts_dir} ===\n")
+        incorrect_output_dir = output_dir / "incorrect_base_solution"
+        incorrect_output_dir.mkdir(exist_ok=True, parents=True)
+        process_rollouts(
+            rollouts_dir=incorrect_rollouts_dir,
+            output_dir=incorrect_output_dir,
+            problems=args.problems,
+            max_problems=args.max_problems,
+            absolute=args.absolute,
+            force_relabel=args.force_relabel,
+            rollout_type="incorrect",
+            dag_dir=args.dag_dir if args.token_analysis_source == "dag" else None
+        )
 
 if __name__ == "__main__":
     main()

@@ -25,13 +25,15 @@ FIREWORKS_API_KEY = os.getenv("FIREWORKS_API_KEY")
 import argparse
 parser = argparse.ArgumentParser(description='Generate chain-of-thought solutions with rollouts')
 parser.add_argument('-m', '--model', type=str, default="deepseek/deepseek-r1-distill-qwen-14b", help='Model to use')
+parser.add_argument('-b', '--base_solution_type', type=str, default='correct', choices=['correct', 'incorrect'], help='Type of base solution to generate')
+parser.add_argument('-r', '--rollout_type', type=str, default='default', choices=['default', 'forced_answer'], help='Type of rollout to generate')
 parser.add_argument('-o', '--output_dir', type=str, default='math_rollouts', help='Directory to save results')
 parser.add_argument('-np', '--num_problems', type=int, default=100, help='Number of problems to sample')
 parser.add_argument('-nr', '--num_rollouts', type=int, default=10, help='Number of rollouts per chunk')
 parser.add_argument('-t', '--temperature', type=float, default=0.6, help='Temperature for rollout generation')
 parser.add_argument('-tp', '--top_p', type=float, default=0.92, help='Top-p sampling parameter')
 parser.add_argument('-mt', '--max_tokens', type=int, default=16384, help='Maximum number of tokens for generation')
-parser.add_argument('-mc', '--max_chunks', type=int, default=320, help='Maximum number of chunks to process')
+parser.add_argument('-mc', '--max_chunks', type=int, default=250, help='Maximum number of chunks to process')
 parser.add_argument('-s', '--seed', type=int, default=42, help='Random seed for reproducibility')
 parser.add_argument('-f', '--force', action='store_true', help='Force regeneration even if solutions exist')
 parser.add_argument('-ep', '--exclude_problems', type=str, default=None, help='Comma-separated list of problem IDs to exclude')
@@ -50,7 +52,11 @@ parser.add_argument('-sr', '--skip_recalculate', default=False, action='store_tr
 args = parser.parse_args()
 
 # Create output directory
-output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}_top_p_{str(args.top_p)}"
+if args.rollout_type == 'forced_answer':
+    # NOTE: For forced answer rollouts, we use the correct base solution (we copy the files from the correct base solution directory before running this script)
+    output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}_top_p_{str(args.top_p)}" / f"correct_base_solution_{args.rollout_type}"
+else:
+    output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}_top_p_{str(args.top_p)}" / f"{args.base_solution_type}_base_solution"
 output_dir.mkdir(exist_ok=True, parents=True)
 
 # Set random seed for reproducibility
@@ -243,7 +249,7 @@ async def generate_base_solution(problem: Dict, temperature: float = 0.0) -> Dic
                     "error": str(e)
                 }
 
-async def generate_rollout(problem: Dict, chunk_text: str, full_cot_prefix: str, temperature: float = 0.7) -> Dict:
+async def generate_rollout(problem: Dict, chunk_text: str, full_cot_prefix: str, temperature: float = 0.7, rollout_type: str = 'default') -> Dict:
     """
     Generate a rollout by removing a specific chunk and regenerating from that point.
     
@@ -252,7 +258,7 @@ async def generate_rollout(problem: Dict, chunk_text: str, full_cot_prefix: str,
         chunk_text: Text of the current chunk to remove
         full_cot_prefix: Full CoT text up to and including the current chunk
         temperature: Temperature for generation
-        
+        rollout_type: Type of rollout to generate
     Returns:
         Dictionary with the rollout result
     """
@@ -261,6 +267,9 @@ async def generate_rollout(problem: Dict, chunk_text: str, full_cot_prefix: str,
     
     # Create prompt with the prefix without the current chunk
     prompt = f"Solve this math problem step by step. You MUST put your final answer in \\boxed{{}}. Problem: {problem['problem']} Solution: \n<think>\n{prefix_without_chunk}"
+    
+    if rollout_type == 'forced_answer':
+        prompt += "\n</think>\n\nTherefore, the final answers is \\boxed{"
     
     max_retries = 3
     retry_delay = 2
@@ -272,7 +281,7 @@ async def generate_rollout(problem: Dict, chunk_text: str, full_cot_prefix: str,
             chunk_resampled = split_solution_into_chunks(rollout_text)[0]
             
             # Extract answer and check correctness
-            extracted_answers = extract_boxed_answers(rollout_text)
+            extracted_answers = extract_boxed_answers(f"{prompt}{rollout_text}" if rollout_type == 'forced_answer' else rollout_text)
             answer = extracted_answers[0] if extracted_answers else ""
             is_correct = False
             
@@ -347,13 +356,17 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
     
     # Generate base solution if needed
     if base_solution is None:
-        print(f"Problem {problem_idx}: Generating base solution")
+        print(f"Problem {problem_idx}: Generating {args.base_solution_type} base solution")
         base_solution = await generate_base_solution(problem, args.temperature)
             
-        if "is_correct" not in base_solution or not base_solution["is_correct"]:
+        if args.base_solution_type == "correct" and ("is_correct" not in base_solution or not base_solution["is_correct"]):
             print(base_solution["solution"])
-            print(f"Problem {problem_idx}: Base solution is incorrect or has error. Will not generate rollouts.")
-            return
+            print(f"Problem {problem_idx}: Base solution is INCORRECT or has error. Retrying...")
+            return await process_problem(problem_idx, problem)
+        elif args.base_solution_type == "incorrect" and ("is_correct" not in base_solution or base_solution["is_correct"]):
+            print(base_solution["solution"])
+            print(f"Problem {problem_idx}: Base solution is CORRECT or has error. Retrying...")
+            return await process_problem(problem_idx, problem)
         
         # Save base solution
         with open(base_solution_file, 'w', encoding='utf-8') as f:
@@ -417,7 +430,7 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
                     updated_count = 0
                     for rollout in existing_solutions:
                         if 'rollout' in rollout and 'error' not in rollout:
-                            extracted_answers = extract_boxed_answers(rollout['rollout'])
+                            extracted_answers = extract_boxed_answers(rollout['full_cot'] if args.rollout_type == 'forced_answer' else rollout['rollout'])
                             answer = extracted_answers[0] if extracted_answers else ""
                             is_correct = False
                             
@@ -454,17 +467,14 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
             print(f"Problem {problem_idx}, Chunk {chunk_idx}: Generating {rollouts_to_generate} rollouts")
         
         # Create all rollout tasks at once
-        tasks = [generate_rollout(problem, chunk, full_prefix, args.temperature) for _ in range(rollouts_to_generate)]
+        tasks = [generate_rollout(problem, chunk, full_prefix, args.temperature, args.rollout_type) for _ in range(rollouts_to_generate)]
         
         # Execute all tasks concurrently
         print(f"Problem {problem_idx}, Chunk {chunk_idx}: Executing {len(tasks)} rollout tasks concurrently")
         new_rollouts = await asyncio.gather(*tasks)
         
         # Filter for valid new rollouts
-        valid_new_rollouts = [
-            rollout for rollout in new_rollouts 
-            if rollout.get("answer") and len(rollout.get("answer", "")) > 0 and "error" not in rollout
-        ]
+        valid_new_rollouts = [rollout for rollout in new_rollouts if rollout.get("answer") and len(rollout.get("answer", "")) > 0 and "error" not in rollout]
         
         # Combine valid existing solutions with valid new rollouts
         all_valid_solutions = valid_existing_solutions + valid_new_rollouts
