@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import List, Dict, Tuple
 from dotenv import load_dotenv
 from utils import extract_boxed_answers, check_answer, split_solution_into_chunks, load_math_problems
+from transformers import TextStreamer
 
 # Load environment variables
 load_dotenv()
@@ -29,19 +30,19 @@ parser.add_argument('-b', '--base_solution_type', type=str, default='correct', c
 parser.add_argument('-r', '--rollout_type', type=str, default='default', choices=['default', 'forced_answer'], help='Type of rollout to generate')
 parser.add_argument('-o', '--output_dir', type=str, default='math_rollouts', help='Directory to save results')
 parser.add_argument('-np', '--num_problems', type=int, default=100, help='Number of problems to sample')
-parser.add_argument('-nr', '--num_rollouts', type=int, default=10, help='Number of rollouts per chunk')
+parser.add_argument('-nr', '--num_rollouts', type=int, default=32, help='Number of rollouts per chunk')
 parser.add_argument('-t', '--temperature', type=float, default=0.6, help='Temperature for rollout generation')
 parser.add_argument('-tp', '--top_p', type=float, default=0.92, help='Top-p sampling parameter')
 parser.add_argument('-mt', '--max_tokens', type=int, default=16384, help='Maximum number of tokens for generation')
 parser.add_argument('-mc', '--max_chunks', type=int, default=250, help='Maximum number of chunks to process')
-parser.add_argument('-s', '--seed', type=int, default=42, help='Random seed for reproducibility')
+parser.add_argument('-s', '--seed', type=int, default=44, help='Random seed for reproducibility')
 parser.add_argument('-f', '--force', action='store_true', help='Force regeneration even if solutions exist')
 parser.add_argument('-ep', '--exclude_problems', type=str, default=None, help='Comma-separated list of problem IDs to exclude')
 parser.add_argument('-ip', '--include_problems', type=str, default=None, help='Comma-separated list of problem IDs to include')
 parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
 parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
 parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
-parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together', 'Fireworks', 'Local'], help='Provider to use')
+parser.add_argument('-p', '--provider', type=str, default="Local", choices=['Novita', 'Together', 'Fireworks', 'Local'], help='Provider to use')
 parser.add_argument('-or', '--use_openrouter', default=False, action='store_true', help='Use OpenRouter API')
 parser.add_argument('-fp', '--frequency_penalty', type=float, default=None, help='Frequency penalty parameter')
 parser.add_argument('-pp', '--presence_penalty', type=float, default=None, help='Presence penalty parameter')
@@ -49,7 +50,8 @@ parser.add_argument('-rp', '--repetition_penalty', type=float, default=None, hel
 parser.add_argument('-tk', '--top_k', type=int, default=None, help='Top-k parameter')
 parser.add_argument('-mp', '--min_p', type=float, default=None, help='Min-p parameter')
 parser.add_argument('-sr', '--skip_recalculate', default=False, action='store_true', help='Skip recalculating accuracy for existing rollouts')
-parser.add_argument('-q', '--quantize', default=True, action='store_true', help='Use quantization for local model')
+parser.add_argument('-q', '--quantize', default=False, action='store_true', help='Use quantization for local model')
+parser.add_argument('-bs', '--batch_size', type=int, default=8, help='Batch size for local model')
 args = parser.parse_args()
 
 # Create output directory
@@ -64,6 +66,7 @@ output_dir.mkdir(exist_ok=True, parents=True)
 random.seed(args.seed)
 np.random.seed(args.seed)
 torch.manual_seed(args.seed)
+torch.set_grad_enabled(False)
 if torch.cuda.is_available():
     torch.cuda.manual_seed_all(args.seed)
 
@@ -74,7 +77,7 @@ local_tokenizer = None
 if args.provider == "Local":
     try:
         print(f"Loading local model: {args.model}")
-        model = "deepseek-ai/deepseek-r1-distill-qwen-14b" # Fix the local model name
+        model = args.model.replace("deepseek/", "deepseek-ai/") # Slight adjustment we need to make
         from transformers import AutoModelForCausalLM, AutoTokenizer
         
         # Load tokenizer
@@ -119,6 +122,9 @@ def generate_with_local_model(prompt: str, temperature: float, top_p: float, max
         # Move inputs to GPU if available
         if torch.cuda.is_available():
             inputs = {k: v.to("cuda") for k, v in inputs.items()}
+            
+        # Create a streamer that shows progress
+        streamer = TextStreamer(local_tokenizer, skip_special_tokens=True)
         
         # Set up generation parameters
         generation_config = {
@@ -126,6 +132,9 @@ def generate_with_local_model(prompt: str, temperature: float, top_p: float, max
             "temperature": temperature,
             "top_p": top_p,
             "do_sample": temperature > 0,
+            "use_cache": True,
+            "pad_token_id": local_tokenizer.eos_token_id,
+            "streamer": streamer
         }
         
         # Add optional parameters
@@ -154,7 +163,7 @@ def generate_with_local_model_batch(prompts: List[str], temperature: float, top_
     """Generate text using a local model in batch mode for multiple prompts."""
     try:
         results = []
-        batch_size = 4  # Adjust based on your GPU memory
+        batch_size = args.batch_size
         
         # Process prompts in batches
         for i in range(0, len(prompts), batch_size):
@@ -174,6 +183,8 @@ def generate_with_local_model_batch(prompts: List[str], temperature: float, top_
                 "temperature": temperature,
                 "top_p": top_p,
                 "do_sample": temperature > 0,
+                "use_cache": True,
+                "pad_token_id": local_tokenizer.eos_token_id
             }
             
             # Add optional parameters
@@ -184,10 +195,7 @@ def generate_with_local_model_batch(prompts: List[str], temperature: float, top_
             
             # Generate
             with torch.no_grad():
-                batch_outputs = local_model.generate(
-                    **batch_inputs,
-                    **generation_config
-                )
+                batch_outputs = local_model.generate(**batch_inputs, **generation_config)
             
             # Process each output in the batch
             for j, (input_ids, output_ids) in enumerate(zip(batch_inputs["input_ids"], batch_outputs)):
