@@ -41,7 +41,7 @@ parser.add_argument('-ip', '--include_problems', type=str, default=None, help='C
 parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
 parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
 parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
-parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together', 'Fireworks'], help='Provider to use')
+parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together', 'Fireworks', 'Local'], help='Provider to use')
 parser.add_argument('-or', '--use_openrouter', default=False, action='store_true', help='Use OpenRouter API')
 parser.add_argument('-fp', '--frequency_penalty', type=float, default=None, help='Frequency penalty parameter')
 parser.add_argument('-pp', '--presence_penalty', type=float, default=None, help='Presence penalty parameter')
@@ -49,6 +49,7 @@ parser.add_argument('-rp', '--repetition_penalty', type=float, default=None, hel
 parser.add_argument('-tk', '--top_k', type=int, default=None, help='Top-k parameter')
 parser.add_argument('-mp', '--min_p', type=float, default=None, help='Min-p parameter')
 parser.add_argument('-sr', '--skip_recalculate', default=False, action='store_true', help='Skip recalculating accuracy for existing rollouts')
+parser.add_argument('-q', '--quantize', default=True, action='store_true', help='Use quantization for local model')
 args = parser.parse_args()
 
 # Create output directory
@@ -66,8 +67,154 @@ torch.manual_seed(args.seed)
 if torch.cuda.is_available():
     torch.cuda.manual_seed_all(args.seed)
 
+# Load local model if using Local provider
+local_model = None
+local_tokenizer = None
+
+if args.provider == "Local":
+    try:
+        print(f"Loading local model: {args.model}")
+        model = "deepseek-ai/deepseek-r1-distill-qwen-14b" # Fix the local model name
+        from transformers import AutoModelForCausalLM, AutoTokenizer
+        
+        # Load tokenizer
+        local_tokenizer = AutoTokenizer.from_pretrained(model)
+        
+        # Load model with quantization if specified
+        if args.quantize and torch.cuda.is_available():
+            from transformers import BitsAndBytesConfig
+            
+            quantization_config = BitsAndBytesConfig(
+                load_in_4bit=True,
+                bnb_4bit_compute_dtype=torch.float16,
+                bnb_4bit_quant_type="nf4",
+                bnb_4bit_use_double_quant=True
+            )
+            
+            local_model = AutoModelForCausalLM.from_pretrained(
+                model,
+                device_map="auto",
+                quantization_config=quantization_config,
+                torch_dtype=torch.float16
+            )
+        else:
+            local_model = AutoModelForCausalLM.from_pretrained(
+                model,
+                device_map="auto" if torch.cuda.is_available() else None,
+                torch_dtype=torch.float16 if torch.cuda.is_available() else None
+            )
+        
+        print("Local model loaded successfully")
+        local_model.eval()
+    except Exception as e:
+        print(f"Error loading local model: {e}")
+        exit(1)
+
+def generate_with_local_model(prompt: str, temperature: float, top_p: float, max_tokens: int) -> Dict:
+    """Generate text using a local model."""
+    try:
+        # Tokenize the prompt
+        inputs = local_tokenizer(prompt, return_tensors="pt")
+        
+        # Move inputs to GPU if available
+        if torch.cuda.is_available():
+            inputs = {k: v.to("cuda") for k, v in inputs.items()}
+        
+        # Set up generation parameters
+        generation_config = {
+            "max_new_tokens": max_tokens,
+            "temperature": temperature,
+            "top_p": top_p,
+            "do_sample": temperature > 0,
+        }
+        
+        # Add optional parameters
+        if args.top_k is not None:
+            generation_config["top_k"] = args.top_k
+        if args.repetition_penalty is not None:
+            generation_config["repetition_penalty"] = args.repetition_penalty
+        
+        # Generate
+        with torch.no_grad():
+            outputs = local_model.generate(**inputs, **generation_config)
+        
+        # Decode the generated text
+        generated_text = local_tokenizer.decode(outputs[0][inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+        
+        return {
+            "text": generated_text,
+            "finish_reason": "stop",  # Simplified
+            "usage": {"total_tokens": len(outputs[0])}
+        }
+    except Exception as e:
+        print(f"Error in local generation: {e}")
+        return {"error": str(e)}
+
+def generate_with_local_model_batch(prompts: List[str], temperature: float, top_p: float, max_tokens: int) -> List[Dict]:
+    """Generate text using a local model in batch mode for multiple prompts."""
+    try:
+        results = []
+        batch_size = 4  # Adjust based on your GPU memory
+        
+        # Process prompts in batches
+        for i in range(0, len(prompts), batch_size):
+            batch_prompts = prompts[i:i+batch_size]
+            print(f"Processing batch {i//batch_size + 1}/{(len(prompts) + batch_size - 1)//batch_size}")
+            
+            # Tokenize all prompts in the batch
+            batch_inputs = local_tokenizer(batch_prompts, padding=True, return_tensors="pt")
+            
+            # Move inputs to GPU if available
+            if torch.cuda.is_available():
+                batch_inputs = {k: v.to("cuda") for k, v in batch_inputs.items()}
+            
+            # Set up generation parameters
+            generation_config = {
+                "max_new_tokens": max_tokens,
+                "temperature": temperature,
+                "top_p": top_p,
+                "do_sample": temperature > 0,
+            }
+            
+            # Add optional parameters
+            if args.top_k is not None:
+                generation_config["top_k"] = args.top_k
+            if args.repetition_penalty is not None:
+                generation_config["repetition_penalty"] = args.repetition_penalty
+            
+            # Generate
+            with torch.no_grad():
+                batch_outputs = local_model.generate(
+                    **batch_inputs,
+                    **generation_config
+                )
+            
+            # Process each output in the batch
+            for j, (input_ids, output_ids) in enumerate(zip(batch_inputs["input_ids"], batch_outputs)):
+                # Find where the generated text starts (after the prompt)
+                input_length = len(input_ids)
+                
+                # Decode the generated text
+                generated_text = local_tokenizer.decode(output_ids[input_length:], skip_special_tokens=True)
+                
+                results.append({
+                    "text": generated_text,
+                    "finish_reason": "stop",  # Simplified
+                    "usage": {"total_tokens": len(output_ids)}
+                })
+        
+        return results
+    except Exception as e:
+        print(f"Error in batch generation: {e}")
+        return [{"error": str(e)} for _ in range(len(prompts))]
+
 async def make_api_request(prompt: str, temperature: float, top_p: float, max_tokens: int) -> Dict:
-    """Make an API request to either Novita, Together, or Fireworks based on provider setting."""
+    """Make an API request to either Novita, Together, Fireworks, or use a local model based on provider setting."""
+    # If using local model, use synchronous generation
+    if args.provider == "Local":
+        return generate_with_local_model(prompt, temperature, top_p, max_tokens)
+    
+    # Otherwise, use API-based generation
     if args.provider == "Novita":
         # Novita API request
         headers = {
@@ -137,7 +284,7 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
     if args.min_p is not None and args.provider != "Fireworks":  # Fireworks doesn't support min_p
         payload["min_p"] = args.min_p
     if args.seed is not None:
-        payload["seed"] = None # args.seed
+        payload["seed"] = args.seed # None # args.seed
     
     # Implement exponential backoff for retries
     max_retries = 3
@@ -450,41 +597,80 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
                             json.dump(existing_solutions, f, indent=2)
                 
                 # Filter for valid solutions (has answer and no error)
-                valid_existing_solutions = [sol for sol in existing_solutions if sol.get("answer") and len(sol.get("answer", "")) > 0 and "error" not in sol]
-                
-                num_existing = len(existing_solutions)
-                num_valid = len(valid_existing_solutions)
-                
-                if num_valid >= args.num_rollouts:
-                    print(f"Problem {problem_idx}, Chunk {chunk_idx}: All {num_valid} valid rollouts already exist")
-                    continue
+                valid_existing_solutions = [s for s in existing_solutions if 'answer' in s and 'error' not in s]
+        
+        # Generate rollouts if needed
+        num_rollouts_needed = args.num_rollouts - len(valid_existing_solutions)
+        
+        if num_rollouts_needed > 0:
+            print(f"Problem {problem_idx}, Chunk {chunk_idx}: Generating {num_rollouts_needed} rollouts")
+            
+            # For Local provider, we can use batch processing
+            if args.provider == "Local":
+                # Create prompts for all rollouts
+                prompts = []
+                for _ in tqdm(range(num_rollouts_needed), desc="Generating rollouts"):
+                    # Remove the current chunk from the prefix to see how it gets regenerated
+                    prefix_without_chunk = full_prefix.replace(chunk, "").strip()
                     
-                rollouts_to_generate = args.num_rollouts - num_valid
-                print(f"Problem {problem_idx}, Chunk {chunk_idx}: Found {num_existing} existing rollouts, but only {num_valid} are valid")
-                print(f"Problem {problem_idx}, Chunk {chunk_idx}: Generating {rollouts_to_generate} additional rollouts")
+                    # Create prompt with the prefix without the current chunk
+                    prompt = f"Solve this math problem step by step. You MUST put your final answer in \\boxed{{}}. Problem: {problem['problem']} Solution: \n<think>\n{prefix_without_chunk}"
+                    
+                    if args.rollout_type == 'forced_answer':
+                        prompt += "\n</think>\n\nTherefore, the final answers is \\boxed{"
+                    
+                    prompts.append(prompt)
+                
+                # Generate all rollouts in batch
+                batch_results = generate_with_local_model_batch(prompts, args.temperature, args.top_p, args.max_tokens)
+                
+                # Process results
+                new_solutions = []
+                for i, result in enumerate(batch_results):
+                    rollout_text = result.get('text', '')
+                    
+                    # Skip if there was an error
+                    if 'error' in result:
+                        new_solutions.append({"error": result['error']})
+                        continue
+                    
+                    # Create the rollout object
+                    prefix_without_chunk = full_prefix.replace(chunk, "").strip()
+                    chunk_resampled = split_solution_into_chunks(rollout_text)[0] if rollout_text else ""
+                    
+                    # Extract answer and check correctness
+                    prompt = prompts[i]
+                    extracted_answers = extract_boxed_answers(f"{prompt}{rollout_text}" if args.rollout_type == 'forced_answer' else rollout_text)
+                    answer = extracted_answers[0] if extracted_answers else ""
+                    is_correct = False
+                    
+                    if problem.get('gt_answer') and answer:
+                        is_correct = check_answer(answer, problem['gt_answer'])
+                    
+                    new_solutions.append({
+                        "chunk_removed": chunk,
+                        "prefix_without_chunk": prefix_without_chunk,
+                        "chunk_resampled": chunk_resampled,
+                        "rollout": rollout_text,
+                        "full_cot": f"{prompt}{rollout_text}",
+                        "answer": answer,
+                        "is_correct": is_correct
+                    })
+            else:
+                # For API providers, we can generate in parallel
+                tasks = [generate_rollout(problem, chunk, full_prefix, args.temperature, args.rollout_type) for _ in range(num_rollouts_needed)]
+                new_solutions = await asyncio.gather(*tasks)
+            
+            # Combine with existing solutions
+            all_solutions = existing_solutions + new_solutions
+            
+            # Save all solutions
+            with open(solutions_file, 'w', encoding='utf-8') as f:
+                json.dump(all_solutions, f, indent=2)
+            
+            print(f"Problem {problem_idx}, Chunk {chunk_idx}: Saved {len(all_solutions)} solutions")
         else:
-            rollouts_to_generate = args.num_rollouts
-            print(f"Problem {problem_idx}, Chunk {chunk_idx}: Generating {rollouts_to_generate} rollouts")
-        
-        # Create all rollout tasks at once
-        tasks = [generate_rollout(problem, chunk, full_prefix, args.temperature, args.rollout_type) for _ in range(rollouts_to_generate)]
-        
-        # Execute all tasks concurrently
-        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Executing {len(tasks)} rollout tasks concurrently")
-        new_rollouts = await asyncio.gather(*tasks)
-        
-        # Filter for valid new rollouts
-        valid_new_rollouts = [rollout for rollout in new_rollouts if rollout.get("answer") and len(rollout.get("answer", "")) > 0 and "error" not in rollout]
-        
-        # Combine valid existing solutions with valid new rollouts
-        all_valid_solutions = valid_existing_solutions + valid_new_rollouts
-        
-        # Save only the valid solutions
-        with open(solutions_file, 'w', encoding='utf-8') as f:
-            json.dump(all_valid_solutions, f, indent=2)
-        
-        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Saved {len(valid_new_rollouts)} new valid rollouts")
-        print(f"Problem {problem_idx}, Chunk {chunk_idx}: Total valid rollouts: {len(all_valid_solutions)}")
+            print(f"Problem {problem_idx}, Chunk {chunk_idx}: Already have {len(valid_existing_solutions)} valid solutions")
 
 async def main():
     """Main function to run the script."""
@@ -505,12 +691,11 @@ async def main():
 
     print(f"Loaded {len(problems)} problems.")
     
-    # Process problems one by one
+    # Process problems
     for problem_idx, problem in tqdm(problems, desc="Processing problems"):
         await process_problem(problem_idx, problem)
 
 if __name__ == "__main__":
-    # Run the async main function
     asyncio.run(main())
 
 # Add this near the top of your script where you check for API keys

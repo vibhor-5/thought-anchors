@@ -17,6 +17,7 @@ import gc
 from sklearn.metrics import ndcg_score
 import traceback
 from utils import get_chunk_ranges, get_chunk_token_ranges
+import re
 
 # Load environment variables
 load_dotenv()
@@ -347,9 +348,9 @@ def calculate_ndcg(predicted_ranks: List[int], true_scores: List[float]) -> floa
     except:
         return 0.0
 
-def llm_attribution(problem: Dict, chunks: List[Dict], base_solution: Dict, **kwargs) -> List[int]:
+def llm_attribution(problem: Dict, chunks: List[Dict], base_solution: Dict, **kwargs) -> List[float]:
     """
-    Use GPT-4o to rank chunks by importance.
+    Use GPT-4o to rate chunks by importance in a single call.
     
     Args:
         problem: Problem dictionary
@@ -358,68 +359,82 @@ def llm_attribution(problem: Dict, chunks: List[Dict], base_solution: Dict, **kw
         **kwargs: Additional arguments
         
     Returns:
-        List of ranks for each chunk (lower is more important)
+        List of normalized importance scores (0-1 range)
     """
     # Extract problem text and chunks
     problem_text = problem.get("problem", "")
     chunk_texts = [chunk.get("chunk", "") for chunk in chunks]
     
-    # Create the prompt
+    # Create the prompt with all chunks
     prompt = f"""
     You are analyzing a mathematical problem and its solution broken into chunks. 
-    Your task is to rank these chunks by their importance to the solution.
+    Your task is to give a rating to each chunk based on their importance to the solution.
 
     Problem:
     {problem_text}
 
-    Solution chunks:
+    Rate each solution chunk on a scale from 0 to 10, where:
+    - 0 means completely irrelevant or harmful to the solution
+    - 10 means absolutely critical to the solution
+
+    For each chunk, provide ONLY a single number between 0 and 10.
+    Format your response as a comma-separated list of numbers, one for each chunk.
+    Remember, you need a rating for each chunk, do not skip any chunks!
+    You will be given chunks in the order of their importance to the solution, it'll look like this:
+    
+    Solution chunks to rate:
+    1. Chunk 1
+    2. Chunk 2
+    3. Chunk 3
+    4. Chunk 4
+    
     """
     
-    for i, chunk in enumerate(chunk_texts):
-        prompt += f"Chunk {i}: {chunk}\n\n"
+    # Add each chunk with its index
+    for i, chunk_text in enumerate(chunk_texts):
+        prompt += f"\n{i+1}. {chunk_text}\n"
     
-    prompt += """
-    Please rank these chunks from most important to least important for solving the problem.
-    Return your answer as a JSON object with a single key "ranking" containing an array of chunk indices, ordered from most to least important.
-    For example: {"ranking": [2, 0, 3, 1]} means chunk 2 is most important, followed by chunk 0, then 3, then 1.
-    
-    IMPORTANT: Your response must be a valid JSON object with the "ranking" key containing the array of indices.
-    """
+    prompt += "\n\nYour ratings (comma-separated list of numbers only):"
     
     try:
+        # Make a single call to the LLM
         response = client.chat.completions.create(
             model="gpt-4o",
             messages=[{"role": "user", "content": prompt}],
             temperature=0.0,
-            response_format={"type": "json_object"}
+            max_tokens=2048
         )
         
-        result = json.loads(response.choices[0].message.content)
+        # Extract scores from response
+        response_text = response.choices[0].message.content.strip()
         
-        # Extract the ranking
-        if isinstance(result, dict) and "ranking" in result:
-            ranking = result["ranking"]
-        elif isinstance(result, dict) and "result" in result:
-            ranking = result["result"]
-        elif isinstance(result, list):
-            ranking = result
-        else:
-            print(f"Unexpected response format: {result}")
-            # Default to sequential ranking
-            ranking = list(range(len(chunks)))
+        # Parse comma-separated numbers
+        score_matches = re.findall(r'(\d+(\.\d+)?)', response_text)
+        scores = [float(match[0]) for match in score_matches]
         
-        # Convert to ranks (position in the ranking)
-        ranks = [0] * len(chunks)
-        for i, chunk_idx in enumerate(ranking):
-            if chunk_idx < len(ranks):
-                ranks[chunk_idx] = i
+        # Ensure we have the right number of scores
+        if len(scores) < len(chunk_texts):
+            print(f"Warning: Got {len(scores)} scores but expected {len(chunk_texts)}. Filling missing with 5.0")
+            scores.extend([5.0] * (len(chunk_texts) - len(scores)))
+        elif len(scores) > len(chunk_texts):
+            print(f"Warning: Got {len(scores)} scores but expected {len(chunk_texts)}. Truncating.")
+            scores = scores[:len(chunk_texts)]
         
-        return ranks
-    
+        # Normalize to 0-10 range
+        scores = [min(max(score, 0), 10) for score in scores]
+        
     except Exception as e:
-        print(f"Error in LLM attribution: {e}")
-        # Default to sequential ranking
-        return list(range(len(chunks)))
+        print(f"Error getting LLM attribution: {e}")
+        scores = [5.0] * len(chunk_texts)  # Default to middle scores
+    
+    # Normalize scores to 0-1 range
+    if scores:
+        min_score = min(scores)
+        max_score = max(scores)
+        if max_score > min_score:
+            scores = [(s - min_score) / (max_score - min_score) for s in scores]
+    
+    return scores
 
 def kl_attribution(problem: Dict, labeled_chunks: List[Dict], base_solution: Dict, **kwargs) -> List[float]:
     """
@@ -921,9 +936,7 @@ def evaluate_attribution_method(
     """
     print(f"Evaluating {method_name} attribution method...")
     
-    pairwise_accuracies = []
-    kendall_taus = []
-    ndcg_scores = []
+    correlations = []
     
     for problem_dir in tqdm(problem_dirs, desc=f"Evaluating {method_name}"):
         # Load labeled chunks
@@ -946,34 +959,38 @@ def evaluate_attribution_method(
         if len(set(true_scores)) <= 1:
             continue
         
-        # Get predicted ranks
-        predicted_ranks = attribution_method(problem, labeled_chunks, base_solution, **kwargs)
-        # DEBUG: print('For method ', method_name, ', predicted ranks are: ', predicted_ranks)
+        # Normalize true scores to 0-1 range
+        min_true = min(true_scores)
+        max_true = max(true_scores)
+        if max_true > min_true:
+            true_scores = [(s - min_true) / (max_true - min_true) for s in true_scores]
+        
+        # Get predicted scores
+        predicted_scores = attribution_method(problem, labeled_chunks, base_solution, **kwargs)
+        
+        # Normalize predicted scores to 0-1 range
+        if predicted_scores:
+            min_pred = min(predicted_scores)
+            max_pred = max(predicted_scores)
+            if max_pred > min_pred:
+                predicted_scores = [(s - min_pred) / (max_pred - min_pred) for s in predicted_scores]
         
         # Skip if lengths don't match
-        if len(predicted_ranks) != len(true_scores):
+        if len(predicted_scores) != len(true_scores):
             continue
         
-        # Calculate metrics
-        pairwise_accuracy = calculate_pairwise_accuracy(predicted_ranks, true_scores)
-        kendall_tau = calculate_kendall_tau(predicted_ranks, true_scores)
-        ndcg = calculate_ndcg(predicted_ranks, true_scores)
-        
-        pairwise_accuracies.append(pairwise_accuracy)
-        kendall_taus.append(kendall_tau)
-        ndcg_scores.append(ndcg)
+        # Calculate correlation
+        correlation = np.corrcoef(true_scores, predicted_scores)[0, 1]
+        if not np.isnan(correlation):
+            correlations.append(correlation)
     
-    # Calculate average metrics
-    avg_pairwise_accuracy = np.mean(pairwise_accuracies) if pairwise_accuracies else 0.0
-    avg_kendall_tau = np.mean(kendall_taus) if kendall_taus else 0.0
-    avg_ndcg = np.mean(ndcg_scores) if ndcg_scores else 0.0
+    # Calculate average correlation
+    avg_correlation = np.mean(correlations) if correlations else 0.0
     
     return {
         "method": method_name,
-        "pairwise_accuracy": avg_pairwise_accuracy,
-        "kendall_tau": avg_kendall_tau,
-        "ndcg": avg_ndcg,
-        "num_problems": len(pairwise_accuracies)
+        "correlation": avg_correlation,
+        "num_problems": len(correlations)
     }
 
 def plot_results(results: List[Dict], output_dir: Path) -> None:
@@ -991,70 +1008,127 @@ def plot_results(results: List[Dict], output_dir: Path) -> None:
     # Convert results to DataFrame
     df = pd.DataFrame(results)
     
-    # Sort by pairwise accuracy
-    df = df.sort_values("pairwise_accuracy", ascending=False)
+    # Sort by correlation
+    df = df.sort_values("correlation", ascending=False)
     
-    # Create pairwise accuracy plot
+    # Create correlation plot
     plt.figure(figsize=(12, 8))
-    sns.barplot(x="method", y="pairwise_accuracy", data=df)
-    plt.title("Pairwise Accuracy by Attribution Method")
+    sns.barplot(x="method", y="correlation", data=df)
+    plt.title("Correlation with Ground Truth by Attribution Method")
     plt.xlabel("Method")
-    plt.ylabel("Pairwise Accuracy")
+    plt.ylabel("Correlation")
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.savefig(plots_dir / "pairwise_accuracy.png")
-    plt.close()
-    
-    # Create Kendall's Tau plot
-    plt.figure(figsize=(12, 8))
-    sns.barplot(x="method", y="kendall_tau", data=df)
-    plt.title("Kendall's Tau by Attribution Method")
-    plt.xlabel("Method")
-    plt.ylabel("Kendall's Tau")
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    plt.savefig(plots_dir / "kendall_tau.png")
-    plt.close()
-    
-    # Create NDCG plot
-    plt.figure(figsize=(12, 8))
-    sns.barplot(x="method", y="ndcg", data=df)
-    plt.title("NDCG by Attribution Method")
-    plt.xlabel("Method")
-    plt.ylabel("NDCG")
-    plt.xticks(rotation=45)
-    plt.tight_layout()
-    plt.savefig(plots_dir / "ndcg.png")
-    plt.close()
-    
-    # Create a combined metrics plot
-    plt.figure(figsize=(14, 8))
-    
-    # Melt the DataFrame to have one row per method-metric combination
-    df_melted = pd.melt(
-        df, 
-        id_vars=["method", "num_problems"], 
-        value_vars=["pairwise_accuracy", "kendall_tau", "ndcg"],
-        var_name="metric", 
-        value_name="score"
-    )
-    
-    # Create the grouped bar plot
-    sns.barplot(x="method", y="score", hue="metric", data=df_melted)
-    
-    plt.title("Attribution Method Performance Across Metrics")
-    plt.xlabel("Method")
-    plt.ylabel("Score")
-    plt.xticks(rotation=45)
-    plt.legend(title="Metric")
-    plt.tight_layout()
-    plt.savefig(plots_dir / "combined_metrics.png")
+    plt.savefig(plots_dir / "correlation.png")
     plt.close()
     
     # Save results to CSV
     df.to_csv(output_dir / "attribution_results.csv", index=False)
     
     print(f"Results saved to {output_dir}")
+
+def plot_attribution_metrics(
+    problem_dirs: List[Path],
+    attribution_methods: Dict[str, Callable],
+    output_dir: Path,
+    **kwargs
+) -> None:
+    """
+    Plot attribution metrics alongside ground truth importance for each problem.
+    
+    Args:
+        problem_dirs: List of problem directories
+        attribution_methods: Dictionary mapping method names to attribution functions
+        output_dir: Directory to save plots
+        **kwargs: Additional arguments to pass to attribution methods
+    """
+    print("Plotting attribution metrics for each problem...")
+
+    # Create plots directory
+    plots_dir = output_dir / "attribution_plots"
+    plots_dir.mkdir(exist_ok=True, parents=True)
+    use_abs_importance = kwargs.get("use_abs_importance", True)
+    
+    for problem_dir in tqdm(problem_dirs, desc="Plotting attribution metrics"):
+        # Load labeled chunks
+        labeled_chunks = load_labeled_chunks(problem_dir)
+        base_solution = get_base_solution(problem_dir)
+        
+        if not labeled_chunks:
+            continue
+        
+        # Load problem
+        problem = load_problem(problem_dir)
+        
+        if not problem:
+            continue
+        
+        # Extract problem index from directory name
+        problem_idx = problem_dir.name.split('_')[-1]
+        
+        # Extract true importance scores
+        true_scores = [np.abs(chunk.get("importance", 0.0)) if use_abs_importance else chunk.get("importance", 0.0) for chunk in labeled_chunks]
+        
+        # Skip if all scores are the same
+        if len(set(true_scores)) <= 1:
+            continue
+        
+        # Get attribution scores for each method
+        method_scores = {}
+        for method_name, attribution_method in attribution_methods.items():
+            try:
+                scores = attribution_method(problem, labeled_chunks, base_solution, **kwargs)
+                method_scores[method_name] = scores
+            except Exception as e:
+                print(f"Error computing {method_name} for problem {problem_idx}: {e}")
+                traceback.print_exc()
+        
+        # Skip if no methods produced scores
+        if not method_scores:
+            continue
+        
+        # Create plot
+        plt.figure(figsize=(12, 8))
+        
+        # Plot ground truth importance
+        plt.plot(range(len(true_scores)), true_scores, 'k-', linewidth=2, label="Ground Truth Importance")
+        
+        # Plot each attribution method
+        colors = ['b', 'r', 'g', 'm', 'c', 'y']
+        styles = ['-', '--', '-.', ':']
+        
+        for i, (method_name, scores) in enumerate(method_scores.items()):
+            if len(scores) != len(true_scores):
+                print(f"Warning: {method_name} scores length ({len(scores)}) doesn't match true scores length ({len(true_scores)}) for problem {problem_idx}")
+                continue
+                
+            color = colors[i % len(colors)]
+            style = styles[(i // len(colors)) % len(styles)]
+            
+            # Normalize scores to same scale as ground truth for better comparison
+            max_true = max(abs(s) for s in true_scores)
+            max_score = max(abs(s) for s in scores) if any(scores) else 1.0
+            normalized_scores = [s * (max_true / max_score) if max_score > 0 else 0 for s in scores]
+            
+            plt.plot(range(len(scores)), normalized_scores, f'{color}{style}', linewidth=1.5, label=f"{method_name} (normalized)")
+        
+        # Add labels and title
+        plt.xlabel("Chunk Index")
+        plt.ylabel("Attribution Score")
+        plt.title(f"Problem {problem_idx}: Attribution Metrics vs Ground Truth")
+        
+        # Add grid
+        plt.grid(True, alpha=0.3)
+        
+        # Add legend
+        plt.legend(loc='best')
+        
+        # Save the plot
+        plt.tight_layout()
+        plt.savefig(plots_dir / f"problem_{problem_idx}_attribution.png")
+        plt.close()
+    
+    print(f"Attribution metric plots saved to {plots_dir}")
 
 def main():
     parser = argparse.ArgumentParser(description="Benchmark different attribution methods")
@@ -1161,6 +1235,23 @@ def main():
     
     # Plot results
     plot_results(results, output_dir)
+    
+    # Plot attribution metrics for each problem
+    plot_attribution_metrics(
+        problem_dirs=problem_dirs,
+        attribution_methods={
+            "Entropy": entropy_attribution,
+            "KL Divergence": kl_attribution,
+            # "KL Loss": kl_loss_attribution,
+            # "Perplexity": perplexity_attribution
+        },
+        output_dir=output_dir,
+        model=thinking_model,
+        tokenizer=tokenizer,
+        thinking_model=thinking_model,
+        base_model=base_model,
+        use_abs_importance=args.use_abs_importance
+    )
     
     # Clean up
     gc.collect()

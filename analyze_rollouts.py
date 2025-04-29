@@ -102,15 +102,24 @@ def label_chunk(problem_text: str, chunks: List[str], chunk_idx: int) -> Dict:
             "chunk_idx": chunk_idx
         }
 
-def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = False, force_relabel: bool = False) -> Dict:
+def analyze_problem(
+    problem_dir: Path, 
+    output_dir: Path, 
+    use_absolute: bool = False,
+    force_relabel: bool = False,
+    rollout_type: str = "correct",
+    forced_answer_dir: Optional[Path] = None
+) -> Dict:
     """
-    Analyze a single problem.
+    Analyze rollout data for a single problem.
     
     Args:
-        problem_dir: Directory containing the problem data
-        problem_idx: Index of the problem
+        problem_dir: Directory containing rollout data for a problem
+        output_dir: Directory to save analysis results
         use_absolute: Whether to use absolute value for importance calculation
         force_relabel: Whether to force relabeling of chunks
+        rollout_type: Type of rollouts ("correct" or "incorrect")
+        forced_answer_dir: Directory containing forced answer rollouts
         
     Returns:
         Dictionary with analysis results
@@ -121,7 +130,7 @@ def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = Fa
     problem_file = problem_dir / "problem.json"
     
     if not (base_solution_file.exists() and chunks_file.exists() and problem_file.exists()):
-        print(f"Problem {problem_idx}: Missing required files")
+        print(f"Problem {problem_dir.name}: Missing required files")
         return None
     
     # Load problem
@@ -147,22 +156,22 @@ def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = Fa
             valid_chunk_indices.append(i)
     
     if len(valid_chunks) < len(chunks):
-        print(f"Problem {problem_idx}: Filtered out {len(chunks) - len(valid_chunks)} chunks shorter than 3 characters")
+        print(f"Problem {problem_dir.name}: Filtered out {len(chunks) - len(valid_chunks)} chunks shorter than 3 characters")
         chunks = valid_chunks
     
     # Check if at least 25% of chunks have corresponding chunk folders
     chunk_folders = [problem_dir / f"chunk_{i}" for i in valid_chunk_indices]
     existing_chunk_folders = [folder for folder in chunk_folders if folder.exists()]
     
-    if len(existing_chunk_folders) < len(chunks):
-        print(f"Problem {problem_idx}: Only {len(existing_chunk_folders)}/{len(chunks)} chunk folders exist")
+    if len(existing_chunk_folders) < 0.01 * len(chunks):
+        print(f"Problem {problem_dir.name}: Only {len(existing_chunk_folders)}/{len(chunks)} chunk folders exist")
         return None
     
     # Calculate token counts for each chunk's full_cot
     token_counts = []
     
     # Pre-calculate accuracies for all chunks - do this once instead of repeatedly
-    print(f"Problem {problem_idx}: Pre-calculating chunk accuracies")
+    print(f"Problem {problem_dir.name}: Pre-calculating chunk accuracies")
     chunk_accuracies = {}
     
     for chunk_idx in valid_chunk_indices:
@@ -205,8 +214,11 @@ def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = Fa
         
         # The importance is how much this chunk's accuracy differs from others
         # NOTE: We can also take next_avg_accuracy as idx > chunk_idx
-        diff = next_avg_accuracy - current_accuracy
-        # diff = 1 - current_accuracy
+        # diff = next_avg_accuracy - current_accuracy
+        if rollout_type == "correct":
+            diff = 1 - current_accuracy
+        else:
+            diff = current_accuracy
         
         return abs(diff) if use_absolute else diff
     
@@ -221,7 +233,7 @@ def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = Fa
         labeled_chunks = [chunk for chunk in labeled_chunks if chunk.get("chunk_idx") in valid_chunk_indices]
         
         # Recalculate importance for each chunk using pre-calculated accuracies
-        print(f"Problem {problem_idx}: Recalculating chunk importance")
+        print(f"Problem {problem_dir.name}: Recalculating chunk importance")
         for chunk in labeled_chunks:
             chunk_idx = chunk.get("chunk_idx")
             chunk["importance"] = calculate_importance(chunk_idx, use_absolute)
@@ -231,10 +243,10 @@ def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = Fa
         with open(labeled_chunks_file, 'w', encoding='utf-8') as f:
             json.dump(labeled_chunks, f, indent=2)
             
-        print(f"Problem {problem_idx}: Updated importance scores in {labeled_chunks_file}")
+        print(f"Problem {problem_dir.name}: Updated importance scores in {labeled_chunks_file}")
     else:
         # Label each chunk
-        print(f"Problem {problem_idx}: Labeling {len(chunks)} chunks")
+        print(f"Problem {problem_dir.name}: Labeling {len(chunks)} chunks")
         
         # Use the DAG prompt to label all chunks at once
         try:
@@ -264,24 +276,63 @@ def analyze_problem(problem_dir: Path, problem_idx: int, use_absolute: bool = Fa
                 
                 labeled_chunks.append(chunk_data)
         except Exception as e:
-            print(f"Error using DAG prompt for problem {problem_idx}: {e}")
+            print(f"Error using DAG prompt for problem {problem_dir.name}: {e}")
             return None
         
         # Save labeled chunks
         with open(labeled_chunks_file, 'w', encoding='utf-8') as f:
             json.dump(labeled_chunks, f, indent=2)
         
-        print(f"Problem {problem_idx}: Saved labeled chunks to {labeled_chunks_file}")
+        print(f"Problem {problem_dir.name}: Saved labeled chunks to {labeled_chunks_file}")
+    
+    # Load forced answer data if available
+    forced_answer_accuracies = None
+    if forced_answer_dir:
+        forced_problem_dir = forced_answer_dir / problem_dir.name
+        if forced_problem_dir.exists():
+            forced_answer_accuracies = []
+            
+            # Iterate through chunk directories
+            for chunk_idx in valid_chunk_indices:
+                chunk_dir = forced_problem_dir / f"chunk_{chunk_idx}"
+                
+                if chunk_dir.exists():
+                    # Load solutions.json file to calculate accuracy
+                    solutions_file = chunk_dir / "solutions.json"
+                    if solutions_file.exists():
+                        try:
+                            with open(solutions_file, 'r', encoding='utf-8') as f:
+                                solutions = json.load(f)
+                            
+                            # Calculate accuracy from solutions
+                            correct_count = sum(1 for sol in solutions if sol.get("is_correct", False) is True)
+                            total_count = len(solutions)
+                            
+                            if total_count > 0:
+                                accuracy = correct_count / total_count
+                            else:
+                                accuracy = 0.0
+                                
+                            forced_answer_accuracies.append(accuracy)
+                            
+                        except Exception as e:
+                            print(f"Error loading solutions from {solutions_file}: {e}")
+                            forced_answer_accuracies.append(0.0)
+                    else:
+                        forced_answer_accuracies.append(0.0)
+                else:
+                    forced_answer_accuracies.append(0.0)
     
     # Return analysis results
     return {
-        "problem_idx": problem_idx,
+        "problem_idx": problem_dir.name.split("_")[1],
         "problem_type": problem.get("type"),
         "problem_level": problem.get("level"),
         "base_accuracy": base_solution.get("is_correct", False),
         "num_chunks": len(chunks),
         "labeled_chunks": labeled_chunks,
-        "token_counts": token_counts
+        "token_counts": token_counts,
+        "forced_answer_accuracies": forced_answer_accuracies
     }
 
 def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
@@ -902,13 +953,14 @@ def analyze_within_problem_variance(results: List[Dict], output_dir: Path) -> No
     
     print(f"Within-problem variance analysis saved to {variance_dir}")
 
-def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path) -> None:
+def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollout_type: str = "correct") -> None:
     """
     Plot chunk accuracy by position for all processed problems with focus on early chunks.
     
     Args:
         results: List of problem analysis results
         output_dir: Directory to save the plot
+        rollout_type: Type of rollouts ("correct" or "incorrect")
     """
     print("Plotting chunk accuracy by position...")
     
@@ -922,6 +974,7 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path) -> No
     
     # Collect data for all chunks across problems
     chunk_data = []
+    forced_chunk_data = []  # New list for forced answer data
     
     for result in results:
         if not result:
@@ -957,6 +1010,16 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path) -> No
                 "accuracy": accuracy,
                 "tag": first_tag
             })
+            
+            # Add forced answer accuracy if available
+            if "forced_answer_accuracies" in result and result["forced_answer_accuracies"] is not None and len(result["forced_answer_accuracies"]) > chunk_idx:
+                forced_accuracy = result["forced_answer_accuracies"][chunk_idx]
+                forced_chunk_data.append({
+                    "problem_idx": problem_idx,
+                    "chunk_idx": chunk_idx,
+                    "accuracy": forced_accuracy,
+                    "tag": first_tag
+                })
     
     if not chunk_data:
         print("No chunk data available for plotting.")
@@ -964,13 +1027,14 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path) -> No
     
     # Convert to DataFrame
     df_chunks = pd.DataFrame(chunk_data)
+    df_forced = pd.DataFrame(forced_chunk_data) if forced_chunk_data else None
     
     # Get unique problem indices
     problem_indices = df_chunks["problem_idx"].unique()
     
-    # Create a colormap for the problems
+    # Create a colormap for the problems (other options: plasma, inferno, magma, cividis)
     import matplotlib.cm as cm
-    colors = cm.rainbow(np.linspace(0, 1, len(problem_indices)))
+    colors = cm.viridis(np.linspace(0, 1, len(problem_indices)))
     color_map = dict(zip(sorted(problem_indices), colors))
     
     # Create a single plot focusing on first 100 chunks
@@ -994,22 +1058,50 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path) -> No
             label=f"Problem {problem_idx}"
         )[0]
         
-        # Add function tag labels to each point
-        for _, row in problem_data.iterrows():
-            if row["tag"]:
+        # Identify accuracy extrema (minima for correct, maxima for incorrect)
+        # Convert to numpy arrays for easier manipulation
+        chunk_indices = problem_data["chunk_idx"].values
+        accuracies = problem_data["accuracy"].values
+        tags = problem_data["tag"].values
+        
+        # Add function tag labels only for extrema
+        for i in range(1, len(chunk_indices) - 1):
+            if rollout_type == "correct":
+                # For correct rollouts, annotate minima (lower than both neighbors)
+                is_extrema = accuracies[i] < accuracies[i-1] and accuracies[i] < accuracies[i+1]
+            else:
+                # For incorrect rollouts, annotate maxima (higher than both neighbors)
+                is_extrema = accuracies[i] > accuracies[i-1] and accuracies[i] > accuracies[i+1]
+                
+            if is_extrema and tags[i]:  # Only add if there's a tag
                 plt.annotate(
-                    row["tag"],
-                    (row["chunk_idx"], row["accuracy"]),
+                    tags[i],
+                    (chunk_indices[i], accuracies[i]),
                     textcoords="offset points",
-                    xytext=(0, 5),
+                    xytext=(0, -15 if rollout_type == "correct" else 5),  # Position below the point for correct, above for incorrect
                     ha='center',
-                    fontsize=7,
+                    fontsize=8,
                     color=line.get_color(),
                     alpha=0.9,
                     weight='bold'
                 )
+        
+        # Plot forced answer accuracy if available
+        if df_forced is not None and False: # NOTE: We're disabling this for now because it looks too packed
+            forced_problem_data = df_forced[df_forced["problem_idx"] == problem_idx]
+            if not forced_problem_data.empty:
+                forced_problem_data = forced_problem_data.sort_values("chunk_idx")
+                plt.plot(
+                    forced_problem_data["chunk_idx"],
+                    forced_problem_data["accuracy"],
+                    marker='x',
+                    linestyle='--',
+                    color=color_map[problem_idx],
+                    alpha=0.5,
+                    label=f"Problem {problem_idx} Forced Answer"
+                )
     
-    # Calculate and plot the average across all problems (less noticeable)
+    # Calculate and plot the average across all problems
     avg_by_chunk = df_chunks.groupby("chunk_idx")["accuracy"].agg(['mean']).reset_index()
     
     # Plot average without error bars, in gray and thinner
@@ -1024,6 +1116,21 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path) -> No
         alpha=0.5,
         label="Average"
     )
+    
+    # Plot average for forced answer if available
+    if df_forced is not None and False: # NOTE: We're disabling this for now because it looks too packed
+        forced_avg_by_chunk = df_forced.groupby("chunk_idx")["accuracy"].agg(['mean']).reset_index()
+        plt.plot(
+            forced_avg_by_chunk["chunk_idx"],
+            forced_avg_by_chunk["mean"],
+            marker='.',
+            markersize=4,
+            linestyle='--',
+            linewidth=1,
+            color='black',
+            alpha=0.5,
+            label="Average Forced Answer"
+        )
     
     # Add labels and title
     plt.xlabel("Chunk Index")
@@ -1074,18 +1181,47 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path) -> No
             label=f"Problem {problem_idx}"
         )[0]
         
-        # Add function tag labels to each point
-        for _, row in problem_data.iterrows():
-            if row["tag"]:
+        # Identify accuracy extrema (minima for correct, maxima for incorrect)
+        # Convert to numpy arrays for easier manipulation
+        chunk_indices = problem_data["chunk_idx"].values
+        accuracies = problem_data["accuracy"].values
+        tags = problem_data["tag"].values
+        
+        # Add function tag labels only for extrema
+        for i in range(1, len(chunk_indices) - 1):
+            if rollout_type == "correct":
+                # For correct rollouts, annotate minima (lower than both neighbors)
+                is_extrema = accuracies[i] < accuracies[i-1] and accuracies[i] < accuracies[i+1]
+            else:
+                # For incorrect rollouts, annotate maxima (higher than both neighbors)
+                is_extrema = accuracies[i] > accuracies[i-1] and accuracies[i] > accuracies[i+1]
+                
+            if is_extrema and tags[i]:  # Only add if there's a tag
                 plt.annotate(
-                    row["tag"],
-                    (row["chunk_idx"], row["accuracy"]),
+                    tags[i],
+                    (chunk_indices[i], accuracies[i]),
                     textcoords="offset points",
-                    xytext=(0, 5),
+                    xytext=(0, -15 if rollout_type == "correct" else 5),  # Position below the point for correct, above for incorrect
                     ha='center',
                     fontsize=8,
                     color=color,
+                    alpha=0.9,
                     weight='bold'
+                )
+        
+        # Plot forced answer accuracy if available
+        if df_forced is not None:
+            forced_problem_data = df_forced[df_forced["problem_idx"] == problem_idx]
+            if not forced_problem_data.empty:
+                forced_problem_data = forced_problem_data.sort_values("chunk_idx")
+                plt.plot(
+                    forced_problem_data["chunk_idx"],
+                    forced_problem_data["accuracy"],
+                    marker='.',
+                    linestyle='--',
+                    color=color,
+                    alpha=0.7,
+                    label=f"Forced Answer"
                 )
         
         # Add labels and title
@@ -1120,7 +1256,9 @@ def process_rollouts(
     absolute: bool = False, 
     force_relabel: bool = False,
     rollout_type: str = "correct",
-    dag_dir: Optional[str] = None
+    dag_dir: Optional[str] = None,
+    forced_answer_dir: Optional[str] = None,
+    get_token_frequencies: bool = False
 ) -> None:
     """
     Process rollouts from a specific directory and save analysis results.
@@ -1134,6 +1272,7 @@ def process_rollouts(
         force_relabel: Force relabeling of chunks
         rollout_type: Type of rollouts ("correct" or "incorrect")
         dag_dir: Directory containing DAG-improved chunks for token frequency analysis
+        forced_answer_dir: Directory containing correct rollout data with forced answers
     """
     # Get problem directories
     problem_dirs = sorted([d for d in rollouts_dir.iterdir() if d.is_dir() and d.name.startswith("problem_")])
@@ -1211,7 +1350,7 @@ def process_rollouts(
     results = []
     for problem_dir in tqdm(analyzable_problem_dirs, desc=f"Analyzing {rollout_type} problems"):
         problem_idx = int(problem_dir.name.split("_")[1])
-        result = analyze_problem(problem_dir, problem_idx, absolute, force_relabel)
+        result = analyze_problem(problem_dir, output_dir, absolute, force_relabel, rollout_type, forced_answer_dir)
         if result:
             results.append(result)
     
@@ -1219,7 +1358,7 @@ def process_rollouts(
     category_importance = generate_plots(results, output_dir)
     
     # Plot chunk accuracy by position
-    plot_chunk_accuracy_by_position(results, output_dir)
+    plot_chunk_accuracy_by_position(results, output_dir, rollout_type)
     
     # Print category importance ranking with percentages
     print(f"\n{rollout_type.capitalize()} Category Importance Ranking:")
@@ -1227,12 +1366,13 @@ def process_rollouts(
         print(f"{idx+1}. {row['categories']}: {row['mean_pct']:.2f}% ± {row['se_pct']:.2f}% (n={int(row['count'])})")
     
     # Analyze token frequencies
-    if dag_dir:
-        print(f"\nAnalyzing token frequencies from DAG-improved chunks in {dag_dir}")
-        analyze_dag_token_frequencies(Path(dag_dir), output_dir)
-    else:
-        print("\nAnalyzing token frequencies from rollout results")
-        analyze_token_frequencies(results, output_dir)
+    if get_token_frequencies:
+        if dag_dir:
+            print(f"\nAnalyzing token frequencies from DAG-improved chunks in {dag_dir}")
+            analyze_dag_token_frequencies(Path(dag_dir), output_dir)
+        else:
+            print("\nAnalyzing token frequencies from rollout results")
+            analyze_token_frequencies(results, output_dir)
     
     # Save overall results
     results_file = output_dir / "analysis_results.json"
@@ -1593,6 +1733,7 @@ def main():
     parser = argparse.ArgumentParser(description='Analyze rollout data and label chunks')
     parser.add_argument('-ic', '--correct_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92/correct_base_solution", help='Directory containing correct rollout data')
     parser.add_argument('-ii', '--incorrect_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92/incorrect_base_solution", help='Directory containing incorrect rollout data')
+    parser.add_argument('-icf', '--correct_forced_answer_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92/correct_base_solution_forced_answer", help='Directory containing correct rollout data with forced answers')
     parser.add_argument('-o', '--output_dir', type=str, default="analysis/basic", help='Directory to save analysis results (defaults to rollouts_dir)')
     parser.add_argument('-p', '--problems', type=str, default=None, help='Comma-separated list of problem indices to analyze (default: all)')
     parser.add_argument('-m', '--max_problems', type=int, default=None, help='Maximum number of problems to analyze')
@@ -1600,11 +1741,13 @@ def main():
     parser.add_argument('-f', '--force_relabel', default=False, action='store_true', help='Force relabeling of chunks')
     parser.add_argument('-d', '--dag_dir', type=str, default="archive/analysis/math", help='Directory containing DAG-improved chunks for token frequency analysis')
     parser.add_argument('-t', '--token_analysis_source', type=str, default="dag", choices=["dag", "rollouts"], help='Source for token frequency analysis: "dag" for DAG-improved chunks or "rollouts" for rollout data')
+    parser.add_argument('-tf', '--get_token_frequencies', default=False, action='store_true', help='Get token frequencies')
     args = parser.parse_args()
     
     # Set up directories
     correct_rollouts_dir = Path(args.correct_rollouts_dir) if args.correct_rollouts_dir and len(args.correct_rollouts_dir) > 0 else None
     incorrect_rollouts_dir = Path(args.incorrect_rollouts_dir) if args.incorrect_rollouts_dir and len(args.incorrect_rollouts_dir) > 0 else None
+    correct_forced_answer_dir = Path(args.correct_forced_answer_rollouts_dir) if args.correct_forced_answer_rollouts_dir and len(args.correct_forced_answer_rollouts_dir) > 0 else None
     output_dir = Path(args.output_dir)
     output_dir.mkdir(exist_ok=True, parents=True)
     
@@ -1626,7 +1769,9 @@ def main():
             absolute=args.absolute,
             force_relabel=args.force_relabel,
             rollout_type="correct",
-            dag_dir=args.dag_dir if args.token_analysis_source == "dag" else None
+            dag_dir=args.dag_dir if args.token_analysis_source == "dag" else None,
+            forced_answer_dir=correct_forced_answer_dir,
+            get_token_frequencies=args.get_token_frequencies
         )
     
     if incorrect_rollouts_dir:
@@ -1641,7 +1786,8 @@ def main():
             absolute=args.absolute,
             force_relabel=args.force_relabel,
             rollout_type="incorrect",
-            dag_dir=args.dag_dir if args.token_analysis_source == "dag" else None
+            dag_dir=args.dag_dir if args.token_analysis_source == "dag" else None,
+            get_token_frequencies=args.get_token_frequencies
         )
 
 if __name__ == "__main__":
