@@ -30,19 +30,20 @@ parser.add_argument('-b', '--base_solution_type', type=str, default='correct', c
 parser.add_argument('-r', '--rollout_type', type=str, default='default', choices=['default', 'forced_answer'], help='Type of rollout to generate')
 parser.add_argument('-o', '--output_dir', type=str, default='math_rollouts', help='Directory to save results')
 parser.add_argument('-np', '--num_problems', type=int, default=100, help='Number of problems to sample')
-parser.add_argument('-nr', '--num_rollouts', type=int, default=32, help='Number of rollouts per chunk')
+parser.add_argument('-nr', '--num_rollouts', type=int, default=100, help='Number of rollouts per chunk')
 parser.add_argument('-t', '--temperature', type=float, default=0.6, help='Temperature for rollout generation')
-parser.add_argument('-tp', '--top_p', type=float, default=0.92, help='Top-p sampling parameter')
+parser.add_argument('-tp', '--top_p', type=float, default=0.95, help='Top-p sampling parameter')
 parser.add_argument('-mt', '--max_tokens', type=int, default=16384, help='Maximum number of tokens for generation')
-parser.add_argument('-mc', '--max_chunks', type=int, default=250, help='Maximum number of chunks to process')
+parser.add_argument('-mc', '--max_chunks', type=int, default=275, help='Maximum number of chunks to process')
 parser.add_argument('-s', '--seed', type=int, default=44, help='Random seed for reproducibility')
 parser.add_argument('-f', '--force', action='store_true', help='Force regeneration even if solutions exist')
 parser.add_argument('-ep', '--exclude_problems', type=str, default=None, help='Comma-separated list of problem IDs to exclude')
 parser.add_argument('-ip', '--include_problems', type=str, default=None, help='Comma-separated list of problem IDs to include')
+parser.add_argument('-ic', '--include_chunks', type=str, default=None, help='Comma-separated list of chunk IDs to include')
 parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
 parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
 parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
-parser.add_argument('-p', '--provider', type=str, default="Local", choices=['Novita', 'Together', 'Fireworks', 'Local'], help='Provider to use')
+parser.add_argument('-p', '--provider', type=str, default="Together", choices=['Novita', 'Together', 'Fireworks', 'Local'], help='Provider to use')
 parser.add_argument('-or', '--use_openrouter', default=False, action='store_true', help='Use OpenRouter API')
 parser.add_argument('-fp', '--frequency_penalty', type=float, default=None, help='Frequency penalty parameter')
 parser.add_argument('-pp', '--presence_penalty', type=float, default=None, help='Presence penalty parameter')
@@ -52,14 +53,17 @@ parser.add_argument('-mp', '--min_p', type=float, default=None, help='Min-p para
 parser.add_argument('-sr', '--skip_recalculate', default=False, action='store_true', help='Skip recalculating accuracy for existing rollouts')
 parser.add_argument('-q', '--quantize', default=False, action='store_true', help='Use quantization for local model')
 parser.add_argument('-bs', '--batch_size', type=int, default=8, help='Batch size for local model')
+parser.add_argument('-mr', '--max_retries', type=int, default=1, help='Maximum number of retries for API requests')
+parser.add_argument('-os', '--output_suffix', type=str, default=None, help='Suffix to add to the output directory')
 args = parser.parse_args()
 
 # Create output directory
+base_output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}_top_p_{str(args.top_p)}"
 if args.rollout_type == 'forced_answer':
     # NOTE: For forced answer rollouts, we use the correct base solution (we copy the files from the correct base solution directory before running this script)
-    output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}_top_p_{str(args.top_p)}" / f"correct_base_solution_{args.rollout_type}"
+    output_dir = base_output_dir / f"correct_base_solution_{args.rollout_type}_{args.output_suffix}" if args.output_suffix else base_output_dir / f"correct_base_solution_{args.rollout_type}"
 else:
-    output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}_top_p_{str(args.top_p)}" / f"{args.base_solution_type}_base_solution"
+    output_dir = base_output_dir / f"{args.base_solution_type}_base_solution_{args.output_suffix}" if args.output_suffix else base_output_dir / f"{args.base_solution_type}_base_solution"
 output_dir.mkdir(exist_ok=True, parents=True)
 
 # Set random seed for reproducibility
@@ -98,7 +102,7 @@ if args.provider == "Local":
                 model,
                 device_map="auto",
                 quantization_config=quantization_config,
-                torch_dtype=torch.float16
+                torch_dtype=torch.float16,
             )
         else:
             local_model = AutoModelForCausalLM.from_pretrained(
@@ -246,7 +250,8 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
         # Together API request
         headers = {
             "Authorization": f"Bearer {TOGETHER_API_KEY}",
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "accept": "application/json"
         }
         
         payload = {
@@ -255,8 +260,7 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
             "temperature": temperature,
             "top_p": top_p,
             "max_tokens": max_tokens,
-            "n": 1,
-            "stream": False
+            "stream": True
         }
         
         api_url = "https://api.together.xyz/v1/completions"
@@ -275,7 +279,7 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
             "top_p": top_p,
             "max_tokens": max_tokens,
             "n": 1,
-            "stream": False
+            "stream": True
         }
         
         api_url = "https://api.fireworks.ai/inference/v1/completions"
@@ -291,15 +295,20 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
         payload["top_k"] = args.top_k
     if args.min_p is not None and args.provider != "Fireworks":  # Fireworks doesn't support min_p
         payload["min_p"] = args.min_p
-    if args.seed is not None:
-        payload["seed"] = args.seed # None # args.seed
+    if args.seed is not None and False: # NOTE: We don't use seeds for rollouts
+        payload["seed"] = args.seed
     
     # Implement exponential backoff for retries
-    max_retries = 3
-    retry_delay = 2
+    max_retries = args.max_retries
+    retry_delay = 2 if max_retries > 0 else None
     
     for attempt in range(max_retries):
         try:
+            # Handle streaming responses for Together and Fireworks
+            if (args.provider == "Together" or args.provider == "Fireworks") and payload.get("stream", False):
+                return await handle_streaming_response(api_url, headers, payload)
+            
+            # For non-streaming responses
             async with httpx.AsyncClient() as client:
                 response = await client.post(api_url, headers=headers, json=payload, timeout=240)
                 
@@ -354,7 +363,76 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
     # If we get here, all retries failed
     return {"error": "All API request attempts failed"}
 
-async def generate_base_solution(problem: Dict, temperature: float = 0.0) -> Dict:
+async def handle_streaming_response(api_url: str, headers: Dict, payload: Dict) -> Dict:
+    """Handle streaming responses from Together or Fireworks API."""
+    try:
+        # Initialize variables to collect the response
+        collected_text = ""
+        finish_reason = None
+        usage = None
+        
+        # Make the streaming request
+        async with httpx.AsyncClient() as client:
+            async with client.stream("POST", api_url, headers=headers, json=payload, timeout=240) as response:
+                if response.status_code != 200:
+                    return {"error": f"API error: {response.status_code}", "details": await response.aread()}
+                
+                # Process the streaming response
+                async for chunk in response.aiter_lines():
+                    # Skip empty lines
+                    if not chunk.strip():
+                        continue
+                    
+                    # Check for the end of the stream
+                    if chunk == "data: [DONE]":
+                        break
+                    
+                    # Parse the chunk
+                    if chunk.startswith("data: "):
+                        try:
+                            data = json.loads(chunk[6:])  # Remove "data: " prefix
+                            
+                            # Extract text from the chunk
+                            if "choices" in data and len(data["choices"]) > 0:
+                                choice = data["choices"][0]
+                                
+                                # Get text content
+                                if "text" in choice and choice["text"]:
+                                    collected_text += choice["text"]
+                                elif "delta" in choice and "content" in choice["delta"]:
+                                    collected_text += choice["delta"]["content"]
+                                
+                                # Check for finish reason
+                                if choice.get("finish_reason"):
+                                    finish_reason = choice["finish_reason"]
+                            
+                            # Get usage information from the last chunk
+                            if "usage" in data and data["usage"]:
+                                usage = data["usage"]
+                                
+                        except json.JSONDecodeError:
+                            print(f"Failed to parse chunk: {chunk}")
+        
+        # For Together API, we need to handle the <think> token and the newline after it
+        if args.provider == "Together":
+            if collected_text.startswith("<think>\n"):
+                # Remove the <think> token and the newline after it
+                collected_text = collected_text[len("<think>\n"):]
+            elif collected_text.startswith("<think>"):
+                # Remove just the <think> token if there's no newline
+                collected_text = collected_text[len("<think>"):]
+        
+        return {
+            "text": collected_text,
+            "finish_reason": finish_reason or "stop",
+            "usage": usage or {}
+        }
+        
+    except Exception as e:
+        print(f"Exception during streaming: {e}")
+        return {"error": f"Streaming exception: {str(e)}"}
+
+async def generate_base_solution(problem: Dict, temperature: float = 0.6) -> Dict:
     """
     Generate a base solution for a problem using Novita API.
     
@@ -426,8 +504,8 @@ async def generate_rollout(problem: Dict, chunk_text: str, full_cot_prefix: str,
     if rollout_type == 'forced_answer':
         prompt += "\n</think>\n\nTherefore, the final answers is \\boxed{"
     
-    max_retries = 3
-    retry_delay = 2
+    max_retries = args.max_retries
+    retry_delay = 2 if max_retries > 0 else None
     
     for attempt in range(max_retries):
         try:
@@ -568,6 +646,10 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
     
     # Process each chunk
     for chunk_idx, (chunk, full_prefix) in enumerate(zip(chunks, cumulative_chunks)):
+        if args.include_chunks and str(chunk_idx) not in args.include_chunks.split(","):
+            print(f"Problem {problem_idx}, Chunk {chunk_idx}: Skipping (not in include_chunks)")
+            continue
+        
         chunk_dir = problem_dir / f"chunk_{chunk_idx}"
         chunk_dir.mkdir(exist_ok=True, parents=True)
         
@@ -606,6 +688,7 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
                 
                 # Filter for valid solutions (has answer and no error)
                 valid_existing_solutions = [s for s in existing_solutions if 'answer' in s and 'error' not in s]
+                print(f"Problem {problem_idx}, Chunk {chunk_idx}: Found {len(valid_existing_solutions)} valid solutions")
         
         # Generate rollouts if needed
         num_rollouts_needed = args.num_rollouts - len(valid_existing_solutions)

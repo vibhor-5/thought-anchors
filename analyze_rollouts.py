@@ -163,7 +163,7 @@ def analyze_problem(
     chunk_folders = [problem_dir / f"chunk_{i}" for i in valid_chunk_indices]
     existing_chunk_folders = [folder for folder in chunk_folders if folder.exists()]
     
-    if len(existing_chunk_folders) < 0.01 * len(chunks):
+    if len(existing_chunk_folders) < 0.1 * len(chunks):
         print(f"Problem {problem_dir.name}: Only {len(existing_chunk_folders)}/{len(chunks)} chunk folders exist")
         return None
     
@@ -184,7 +184,7 @@ def analyze_problem(
                 
             # Calculate accuracy
             correct = sum(1 for sol in solutions if sol.get("is_correct", False) is True)
-            total = sum(1 for sol in solutions if sol.get("is_correct", False) is not None)
+            total = sum(1 for sol in solutions if sol.get("is_correct", None) is not None)
             
             if total > 0:
                 chunk_accuracies[chunk_idx] = correct / total
@@ -214,11 +214,8 @@ def analyze_problem(
         
         # The importance is how much this chunk's accuracy differs from others
         # NOTE: We can also take next_avg_accuracy as idx > chunk_idx
-        # diff = next_avg_accuracy - current_accuracy
-        if rollout_type == "correct":
-            diff = 1 - current_accuracy
-        else:
-            diff = current_accuracy
+        diff = next_avg_accuracy - current_accuracy
+        # diff = diff if diff >= 0.05 else 0.0
         
         return abs(diff) if use_absolute else diff
     
@@ -306,7 +303,7 @@ def analyze_problem(
                             
                             # Calculate accuracy from solutions
                             correct_count = sum(1 for sol in solutions if sol.get("is_correct", False) is True)
-                            total_count = len(solutions)
+                            total_count = sum(1 for sol in solutions if sol.get("is_correct", None) is not None and sol.get("answer", "") != "")
                             
                             if total_count > 0:
                                 accuracy = correct_count / total_count
@@ -398,7 +395,7 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
     # Calculate mean importance for each category to sort by
     # Convert to percentage for display
     df_exploded['importance_pct'] = df_exploded['importance'] * 100
-    category_means = df_exploded.groupby("function_tags")["importance_pct"].mean().sort_values(ascending=False)
+    category_means = df_exploded.groupby("function_tags", observed=True)["importance_pct"].mean().sort_values(ascending=False)
     # Reorder the data based on sorted categories
     df_exploded_sorted = df_exploded.copy()
     df_exploded_sorted["function_tags"] = pd.Categorical(
@@ -410,7 +407,7 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
     ax = sns.violinplot(x="function_tags", y="importance_pct", data=df_exploded_sorted, inner="quartile", cut=0)
 
     # Add mean markers
-    means = df_exploded_sorted.groupby("function_tags")["importance_pct"].mean()
+    means = df_exploded_sorted.groupby("function_tags", observed=True)["importance_pct"].mean()
     for i, mean_val in enumerate(means[means.index]):
         ax.plot([i], [mean_val], 'o', color='red', markersize=8)
 
@@ -560,6 +557,14 @@ def generate_plots(results: List[Dict], output_dir: Path) -> pd.DataFrame:
     plt.close()
     
     print(f"Generated plots in {plots_dir}")
+        
+    # Add the new analysis of top steps by category
+    for top_n in [1, 3, 5, 10, 20, 30]:
+        analyze_top_steps_by_category(results, output_dir, top_n=top_n, use_abs=False)
+        
+    # Add the new analysis of steps with high z-score by category
+    for z_threshold in [1.5, 2, 2.5, 3]:
+        analyze_high_zscore_steps_by_category(results, output_dir, z_threshold=z_threshold, use_abs=False)
     
     # Return the category importance ranking
     return tag_importance
@@ -953,7 +958,7 @@ def analyze_within_problem_variance(results: List[Dict], output_dir: Path) -> No
     
     print(f"Within-problem variance analysis saved to {variance_dir}")
 
-def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollout_type: str = "correct") -> None:
+def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollout_type: str = "correct", max_chunks_to_show: Optional[int] = None) -> None:
     """
     Plot chunk accuracy by position for all processed problems with focus on early chunks.
     
@@ -961,6 +966,7 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollo
         results: List of problem analysis results
         output_dir: Directory to save the plot
         rollout_type: Type of rollouts ("correct" or "incorrect")
+        max_chunks_to_show: Maximum number of chunks to show in plots
     """
     print("Plotting chunk accuracy by position...")
     
@@ -987,7 +993,7 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollo
             chunk_idx = chunk.get("chunk_idx")
             
             # Only include the first 100 chunks
-            if chunk_idx > 100:
+            if max_chunks_to_show is not None and chunk_idx > max_chunks_to_show:
                 continue
                 
             # Get the solutions for this chunk
@@ -1034,7 +1040,7 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollo
     
     # Create a colormap for the problems (other options: plasma, inferno, magma, cividis)
     import matplotlib.cm as cm
-    colors = cm.viridis(np.linspace(0, 1, len(problem_indices)))
+    colors = cm.viridis(np.linspace(0, 0.75, len(problem_indices)))
     color_map = dict(zip(sorted(problem_indices), colors))
     
     # Create a single plot focusing on first 100 chunks
@@ -1047,10 +1053,15 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollo
         # Sort by chunk index
         problem_data = problem_data.sort_values("chunk_idx")
         
+        # Convert to numpy arrays for plotting to avoid pandas indexing issues
+        chunk_indices = problem_data["chunk_idx"].to_numpy()
+        accuracies = problem_data["accuracy"].to_numpy()
+        tags = problem_data["tag"].to_numpy()
+        
         # Plot with clear label
         line = plt.plot(
-            problem_data["chunk_idx"],
-            problem_data["accuracy"],
+            chunk_indices,
+            accuracies,
             marker='o',
             linestyle='-',
             color=color_map[problem_idx],
@@ -1058,33 +1069,30 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollo
             label=f"Problem {problem_idx}"
         )[0]
         
-        # Identify accuracy extrema (minima for correct, maxima for incorrect)
+        # Identify accuracy extrema (both minima and maxima)
         # Convert to numpy arrays for easier manipulation
-        chunk_indices = problem_data["chunk_idx"].values
-        accuracies = problem_data["accuracy"].values
-        tags = problem_data["tag"].values
-        
-        # Add function tag labels only for extrema
         for i in range(1, len(chunk_indices) - 1):
-            if rollout_type == "correct":
-                # For correct rollouts, annotate minima (lower than both neighbors)
-                is_extrema = accuracies[i] < accuracies[i-1] and accuracies[i] < accuracies[i+1]
-            else:
-                # For incorrect rollouts, annotate maxima (higher than both neighbors)
-                is_extrema = accuracies[i] > accuracies[i-1] and accuracies[i] > accuracies[i+1]
+            # For correct rollouts, annotate minima (lower than both neighbors)
+            is_minimum = accuracies[i] < accuracies[i-1] and accuracies[i] < accuracies[i+1]
+            # For all rollouts, annotate maxima (higher than both neighbors)
+            is_maximum = accuracies[i] > accuracies[i-1] and accuracies[i] > accuracies[i+1]
                 
-            if is_extrema and tags[i]:  # Only add if there's a tag
-                plt.annotate(
-                    tags[i],
-                    (chunk_indices[i], accuracies[i]),
-                    textcoords="offset points",
-                    xytext=(0, -15 if rollout_type == "correct" else 5),  # Position below the point for correct, above for incorrect
-                    ha='center',
-                    fontsize=8,
-                    color=line.get_color(),
-                    alpha=0.9,
-                    weight='bold'
-                )
+            if tags[i]:  # Only add if there's a tag
+                if (rollout_type == "correct" and is_minimum) or is_maximum:
+                    # Position below for minima, above for maxima
+                    y_offset = -15 if (rollout_type == "correct" and is_minimum) else 7.5
+                    
+                    plt.annotate(
+                        tags[i],
+                        (chunk_indices[i], accuracies[i]),
+                        textcoords="offset points",
+                        xytext=(0, y_offset),
+                        ha='center',
+                        fontsize=8,
+                        color=line.get_color(),
+                        alpha=0.9,
+                        weight='bold'
+                    )
         
         # Plot forced answer accuracy if available
         if df_forced is not None and False: # NOTE: We're disabling this for now because it looks too packed
@@ -1104,10 +1112,13 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollo
     # Calculate and plot the average across all problems
     avg_by_chunk = df_chunks.groupby("chunk_idx")["accuracy"].agg(['mean']).reset_index()
     
+    avg_by_chunk_idx = avg_by_chunk["chunk_idx"].to_numpy()
+    avg_by_chunk_mean = avg_by_chunk["mean"].to_numpy()
+    
     # Plot average without error bars, in gray and thinner
     plt.plot(
-        avg_by_chunk["chunk_idx"],
-        avg_by_chunk["mean"],
+        avg_by_chunk_idx,
+        avg_by_chunk_mean,
         marker='.',
         markersize=4,
         linestyle='-',
@@ -1133,21 +1144,21 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollo
         )
     
     # Add labels and title
-    plt.xlabel("Chunk Index")
+    plt.xlabel("Sentence Index")
     plt.ylabel("Accuracy")
-    plt.title("Chunk Accuracy by Position (First 100 Chunks)")
+    plt.title("Sentence Accuracy by Position (First 100 Sentences)")
     
     # Set x-axis limits to focus on first 100 chunks
-    plt.xlim(-3, 100)
+    plt.xlim(-3, 300 if max_chunks_to_show is None else max_chunks_to_show)
     
     # Set y-axis limits
-    plt.ylim(0, 1.05)
+    plt.ylim(-0.1, 1.1)
     
     # Add grid
     plt.grid(True, alpha=0.3)
     
     # If not too many problems, include all in the main legend
-    plt.legend(loc='lower right', ncol=2)
+    plt.legend(loc='lower right' if rollout_type == "correct" else 'upper right', ncol=2)
     
     # Save the main plot
     plt.tight_layout()
@@ -1171,10 +1182,13 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollo
         # Get the color for this problem
         color = color_map[problem_idx]
         
+        problem_data_idx = problem_data["chunk_idx"].to_numpy()
+        problem_data_accuracy = problem_data["accuracy"].to_numpy()
+        
         # Plot the problem data
         line = plt.plot(
-            problem_data["chunk_idx"],
-            problem_data["accuracy"],
+            problem_data_idx,
+            problem_data_accuracy,
             marker='o',
             linestyle='-',
             color=color,
@@ -1187,36 +1201,41 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollo
         accuracies = problem_data["accuracy"].values
         tags = problem_data["tag"].values
         
-        # Add function tag labels only for extrema
+        # Add function tag labels for both minima and maxima
         for i in range(1, len(chunk_indices) - 1):
-            if rollout_type == "correct":
-                # For correct rollouts, annotate minima (lower than both neighbors)
-                is_extrema = accuracies[i] < accuracies[i-1] and accuracies[i] < accuracies[i+1]
-            else:
-                # For incorrect rollouts, annotate maxima (higher than both neighbors)
-                is_extrema = accuracies[i] > accuracies[i-1] and accuracies[i] > accuracies[i+1]
+            # For correct rollouts, annotate minima (lower than both neighbors)
+            is_minimum = accuracies[i] < accuracies[i-1] and accuracies[i] < accuracies[i+1]
+            # For all rollouts, annotate maxima (higher than both neighbors)
+            is_maximum = accuracies[i] > accuracies[i-1] and accuracies[i] > accuracies[i+1]
                 
-            if is_extrema and tags[i]:  # Only add if there's a tag
-                plt.annotate(
-                    tags[i],
-                    (chunk_indices[i], accuracies[i]),
-                    textcoords="offset points",
-                    xytext=(0, -15 if rollout_type == "correct" else 5),  # Position below the point for correct, above for incorrect
-                    ha='center',
-                    fontsize=8,
-                    color=color,
-                    alpha=0.9,
-                    weight='bold'
-                )
+            if tags[i]:  # Only add if there's a tag
+                if (rollout_type == "correct" and is_minimum) or is_maximum:
+                    # Position below for minima, above for maxima
+                    y_offset = -15 if (rollout_type == "correct" and is_minimum) else 7.5
+                    
+                    plt.annotate(
+                        tags[i],
+                        (chunk_indices[i], accuracies[i]),
+                        textcoords="offset points",
+                        xytext=(0, y_offset),
+                        ha='center',
+                        fontsize=8,
+                        color=color,
+                        alpha=0.9,
+                        weight='bold'
+                    )
         
         # Plot forced answer accuracy if available
         if df_forced is not None:
             forced_problem_data = df_forced[df_forced["problem_idx"] == problem_idx]
             if not forced_problem_data.empty:
                 forced_problem_data = forced_problem_data.sort_values("chunk_idx")
+                forced_problem_data_idx = forced_problem_data["chunk_idx"].to_numpy()
+                forced_problem_data_accuracy = forced_problem_data["accuracy"].to_numpy()
+                
                 plt.plot(
-                    forced_problem_data["chunk_idx"],
-                    forced_problem_data["accuracy"],
+                    forced_problem_data_idx,
+                    forced_problem_data_accuracy,
                     marker='.',
                     linestyle='--',
                     color=color,
@@ -1225,15 +1244,15 @@ def plot_chunk_accuracy_by_position(results: List[Dict], output_dir: Path, rollo
                 )
         
         # Add labels and title
-        plt.xlabel("Chunk Index")
+        plt.xlabel("Sentence Index")
         plt.ylabel("Accuracy")
-        plt.title(f"Problem {problem_idx}: Chunk Accuracy by Position")
+        plt.title(f"Problem {problem_idx}: Sentence Accuracy by Position")
         
         # Set x-axis limits to focus on first 100 chunks
-        plt.xlim(-3, 100)
+        plt.xlim(-3, 300 if max_chunks_to_show is None else max_chunks_to_show)
         
         # Set y-axis limits
-        plt.ylim(0, 1.05)
+        plt.ylim(-0.1, 1.1)
         
         # Add grid
         plt.grid(True, alpha=0.3)
@@ -1258,7 +1277,8 @@ def process_rollouts(
     rollout_type: str = "correct",
     dag_dir: Optional[str] = None,
     forced_answer_dir: Optional[str] = None,
-    get_token_frequencies: bool = False
+    get_token_frequencies: bool = False,
+    max_chunks_to_show: int = 100
 ) -> None:
     """
     Process rollouts from a specific directory and save analysis results.
@@ -1273,6 +1293,8 @@ def process_rollouts(
         rollout_type: Type of rollouts ("correct" or "incorrect")
         dag_dir: Directory containing DAG-improved chunks for token frequency analysis
         forced_answer_dir: Directory containing correct rollout data with forced answers
+        get_token_frequencies: Whether to get token frequencies
+        max_chunks_to_show: Maximum number of chunks to show in plots
     """
     # Get problem directories
     problem_dirs = sorted([d for d in rollouts_dir.iterdir() if d.is_dir() and d.name.startswith("problem_")])
@@ -1358,7 +1380,7 @@ def process_rollouts(
     category_importance = generate_plots(results, output_dir)
     
     # Plot chunk accuracy by position
-    plot_chunk_accuracy_by_position(results, output_dir, rollout_type)
+    plot_chunk_accuracy_by_position(results, output_dir, rollout_type, max_chunks_to_show)
     
     # Print category importance ranking with percentages
     print(f"\n{rollout_type.capitalize()} Category Importance Ranking:")
@@ -1729,11 +1751,310 @@ def analyze_token_frequencies(results: List[Dict], output_dir: Path) -> None:
         with open(token_frequencies_file, 'w', encoding='utf-8') as f:
             json.dump(category_ngram_frequencies, f, indent=2)
 
+def analyze_top_steps_by_category(results: List[Dict], output_dir: Path, top_n: int = 20, use_abs: bool = True) -> None:
+    """
+    Analyze and plot average z-scores of top N steps by function tag category.
+    
+    Args:
+        results: List of problem analysis results
+        output_dir: Directory to save the plot
+        top_n: Number of top steps to consider for each problem
+        use_abs: Whether to use absolute values of z-scores for ranking and averaging
+    """
+    print(f"Analyzing top {top_n} steps by category")
+    
+    # Create plots directory
+    plots_dir = output_dir / "plots"
+    plots_dir.mkdir(exist_ok=True, parents=True)
+    
+    # Create a dictionary to store z-scores by category
+    category_zscores = {}
+    
+    # Process each problem
+    for result in results:
+        if not result:
+            continue
+            
+        labeled_chunks = result.get("labeled_chunks", [])
+        if not labeled_chunks:
+            continue
+            
+        # Extract importance scores and convert to z-scores
+        importance_scores = [chunk.get("importance", 0.0) if not use_abs else abs(chunk.get("importance", 0.0)) for chunk in labeled_chunks]
+        
+        # Skip if all scores are the same or if there are too few chunks
+        if len(set(importance_scores)) <= 1 or len(importance_scores) < 3:
+            continue
+            
+        # Calculate z-scores
+        mean_importance = np.mean(importance_scores)
+        std_importance = np.std(importance_scores)
+        
+        if std_importance == 0:
+            continue
+            
+        z_scores = [(score - mean_importance) / std_importance for score in importance_scores]
+        
+        # Create a list of (chunk_idx, z_score, function_tags) tuples
+        chunk_data = []
+        for i, (chunk, z_score) in enumerate(zip(labeled_chunks, z_scores)):
+            function_tags = chunk.get("function_tags", ["unknown"])
+            if not function_tags:
+                function_tags = ["unknown"]
+            # Use absolute or raw z-score based on parameter
+            score_for_ranking = z_score
+            chunk_data.append((i, z_score, score_for_ranking, function_tags))
+        
+        # Sort by z-score (absolute or raw) and get top N
+        top_chunks = sorted(chunk_data, key=lambda x: x[2], reverse=True)[:top_n]
+        
+        # Add to category dictionary - each chunk can have multiple tags
+        for _, z_score, _, function_tags in top_chunks:
+            # Use the actual z-score (not the ranking score)
+            score_to_store = z_score
+            
+            for tag in function_tags:
+                # Format tag for better display
+                formatted_tag = " ".join(word.capitalize() for word in tag.split("_"))
+                if formatted_tag.lower() == "unknown":
+                    continue
+                    
+                if formatted_tag not in category_zscores:
+                    category_zscores[formatted_tag] = []
+                category_zscores[formatted_tag].append(score_to_store)
+    
+    # Calculate average z-score for each category
+    category_avg_zscores = {}
+    category_std_zscores = {}
+    category_counts = {}
+    
+    for category, zscores in category_zscores.items():
+        if zscores:
+            category_avg_zscores[category] = np.mean(zscores)
+            category_std_zscores[category] = np.std(zscores)
+            category_counts[category] = len(zscores)
+    
+    # Sort categories by average z-score
+    sorted_categories = sorted(category_avg_zscores.keys(), key=lambda x: category_avg_zscores[x], reverse=True)
+    
+    # Create the plot
+    plt.figure(figsize=(15, 10))
+    
+    # Plot average z-scores with standard error bars
+    avg_zscores = [category_avg_zscores[cat] for cat in sorted_categories]
+    std_zscores = [category_std_zscores[cat] for cat in sorted_categories]
+    counts = [category_counts[cat] for cat in sorted_categories]
+    
+    # Calculate standard error (SE = standard deviation / sqrt(sample size))
+    standard_errors = [std / np.sqrt(count) for std, count in zip(std_zscores, counts)]
+    
+    # Create bar plot with standard error bars
+    bars = plt.bar(range(len(sorted_categories)), avg_zscores, yerr=standard_errors, capsize=5, alpha=0.7, color='skyblue', edgecolor='black')
+    
+    # Add count labels on top of bars
+    for i, (bar, count) in enumerate(zip(bars, counts)):
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height + 0.1,
+                f'n={count}', ha='center', va='bottom', fontsize=9)
+    
+    # Set labels and title
+    plt.xlabel('Function Tag Category', fontsize=12)
+    plt.ylabel(f'Average Z-Score (Top {top_n} Steps) ± SE', fontsize=12)
+    plt.title(f'Average Z-Score of Top {top_n} Steps by Category', fontsize=14)
+    
+    # Set x-tick labels
+    plt.xticks(range(len(sorted_categories)), sorted_categories, rotation=45, ha='right')
+    
+    # Add grid
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    
+    # Add a legend explaining the error bars
+    plt.figtext(0.91, 0.01, "Error bars: Standard Error (SE)", ha="right", fontsize=10, style='italic')
+    
+    # Adjust layout
+    plt.tight_layout()
+    
+    # Save the plot
+    plot_path = plots_dir / f"top_{top_n}_steps_by_category.png"
+    plt.savefig(plot_path, dpi=300)
+    plt.close()
+    
+    print(f"Plot saved to {plot_path}")
+    
+    # Also save the data as CSV
+    csv_data = []
+    for i, category in enumerate(sorted_categories):
+        csv_data.append({
+            'category': category,
+            'avg_zscore': category_avg_zscores[category],
+            'std_zscore': category_std_zscores[category],
+            'standard_error': category_std_zscores[category] / np.sqrt(category_counts[category]),
+            'count': category_counts[category]
+        })
+    
+    csv_path = plots_dir / f"top_{top_n}_steps_by_category.csv"
+    pd.DataFrame(csv_data).to_csv(csv_path, index=False)
+    print(f"Data saved to {csv_path}")
+
+def analyze_high_zscore_steps_by_category(results: List[Dict], output_dir: Path, z_threshold: float = 1.5, use_abs: bool = True) -> None:
+    """
+    Analyze and plot average z-scores of steps with z-scores above threshold by function tag category.
+    
+    Args:
+        results: List of problem analysis results
+        output_dir: Directory to save the plot
+        z_threshold: Minimum z-score threshold for including steps
+        use_abs: Whether to use absolute values of z-scores for thresholding and averaging
+    """
+    print(f"Analyzing steps with z-score > {z_threshold} by category...")
+    
+    # Create plots directory
+    plots_dir = output_dir / "plots"
+    plots_dir.mkdir(exist_ok=True, parents=True)
+    
+    # Create a dictionary to store z-scores by category
+    category_zscores = {}
+    total_high_zscore_steps = 0
+    total_steps_analyzed = 0
+    
+    # Process each problem
+    for result in results:
+        if not result:
+            continue
+            
+        labeled_chunks = result.get("labeled_chunks", [])
+        if not labeled_chunks:
+            continue
+            
+        # Extract importance scores and convert to z-scores
+        importance_scores = [chunk.get("importance", 0.0) if not use_abs else abs(chunk.get("importance", 0.0)) for chunk in labeled_chunks]
+        
+        # Skip if all scores are the same or if there are too few chunks
+        if len(set(importance_scores)) <= 1 or len(importance_scores) < 3:
+            continue
+            
+        # Calculate z-scores
+        mean_importance = np.mean(importance_scores)
+        std_importance = np.std(importance_scores)
+        
+        if std_importance == 0:
+            continue
+            
+        z_scores = [(score - mean_importance) / std_importance for score in importance_scores]
+        total_steps_analyzed += len(z_scores)
+        
+        # Create a list of (chunk_idx, z_score, function_tags) tuples
+        chunk_data = []
+        for i, (chunk, z_score) in enumerate(zip(labeled_chunks, z_scores)):
+            function_tags = chunk.get("function_tags", ["unknown"])
+            if not function_tags:
+                function_tags = ["unknown"]
+            chunk_data.append((i, z_score, function_tags))
+        
+        # Filter chunks by z-score threshold
+        high_zscore_chunks = [chunk for chunk in chunk_data if abs(chunk[1]) > z_threshold]
+        total_high_zscore_steps += len(high_zscore_chunks)
+        
+        # Add to category dictionary - each chunk can have multiple tags
+        for _, z_score, function_tags in high_zscore_chunks:
+            # Use the actual z-score (not the ranking score)
+            score_to_store = z_score
+            
+            for tag in function_tags:
+                # Format tag for better display
+                formatted_tag = " ".join(word.capitalize() for word in tag.split("_"))
+                if formatted_tag.lower() == "unknown":
+                    continue
+                    
+                if formatted_tag not in category_zscores:
+                    category_zscores[formatted_tag] = []
+                category_zscores[formatted_tag].append(score_to_store)
+    
+    print(f"Found {total_high_zscore_steps} steps with z-score > {z_threshold} out of {total_steps_analyzed} total steps ({total_high_zscore_steps/total_steps_analyzed:.1%})")
+    
+    # Skip if no categories found
+    if not category_zscores:
+        print(f"No steps with z-score > {z_threshold} found")
+        return
+    
+    # Calculate average z-score for each category
+    category_avg_zscores = {}
+    category_std_zscores = {}
+    category_counts = {}
+    
+    for category, zscores in category_zscores.items():
+        if zscores:
+            category_avg_zscores[category] = np.mean(zscores)
+            category_std_zscores[category] = np.std(zscores)
+            category_counts[category] = len(zscores)
+    
+    # Sort categories by average z-score
+    sorted_categories = sorted(category_avg_zscores.keys(), key=lambda x: category_avg_zscores[x], reverse=True)
+    
+    # Create the plot
+    plt.figure(figsize=(15, 10))
+    
+    # Plot average z-scores with standard error bars
+    avg_zscores = [category_avg_zscores[cat] for cat in sorted_categories]
+    std_zscores = [category_std_zscores[cat] for cat in sorted_categories]
+    counts = [category_counts[cat] for cat in sorted_categories]
+    
+    # Calculate standard error (SE = standard deviation / sqrt(sample size))
+    standard_errors = [std / np.sqrt(count) for std, count in zip(std_zscores, counts)]
+    
+    # Create bar plot with standard error bars
+    bars = plt.bar(range(len(sorted_categories)), avg_zscores, yerr=standard_errors, capsize=5, alpha=0.7, color='skyblue', edgecolor='black')
+    
+    # Add count labels on top of bars
+    for i, (bar, count) in enumerate(zip(bars, counts)):
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width()/2., height + 0.1,
+                f'n={count}', ha='center', va='bottom', fontsize=9)
+    
+    # Set labels and title
+    plt.xlabel('Function Tag Category', fontsize=12)
+    plt.ylabel(f'Average Z-Score (Steps with |Z| > {z_threshold}) ± SE', fontsize=12)
+    plt.title(f'Average Z-Score of Steps with |Z| > {z_threshold} by Category', fontsize=14)
+    
+    # Set x-tick labels
+    plt.xticks(range(len(sorted_categories)), sorted_categories, rotation=45, ha='right')
+    
+    # Add grid
+    plt.grid(axis='y', linestyle='--', alpha=0.7)
+    
+    # Add a legend explaining the error bars
+    plt.figtext(0.91, 0.01, "Error bars: Standard Error (SE)", ha="right", fontsize=10, style='italic')
+    
+    # Adjust layout
+    plt.tight_layout()
+    
+    # Save the plot
+    plot_path = plots_dir / f"high_zscore_{z_threshold}_steps_by_category.png"
+    plt.savefig(plot_path, dpi=300)
+    plt.close()
+    
+    print(f"Plot saved to {plot_path}")
+    
+    # Also save the data as CSV
+    csv_data = []
+    for i, category in enumerate(sorted_categories):
+        csv_data.append({
+            'category': category,
+            'avg_zscore': category_avg_zscores[category],
+            'std_zscore': category_std_zscores[category],
+            'standard_error': category_std_zscores[category] / np.sqrt(category_counts[category]),
+            'count': category_counts[category]
+        })
+    
+    csv_path = plots_dir / f"high_zscore_{z_threshold}_steps_by_category.csv"
+    pd.DataFrame(csv_data).to_csv(csv_path, index=False)
+    print(f"Data saved to {csv_path}")
+
 def main():
     parser = argparse.ArgumentParser(description='Analyze rollout data and label chunks')
-    parser.add_argument('-ic', '--correct_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92/correct_base_solution", help='Directory containing correct rollout data')
-    parser.add_argument('-ii', '--incorrect_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92/incorrect_base_solution", help='Directory containing incorrect rollout data')
-    parser.add_argument('-icf', '--correct_forced_answer_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.92/correct_base_solution_forced_answer", help='Directory containing correct rollout data with forced answers')
+    parser.add_argument('-ic', '--correct_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.95/correct_base_solution", help='Directory containing correct rollout data')
+    parser.add_argument('-ii', '--incorrect_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.95/incorrect_base_solution", help='Directory containing incorrect rollout data')
+    parser.add_argument('-icf', '--correct_forced_answer_rollouts_dir', type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.95/correct_base_solution_forced_answer", help='Directory containing correct rollout data with forced answers')
     parser.add_argument('-o', '--output_dir', type=str, default="analysis/basic", help='Directory to save analysis results (defaults to rollouts_dir)')
     parser.add_argument('-p', '--problems', type=str, default=None, help='Comma-separated list of problem indices to analyze (default: all)')
     parser.add_argument('-m', '--max_problems', type=int, default=None, help='Maximum number of problems to analyze')
@@ -1742,6 +2063,7 @@ def main():
     parser.add_argument('-d', '--dag_dir', type=str, default="archive/analysis/math", help='Directory containing DAG-improved chunks for token frequency analysis')
     parser.add_argument('-t', '--token_analysis_source', type=str, default="dag", choices=["dag", "rollouts"], help='Source for token frequency analysis: "dag" for DAG-improved chunks or "rollouts" for rollout data')
     parser.add_argument('-tf', '--get_token_frequencies', default=False, action='store_true', help='Get token frequencies')
+    parser.add_argument('-mc', '--max_chunks_to_show', type=int, default=100, help='Maximum number of chunks to show in plots')
     args = parser.parse_args()
     
     # Set up directories
@@ -1771,7 +2093,8 @@ def main():
             rollout_type="correct",
             dag_dir=args.dag_dir if args.token_analysis_source == "dag" else None,
             forced_answer_dir=correct_forced_answer_dir,
-            get_token_frequencies=args.get_token_frequencies
+            get_token_frequencies=args.get_token_frequencies,
+            max_chunks_to_show=args.max_chunks_to_show
         )
     
     if incorrect_rollouts_dir:
@@ -1787,7 +2110,8 @@ def main():
             force_relabel=args.force_relabel,
             rollout_type="incorrect",
             dag_dir=args.dag_dir if args.token_analysis_source == "dag" else None,
-            get_token_frequencies=args.get_token_frequencies
+            get_token_frequencies=args.get_token_frequencies,
+            max_chunks_to_show=args.max_chunks_to_show
         )
 
 if __name__ == "__main__":
