@@ -1,43 +1,10 @@
-# Mechanistic Interpretability for Reasoning Models
+# Principled attribution in multi-step reasoning for thinking models
 
-This repository contains several basic analyses and mech-interp experiments on reasoning / thinking models.
+This repository contains some of the code for our work on principled attribution in multi-step reasoning for thinking models.
 
-We tried to build on top of [Understanding Reasoning in Thinking Language Models via Steering Vectors](https://openreview.net/pdf?id=OwhVWNOBcz).
+Our research focuses on quantifying the causal importance of each sentence in a chain-of-thought, both in terms of its influence on the final answer and on subsequent reasoning steps. We first estimate this through resampling-based interventions, and then explore whether it can be approximated using internal model signals.
 
-Most of the experiments are:
-1. Performed on [DeepSeek-R1-Distill-Llama-8B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B)
-2. Using a synthetic reasoning dataset curated on the [following topics](./topics_subtopics.json), see [`cots/`](./cots/)
-3. Using auto-labeled sentences as the atomic unit of analysis, e.g. see [here](./analysis/problem_1/seed_0/chunks.json)
-4. Performed on the residual stream activations of the last layer
+You can find a detailed presentation in this topic [here](https://docs.google.com/presentation/d/1dwg9cQ0rhVcSrKjVThPac0M1Piz2TO5HKLqemet0LB8/edit?usp=sharing). You can also find an interactive visualization [here](https://www.uzaymacar.com/research/principled-attribution).
 
-## Taxonomy for Reasoning Steps in Chain-of-Thought (CoT)
+![Main Image](./figures/main.png)
 
-![Distribution of Reasoning Categories](./final_figures/distribution_of_reasoning_categories.png)
-
-## Transition Probabilities between Reasoning Categories
-
-![Transition Probabilities](./final_figures/transition_probabilities.png)
-
-## Distribution of Relative Category Positions
-
-![Distribution of Category Positions](./final_figures/distribution_of_category_positions.png)
-
-## Average Correlation and Attention
-
-![Average Correlation and Attention](./final_figures/average_correlation_and_attention.png)
-
-## Clustering Sentences by Categories
-
-![Clustering](./final_figures/clustering.png)
-
-![Clustering with Categories](./final_figures/clustering_with_categories.png)
-
-## Uncertainty Estimation Analysis
-
-![Aggregated Uncertainty Entropy by Category](./final_figures/aggregated_uncertainty_entropy_by_category.png)
-
-![Aggregated Uncertainty Entropy](./final_figures/aggregated_uncertainty_entropy.png)
-
-## Backtracking Probe
-
-![Backtracking Probe](./final_figures/backtracking_probe_probability.png)
