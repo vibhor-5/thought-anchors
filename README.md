@@ -1,10 +1,8 @@
-# Principled attribution in multi-step reasoning for thinking models
+# Thought Anchors: Which LLM Reasoning Steps Matter?
 
-This repository contains some of the code for our work on principled attribution in multi-step reasoning for thinking models.
+We introduce a framework for interpreting the reasoning of large language models by attributing importance to individual sentences in their chain-of-thought. Using black-box, attention-based, and causal methods, we identify key reasoning steps, which we call **thought anchors**, that disproportionately influence downstream reasoning. These anchors are typically planning or backtracking sentences. Our work offers new tools and insights for understanding multi-step reasoning in language models.
 
-Our research focuses on quantifying the causal importance of each sentence in a chain-of-thought, both in terms of its influence on the final answer and on subsequent reasoning steps. We first estimate this through resampling-based interventions, and then explore whether it can be approximated using internal model signals.
-
-You can find a detailed presentation on this topic [here](https://docs.google.com/presentation/d/1dwg9cQ0rhVcSrKjVThPac0M1Piz2TO5HKLqemet0LB8/edit?usp=sharing). You can also find an interactive visualization [here](https://www.principled-attribution.com).
-
-![Main Image](./figures/main.png)
+See our paper here: https://arxiv.org/abs/2506.19143
+See our interactive demo here: https://www.thought-anchors.com/
+See our dataset here: https://huggingface.co/datasets/uzaymacar/math-rollouts
 
