@@ -7,7 +7,7 @@ import asyncio
 import httpx
 from tqdm import tqdm
 from pathlib import Path
-from typing import List, Dict, Tuple
+from typing import List, Dict
 from dotenv import load_dotenv
 from utils import extract_boxed_answers, check_answer, split_solution_into_chunks, load_math_problems
 from transformers import TextStreamer
@@ -25,7 +25,7 @@ FIREWORKS_API_KEY = os.getenv("FIREWORKS_API_KEY")
 # Set up argument parser
 import argparse
 parser = argparse.ArgumentParser(description='Generate chain-of-thought solutions with rollouts')
-parser.add_argument('-m', '--model', type=str, default="deepseek/deepseek-r1-distill-qwen-14b", help='Model to use')
+parser.add_argument('-m', '--model', type=str, default="deepseek/deepseek-r1-distill-qwen-14b", help='Model to use') # "deepseek/deepseek-r1-distill-llama-8b"
 parser.add_argument('-b', '--base_solution_type', type=str, default='correct', choices=['correct', 'incorrect'], help='Type of base solution to generate')
 parser.add_argument('-r', '--rollout_type', type=str, default='default', choices=['default', 'forced_answer'], help='Type of rollout to generate')
 parser.add_argument('-o', '--output_dir', type=str, default='math_rollouts', help='Directory to save results')
@@ -43,7 +43,7 @@ parser.add_argument('-ic', '--include_chunks', type=str, default=None, help='Com
 parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
 parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
 parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
-parser.add_argument('-p', '--provider', type=str, default="Together", choices=['Novita', 'Together', 'Fireworks', 'Local'], help='Provider to use')
+parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together', 'Fireworks', 'Local'], help='Provider to use') # "Together"
 parser.add_argument('-or', '--use_openrouter', default=False, action='store_true', help='Use OpenRouter API')
 parser.add_argument('-fp', '--frequency_penalty', type=float, default=None, help='Frequency penalty parameter')
 parser.add_argument('-pp', '--presence_penalty', type=float, default=None, help='Presence penalty parameter')
@@ -61,7 +61,7 @@ args = parser.parse_args()
 base_output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}_top_p_{str(args.top_p)}"
 if args.rollout_type == 'forced_answer':
     # NOTE: For forced answer rollouts, we use the correct base solution (we copy the files from the correct base solution directory before running this script)
-    output_dir = base_output_dir / f"correct_base_solution_{args.rollout_type}_{args.output_suffix}" if args.output_suffix else base_output_dir / f"correct_base_solution_{args.rollout_type}"
+    output_dir = base_output_dir / f"{args.base_solution_type}_base_solution_{args.rollout_type}_{args.output_suffix}" if args.output_suffix else base_output_dir / f"{args.base_solution_type}_base_solution_{args.rollout_type}"
 else:
     output_dir = base_output_dir / f"{args.base_solution_type}_base_solution_{args.output_suffix}" if args.output_suffix else base_output_dir / f"{args.base_solution_type}_base_solution"
 output_dir.mkdir(exist_ok=True, parents=True)

@@ -17,6 +17,39 @@ import gc
 import argparse
 import multiprocessing
 from functools import partial
+import matplotlib.colors as mcolors
+
+# Define consistent category colors (copied from new_plots.py)
+CATEGORY_COLORS = {
+    'Active Computation': '#34A853', 
+    'Fact Retrieval': '#FBBC05', 
+    'Final Answer Emission': '#795548', 
+    'Plan Generation': '#EA4335', 
+    'Problem Setup': '#4285F4', 
+    'Result Consolidation': '#00BCD4', 
+    'Self Checking': '#FF9800',
+    'Uncertainty Management': '#9C27B0'
+}
+
+# Define font size for consistency
+FONT_SIZE = 20
+plt.rcParams.update({
+    'font.size': FONT_SIZE + 4,
+    'axes.titlesize': FONT_SIZE + 12,
+    'axes.labelsize': FONT_SIZE + 12,
+    'xtick.labelsize': FONT_SIZE + 5,
+    'ytick.labelsize': FONT_SIZE + 5,
+    'legend.fontsize': FONT_SIZE + 4
+})
+FIGSIZE = (16, 14)
+plt.rcParams.update({
+    'axes.labelpad': 20,        # Padding for axis labels
+    'axes.titlepad': 20,        # Padding for plot titles
+    'axes.spines.top': False,   # Hide top spine
+    'axes.spines.right': False, # Hide right spine
+})
+
+CMAP = "RdBu"
 
 def load_problem(problem_dir: Path) -> Dict:
     """Load problem from problem directory."""
@@ -167,14 +200,15 @@ def process_chunk_pair(args):
     exclude_i_match_rate = len(exclude_positives) / len(exclude_i_matches) if exclude_i_matches else 0
 
     # Calculate importance as difference in match rate and similarity
-    importance = 0.5 * (include_i_match_rate - exclude_i_match_rate)
+    importance = include_i_match_rate - exclude_i_match_rate # NOTE: For now, we only use match rate difference
+    """
     if include_positives and exclude_positives:  # Only add similarity difference if both have matches
         importance += 0.5 * (include_i_avg_similarity - exclude_i_avg_similarity)
     elif include_positives:  # Only include_i has matches
         importance += 0.5 * include_i_avg_similarity
     elif exclude_positives:  # Only exclude_i has matches
         importance -= 0.5 * exclude_i_avg_similarity
-    
+    """
     return i, j, importance
 
 def compute_step_importance_matrix(
@@ -239,108 +273,108 @@ def compute_step_importance_matrix(
     original_chunk_texts = [chunk['chunk'] for chunk in original_chunks]
     original_embeddings = embedding_model.encode(original_chunk_texts)
     
-    # Process all chunk pairs
-    print("Processing all chunk pairs...")
-    for i in tqdm(range(num_chunks - 1), desc="Processing source steps"):
-        # Get target steps (all steps after i)
-        target_indices = list(range(i+1, num_chunks))
-        target_embeddings = original_embeddings[target_indices]
+    # Pre-load all rollouts for all chunks up front to avoid repeated disk I/O
+    print("Loading all rollouts...")
+    all_rollouts = {}
+    for chunk_idx in range(num_chunks):
+        rollouts = load_chunk_rollouts(problem_dir, chunk_idx)
+        all_rollouts[chunk_idx] = [r for r in rollouts if 'rollout' in r and r['rollout']]
+    
+    # Pre-compute all rollout steps and their embeddings
+    print("Pre-computing all rollout steps and embeddings...")
+    chunk_rollout_steps = {}
+    chunk_rollout_embeddings = {}
+    
+    for chunk_idx, rollouts in tqdm(all_rollouts.items(), desc="Pre-computing rollout steps and embeddings"):
+        # Extract steps from all rollouts for this chunk
+        all_steps = []
+        step_indices = []  # to track which rollout and step within rollout
+        rollout_indices = []
         
-        # Get rollouts where step i was kept (resampling started at i+1)
-        include_i_rollouts = load_chunk_rollouts(problem_dir, i+1)
+        for rollout_idx, rollout in enumerate(rollouts):
+            steps = extract_steps_from_rollout(rollout['rollout'])
+            for step_idx, step in enumerate(steps):
+                all_steps.append(step)
+                rollout_indices.append(rollout_idx)
+                step_indices.append(step_idx)
         
-        # Get rollouts where step i was removed (resampling started at i)
-        exclude_i_rollouts = load_chunk_rollouts(problem_dir, i)
+        # Store step information
+        chunk_rollout_steps[chunk_idx] = {
+            'steps': all_steps,
+            'rollout_indices': rollout_indices,
+            'step_indices': step_indices,
+            'num_rollouts': len(rollouts)
+        }
         
-        # Filter for valid rollouts (has rollout text)
-        include_i_rollouts = [r for r in include_i_rollouts if 'rollout' in r and r['rollout']]
-        exclude_i_rollouts = [r for r in exclude_i_rollouts if 'rollout' in r and r['rollout']]
-        
-        if not include_i_rollouts or not exclude_i_rollouts:
-            continue
-        
-        # Extract steps from all rollouts
-        include_i_steps = [extract_steps_from_rollout(rollout['rollout']) for rollout in include_i_rollouts]
-        exclude_i_steps = [extract_steps_from_rollout(rollout['rollout']) for rollout in exclude_i_rollouts]
-        
-        # Flatten all steps from all include_i rollouts
-        include_all_steps = []
-        include_rollout_indices = []
-        include_step_indices = []
-        
-        for rollout_idx, rollout_steps in enumerate(include_i_steps):
-            for step_idx, step in enumerate(rollout_steps):
-                include_all_steps.append(step)
-                include_rollout_indices.append(rollout_idx)
-                include_step_indices.append(step_idx)
-        
-        # Flatten all steps from all exclude_i rollouts
-        exclude_all_steps = []
-        exclude_rollout_indices = []
-        exclude_step_indices = []
-        
-        for rollout_idx, rollout_steps in enumerate(exclude_i_steps):
-            for step_idx, step in enumerate(rollout_steps):
-                exclude_all_steps.append(step)
-                exclude_rollout_indices.append(rollout_idx)
-                exclude_step_indices.append(step_idx)
-        
-        # Compute embeddings for all steps at once
-        if include_all_steps:
-            include_embeddings = embedding_model.encode(include_all_steps)
+        # Compute embeddings for all steps at once if there are steps
+        if all_steps:
+            embeddings = embedding_model.encode(all_steps)
+            chunk_rollout_embeddings[chunk_idx] = embeddings
         else:
-            include_embeddings = np.array([])
+            chunk_rollout_embeddings[chunk_idx] = np.array([])
+    
+    # Process chunk pairs in one vectorized operation across the entire matrix
+    print("Computing importance matrix...")
+    
+    # For each chunk i (source) and each chunk j (target) where j > i
+    with tqdm(total=num_chunks*(num_chunks-1)//2, desc="Processing chunk pairs") as pbar:
+        for i in range(num_chunks - 1):
+            # Target chunks (all chunks after i)
+            j_values = list(range(i+1, num_chunks))
             
-        if exclude_all_steps:
-            exclude_embeddings = embedding_model.encode(exclude_all_steps)
-        else:
-            exclude_embeddings = np.array([])
-        
-        # Process each target step
-        for j_idx, j in enumerate(target_indices):
-            target_embedding = target_embeddings[j_idx].reshape(1, -1)
+            # Check if we have rollouts for both keeping and removing chunk i
+            include_i_idx = i + 1  # Resampling started at i+1 (kept chunk i)
+            exclude_i_idx = i      # Resampling started at i (removed chunk i)
             
-            # Process include_i rollouts
-            include_i_matches = [(-1, 0.0)] * len(include_i_steps)
-            if len(include_embeddings) > 0:
+            if include_i_idx not in chunk_rollout_steps or exclude_i_idx not in chunk_rollout_steps:
+                pbar.update(len(j_values))
+                continue
+                
+            if len(chunk_rollout_steps[include_i_idx]['steps']) == 0 or len(chunk_rollout_steps[exclude_i_idx]['steps']) == 0:
+                pbar.update(len(j_values))
+                continue
+            
+            # Get the rollout information
+            include_steps_info = chunk_rollout_steps[include_i_idx]
+            exclude_steps_info = chunk_rollout_steps[exclude_i_idx]
+            include_embeddings = chunk_rollout_embeddings[include_i_idx]
+            exclude_embeddings = chunk_rollout_embeddings[exclude_i_idx]
+            
+            # For each target chunk j
+            for j in j_values:
+                # Get the target embedding (chunk j)
+                target_embedding = original_embeddings[j].reshape(1, -1)
+                
+                # Process include_i rollouts (chunk i was kept)
                 include_similarities = cosine_similarity(target_embedding, include_embeddings)[0]
+                include_matches = [(-1, 0.0)] * include_steps_info['num_rollouts']
                 
-                # Find best match for each rollout
-                for step_idx, (rollout_idx, similarity) in enumerate(zip(include_rollout_indices, include_similarities)):
-                    if similarity >= similarity_threshold and (include_i_matches[rollout_idx][0] == -1 or similarity > include_i_matches[rollout_idx][1]):
-                        include_i_matches[rollout_idx] = (include_step_indices[step_idx], float(similarity))
-            
-            # Process exclude_i rollouts
-            exclude_i_matches = [(-1, 0.0)] * len(exclude_i_steps)
-            if len(exclude_embeddings) > 0:
+                # Find best match for each rollout where chunk i was kept
+                for step_idx, (rollout_idx, similarity) in enumerate(zip(include_steps_info['rollout_indices'], include_similarities)):
+                    if similarity >= similarity_threshold and (include_matches[rollout_idx][0] == -1 or similarity > include_matches[rollout_idx][1]):
+                        include_matches[rollout_idx] = (include_steps_info['step_indices'][step_idx], float(similarity))
+                
+                # Process exclude_i rollouts (chunk i was removed)
                 exclude_similarities = cosine_similarity(target_embedding, exclude_embeddings)[0]
+                exclude_matches = [(-1, 0.0)] * exclude_steps_info['num_rollouts']
                 
-                # Find best match for each rollout
-                for step_idx, (rollout_idx, similarity) in enumerate(zip(exclude_rollout_indices, exclude_similarities)):
-                    if similarity >= similarity_threshold and (exclude_i_matches[rollout_idx][0] == -1 or similarity > exclude_i_matches[rollout_idx][1]):
-                        exclude_i_matches[rollout_idx] = (exclude_step_indices[step_idx], float(similarity))
-            
-            # Calculate average similarity for both cases
-            include_positives = [sim for _, sim in include_i_matches if sim > 0]
-            exclude_positives = [sim for _, sim in exclude_i_matches if sim > 0]
-
-            include_i_avg_similarity = np.mean(include_positives) if include_positives else 0.0
-            exclude_i_avg_similarity = np.mean(exclude_positives) if exclude_positives else 0.0
-
-            # Calculate match rate for both cases
-            include_i_match_rate = len(include_positives) / len(include_i_matches) if include_i_matches else 0
-            exclude_i_match_rate = len(exclude_positives) / len(exclude_i_matches) if exclude_i_matches else 0
-
-            # Calculate importance as difference in match rate and similarity
-            importance = 0.5 * (include_i_match_rate - exclude_i_match_rate)
-            if include_positives and exclude_positives:  # Only add similarity difference if both have matches
-                importance += 0.5 * (include_i_avg_similarity - exclude_i_avg_similarity)
-            elif include_positives:  # Only include_i has matches
-                importance += 0.5 * include_i_avg_similarity
-            elif exclude_positives:  # Only exclude_i has matches
-                importance -= 0.5 * exclude_i_avg_similarity
-            
-            importance_matrix[i, j] = importance
+                # Find best match for each rollout where chunk i was removed
+                for step_idx, (rollout_idx, similarity) in enumerate(zip(exclude_steps_info['rollout_indices'], exclude_similarities)):
+                    if similarity >= similarity_threshold and (exclude_matches[rollout_idx][0] == -1 or similarity > exclude_matches[rollout_idx][1]):
+                        exclude_matches[rollout_idx] = (exclude_steps_info['step_indices'][step_idx], float(similarity))
+                
+                # Calculate match rates
+                include_positives = [sim for _, sim in include_matches if sim > 0]
+                exclude_positives = [sim for _, sim in exclude_matches if sim > 0]
+                
+                include_match_rate = len(include_positives) / len(include_matches) if include_matches else 0
+                exclude_match_rate = len(exclude_positives) / len(exclude_matches) if exclude_matches else 0
+                
+                # Calculate importance as difference in match rate
+                importance = include_match_rate - exclude_match_rate
+                importance_matrix[i, j] = importance
+                
+                pbar.update(1)
     
     # Save to cache
     np.savez(cache_file, matrix=importance_matrix, chunk_texts=original_chunks)
@@ -352,7 +386,8 @@ def plot_step_importance_matrix(
     chunk_texts: List[str],
     output_file: Path,
     problem_idx: str,
-    max_text_length: int = 30
+    max_text_length: int = 30,
+    num_top_sentences: int = None
 ) -> None:
     """
     Plot the step importance matrix as a heatmap.
@@ -363,6 +398,7 @@ def plot_step_importance_matrix(
         output_file: Path to save the plot
         problem_idx: Problem index for the title
         max_text_length: Maximum length of chunk text to display
+        num_top_sentences: Number of top sentences to show in importance matrix (None = show all)
     """
     # Create shortened labels
     labels = []
@@ -372,23 +408,47 @@ def plot_step_importance_matrix(
         labels.append(f"{i}: {text}")
     
     # Create figure
-    plt.figure(figsize=(12, 10))
+    plt.figure(figsize=FIGSIZE)
     
-    # Create heatmap
-    sns.heatmap(
-        importance_matrix,
-        cmap="viridis",
-        annot=False,
-        fmt=".2f",
-        linewidths=0.5,
+    # Create the plot matrix (transposed)
+    plot_matrix = importance_matrix.T.copy()
+    
+    # Create mask for upper triangle (where j <= i, meaning target step <= source step)
+    # We want to mask these out since they don't represent meaningful causal relationships
+    mask_upper = np.triu(np.ones_like(plot_matrix, dtype=bool))
+    
+    ax = sns.heatmap(
+        plot_matrix,
+        cmap=CMAP,
+        norm=mcolors.Normalize(vmin=-max(abs(plot_matrix.min()), abs(plot_matrix.max())), vmax=max(abs(plot_matrix.min()), abs(plot_matrix.max()))),
+        mask=mask_upper,  # Mask the upper triangle
         xticklabels=range(len(chunk_texts)),
-        yticklabels=range(len(chunk_texts))
+        yticklabels=range(len(chunk_texts)),
+        cbar_kws={"label": ""}
     )
     
-    # Add labels and title
+    # Now manually color the masked (upper triangle) cells white
+    # Get the current axis and draw white rectangles over the masked area
+    for i in range(len(chunk_texts)):
+        for j in range(len(chunk_texts)):
+            if j <= i:  # Upper triangle (including diagonal)
+                # Add a white rectangle at this position
+                ax.add_patch(plt.Rectangle((i, j), 1, 1, fill=True, color='#FFFFFF', zorder=10))
+    
+    # Color the tick labels
+    for i, (tick_label, color) in enumerate(zip(ax.get_xticklabels(), tick_colors)):
+        tick_label.set_color(color)
+    for i, (tick_label, color) in enumerate(zip(ax.get_yticklabels(), tick_colors)):
+        tick_label.set_color(color)
+    
+    # Create title with additional info if filtering was applied
+    title = f"Problem {problem_idx}: sentence-to-sentence importance matrix"
+    if num_top_sentences is not None and len(chunk_texts) <= num_top_sentences:
+        title += "" # f" (top {len(chunk_texts)} sentences)"
+    
+    plt.title(title)
     plt.xlabel("Target Step (j)")
     plt.ylabel("Source Step (i)")
-    plt.title(f"Problem {problem_idx}: Step-to-Step Causal Importance Matrix")
     
     # Save figure
     plt.tight_layout()
@@ -401,7 +461,7 @@ def plot_step_importance_matrix(
     
     # Add step texts
     for i, label in enumerate(labels):
-        ax.text(0, 1 - (i / len(labels)), f"{label}", fontsize=10)
+        ax.text(0, 1 - (i / len(labels)), f"{label}")
     
     # Save step text figure
     plt.tight_layout()
@@ -419,13 +479,46 @@ def get_function_tag_prefix(chunk):
         return uppercase_letters
     return ""
 
+def get_category_from_abbreviation(abbreviation):
+    """Map function tag abbreviation to full category name."""
+    abbrev_to_category = {
+        'AC': 'Active Computation',
+        'FR': 'Fact Retrieval', 
+        'FAE': 'Final Answer Emission',
+        'PG': 'Plan Generation',
+        'PS': 'Problem Setup',
+        'RC': 'Result Consolidation',
+        'SC': 'Self Checking',
+        'UM': 'Uncertainty Management'
+    }
+    return abbrev_to_category.get(abbreviation.upper(), None)
+
+def filter_chunks_by_excluded_tags(chunks, excluded_abbreviations):
+    """Filter out chunks whose function tag abbreviations are in the excluded list."""
+    if not excluded_abbreviations:
+        return chunks, list(range(len(chunks)))
+    
+    excluded_set = set(abbrev.upper() for abbrev in excluded_abbreviations)
+    filtered_chunks = []
+    original_indices = []
+    
+    for i, chunk in enumerate(chunks):
+        tag_prefix = get_function_tag_prefix(chunk)
+        if tag_prefix not in excluded_set:
+            filtered_chunks.append(chunk)
+            original_indices.append(i)
+    
+    return filtered_chunks, original_indices
+
 def analyze_step_attribution(
     problem_dirs: List[Path],
     output_dir: Path,
     similarity_threshold: float = 0.7,
     max_chunks: int = 50,
     use_cache: bool = True,
-    n_processes: int = None
+    n_processes: int = None,
+    excluded_abbreviations: List[str] = None,
+    num_top_sentences: int = None
 ) -> None:
     """
     Analyze step attribution for a list of problems.
@@ -437,6 +530,8 @@ def analyze_step_attribution(
         max_chunks: Maximum number of chunks to analyze
         use_cache: Whether to use cached results
         n_processes: Number of processes to use for parallel computation
+        excluded_abbreviations: List of function tag abbreviations to exclude from analysis
+        num_top_sentences: Number of top sentences to show in importance matrix (None = show all)
     """
     # Create output directory
     output_dir.mkdir(exist_ok=True, parents=True)
@@ -507,27 +602,90 @@ def analyze_step_attribution(
                 chunk_texts=np.array(chunk_texts, dtype=object)
             )
         
-        # Create axis labels with function tag prefixes
+        # Apply top sentences selection first (before exclusion filtering)
+        original_indices = list(range(len(chunk_texts)))  # Track original indices
+        if num_top_sentences is not None:
+            importance_matrix, chunk_texts, selected_indices = select_top_sentences(
+                importance_matrix, chunk_texts, num_top_sentences
+            )
+            original_indices = selected_indices  # Update to reflect selection
+            print(f"Selected top {len(chunk_texts)} sentences for problem {problem_idx}")
+        
+        # Filter chunks based on excluded abbreviations (after top selection)
+        if excluded_abbreviations:
+            filtered_chunk_texts, kept_indices = filter_chunks_by_excluded_tags(chunk_texts, excluded_abbreviations)
+            
+            # Filter the importance matrix to keep only the rows and columns for kept chunks
+            if kept_indices:
+                importance_matrix = importance_matrix[np.ix_(kept_indices, kept_indices)]
+                chunk_texts = filtered_chunk_texts
+                # Update original indices to reflect exclusion filtering
+                original_indices = [original_indices[i] for i in kept_indices]
+                print(f"Filtered to {len(chunk_texts)} chunks after excluding abbreviations: {excluded_abbreviations}")
+            else:
+                print(f"Warning: All chunks excluded for problem {problem_idx}, skipping plots")
+                continue
+        
+        # Create axis labels with function tag prefixes using ORIGINAL indices
         x_labels = []
         y_labels = []
+        tick_colors = []
         for i, chunk in enumerate(chunk_texts):
             tag_prefix = get_function_tag_prefix(chunk)
-            label = f"{i}-{tag_prefix}" if tag_prefix else f"{i}"
+            # Use original index instead of current index i
+            original_idx = original_indices[i]
+            label = f"{original_idx}-{tag_prefix}" if tag_prefix else f"{original_idx}"
             x_labels.append(label)
             y_labels.append(label)
+            
+            # Get color for this category
+            category = get_category_from_abbreviation(tag_prefix)
+            color = CATEGORY_COLORS.get(category, '#000000') if category else '#000000'  # Default to black
+            tick_colors.append(color)
 
         # Plot importance matrix
-        plt.figure(figsize=(12, 10))
-        sns.heatmap(
-            importance_matrix.T,  # Transpose the matrix
-            cmap="viridis",
+        plt.figure(figsize=FIGSIZE)
+        
+        # Create the plot matrix (transposed)
+        plot_matrix = importance_matrix.T.copy()
+        
+        # Create mask for upper triangle (where j <= i, meaning target step <= source step)
+        # We want to mask these out since they don't represent meaningful causal relationships
+        mask_upper = np.triu(np.ones_like(plot_matrix, dtype=bool))
+        
+        ax = sns.heatmap(
+            plot_matrix,
+            cmap=CMAP,
+            norm=mcolors.Normalize(vmin=-max(abs(plot_matrix.min()), abs(plot_matrix.max())), vmax=max(abs(plot_matrix.min()), abs(plot_matrix.max()))),
+            mask=mask_upper,  # Mask the upper triangle
             xticklabels=x_labels,
             yticklabels=y_labels,
-            cbar_kws={"label": "Importance Score"}
+            cbar_kws={"label": ""}
         )
-        plt.title(f"Step Importance Matrix for Problem {problem_idx}")
-        plt.xlabel("Source Step (i)")
-        plt.ylabel("Target Step (j)")
+        
+        # Now manually color the masked (upper triangle) cells white
+        # Get the current axis and draw white rectangles over the masked area
+        for i in range(len(chunk_texts)):
+            for j in range(len(chunk_texts)):
+                if j <= i:  # Upper triangle (including diagonal)
+                    # Add a white rectangle at this position
+                    ax.add_patch(plt.Rectangle((i, j), 1, 1, fill=True, color='#FFFFFF', zorder=10))
+        
+        # Color the tick labels
+        for i, (tick_label, color) in enumerate(zip(ax.get_xticklabels(), tick_colors)):
+            tick_label.set_color(color)
+        for i, (tick_label, color) in enumerate(zip(ax.get_yticklabels(), tick_colors)):
+            tick_label.set_color(color)
+        
+        # Create title with additional info if filtering was applied
+        title = f"Problem {problem_idx}: sentence-to-sentence importance matrix"
+        if num_top_sentences is not None and len(chunk_texts) <= num_top_sentences:
+            title += "" # f" (top {len(chunk_texts)} sentences)"
+        
+        plt.title(title)
+        plt.xlabel("Source step (i)")
+        plt.ylabel("Target step (j)")
+        
         plt.tight_layout()
         plt.savefig(plots_dir / f"step_importance_matrix.png", dpi=300)
         plt.close()
@@ -719,22 +877,95 @@ def get_problem_dirs(analysis_dir: Path, correct_only: bool = True, limit: Optio
     
     return complete_problem_dirs
 
+def calculate_sentence_importance_scores(importance_matrix):
+    """
+    Calculate combined importance scores for each sentence based on outgoing and incoming importance.
+    
+    Args:
+        importance_matrix: Step importance matrix where importance_matrix[i, j] is importance of step i on step j
+        
+    Returns:
+        numpy array of combined importance scores for each sentence
+    """
+    num_sentences = importance_matrix.shape[0]
+    
+    # Calculate outgoing importance for each sentence
+    outgoing_importance = np.zeros(num_sentences)
+    for i in range(num_sentences):
+        # Average importance of step i on all future steps
+        future_steps = importance_matrix[i, i+1:]
+        outgoing_importance[i] = np.mean(future_steps) if len(future_steps) > 0 else 0
+    
+    # Calculate incoming importance for each sentence
+    incoming_importance = np.zeros(num_sentences)
+    for j in range(num_sentences):
+        # Average importance of all previous steps on step j
+        previous_steps = importance_matrix[:j, j]
+        incoming_importance[j] = np.mean(previous_steps) if len(previous_steps) > 0 else 0
+    
+    # Combined importance: sum of outgoing and incoming
+    combined_importance = outgoing_importance + incoming_importance
+    
+    return combined_importance, outgoing_importance, incoming_importance
+
+def select_top_sentences(importance_matrix, chunk_texts, num_top_sentences):
+    """
+    Select the top N most important sentences based on combined importance scores.
+    
+    Args:
+        importance_matrix: Step importance matrix
+        chunk_texts: List of chunk texts
+        num_top_sentences: Number of top sentences to select
+        
+    Returns:
+        Tuple of (filtered_matrix, filtered_chunks, selected_indices)
+    """
+    if num_top_sentences is None or num_top_sentences >= len(chunk_texts):
+        return importance_matrix, chunk_texts, list(range(len(chunk_texts)))
+    
+    # Calculate importance scores
+    combined_scores, outgoing_scores, incoming_scores = calculate_sentence_importance_scores(importance_matrix)
+    
+    # Get indices of top N sentences
+    top_indices = np.argsort(combined_scores)[-num_top_sentences:][::-1]  # Descending order
+    top_indices = sorted(top_indices)  # Sort to maintain original order
+    
+    print(f"Selected top {len(top_indices)} sentences with indices: {top_indices}")
+    print(f"Combined importance scores: {combined_scores[top_indices]}")
+    
+    # Filter importance matrix to only include these sentences
+    filtered_matrix = importance_matrix[np.ix_(top_indices, top_indices)]
+    
+    # Filter chunk texts
+    filtered_chunks = [chunk_texts[i] for i in top_indices]
+    
+    return filtered_matrix, filtered_chunks, top_indices
+
 def main():
     parser = argparse.ArgumentParser(description="Analyze step-to-step attribution in chain-of-thought reasoning")
     parser.add_argument("-ad", "--analysis_dir", type=str, default="math_rollouts/deepseek-r1-distill-qwen-14b/temperature_0.6_top_p_0.95", help="Directory containing analysis results")
     parser.add_argument("-od", "--output_dir", type=str, default="analysis/step_attribution", help="Directory to save analysis results")
-    parser.add_argument("-st", "--similarity_threshold", type=float, default=0.7, help="Threshold for considering steps similar")
+    parser.add_argument("-st", "--similarity_threshold", type=float, default=0.8, help="Threshold for considering steps similar")
     parser.add_argument("-mc", "--max_chunks", type=int, default=None, help="Maximum number of chunks to analyze")
     parser.add_argument("-mp", "--max_problems", type=int, default=None, help="Maximum number of problems to analyze")
     parser.add_argument("-ip", "--include_problems", type=str, default=None, help="Comma-separated list of problem indices to include")
     parser.add_argument("-co", "--correct_only", action="store_true", help="Only analyze correct solutions, if not specified, only incorrect solutions will be analyzed")
     parser.add_argument("-nc", "--no_cache", action="store_true", default=True, help="Don't use cached results")
     parser.add_argument("-np", "--n_processes", type=int, default=1, help="Number of processes to use for parallel computation")
+    parser.add_argument("-ex", "--exclude_tags", type=str, default=None, help="Comma-separated list of function tag abbreviations to exclude (e.g., 'SC,PS')")
+    parser.add_argument("-nt", "--num_top_sentences", type=int, default=None, help="Number of top sentences to show in importance matrix (None = show all)")
     args = parser.parse_args()
+    
+    # Parse excluded abbreviations
+    excluded_abbreviations = None
+    if args.exclude_tags:
+        excluded_abbreviations = [tag.strip() for tag in args.exclude_tags.split(',')]
+        print(f"Excluding function tag abbreviations: {excluded_abbreviations}")
     
     # Set up directories
     analysis_dir = Path(args.analysis_dir)
-    output_dir = Path(args.output_dir)
+    model_name = args.analysis_dir.split("/")[-2]
+    output_dir = Path(args.output_dir) / model_name
     output_dir.mkdir(exist_ok=True, parents=True)
     
     # Get problem directories
@@ -753,7 +984,9 @@ def main():
         similarity_threshold=args.similarity_threshold,
         max_chunks=args.max_chunks,
         use_cache=not args.no_cache,
-        n_processes=args.n_processes
+        n_processes=args.n_processes,
+        excluded_abbreviations=excluded_abbreviations,
+        num_top_sentences=args.num_top_sentences
     )
 
 if __name__ == "__main__":
