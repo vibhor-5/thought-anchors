@@ -22,5 +22,7 @@ Here is what other files do:
 * `utils.py`: Includes utility and helper functions for reasoning trace analysis.
 * `misc-experiments/`: This folder includes miscellaneous experiment scripts. Some of them are ongoing work. 
 
+## Contact
 
+For any questions, thoughts, or feedback, please reach out to [uzaymacar@gmail.com](mailto:uzaymacar@gmail.com) and [paulcbogdan@gmail.com](mailto:paulcbogdan@gmail.com).
 
