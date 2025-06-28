@@ -5,6 +5,7 @@ We introduce a framework for interpreting the reasoning of large language models
 See more:
 * Paper: https://arxiv.org/abs/2506.19143
 * Interactive demo: https://www.thought-anchors.com/
+* Repository for the interactive demo: https://github.com/interp-reasoning/thought-anchors.com
 * Dataset here: https://huggingface.co/datasets/uzaymacar/math-rollouts
 
 ## Get Started
