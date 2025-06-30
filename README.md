@@ -14,7 +14,7 @@ You can download our [MATH rollout dataset](https://huggingface.co/datasets/uzay
 
 Here's a quick rundown of the main scripts in this repository and what they do:
 
-1. `generate_rollouts.py`: This is the main script for generating reasoning rollouts. Our [dataset](https://huggingface.co/datasets/uzaymacar/math-rollouts) was created with this.
+1. `generate_rollouts.py`: The main script for generating reasoning rollouts. Our [dataset](https://huggingface.co/datasets/uzaymacar/math-rollouts) was created with it.
 2. `analyze_rollouts.py`: This script processes the generated rollouts and adds `chunks_labeled.json` and other metadata for each reasoning trace. It calculates metrics like **forced answer importance**, **resampling importance**, and **counterfactual importance**.
 3. `step_attribution.py`: This script computes the sentence-to-sentence counterfactual importance score for all sentences in all reasoning traces.
 4. `plots.py`: This script generates figures (e.g., the ones you see in the paper).
