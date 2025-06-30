@@ -10,6 +10,8 @@ See more:
 
 ## Get Started
 
+You can download our [MATH rollout dataset](https://huggingface.co/datasets/uzaymacar/math-rollouts) or resample your own data.
+
 Here's a quick rundown of the main scripts in this repository and what they do:
 
 1. `generate_rollouts.py`: This is the main script for generating reasoning rollouts. Our [dataset](https://huggingface.co/datasets/uzaymacar/math-rollouts) was created with this.
