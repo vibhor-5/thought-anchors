@@ -1,56 +1,11 @@
-import os
-import random
-
-
-import os
-import json
-import pickle
-import warnings
-import math
-from types import MethodType
-from collections import defaultdict
 from typing import List, Tuple, Optional, Dict, Set, Union
 
-from matplotlib import pyplot as plt
 import torch
-import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-from tqdm import tqdm
-import sys
-import time
 
 from pkld import pkld
-
-from model_read import (
-    analyze_text,
-    get_deepseek_r1,
-)  # Use existing model loader and memory checker
-
-from model_read_large import (
-    analyze_text_large,
-    get_deepseek_r1_large,
-)  # Use existing model loader and memory checker
-from utils import (
-    get_qwen_14b_tokens_lower,
-    get_raw_tokens,
-    # get_qwen_raw_tokens,
-    # get_qwen_tokenizer,
-    get_top_p_logits,
-    print_gpu_memory_summary,
-)  # Use existing utils
-from run_target_problems import (
-    get_full_CoT_token_ranges,
-    get_most_sensitive_layer_heads,
-    get_problem_nums,
-    load_problem_json,
-)  # Use existing problem loader
-from uzay_utils import (
-    get_chunk_ranges,
-    get_chunk_token_ranges,
-)  # Use existing chunking utils
-
-import torch
+from pytorch_models import analyze_text
 
 
 def decompress_logits_for_position(
@@ -235,32 +190,24 @@ def analyze_text_get_p_logits(
     text,
     model_name="qwen-14b",
     seed=0,
-    quantize_8bit=False,
-    quantize_4bit=False,
     token_range_to_mask=None,
     layers_to_mask=None,
     p_nucleus=0.999,
     float32=False,
     max_k=100,
+    device_map="auto",
 ):
-
-    do_layers = list(range(1))  # jank but output_attention=True must be set
-
-    if isinstance(model_name, tuple):
-        model_name, device_map = model_name
-    else:
-        device_map = "auto"
+    """Extract logits from model using the new pytorch_models structure."""
+    
+    # Use the analyze_text wrapper function
     result = analyze_text(
-        text,
+        text=text,
         model_name=model_name,
         seed=seed,
-        verbose=False,
         float32=float32,
-        quantize_8bit=quantize_8bit,
-        quantize_4bit=quantize_4bit,
-        attn_layers=do_layers,
-        do_layers=do_layers,
         return_logits=True,
+        attn_layers=[0],  # Minimal layers for logits extraction
+        verbose=False,
         token_range_to_mask=token_range_to_mask,
         layers_to_mask=layers_to_mask,
         device_map=device_map,
@@ -270,108 +217,3 @@ def analyze_text_get_p_logits(
     test = compress_logits_top_p(logits, p_nucleus, max_k=max_k)
 
     return test
-
-
-@pkld
-def analyze_text_get_p_logits_large(
-    text,
-    model_name="qwen-14b",
-    seed=0,
-    quantize_8bit=False,
-    quantize_4bit=False,
-    token_range_to_mask=None,
-    layers_to_mask=None,
-    p_nucleus=0.999,
-    float32=False,
-    max_k=100,
-):
-
-    do_layers = list(range(1))  # jank but output_attention=True must be set
-
-    if isinstance(model_name, tuple):
-        model_name, device_map = model_name
-    else:
-        device_map = "auto"
-    # print('TEST')
-    # quit()
-    result = analyze_text_large(
-        text,
-        model_name=model_name,
-        seed=seed,
-        verbose=False,
-        float32=float32,
-        quantize_8bit=quantize_8bit,
-        quantize_4bit=quantize_4bit,
-        attn_layers=do_layers,
-        do_layers=do_layers,
-        return_logits=True,
-        token_range_to_mask=token_range_to_mask,
-        layers_to_mask=layers_to_mask,
-        device_map=device_map,
-    )
-    logits = result["logits"]
-
-    test = compress_logits_top_p(logits, p_nucleus, max_k=max_k)
-
-    return test
-
-
-@pkld
-def get_most_sensitive_heads_map(
-    top_k=20,
-    proximity_ignore=20,
-    problem_dir=os.path.join("target_problems", "temperature_0.6_top_p_0.95"),
-    model_name="qwen-14b",
-    quantize_8bit=False,
-    quantize_4bit=False,
-    only_pre_convergence=False,
-    only=None,
-):
-    coords = get_most_sensitive_layer_heads(
-        top_k,
-        model_name=model_name,
-        quantize_8bit=quantize_8bit,
-        quantize_4bit=quantize_4bit,
-        only_pre_convergence=only_pre_convergence,
-        only=only,
-        problem_dir=problem_dir,
-    )
-
-    layers_to_mask = dict()
-    for layer, head in coords:
-        if layer not in layers_to_mask:
-            layers_to_mask[layer] = []
-        layers_to_mask[int(layer)].append(int(head))
-    return layers_to_mask
-
-
-def get_random_heads_map(
-    top_k=20,
-    proximity_ignore=20,
-    problem_dir=os.path.join("target_problems", "temperature_0.6_top_p_0.95"),
-    model_name="qwen-14b",
-    quantize_8bit=False,
-    quantize_4bit=False,
-    only_pre_convergence=False,
-    only=None,
-    seed=0,
-):
-    coords = get_most_sensitive_layer_heads(
-        top_k,
-        model_name=model_name,
-        quantize_8bit=quantize_8bit,
-        quantize_4bit=quantize_4bit,
-        only_pre_convergence=only_pre_convergence,
-        only=only,
-        problem_dir=problem_dir,
-    )
-    layers_to_mask = dict()
-    random.seed(seed)
-    for layer, head in coords:
-        if layer not in layers_to_mask:
-            layers_to_mask[layer] = []
-        num_heads = len(layers_to_mask[layer])
-        for _ in range(num_heads):
-            layers_to_mask[layer].append(random.randint(0, 40))
-        # layers_to_mask[int(layer)].append(int(head))
-    return layers_to_mask
