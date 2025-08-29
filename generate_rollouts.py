@@ -76,7 +76,7 @@ parser.add_argument('-mp', '--min_p', type=float, default=None, help='Min-p para
 parser.add_argument('-fbs', '--force_base_solution', action='store_true', help='Accept any base solution after max retries (even if incorrect when seeking correct)')
 parser.add_argument('-mbr', '--max_base_retries', type=int, default=3, help='Maximum retries for generating desired base solution type')
 parser.add_argument('-rps', '--requests_per_second', type=float, default=2.0, help='Maximum requests per second to API (rate limiting)')
-parser.add_argument('-mc', '--max_concurrent', type=int, default=5, help='Maximum concurrent API requests')
+parser.add_argument('-mco', '--max_concurrent', type=int, default=5, help='Maximum concurrent API requests')
 parser.add_argument('-bd', '--batch_delay', type=float, default=1.0, help='Delay in seconds between batches of requests')
 parser.add_argument('-q', '--quantize', default=False, action='store_true', help='Use quantization for local model')
 parser.add_argument('-bs', '--batch_size', type=int, default=8, help='Batch size for local model')
