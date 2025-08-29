@@ -468,7 +468,7 @@ def load_math_problems(
     """
     try:
         # Load from Hugging Face dataset
-        math_dataset = load_dataset("fdyrd/math")
+        math_dataset = load_dataset("metr-evals/daft-math")
         dataset_split = math_dataset[split]
 
         # Add original indices to problems
@@ -476,20 +476,21 @@ def load_math_problems(
             (
                 i,
                 {
-                    "problem": item["problem"],
-                    "level": item["level"],
-                    "type": item["type"],
-                    "gt_solution": item["solution"],
+                    "problem": item["Integer Answer Variant Question"],
+                    "level": item.get("Estimated Difficulty", ""),
+                    "type": item.get("topic", ""),  # Use topic field for type
+                    "gt_answer": str(item["Integer Variant Answer"]),
+                    "gt_solution": "",  # DAFT Math doesn't have reference solutions
                 },
             )
             for i, item in enumerate(dataset_split)
         ]
 
         # Extract ground truth answers
-        for i, problem in indexed_problems:
-            gt_boxed_answers = extract_boxed_answers(problem["gt_solution"])
-            gt_answer = gt_boxed_answers[0] if gt_boxed_answers else ""
-            problem["gt_answer"] = gt_answer
+        # for i, problem in indexed_problems:
+        #     gt_boxed_answers = extract_boxed_answers(problem["gt_solution"])
+        #     gt_answer = gt_boxed_answers[0] if gt_boxed_answers else ""
+        #     problem["gt_answer"] = gt_answer
 
         # Filter by type if specified
         if problem_type is not None:

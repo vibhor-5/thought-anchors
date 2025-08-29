@@ -11,6 +11,7 @@ from typing import List, Dict
 from dotenv import load_dotenv
 from utils import extract_boxed_answers, check_answer, split_solution_into_chunks, load_math_problems
 from transformers import TextStreamer
+import argparse
 
 # Load environment variables
 load_dotenv()
@@ -23,7 +24,6 @@ TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 FIREWORKS_API_KEY = os.getenv("FIREWORKS_API_KEY")
 
 # Set up argument parser
-import argparse
 parser = argparse.ArgumentParser(description='Generate chain-of-thought solutions with rollouts')
 parser.add_argument('-m', '--model', type=str, default="deepseek/deepseek-r1-distill-qwen-14b", help='Model to use') # "deepseek/deepseek-r1-distill-llama-8b"
 parser.add_argument('-b', '--base_solution_type', type=str, default='correct', choices=['correct', 'incorrect'], help='Type of base solution to generate')
@@ -56,6 +56,14 @@ parser.add_argument('-bs', '--batch_size', type=int, default=8, help='Batch size
 parser.add_argument('-mr', '--max_retries', type=int, default=1, help='Maximum number of retries for API requests')
 parser.add_argument('-os', '--output_suffix', type=str, default=None, help='Suffix to add to the output directory')
 args = parser.parse_args()
+
+# Check for API keys early
+if args.provider == "Novita" and not NOVITA_API_KEY:
+    raise ValueError("NOVITA_API_KEY not found in environment variables")
+elif args.provider == "Together" and not TOGETHER_API_KEY:
+    raise ValueError("TOGETHER_API_KEY not found in environment variables")
+elif args.provider == "Fireworks" and not FIREWORKS_API_KEY:
+    raise ValueError("FIREWORKS_API_KEY not found in environment variables")
 
 # Create output directory
 base_output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}_top_p_{str(args.top_p)}"
@@ -777,7 +785,7 @@ async def main():
         problems = [problem for problem in problems if problem[0] in include_problems]
     
     if not problems:
-        print(f"No problems loaded. Exiting.")
+        print("No problems loaded. Exiting.")
         exit(1)
 
     print(f"Loaded {len(problems)} problems.")
@@ -788,11 +796,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-# Add this near the top of your script where you check for API keys
-if args.provider == "Novita" and not NOVITA_API_KEY:
-    raise ValueError("NOVITA_API_KEY not found in environment variables")
-elif args.provider == "Together" and not TOGETHER_API_KEY:
-    raise ValueError("TOGETHER_API_KEY not found in environment variables")
-elif args.provider == "Fireworks" and not FIREWORKS_API_KEY:
-    raise ValueError("FIREWORKS_API_KEY not found in environment variables")
