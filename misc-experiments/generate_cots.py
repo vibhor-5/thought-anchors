@@ -587,7 +587,7 @@ async def main():
     parser.add_argument('-mt', '--max_tokens', type=int, default=16384, help='Maximum number of tokens for generation')
     parser.add_argument('-s', '--seed', type=int, default=42, help='Random seed for reproducibility')
     parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
-    parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
+    parser.add_argument('-l', '--level', type=str, default=None, help='Problem level filter (use None for all levels, or check available levels with check_math_dataset.py)')
     parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
     parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together', 'Gemini'], help='Provider to use')
     parser.add_argument('-lbt', '--logit_bias_tokens', type=str, default=None, help='Comma-separated tokens to apply logit bias to')

@@ -455,13 +455,14 @@ def load_math_problems(
     include_problems: Optional[List[int]] = None,
 ) -> List[Tuple[int, Dict]]:
     """
-    Load problems from the MATH dataset with optional filtering.
+    Load problems from the DAFT Math dataset with optional filtering.
 
     Args:
         problem_type: Type of problems to filter by (if None, use all types)
         level: Level of problems to filter by (if None, use all levels)
         num_problems: Number of problems to sample (if None, use all problems)
         split: Dataset split to use ('train' or 'test')
+        include_problems: List of specific problem indices to include
 
     Returns:
         List of problems with their original indices
@@ -486,11 +487,8 @@ def load_math_problems(
             for i, item in enumerate(dataset_split)
         ]
 
-        # Extract ground truth answers
-        # for i, problem in indexed_problems:
-        #     gt_boxed_answers = extract_boxed_answers(problem["gt_solution"])
-        #     gt_answer = gt_boxed_answers[0] if gt_boxed_answers else ""
-        #     problem["gt_answer"] = gt_answer
+        # Extract ground truth answers - already available in DAFT Math
+        # No need to extract from solutions since answers are provided directly
 
         # Filter by type if specified
         if problem_type is not None:
@@ -504,6 +502,13 @@ def load_math_problems(
         if level is not None:
             indexed_problems = [
                 (i, problem) for i, problem in indexed_problems if problem.get("level") == level
+            ]
+
+        # Filter by specific problems if specified
+        if include_problems is not None:
+            include_set = set(include_problems)
+            indexed_problems = [
+                (i, problem) for i, problem in indexed_problems if i in include_set
             ]
 
         # Sample if needed

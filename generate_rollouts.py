@@ -42,7 +42,7 @@ parser.add_argument('-ep', '--exclude_problems', type=str, default=None, help='C
 parser.add_argument('-ip', '--include_problems', type=str, default=None, help='Comma-separated list of problem IDs to include')
 parser.add_argument('-ic', '--include_chunks', type=str, default=None, help='Comma-separated list of chunk IDs to include')
 parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
-parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
+parser.add_argument('-l', '--level', type=str, default=None, help='Problem level filter (use None for all levels, or check available levels with check_math_dataset.py)')
 parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
 parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together', 'Fireworks', 'Local', 'Gemini'], help='Provider to use') # "Together"
 parser.add_argument('-or', '--use_openrouter', default=False, action='store_true', help='Use OpenRouter API')
