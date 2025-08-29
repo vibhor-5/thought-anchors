@@ -22,6 +22,7 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 NOVITA_API_KEY = os.getenv("NOVITA_API_KEY")
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 FIREWORKS_API_KEY = os.getenv("FIREWORKS_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 # Set up argument parser
 parser = argparse.ArgumentParser(description='Generate chain-of-thought solutions with rollouts')
@@ -43,7 +44,7 @@ parser.add_argument('-ic', '--include_chunks', type=str, default=None, help='Com
 parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
 parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
 parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
-parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together', 'Fireworks', 'Local'], help='Provider to use') # "Together"
+parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together', 'Fireworks', 'Local', 'Gemini'], help='Provider to use') # "Together"
 parser.add_argument('-or', '--use_openrouter', default=False, action='store_true', help='Use OpenRouter API')
 parser.add_argument('-fp', '--frequency_penalty', type=float, default=None, help='Frequency penalty parameter')
 parser.add_argument('-pp', '--presence_penalty', type=float, default=None, help='Presence penalty parameter')
@@ -64,6 +65,8 @@ elif args.provider == "Together" and not TOGETHER_API_KEY:
     raise ValueError("TOGETHER_API_KEY not found in environment variables")
 elif args.provider == "Fireworks" and not FIREWORKS_API_KEY:
     raise ValueError("FIREWORKS_API_KEY not found in environment variables")
+elif args.provider == "Gemini" and not GOOGLE_API_KEY:
+    raise ValueError("GOOGLE_API_KEY not found in environment variables")
 
 # Create output directory
 base_output_dir = Path(args.output_dir) / args.model.split("/")[-1] / f"temperature_{str(args.temperature)}_top_p_{str(args.top_p)}"
@@ -291,17 +294,39 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
         }
         
         api_url = "https://api.fireworks.ai/inference/v1/completions"
+        
+    elif args.provider == "Gemini":
+        # Gemini API request
+        headers = {
+            "Content-Type": "application/json"
+        }
+        
+        payload = {
+            "contents": [{
+                "parts": [{
+                    "text": prompt
+                }]
+            }],
+            "generationConfig": {
+                "temperature": temperature,
+                "topP": top_p,
+                "maxOutputTokens": max_tokens,
+                "candidateCount": 1
+            }
+        }
+        
+        api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key={GOOGLE_API_KEY}"
     
     # Add optional parameters for all APIs
-    if args.frequency_penalty is not None:
+    if args.frequency_penalty is not None and args.provider != "Gemini":
         payload["frequency_penalty"] = args.frequency_penalty
-    if args.presence_penalty is not None:
+    if args.presence_penalty is not None and args.provider != "Gemini":
         payload["presence_penalty"] = args.presence_penalty
-    if args.repetition_penalty is not None:
+    if args.repetition_penalty is not None and args.provider != "Gemini":
         payload["repetition_penalty"] = args.repetition_penalty
-    if args.top_k is not None:
+    if args.top_k is not None and args.provider != "Gemini":
         payload["top_k"] = args.top_k
-    if args.min_p is not None and args.provider != "Fireworks":  # Fireworks doesn't support min_p
+    if args.min_p is not None and args.provider not in ["Fireworks", "Gemini"]:  # Fireworks and Gemini don't support min_p
         payload["min_p"] = args.min_p
     if args.seed is not None and False: # NOTE: We don't use seeds for rollouts
         payload["seed"] = args.seed
@@ -316,7 +341,7 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
             if (args.provider == "Together" or args.provider == "Fireworks") and payload.get("stream", False):
                 return await handle_streaming_response(api_url, headers, payload)
             
-            # For non-streaming responses
+            # For non-streaming responses (including Gemini)
             async with httpx.AsyncClient() as client:
                 response = await client.post(api_url, headers=headers, json=payload, timeout=240)
                 
@@ -357,6 +382,19 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
                         "finish_reason": result["choices"][0].get("finish_reason", ""),
                         "usage": result.get("usage", {})
                     }
+                elif args.provider == "Gemini":
+                    # Handle Gemini response format
+                    if "candidates" in result and len(result["candidates"]) > 0:
+                        candidate = result["candidates"][0]
+                        if "content" in candidate and "parts" in candidate["content"]:
+                            text = candidate["content"]["parts"][0]["text"]
+                            return {
+                                "text": text,
+                                "finish_reason": candidate.get("finishReason", "STOP"),
+                                "usage": result.get("usageMetadata", {})
+                            }
+                    
+                    return {"error": "No valid response from Gemini", "details": str(result)}
                 
         except Exception as e:
             print(f"Exception during API request (attempt {attempt+1}/{max_retries}): {e}")

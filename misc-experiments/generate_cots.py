@@ -20,8 +20,11 @@ load_dotenv()
 # Get OpenRouter API key
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 if not OPENROUTER_API_KEY:
-    raise ValueError("OPENROUTER_API_KEY not found in .env file")
+    print("Warning: OPENROUTER_API_KEY not found in .env file")
+if not GOOGLE_API_KEY:
+    print("Warning: GOOGLE_API_KEY not found in .env file")
 
 # Initialize tokenizer for logit bias
 tokenizer = None
@@ -140,6 +143,50 @@ async def make_openrouter_request(prompt: str, model: str, temperature: float, t
         response = await client.post(OPENROUTER_API_URL, headers=headers, json=payload)
         return response.json()
 
+async def make_gemini_request(prompt: str, temperature: float, top_p: float, max_tokens: int) -> Dict:
+    """Make a direct HTTP request to Gemini API."""
+    headers = {
+        "Content-Type": "application/json"
+    }
+    
+    payload = {
+        "contents": [{
+            "parts": [{
+                "text": prompt
+            }]
+        }],
+        "generationConfig": {
+            "temperature": temperature,
+            "topP": top_p,
+            "maxOutputTokens": max_tokens,
+            "candidateCount": 1
+        }
+    }
+    
+    api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key={GOOGLE_API_KEY}"
+    
+    async with httpx.AsyncClient() as client:
+        response = await client.post(api_url, headers=headers, json=payload, timeout=240)
+        
+        if response.status_code != 200:
+            raise Exception(f"Gemini API error: {response.status_code} - {response.text}")
+        
+        result = response.json()
+        
+        if "candidates" in result and len(result["candidates"]) > 0:
+            candidate = result["candidates"][0]
+            if "content" in candidate and "parts" in candidate["content"]:
+                text = candidate["content"]["parts"][0]["text"]
+                return {
+                    "choices": [{
+                        "message": {
+                            "content": text
+                        }
+                    }]
+                }
+        
+        raise Exception(f"Invalid Gemini response: {result}")
+
 async def generate_solution(problem: Dict, model: str, temperature: float, top_p: float, max_tokens: int, provider: str, run_id: int = 0, logit_bias: Optional[Dict[str, float]] = None) -> Dict:
     """
     Generate a solution for a problem using OpenRouter API.
@@ -165,21 +212,25 @@ async def generate_solution(problem: Dict, model: str, temperature: float, top_p
     
     for attempt in range(max_retries):
         try:
-            response = await make_openrouter_request(prompt, model, temperature, top_p, max_tokens, provider, logit_bias)
+            if provider == "Gemini":
+                response = await make_gemini_request(prompt, temperature, top_p, max_tokens)
+            else:
+                response = await make_openrouter_request(prompt, model, temperature, top_p, max_tokens, provider, logit_bias)
             
             solution_text = response['choices'][0]['message']['content']
             
-            # Try to get reasoning tokens if available
+            # For Gemini, reasoning is embedded in the solution text
             reasoning = None
-            try:
-                reasoning = response['choices'][0]['message']['reasoning']
-            except (KeyError, TypeError):
-                print("Reasoning tokens not available in response")
+            if provider != "Gemini":
+                try:
+                    reasoning = response['choices'][0]['message']['reasoning']
+                except (KeyError, TypeError):
+                    print("Reasoning tokens not available in response")
             
             # Create full CoT with prompt, reasoning, and solution
             full_cot = f"{prompt}{solution_text}"
             
-            if reasoning:
+            if reasoning and provider != "Gemini":
                 full_cot = f"{prompt}{reasoning}\n</think>\n{solution_text}"
             
             # Extract answer and check correctness
@@ -538,7 +589,7 @@ async def main():
     parser.add_argument('-ty', '--type', type=str, default=None, help='Problem type filter')
     parser.add_argument('-l', '--level', type=str, default="Level 5", help='Problem level filter')
     parser.add_argument('-sp', '--split', type=str, default='train', choices=['train', 'test'], help='Dataset split to use')
-    parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together'], help='Provider to use')
+    parser.add_argument('-p', '--provider', type=str, default="Novita", choices=['Novita', 'Together', 'Gemini'], help='Provider to use')
     parser.add_argument('-lbt', '--logit_bias_tokens', type=str, default=None, help='Comma-separated tokens to apply logit bias to')
     parser.add_argument('-lbs', '--logit_bias_strength', type=int, default=None, help='Strength of logit bias (-100 to 100)')
     parser.add_argument('-c', '--concurrency', type=int, default=200, help='Maximum number of concurrent requests')
