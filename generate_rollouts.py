@@ -5,6 +5,7 @@ import numpy as np
 import torch
 import asyncio
 import httpx
+import time
 from tqdm import tqdm
 from pathlib import Path
 from typing import List, Dict
@@ -15,6 +16,27 @@ import argparse
 
 # Load environment variables
 load_dotenv()
+
+# Rate limiter class to prevent hitting API limits
+class RateLimiter:
+    def __init__(self, requests_per_second: float = 2.0):
+        self.requests_per_second = requests_per_second
+        self.min_interval = 1.0 / requests_per_second
+        self.last_request_time = 0.0
+    
+    async def wait_if_needed(self):
+        """Wait if necessary to maintain rate limit"""
+        current_time = time.time()
+        time_since_last = current_time - self.last_request_time
+        
+        if time_since_last < self.min_interval:
+            wait_time = self.min_interval - time_since_last
+            await asyncio.sleep(wait_time)
+        
+        self.last_request_time = time.time()
+
+# Global rate limiter instance
+rate_limiter = None
 
 # Get API keys
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/completions"
@@ -51,12 +73,36 @@ parser.add_argument('-pp', '--presence_penalty', type=float, default=None, help=
 parser.add_argument('-rp', '--repetition_penalty', type=float, default=None, help='Repetition penalty parameter')
 parser.add_argument('-tk', '--top_k', type=int, default=None, help='Top-k parameter')
 parser.add_argument('-mp', '--min_p', type=float, default=None, help='Min-p parameter')
-parser.add_argument('-sr', '--skip_recalculate', default=False, action='store_true', help='Skip recalculating accuracy for existing rollouts')
+parser.add_argument('-fbs', '--force_base_solution', action='store_true', help='Accept any base solution after max retries (even if incorrect when seeking correct)')
+parser.add_argument('-mbr', '--max_base_retries', type=int, default=3, help='Maximum retries for generating desired base solution type')
+parser.add_argument('-rps', '--requests_per_second', type=float, default=2.0, help='Maximum requests per second to API (rate limiting)')
+parser.add_argument('-mc', '--max_concurrent', type=int, default=5, help='Maximum concurrent API requests')
+parser.add_argument('-bd', '--batch_delay', type=float, default=1.0, help='Delay in seconds between batches of requests')
 parser.add_argument('-q', '--quantize', default=False, action='store_true', help='Use quantization for local model')
 parser.add_argument('-bs', '--batch_size', type=int, default=8, help='Batch size for local model')
 parser.add_argument('-mr', '--max_retries', type=int, default=1, help='Maximum number of retries for API requests')
 parser.add_argument('-os', '--output_suffix', type=str, default=None, help='Suffix to add to the output directory')
 args = parser.parse_args()
+
+# Initialize rate limiter
+rate_limiter = RateLimiter(args.requests_per_second)
+
+# Adjust rate limits based on provider
+provider_limits = {
+    "Novita": 2.0,      # Conservative default
+    "Together": 1.0,    # Together can be strict
+    "Fireworks": 3.0,   # Generally more permissive
+    "Gemini": 1.0,      # Google AI Studio has limits
+    "Local": 999.0      # No limits for local
+}
+
+# Override rate limiter with provider-specific limits if not manually set
+if args.requests_per_second == 2.0:  # Using default
+    provider_rate = provider_limits.get(args.provider, 2.0)
+    rate_limiter = RateLimiter(provider_rate)
+    print(f"Using provider-specific rate limit: {provider_rate} requests/second for {args.provider}")
+else:
+    print(f"Using custom rate limit: {args.requests_per_second} requests/second")
 
 # Check for API keys early
 if args.provider == "Novita" and not NOVITA_API_KEY:
@@ -232,7 +278,11 @@ def generate_with_local_model_batch(prompts: List[str], temperature: float, top_
         return [{"error": str(e)} for _ in range(len(prompts))]
 
 async def make_api_request(prompt: str, temperature: float, top_p: float, max_tokens: int) -> Dict:
-    """Make an API request to either Novita, Together, Fireworks, or use a local model based on provider setting."""
+    """Make an API request to either Novita, Together, Fireworks, Gemini, or use a local model based on provider setting."""
+    # Apply rate limiting for API providers
+    if args.provider != "Local":
+        await rate_limiter.wait_if_needed()
+    
     # If using local model, use synchronous generation
     if args.provider == "Local":
         return generate_with_local_model(prompt, temperature, top_p, max_tokens)
@@ -315,7 +365,7 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
             }
         }
         
-        api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key={GOOGLE_API_KEY}"
+        api_url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key={GOOGLE_API_KEY}"
     
     # Add optional parameters for all APIs
     if args.frequency_penalty is not None and args.provider != "Gemini":
@@ -352,8 +402,9 @@ async def make_api_request(prompt: str, temperature: float, top_p: float, max_to
                     continue
                     
                 elif response.status_code == 429:
-                    print(f"Rate limit (429) on attempt {attempt+1}/{max_retries}. Retrying...")
-                    await asyncio.sleep(retry_delay * (2 ** attempt) + random.uniform(1, 3))  # Add jitter
+                    rate_limit_wait = retry_delay * (2 ** attempt) + random.uniform(1, 3)
+                    print(f"Rate limit (429) on attempt {attempt+1}/{max_retries}. Waiting {rate_limit_wait:.1f}s before retry...")
+                    await asyncio.sleep(rate_limit_wait)
                     continue
                     
                 elif response.status_code != 200:
@@ -498,7 +549,23 @@ async def generate_base_solution(problem: Dict, temperature: float = 0.6) -> Dic
     for attempt in range(max_retries):
         try:
             response = await make_api_request(prompt, temperature, args.top_p, args.max_tokens)
-            solution_text = response['text']
+            
+            # Check if there was an API error
+            if "error" in response:
+                print(f"API error in response: {response.get('error', 'Unknown error')}")
+                if attempt < max_retries - 1:
+                    wait_time = retry_delay * (2 ** attempt)
+                    print(f"Retrying in {wait_time} seconds...")
+                    await asyncio.sleep(wait_time)
+                    continue
+                else:
+                    return {
+                        "prompt": prompt,
+                        "solution": f"API Error: {response.get('error', 'Unknown error')}",
+                        "error": response.get('error', 'Unknown error')
+                    }
+            
+            solution_text = response.get('text', '')
             
             # Extract answer and check correctness
             extracted_answers = extract_boxed_answers(solution_text)
@@ -589,14 +656,17 @@ async def generate_rollout(problem: Dict, chunk_text: str, full_cot_prefix: str,
                     "error": str(e)
                 }
 
-async def process_problem(problem_idx: int, problem: Dict) -> None:
+async def process_problem(problem_idx: int, problem: Dict, retry_count: int = 0) -> None:
     """
     Process a single problem: generate base solution and rollouts.
     
     Args:
         problem_idx: Index of the problem
         problem: Problem dictionary
+        retry_count: Number of retries attempted for base solution generation
     """
+    MAX_BASE_SOLUTION_RETRIES = args.max_base_retries  # Maximum retries for generating correct base solution
+    
     problem_dir = output_dir / f"problem_{problem_idx}"
     problem_dir.mkdir(exist_ok=True, parents=True)
     
@@ -639,13 +709,29 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
         base_solution = await generate_base_solution(problem, args.temperature)
             
         if args.base_solution_type == "correct" and ("is_correct" not in base_solution or not base_solution["is_correct"]):
-            print(base_solution["solution"])
-            print(f"Problem {problem_idx}: Base solution is INCORRECT or has error. Retrying...")
-            return await process_problem(problem_idx, problem)
+            print(base_solution.get("solution", "No solution generated"))
+            print(f"Problem {problem_idx}: Base solution is INCORRECT or has error. Retry {retry_count + 1}/{MAX_BASE_SOLUTION_RETRIES}")
+            if retry_count < MAX_BASE_SOLUTION_RETRIES:
+                return await process_problem(problem_idx, problem, retry_count + 1)
+            else:
+                if args.force_base_solution:
+                    print(f"Problem {problem_idx}: Accepting incorrect base solution after {MAX_BASE_SOLUTION_RETRIES} retries (--force_base_solution enabled)")
+                    # Continue with the incorrect solution
+                else:
+                    print(f"Problem {problem_idx}: Failed to generate correct base solution after {MAX_BASE_SOLUTION_RETRIES} retries. Skipping problem.")
+                    return
         elif args.base_solution_type == "incorrect" and ("is_correct" not in base_solution or base_solution["is_correct"]):
-            print(base_solution["solution"])
-            print(f"Problem {problem_idx}: Base solution is CORRECT or has error. Retrying...")
-            return await process_problem(problem_idx, problem)
+            print(base_solution.get("solution", "No solution generated"))
+            print(f"Problem {problem_idx}: Base solution is CORRECT or has error. Retry {retry_count + 1}/{MAX_BASE_SOLUTION_RETRIES}")
+            if retry_count < MAX_BASE_SOLUTION_RETRIES:
+                return await process_problem(problem_idx, problem, retry_count + 1)
+            else:
+                if args.force_base_solution:
+                    print(f"Problem {problem_idx}: Accepting correct base solution after {MAX_BASE_SOLUTION_RETRIES} retries (--force_base_solution enabled)")
+                    # Continue with the correct solution
+                else:
+                    print(f"Problem {problem_idx}: Failed to generate incorrect base solution after {MAX_BASE_SOLUTION_RETRIES} retries. Skipping problem.")
+                    return
         
         # Save base solution
         with open(base_solution_file, 'w', encoding='utf-8') as f:
@@ -794,9 +880,35 @@ async def process_problem(problem_idx: int, problem: Dict) -> None:
                         "is_correct": is_correct
                     })
             else:
-                # For API providers, we can generate in parallel
-                tasks = [generate_rollout(problem, chunk, full_prefix, args.temperature, args.rollout_type) for _ in range(num_rollouts_needed)]
-                new_solutions = await asyncio.gather(*tasks)
+                # For API providers, use controlled concurrency to avoid rate limits
+                print(f"Problem {problem_idx}, Chunk {chunk_idx}: Generating {num_rollouts_needed} rollouts with concurrency limit {args.max_concurrent}")
+                
+                # Create semaphore to limit concurrent requests
+                semaphore = asyncio.Semaphore(args.max_concurrent)
+                
+                async def rate_limited_rollout(problem, chunk, full_prefix, temperature, rollout_type):
+                    async with semaphore:
+                        return await generate_rollout(problem, chunk, full_prefix, temperature, rollout_type)
+                
+                # Generate rollouts in batches to further control rate limiting
+                batch_size = args.max_concurrent
+                new_solutions = []
+                
+                for i in range(0, num_rollouts_needed, batch_size):
+                    batch_end = min(i + batch_size, num_rollouts_needed)
+                    batch_tasks = [
+                        rate_limited_rollout(problem, chunk, full_prefix, args.temperature, args.rollout_type) 
+                        for _ in range(batch_end - i)
+                    ]
+                    
+                    print(f"Problem {problem_idx}, Chunk {chunk_idx}: Processing batch {i//batch_size + 1} ({len(batch_tasks)} requests)")
+                    batch_results = await asyncio.gather(*batch_tasks)
+                    new_solutions.extend(batch_results)
+                    
+                    # Add delay between batches if specified
+                    if i + batch_size < num_rollouts_needed and args.batch_delay > 0:
+                        print(f"Waiting {args.batch_delay}s before next batch...")
+                        await asyncio.sleep(args.batch_delay)
             
             # Combine with existing solutions
             all_solutions = existing_solutions + new_solutions
